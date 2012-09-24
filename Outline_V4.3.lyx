@@ -1,0 +1,233 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+theorems-ams
+theorems-sec
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding ascii
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "C1_Introduction.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "C2_ConsensusProblem_onGraph.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "C3_AsymptoticDAC.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "C2.5_Simple Finite-time_DCA.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "C2.2_Graph&MatrixTheory.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "C4_Finite-timeDCA_V2.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "C5_ConsensusBasedSignalProcessing.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "C6_CloudDetection_V2.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusion 
+\end_layout
+
+\begin_layout Standard
+(todo)
+\end_layout
+
+\begin_layout Standard
+In this thesis, 
+\end_layout
+
+\begin_layout Standard
+we 
+\end_layout
+
+\begin_layout Enumerate
+reviewed serveral DAC algorithms.
+\end_layout
+
+\begin_layout Enumerate
+presented an convergence rate optimization for DAC algorithm.
+\end_layout
+
+\begin_layout Enumerate
+gave some example of distributed signal processing based on DAC.
+\end_layout
+
+\begin_layout Enumerate
+gave a example application in Cloud detection.
+\end_layout
+
+\begin_layout Section
+Future Work
+\end_layout
+
+\begin_layout Standard
+The DAC algorithm can coverge faster if we choose the right step length
+ and forgeting factor.
+ how to update these parameters when network changes should be inverstigated
+ in the future, also some other aspect such as time delay, asynchrolization
+ problem should be discussed.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section
+Acknowledgment
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "D:/Dropbox/Citation_DS/EigenValueEstimation,D:/Dropbox/Citation_DS/DistributedConsensus,D:/Dropbox/Citation_DS/Consensus_Finte-Time,D:/Dropbox/Citation_DS/Consensus&Filter,D:/Dropbox/Citation_DS/WirelessSensorNetwork,D:/Dropbox/Citation_DS/SmokeAnimation,D:/Dropbox/Citation_DS/Smoke_Gas_Detection,D:/Dropbox/Citation_DS/PlumeDetection,D:/Dropbox/Citation_DS/GaussianPlumeModel,D:/Dropbox/Citation_DS/DataFusion,D:/Dropbox/Citation_DS/CloudDetection,D:/Dropbox/Citation_DS/Lidar"
+options "IEEEtran"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

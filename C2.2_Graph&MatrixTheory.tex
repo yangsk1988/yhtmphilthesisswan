@@ -1,0 +1,438 @@
+
+\subsection{Graph Theory and Matrix Theory}
+
+In this section, some basic concepts of the graph theory and matrix
+theory will be introduced. They are used in the analysis of convergence
+or performance of consensus algorithm. Because consensus algorithm
+actually relates to a matrix iteration algorithm, it is necessary
+to introduce some of these theorems. For full information about matrix
+theory, see \cite{Varga2010}, and the work \cite{Russell1994} states
+more details about Laplacian matrix. However, some useful properties
+of Laplacian matrix will to be introduced here. 
+
+Let ${\cal G}=\left({\cal V},{\cal E},{\cal A}\right)$ be a graph
+with $n$ nodes. The in-degree and out-degree of node $i$ are defined
+by:
+
+\begin{equation}
+D_{in}\left(i\right)=\sum_{i=1}^{n}a_{i,j}
+\end{equation}
+\begin{equation}
+D_{out}\left(i\right)=\sum_{j=1}^{n}a_{i,j}
+\end{equation}
+where $a_{i,j}$ is the elements of matrix ${\cal A}$. This definition
+states that in-degree of node $i$ is the $i^{th}$ column sum of
+matrix ${\cal A}$ and the out-degree of node $i$ is the $i^{th}$
+row sum of matrix ${\cal A}.$ And the graph Laplacian matrix ${\cal L}$
+induced by the ${\cal G}$ is the same as defined before, see \ref{eq:Graph Laplacian def.}.
+In addition, we can find the relationship of ${\cal L}$ and ${\cal A}$.
+\begin{equation}
+{\cal L}=\Delta-{\cal A}
+\end{equation}
+ where $\Delta$ is a diagonal matrix $\Delta=\left[\Delta_{i,j}\right]$,
+$\Delta_{i,j}=0$ for all $i\neq j$ and $\Delta_{ii}=D_{out}\left(i\right)$.
+
+Note that we assume the diagonal elements $a_{i,i}$ of matrix ${\cal A}$
+equal to zero for all $i$. Thus, the Laplacian matrix is only dependent
+on the off-diagonal elements of ${\cal A}$. Moreover, if we assume
+matrix ${\cal A}$ is non-negative, we can benefit from the properties
+of non-negative matrix, and use them in optimization of convergence
+rate of consensus algorithm.
+
+
+\subsubsection{Irreducibility and Strong Connected Graph.}
+
+For an undirected graph, the consensus $\mathbf{x}^{*}$ can be achieved
+if and only if the graph is connected. (Note that the consensus is
+a stable state of the system dynamic. For the average consensus problem
+the consensus state is a state where all the network node converge
+to the global average.) But for the directed graph, this condition
+of achieving consensus becomes into if and only if the graph is strongly
+connected. 
+
+A directed graph is strongly connected if and only if for any two
+distinct nodes $i$ and $j$, there exists a path that follows the
+direction of the edges and connects $i$ and $j$ on the digraph. 
+\begin{defn}
+\label{Def.Irreducebility}for $n>1$, an $n\times n$ matrix $A\in R^{n\times n}$
+is reducible if there exists an $n\times n$ permutation matrix $P$
+such that $PAP^{T}$ is in block upper triangular form. 
+\begin{equation}
+PAP^{T}=\left[\begin{array}{cc}
+A_{1,1} & A_{1,2,}\\
+O & A_{2,2}
+\end{array}\right]
+\end{equation}
+where $A_{1,1}$ is an $r\times r$ submatrix and $A_{2,2}$ is an
+$\left(n-r\right)\times\left(n-r\right)$ submatrix, and $O$ is an
+null matrix, $1\leq r<n$. If no such a permutation matrix exists,
+the matrix $A$ is irreducible. If $n=1$, then $A$ is reducible
+if $A=0$, and irreducible otherwise. 
+\end{defn}
+The relationship of the irreducible property of matrix $A$ and the
+strong connected property of directed graph ${\cal G}\left(A\right)$
+is stated by the following theorem.
+\begin{thm}
+An $n\times n$ complex matrix $A\in C^{n\times n}$ is irreducible
+if and only if its directed graph ${\cal G}\left(A\right)$ is strongly
+connected. \cite{Varga2010}
+\end{thm}
+The proof of this theorem is obvious. If a graph is strongly connected,
+all the off diagonal elements of graph matrix $A$ cannot be vanished
+by matrix permutation. Therefore, matrix $A$ doesn't exists the block
+upper triangular form as given in Def. \ref{Def.Irreducebility}. 
+
+
+\subsubsection{Spectral radius of a matrix}
+
+(todo, delete this
+\begin{enumerate}
+\item bounds for the spectral radius: 
+\item and Gerschgorin's theorem: 1.5 page 1.6; 
+
+\begin{enumerate}
+\item theorem 1.5; Corollary 1; Corollary 2; give me the possibility of
+a sub-optimal distributed method. Page 16
+\item Perron-Frobenius theorem: 2.1 page 30.
+\item Lemma 2.5 on page 31 \cite{Varga2010}
+\end{enumerate}
+\end{enumerate}
+todo delete)
+
+Spectral radius of a matrix is one of the basic concepts in the matrix
+iteration theory. It is defined by the largest eigenvalue of the matrix.
+The matrix iteration is very useful in many applications, denoted
+by $A,A^{2},A^{3},\ldots$. The power sequence is said to be convergent,
+if and only if $\lim_{k\to\infty}A^{k}=O$, where $O$ is a zero matrix
+with all zero entries. The following theorem states that the convergent
+property is strongly connected with the spectral radius. 
+\begin{thm}
+\label{thm:Convergent <=00003D> p(A)<1} if $A\in C^{n\times n}$
+is an $n\times n$ complex matrix, then $A$ is convergent if and
+only if $\rho\left(A\right)<1.$\end{thm}
+\begin{proof}
+The proof uses the Jordan form of a matrix. For any matrix $A\in C^{n\times n}$,
+there exists a nonsingular $n\times n$ matrix $T$, such that $A$
+reduces into the Jordan normal form 
+\begin{equation}
+T^{-1}AT=J=\left[\begin{array}{cccc}
+J_{1} &  &  & O\\
+ & J_{2}\\
+O &  & \ddots & J_{m}
+\end{array}\right]
+\end{equation}
+ where each Jordan block $J_{i}$ is an $r_{i}\times r_{i}$ submatrix
+in the form 
+\begin{equation}
+J_{i}=\left[\begin{array}{ccccc}
+\lambda_{i} & 1\\
+ & \lambda_{i} & 1\\
+ &  & \lambda_{i} & \ddots\\
+ &  &  & \ddots & 1\\
+ &  &  &  & \lambda_{i}
+\end{array}\right]
+\end{equation}
+Thus, the matrix $J$ and $A$ are similar and have the same eigenvalues
+$\lambda_{i},i=1,\ldots m$
+
+A direct computation of the power iteration of matrix $A$ will give
+us the following equation
+\[
+A^{k}=TJ^{k}T^{-1}=T\left[\begin{array}{cccc}
+J_{1}^{k} &  &  & O\\
+ & J_{2}^{k}\\
+O &  & \ddots & J_{m}^{k}
+\end{array}\right]T^{-1}
+\]
+because the property of Jordan block, the power of each Jordan block
+will have the form
+\[
+J_{i}^{2}=\left[\begin{array}{ccccc}
+\lambda_{i}^{2} & 2\lambda_{i} & 1\\
+ & \lambda_{i}^{2} & 2\lambda_{i} & \ddots\\
+ &  & \lambda_{i}^{2} & \ddots & 1\\
+ &  &  & \ddots & 2\lambda_{i}\\
+ &  &  &  & \lambda_{i}^{2}
+\end{array}\right],\mbox{if }r_{i}\geq3
+\]
+ and more generally, let $J_{i}^{k}=\left[c_{m,n}\left(i,k\right)\right]$,
+$1\leq m$, $n\leq r_{i}$, and it has 
+\[
+c_{m,n}\left(i,k\right)=\begin{cases}
+0 & n<m\\
+\left(\begin{array}{c}
+k\\
+n-m
+\end{array}\right)\lambda_{i}^{k-n+m} & m\leq n\leq\min\left(r_{i},k+m\right)\\
+0 & k+m<n<r_{i}
+\end{cases}
+\]
+ Since $\rho\left(A\right)<1$, and matrix $J$ share the same eigenvalues
+with $A$, $\left|\lambda_{i}\right|<1$. This lead to $\lim_{k\to\infty}c_{m,n}\left(i,k\right)=0,\:\mbox{for all }1\leq m\leq r_{i},1\leq n\leq r_{i}$,
+so that the each Jordan block is convergent. Therefore, the matrix
+iteration $A^{k}=TJ^{k}T^{-1}$ is also convergent. This completes
+the proof. 
+\end{proof}
+We give the proof of \prettyref{thm:Convergent <=00003D> p(A)<1}
+here as it will be very useful in the proof of an convergence conditions
+theorem for distributive consensus algorithm, see \prettyref{sub:DT-First-Order-DAC}.
+At the same time, the Jordan normal form weight matrix $W^{k}=TJ^{k}T^{-1}$
+gives the local value vector $\mathbf{x}\left(k\right)=W^{k}\mathbf{x}\left(0\right)$
+another expression in terms of eigenvalues and eigenvectors, which
+reflects the basic ideas of the finite-time consensus algorithm. This
+will be introduced in \prettyref{sec:Finite-Time-Distributed-Consensu}. 
+
+
+
+
+\paragraph{Gerschgorin's theorem}
+
+The calculation of eigenvalues a matrix $A$ involves determination
+of the matrix $\lambda I-A$ and solving a high order polynomial equation.
+In some situations, for example, when the matrix dimension is very
+large, it is very difficult to determine the spectral radius precisely.
+However, the following theorem of Gerschgorin provides an upper bound
+of the spectral radius \cite{Horn1990}.
+\begin{thm}
+Let $A=\left(a_{i,j}\right)$ be an arbitrary $n\times n$ matrix.
+Denote the 
+\begin{equation}
+d_{i}=\sum_{j=1,j\neq i}^{n}\left|a_{i,j}\right|
+\end{equation}
+then all the eigenvalues of matrix $A$ are lie in the union of the
+disks.
+\begin{equation}
+\left|z-a_{i,i}\right|\leq d_{i},\ 1\leq i\leq n.
+\end{equation}
+
+\end{thm}
+The above theorem is well-known, so the proof is omit here. But the
+theorem immediately give the result of
+\begin{cor}
+\label{cor:Upper Bound of p(A)}Let $A=\left(a_{i,j}\right)$ be an
+arbitrary $n\times n$ matrix, and 
+\begin{equation}
+v=\max_{1\leq i\leq n}\sum_{j=1}^{n}\left|a_{i,j}\right|
+\end{equation}
+then we have $\rho\left(A\right)\leq v$. 
+\end{cor}
+Therefore, the maximum of the row sums of the modular of the entries
+of matrix $A$ provides a upper bound for spectral radius $\rho\left(A\right)$.
+Since $A$ and $A^{T}$ have the same eigenvalues, applying the \ref{cor:Upper Bound of p(A)}
+to $A^{T}$ will lead to 
+\begin{cor}
+Let $A=\left(a_{i,j}\right)$ be an arbitrary $n\times n$ matrix,
+and 
+\begin{equation}
+v'=\max_{1\leq j\leq n}\sum_{i=1}^{n}\left|a_{i,j}\right|
+\end{equation}
+then we have $\rho\left(A\right)\leq v'$.
+\end{cor}
+As both the row sum and column sum of the modular of the entries of
+matrix can provide the upper bound for $\rho\left(A\right)$, the
+minimum of $v$ and $v'$ gives the better upper bound. 
+
+
+
+Just as we assume before, the adjacent matrix ${\cal A}$ of the graph
+${\cal G}$ is non-negative, which means all elements are non-negative.
+Then, the induced graph Laplacian matrix will have the following result
+using the Gerschgorin's theorem. 
+
+
+\paragraph{Generalize from Gerschgorin's theorem}
+\begin{thm}
+\cite{Olfati-Saber2004} \label{thm:Bounds of eig(L)}Let the graph
+has the Laplacian matrix ${\cal L},$ denote the maximum node outdegree
+of the graph by 
+\begin{equation}
+d_{max}=\max_{1\leq i\leq n}\left(\sum_{j=1,j\neq i}^{n}l_{i,j}\right)
+\end{equation}
+Then, all the eigenvalues of ${\cal L}$ are located in the following
+disk,
+\begin{equation}
+\left|z-d_{max}\right|\leq d_{max}
+\end{equation}
+which is centered at $z=d_{max}+0j$ on the complex plane.\end{thm}
+\begin{proof}
+Based on the Gerschgorin's theorem, all the eigenvalue of ${\cal L}$
+are located in the union of the disks.
+\begin{equation}
+\left|z-l_{i,i}\right|\leq\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|,\ 1\leq i\leq n.\label{eq:disk Union of eig(L)}
+\end{equation}
+Since ${\cal A}=\left[a_{i,j}\right]$ is an non-negative matrix,
+by the definition of Laplacian matrix, $l_{i,j}\leq0$ and $l_{i,i}=\sum_{k=1,k\neq i}^{n}a_{ik}\geq0.$
+Therefore, let $d_{i}=l_{i,i}$ and 
+\begin{equation}
+d_{i}=\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|
+\end{equation}
+ and the union of disks becomes
+\begin{equation}
+\bigcup_{1\leq i\leq n}\left\{ z\in\mathbb{C}:\left|z-d_{i}\right|\leq d_{i}\right\} 
+\end{equation}
+On the other hand, all these disks are located inside the largest
+disk with radius $d_{max}$. This result ends the proof of the theorem
+\end{proof}
+Based on the \prettyref{thm:Bounds of eig(L)}, it is obvious all
+the nonzero eigenvalues of ${\cal L}$ have positive real parts. This
+immediately lead to a convergence theorem of the continuous-time consensus
+protocol \prettyref{eq:1st Order Protocol}. The solution given in
+exponential matrices form \prettyref{eq:x(t) of CT-1st-DAC} converge
+to a consensus value as $t\to\infty$. Since all the nonzero eigenvalue
+of $-{\cal L}$ located in the disk $\left|z+d_{max}\right|\leq d_{max}$,
+and the eigenspace associated with zero is one-dimensional. Consequently,
+the eigenvector associated with zero eigenvalue has the form $\alpha\mathbf{1}$,
+i.e. $x_{i}=\alpha$ for all $i$. This result will be very helpful
+as the negative real part can guarantee that the system dynamic is
+stable and convergent. We will show the proof after introduce the
+well-known Perron-Frobenius Theorem. 
+
+
+\paragraph{Perron-Frobenius Theorem}
+
+The Perron-Frobenius theorem states that if matrix $A$ is nonnegative
+and irreducible which means the digraph of matrix A is strongly connected,
+the spectral radius $\rho(A)$ is equal to a simple eigenvalue of
+$A$ associated with a positive eigenvector \cite{Piziak2007}. The
+details of Perron-Frobenius is as follows.
+\begin{thm}
+\label{thm:Perron-Frobenius thm.} Let $A$ be an $n\times n$ and
+irreducible matrix with non-negative and real numbers as its entries.
+Then, \end{thm}
+\begin{enumerate}
+\item $A$ has a positive real eigenvalue equal to its spectral radius $\rho\left(A\right)$.
+\item $\rho\left(A\right)$ is a simple eigenvalue of $A$.
+\item To the eigenvalue $\rho\left(A\right)$, the corresponding eigenvector
+is positive, i.e. $\mathbf{x}>\mathbf{0}$.
+\item $\rho\left(A\right)$ increases if any entry of $A$ increases.
+\end{enumerate}
+Recall the problem of finding the bounds for the spectral radius,
+the Perron-Frobenius theorem provides the nontrivial lower-bound of
+$\rho\left(A\right)$. In the \prettyref{cor:Upper Bound of p(A)},
+the nontrivial upper bound of $\rho\left(A\right)$ is found. Together
+with these two results, we can have a conclusion of the spectral radius
+of a non-negative and irreducible matrix given in the following.
+\begin{lem}
+If $A=\left[a_{i,j}\right]$ is an $n\times n$ non-negative and irreducible
+matrix, then either 
+\begin{equation}
+\sum_{j=1}^{n}a_{i,j}=\rho\left(A\right),\mbox{for all }1\leq i\leq n,
+\end{equation}
+or 
+\begin{equation}
+\min_{1\leq i\leq n}\left(\sum_{j=1}^{n}a_{i,j}\right)<\rho\left(A\right)<\max_{1\leq i\leq n}\left(\sum_{j=1}^{n}a_{i,j}\right).
+\end{equation}
+\end{lem}
+\begin{thm}
+Let $A=\left[a_{i,j}\right]$ be an $n\times n$ non-negative and
+irreducible matrix, for any $\mathbf{x}>\mathbf{0}$, either
+\begin{equation}
+\min_{1\leq i\leq n}\left(\frac{\sum_{j=1}^{n}a_{i,j}x_{j}}{x_{i}}\right)<\rho\left(A\right)<\max_{1\leq i\leq n}\left(\frac{\sum_{j=1}^{n}a_{i,j}x_{j}}{x_{i}}\right)
+\end{equation}
+or 
+\begin{equation}
+\frac{\sum_{j=1}^{n}a_{i,j}x_{j}}{x_{i}}=\rho\left(A\right),\ \mbox{for all }1\leq i\leq n.
+\end{equation}
+Moreover,
+\begin{equation}
+\max_{\mathbf{x}\in P}\min_{1\leq i\leq n}\left(\frac{\sum_{j=1}^{n}a_{i,j}x_{j}}{x_{i}}\right)=\rho\left(A\right)=\min_{\mathbf{x}\in P}\max_{1\leq i\leq n}\left(\frac{\sum_{j=1}^{n}a_{i,j}x_{j}}{x_{i}}\right)
+\end{equation}
+
+\end{thm}
+The equality is valid if we choose the $\mathbf{x}$ equal to the
+positive eigenvector $e>0$ corresponding to the eigenvalue $\rho\left(A\right)$.
+The method shown above will be applicable, because it provides us
+both the upper bounds and lower bounds for the spectral radius of
+a non-negative and irreducible matrix, by a simple algorithm without
+calculating the determination of $\lambda I-A$. 
+
+
+\paragraph{Generalized from Perron-Frobenius theorem}
+
+The result induced from Perron-Frobenius theorem gives the upper bound
+and lower bound of the matrix. Considering the system dynamic $x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)$.
+Because $\exp\left(-{\cal L}t\right)$ is a non-negative matrix, the
+Perron-Frobenius theorem tell us that $\exp\left(-{\cal L}t\right)$
+has a positive real eigenvalue equals to one which is also the spectral
+radius. Together with the \prettyref{thm:Bounds of eig(L)} which
+implies that all the eigenvalues of $-{\cal L}$ have negative real
+part, we immediately come to the following theorem.
+\begin{thm}
+Assume ${\cal G}=\left({\cal V},{\cal E},{\cal A}\right)$ is strongly
+connected graph, and the associated graph Laplacian matrix ${\cal L}$
+is defined in \prettyref{eq:Graph Laplacian def.}, which has only
+one zero eigenvalue. Let the $u_{r}$ is the uniformed right eigenvector
+and $u_{l}$ is the uniformed left eigenvector associated with the
+zero eigenvalue, i.e. $Lu_{r}=0$, $u_{l}^{T}L=0$, then we have $u_{l}^{T}u_{r}=1$
+and the system dynamic 
+\begin{equation}
+x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)
+\end{equation}
+will have the stable state of the system dynamic given by
+
+\begin{equation}
+x\left(t\right)=Kx\left(0\right)
+\end{equation}
+ where K is a matrix in $R^{n}$, and $K=\lim_{t\to\infty}\exp\left(-{\cal L}t\right)=u_{r}u_{l}^{T}$. \end{thm}
+\begin{proof}
+Let $A=-{\cal L}$, and it has a Jordan form of $A=UJU^{-1}$. Then
+we can have $\exp\left(At\right)=U\exp\left(Jt\right)U^{-1}$. Because
+$A$ has all its eigenvalue except a simple zero eigenvalue have negative
+real part, thus, as $t\to\infty$, all other Jordan block vanish,
+and $\exp\left(Jt\right)$ converges to a matrix with only single
+nonzero entry, denoted by $Q$. Since matrix $U$ contains a column
+which associated with the zero eigenvalue of $A$ is $u_{r}$, similarly,
+$U^{-1}$ has a corresponding row equals to $u_{l}$. By simply calculating
+the equation $K=UQU^{-1}$, we can show that $K=u_{r}u_{l}^{T}$.
+And the fact $U^{-1}U=I$ shows that $u_{l}^{T}u_{r}=1$ . This ends
+the proof. 
+\end{proof}
+This is an important theory for continuous-time consensus problem.
+It provides the necessary and sufficient conditions of the graph Laplacian
+matrix so that a convergent consensus algorithm could be carried out
+on the network. For the average consensus problem, it is obvious that
+all the elements in $K$ must equal to $\frac{1}{n}$. This requires
+the graph Laplacian ${\cal L}$ satisfies the conditions: ${\cal L}\mathbf{1}=0$,
+$\mathbf{1}^{T}{\cal L}=0$, where $\mathbf{1}\in R^{n}$ is an all
+unity vector. And the $u_{r}$ and $u_{l}$ will change into vectors
+with equivalent constant in all its components. If they are uniformed,
+then $u_{r}=u_{l}=\frac{1}{\sqrt{n}}.$ (todo Give a figure about
+the eigenvalue of Laplacian matrix)
+
+
+\subsubsection{Diagonalizable matrix \& Symmetric matrix}
+
+The Jordan normal form of weight matrix $W^{k}=TJ^{k}T^{-1}$
+gives the local value vector $\mathbf{x}\left(k\right)=W^{k}\mathbf{x}\left(0\right)$
+an analitical expression in terms of eigenvalues and eigenvectors.
+Moreover, if the matrix $W$ is symmetric, the expressions
+of $\mathbf{x}\left(k\right)$ can be simplified. Then, algorithms
+such as the finite-time consensus, can be implemented more easily.
+In addition, under the the assumption of symmetric weight matrices,
+the optimal weight matrix which has the fastest convergence rate can
+be found through a semi-definite problem. \cite{Li2010}. 
+\begin{defn}
+A matrix $A$ is diagonalized, if and only if there exist a nonsigular
+matrix $T$, which reduce $A$ into the form 
+\[
+T^{-1}AT=\mbox{diag}\left(\lambda_{1},\lambda_{2},\ldots,\lambda_{n}\right)
+\]
+
+\end{defn}
+Generally, a matrix are diagonalized by an unitary matrix if and only
+if it is normal. Normal matrix $A$ means it satisfies $A^{H}A=AA^{H}$.
+Let $\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$ be the eigenvalues
+of $A$. There exists a unitary matrix $U$, which satisfies $U^{H}=U^{-1}$,
+such that $U^{-1}AU=\mbox{diag}\left(\lambda_{1},\lambda_{2},\ldots,\lambda_{n}\right)$.
+For real normal matrix $A$, if all of its eigenvalues are real, there
+exists an orthogonal matrix $P,$ which has $P^{T}=P^{-1}$, reduces
+the real matrix $A$ into diagonalized form $P^{-1}AP=\mbox{diag}\left(\lambda_{1},\lambda_{2},\ldots,\lambda_{n}\right)$. 
+
+Specificlly, any real nonsigular symmetric matrix $A\in R^{n\times n}$
+has $n$ linearly independent real eigenvectors. Moreover, these eigenvectors
+can be chosen so that they are orthogonal to each other with modular
+one. Thus, the real symmetric matrix can be decomposed by an orthogonal
+matrix $P$, i.e. $A=P\Lambda P^{-1}$, where $\Lambda$ is a diagonal
+matrix whose entries equal to the eigenvalues of $A$. Also the symmetric
+matrix has all its eigenvalues algebra multiplicity equal to the gerometric
+multiplicity, so all the Jordan block have size one.

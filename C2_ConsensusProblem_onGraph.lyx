@@ -1,0 +1,1090 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\options 12pt,A4paper,onecolumn
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+theorems-ams
+theorems-ams-extended
+theorems-sec
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman cmr
+\font_sans default
+\font_typewriter default
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Consensus-problem-on"
+
+\end_inset
+
+Background of Distributed Consensus Algorithm [Literature Review] [Consensus
+ problem on Graphs]
+\end_layout
+
+\begin_layout Subsection
+Prelimilary
+\end_layout
+
+\begin_layout Standard
+Consider a connected graph 
+\begin_inset Formula $\mathcal{G}=\left(\mathcal{V},\mathcal{E},{\cal A}\right)$
+\end_inset
+
+ be a weighted digraph (or undirected graph) consisted by a set of nodes
+ 
+\begin_inset Formula $\mathcal{V}=\left\{ v_{1},v_{2},...,v_{n}\right\} $
+\end_inset
+
+, a set of edges 
+\begin_inset Formula $\mathcal{E}\subseteq\mathcal{V}\times\mathcal{V}$
+\end_inset
+
+ and a 
+\shape italic
+weighted adjacency matrix
+\shape default
+ 
+\begin_inset Formula ${\cal A}=\left[a_{ij}\right]$
+\end_inset
+
+.
+ The edge 
+\begin_inset Formula $\left(v_{i},v_{j}\right)\in\mathfrak{\mathcal{E}}$
+\end_inset
+
+ is a ordered pair of distinct nodes, associated with an element in the
+ adjacency matrix 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\left(v_{i},v_{j}\right)\in\mathfrak{\mathcal{E}}\Leftrightarrow a_{ij}$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+, its set of communication neighbors is denoted by 
+\begin_inset Formula $\mathcal{N}_{i}=\text{ }\left\{ v_{j}\in{\cal V}|\left(v_{i},v_{j}\right)\in\mathcal{E}\right\} $
+\end_inset
+
+.
+ And 
+\begin_inset Formula $\left|\mathcal{N}_{i}\right|$
+\end_inset
+
+ denotes the number of neighbors of 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+.
+ We assume 
+\begin_inset Formula $a_{ij}=0$
+\end_inset
+
+, if 
+\begin_inset Formula $v_{j}\notin{\cal N}_{i}$
+\end_inset
+
+ (note that 
+\begin_inset Formula $a_{ii}=0$
+\end_inset
+
+, as 
+\begin_inset Formula $v_{i}\notin{\cal N}_{i}$
+\end_inset
+
+) for all 
+\begin_inset Formula $v_{i}\in\mathcal{V}$
+\end_inset
+
+.
+ Any node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ can only transmit information to other nodes that belong to the neighbors
+ set.
+ 
+\end_layout
+
+\begin_layout Standard
+For each edge 
+\begin_inset Formula $e_{k}=\left(v_{i},v_{j}\right)\in{\cal E}$
+\end_inset
+
+, we arbitrarily choose one end of 
+\begin_inset Formula $e_{k}$
+\end_inset
+
+ to be positive and another to be negative.
+ The
+\shape italic
+ incidence matrix
+\shape default
+ 
+\begin_inset Formula $Q=Q\left({\cal G}\right)\in\mathbb{R}^{n\times\left|{\cal E}\right|}$
+\end_inset
+
+ is defined by 
+\begin_inset Formula 
+\[
+Q=\left(q_{ik}\right)=\begin{cases}
+1 & \mbox{if }v_{i}\mbox{ is the positive end of }e_{k}\\
+-1 & \mbox{if }v_{i}\mbox{ is the negative end of }e_{k}\\
+0 & \mbox{otherwise}
+\end{cases}
+\]
+
+\end_inset
+
+The 
+\shape italic
+Laplacian matrix
+\shape default
+ of the graph 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ is defined by 
+\begin_inset Formula $L=L\left({\cal G}\right)=QQ^{\mathrm{T}}$
+\end_inset
+
+.
+ In fact 
+\begin_inset Formula $L$
+\end_inset
+
+ is independent of the choice of positive ends of the edges.
+ It is a symmetric, positive semidefinite, singular matrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Russell1994"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The 
+\shape italic
+Laplacian spectrum
+\shape default
+ of a graph 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Das2004"
+
+\end_inset
+
+ is denoted by 
+\begin_inset Formula 
+\[
+S\left(L\right)=\left\{ \lambda_{1}\left(L\right),\lambda_{2}\left(L\right),\ldots,\lambda_{n}\left(L\right)\right\} 
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{i}\left(L\right)$
+\end_inset
+
+ is the eigenvalue of 
+\begin_inset Formula $L$
+\end_inset
+
+ and we assume they are ordered non-decreasingly so that, 
+\begin_inset Formula $0=\lambda_{1}\left(L\right)\leq\lambda_{2}\left(L\right)\leq\ldots\leq\lambda_{n}\left(L\right)$
+\end_inset
+
+.
+ When refer to multiple matrix, we use 
+\begin_inset Formula $\lambda_{i}\left(A\right)$
+\end_inset
+
+ to denote the eigenvalues of matrix 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Suppose each node holds an initial scalar local value 
+\begin_inset Formula $x_{i}\left(0\right)\in\mathbb{R}$
+\end_inset
+
+, which can be a value that locally acquired by node representing physical
+ quantities such as temperature, humidity, illumination, attitude, etc.
+ We define the 
+\shape italic
+local value vector
+\shape default
+ 
+\begin_inset Formula $\mathbf{x}\left(0\right)=\left[x_{1}\left(0\right),...,x_{n}\left(0\right)\right]^{T}\in\mathbb{R}^{n}$
+\end_inset
+
+ to represent all the initial values on the network.
+ The network is said to be reached a consensus if and only if 
+\begin_inset Formula $x_{i}=x_{j}$
+\end_inset
+
+, for all nodes 
+\begin_inset Formula $v_{i},v_{j}\in{\cal V},i\neq j$
+\end_inset
+
+.
+ In the other words, all the nodes are in an agreement of a quantity, the
+ common value of all nodes is called the 
+\shape italic
+consensus value
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+To describe the behavior of each node or agent, suppose each node has the
+ following dynamics 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\dot{x}_{i}=f\left(x_{i},u_{i}\right),i\in{\cal V}
+\end{equation}
+
+\end_inset
+
+and the graph (or network) is a system has the dynamics
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{\dot{x}}=F\left(\mathbf{x},\mathbf{u}\right)\label{eq:system dynamic}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $F\left(\mathbf{x},\mathbf{u}\right)$
+\end_inset
+
+ is the columnwise concatenation of individual dynamics 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $f\left(x_{i},u_{i}\right)$
+\end_inset
+
+, for all node 
+\begin_inset Formula $i=1,\ldots,n$
+\end_inset
+
+.
+ In an ad-hoc network with the mobile nodes, the topology 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $G$
+\end_inset
+
+
+\series bold
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+is switching and the system will updating its 
+\begin_inset Formula $F\left(\mathbf{x},\mathbf{u}\right)$
+\end_inset
+
+ from time to time.
+ 
+\end_layout
+
+\begin_layout Standard
+The input or feedback 
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ in the node's dynamic is a function of the historical states of node 
+\begin_inset Formula $i$
+\end_inset
+
+ and its neighbors
+\begin_inset Formula 
+\begin{equation}
+u_{i}=g\left(x_{j_{1}},x_{j_{2}},\ldots,x_{j_{m_{i}}}\right)\label{eq:consensus protocol}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $j_{1},\ldots,j_{m_{i}}$
+\end_inset
+
+ are the node indexes that belong to the set 
+\begin_inset Formula $\left\{ i\right\} \cup{\cal N}_{i}$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:consensus protocol"
+
+\end_inset
+
+ is called a consensus protocol under topology 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ If the network graph is not fully connected, it is said to be a distributive
+ consensus protocol.
+ 
+\end_layout
+
+\begin_layout Definition
+Let 
+\begin_inset Formula ${\cal X}:R^{n}\to R$
+\end_inset
+
+ be a function of 
+\begin_inset Formula $n$
+\end_inset
+
+ variables of 
+\begin_inset Formula $x_{1},x_{2},\ldots,x_{n}$
+\end_inset
+
+ and let 
+\begin_inset Formula $\mathbf{x}\left(0\right)$
+\end_inset
+
+ denotes the initial condition of the network.
+ The 
+\begin_inset Formula ${\cal X}$
+\end_inset
+
+-consensus problem is a distributive method to calculate the consensus value
+ 
+\begin_inset Formula ${\cal X}\left(\mathbf{x}\left(0\right)\right)$
+\end_inset
+
+ in a graph 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Consensus problems can be different by their consensus values.
+ For instance, we give the definition of the average consensus 
+\begin_inset Formula ${\cal X}\left(\mathbf{x}\right)=\frac{1}{n}\sum_{i=1}^{n}x_{i}\left(0\right)$
+\end_inset
+
+, maximum consensus 
+\begin_inset Formula ${\cal X}\left(\mathbf{x}\right)=\max\left(\mathbf{x}\right)$
+\end_inset
+
+, minimum consensus 
+\begin_inset Formula ${\cal X}\left(\mathbf{x}\right)=\min\left(\mathbf{x}\right)$
+\end_inset
+
+ and variance consensus 
+\begin_inset Formula ${\cal X}\left(\mathbf{x}\right)=\mbox{var}\left(\mathbf{x}\right)$
+\end_inset
+
+ by their expressions respectively.
+ The average consensus is a special case of consensus problem, which computing
+ the average of all initial values 
+\begin_inset Formula $\overline{x}=\mbox{mean}\left(\mathbf{x}\right)=\frac{1}{n}\sum_{i=1}^{n}x_{i}\left(0\right)$
+\end_inset
+
+ using a distributive system dynamics 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{\dot{x}}=F\left(\mathbf{x},\mathbf{u}\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ in a network 
+\begin_inset Formula $G$
+\end_inset
+
+.(OK1)
+\end_layout
+
+\begin_layout Standard
+We are interested in the distributive solutions of the consensus problem
+ as the network only allows an node to communicate with its neighbors.
+ We say the protocol 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:consensus protocol"
+
+\end_inset
+
+ solves the consensus problem asymptotically if and only if there exists
+ an asymptotically stable state 
+\begin_inset Formula $x^{*}={\cal X}\left(\mathbf{x}\right)$
+\end_inset
+
+ of system dynamics 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:system dynamic"
+
+\end_inset
+
+, which satisfying for all 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, there exists a time index 
+\begin_inset Formula $t^{*}>0$
+\end_inset
+
+, such that 
+\begin_inset Formula $\left|x_{i}(t)-x^{*}\right|<\delta$
+\end_inset
+
+ for all 
+\begin_inset Formula $t>t^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $\forall i\in{\cal V}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Maximum or minimum consensus is very similar to information flooding.
+ Each node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ in the network just compare the local values held by itself and others
+ in 
+\begin_inset Formula ${\cal N}_{i}$
+\end_inset
+
+, then broadcast the maximal or minimal values.
+ Therefore, maximum/minimum consensus can be finished in a number of step
+ that equal to the diameter of the graph.
+ For upper boundary of the diameter, see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Russell1994"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+However, average consensus is more challenging problem than the maximum
+ (or minimum) consensus.
+ Because, the average value is a linear combination of all the initial states
+ of network nodes and the condition 
+\begin_inset Formula $x_{i}^{*}={\cal X}\left(\mathbf{x}\right)$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+ has to be satisfied.
+ In this paper, we will discuss the average consensus and especially its
+ optimization problem, which is solved distributively by discrete-time matrix
+ iteration.
+ Furthermore, the variance consensus problem can be solved by two instances
+ of average consensus, because we have the relation 
+\begin_inset Formula $\mbox{var}\left(\mathbf{x}\right)=\mbox{mean}\left(\mathbf{x}\cdot\mathbf{x}\right)-\left[\mbox{mean}\left(\mathbf{x}\right)\right]^{2}$
+\end_inset
+
+.
+ Thus, in the following of this work we focus on the average consensus problem
+ and the distributed average consensus (DAC) algorithms.
+ 
+\end_layout
+
+\begin_layout Subsection
+Categories of Consensus Algorithm
+\end_layout
+
+\begin_layout Standard
+To introduce the distributive consensus algorithm, we may started from one
+ of the simplest algorithm in their family.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Categories-of-Discrete-time"
+
+\end_inset
+
+ only shows the branch of discrete-time distributive consensus algorithm,
+ continuous-time consensus algorithm has some similarities with discrete-time
+ ones.
+ However, their performance is quite different when Gaussian white noise
+ exists, so it can be categorized in another branch.
+ As shown in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:DT-First-Order-DAC"
+
+\end_inset
+
+, the first order DAC algorithm is the simplest algorithm that can solve
+ the consensus problem in a number of iteration.
+ It's convergence rate is related to the spectral radius of a graph dependent
+ matrix.
+ So the optimization problem is to find the optimal matrix with minimum
+ spectral radius.
+ However, global information of the graph matrix must be available.
+ In distributed methods, this is a quite strong condition.
+ Without the global information, best constant and metropolitan matrix can
+ be the sub-optimal solution to the consensus problem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+.
+ The first order DAC algorithm is one of the asymptotic algorithms together
+ with higher-order DAC algorithm.
+ The demand of higher-order algorithm is mainly because the requirement
+ for a fast convergence rate is always a matter of issue.
+ In 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Discrete-High-Order"
+
+\end_inset
+
+, we introduced higher-order DAC algorithm, which could have faster convergence
+ rate, and no additional requirement and communication cost is required
+ compared with first-order DAC 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ Therefore, it is shortly applied into practical consensus problem after
+ invented.
+ (OK first half 0.5)
+\end_layout
+
+\begin_layout Standard
+Some of the novel methods can solve the average consensus problem in finite
+ number of iterations.
+ These methods are referred to as finite-time consensus algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+.
+ It actually a very sophisticated signal processing technique that find
+ the asymptotically stable equilibrium 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ by extrapolation, see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Finite-Time-Distributed-Consensu"
+
+\end_inset
+
+.
+ A derivative of finite-time consensus algorithm is the adaptive filter
+ algorithm for average consensus .
+ It applies an adaptive filter algorithm to asymptotically converge the
+ set of parameters which are required in the computation of consensus value
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+.
+ Reader can find the definition of these parameters in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Find-the-Consensus"
+
+\end_inset
+
+.
+ As a contribution of this thesis, a method to calculate these necessary
+ parameters by inverting Toeplitz matrix is introduced in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Finite-time-Consensus-on"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename Graph/Categories of DAC_Nor.pdf
+	width 13.5cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Categories-of-Discrete-time"
+
+\end_inset
+
+Categories of Discrete-time Consensus Algorithm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Continuous-time vs.
+ Discrete-time Consensus
+\end_layout
+
+\begin_layout Standard
+In this section, we illustrate consensus protocol 
+\begin_inset Formula 
+\begin{equation}
+u_{i}\left(t\right)=\sum_{j\in{\cal N}_{i}}a_{ij}\left(x_{j}-x_{i}\right)\label{eq:1st Order Protocol}
+\end{equation}
+
+\end_inset
+
+that solves the average consensus problem 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula ${\cal X}\left(\mathbf{x}\right)=\mbox{mean}\left(\mathbf{x}\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ and show the difference and similarity of continuous-time with the dynamics
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\dot{x}_{i}\left(t\right)=u_{i}\left(t\right)\label{eq:continuous-time consensus}
+\end{equation}
+
+\end_inset
+
+and discrete-time consensus with the dynamics 
+\begin_inset Formula 
+\begin{equation}
+x_{i}\left(k+1\right)=x_{i}\left(k\right)+u_{i}\left(k\right)\label{eq:discre-time consensus}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The continuous-time consensus requires the nodes in a network have dynamics
+ in a form of differential equations while nodes in the discrete-time consensus
+ has dynamics in difference equation.
+ Continuous-time consensus involves analog signals that are easily interfered
+ by channel noise.
+ Consequently, the finally consensus value will be a random variable with
+ mean equals to the consensus value without noise and variance proportional
+ to the signal noise ratio.
+ It is shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kar2009"
+
+\end_inset
+
+, the variance is also proportional to time 
+\begin_inset Formula $t$
+\end_inset
+
+ hence it is increasing as the algorithm executing.
+ 
+\end_layout
+
+\begin_layout Standard
+(todo give a simulation with channel noise)
+\end_layout
+
+\begin_layout Standard
+Without the channel noise, the system dynamics with the feedback in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1st Order Protocol"
+
+\end_inset
+
+ can evolve into a linear system with differential equation given by 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{\dot{x}}\left(t\right)=-{\cal L}\mathbf{x}\left(t\right)\label{eq:system differential dynamics}
+\end{equation}
+
+\end_inset
+
+Solving the differential equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:system differential dynamics"
+
+\end_inset
+
+ will yield a continuous-time solution in an exponential matrices form 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}\left(t\right)=\exp\left(-{\cal L}t\right)\mathbf{x}\left(0\right)\label{eq:x(t) of CT-1st-DAC}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ is called the weighted graph Laplacian associated with network graph 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+, which is defined by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+l_{ij}=\begin{cases}
+\sum_{k=1,k\neq i}^{n}a_{ik} & j=i\\
+-a_{ij} & j\neq i
+\end{cases}\label{eq:Graph Laplacian def.}
+\end{equation}
+
+\end_inset
+
+For a graph with 0-1 adjacency, the graph Laplacian can be denoted in another
+ form, which is unweighted Laplacian matrix denoted by 
+\begin_inset Formula $L$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+l_{ij}=\begin{cases}
+\left|{\cal N}_{i}\right| & j=i\\
+-1 & j\in{\cal N}_{i}\\
+0 & \mbox{otherwise}
+\end{cases}\label{eq:Laplacian def.}
+\end{equation}
+
+\end_inset
+
+In some literature for example 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2009a"
+
+\end_inset
+
+, they use the second definition (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Laplacian def."
+
+\end_inset
+
+) of the Laplacian matrix to analyze the convergence rate of DAC algorithm.
+ It is a special case when weights 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ for all edges in 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ equal to one.
+ Therefore, to distinguish them, we denote the weighted graph Laplacian
+ matrix and the unweighted Laplacian matrix by 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ and 
+\begin_inset Formula $L$
+\end_inset
+
+ respectively.
+ 
+\end_layout
+
+\begin_layout Standard
+On the other hand, discrete-time consensus only involves the quantization
+ error during the algorithm execution as long as the data packages are correctly
+ received.
+ Nowadays, sensor nodes with digital processing unit becomes more cheaper,
+ we can get more benefits from the advantages of discrete-time consensus
+ algorithms.
+ Consequently, discrete-time consensus algorithms are mainly discussed in
+ the following of this thesis.
+ 
+\end_layout
+
+\begin_layout Standard
+For network agents have discrete-time consensus protocol, their system dynamics
+ can be given in a matrix form
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}(k+1)=W\mathbf{x}(k)
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $W=\left[w_{ij}\right]=I-{\cal L}$
+\end_inset
+
+.
+ We say the iteration is convergent if there exists a vector denoted by
+ 
+\begin_inset Formula $\mathbf{x}^{*}$
+\end_inset
+
+, which satisfies.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}^{*}=W\mathbf{x}^{*}\label{eq:stable state iteration}
+\end{equation}
+
+\end_inset
+
+Moreover, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}(k+1)-\mathbf{x}^{*}=W\left[\mathbf{x}(k)-\mathbf{x}^{*}\right]\label{eq:error vector iter. 1st}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:stable state iteration"
+
+\end_inset
+
+ states that 
+\begin_inset Formula $\mathbf{x}^{*}$
+\end_inset
+
+ is a right eigenvector of matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ associated with a simple eigenvalue 1.
+ For more details about the discrete-time first-order DAC algorithm, see
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:DT-First-Order-DAC"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document

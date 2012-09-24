@@ -1,0 +1,33 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Outline_2.aux
+The style file: IEEEtran.bst
+Database file #1: D:/Dropbox/Citation_DS/EigenValueEstimation.bib
+Database file #2: D:/Dropbox/Citation_DS/DistributedConsensus.bib
+Database file #3: D:/Dropbox/Citation_DS/Consensus_Finte-Time.bib
+Database file #4: D:/Dropbox/Citation_DS/Consensus&Filter.bib
+Database file #5: D:/Dropbox/Citation_DS/WirelessSensorNetwork.bib
+Database file #6: D:/Dropbox/Citation_DS/SmokeAnimation.bib
+Database file #7: D:/Dropbox/Citation_DS/Smoke_Gas_Detection.bib
+Database file #8: D:/Dropbox/Citation_DS/PlumeDetection.bib
+Database file #9: D:/Dropbox/Citation_DS/GaussianPlumeModel.bib
+Database file #10: D:/Dropbox/Citation_DS/DataFusion.bib
+Warning--string name "ieee_j_aes" is undefined
+--line 7 of file D:/Dropbox/Citation_DS/DataFusion.bib
+Warning--string name "ieee_j_aes" is undefined
+--line 34 of file D:/Dropbox/Citation_DS/DataFusion.bib
+Warning--string name "ieee_j_vt" is undefined
+--line 47 of file D:/Dropbox/Citation_DS/DataFusion.bib
+Database file #11: D:/Dropbox/Citation_DS/CloudDetection.bib
+Database file #12: D:/Dropbox/Citation_DS/Lidar.bib
+Warning--I didn't find a database entry for "G.Xiong08"
+Warning--I didn't find a database entry for "Xiong10"
+Warning--I didn't find a database entry for "N.kh.04"
+Warning--I didn't find a database entry for "Lin.96."
+-- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in Chair1986
+Warning--empty journal in Kam1992
+Warning--empty journal in Yuen2008
+
+Done.
+(There were 10 warnings)
