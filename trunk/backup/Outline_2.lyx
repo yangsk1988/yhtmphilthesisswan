@@ -1,0 +1,7986 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\options 12pt,A4paper,onecolumn
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding ascii
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Consensus Based Signal Processing and its Application in Cloud Detection
+\end_layout
+
+\begin_layout Abstract
+Distributed Consensus algorithm (DCA) has application in data fusion in
+ wireless sensor networks and coordination of multi-agent system.
+ Some distributive signal processing based on consensus algorithm , such
+ as, local value linear prediction, information flooding and network eigenvalues
+ estimation, were introduced in this thesis.
+ Finally, a simulation of distributive cloud detection was given, in which
+ data aquired by sensor nodes is processed by distributed consensus algorihm.
+ A modification to the conventional consensus algorithm is also applied
+ to make it possible to find the global log likelihood ratio when signals
+ are correlated.
+\end_layout
+
+\begin_layout Section
+Introduction 
+\end_layout
+
+\begin_layout Standard
+Consensus algorithms have applications in rendezvous, formation control,
+ flocking, attitude alignment and wireless sensor networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ren2007"
+
+\end_inset
+
+.
+ For these applications, reaching to an agreement among all the nodes in
+ a distributed network is often necessary.
+ 
+\end_layout
+
+\begin_layout Standard
+Distributed Average Consensus (DAC) algorithm has received significant attention
+ recently because of its robustness and simplicity for processing distributed
+ information over networks.
+ There are many algorithms developed by now.
+ We discuss these DAC algorithms by mainly comparing the convergence rate
+ of them.
+ The agreement is achieved if nodes' local values converge to a common value
+ which is referred to as a consensus value.
+ 
+\end_layout
+
+\begin_layout Standard
+In conventional methods, each node updates its local value repeatedly as
+ a weighted linear combination of its previous local value and those from
+ its neighbors.
+ The iteration is continued until all the local values converge to a global
+ average within a desired error level.
+ These methods are referred as asymptotic consensus in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+.
+ By introducing the associated network graph matrix, weights assigned to
+ the graph edges are corresponding to the entries of that matrix.
+ It is well known that convergence rate of linear DAC is determined by the
+ spectral radius of a network topology-dependent matrix.
+ Commonly, the edge weights that node adopted depend on its degree and their
+ adjacent nodes' degrees 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2009a"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+High-order linear iteration can be introduced to improve the convergence
+ rate.
+ Its convergence rate has a relationship with the eigenvalues of the Laplacian
+ matrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2009a"
+
+\end_inset
+
+, which only depends on the network graph and is very useful tool to analyze
+ the convergence rate.
+ Because of the properties of the Laplacian matrix, its first smallest eigenvalu
+e is always zero and the second smallest eigenvalue (called the algebraic
+ connectivity of the graph, or denoted as the Fiedler eigenvalue) is equal
+ to zero if and only if the graph is not connected 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MiroslavFiedler1973"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Russell1994"
+
+\end_inset
+
+.
+ Theoretically, higher order algorithm will potentially have a higher convergenc
+e rate.
+
+\series bold
+ 
+\series default
+However, there are very little improvement when introducing the order larger
+ than fourth 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+To find an algorithm that finds consensus value more quickly, a great deal
+ of research interest has been devoted to more sophisticated consensus algorithm
+s 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moreau2004"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Khan2010"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li2010"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+.
+ For the first order linear consensus algorithm, convergence rate is increased
+ by casting graph matrix spectral radius minimization problem as a convex
+ optimization problem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+, but solving such problem requires knowledge of the whole network topology.
+ Second order or high-order consensus algorithm also requires knowledge
+ of network topology but only eigenvalues of Laplacian matrix.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moreau2004"
+
+\end_inset
+
+, the consensus problem is treated in a continuous-time manner and the local
+ value is described by a set of differential equations.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Khan2010"
+
+\end_inset
+
+ considers higher dimensional consensus (HDC), which is a general class
+ of linear distributed algorithms for large-scale networks.
+ In HDC, the network nodes are partitioned into “anchors”, whose states
+ are fixed over the iterations, and “sensors”, whose states are updated
+ by the algorithm.
+ And 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li2010"
+
+\end_inset
+
+ proposed a class of location-aided distributed averaging algorithms which
+ accelerate the slow convergence by overcoming the diffusive behavior of
+ reversible chains.
+ 
+\end_layout
+
+\begin_layout Standard
+It needs mentioned that some novel methods increase the convergence rate
+ by taking a number of consecutive local values obtained by asymptotic consensus
+ into consideration.
+ Motivated by the Kalman filter scheme, a consensus update scheme is proposed
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ren2005"
+
+\end_inset
+
+, which treats the final consensus value as the system state, and it is
+ shown that algorithm is convergent for strongly connected networks.
+ Later, a modification to the basic Kalman filter algorithm is presented
+ to ensure the Kalman Filter converges to an unbiased estimate 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Alighanbari2006"
+
+\end_inset
+
+.
+ The method in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+ applies scalar epsilon algorithm (SEA) to the local values sequence in
+ each node to accelerate the convergence.
+ The main disadvantage of this method is that it uses all previous estimates
+ and its robustness against changes in the network topology is questionable
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+.
+ In turn, Cavalcante and Mulgrew 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+ introduces an adaptive filter algorithm to find the consensus value by
+ iteratively updating the coefficients of an adaptive filter.
+ Another novel method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ tries to find the z-transform of the nodes value, and uses final value
+ theorem to obtain the consensus value.
+ However, every node having the knowledge of network topology is a strict
+ condition.
+ Therefore, a decentralized method is proposed to computer the matrix polynomial.
+ This method requires several runs of the consensus algorithm initialized
+ with a set of linear independent vectors.
+\end_layout
+
+\begin_layout Standard
+Motivated by the works in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+, we try to rewrite the local value vectors in another form which reveals
+ an important property of the algorithm.
+ Based on this fact, we propose some signal processing techniques.
+ For example, with the proposed consensus finding filter, each node could
+ estimate the consensus value by passing through consecutive local values
+ obtained by the first order linear DAC algorithm without more information
+ exchanged between nodes.
+ 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:System-Model"
+
+\end_inset
+
+System Model
+\end_layout
+
+\begin_layout Standard
+Consider a network (connected graph) 
+\begin_inset Formula $\mathcal{G}=\left(\mathcal{V},\mathcal{E}\right)$
+\end_inset
+
+ consisting a set of nodes 
+\begin_inset Formula $\mathcal{V}=\left\{ 1...n\right\} $
+\end_inset
+
+, and a set of edges 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+, where each edge 
+\begin_inset Formula $\left(i,j\right)\in\mathfrak{\mathcal{E}}$
+\end_inset
+
+ is an unordered pair of distinct nodes.
+ Node 
+\begin_inset Formula $i$
+\end_inset
+
+ can only transmit information to its neighbors which denoted by 
+\begin_inset Formula $\mathcal{N}_{i}=\text{ }\left\{ j|\left(i,j\right)\in\mathcal{E}\right\} $
+\end_inset
+
+.
+ Each node holds an initial scalar value 
+\begin_inset Formula $x_{i}\left(0\right)\in R$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{x}\left(0\right)=\left[x_{1}\left(0\right),...,x_{n}\left(0\right)\right]^{T}\in R^{n}$
+\end_inset
+
+ denotes the vector of the initial values on the network.
+ The initial values can be a certain value locally acquired by nodes.
+ We are interested in computing the average of initial values 
+\begin_inset Formula $\overline{x}=\frac{1}{n}\sum_{i=1}^{n}x_{i}(0)$
+\end_inset
+
+.
+ However, the network only allows a node to communicate with its neighbors.
+ In this case, the simplest way for distributed averaging may be the first
+ order linear iteration.
+ 
+\end_layout
+
+\begin_layout Subsection
+Random Network Generation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../FirstYearReport/Lyx_v/images/Net50Edges200.eps
+	lyxscale 50
+	width 7cm
+	height 7cm
+	BoundingBox 250bp 0bp 750bp 513bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Net-N50-E200"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../FirstYearReport/Lyx_v/images/Network_N16_R0,3.pdf
+	lyxscale 120
+	width 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Net-N16-R0,3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Random-Network"
+
+\end_inset
+
+Randomly generated networks (a) 50 nodes and 200 edges (b) 16 nodes and
+ radius constrain R=0.3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are two method to generate the network.
+ Consider the graph show in the Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Net-N50-E200"
+
+\end_inset
+
+, which has 50 nodes and 200 edges, is generating by the following step;
+ First we randomly and uniformly distribute 50 nodes in the unit square;
+ Then, a list contain 200 shortest edges is created.
+ And nodes are connected if the edges belongs to the list.
+ 
+\end_layout
+
+\begin_layout Standard
+The network in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Net-N16-R0,3"
+
+\end_inset
+
+ is generated by the following step: 1.
+ Randomly and uniformly distribute a certain number of nodes in a unit square.
+ 2.
+ Connect any two nodes if their distance is less than the communication
+ radius.(todo insert a graph to show the network.
+ and the nodes can be connected by different methods)
+\end_layout
+
+\begin_layout Section
+Asymptotic Distributed Consensus Algorithm 
+\end_layout
+
+\begin_layout Standard
+The averaging algorithm can be done in many ways, such as flooding, gossip
+ and so on.
+ In the flooding algorithm, each sensor maintains a table of all sensors
+ value, and initialize by the local value.
+ At each iteration of the flooding algorithm, every node exchanges the table
+ with their neighbors.
+ After enough steps, which is larger than the diameter of the network.
+ Every node will get all the initial value of all nodes.
+ Gossip algorithms are asynchronous.
+ Only one random node wakes up and randomly chooses another node.
+ The two nodes exchange their estimates and update to the average of the
+ two.
+ 
+\end_layout
+
+\begin_layout Standard
+Asymptotic distributed consensus algorithm plays an important role in the
+ pratical problems.
+ (todo)
+\end_layout
+
+\begin_layout Subsection
+First Order Distributed Consensus Algorithm
+\end_layout
+
+\begin_layout Standard
+First Order Distributed Consensus Algorithm (FO-DCA) is an algorithm that
+ update the local value of node 
+\begin_inset Formula $i$
+\end_inset
+
+ iterasively at each time-step 
+\begin_inset Formula $k$
+\end_inset
+
+, based on nodes' previous values one time step before, given by Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1st iter. ni"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x_{i}(k+1)=w_{ii}x_{i}(k)+\sum_{j\in\mathcal{N}_{i}}w_{ij}x_{j}(k),\label{eq:1st iter. ni}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $k=0,1,2,...$
+\end_inset
+
+ is the time index, 
+\begin_inset Formula $w_{ij}$
+\end_inset
+
+ is the weight to 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ at node 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $w_{ij}=0$
+\end_inset
+
+ if 
+\begin_inset Formula $(i,j)\notin\mathcal{E}$
+\end_inset
+
+, and 
+\begin_inset Formula $w_{ii}=1-\sum_{j\in\mathcal{N}_{i}}w_{ij}$
+\end_inset
+
+.
+ It is worth noting 
+\begin_inset Formula $\sum_{j=1}^{n}w_{ij}=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The iteration can be written in a vector form 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}(k+1)=\mathbf{W}\mathbf{x}(k)\label{eq:first order matrix}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+ is a weight matrix equivalent to the graph matrix.
+ This linear iteration implies that 
+\begin_inset Formula $\mathbf{x}(k)=\mathbf{W}^{k}\mathbf{x}(0)$
+\end_inset
+
+ for 
+\begin_inset Formula $k=1,2,\cdots$
+\end_inset
+
+.
+ If initial values are random, the convergence rate only depends on this
+ matrix.
+\end_layout
+
+\begin_layout Subsection
+Convergence Conditions
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+For the matrix iteration defined in Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:first order matrix"
+
+\end_inset
+
+, the 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+convergence
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ problem is how to choose the weight matrix 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+, so that for any initial value 
+\begin_inset Formula $\mathbf{x}(0)\in R^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{x}(k)$
+\end_inset
+
+ converges to the vector 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{\bar{x}}=\left(\mathbf{1}^{\mathrm{T}}\mathbf{x}(0)/n\right)\mathbf{1}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}\mathbf{x}(0)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:convergence condition"
+
+\end_inset
+
+
+\begin_inset Formula $\lim_{k\rightarrow\infty}\mathbf{x}(k)=\mathbf{\bar{x}}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ if and only if the matrix 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+ satisfie
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+s
+\begin_inset Formula 
+\begin{equation}
+\lim_{k\rightarrow\infty}\mathbf{W}^{k}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}.\label{eq:convege condition W}
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:convege condition W"
+
+\end_inset
+
+ holds if and only if
+\begin_inset Formula 
+\begin{equation}
+\mathbf{1}^{\mathrm{T}}\mathbf{W}=\mathbf{1}^{\mathrm{T}},\;\mathbf{W}\mathbf{1}=\mathbf{1}\mbox{ and }\rho\left(\mathbf{W}-\mathbf{11}^{\mathrm{T}}/n\right)<1.\label{eq: Converge condition W 2}
+\end{equation}
+
+\end_inset
+
+where vector 
+\begin_inset Formula $\mathbf{1}=[1,1,\cdots1,]^{\mathrm{T}}\in R^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho\left(\cdot\right)$
+\end_inset
+
+ denotes the spectral radius of the matrix .
+\end_layout
+
+\begin_layout Standard
+Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: Converge condition W 2"
+
+\end_inset
+
+ shows that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is a row stochastic matrix and has an eigenvalue 1 with associated eigenvector
+ 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The convergence rate of the FO-DCA is related to the spectral radius of
+ weight matrix.
+ To get the maximum convergence rate.
+ A optimization problem to minimize the spectrum radius of weight matrix
+ can be solved 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+.
+ However, it requires knowledge of network topology to solve the problem.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\mbox{\mbox{Minimize }} & \rho\left(\mathbf{W}-\frac{\mathbf{1}\mathbf{1}^{T}}{n}\right)\\
+\mbox{Subject to } & \mathbf{1}^{\mathrm{T}}\mathbf{W}=\mathbf{1}^{\mathrm{T}},\;\mathbf{W}\mathbf{1}=\mathbf{1} & ,
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+First Order DAC Weight Matrix 
+\end_layout
+
+\begin_layout Standard
+Some convergent weight matrices that satisfy Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: Converge condition W 2"
+
+\end_inset
+
+ are given below.
+ The first one is the best constant weight matrix.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+w_{ij}=\begin{cases}
+\epsilon, & \mbox{if }(i,j)\in\mathit{\mathcal{E}}\\
+1-d(i)\epsilon, & i=j\\
+0, & \mbox{otherwise}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is the step length for the iteration, 
+\begin_inset Formula $d(i)$
+\end_inset
+
+ is the degree of the node 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ The best step length that maximize the convergence rate is obtained when
+ the eigenvalues of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Laplacian matrix
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is available.
+ It is given by 
+\begin_inset Formula $\epsilon=2/\left(\lambda_{2}\left(L\right)+\lambda_{n}\left(L\right)\right)$
+\end_inset
+
+, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+where 
+\begin_inset Formula $\lambda_{i}\left(L\right)$
+\end_inset
+
+ is the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ smallest eigenvalue of the Laplacian matrix.
+ 
+\end_layout
+
+\begin_layout Standard
+Another option is Metropolis weight matrix (or local degree weight matrix),
+ where each weight is determined by degree of the two nodes on the edge,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+w_{ij}=\begin{cases}
+\frac{1}{1+\max\left\{ d(i),d(j)\right\} }, & \mbox{if }(i,j)\in\mathit{\mathcal{E}}\\
+1-\sum_{(i,k)\in\mathit{\mathcal{E}}}w_{ik}, & i=j\\
+0, & \mbox{otherwise}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $d(i)$
+\end_inset
+
+ and 
+\begin_inset Formula $d(j)$
+\end_inset
+
+ are the degrees of nodes 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+As shown above, the weight matrix of conventional DAC algorithm is depends
+ on 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\lambda_{i}\left(L\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ or the nodes' degree.
+ However, as shown in the next section, the requirements for the weight
+ matrix can be reduced, if 
+\begin_inset Formula $\mathbf{x}\left(k\right)$
+\end_inset
+
+ can be decomposed in terms of eigenvalues and eigenvectors and find the
+ coefficients before each term.
+ 
+\end_layout
+
+\begin_layout Subsection
+High Order Distributed Consensus Algorithm 
+\end_layout
+
+\begin_layout Standard
+Higher order Distributed Consensus Algorithm (HO-DCA) can be regared as
+ a generalized form of distributed consensus algorihm.
+ It doesn't require additional communication and network configuation but
+ can potentially faster than FO-DCA.
+ It can be easily implemented by storing and using past data, to improve
+ the convergence rate.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "G.Xiong08"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong10"
+
+\end_inset
+
+.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong10"
+
+\end_inset
+
+, the author assume all node can store and using past data and define a
+ topology-dependent matrix to update the initial data.
+ The convergence rate of the initial values is related to eigenvalue of
+ that matrix.
+ In the optimization problem of HO-DCA, eigenvalues of the Laplacian matrix
+ or weight matrix of the associated network must known.
+\end_layout
+
+\begin_layout Standard
+The high-order iteration will have the form:
+\begin_inset Formula 
+\begin{eqnarray}
+x_{i}(k) & = & x_{i}(k-1)-\epsilon\sum_{m=1}^{M}c_{m}(-\gamma)^{m-1}\Delta x_{i}(k,m),\label{eq:Iteration Second order x_i(k)}\\
+\Delta x_{i}(k,m) & = & \sum_{j\in\mathcal{N}_{i}}\left(x_{i}\left(k-m\right)-x_{j}\left(k-m\right)\right),
+\end{eqnarray}
+
+\end_inset
+
+Where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is the local value at node 
+\begin_inset Formula $i$
+\end_inset
+
+ during iteration 
+\begin_inset Formula $k$
+\end_inset
+
+; 
+\begin_inset Formula $\mathcal{N}_{i}$
+\end_inset
+
+ is the neighboring nodes set in which the nodes can communicate reliably
+ with node 
+\begin_inset Formula $i$
+\end_inset
+
+; 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is a constant step size; 
+\begin_inset Formula $M$
+\end_inset
+
+ is the highest order number; 
+\begin_inset Formula $c_{m}$
+\end_inset
+
+ are predefined constants, where 
+\begin_inset Formula $c_{1}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{m}\neq0\:(m>1)$
+\end_inset
+
+; 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is a forgetting factor, such that 
+\begin_inset Formula $\left|\gamma\right|<1$
+\end_inset
+
+.
+ Define
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}(k)=\left[x_{1}(k),x_{1}(k),\ldots,x_{n}(k)\right]^{T}
+\end{equation}
+
+\end_inset
+
+The eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Iteration Second order x_i(k)"
+
+\end_inset
+
+ can be evolves to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}(k)=(\mathbf{I}_{n}-\epsilon\mathbf{L})\mathbf{x}(k-1)-\epsilon\sum_{m=2}^{M}c_{m}(-\gamma)^{m-1}\mathbf{L}\mathbf{x}(k-m)\label{eq:High Order Iter.Vec}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{L}$
+\end_inset
+
+ is the Laplacian matrix of network graph.
+ assume 
+\begin_inset Formula $\forall k<0,\; x(k)=x(0)$
+\end_inset
+
+, 
+\begin_inset Formula $x(0)$
+\end_inset
+
+ is the initial local state information for node 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Simulation result shows that, a higher order will have better convergence
+ rate, but should be trade off with the algorithm complexity and computational
+ cost.
+ Also only a few improvement could be achieved if we introduce larger than
+ fourth order.
+ 
+\end_layout
+
+\begin_layout Subsection
+High Order DCA Convergence Rate Maximization Problem
+\end_layout
+
+\begin_layout Standard
+The high order DAC algorithm have the iteration equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:High Order Iter.Vec"
+
+\end_inset
+
+, by define two 
+\begin_inset Formula $Mn\times Mn$
+\end_inset
+
+ matrices
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{c}
+\mathbf{H}=\left[\begin{array}{cccc}
+\mathbf{I}_{n}-\epsilon\mathbf{L} & c_{2}\gamma\epsilon\mathbf{L} & \cdots & -c_{M}(-\gamma)^{M-1}\epsilon\mathbf{L}\\
+\mathbf{I}_{n} & \mathbf{0}_{n\times n} & \cdots & \mathbf{0}_{n\times n}\\
+\vdots & \ddots &  & \vdots\\
+\mathbf{0}_{n\times n} & \cdots & \mathbf{I}_{n} & \mathbf{0}_{n\times n}
+\end{array}\right],\\
+\mathbf{J}=\left[\begin{array}{cccc}
+\mathbf{K} & \mathbf{0}_{n\times n} & \cdots & \mathbf{0}_{n\times n}\\
+\mathbf{K} & \mathbf{0}_{n\times n} & \cdots & \mathbf{0}_{n\times n}\\
+\vdots & \vdots & \ddots & \vdots\\
+\mathbf{K} & \mathbf{0}_{n\times n} & \cdots & \mathbf{0}_{n\times n}
+\end{array}\right],
+\end{array}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{K}=\left(\frac{1}{n}\right)\mathbf{1}\mathbf{1}^{T}$
+\end_inset
+
+, and 
+\begin_inset Formula $\mathbf{0}_{n\times n}$
+\end_inset
+
+ denotes the 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ all-zero matrix.
+ 
+\begin_inset Newline newline
+\end_inset
+
+The high-order DAC algorithm is convergent if 
+\begin_inset Formula $\rho\left(\mathbf{H}-\mathbf{J}\right)<1$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong10"
+
+\end_inset
+
+.
+ Then we formulated a spectral radius minimization problem to find the optimal
+ 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ for the high-order DAC algorithm, that is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+\mbox{\mbox{Minimize }} & \rho\left(\mathbf{H}-\mathbf{J}\right)\\
+\mbox{Subject to } & \epsilon,\gamma\in R
+\end{array},\label{eq: High order spectral radius problem}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As show in eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: High order spectral radius problem"
+
+\end_inset
+
+, the convergence rate maximization for high order DAC algorithm can be
+ cast into a spectral radius minimization problem.
+ Finding the solution is not easy due to we have to solve the high-order
+ polynomial to calculate eigenvalues.
+ For example, when 
+\begin_inset Formula $M=3$
+\end_inset
+
+, and 
+\begin_inset Formula $c_{1}=1$
+\end_inset
+
+, 
+\begin_inset Formula $c_{2}=1$
+\end_inset
+
+, the equation to obtain the eigenvalues of 
+\begin_inset Formula $\mathbf{H-J}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\begin{equation}
+f(\lambda)=\lambda^{3}-\left(1-\epsilon\lambda_{i}\left(\mathbf{L}\right)\right)\lambda^{2}-\gamma\epsilon\lambda_{i}\left(\mathbf{L}\right)\lambda+\gamma^{2}\epsilon\lambda_{i}\left(\mathbf{L}\right)=0\label{eq: eigenvalue equation of H-J}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{i}(\mathbf{L})$
+\end_inset
+
+ is the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ smallest eigenvalue of the Laplacian Matrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong10"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Since the equation have three roots for each 
+\begin_inset Formula $\lambda_{i}(\mathbf{L}),\; i=1,2,\cdots,n$
+\end_inset
+
+ , there are total 
+\begin_inset Formula $3n$
+\end_inset
+
+ eigenvalue for 
+\begin_inset Formula $\mathbf{H-J}$
+\end_inset
+
+.
+ Then, problem eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: High order spectral radius problem"
+
+\end_inset
+
+ can be written into 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+minimize the maximum absolute value of all the eigenvalues of 
+\begin_inset Formula $\mathbf{H-J}$
+\end_inset
+
+.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+\mbox{Minimize } & \mbox{max}\{\left|\lambda_{i}\left(\mathbf{H-J}\right)\right|\},\: i=1,2,\cdots,n\\
+\mbox{Subject to } & \epsilon,\gamma\in R
+\end{array},
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Find best coeficient for high order DAC algorithm
+\end_layout
+
+\begin_layout Standard
+Since the solution is only based on the network topology, the solution of
+ the eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: eigenvalue equation of H-J"
+
+\end_inset
+
+ is find numerically when order larger than second, as shown in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Find-minimum-rho(H)"
+
+\end_inset
+
+, could be obtained and floored to all sensors before the DAC algorithm
+ start.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FirstYearReport/Lyx_v/images/3order_max_lambda.eps
+	scale 60
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Find-minimum-rho(H)"
+
+\end_inset
+
+Find the minimum on the surface: 
+\begin_inset Formula $\mbox{max}\{\lambda_{i}\left(\mathbf{H-J}\right)\},\: i=1,2,\cdots,n$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+For second order DAC, the optimal solution is 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "G.Xiong08"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\epsilon{}_{opt,SO}=\frac{3\lambda_{n}(L)+\lambda_{2}(L)}{\lambda_{n}(L)\left[\lambda_{n}(L)+3\lambda_{2}(L)\right]}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\gamma_{opt,SO}=-\frac{\left[\lambda_{n}(L)-\lambda_{2}(L)\right]^{2}}{\left[\lambda_{n}(L)+3\lambda_{2}(L)\right]\left[3\lambda_{n}(L)+\lambda_{2}(L)\right]}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+High order DAC algorithm performance and comparison
+\end_layout
+
+\begin_layout Standard
+To test the performance of high-order DAC algorithm with different orders,
+ a simulation is carry out on 1000 random generated networks, generated
+ by the method shown in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Net-N16-R0,3"
+
+\end_inset
+
+.
+ Then algorithm's performance is evaluated by the average spectral radius
+ and average mean square error, shown in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DAC-comparation"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In figure.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DAC-SR-comp"
+
+\end_inset
+
+, the performance is compared by spectral radius, which is an indicator
+ for convergence rate.
+ Y-axis is the minimum 
+\begin_inset Formula $\rho\left(\mathbf{H}-\mathbf{J}\right)$
+\end_inset
+
+.
+ Obtained by searching the minimum on the surface 
+\begin_inset Formula $\rho\left(\mathbf{H}-\mathbf{J}\right)$
+\end_inset
+
+.
+ X-axis corresponding to the Radius Constrain.
+ Simulation executes algorithms on the networks based on different radius
+ constrain.
+ For each radius constrain, simulation is performed for 1000 times and then
+ take the average spectral radius.
+ The result shows that higher order DAC algorithm could have a faster convergenc
+e rate.
+ 
+\end_layout
+
+\begin_layout Standard
+To test how DAC algorithm get close to the global average, the MSE is defined.
+ 
+\begin_inset Formula 
+\begin{equation}
+MSE(k)=\frac{1}{n}\sum_{i=1}^{n}\left|x_{i}(k)-\bar{x}\right|^{2}.
+\end{equation}
+
+\end_inset
+
+Actually it is the Euclidean distance of current vector to the global average.
+ Figure.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DAC MSE Compare"
+
+\end_inset
+
+ shows the result when radius constrain 
+\begin_inset Formula $R=0.3$
+\end_inset
+
+.
+ By comparing the gradient of curves, it is apparent that higher-order DAC
+ algorithm have larger convergence rate, but has a MSE overshoot at the
+ beginning, especially when the communication radius is small.
+ Second order DAC algorithm does have a faster convergence rate than first
+ order algorithm, as the slop of the cuvre is steeper.
+ But it become worse as it converge to error tolerance 
+\begin_inset Formula $10^{-6}$
+\end_inset
+
+ more later than the first order algorithm.
+ Therefore, A hybrid algorithm is proposed to overcome this disadvantage.
+ Its coefficients are the conbination of the coeffieients of first and second
+ order algorithm.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../FirstYearReport/Lyx_v/images/Spectrum radius Compare_old_Ord1234.eps
+	lyxscale 60
+	width 7cm
+	height 6cm
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DAC-SR-comp"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../FirstYearReport/Lyx_v/images/DAC_Compr_ord1234&hybrid.eps
+	lyxscale 60
+	width 7cm
+	height 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DAC MSE Compare"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DAC-comparation"
+
+\end_inset
+
+DAC algorithms comparison (a) compared by spectral radius (b) compared by
+ MSE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Finite-Time Distributed Consensus Algorithm
+\end_layout
+
+\begin_layout Standard
+Finite-Time Distributed Consensus Algorithm (FT-DCA) tries to find the consensus
+ value after each node run the FO-DCA algorithm iteratively for a certain
+ number of time.
+ This is based on the assumption that after a certain number of time, local
+ values would contain sufficient information to estimate the consensus value.
+ (OK2.5)
+\end_layout
+
+\begin_layout Standard
+(todo we can add the definition of finite-time consensus.)
+\end_layout
+
+\begin_layout Standard
+Motivated by the works in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+, we try to decompose the local value vector in a form which reveals an
+ important property of its iteration.
+ Therefore we propose a filtering technique to estimate the consensus value.
+ (OK 3) 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+In the network that adopts first order linear consensus algorithm, each
+ node has a number of consecutive local values
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ obtained by Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1st iter. ni"
+
+\end_inset
+
+.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+There exists a linear filter.
+ If each node passes its 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+consecutive
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ local values through this
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ filter, the output after a certain time is the global average of the initial
+ values over the network.
+ Compared to first order DCA algorithm, no more information exchanged between
+ nodes is needed.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Such a filter is definde as the consensus finding filter.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ (OK 2.5) 
+\end_layout
+
+\begin_layout Standard
+(todo why we need to decompose, because extrapolation method is not right.
+ if not delete this line)
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "Def.A-consensus-finding"
+
+\end_inset
+
+A consensus finding filter is a linear filter defined by 
+\begin_inset Formula $\mathbf{h}\in R^{d}$
+\end_inset
+
+, such that by passing 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+through 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+local values 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+obtained by Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1st iter. ni"
+
+\end_inset
+
+, 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+the output 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\hat{x}_{i}(k)=\mathbf{h}(k)*x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is the consensus value 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\overline{x}=\frac{1}{n}\sum_{i=1}^{n}x_{i}(0)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ of the network after 
+\begin_inset Formula $k$
+\end_inset
+
+ step 
+\begin_inset Formula $\left(k\geqslant m\right)$
+\end_inset
+
+, where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $m$
+\end_inset
+
+ is the number of
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ distinct and nonzero eigenvalues of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+the weight matrix 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+.
+ And 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+ satisfies 
+\strikeout off
+\uuline off
+\uwave off
+
+\begin_inset Formula $\mathbf{W}=\mathbf{W}^{\mathrm{T}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{W}\mathbf{1}=\mathbf{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Local-Value-Decomposition"
+
+\end_inset
+
+Local Value Decomposition (OK 3)
+\end_layout
+
+\begin_layout Standard
+Suppose an undirected network with 
+\begin_inset Formula $n$
+\end_inset
+
+ nodes, where duplex communication is possible in each link.
+ Therefore, the associated weight matrix 
+\begin_inset Formula $\mathbf{W}\in\mathbf{R}^{n\times n}$
+\end_inset
+
+ is symmetric and diagonalizable.
+ And there are 
+\begin_inset Formula $n$
+\end_inset
+
+ linear independent eigenvectors of the weight matrix.
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ Thus, any initial value vector can be written in a linear combination of
+ these eigenvectors, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}\left(0\right)=\alpha_{1}\mathbf{e}_{1}+\alpha_{2}\mathbf{e}_{2}+\ldots+\alpha_{n}\mathbf{e}_{n}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha_{i}(i=1,2,\ldots,n)$
+\end_inset
+
+ is the coefficient.
+ For 
+\begin_inset Formula $k=1,2,3,...$
+\end_inset
+
+ we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\mathbf{x}\left(k\right) & = & \mathbf{W}^{k}\left[\alpha_{1}\mathbf{e}_{1}+\alpha_{2}\mathbf{e}_{2}+\ldots+\alpha_{n}\mathbf{e}_{n}\right]\nonumber \\
+ & = & \alpha_{1}\lambda_{1}^{k}\mathbf{e}_{1}+\alpha_{2}\lambda_{2}^{k}\mathbf{e}_{2}+\ldots+\alpha_{n}\lambda_{n}^{k}\mathbf{e}_{n}\label{eq:x(k) decomposition}\\
+ & = & \sum_{i=1}^{n}\alpha_{i}\lambda_{i}^{k}\mathbf{e}_{i}\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+ is the eigenvalue of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+By rewriting 
+\begin_inset Formula $\mathbf{x}\left(k\right)$
+\end_inset
+
+, it is clear that if all eigenvalues of the weight matrix are known, the
+ nodes' values vector
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ is predictable and the consensus value can be found
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+.
+ For any node 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $i=1,2,\ldots n$
+\end_inset
+
+, its local value at time 
+\begin_inset Formula $k$
+\end_inset
+
+ can be written as
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\begin_inset Formula 
+\begin{equation}
+x_{i}\left(k\right)=\alpha_{1}\lambda_{1}^{k}e_{i1}+\alpha_{2}\lambda_{2}^{k}e_{i2}+\ldots+\alpha_{n}\lambda_{n}^{k}e_{in}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+where 
+\begin_inset Formula $e_{ij}$
+\end_inset
+
+ is the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ component of eigenvector 
+\begin_inset Formula $\mathbf{e}_{j}$
+\end_inset
+
+.
+ Because of algebraic multiplicity of some eigenvalues, the equation can
+ be modified by combining the terms with the same eigenvalues.
+ Zero eigenvalues are ignored as they have no contribution in this equation.
+ Suppose 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+ has 
+\begin_inset Formula $m$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ distinct and nonzero eigenvalues, denoted by 
+\begin_inset Formula $\lambda_{1},\lambda_{2},\ldots,\lambda_{m}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+, then 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ evolves into
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\begin_inset Formula 
+\begin{equation}
+x_{i}\left(k\right)=\beta_{i1}\lambda_{1}^{k}+\beta_{i2}\lambda_{2}^{k}+\ldots+\beta_{im}\lambda_{m}^{k}
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+where
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+ is the coefficient after combination.
+ 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Find-the-Consensus"
+
+\end_inset
+
+Find the Consensus Value by Linear Filter
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Let the sample vector 
+\begin_inset Formula $\mathbf{y}_{i}(k,d)\in R^{d}$
+\end_inset
+
+ is defined by the history of 
+\begin_inset Formula $x_{i}(k),$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\left[x_{i}(k),x_{i}(k-1),\ldots x_{i}(k-d+1)\right]^{\mathrm{T}}\label{eq:def. y(k,m)}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+and the Vandermonde matrix whose entries are the power of eigenvalues
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{V}(k,d)=\left[\begin{array}{cccc}
+\lambda_{1}^{k} & \lambda_{2}^{k} & \cdots & \lambda_{m}^{k}\\
+\lambda_{1}^{k-1} & \lambda_{2}^{k-1} & \cdots & \lambda_{m}^{k-1}\\
+\vdots & \vdots & \ddots & \vdots\\
+\lambda_{1}^{k-d+1} & \lambda_{2}^{k-d+1} & \cdots & \lambda_{m}^{k-d+1}
+\end{array}\right]\label{eq:def. Lamda(k,m)}
+\end{equation}
+
+\end_inset
+
+and 
+\begin_inset Formula $\mathbf{b}_{i}\left(d\right)=\left[\beta_{i1},\beta_{i2},\cdots\beta_{id}\right]^{\mathrm{T}}$
+\end_inset
+
+, then we have the following equation satisfied
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\mathbf{V}(k,d)\mathbf{b}_{i}\left(d\right)\label{eq:Vander matrix and consensus-d*m}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+To obtain the consensus value 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ for node 
+\begin_inset Formula $i$
+\end_inset
+
+,
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ we need to take sufficient samples of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+and solve Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Vander matrix and consensus-d*m"
+
+\end_inset
+
+, where 
+\begin_inset Formula $d$
+\end_inset
+
+ should at least equal or larger than
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\begin_inset Formula $m$
+\end_inset
+
+
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Let 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula $A(k,m)=\mathbf{V}^{-1}(k,m)$
+\end_inset
+
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+and
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ the first row of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $A(k,m)$
+\end_inset
+
+ is given by
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula 
+\begin{equation}
+\mathbf{h}=\left[A_{11}(k,m),A_{12}(k,m),\ldots,A_{1m}(k,m)\right]^{\mathrm{T}}
+\end{equation}
+
+\end_inset
+
+ we have 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\beta_{i1}=\mathbf{h}^{\mathrm{T}}\mathbf{y}_{i}(k,m)\label{eq:Find Consensus m order}
+\end{equation}
+
+\end_inset
+
+ Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Find Consensus m order"
+
+\end_inset
+
+ shows that the consensus value can be calculated 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+by the filter defined in Def.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Def.A-consensus-finding"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+It is worth noting that Vandermonde matrix is related to a polynomial interpolat
+ion problem and can be easily inverted in terms of Lagrange basis polynomials
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Prass2007"
+
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ Due to this reason, this method can be treated as an extrapolation method
+ which find the consensus value at infinity.
+ At the same time, we only need to find out the first coefficient 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\beta_{i1}$
+\end_inset
+
+ in the distributed averaging.
+ Therefore, 
+\strikeout default
+\uuline default
+\uwave default
+only the elements in the corresponding row of 
+\strikeout off
+\uuline off
+\uwave off
+
+\begin_inset Formula $\mathbf{V}^{-1}(k,m)$
+\end_inset
+
+
+\strikeout default
+\uuline default
+\uwave default
+ need to be found.
+ This approach can save lots of computation time when using the algorithm
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Prass2007"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Since 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+simulation result shows that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{h}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is only depends the associated Vandermonde matrix
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\begin_inset Formula $\mathbf{V}(k,m)$
+\end_inset
+
+ which is 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+is independent of the nodes' initial values and time index 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ Therefore, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+each node in the network could find the consensus value at any time 
+\begin_inset Formula $k\geqslant m$
+\end_inset
+
+ by passing a number of consecutive local values through this filter.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ In addition, all nodes in this network may share the same filter, which
+ means all the filters have the same impulse response.
+ However, such a consensus finding filter it is not unique.
+ As an example, a number of filters which have different impulse response
+ or filter lengths are found by different samples 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+of 
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+.
+  Each node could choose its own, but filter length determines the how many
+ time-steps before a node could find 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+the consensus value.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Suppose we take 
+\begin_inset Formula $d$
+\end_inset
+
+ samples of 
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+, where 
+\begin_inset Formula $d>m$
+\end_inset
+
+.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+Because
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ the Vandermonde matrix 
+\begin_inset Formula $\mathbf{V}(k,d)\in R^{d\times m}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is non-square, we introduce the Moore-penrose pseudo inverse to find the
+ least mean square solution.
+ 
+\end_layout
+
+\begin_layout Standard
+Let
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A(k,d)=\mathbf{V}^{+}(k,d)
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $^{+}$
+\end_inset
+
+ denote the Moore-penrose pseudo inverse.
+ And
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ the first row of 
+\begin_inset Formula $A(k,d)$
+\end_inset
+
+ is given by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{h}'=\left[A{}_{11}(k,d),A_{12}(k,d),\ldots,A_{1d}(k,d)\right]^{\mathrm{T}}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Still, the value 
+\strikeout off
+\uuline off
+\uwave off
+
+\begin_inset Formula $\beta_{i1}=\mathbf{h}'^{\mathrm{T}}\mathbf{y}_{i}(k,m)$
+\end_inset
+
+ 
+\strikeout default
+\uuline default
+\uwave default
+is an accurate estimation of consensus value.
+ Therefore, another consensus finding filter is obtained.
+\end_layout
+
+\begin_layout Standard
+Due to the multiplication of the consensus finding filter, the set of filter
+ is defined by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H=\{\mathbf{h}\in R^{d}|\forall d\geqslant m,\:\mathbf{h}^{\mathrm{T}}\mathbf{y}_{i}(k,d)=\bar{x}\}
+\end{equation}
+
+\end_inset
+
+However, the shortest filter has its length equal to 
+\begin_inset Formula $m$
+\end_inset
+
+, which means node can only have the consensus value after 
+\begin_inset Formula $m$
+\end_inset
+
+ steps.
+ 
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Numerical-Simulation"
+
+\end_inset
+
+, the performance of this algorithm is shown by comparing it with the first
+ order DAC algorithm using optimal weight matrix in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Inversethe Vandermonde matrix (todo check whether it is right)
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+(todo:Vandermonde matrix is famous(use the word noto...) for its ...)Solving Vandermon
+de matrix is related to a polynomial interpolation problem and can be easily
+ inverted in terms of Lagrange basis polynomials 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $V_{m}$
+\end_inset
+
+ be the Vandermonde's matrix of order 
+\begin_inset Formula $m$
+\end_inset
+
+ given by, 
+\begin_inset Formula $m$
+\end_inset
+
+ is the number of distinct and nonzero eigenvalues of weight matrix 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{m}=\left[\begin{array}{cccc}
+\lambda_{1} & \lambda_{2} & \cdots & \lambda_{m}\\
+\lambda_{1}^{2} & \lambda_{2}^{2} & \cdots & \lambda_{m}^{2}\\
+\vdots & \vdots & \ddots & \vdots\\
+\lambda_{1}^{m} & \lambda_{2}^{m} & \cdots & \lambda_{m}^{m}
+\end{array}\right]\label{eq:Vander Matrix}
+\end{equation}
+
+\end_inset
+
+then its inverse is closely related to Lagrange's polynomial interpolation
+ formula.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula 
+\begin{equation}
+P_{j}\left(\lambda\right)=\prod_{\begin{array}{c}
+i=1\\
+i\neq j
+\end{array}}^{m}\frac{\lambda-\lambda_{i}}{\lambda_{j}-\lambda_{i}}=\sum_{k=1}^{m}b_{jk}\lambda^{k-1}\label{eq:Lagrange's polynomial}
+\end{equation}
+
+\end_inset
+
+The polynomial 
+\begin_inset Formula $P_{j}\left(\lambda\right)$
+\end_inset
+
+ is specially designed so that it takes on a value of zero at all 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ and has a value of unity at 
+\begin_inset Formula $\lambda=\lambda_{j}$
+\end_inset
+
+.
+ In other words, 
+\begin_inset Formula 
+\[
+P_{j}\left(\lambda_{i}\right)=\delta_{ij}=\sum_{k=1}^{m}b_{jk}\lambda_{i}^{k-1}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\delta_{ij}=1$
+\end_inset
+
+ when 
+\begin_inset Formula $i=j$
+\end_inset
+
+ .
+ The equation says that 
+\begin_inset Formula $b_{jk}$
+\end_inset
+
+ is exactly the inverse of the matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Vander Matrix"
+
+\end_inset
+
+, with the subscript 
+\begin_inset Formula $k$
+\end_inset
+
+ as the column index.
+ 
+\end_layout
+
+\begin_layout Standard
+To drive the analytical expression of 
+\begin_inset Formula $b_{jk}$
+\end_inset
+
+ and make it as easy as possible, let's define some intermediate result.
+ Define the polynomial
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+q_{j}\left(\lambda\right) & = & \frac{\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\right)}{\left(\lambda-\lambda_{j}\right)}=\prod_{i=1,i\neq j}^{m}\left(\lambda-\lambda_{i}\right)\label{eq:intermindia polynomial}\\
+ & = & c_{j,m}\lambda^{m-1}+c_{j,m-1}\lambda^{m-2}+\ldots+c_{j,2}\lambda+c_{j,1}\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+Examining the polynomial 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lagrange's polynomial"
+
+\end_inset
+
+ and polynomial 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:intermindia polynomial"
+
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{eqnarray*}
+b_{jk} & = & \frac{c_{j,m}}{q_{j}\left(\lambda_{j}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+If we only need to caculate the consensus value, as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Find-the-Consensus"
+
+\end_inset
+
+ only the 
+\strikeout default
+\uuline default
+\uwave default
+elements in the corresponding row of 
+\strikeout off
+\uuline off
+\uwave off
+inverse Vandermonde's matrix
+\strikeout default
+\uuline default
+\uwave default
+ need to be found.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Numerical-Simulation"
+
+\end_inset
+
+Numerical Simulation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../Distributed Consensus Algorithm/Report_DAC/Net_Weight/graph with 8 nodes and 17 edges.pdf
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Graph in Xiao'paper"
+
+\end_inset
+
+Graph with optimal weights which maximize convergence rate 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider the graph from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+, the weight matrix 
+\series bold
+
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+
+\series default
+ corresponding to this graph is symmetric and has eigenvalues 
+\begin_inset Formula $\lambda(\mathbf{W})=\{1,0.6,0.4,0,0,0,-0.4,-0.6\}$
+\end_inset
+
+.
+ The time index 
+\begin_inset Formula $k$
+\end_inset
+
+ can be chosen large enough so that there are only positive powers in the
+ matrix 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{V}(k,d)$
+\end_inset
+
+.
+ For example, there are
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 5 distinct and nonzero eigenvalues of 
+\series bold
+
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+
+\series default
+, so we choose 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+the time index 
+\begin_inset Formula $k=5$
+\end_inset
+
+ and 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula $d=5$
+\end_inset
+
+ which is the minimum filter length
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\mathbf{V}(5,5)=\left[\begin{array}{ccccc}
+1 & 0.0778 & 0.0102 & -0.0102 & -0.0778\\
+1 & 0.1296 & 0.0256 & 0.0256 & 0.1296\\
+1 & 0.216 & 0.064 & -0.064 & -0.216\\
+1 & 0.36 & 0.16 & 0.16 & 0.36\\
+1 & 0.6 & 0.4 & -0.4 & -0.6
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ the first row of the inverse matrix 
+\begin_inset Formula $\mathbf{V}^{-1}(5,5)$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+gives the consensus finding filter 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{h}=\left[1.8601,\;0,\;-0.9673,\;0,\;0.1071\right]^{\mathrm{T}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../Distributed Consensus Algorithm/Report_DAC/MSE/MSE_Filter vs FODAC.eps
+	width 8cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:perform. Consensus Filter"
+
+\end_inset
+
+Performance of the first order iteration with optimal matrix vs.
+ consensus finding filter algorithm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For any random generated 
+\begin_inset Formula $\mathbf{x}(0)\in R^{n}$
+\end_inset
+
+, node values vector 
+\begin_inset Formula $\mathbf{x}(k)$
+\end_inset
+
+ is updated by the iteration Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:first order matrix"
+
+\end_inset
+
+.
+ At the same time each node passes its local values though filter 
+\begin_inset Formula $\mathbf{h}$
+\end_inset
+
+.
+ Filter output is given by 
+\begin_inset Formula $\hat{x}_{i}(k)=\mathbf{h}(k)*x_{i}(k)$
+\end_inset
+
+.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:perform. Consensus Filter"
+
+\end_inset
+
+ compares the first order DAC (FO-DAC) algorithm with optimal matrix and
+ the proposed algorithm with consensus finding filter.
+ The performance is evaluated by the mean square error (MSE), defined by
+ 
+\begin_inset Formula $\mbox{MSE}_{\mbox{FO-DAC}}(k)=\sum_{i\in\mathcal{N}}E[\left|x_{i}(k)-\bar{x}\right|^{2}]$
+\end_inset
+
+, 
+\begin_inset Formula $\mbox{MSE}_{\mbox{filter}}(k)=\sum_{i\in\mathcal{N}}E[\left|\alpha_{i}(k)-\bar{x}\right|^{2}]$
+\end_inset
+
+ respectively, where 
+\begin_inset Formula $\bar{x}=(1/n)\sum_{i\in\mathcal{N}}x_{i}(0)$
+\end_inset
+
+.
+ The result shows that the consensus finding filter calculate the consensus
+ value after a finite number of iteration and MSE drops dramatically to
+ the quantization error at the same time.
+ 
+\end_layout
+
+\begin_layout Subsection
+Finite-Time Consensus without Knowledges of Network Topology(todo)
+\end_layout
+
+\begin_layout Standard
+It is shown in the section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Find-the-Consensus"
+
+\end_inset
+
+, if every node has knowledge of the network topology (for example, eigenvalues
+ of the weight matrix), the consensus value can be calculated by a linear
+ combination of past local values.
+ However, having knowledge of the network topology in every node is a strong
+ assumption.
+ A distributive algorithm to calculate the linear combination has also been
+ introduced in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+.
+ This method requires several runs of the consensus algorithm initialized
+ with a set of linear independent vectors.
+ Alternatively, the original consensus algorithm can run many instances
+ in parallel with a set of independent initial values.
+ However, the data transmission at each iteration increases.
+ In addition, this method may not reliable to topology changes during the
+ of multiple re-initializations of original consensus algorithm.
+ 
+\end_layout
+
+\begin_layout Standard
+Here we proposed a finit-time consensus algorithm without knowledge of network
+ topology, also does't require the original consensus algorithm re-initialize
+ for serveral times.
+ Before introducing the algorithm, there are too important linear filter
+ need to be introduced, becasue the algorithm is conducted based on the
+ properties of these filters.
+\end_layout
+
+\begin_layout Subsubsection
+Linear Predictor For Local Value (todo check 0)
+\end_layout
+
+\begin_layout Standard
+In observing the convergence behavior of each node's local value sequence,
+ one would come to the idea that the sequence must obeys some rule as it
+ converges.
+ In section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Local-Value-Decomposition"
+
+\end_inset
+
+, it is shown that local value vector can be decomposed in terms of eigenvalues
+ and eigenvectors.
+ Based on this fact, a consensus estimation method by inverting the Vandermonde
+ matrix and a information flooding techniques are proposed.
+\end_layout
+
+\begin_layout Standard
+However, another important property of the FO-DCA need to be highlighted
+ in this section, because it will also inspire some ideas on signal processing
+ and applications in distributed systems.
+\end_layout
+
+\begin_layout Standard
+To see how this property can be explained in a equation, we use the concept
+ of minimal polynomial of the weight matrix 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+.
+ For any weight matrix 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+, it has distinct eigenvalues denoted by 
+\begin_inset Formula $\lambda_{1},\lambda_{2},\ldots,\lambda_{m},$
+\end_inset
+
+ then the minimal polynomial can be obtained by 
+\begin_inset Formula 
+\[
+p(\lambda)=\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\right)^{r_{i}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $r_{i}$
+\end_inset
+
+ is the size of the largest Jordan block of 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+ corresponding to eigenvalue 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+.
+ The minimal polynomial can also be expanded into the form 
+\begin_inset Formula 
+\[
+p\left(\lambda\right)=\lambda^{r+1}+a_{r}\lambda^{r}+\ldots+a_{1}\lambda+a_{0}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $r+1$
+\end_inset
+
+ is the degree of the minimal polynomial.
+ Since the minimal polynomial of matrix 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $p\left(\mathbf{W}\right)=0$
+\end_inset
+
+.
+ We have
+\begin_inset Formula 
+\[
+\mathbf{W}^{r+1}+a_{r}\mathbf{W}^{r}+\ldots+a_{1}\mathbf{W}+a_{0}\mathbf{I}=0
+\]
+
+\end_inset
+
+if we multiply each side with initial value vector, and use the fact 
+\begin_inset Formula $\mathbf{x}\left(k+1\right)=\mathbf{W}^{k+1}\mathbf{x}\left(0\right)$
+\end_inset
+
+, the above equation evolves into
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}\left(r+1\right)+a_{r}\mathbf{x}\left(r\right)+\ldots+a_{1}\mathbf{x}\left(1\right)+a_{0}\mathbf{x}\left(0\right)=0\label{eq:local value linear combination}
+\end{equation}
+
+\end_inset
+
+Therefore, for any 
+\begin_inset Formula $k\geq r$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}\left(k+1\right)=-a_{r}\mathbf{x}\left(k\right)-\ldots-a_{1}\mathbf{x}\left(k-r+1\right)+a_{0}\mathbf{x}\left(k-r\right)\label{eq:local value linear predictor}
+\end{equation}
+
+\end_inset
+
+This equation shows that the vector sequence can be predict by a FIR filter
+ with coefficient given by 
+\begin_inset Formula $\left[-a_{r},-a_{r-1},\ldots,-a_{0}\right].$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Given the local value vector sequence obtained by FO-DCA, one may instantly
+ comes to the idea of applying a adaptive filter algorithm to estimate the
+ set of coefficient.
+ For example, LMS, LSL and Kalman filter.
+ One advantage of the adaptive filter algorithm is that when the network
+ topology is changed, the filter could adaptively change its coefficient
+ during the iteration.
+ 
+\end_layout
+
+\begin_layout Standard
+In the next section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Cons.Find.Filter and relationship"
+
+\end_inset
+
+, we will show that the relationship of linear predictor for local value
+ and consensus finding filter.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Cons.Find.Filter and relationship"
+
+\end_inset
+
+The Consensus Finding Filter and The Relationship with Linear Predictor
+ (todo check)
+\end_layout
+
+\begin_layout Standard
+If matrix 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+ satisfies the condition in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:convergence condition"
+
+\end_inset
+
+ there is a simple eigenvalue equals to one.
+ As shown in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Cons.Find.Filter and relationship"
+
+\end_inset
+
+, the consensus finding filter is given by the row of inverse of Vandermonde's
+ matrix which corresponding to a eigenvalue equals to one.
+ Without loss of generality, let the first eigenvalue 
+\begin_inset Formula $\lambda_{1}=1$
+\end_inset
+
+.
+ Thus, the corresponding row of the inverse of Vandermonde's Matrix is equal
+ to the consensus finding filter, whose coefficients are given by the coefficien
+ts 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $b_{1k}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ in the polynomial.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{h}=\left[b_{11},b_{12},\ldots,b_{1m}\right]\label{eq:Consensus Finding filter Entry}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Examining the minimal polynomial of weight matrix.
+ (Since weight matrix has only 
+\begin_inset Formula $m$
+\end_inset
+
+ distinct eigenvalues) 
+\begin_inset Formula 
+\begin{equation}
+p(\lambda)=\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\right)=\lambda^{m}+a_{m}\lambda^{m-1}+\ldots+a_{2}\lambda+a_{1}\label{eq:Polynomial of matrix}
+\end{equation}
+
+\end_inset
+
+and the Lagrange's polynomial interpolation formula 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Lagrange's polynomial"
+
+\end_inset
+
+ we can rewrite the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $b_{jk}$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $a_{k}$
+\end_inset
+
+.
+ To make the experssion simple, we may also use the polynomial defined in
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:intermindia polynomial"
+
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{h}=\frac{\left[c_{1,m},c_{1,m-1},\ldots,c_{1,2}\right]}{\sum_{k=1}^{m}c_{1,k}}\label{eq:Consensus Find coeff. c}
+\end{equation}
+
+\end_inset
+
+more specificlly, we have 
+\begin_inset Formula $c_{1,k}=1+\sum_{j=k+1}^{m}a_{j}$
+\end_inset
+
+.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+This make it is possible for the adaptive filter to estimate the consensus
+ value by after all coefficients converge.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Finite-time Consensus on gernerlized condition
+\end_layout
+
+\begin_layout Standard
+Suppose the history of local values at node 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is available at node 
+\begin_inset Formula $i$
+\end_inset
+
+ after running one instance of FO-DAC algorithm.
+ Let the Toeplitz matrix be
+\begin_inset Formula 
+\[
+T=\left[\begin{array}{cccc}
+x_{i}\left(k\right) & x_{i}\left(k-1\right) & \ldots & x_{i}\left(k-r\right)\\
+x_{i}\left(k+1\right) & x_{i}\left(k\right) & \cdots\\
+\vdots & \vdots & \ddots & \vdots\\
+x_{i}\left(k+r-1\right) & x_{i}\left(k+r-2\right) & \cdots & x_{i}\left(k-1\right)\\
+x_{i}\left(k+r\right) & x_{i}\left(k+r-1\right) & \cdots & x_{i}\left(k\right)
+\end{array}\right]
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula $\mathbf{a}=\left[a_{r},\ldots,a_{1},a_{0}\right]^{T}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{y}=\left[x\left(k+1\right),x\left(k+2\right),\ldots,x\left(k+r+1\right)\right]^{T}$
+\end_inset
+
+.
+ Then they can be written in a matrix notation as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}=T\mathbf{a}\label{eq:Toepliz Eq.}
+\end{equation}
+
+\end_inset
+
+Once node 
+\begin_inset Formula $i$
+\end_inset
+
+ have sufficient local values, it can solve Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Toepliz Eq."
+
+\end_inset
+
+ and obtain the minimum polynomial 
+\begin_inset Formula 
+\[
+p(\lambda)=\lambda^{r+1}+a_{r}\lambda^{r}+\ldots+a_{1}\lambda+a_{0}
+\]
+
+\end_inset
+
+If the weight matrix have one simple eigenvalue equals to one, the consensus
+ findging filter can be easily obtain by definning another polynomial 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q\left(\lambda\right)=\frac{p\left(\lambda\right)}{\lambda-1}=c_{m}\lambda^{m-1}+c_{m-1}\lambda^{m-2}+\ldots+c_{2}\lambda+c_{1}
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+and the consensus filter to be construct is given by the coefficient in
+ the new polynomial 
+\begin_inset Formula 
+\[
+\mathbf{h}=\frac{\left[c_{m},c_{m-1},\ldots,c_{2}\right]}{\sum_{k=1}^{m}c_{k}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $c_{k}=1+\sum_{j=k+1}^{m}a_{j}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+It totally needs 
+\begin_inset Formula $2r+2$
+\end_inset
+
+ local values and 
+\begin_inset Formula $2r+1$
+\end_inset
+
+ iterations to construct the Toeplitz matrix and Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Toepliz Eq."
+
+\end_inset
+
+, but all the local value can be obtaind from one instance of FO-DCA.
+ In contract, the the original finite-time consensus algorithm in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ requires 
+\begin_inset Formula $r$
+\end_inset
+
+ iterations of FO-DCA for each instance, and totally 
+\begin_inset Formula $r$
+\end_inset
+
+ instances.
+ Therefore, the proposed method has some improvement to the original finite-time
+ consensus algorithm.
+ 
+\end_layout
+
+\begin_layout Standard
+One interesting advantage of this method is that it can also apply to the
+ case when weight matrix is non-symmetric.
+ (todo, it can also proved by the Inverses of Confluent Vandermonde matrix)
+ Recall the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:local value linear combination"
+
+\end_inset
+
+, for any componet 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+, if we take the z-transform of the equation, we obtain 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(z^{r+1}+a_{r}z^{r}+\cdots+a_{1}z+a_{0}\right)X_{i}\left(z\right)
+\]
+
+\end_inset
+
+As shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+, the consensus value can be found by using the final value theroem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\lim_{k\to\infty}x\left(k\right) & = & \lim_{z\to1}\left(z-1\right)X_{i}\left(z\right)\\
+ & = & \frac{\left[x_{i}\left[r\right],x_{i}\left[r-1\right],\ldots,x_{i}\left[0\right]\right]S}{\left[1,1,\ldots.,1\right]S}
+\end{eqnarray*}
+
+\end_inset
+
+where 
+\begin_inset Formula $S=\left[1,1+a_{r},1+a_{r}+a_{r-1},\ldots.,1+\sum_{j=1}^{r}a_{j}\right]^{T}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Compare this equation with the consensus finding filter, we see that the
+ they have little difference except the consensus finding filter is independent
+ of the iteration times.
+ Since the relationship of local value predictor and consensus finding filter
+ holds when the weight matrix is not symmetrix.
+ Therefore, it is possible to calculate the consensus value by the proposed
+ method.
+ 
+\end_layout
+
+\begin_layout Section
+Consensus Based Signal Processing
+\end_layout
+
+\begin_layout Standard
+Based on the FT-DCA algorithm we introduced in the last section, actually
+ each node can extract more information from local values sequence, if some
+ signal processing techniques are used.
+ These signal processing techniques introduced in the following may also
+ be applied to wireless sensor networks as they could be carried out distributiv
+ely.
+ 
+\end_layout
+
+\begin_layout Subsection
+Consensus Based Network Information Flooding(todo check)
+\end_layout
+
+\begin_layout Standard
+The conventional information flooding actually is done by copy information
+ to all other nodes in the network.
+ Each node maintains a table of the values of all nodes in the network,
+ initialized with its own node value.
+ And nodes exchanges the tables of their own and those from their neighbors
+ in each iteration.
+ After a certain number of iterations which is equal to the diameter of
+ the network, each node will knows all the nodes' value.
+ It is also a method to implement distributed averaging.
+ 
+\end_layout
+
+\begin_layout Standard
+However, copying information and forwarding to all other nodes takes too
+ much resources for the networks.
+ If a networks has 
+\begin_inset Formula $n$
+\end_inset
+
+ nodes, the conventional flooding will needs at least 
+\begin_inset Formula $\left(n-1\right)$
+\end_inset
+
+ copies for each piece of information.
+ And this estimation doesn't considering the cost in transmitting the informatio
+n to the destination.
+ Therefore, in this section we propose a novel network information flooding
+ technique based on consensus algorithm.
+ It doesn't require copying information for many time, but transmit information
+ by broadcasting.
+ The advantage of this method is that it can save the costs in copying and
+ transmitting information.
+ 
+\end_layout
+
+\begin_layout Standard
+Suppose the network weight matrix is 
+\begin_inset Formula $\mathbf{W}$
+\end_inset
+
+ that satisfies the same condition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: Converge condition W 2"
+
+\end_inset
+
+.
+ Recall the initial local value decomposition given in Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:initial vector decompose"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}\left(0\right)=\sum_{j=1}^{n}\alpha_{j}\mathbf{e}_{j}\label{eq:initial vector decompose}
+\end{equation}
+
+\end_inset
+
+which shows that the 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+initial
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ local value vector can be defined by a set of coefficients and a new basis
+ defined by the eigenvectors.
+
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\series default
+In addition, the eigenvectors 
+\begin_inset Formula $\mathbf{e}_{i}$
+\end_inset
+
+ are only depends on the weight matrix.
+ Therefore,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ once the coefficients 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and weight matrix are available, the initial values vector 
+\begin_inset Formula $\mathbf{x}\left(0\right)$
+\end_inset
+
+ can be calculated.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+It is possible to exchange information between nodes in the network without
+ copying information to all other nodes.
+\end_layout
+
+\begin_layout Standard
+To show how this method can be carried out distributively, recall the FT-DCA
+ algorithm in section 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "sub:Find-the-Consensus"
+
+\end_inset
+
+.
+ Let the sample vector 
+\begin_inset Formula $\mathbf{y}_{i}(k,d)\in R^{d}$
+\end_inset
+
+ is defined by the history of 
+\begin_inset Formula $x_{i}(k),$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\left[x_{i}(k),x_{i}(k-1),\ldots x_{i}(k-d+1)\right]^{\mathrm{T}}
+\end{equation}
+
+\end_inset
+
+and the coefficients vector 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{a}=\left[\alpha_{1},\alpha_{2},\ldots,\alpha_{n}\right]^{T}$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ If we involve the eigenvectors and redefine the 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Vander matrix and consensus-d*m"
+
+\end_inset
+
+ by 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\mathbf{V}_{i}(k,d)diag\left(\left[\mathbf{e}_{1}^{T}\mathbf{u}_{i},\mathbf{e}_{2}^{T}\mathbf{u}_{i},\ldots,\mathbf{e}_{n}^{T}\mathbf{u}_{i}\right]\right)\mathbf{a}\label{eq:Vander*Eigen i^th*Alpha}
+\end{equation}
+
+\end_inset
+
+where
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $\mathbf{u}_{i}$
+\end_inset
+
+ is the unit vector with all zero except the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ component is one, 
+\begin_inset Formula $\mathbf{e}_{j}^{T}\mathbf{u}_{i}$
+\end_inset
+
+ means the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ component of 
+\begin_inset Formula $\mathbf{e}_{j}$
+\end_inset
+
+.
+ Solving the above equation will obtain the coefficients 
+\begin_inset Formula $\alpha_{j}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The consensus based information flooding is ideally suitable for time-invariant
+ network.
+ Because a node must know all the eigenvectors and eigenvalues of the network
+ before it can estimate other nodes' initial value.
+ This requires each node flooding its weight coefficients to all nodes in
+ the network at first.
+ However, instead of flooding the table of initial values, flooding the
+ weight matrix is only performed at the stage of network initialization
+ or when the network topology changes.
+ If the frequency of topology is very low or in a range that acceptable,
+ the proposed method could have lower cost in computation and communication.
+\end_layout
+
+\begin_layout Subsection
+Consensus Based Distributed Eigenvalues Estimation(todo)
+\end_layout
+
+\begin_layout Standard
+In ad hoc network, each node has the knowledge of network topology is a
+ strong condition.
+ Although nodes in the network can flood the table of their adjacent nodes
+ to build up network topology in every nodes, it is a problem to maintain
+ this table of network topology when the network changes frequently.
+ 
+\end_layout
+
+\begin_layout Standard
+However, in the distributed signal processing and multivehcle cooperative
+ control (todo, add ref), the knowledge about network topology is sometimes
+ very important.
+ In these applications, the distributed consensus algorithm is widely used
+ and requires knowledges of the graph matrix to optimize the convergence
+ rate.
+ For example, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+ proposed A method to find the optimal matrix for FO-DCA which require the
+ whole network topology.
+ Even thought higher-order distributed average consensus algorithm doesn't
+ have so strong requirement, but the eigenvalue of the graph matrix or Laplacian
+ matrix is required 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ The paper 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chung"
+
+\end_inset
+
+ (todo, as it is online, find the paper) introduce the method to estimate
+ the range of eigenvalues of Laplacian matrix.
+ However, it still questionable in the application of this method due to
+ the following reasons.
+ First, the range is not accurate enough to satisfy the requirment of convergenc
+e rate optimization.
+ Second, it require many communication resources in the transmission of
+ nodes' degree and compute the minimum spanning tree.
+ Third, cannot estimate the range for all the eigenvalues, as higher-order
+ DAC algorithm need to use more eigenvalues.
+\end_layout
+
+\begin_layout Standard
+Some sophisticated algorithm, such as the finite-time consensus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ and Adaptive filter algorithm for consensus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+, can converge to the consensus value using an adaptive filter or even find
+ the consensus value in finite number of iteration.
+ However, It has been proved that the consensus value can be a linear conbinatio
+n of local values obtained by FO-DCA.
+ Thus, the accuracy of the estimated consensus value highly relies on the
+ accuracy of coefficients multiplying the local values.
+ The reliability to network changes of these methods is still questionable.
+ In addition, all these method have a instance of FO-DCA runing in background.
+ Therefore, it is very hard to say that the asympotic consensus algorithm
+ is out of time.
+ In contract, it already applied to network with a large number of nodes
+ and also be robust to the topology variation.
+ 
+\end_layout
+
+\begin_layout Standard
+If the network topology and all the weights to edges are konwn to some nodes
+ in the network, then the eigenvalues can be caculated and flooded to all
+ nodes, which could then use these values to optimize the convergence rate
+ or even achive distributed consensus in finite-time.
+ However, in some cases there is no such a centralized node to collect all
+ the information and doing the caculation and transimssion of parameters.
+ Therefore, it is necessary for nodes to estimate these parameters with
+ local information it can access.
+\end_layout
+
+\begin_layout Standard
+The work of this section is as follows, first we analyse the properties
+ of local value iteration and proposed an algorithm to estimate these necessary
+ eigenvalues based on FO-DCA.
+ Second, we try to use the estimated eigenvalue to increase the convergence
+ rate of the original asympotic consensus algorithm.
+ Second
+\end_layout
+
+\begin_layout Standard
+Suppose we have a distributive network described the same as in the system
+ model, see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:System-Model"
+
+\end_inset
+
+, the weight matrix satisfies the condition Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: Converge condition W 2"
+
+\end_inset
+
+.
+ Therefore, the weight matix has the minimal polynomial with at only one
+ eigenvalue equal to one
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+p(\lambda)=\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\right)=\lambda^{m}+a_{m}\lambda^{m-1}+\ldots+a_{2}\lambda+a_{1}
+\]
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+by letting the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $p(\lambda)=0$
+\end_inset
+
+, 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+And the solution can be found and 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+ is the eigenvalues to be estimated.
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+Therefore, the eigenvaluse estimation problem is equivilent to the problem
+ to find the coefficient 
+\begin_inset Formula $\left\{ a_{m}\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Since coefficient 
+\begin_inset Formula $\left\{ a_{m}\right\} $
+\end_inset
+
+ also lead to a linear combination expression given in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:local value linear predictor"
+
+\end_inset
+
+, it can be estimated by the inverse Toeplitz matrix and by solving the
+ Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Toepliz Eq."
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+However, when network contain more nodes and the matrix size become larger,
+ the matrix is almost singular or loss rank so that the numerical error
+ of coefficient caculated by Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Toepliz Eq."
+
+\end_inset
+
+ becomes larger.
+ Even though sometimes it may be accurate enough to esimate the consensus
+ value with high accuracy, it is unacceptible for eigenvalues estimation.
+ This is because 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $p(\lambda)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is a high order polynomial which is very sensitive to the numerical error
+ of its coefficient.
+ Thus, the variation of solutions is much larger compared with the coefficients'
+ numeical error.
+ 
+\end_layout
+
+\begin_layout Standard
+(todo if we need to show the numerical error.
+ The simulation result shows that when using float number with double accuracy,
+ )
+\end_layout
+
+\begin_layout Standard
+Take a deep inspectation of the Toeplitz matrix when it becomes large, one
+ of the serveral reasons for the numerical problem is because the local
+ value vector has 
+\begin_inset Formula $\left\Vert \mathbf{x}\left(k+1\right)-\mathbf{\bar{x}}\right\Vert <\left\Vert \mathbf{x}\left(k\right)-\mathbf{\bar{x}}\right\Vert $
+\end_inset
+
+, which means the entries 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+ approaches the global average asymptoticlly.
+ Thus, the corrsponding row in Toeplitz matrix have entries with very little
+ difference.
+  
+\end_layout
+
+\begin_layout Standard
+To mitigate the numerical problems, the Toeplitz matrix should be constructed
+ by some other way.
+ Not only by the local values obtained fron one instance of FO-DCA, when
+ the local values vectors are getting too close to the consensus values,
+ the FO-DCA iteration is reinitialized with a new local value vector which
+ is preferable to be independent of the old local value vector.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathbf{x}_{1}\left(0\right),\mathbf{x}_{2}\left(0\right),\ldots,\mathbf{x}_{N}\left(0\right)$
+\end_inset
+
+ denote 
+\begin_inset Formula $N$
+\end_inset
+
+ different and independent initial local value vectors.
+ For each initial vector the FO-DCA take at least 
+\begin_inset Formula $2D+1$
+\end_inset
+
+ iterations, where 
+\begin_inset Formula $D$
+\end_inset
+
+ is the width of Toeplitz matrix.
+ Due to the property of minimal polynomial of weight matrix, the width of
+ Toeplitz should be larger than the number of distinct and nonzero eigenvalues
+ of the weight matrix 
+\begin_inset Formula $D\geq m$
+\end_inset
+
+.
+ After this initilization, each node 
+\begin_inset Formula $i$
+\end_inset
+
+ will have the history of local values obtained by the 
+\begin_inset Formula $N$
+\end_inset
+
+ instance of FO-DCA.
+ Therefore the new Toeplitz matrix can be constructed by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T=\left[\begin{array}{c}
+T_{i,1}\\
+T_{i,2}\\
+\\
+T_{i,N}
+\end{array}\right],\mbox{where }T_{i,j}=\left[\begin{array}{cccc}
+x_{i,j}\left(D\right) & x_{i,j}\left(D-1\right) & \ldots & x_{i,j}\left(0\right)\\
+x_{i,j}\left(D+1\right) & x_{i,j}\left(D\right) & \cdots & x_{i,j}\left(1\right)\\
+\vdots & \vdots & \ddots & \vdots\\
+x_{i,j}\left(2D\right) & x_{i,j}\left(2D-1\right) & \cdots & x_{i,j}\left(D\right)
+\end{array}\right]
+\]
+
+\end_inset
+
+Similally to Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Toepliz Eq."
+
+\end_inset
+
+, the vector 
+\begin_inset Formula $\mathbf{y}=\left[\mathbf{y}_{i,1}^{T},\mathbf{y}_{i,2}^{T},\ldots,\mathbf{y}_{i,j}^{T}\right]^{T}$
+\end_inset
+
+ is constructed by the corresponding local values, where 
+\begin_inset Formula $\mathbf{y}_{i,j}=\left[x_{i,j}\left(D+1\right),x_{i,j}\left(D+2\right),\dots,x_{i,j}\left(2D+1\right)\right]^{T}.$
+\end_inset
+
+ Thus, we have the new equation give by 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}=T\mathbf{a}\label{eq:expanded Toeplitz Eq.}
+\end{equation}
+
+\end_inset
+
+Solving the above equation will involve the Moore-Penrose pseudo-inverse
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Piziak2007"
+
+\end_inset
+
+.
+ it worth noting that Moore-Penrose pseudo-inverse of 
+\begin_inset Formula $T$
+\end_inset
+
+ actually find the least mean square solution for 
+\begin_inset Formula $\mathbf{a}$
+\end_inset
+
+.
+ If we take more intial local value vectors and run more instance of FO-DCA,
+ the numerical solution of this equation could be more close to the real
+ solution.
+ 
+\end_layout
+
+\begin_layout Section
+Distributed Detection of Cloud
+\end_layout
+
+\begin_layout Subsection
+Introduction 
+\end_layout
+
+\begin_layout Standard
+A cloud is a group of liquid or solid particles floated in the air.
+ Sometime it contains harmful or dangerouse particles so that it needs to
+ be observed and tracked.
+ There are various types of sensors can perform the detection.
+ According to their types of targets, the detection can be catergoried into
+ smoke/gas/aerosol detection.
+ On the other hand, based on their sensing methods, there are also divided
+ into contact detection and remote sensing.
+ (OK1)
+\end_layout
+
+\begin_layout Standard
+Smoke and gas detection is very common in daily life.
+ For example, the fire alarm sensor in building, which is contact sensing
+ device.
+ When the sensing element contacts with smoke or gas agent, the chemical
+ or physical reactions change the electrical characteristics of the sensing
+ element.
+ Then the alarm is set if the agent's concentration is larger than a threshold.
+ (OK2)
+\end_layout
+
+\begin_layout Standard
+Smoke detection based on video and image processing is also possible.
+ For example, in the wildfire video surveillance, people try to change the
+ human based surveillance into automatic smoke/fire detection.
+ These intelligent algorithms extract smoke's features based on video signal,
+ and then classify the objects in the video as smoke or non-smoke.
+ This also attracts much research interest.
+ (OK2)
+\end_layout
+
+\begin_layout Standard
+Some time, the agent does not directly contact with the sensing element.
+ The device pumps in some air and illuminate the air with multiple wavelengths
+ to get the absorption spectrum, which normally obtained by a infrared spectrosc
+opy.
+ Then the concentration or species of the agent can be estimated when prior
+ knowledge is available.
+ (OK1)
+\end_layout
+
+\begin_layout Standard
+When sensors are not able to contact with cloud in the sky, laser technology
+ enables the remote detection.
+ The concept of remote sensing is very close to that of a spectroscopy.
+ It is an optical technology that can measure the distance to a target,
+ or other properties of a target by illuminating the target with light,
+ often using pulses from a laser.
+ The devices typically used for studies of aerosols and clouds remotely
+ is called LIDAR.
+ (OK1)
+\end_layout
+
+\begin_layout Standard
+When the cloud is illuminated by a laser beam, the particles absorb the
+ energy and emit fluorescent light, as well as 
+\begin_inset Quotes eld
+\end_inset
+
+reflect
+\begin_inset Quotes erd
+\end_inset
+
+ light back to the source (referred as backscatter).
+ The back-scattered light wavelength is identical to the transmitted light
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lidar.Wiki.2011"
+
+\end_inset
+
+, and the magnitude of the back-scattered light at the given range depends
+ on the back-scatter coefficient of scatterers and the extinction coefficients
+ of the scatterers along the path at that range 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "P.M.Hamilton1969"
+
+\end_inset
+
+.
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+fingerprint
+\begin_inset Quotes erd
+\end_inset
+
+ of the fluorescent light or backscatter can be a evidence of the concentration
+ or species of particles in that cloud.
+ The microprocessor in the sensor node could identify the received signals,
+ and make a declaration of cloud.
+ (OK1)
+\end_layout
+
+\begin_layout Standard
+In battle field applications, aerosol detection may also related to bio-aerosol
+ detection.
+ As the bio-aerosol release by a biological weapon is extremely dangerous
+ to any biological element in that area.
+ It is necessary to detect and discrimination it as soon as possible.
+ The detection and discrimination can be done by a remote sensing lidar,
+ which illuminate the bio-aerosol  and collect back-scatters by a telescope
+ just similar to the spectroscopy.
+ Therefore, the agent could be discriminated according to its spectrum.
+ In research simulation, the bio-aerosol is often created by spread bacillus
+ subtilis spores in the air.
+ However, the reflection and extinction coefficients are closely related
+ to the particles species and absorption spectrums are different from one
+ agent to another.
+ To estimate the concentration of an aerosol based on backscatter spectrum
+ requires prior knowledge of the wavelength-dependent backscatter coefficients.(O
+K1)
+\end_layout
+
+\begin_layout Standard
+There are many challenges in outdoor environment for this method.
+ First, the background radiation (for example, sunshine in the day time)
+ will ruin the lidar signals.
+ But it can be compensated by increase the laser power, add optical filter
+ in front of the telescope or tracking the background radiation level.
+ Second, the interference of moving objects in the sky like birds and balloons
+ will have a very high reflect coefficient compared with gases.
+ Third, failure of sensor nodes.
+ Because of the properties of sensor nodes, such as energy constrains, vulnerabl
+e to intruders, they often malfunction and become unreliable.
+ Finally, a lidar with discrimination ability is very expensive so that
+ it often performs passive detection and discrimination.
+ Active detection of the bio-aerosol is taken by some other sensors distributing
+ in the battle field.
+ So this comes to our problem: detecting the bio-aerosol with sensors distribute
+d in the environment with noise and interference.
+ (OK1)
+\end_layout
+
+\begin_layout Standard
+To overcome unreliability of sensor nodes and interference for outdoor remote
+ cloud detection, the distributed detection method could be adopted, because
+ distributed detection involves multiple sensors date fusion, can normally
+ be more reliable than single sensor node detection 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chair1986"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kam1992"
+
+\end_inset
+
+.
+ Centralized signal processing require a special node called fusion center.
+ Sometimes fusion center has to be involved if the signal processing is
+ complicate and it is not possible to find a distributive solution.
+ However, fusion center is the most important node in the network that responsib
+le for data gathering and data processing.
+ Once the fusion center is destroyed or failed, the whole network breaks
+ down.
+ On the other hand, limited energy is also a problem for WSN in centralized
+ signal processing because data gathering is a energy consuming process.
+ Also there is unbalance energy consumption between nodes with different
+ communication loads 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cristescu2004"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yuen2008"
+
+\end_inset
+
+.
+ (OK2)
+\end_layout
+
+\begin_layout Standard
+Signal can be processed distributively by distributed consensus algorithm
+ (DCA).
+ The word consensus means each node would have an agreement on the declaration
+ of the target after the algorithm.
+ In addition, each node only broadcast its local value until the algorithm
+ converges 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+.
+ This method can save much energy for nodes that heavy loaded in the data
+ gathering.
+ (OK2)
+\end_layout
+
+\begin_layout Subsection
+Background and System model 
+\end_layout
+
+\begin_layout Standard
+This section is structured in the following way, section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Cloud-Detection-Scenario"
+
+\end_inset
+
+ shows the system model.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Received-Signal'-Model"
+
+\end_inset
+
+ illustrates the sensor observation model and explain some techniques in
+ distributed detection of cloud.
+ In the training stage, expectation-maximization algorithm is used to get
+ Gaussian mixture model for sensor observation from background noise and
+ target.
+ In the following, it is the detection stage, where each sensor calculate
+ its local log likelihood ratio, and substitute it into distributed consensus
+ algorithm.
+ When the algorithm converges, each sensor in the network can have an agreement
+ on declaring the cloud or not.
+ Finally, simulation and result is give in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Simulation"
+
+\end_inset
+
+.
+ To get more real cloud data, 3D fluid animation techniques with turbulence
+ flow were used.
+ The performance of this detection system is also given.
+ It shows the multiple sensor detection will be more reliable in the noisy
+ environment.
+\end_layout
+
+\begin_layout Subsubsection
+Cloud Detection Scenario
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Cloud-Detection-Scenario"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the cloud detection scenario shown by Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cloud-detection-scenario"
+
+\end_inset
+
+, a source produces cloud in a fixed position with fixed power; a time invariant
+ wind velocity parallel to the ground, blows the cloud to the positive direction
+ of the x-axis.
+ With these parameters available, the Gaussian plume model 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lin1996"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GPM.JA.2011"
+
+\end_inset
+
+ is used to describe the cloud concentrate at any position 
+\begin_inset Formula $\left(x,y,z\right)$
+\end_inset
+
+.
+ On the ground, multiple sensors (1 to 
+\begin_inset Formula $L$
+\end_inset
+
+) aim to the plume perpendicularly to the ground plane and don't change
+ their positions.
+ The positions were chosen so that the laser beams can penetrate into the
+ plume and backscatters are observed by the laser receivers.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/SystemModel/SysModel1.pdf
+	width 7.5cm
+	BoundingBox 0bp 0bp 342bp 225bp
+	clip
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cloud-detection-scenario"
+
+\end_inset
+
+Cloud detection scenario
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subsubsection
+Diffusive Cloud Model
+\end_layout
+
+\begin_layout Standard
+(todo)
+\end_layout
+
+\begin_layout Standard
+The Gaussian plume model is widely used in cloud plume concentration modeling
+\end_layout
+
+\begin_layout Standard
+The cloud concentration is actually a random process with variance,
+\end_layout
+
+\begin_layout Standard
+3D cloud animation is implemented to get data of cloud concentration.
+\end_layout
+
+\begin_layout Standard
+With the help of 3D fluid simulation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "He2011"
+
+\end_inset
+
+, a cloud could be more like real while fluid dynamics and wind turbulence
+ is considered.
+ A cloud animation is simulated to generate a bunch of cloud plumes.
+ If we observing the cloud for a long time and take the average, the result
+ is Gaussian plume model, which can describe the mean value of the cloud
+ concentration at any position, but not the variance.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Gaussian Plume Model (todo)
+\end_layout
+
+\begin_layout Standard
+As shown in paper 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "N.kh.04"
+
+\end_inset
+
+, the concentration values 
+\begin_inset Formula $C$
+\end_inset
+
+ of pollutants to be emitted by point instantaneous source at height 
+\begin_inset Formula $H$
+\end_inset
+
+ are described by the normal (Gaussian) distribution , 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+C(x,y,z,t) & = & \frac{Q}{(2\pi)^{3/2}\sigma_{x}\sigma_{y}\sigma_{z}}\exp\left(\tfrac{-\left(x-ut\right)^{2}}{2\sigma_{x}^{2}}\right)\exp\left(\tfrac{-\left(y-vt\right)^{2}}{2\sigma_{y}^{2}}\right)...\label{eq:Point source concentration}\\
+ &  & \left(\exp\left(\tfrac{-\left(z-H-wt\right)^{2}}{2\sigma_{z}^{2}}\right)+\exp\left(\tfrac{-\left(z+H-wt\right)^{2}}{2\sigma_{z}^{2}}\right)\right)
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $t$
+\end_inset
+
+ is the time, 
+\begin_inset Formula $Q$
+\end_inset
+
+ the source emission power, 
+\begin_inset Formula $u,v,w$
+\end_inset
+
+ are the orthogonal components of wind velocity, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\sigma_{x},\sigma_{y},\sigma_{z}$
+\end_inset
+
+ are the horizontal and vertical dispersions, 
+\begin_inset Formula $H$
+\end_inset
+
+ the source height .
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\end_layout
+
+\begin_layout Standard
+To describe the continuous cloud source emitted into the air.
+ An integration form 
+\begin_inset Formula $t=0$
+\end_inset
+
+ to 
+\begin_inset Formula $\infty$
+\end_inset
+
+ is taken for Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Point source concentration"
+
+\end_inset
+
+.
+ So for continuous source the model is not related to the time 
+\begin_inset Formula $t$
+\end_inset
+
+,  See (todo 
+\begin_inset Quotes eld
+\end_inset
+
+Application of Gaussian plume models for air pollution simulation at instantaneo
+us emissions
+\begin_inset Quotes erd
+\end_inset
+
+).
+ The model after integration is called Gaussian plume model.
+ To make things easy, assume the wind velocity components 
+\begin_inset Formula $v=0,w=0$
+\end_inset
+
+.
+ The Gaussian plume model changes into (to do, check the solution is right)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+C(x,y,z,H) & = & \int_{0}^{\infty}C(x,y,z,t)dt\label{eq:Continous source C}\\
+ & = & \frac{Q}{2\pi u\sigma_{y}\sigma_{z}}\exp\left(\tfrac{-y^{2}}{2\sigma_{y}^{2}}\right)\left(\exp\left(\tfrac{-\left(z-H\right)^{2}}{2\sigma_{z}^{2}}\right)+\exp\left(\tfrac{-\left(z+H\right)^{2}}{2\sigma_{z}^{2}}\right)\right)\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\begin_inset Formula $\sigma_{y}=ax^{b}$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma_{z}=cx^{d}$
+\end_inset
+
+, 
+\begin_inset Formula $a,b,c,d$
+\end_inset
+
+ are the coefficient which relate to the atmospheric stability.
+ 
+\end_layout
+
+\begin_layout Standard
+(
+\end_layout
+
+\begin_layout Standard
+todo, do a simulation in Matlab, and give a figure of the model, 3d or 2d
+ with concentration contour
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Difussion model/Gaussian_model/pasted1.jpg
+	lyxscale 20
+	height 7cm
+	BoundingBox 20bp 10bp 1840bp 1210bp
+	clip
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:GaussianPlume"
+
+\end_inset
+
+Gaussian plume model.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+)
+\end_layout
+
+\begin_layout Standard
+the parameter of 
+\begin_inset Formula $a,b,c,d$
+\end_inset
+
+ calculated on Table 1 according to the atmospheric stability.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The parameter of a,b,c,d according to atmospheric stability
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atmospheric stability 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+c
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+d
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.527
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.865
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.90
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.371
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.866
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.85
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.209
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.897
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.22
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.80
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+D
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.128
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.905
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.76
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.098
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.902
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.73
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.065
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.902
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.73
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.046
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.902
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.62
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Modified Gaussian Plume Model For Laser Detection
+\end_layout
+
+\begin_layout Standard
+Similar to the heat diffusion model, the two dimensional diffusion equation
+ is given by 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial N}{\partial t}=D\left(\frac{\partial^{2}N}{\partial^{2}x}+\frac{\partial^{2}N}{\partial^{2}y}+\frac{\partial^{2}N}{\partial^{2}z}\right)
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+where 
+\begin_inset Formula $N$
+\end_inset
+
+ is cloud density, and 
+\begin_inset Formula $D$
+\end_inset
+
+ is diffusion coefficient.
+ 
+\end_layout
+
+\begin_layout Standard
+This equation indicates that the rate of density change is proportional
+ to the curvature of cloud density.
+ The density increases where curvature is positive and decreases where it
+ is negative.
+\end_layout
+
+\begin_layout Standard
+If the cloud is released instantaneously at a single point, assume as the
+ origin, at 
+\begin_inset Formula $t=0$
+\end_inset
+
+, the spatial distribution will be a 3-dimensional normal distribution.
+ (This is verified by taking partial derivative for both sides.)
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+For a point instantaneous source, its solution is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+N(x,y,z,t)=\frac{N\left(0,0,0,0\right)}{\left(4\pi Dt\right)^{3/2}}exp\left(-\frac{x{}^{2}+y^{2}+z^{2}}{4Dt}\right)
+\end{equation}
+
+\end_inset
+
+(todo where
+\begin_inset Formula $\sigma_{x}=\sqrt{2Dt}$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+If the instantaneous point source is fixed at the origin, and the surrounding
+ air is moving towards the positive direction of x-coordinate.
+ The model changes into
+\end_layout
+
+\begin_layout Standard
+If wind velocity 
+\begin_inset Formula $u$
+\end_inset
+
+ is considered, the model changes into
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+N(x,y,z,t)=\frac{Q}{\left(4\pi Dt\right)^{3/2}}\cdot exp\left(\frac{(x-ut){}^{2}+y^{2}+z^{2}}{4Dt}\right)\label{eq:3D point Model}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $u$
+\end_inset
+
+ is wind velocity.
+ 
+\end_layout
+
+\begin_layout Standard
+For continuous source at origin point, an integration form 
+\begin_inset Formula $t=0$
+\end_inset
+
+ to 
+\begin_inset Formula $T$
+\end_inset
+
+ is taken to find the concentration distribution.
+ However, the denominator in Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3D point Model"
+
+\end_inset
+
+ is related to 
+\begin_inset Formula $t$
+\end_inset
+
+, the integration is very hard to find.
+ Some later research have found the analytical solution of the atomospheric
+ diffusion equation.
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $T\rightarrow\infty$
+\end_inset
+
+ , it is shown in the paper 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lin.96."
+
+\end_inset
+
+ (todo), the concentration model for continuous source evolves into
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{eqnarray}
+N(x,y,z) & = & \int_{0}^{\infty}N(x,y,z,t)dt
+\end{eqnarray}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+as the laser penertrate the could, the received signal at each sensor can
+ be simplified to be proportional to the intergration of concentration along
+ the line of laser.
+ Therefore, the received signal 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S(x,y)=\int_{-\infty}^{\infty}N(x,y,z)dz=\int_{-\infty}^{\infty}\int_{0}^{\infty}N(x,y,z,t)dtdz
+\]
+
+\end_inset
+
+since the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\int_{-\infty}^{\infty}\int_{0}^{\infty}\left|N(x,y,z,t)\right|dtdz<\infty$
+\end_inset
+
+, the intergrations can be swaped.
+ thus, we have 
+\begin_inset Formula 
+\[
+\int_{-\infty}^{\infty}\int_{0}^{\infty}N(x,y,z,t)dtdz=\int_{0}^{\infty}\int_{-\infty}^{\infty}N(x,y,z,t)dzdt
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+S(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot K_{0}\left(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $K_{0}(z)$
+\end_inset
+
+ is the special case of modified Bessel function of the second kind 
+\begin_inset Formula $K_{n}(z)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $K_{0}(z)$
+\end_inset
+
+ is simplified to 
+\begin_inset Formula 
+\[
+K_{0}(z)=\int_{0}^{\infty}\mbox{cos}(z\cdot\mbox{sinh}t)dt=\int_{0}^{\infty}\frac{\mbox{cos}(z\cdot t)}{\sqrt{t^{2}+1}}dt
+\]
+
+\end_inset
+
+Therefore, the finial model of concentration at point 
+\begin_inset Formula $\left(x,y\right)$
+\end_inset
+
+ can be given by 
+\begin_inset Formula 
+\[
+N(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot\int_{0}^{\infty}\frac{1}{\sqrt{t^{2}+1}}\mbox{cos}(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\cdot t)dt
+\]
+
+\end_inset
+
+The concentration distribution is shown in Figure.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:2-D-Gaussian-Plume"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/GaussianPlumeModel/Plume_2D.eps
+	lyxscale 50
+	height 6cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:2-D-Gaussian-Plume"
+
+\end_inset
+
+2-D Gaussian Plume Model (modified for laser detection)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Simulated Cloud by fluid dynamics
+\end_layout
+
+\begin_layout Standard
+The Gaussian plume model can describe the mean value of the cloud concentration
+ at any position in the plume, but it can not describe the cloud concentration
+ variance.
+ With the help of 3D fluid simulation, a cloud could be more like real while
+ fluid dynamics and wind turbulence is considered.
+ And this kind of model is simulated to generate a amount of cloud plumes.
+ The data is used in the distributed cloud detection to training the sensor
+ networks.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Smoke Sequance.png
+	lyxscale 50
+	width 16cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cloud-simulation-frame"
+
+\end_inset
+
+Cloud simulation frame sequence, 
+\begin_inset Formula $192\times256$
+\end_inset
+
+ pixels for each frame
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As shown in the Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frame-projection"
+
+\end_inset
+
+, the frame image is obtained by taking integration of the 3D raw data over
+ z-dimension.
+ This is similar to the effect of laser beam penetrating through cloud.
+ The received light magnitude is the integration of backscatter along the
+ laser beam.
+ Therefore, pixels value in the frame image is proportional to the magnitude
+ of sensor observation.
+ In this simulation, they are treated as equal.
+ After the integration, the pixel values in these frames is normalized by
+ dividing them with the maximum pixel value in these frames.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/SmokeProject/SmokeProjection_PhS.pdf
+	lyxscale 80
+	width 8cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Frame-projection"
+
+\end_inset
+
+Relationship between 3D cloud concentration and Sensor's observation.
+ Frame images are obtained by 3D raw data projection 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Received-Signal'-Model"
+
+\end_inset
+
+Received Signal' Model 
+\end_layout
+
+\begin_layout Standard
+Due to the background radiation and moving objects in the sky, the received
+ signal in sensor have multiple average strength and variance when only
+ interference exists.
+ The solution is training sensors to build the Gaussian mixture model, which
+ is a very successful tool in modeling the background noise 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stauffer1999"
+
+\end_inset
+
+.
+ To build the Gaussian mixture model, the recent history of a sensor's detection
+ values is stored.
+ Then, Expectation-Maximization(EM) algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moon1996"
+
+\end_inset
+
+ can be adopted.
+ The model can also be adaptive to track the background changes.
+ 
+\end_layout
+
+\begin_layout Standard
+Suppose the recent history of a sensor's detections, are given by 
+\begin_inset Formula $\left\{ x_{1},\ldots,x_{t}\right\} $
+\end_inset
+
+, which is modeled by a mixture of 
+\begin_inset Formula $K$
+\end_inset
+
+ Gaussian distributions.
+ The probability density function of observing a detection value is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f(x_{t})=\sum_{i=1}^{K}\omega_{i,t}*\eta(\mathbf{x}_{t},\mu_{i,t},\Sigma_{i,t})
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $K$
+\end_inset
+
+ is the number of distributions, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\omega_{i,t}$
+\end_inset
+
+ is the weight of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ Gaussian in the mixture at time 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_{i,t}$
+\end_inset
+
+ is the mean value of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ Gaussian in the mixture at time 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $\Sigma_{i,t}$
+\end_inset
+
+ is the covariance matrix of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ Gaussian in the mixture at time 
+\begin_inset Formula $t$
+\end_inset
+
+ , and 
+\begin_inset Formula $\eta$
+\end_inset
+
+ is a Gaussian probability density function given by
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\eta(\mathbf{x}_{t},\mu_{i,t},\Sigma_{i,t})=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}\left|\Sigma\right|^{\frac{1}{2}}}\cdot e^{-\frac{1}{2}\left(\mathbf{x}_{t}-\mu_{t}\right)^{\mathrm{T}}\Sigma^{-1}\left(\mathbf{x}_{t}-\mu_{t}\right)},
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+Thus, the distribution of recent detection values are modeled by a mixture
+ of Gaussian distribution.
+ The recent detections are classified in 
+\begin_inset Formula $K$
+\end_inset
+
+ categories.
+ For the background model, all categories correspond to background noise.
+ When a new detection comes, generally it will be matched to one of the
+ major components of the model and was used to update the background model.
+ If a group of adjacent sensors having detections do not match any categories
+ of background model, it is more likely the cloud exists.
+ 
+\end_layout
+
+\begin_layout Standard
+Similarly, EM algorithm could also build the Gaussian mixture model for
+ the observing when cloud exists.
+ In this case, one or more categories will correspond to the detection mainly
+ raised by clouds reflection.
+ If a group of adjacent sensors having detections match the categories of
+ cloud, it is more likely the cloud exists.
+ 
+\end_layout
+
+\begin_layout Standard
+Once the probability density function (PDF) for background and cloud reflection
+ signals are available, the hypothesis test of cloud existence is made based
+ on the observation.
+ Normally, this is done by gathering all the data and taking the log likelihood
+ ratio(LLR) in the fusion center.
+ In section III-C, distributed consensus algorithm is adopted to find the
+ LLR, without data gathering or fusion center.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Distributed-Cloud-Declaration"
+
+\end_inset
+
+Distributed Cloud Detection Based on DAC algorithm
+\end_layout
+
+\begin_layout Standard
+The method is organized in two stage, training and detection.
+ The training stage is to build the probability density function (PDF) for
+ background and cloud reflection signals.
+ Because, cloud declaration is normally made through a hypothesis test,
+ which need the PDF and all the sensor detections.
+ Sometime, these data is gathered to the fusion center to perform the data
+ processing.
+ After the learning process, each sensor could build a Gaussian mixture
+ model of their own observation.
+\end_layout
+
+\begin_layout Standard
+In the detection stage, when a new observation comes, the decision of cloud
+ existence is made base on the ML or MAP decision rule.
+ They can achieve this distributively without a fusion center, by assuming
+ that sensors observation is independent.
+ Calculating 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $LLR(\mathbf{x})$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is accomplished the DCA iteration where all the sensors update their local
+ LLR (which is calculated individually) unitl they converges to a common
+ value.
+ In section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Distributed-Cloud-Declaration"
+
+\end_inset
+
+, it showns the condition of caculating LLR by distributed consensus algorithm
+ without the fusion center.
+ After the algorithm converges, the global LLR is obtianed by multiply the
+ average local LLRs with the number of sensors in the network.
+\end_layout
+
+\begin_layout Standard
+As we know, the cloud concentration variation is caused by turbulence flow,
+ which is a random process which brings the cloud particles more far away
+ than the molecular motion.
+ Because of this reason, the cloud concentration at a given position and
+ the associated sensor's detection is a random process.
+ 
+\end_layout
+
+\begin_layout Standard
+Suppose the sensor's observation has the following form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x_{l}=\begin{cases}
+\mu_{l,0}+n_{l,0} & \mbox{if no cloud exists}\\
+\mu_{l,1}+n_{l,1} & \mbox{if cloud exists}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mu_{l,m}$
+\end_inset
+
+ is 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+the mean value of 
+\begin_inset Formula $x_{l}$
+\end_inset
+
+ depending on hypothesis 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{l,m}$
+\end_inset
+
+ is the noise of 
+\begin_inset Formula $x_{l}$
+\end_inset
+
+ depending on hypothesis 
+\begin_inset Formula $m$
+\end_inset
+
+.
+ Actually, 
+\begin_inset Formula $u_{l,0}$
+\end_inset
+
+and 
+\begin_inset Formula $n_{l,0}$
+\end_inset
+
+ denote the mean and variation of background noise.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mu_{l,1}=\mu_{l,0}+u_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $n_{l,1}=n_{l,0}+n_{t}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ , 
+\begin_inset Formula $u_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+ denote the mean and variation of cloud concentration.
+ 
+\end_layout
+
+\begin_layout Standard
+If the observation of all sensors is available (for example, gathered by
+ a fusion center), the global log likelihood ratio (G-LLR ) is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+LLR(x_{1},...,x_{L})=log\frac{f\left(x_{1},...,x_{L}|H_{1}\right)}{f\left(x_{1},...,x_{L}|H_{0}\right)}\label{eq:G-LLR define}
+\end{equation}
+
+\end_inset
+
+where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is the likelihood function of 
+\begin_inset Formula $H_{m}$
+\end_inset
+
+ .
+ Let 
+\begin_inset Formula 
+\[
+\mathbf{x}=\left[x_{1},\ldots,x_{L}\right]^{\mathrm{T}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{n}_{m}=\left[n_{1,m},\ldots,n_{L,m}\right]^{\mathrm{T}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{u}_{m}=\left[\mu_{1,m},\ldots,\mu_{L,m}\right]^{\mathrm{T}},\; m=0,1.
+\end{equation}
+
+\end_inset
+
+ if 
+\begin_inset Formula $\mathbf{n}_{m}\sim\mathcal{N}\left(0,\Sigma_{m}\right)$
+\end_inset
+
+, G-LLR becomes, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+LLR(\mathbf{x}) & = & -\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{1}\right)^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\left(\mathbf{x}-\mathbf{u}_{1}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{0}\right)^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\left(\mathbf{x}-\mathbf{u}_{0}\right)+\frac{1}{2}log\left(\frac{\left|\Sigma_{0}\right|}{\left|\Sigma_{1}\right|}\right)\nonumber \\
+ & = & \left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)x+\frac{1}{2}\left[log\left|\Sigma_{0}\right|-log\left|\Sigma_{1}\right|\right]\label{eq:G-LLR Expand}\\
+ &  & -\frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right]\nonumber \\
+ & = & \sum_{l=1}^{L}w_{l}x_{l}+C-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right],\label{eq:G-LLR simple}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $w_{l}$
+\end_inset
+
+ denotes the 
+\begin_inset Formula $l\mbox{th}$
+\end_inset
+
+ component of 
+\begin_inset Formula $\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}$
+\end_inset
+
+, and 
+\begin_inset Formula $C=\frac{1}{2}\left[log\left(\left|\Sigma_{0}\right|\right)-log(\left|\Sigma_{1}\right|)\right]-\frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+When no cloud exists, the sensor's observation is raised by atmospheric
+ backscatter and noise.
+ It is described by Gaussian distribution 
+\begin_inset Formula $\mathcal{N}\left(\mathbf{u}_{0},\Sigma_{0}\right)$
+\end_inset
+
+.
+ If these distributions are independent and identical, we have 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{\Sigma}_{0}=\sigma_{0}^{2}\mathbf{I}.
+\end{equation}
+
+\end_inset
+
+On the contrary, 
+\begin_inset Formula $\mathbf{\Sigma}_{1}$
+\end_inset
+
+ can't be written in the same form.
+ Because variance of cloud concentration may different from one sensor to
+ another.
+ In addition, sensor's observation are correlated, especially for the sensors
+ close to each other.
+ As shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GMM (x1,x2)"
+
+\end_inset
+
+, the correlation is obvious when sensor's observation is shifted with the
+ right time delay.
+ However, if the training data are available, 
+\begin_inset Formula $\mathbf{\Sigma}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{u}_{1}$
+\end_inset
+
+ can be obtained by expectation-maximization (EM) algorithm.
+ This is more related to sensor learning.
+ In real sensing area, sensors should need to learn their environments and
+ get these parameters updated and tracked.
+ 
+\end_layout
+
+\begin_layout Standard
+In a network without fusion center, it is desirable to find the 
+\begin_inset Formula $LLR(\mathbf{x})$
+\end_inset
+
+ in a distributed manner by distributed consensus algorithm (DCA).
+ Some properties of DCA should emphasize here.
+ First values can only be exchanged between neighbors.
+ Second, DCA is a tool to find the average of the local values that initially
+ hold by all the nodes in the networks.
+ 
+\end_layout
+
+\begin_layout Standard
+The quadratic form in Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:G-LLR simple"
+
+\end_inset
+
+ contains high order components of 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+.
+ On the other hand, without global information, it seems not possible to
+ calculate 
+\begin_inset Formula $\mathbf{\Sigma}_{1}^{-1}$
+\end_inset
+
+ in in a distributed manner.
+ Both make it is impossible for DCA to calculate 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $LLR(\mathbf{x})$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+.
+ So sensors can only build the Gaussian mixture model separately.
+ Thus, the observation of sensors is assume to be independent from on to
+ another.
+ 
+\end_layout
+
+\begin_layout Standard
+To drive the algorithm, assume 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Sigma_{1}=diag\left(\sigma_{1,1}^{2},\sigma_{2,1}^{2},\ldots,\sigma_{L,1}^{2}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\Sigma_{0}=\sigma_{0}^{2}\mathbf{I}$
+\end_inset
+
+, 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+the Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:G-LLR Expand"
+
+\end_inset
+
+ evolves into
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+LLR(\mathbf{x}) & = & log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)}{f\left(x_{1}|H_{0}\right)\cdot\ldots\cdot f\left(x_{L}|H_{0}\right)}=\sum_{i=1}^{L}LLR\left(x_{i}\right)\label{eq:Sum L-LLR}
+\end{eqnarray}
+
+\end_inset
+
+According to Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Sum L-LLR"
+
+\end_inset
+
+, the G-LLR is equal to the average multiply with the number of sensors
+ in the network.
+ That means, the sensor network can adopt DCA to calculate the G-LLR.
+ This is accomplished by updating local LLR (L-LLR) that initially calculate
+ by each sensor in the DCA iterations.
+ After the algorithm converges, cloud declaration could be made based on
+ the ML or MAP decision rule.
+\end_layout
+
+\begin_layout Standard
+However, the assumption that correlation only exist between sensors located
+ very close to each other makes a difference.
+ It is possible to calculate the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $LLR(\mathbf{x})$
+\end_inset
+
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+in Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Sum L-LLR"
+
+\end_inset
+
+ using DCA.
+ As each node only stores the coefficient 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+corresponding to itself.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+When signal are correlated, we make approximation that 
+\begin_inset Formula $c_{ij}=0,$
+\end_inset
+
+ if node 
+\begin_inset Formula $i$
+\end_inset
+
+ and node 
+\begin_inset Formula $j$
+\end_inset
+
+ are not neighbors.
+ So in the term, 
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{2}\sum_{i=1}^{L}\sum_{j=1}^{L}c_{ij}x_{i}x_{j}\label{eq:Term x_i*x_j}
+\end{equation}
+
+\end_inset
+
+we can find the value of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Term x_i*x_j"
+
+\end_inset
+
+ by the following algorithm:
+\end_layout
+
+\begin_layout Standard
+Assume for all node 
+\begin_inset Formula $i$
+\end_inset
+
+ have the value 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{ij}$
+\end_inset
+
+.
+ As we know the matrix is symmetric and the entries 
+\begin_inset Formula $c_{ij}=c_{ji}$
+\end_inset
+
+.
+ For node 
+\begin_inset Formula $i$
+\end_inset
+
+ do send 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ and receive 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ for all node 
+\begin_inset Formula $j$
+\end_inset
+
+ in the neighbors set 
+\begin_inset Formula ${\cal N}_{i}$
+\end_inset
+
+.
+ Compute the value 
+\begin_inset Formula 
+\begin{equation}
+v_{i}=\sum_{j\in{\cal N}_{i}}c_{ij}x_{i}x_{j}+c_{ii}x_{i}^{2}
+\end{equation}
+
+\end_inset
+
+and use it to initilize the DCA.
+ The average value 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\bar{v}=\frac{1}{L}\sum_{i=1}^{L}v_{i}$
+\end_inset
+
+ for each node when DCA converges.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ Similar algorithm is used to find 
+\begin_inset Formula $\sum_{l=1}^{L}w_{l}x_{l}$
+\end_inset
+
+, therefore the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $LLR(\mathbf{x})$
+\end_inset
+
+ is available to each node in the network.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subsection
+Simulation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Simulation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The distributed cloud detection simulation consists of two stages, training
+ and detection.
+ In the training stage, sensors are trained to build the Gaussian mixture
+ models, which are important to calculate the L-LLR.
+ After the training, when a new observation comes, all sensors calculated
+ the L-LLRs and take them into DCA iteration to obtain G-LLR.
+ The decision of cloud existence could be made distributively once the algorithm
+ converges.
+ 
+\end_layout
+
+\begin_layout Standard
+With the help of 3D fluid simulation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "He2011"
+
+\end_inset
+
+, a cloud could be more like real while fluid dynamics and wind turbulence
+ is considered.
+ A cloud animation is simulated to generate a bunch of cloud plumes.
+ If we observing the cloud for a long time and take the average, the result
+ is Gaussian plume model.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Mlti_Obs/SensorObs3.pdf
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sensor's obs"
+
+\end_inset
+
+Sensor's observation impaired by Gaussian white noise
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The cloud animation is simulated several times to generate enough data,
+ which is divided into two group for both training and testing of system
+ performance.
+ Because the turbulence flow is a random process, the data generated each
+ time is different with the others in the cloud concentration distribution,
+ as well as the cloud particles moving track.
+ This provides a very practical testing environment for the system.
+ 
+\end_layout
+
+\begin_layout Standard
+Some other consideration for this simulation is that sensors are randomly
+ distributed in the sensing area and sensor's detections are impaired by
+ Gaussian white noise, which will be introduced in the following.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Sensor's Observation 
+\end_layout
+
+\begin_layout Standard
+Gaussian white noise impaired the received signal when sensor observing
+ the cloud concentration.
+ And the source of noise includes: (i) the external noise, arising from
+ the incidence of radiation at the detector both from laser scattering and
+ from the background; and (ii) the internal noise, arising from fluctuations
+ in the detector dark current and thermal noise in the detector load resistor
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "P.M.Hamilton1969"
+
+\end_inset
+
+.
+ These noise is additive, and the overall noise is treated as a Gaussian
+ white noise denoted by 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mathcal{N}\left(u_{0},\sigma_{0}\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+.
+ In this simulation, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+these parameters are chosen as 
+\begin_inset Formula $u_{0}=0.3$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{0}=0.1$
+\end_inset
+
+, shown in Fig
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sensor's obs"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Again, sensors are randomly distributed in the sensing area with the uniform
+ distribution.
+ The sensing area in this simulation is defined by pixels in the frame which
+ has 
+\begin_inset Formula $x>D$
+\end_inset
+
+, where 
+\begin_inset Formula $D$
+\end_inset
+
+ is the distance from the cloud source on the downwind direction.
+ After they are distributed, to get ready for the DCA algorithm, all the
+ nodes will automatically find its neighbors and obtain a network.
+ Using DCA algorithm is to obtain G-LLR without copy L-LLRs to all sensor
+ nodes in the network.
+ Once the G-LLR is available, cloud declaration could be made base on the
+ ML or MAP decision rule.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Mlti_Obs/Sensor_LLR_Obs.pdf
+	width 16cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Global-LLR-and"
+
+\end_inset
+
+(upper) Global LLR vs.
+ Local LLR and (down) Sensor Observation (Only frame 40 to 80 is shown)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we give an example, three sensors are distributed as shown in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sensor's obs"
+
+\end_inset
+
+.
+ They build Gaussian mixture models by processing the training data.
+ Here we choose 
+\begin_inset Formula $K=1$
+\end_inset
+
+.
+ It can be 
+\begin_inset Formula $2$
+\end_inset
+
+ or more, depends on how many components of the noise in the environment.
+ Then, the testing data which generated by another cloud animation is passing
+ through all the sensors frame by frame.
+ As shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Global-LLR-and"
+
+\end_inset
+
+, L-LLRs for the two sensors and G-LLR is given.
+ Before frame 47, all the sensor has no contact with cloud, and only noise
+ are presented in each sensor.
+ Only after sensor 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ has its cloud contact, G-LLR raise to the first stage.
+ After 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ has its contact of cloud at frame 63, the G-LLR increased to an even high
+ level, which is strong evidence of the cloud existence.
+ Because 
+\begin_inset Formula $S_{3}$
+\end_inset
+
+ had no chance to contact with the cloud, its L-LLR is actually less sensitive
+ to the sensors signal.
+ Thus, its L-LLR has very low contribution to the G-LLR.
+ 
+\end_layout
+
+\begin_layout Standard
+Another interesting thing is that, if two sensors 
+\begin_inset Formula $S1$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $S2$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ are put close to each other, especially when they are very nearly located
+ on the cloud particle's moving path, their observation have high correlation.
+ For example in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sensor's obs"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GMM (x1,x2)"
+
+\end_inset
+
+.
+ The time delay 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is simply calculated by local wind velocity and sensor’s distance.
+ The cross-correlation can be another feature of the moving cloud.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Mlti_Obs/Two Sensors' Correlation.eps
+	lyxscale 60
+	width 8cm
+	height 6cm
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:GMM (x1,x2)"
+
+\end_inset
+
+The distribution of tuples 
+\begin_inset Formula $[x_{1}(t),x_{2}(t-\tau)]$
+\end_inset
+
+, 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is the time delay 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Mlti_Obs/Two Sensors' Obs.eps
+	lyxscale 60
+	width 8cm
+	height 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Two-Obs."
+
+\end_inset
+
+Two sensors observation 
+\begin_inset Formula $x_{1}(t),x_{2}(t)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sensor's observation of background noise and cloud backscatters 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Performance of Cloud Detection Sensor Network
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/ROC/ROC_mix_RandPos_256x192.pdf
+	width 8cm
+	height 7cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ROC-of-CDWSN"
+
+\end_inset
+
+Detection relative operating characteristic for different sensors numbers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Simulation is running for hundreds of times to give the average performance
+ for different number of sensors in the network.
+ The sensor's positions are chosen randomly in the area where 
+\begin_inset Formula $x>128$
+\end_inset
+
+, The Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ROC-of-CDWSN"
+
+\end_inset
+
+ gives the relative operating characteristic (Also known as a ROC curve)
+ of the detection system with different sensors numbers.
+ The curve is represented by plotting the fraction of true detection out
+ of the cloud exist vs.
+ the fraction of false alarm out of the cloud not exist.
+ When there is only one sensor is operation, a special case is that the
+ position is chosen by hand to make sure the sensor can contact with the
+ cloud plume.
+ With this assurance, the one sensor detecting system could have performance
+ close to the three sensor detecting system randomly distributed.
+ The advantage of using distributed detection with multiple sensors is obvious.
+ As the detecting system with more sensors is more reliable to noise which
+ leads to a higher performance.
+ 
+\end_layout
+
+\begin_layout Subsection
+Conclusion
+\end_layout
+
+\begin_layout Standard
+The simulation of multiple observation shows that the detections of sensors
+ are correlated when they are located in short distance.
+ The correlation can be an indicate of the cloud plume.
+ Because Gaussian noise or Moving object cause very low correlation between
+ sensors.
+ If this can be recognized, it will not likely to raise the false alarm.
+ In the noisy environment, sensors will adopt the expectation-maximization
+ algorithm to build the model of background noise and cloud backscatter.
+ By assume that sensors observation is independent, the global log likelihood
+ ratio is the average of local log likelihood ratio.
+ Therefore, global log likelihood ratio can be calculated by distributed
+ consensus algorithm, where each sensor take local log likelihood ratio
+ into the DCA iteration.
+ Once the algorithm converges, the global log likelihood ratio is available
+ to each sensor.
+ The cloud deceleration could be made distributively based on the ML or
+ MAP decision rule.
+ 
+\end_layout
+
+\begin_layout Subsection
+Further Research
+\end_layout
+
+\begin_layout Standard
+In the future research, the parameters of the plume are treated as random.
+ Therefore, sensors should be able to estimate these parameters from their
+ observation.
+ Gaussian plume model can only describe the mean value of a cloud plume.
+ So a modified Gaussian plume model should be developed.
+ The correlation can be an indicate of the cloud plume and will be considered
+ in further research to improve the performance.
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Section
+Acknowledgement
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "D:/Dropbox/Citation_DS/EigenValueEstimation,D:/Dropbox/Citation_DS/DistributedConsensus,D:/Dropbox/Citation_DS/Consensus_Finte-Time,D:/Dropbox/Citation_DS/Consensus&Filter,D:/Dropbox/Citation_DS/WirelessSensorNetwork,D:/Dropbox/Citation_DS/SmokeAnimation,D:/Dropbox/Citation_DS/Smoke_Gas_Detection,D:/Dropbox/Citation_DS/PlumeDetection,D:/Dropbox/Citation_DS/GaussianPlumeModel,D:/Dropbox/Citation_DS/DataFusion,D:/Dropbox/Citation_DS/CloudDetection,D:/Dropbox/Citation_DS/Lidar"
+options "IEEEtran"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,1734 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\options onecolumn,12pt,A4paper
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-sec
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman cmr
+\font_sans default
+\font_typewriter default
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Finite-Time-Distributed-Consensu"
+
+\end_inset
+
+Finite-Time Distributed Consensus Algorithm
+\end_layout
+
+\begin_layout Standard
+Finite-Time Distributed Consensus Algorithm (FT-DCA) tries to find the consensus
+ value after each node run the FO-DCA algorithm iteratively for a certain
+ number of time.
+ This is based on the assumption that after a certain number of iterations,
+ local values would contain sufficient information to estimate the consensus
+ value.
+ (OK2.5)
+\end_layout
+
+\begin_layout Definition
+Given the network 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+, and initial local value vector 
+\begin_inset Formula $\mathbf{x}\left(0\right)$
+\end_inset
+
+, it is said the algorithm achieves a finite-time consensus if it solve
+ a consensus problem, and there exist a time 
+\begin_inset Formula $t^{*}$
+\end_inset
+
+ and the consensus value 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ such that 
+\begin_inset Formula $x_{i}\left(t\right)=\bar{x}$
+\end_inset
+
+, for all time 
+\begin_inset Formula $t>t^{*}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Motivated by the works in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+, we try to decompose the local value vector in a form which reveals an
+ important property of its iteration.
+ Therefore we propose a filtering technique to estimate the consensus value.
+ (OK 3) 
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Find-the-Consensus"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Local-Value-Decomposition"
+
+\end_inset
+
+Find the Consensus Value by Linear Filter
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+In the network that adopts first order linear consensus algorithm, each
+ node has a number of consecutive local values
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ obtained by Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1st iter. ni"
+
+\end_inset
+
+.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+There exists a linear filter.
+ If each node passes its 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+consecutive
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ local values through this
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ filter, the output after a certain time is the global average of the initial
+ values over the network.
+ Compared to first order DCA algorithm, no more information exchanged between
+ nodes is needed.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Such a filter is defined as the 
+\family default
+\series default
+\shape italic
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+consensus finding filter
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm.A-consensus-finding"
+
+\end_inset
+
+There exists a linear filter defined by 
+\begin_inset Formula $\mathbf{h}\in R^{d}$
+\end_inset
+
+, such that by passing through local values 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+obtained by Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1st iter. ni"
+
+\end_inset
+
+, 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+the output 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\hat{x}_{i}(k)=\mathbf{h}(k)*x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is the consensus value 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\overline{x}=\frac{1}{n}\sum_{i=1}^{n}x_{i}(0)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ of the network after 
+\begin_inset Formula $k$
+\end_inset
+
+ step 
+\begin_inset Formula $\left(k\geqslant m\right)$
+\end_inset
+
+, where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $m$
+\end_inset
+
+ is the number of
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ distinct and nonzero eigenvalues of the weight matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $W$
+\end_inset
+
+ satisfies the convergence condition
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:convege condition W"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+To avoid complicate analysis, suppose an undirected network with 
+\begin_inset Formula $n$
+\end_inset
+
+ nodes, where duplex communication is possible in each link.
+ Therefore, the associated weight matrix 
+\begin_inset Formula $W\in\mathbf{R}^{n\times n}$
+\end_inset
+
+ is symmetric and diagonalizable.
+ W Thus, there are 
+\begin_inset Formula $n$
+\end_inset
+
+ linear independent eigenvectors of the weight matrix.
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\strikeout off
+\uuline off
+\uwave off
+Let 
+\begin_inset Formula $\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+be the eigenvectors of 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula $\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ be the associated eigenvalues.
+ They are ordered so that 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula $1=\left|\lambda_{1}\right|\geq\left|\lambda_{2}\right|\geq\ldots\geq\left|\lambda_{n}\right|$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+.
+ 
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+ is called the dominant eigenvalue and 
+\begin_inset Formula $\mathbf{e}_{1}$
+\end_inset
+
+ is associated dominant eigenvector.Since all the eigenvectors consist a
+ basis of 
+\begin_inset Formula $\mathbf{R}^{n}$
+\end_inset
+
+, any initial value vector can be written in a linear combination of these
+ eigenvectors, 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}\left(0\right)=\alpha_{1}\mathbf{e}_{1}+\alpha_{2}\mathbf{e}_{2}+\ldots+\alpha_{n}\mathbf{e}_{n}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha_{i}(i=1,2,\ldots,n)$
+\end_inset
+
+ is the coefficient.
+ For 
+\begin_inset Formula $k=1,2,3,...$
+\end_inset
+
+ we have
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{eqnarray}
+\mathbf{x}\left(k\right) & = & W^{k}\left[\alpha_{1}\mathbf{e}_{1}+\alpha_{2}\mathbf{e}_{2}+\ldots+\alpha_{n}\mathbf{e}_{n}\right]\nonumber \\
+ & = & \alpha_{1}\lambda_{1}^{k}\mathbf{e}_{1}+\alpha_{2}\lambda_{2}^{k}\mathbf{e}_{2}+\ldots+\alpha_{n}\lambda_{n}^{k}\mathbf{e}_{n}\label{eq:x(k) decomposition}\\
+ & = & \sum_{i=1}^{n}\alpha_{i}\lambda_{i}^{k}\mathbf{e}_{i}\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+ is the eigenvalue of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $W$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+By rewriting 
+\begin_inset Formula $\mathbf{x}\left(k\right)$
+\end_inset
+
+, it is clear that if all eigenvalues of the weight matrix are known, the
+ node values vector
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ is predictable and the consensus value can be found
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+.
+ For any node 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $i=1,2,\ldots n$
+\end_inset
+
+, its local value at time 
+\begin_inset Formula $k$
+\end_inset
+
+ can be written as
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\begin_inset Formula 
+\begin{equation}
+x_{i}\left(k\right)=\alpha_{1}\lambda_{1}^{k}e_{i1}+\alpha_{2}\lambda_{2}^{k}e_{i2}+\ldots+\alpha_{n}\lambda_{n}^{k}e_{in}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+where 
+\begin_inset Formula $e_{ij}$
+\end_inset
+
+ is the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ component of eigenvector 
+\begin_inset Formula $\mathbf{e}_{j}$
+\end_inset
+
+.
+ Because of algebraic multiplicity of some eigenvalues, the equation can
+ be modified by combining the terms with the same eigenvalues.
+ Zero eigenvalues are ignored as they have no contribution in this equation.
+ Suppose 
+\begin_inset Formula $W$
+\end_inset
+
+ has 
+\begin_inset Formula $m$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ distinct and nonzero eigenvalues, denoted by 
+\begin_inset Formula $\lambda_{1},\lambda_{2},\ldots,\lambda_{m}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+, then 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ evolves into
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\begin_inset Formula 
+\begin{equation}
+x_{i}\left(k\right)=\beta_{i1}\lambda_{1}^{k}+\beta_{i2}\lambda_{2}^{k}+\ldots+\beta_{im}\lambda_{m}^{k}
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+where
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+ is the coefficient after combination.
+ 
+\end_layout
+
+\begin_layout Proof
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Let the sample vector 
+\begin_inset Formula $\mathbf{y}_{i}(k,d)\in R^{d}$
+\end_inset
+
+ is defined by the history of 
+\begin_inset Formula $x_{i}(k),$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\left[x_{i}(k),x_{i}(k-1),\ldots x_{i}(k-d+1)\right]^{\mathrm{T}}\label{eq:def. y(k,m)}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+and the Vandermonde matrix whose entries are the power of eigenvalues
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{equation}
+\mathbf{V}(k,d)=\left[\begin{array}{cccc}
+\lambda_{1}^{k} & \lambda_{2}^{k} & \cdots & \lambda_{m}^{k}\\
+\lambda_{1}^{k-1} & \lambda_{2}^{k-1} & \cdots & \lambda_{m}^{k-1}\\
+\vdots & \vdots & \ddots & \vdots\\
+\lambda_{1}^{k-d+1} & \lambda_{2}^{k-d+1} & \cdots & \lambda_{m}^{k-d+1}
+\end{array}\right]\label{eq:def. Lamda(k,m)}
+\end{equation}
+
+\end_inset
+
+and 
+\begin_inset Formula $\mathbf{b}_{i}\left(d\right)=\left[\beta_{i1},\beta_{i2},\cdots\beta_{id}\right]^{\mathrm{T}}$
+\end_inset
+
+, then we have the following equation satisfied
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\mathbf{V}(k,d)\mathbf{b}_{i}\left(d\right)\label{eq:Vander matrix and consensus-d*m}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+To obtain the consensus value 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ for node 
+\begin_inset Formula $i$
+\end_inset
+
+,
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ we need to take sufficient samples of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+and solve Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Vander matrix and consensus-d*m"
+
+\end_inset
+
+, where 
+\begin_inset Formula $d$
+\end_inset
+
+ should at least equal or larger than
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\begin_inset Formula $m$
+\end_inset
+
+
+\series default
+, which is the number of distinct and nonzero eigenvalues of weight matrix
+ 
+\begin_inset Formula $W$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Let 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula $A(k,m)=\mathbf{V}^{-1}(k,m)$
+\end_inset
+
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+and
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ the first row of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $A(k,m)$
+\end_inset
+
+ is given by
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula 
+\begin{equation}
+\mathbf{h}=\left[A_{11}(k,m),A_{12}(k,m),\ldots,A_{1m}(k,m)\right]^{\mathrm{T}}
+\end{equation}
+
+\end_inset
+
+ we have 
+\end_layout
+
+\begin_layout Proof
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\beta_{i1}=\mathbf{h}^{\mathrm{T}}\mathbf{y}_{i}(k,m)\label{eq:Find Consensus m order}
+\end{equation}
+
+\end_inset
+
+ Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Find Consensus m order"
+
+\end_inset
+
+ shows that the consensus value can be calculated 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+by the filter defined in Def.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm.A-consensus-finding"
+
+\end_inset
+
+.
+ This ends the proof.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+It is worth noting that Vandermonde matrix is related to a polynomial interpolat
+ion problem and can be easily inverted in terms of Lagrange basis polynomials
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Prass2007"
+
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ Due to this reason, this method can be treated as an extrapolation method
+ which find the consensus value at infinity.
+ At the same time, we only need to find out the first coefficient 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\beta_{i1}$
+\end_inset
+
+ in the distributed averaging.
+ Therefore, 
+\strikeout default
+\uuline default
+\uwave default
+only the elements in the corresponding row of 
+\strikeout off
+\uuline off
+\uwave off
+
+\begin_inset Formula $\mathbf{V}^{-1}(k,m)$
+\end_inset
+
+
+\strikeout default
+\uuline default
+\uwave default
+ need to be found.
+ This approach can save lots of computation time in the inverting of Vandermonde
+ matrix.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Since 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+simulation result shows that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{h}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is only depends the associated Vandermonde matrix
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\begin_inset Formula $\mathbf{V}(k,m)$
+\end_inset
+
+ which is 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+independent of the nodes initial values and time index 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ Therefore, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+each node in the network could find the consensus value at any time 
+\begin_inset Formula $k\geqslant m$
+\end_inset
+
+ by passing a number of consecutive local values through this filter.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ In addition, all nodes in this network may share the same filter, which
+ means all the filters have the same impulse response.
+ However, such a consensus finding filter it is not unique.
+ As an example, a number of filters which have different impulse response
+ or filter lengths are found by different samples 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+of 
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+.
+  Each node could choose its own, but filter length determines the how many
+ time-steps before a node could find 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+the consensus value.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Suppose we take 
+\begin_inset Formula $d$
+\end_inset
+
+ samples of 
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+, where 
+\begin_inset Formula $d>m$
+\end_inset
+
+.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+Because
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ the Vandermonde matrix 
+\begin_inset Formula $\mathbf{V}(k,d)\in R^{d\times m}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is non-square, we introduce the Moore-Penrose pseudo inverse to find the
+ least mean square solution.
+ 
+\end_layout
+
+\begin_layout Standard
+Let
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A(k,d)=\mathbf{V}^{+}(k,d)
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $^{+}$
+\end_inset
+
+ denote the Moore-Penrose pseudo inverse 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Piziak2007"
+
+\end_inset
+
+.
+ And
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ the first row of 
+\begin_inset Formula $A(k,d)$
+\end_inset
+
+ is given by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{h}'=\left[A{}_{11}(k,d),A_{12}(k,d),\ldots,A_{1d}(k,d)\right]^{\mathrm{T}}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Still, the value 
+\strikeout off
+\uuline off
+\uwave off
+
+\begin_inset Formula $\beta_{i1}=\mathbf{h}'^{\mathrm{T}}\mathbf{y}_{i}(k,m)$
+\end_inset
+
+ 
+\strikeout default
+\uuline default
+\uwave default
+is an accurate estimation of consensus value.
+ Therefore, another consensus finding filter is obtained.
+\end_layout
+
+\begin_layout Standard
+Due to the multiplication of the consensus finding filter, the set of filter
+ is defined by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H=\{\mathbf{h}\in R^{d}|\forall d\geqslant m,\:\mathbf{h}^{\mathrm{T}}\mathbf{y}_{i}(k,d)=\bar{x}\}
+\end{equation}
+
+\end_inset
+
+However, the shortest filter has its length equal to 
+\begin_inset Formula $m$
+\end_inset
+
+, which means node can only have the consensus value after 
+\begin_inset Formula $m$
+\end_inset
+
+ steps.
+ 
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Numerical-Simulation"
+
+\end_inset
+
+, the performance of this algorithm is shown by comparing it with the first
+ order DAC algorithm using optimal weight matrix in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subparagraph
+Inverse the Vandermonde matrix
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+The Vandermonde matrix has its application in some problems like polynomial
+ fitting, reconstruction of distributions from their moments, and so on.
+ Solving Vandermonde matrix is related to a polynomial interpolation problem
+ and can be easily inverted in terms of Lagrange basis polynomials.
+ It can be very difficult to invert in other way if the size of the matrix
+ is large, as the Vandermonde matrix is T is notoriously ill-conditioned
+ by its nature.
+ It is a good way to always work on the problems related to Vandermonde
+ matrix in double precision or higher.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $V_{m}$
+\end_inset
+
+ be the Vandermonde's matrix of order 
+\begin_inset Formula $m$
+\end_inset
+
+ given by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{m}=\left[\begin{array}{cccc}
+\lambda_{1} & \lambda_{2} & \cdots & \lambda_{m}\\
+\lambda_{1}^{2} & \lambda_{2}^{2} & \cdots & \lambda_{m}^{2}\\
+\vdots & \vdots & \ddots & \vdots\\
+\lambda_{1}^{m} & \lambda_{2}^{m} & \cdots & \lambda_{m}^{m}
+\end{array}\right]\label{eq:Vander Matrix}
+\end{equation}
+
+\end_inset
+
+Then the equation 
+\begin_inset Formula 
+\begin{equation}
+\left[\begin{array}{cccc}
+\lambda_{1} & \lambda_{2} & \cdots & \lambda_{m}\\
+\lambda_{1}^{2} & \lambda_{2}^{2} & \cdots & \lambda_{m}^{2}\\
+\vdots & \vdots & \ddots & \vdots\\
+\lambda_{1}^{m} & \lambda_{2}^{m} & \cdots & \lambda_{m}^{m}
+\end{array}\right]\left[\begin{array}{c}
+\beta_{1}\\
+\beta_{2}\\
+\vdots\\
+\beta_{m}
+\end{array}\right]=\left[\begin{array}{c}
+y_{1}\\
+y_{2}\\
+\vdots\\
+y_{m}
+\end{array}\right]\label{eq:Vander Eq.}
+\end{equation}
+
+\end_inset
+
+is related to the problem of moments: Given the values of all 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+, find the unknown coefficients 
+\begin_inset Formula $b_{i}$
+\end_inset
+
+, so that they match the given values 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ of the first 
+\begin_inset Formula $m$
+\end_inset
+
+ moments.
+ 
+\end_layout
+
+\begin_layout Standard
+Its inverse is closely related to Lagrange's polynomial interpolation formula.
+ 
+\end_layout
+
+\begin_layout Standard
+Let the polynomial of degree 
+\begin_inset Formula $m$
+\end_inset
+
+ defined by 
+\begin_inset Formula 
+\begin{equation}
+P_{j}\left(\lambda\right)=\prod_{\begin{array}{c}
+i=1\\
+i\neq j
+\end{array}}^{m}\frac{\lambda-\lambda_{i}}{\lambda_{j}-\lambda_{i}}=\sum_{k=1}^{m}b_{jk}\lambda^{k-1}\label{eq:Lagrange's polynomial}
+\end{equation}
+
+\end_inset
+
+The polynomial 
+\begin_inset Formula $P_{j}\left(\lambda\right)$
+\end_inset
+
+ a function of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ and is specially designed so that it is equal to zero at all 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+ except 
+\begin_inset Formula $i=j$
+\end_inset
+
+ and takes on a value of one at 
+\begin_inset Formula $\lambda=\lambda_{j}$
+\end_inset
+
+.
+ In other words, 
+\begin_inset Formula 
+\[
+P_{j}\left(\lambda_{i}\right)=\delta_{ij}=\sum_{k=1}^{m}b_{jk}\lambda_{i}^{k-1}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\delta_{ij}=1$
+\end_inset
+
+ when 
+\begin_inset Formula $i=j$
+\end_inset
+
+ .
+ The equation says that 
+\begin_inset Formula $b_{jk}$
+\end_inset
+
+ is exactly the inverse of the matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Vander Matrix"
+
+\end_inset
+
+, with the subscript 
+\begin_inset Formula $k$
+\end_inset
+
+ as the column index.
+ 
+\end_layout
+
+\begin_layout Standard
+To drive the analytical expression of 
+\begin_inset Formula $b_{jk}$
+\end_inset
+
+ and make it as easy as possible, let's define some intermediate result.
+ Define the polynomial 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $q_{j}\left(\lambda\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ and work out its coefficients
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+q_{j}\left(\lambda\right) & = & \frac{\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\right)}{\left(\lambda-\lambda_{j}\right)}=\prod_{i=1,i\neq j}^{m}\left(\lambda-\lambda_{i}\right)\label{eq:intermindia polynomial}\\
+ & = & c_{j,m}\lambda^{m-1}+c_{j,m-1}\lambda^{m-2}+\ldots+c_{j,2}\lambda+c_{j,1}\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+Examining the polynomial 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lagrange's polynomial"
+
+\end_inset
+
+ and polynomial 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:intermindia polynomial"
+
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{eqnarray*}
+b_{jk} & = & \frac{c_{j,m}}{q_{j}\left(\lambda_{j}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+Therefore, the solution of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Vander Eq."
+
+\end_inset
+
+ is just the inverse of Vandermonde matrix time the vector on the right.
+ 
+\begin_inset Formula 
+\[
+\beta_{j}=\sum_{k=1}^{m}b_{jk}y_{k}
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+If we only need to calculate the consensus value, as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Find-the-Consensus"
+
+\end_inset
+
+ only the 
+\strikeout default
+\uuline default
+\uwave default
+elements in the corresponding row of 
+\strikeout off
+\uuline off
+\uwave off
+inverse Vandermonde's matrix
+\strikeout default
+\uuline default
+\uwave default
+ need to be found.
+ The computation saving can be enormous by this approach.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_body
+\end_document

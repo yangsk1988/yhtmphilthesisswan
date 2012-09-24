@@ -1,0 +1,532 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-sec
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding ascii
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Consensus Algorithm and its Applications in Cloud Detection
+\end_layout
+
+\begin_layout Abstract
+Distributed Consensus algorithm (DCA) has application in data fusion in
+ wireless sensor networks and coordination of multi-agent system.
+ Some distributive signal processing based on consensus algorithm, such
+ as, local value linear prediction, information flooding and network eigenvalues
+ estimation, were introduced in this thesis.
+ Finally, a simulation of distributive cloud detection was given, in which
+ data acquired by sensor nodes is processed by distributed consensus algorithm.
+ A modification to the conventional consensus algorithm is also applied
+ to make it possible to find the global log likelihood ratio when signals
+ are correlated.
+\end_layout
+
+\begin_layout Abstract
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction 
+\end_layout
+
+\begin_layout Standard
+(todo 
+\end_layout
+
+\begin_layout Enumerate
+motivation of research 
+\end_layout
+
+\begin_layout Enumerate
+key contributions
+\end_layout
+
+\begin_layout Enumerate
+literature review (could be done as a separate chapter or integrated into
+ your research work
+\end_layout
+
+\begin_layout Enumerate
+research work
+\end_layout
+
+\begin_layout Enumerate
+conclusions)
+\end_layout
+
+\begin_layout Standard
+In a distributed system, processing information that originally and locally
+ acquired by the nodes is often necessary.
+ Centralized signal processing require a special node called fusion center,
+ which has to be involved if the signal processing is too complicate so
+ that it is not possible to find a distributive solution.
+ Fusion center is the most important node in the network that responsible
+ for data gathering and data processing.
+ However, once the fusion center is destroyed or failed, the whole network
+ breaks down.
+ In addition, limited energy is also a problem for WSN in centralized signal
+ processing because data gathering is a energy consuming process.
+ Also there is unbalance energy consumption between nodes with different
+ communication loads 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cristescu2004"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yuen2008"
+
+\end_inset
+
+.
+ In contrast, distributed signal processing involves multiple sensors date
+ fusion, can normally be more reliable than single sensor node detection
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chair1986"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kam1992"
+
+\end_inset
+
+.
+ Also the distributed signal processing has the advantages of reliability
+ to nodes failure or topology changes as well as balanced energy consumption.
+  
+\end_layout
+
+\begin_layout Standard
+Distributed Average Consensus (DAC) algorithm has received significant attention
+ recently because of its robustness and simplicity for processing distributed
+ information over networks.
+ It have applications in rendezvous, formation control, flocking, attitude
+ alignment and wireless sensor networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ren2007"
+
+\end_inset
+
+.
+ For these applications, reaching to an agreement among all the nodes in
+ a distributed network is often necessary.
+ There are many algorithms developed by now.
+ We discuss these DAC algorithms by mainly comparing the convergence rate
+ of them.
+ The agreement is achieved if local values of nodes converge to a common
+ value which is referred to as a consensus value.
+ 
+\end_layout
+
+\begin_layout Standard
+In conventional DAC algorithms, each node updates its local value repeatedly
+ as a weighted linear combination of its previous local value and those
+ from its neighbors.
+ The iteration is continued until all the local values converge to a global
+ average within a desired error level.
+ These methods are referred as asymptotic consensus in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+.
+ By introducing the associated network graph matrix, whose entries are the
+ corresponding weights assigned to the edges, the convergence rate of linear
+ DAC is determined by the spectral radius of the matrix.
+ Commonly, the edge weights are determined by degree of nodes and their
+ adjacent node's degrees so that the DAC algorithms would converge 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2009a"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+To find an algorithm that finds consensus value more quickly, a great deal
+ of research interest has been devoted to more sophisticated consensus algorithm
+s 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moreau2004"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Khan2010"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li2010"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+.
+ For the first order linear consensus algorithm, convergence rate is increased
+ by casting graph matrix spectral radius minimization problem as a convex
+ optimization problem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+, but solving such problem requires knowledge of the whole network topology.
+ Second order or high-order DAC can be introduced to improve the convergence
+ rate.
+ It also requires knowledge of network topology but only eigenvalues of
+ Laplacian matrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2009a"
+
+\end_inset
+
+, which only depends on the network graph and is very useful tool to analyze
+ the convergence rate.
+ Because of the properties of the Laplacian matrix, its first smallest eigenvalu
+e is always zero and the second smallest eigenvalue (called the algebraic
+ connectivity of the graph, or denoted as the Fiedler eigenvalue) is equal
+ to zero if and only if the graph is not connected 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MiroslavFiedler1973"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Russell1994"
+
+\end_inset
+
+.
+ Theoretically, higher order algorithm will potentially have a higher convergenc
+e rate.
+
+\series bold
+ 
+\series default
+However, there are very little improvement when introducing the order larger
+ than fourth 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moreau2004"
+
+\end_inset
+
+, the consensus problem is treated in a continuous-time manner and the local
+ value is described by a set of differential equations.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Khan2010"
+
+\end_inset
+
+ considers higher dimensional consensus (HDC), which is a general class
+ of linear distributed algorithms for large-scale networks.
+ In HDC, the network nodes are partitioned into “anchors”, whose states
+ are fixed over the iterations, and “sensors”, whose states are updated
+ by the algorithm.
+ And 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li2010"
+
+\end_inset
+
+ proposed a class of location-aided distributed averaging algorithms which
+ accelerate the slow convergence by overcoming the diffusive behavior of
+ reversible chains.
+ 
+\end_layout
+
+\begin_layout Standard
+It needs mentioned that some novel methods increase the convergence rate
+ by taking a number of consecutive local values obtained by asymptotic consensus
+ into consideration.
+ Motivated by the Kalman filter scheme, a consensus update scheme is proposed
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ren2005"
+
+\end_inset
+
+, which treats the final consensus value as the system state, and it is
+ shown that algorithm is convergent for strongly connected networks.
+ Later, a modification to the basic Kalman filter algorithm is presented
+ to ensure the Kalman Filter converges to an unbiased estimate 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Alighanbari2006"
+
+\end_inset
+
+.
+ The method in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+ applies scalar epsilon algorithm (SEA) to the local values sequence in
+ each node to accelerate the convergence.
+ The main disadvantage of this method is that it uses all previous estimates
+ and its robustness against changes in the network topology is questionable
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+.
+ In turn, Cavalcante and Mulgrew 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+ introduces an adaptive filter algorithm to find the consensus value by
+ iteratively updating the coefficients of an adaptive filter.
+ Another novel method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ tries to find the z-transform of the nodes value, and uses final value
+ theorem to obtain the consensus value.
+ However, every node having the knowledge of network topology is a strict
+ condition.
+ Therefore, a decentralized method is proposed to computer the matrix polynomial.
+ This method requires several runs of the consensus algorithm initialized
+ with a set of linear independent vectors.
+\end_layout
+
+\begin_layout Standard
+Motivated by the works in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+, we try to rewrite the local value vectors in another form which reveals
+ an important property of the algorithm.
+ Based on this fact, we propose some signal processing techniques.
+ For example, with the proposed consensus finding filter, each node could
+ estimate the consensus value by passing through consecutive local values
+ obtained by the first order linear DAC algorithm without more information
+ exchanged between nodes.
+\end_layout
+
+\begin_layout Subsection
+Contribution
+\end_layout
+
+\begin_layout Standard
+The main contributions of this thesis are that .....
+ (todo)
+\end_layout
+
+\begin_layout Standard
+generalized finite time consensus algorithm.
+\end_layout
+
+\begin_layout Standard
+Consensus based imformation flooding and data fusion.
+\end_layout
+
+\begin_layout Standard
+Online optimization of HO-DAC algorithm, an alternative eigenvalue estimation
+ method.
+\end_layout
+
+\begin_layout Standard
+a modified gaussian plume model
+\end_layout
+
+\begin_layout Subsection
+Outline
+\end_layout
+
+\begin_layout Standard
+In this thesis, 
+\end_layout
+
+\begin_layout Standard
+we will
+\end_layout
+
+\begin_layout Enumerate
+review serveral DAC algorithms.
+\end_layout
+
+\begin_layout Enumerate
+presentan convergence rate optimization for DAC algorithm.
+\end_layout
+
+\begin_layout Enumerate
+give some example of distributed signal processing based on DAC.
+\end_layout
+
+\begin_layout Enumerate
+give a example application in Cloud detection.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,2672 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Linear Filter Based Finite-time Distributed Averaging Consensus 
+\end_layout
+
+\begin_layout Author
+Haitao Yang,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+IEEEmembership{Member, IEEE,}
+\end_layout
+
+\end_inset
+
+ Xinheng Wang, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+IEEEmembership{Fellow, IEEE,}
+\end_layout
+
+\end_inset
+
+ and Jinho Choi, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+IEEEmembership{Life Fellow, IEEE}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thanks{M.
+ Shell is with the Department of Electrical and Computer Engineering, Georgia
+ Institute of Technology, Atlanta, GA, 30332 USA e-mail: (see http://www.michaels
+hell.org/contact.html).}% <-this % stops a space
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+thanks{J.
+ Doe and J.
+ Doe are with Anonymous University.}% <-this % stops a space
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+thanks{Manuscript received April 19, 2005; revised January 11, 2007.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+In many distributed systems such as wireless sensor networks, the objective
+ of consensus algorithm is to reach agreement on values that locally acquired
+ by nodes in the network.
+ When the system is highly dynamic, a fast convergent algorithm with numerical
+ accuracy is generally essential.
+ For the linear distributed average consensus, higher order algorithms can
+ potentially have faster convergence rate.
+ However, there is very little improvement for algorithm larger than fourth
+ order.
+ Thus, research interest has been devoted to more sophisticated algorithms.
+ This paper reveals that the local value vector of the first order linear
+ consensus algorithm is actually a linear combination of eigenvalues and
+ eigenvectors.
+ Therefore, the consensus value can be obtained by extrapolation at infinity.
+ Based on this fact, this paper also proposes a linear filter that provides
+ an accurate estimation of consensus value in time-invariant network.
+ The filter is independent of nodes' initial values and iteration times.
+ In contrast it only depends on the network graph matrix
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ However, multiple filters with different impulse responses can be found
+ for a given network.
+ The proposed algorithm is simulated and its performance is evaluated by
+ mean square error.
+\end_layout
+
+\begin_layout Keywords
+Consensus algorithm, extrapolation, filters, graph theory, Laplacian matrix,
+ sensor networks, linear system.
+ 
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+IEEEPARstart{C}{onsensus}
+\end_layout
+
+\end_inset
+
+ algorithms have applications in rendezvous, formation control, flocking,
+ attitude alignment and wireless sensor networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ren2007"
+
+\end_inset
+
+.
+ For these applications, reaching to an agreement among all the nodes in
+ a distributed network is often necessary.
+ The agreement is achieved if nodes' local values converge to a common value
+ which is referred to as a consensus value in control system or wireless
+ sensor network.
+ Distributed Average Consensus (DAC) algorithm has received significant
+ attention recently because of its robustness and simplicity for processing
+ distributed information over networks.
+ There are many algorithms developed by now.
+ We discuss these DAC algorithms by mainly comparing the convergence rate
+ of them.
+ 
+\end_layout
+
+\begin_layout Standard
+In conventional methods, each node updates its local value repeatedly as
+ a weighted linear combination of its previous local value and those from
+ its neighbors.
+ The iteration is continued until all the local values converge to a global
+ average within a desired error level.
+ These methods are referred as asymptotic consensus in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+.
+ By introducing the associated network graph matrix, weights assigned to
+ the graph edges are corresponding to the entries of that matrix.
+ It is well known that convergence rate of linear DAC is determined by the
+ spectral radius of a network topology-dependent matrix.
+ Commonly, the edge weights that node adopted depend on its degree and their
+ adjacent nodes' degrees 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2009a"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+High-order linear iteration can be introduced to improve the convergence
+ rate.
+ Its convergence rate has a relationship with the eigenvalues of the Laplacian
+ matrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2009a"
+
+\end_inset
+
+, which only depends on the network graph and is very useful tool to analyze
+ the convergence rate.
+ Because of the properties of the Laplacian matrix, its first smallest eigenvalu
+e is always zero and the second smallest eigenvalue (called the algebraic
+ connectivity of the graph, or denoted as the Fiedler eigenvalue) is equal
+ to zero if and only if the graph is not connected 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MiroslavFiedler1973"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Russell1994"
+
+\end_inset
+
+.
+ Theoretically, higher order algorithm will potentially have a higher convergenc
+e rate.
+
+\series bold
+ 
+\series default
+However, there are very little improvement when introducing the order larger
+ than fourth 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+To find an algorithm that finds consensus value more quickly, a great deal
+ of research interest has been devoted to more sophisticated consensus algorithm
+s 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moreau2004"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Khan2010"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li2010"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+.
+ For the first order linear consensus algorithm, convergence rate is increased
+ by casting graph matrix spectral radius minimization problem as a convex
+ optimization problem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+, but solving such problem requires knowledge of the whole network topology.
+ Second order or high-order consensus algorithm also requires knowledge
+ of network topology but only eigenvalues of Laplacian matrix.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moreau2004"
+
+\end_inset
+
+, the consensus problem is treated in a continuous-time manner and the local
+ value is described by a set of differential equations.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Khan2010"
+
+\end_inset
+
+ considers higher dimensional consensus (HDC), which is a general class
+ of linear distributed algorithms for large-scale networks.
+ In HDC, the network nodes are partitioned into “anchors”, whose states
+ are fixed over the iterations, and “sensors”, whose states are updated
+ by the algorithm.
+ And 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li2010"
+
+\end_inset
+
+ proposed a class of location-aided distributed averaging algorithms which
+ accelerate the slow convergence by overcoming the diffusive behavior of
+ reversible chains.
+ 
+\end_layout
+
+\begin_layout Standard
+It needs mentioned that some novel methods increase the convergence rate
+ by taking a number of consecutive local values obtained by asymptotic consensus
+ into consideration.
+ Motivated by the Kalman filter scheme, a consensus update scheme is proposed
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ren2005"
+
+\end_inset
+
+, which treats the final consensus value as the system state, and it is
+ shown that algorithm is convergent for strongly connected networks.
+ Later, a modification to the basic Kalman filter algorithm is presented
+ to ensure the Kalman Filter converges to an unbiased estimate 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Alighanbari2006"
+
+\end_inset
+
+.
+ The method in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+ applies scalar epsilon algorithm (SEA) to the local values sequence in
+ each node to accelerate the convergence.
+ The main disadvantage of this method is that it uses all previous estimates
+ and its robustness against changes in the network topology is questionable
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+.
+ In turn, Cavalcante and Mulgrew 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+ introduces an adaptive filter algorithm to find the consensus value by
+ iteratively updating the coefficients of an adaptive filter.
+ Another novel method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ tries to find the z-transform of the nodes value, and uses final value
+ theorem to obtain the consensus value.
+ However, every node having the knowledge of network topology is a strict
+ condition.
+ Therefore, a decentralized method is proposed to computer the matrix polynomial.
+ This method requires several runs of the consensus algorithm initialized
+ with a set of linear independent vectors.
+\end_layout
+
+\begin_layout Standard
+Motivated by the works in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+, we try to rewrite the local value vectors in another form which reveals
+ an important property of its iteration.
+ Therefore we propose a filtering technique, with which each node could
+ estimate the consensus value by passing through consecutive local values
+ obtained by the first order linear DAC algorithm without more information
+ exchanged between nodes.
+ 
+\end_layout
+
+\begin_layout Section
+System Model
+\end_layout
+
+\begin_layout Standard
+Consider a network (connected graph) 
+\begin_inset Formula $\mathcal{G}=\left(\mathcal{V},\mathcal{E}\right)$
+\end_inset
+
+ consisting a set of nodes 
+\begin_inset Formula $\mathcal{V}=\left\{ 1...n\right\} $
+\end_inset
+
+, and a set of edges 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+, where each edge 
+\begin_inset Formula $\left(i,j\right)\in\mathfrak{\mathcal{E}}$
+\end_inset
+
+ is an unordered pair of distinct nodes.
+ Node 
+\begin_inset Formula $i$
+\end_inset
+
+ can only transmit information to its neighbors which denoted by 
+\begin_inset Formula $\mathcal{N}_{i}=\text{ }\left\{ j|\left(i,j\right)\in\mathcal{E}\right\} $
+\end_inset
+
+.
+ Each node holds an initial scalar value 
+\begin_inset Formula $x_{i}\left(0\right)\in R$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{x}\left(0\right)=\left[x_{1}\left(0\right),...,x_{n}\left(0\right)\right]^{T}\in R^{n}$
+\end_inset
+
+ denotes the vector of the initial values on the network.
+ The initial values can be a certain value locally acquired by nodes.
+ We are interested in computing the average of initial values 
+\begin_inset Formula $\overline{x}=\frac{1}{n}\sum_{i=1}^{n}x_{i}(0)$
+\end_inset
+
+.
+ However, the network only allows a node to communicate with its neighbors.
+ In this case, the simplest way for distributed averaging may be the first
+ order linear iteration.
+ 
+\end_layout
+
+\begin_layout Subsection
+First Order DAC Algorithm
+\end_layout
+
+\begin_layout Standard
+At each time-step 
+\begin_inset Formula $k$
+\end_inset
+
+, the local value of node 
+\begin_inset Formula $i$
+\end_inset
+
+ is updated based on the same strategy, given by Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1st iter. ni"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x_{i}(k+1)=w_{ii}x_{i}(k)+\sum_{j\in\mathcal{N}_{i}}w_{ij}x_{j}(k),\label{eq:1st iter. ni}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $k=0,1,2,...$
+\end_inset
+
+ is the time index, 
+\begin_inset Formula $w_{ij}$
+\end_inset
+
+ is the weight to 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ at node 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $w_{ij}=0$
+\end_inset
+
+ if 
+\begin_inset Formula $(i,j)\notin\mathcal{E}$
+\end_inset
+
+, and 
+\begin_inset Formula $w_{ii}=1-\sum_{j\in\mathcal{N}_{i}}w_{ij}$
+\end_inset
+
+.
+ It is worth noting 
+\begin_inset Formula $\sum_{j=1}^{n}w_{ij}=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The iteration can be written in a vector form 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}(k+1)= W\mathbf{x}(k)\label{eq:first order matrix}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $ W$
+\end_inset
+
+ is a weight matrix equivalent to the graph matrix.
+ This linear iteration implies that 
+\begin_inset Formula $\mathbf{x}(k)= W^{k}\mathbf{x}(0)$
+\end_inset
+
+ for 
+\begin_inset Formula $k=1,2,\cdots$
+\end_inset
+
+.
+ If initial values are random, the convergence rate only depends on this
+ matrix.
+\end_layout
+
+\begin_layout Subsection
+Convergence Conditions
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+For the matrix iteration defined in Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:first order matrix"
+
+\end_inset
+
+, the 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+convergence
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ problem is how to choose the weight matrix 
+\begin_inset Formula $ W$
+\end_inset
+
+, so that for any initial value 
+\begin_inset Formula $\mathbf{x}(0)\in R^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{x}(k)$
+\end_inset
+
+ converges to the vector 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{\bar{x}}=\left(\mathbf{1}^{\mathrm{T}}\mathbf{x}(0)/n\right)\mathbf{1}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}\mathbf{x}(0)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:convergence condition"
+
+\end_inset
+
+
+\begin_inset Formula $\lim_{k\rightarrow\infty}\mathbf{x}(k)=\mathbf{\bar{x}}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ if and only if the matrix 
+\begin_inset Formula $ W$
+\end_inset
+
+ satisfie
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+s
+\begin_inset Formula 
+\begin{equation}
+\lim_{k\rightarrow\infty} W^{k}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}.\label{eq:convege condition W}
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:convege condition W"
+
+\end_inset
+
+ holds if and only if
+\begin_inset Formula 
+\begin{equation}
+\mathbf{1}^{\mathrm{T}} W=\mathbf{1}^{\mathrm{T}},\; W\mathbf{1}=\mathbf{1}\mbox{ and }\rho\left( W-\mathbf{11}^{\mathrm{T}}/n\right)<1.\label{eq: Converge condition W 2}
+\end{equation}
+
+\end_inset
+
+where vector 
+\begin_inset Formula $\mathbf{1}=[1,1,\cdots1,]^{\mathrm{T}}\in R^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho\left(\cdot\right)$
+\end_inset
+
+ denotes the spectral radius of the matrix .
+\end_layout
+
+\begin_layout Standard
+The proof of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:convergence condition"
+
+\end_inset
+
+ can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: Converge condition W 2"
+
+\end_inset
+
+ shows that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $ W$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is a row stochastic matrix and has an eigenvalue 1 with associated eigenvector
+ 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+First Order DAC Weight Matrix 
+\end_layout
+
+\begin_layout Standard
+As we know the weight matrix must satisfy Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: Converge condition W 2"
+
+\end_inset
+
+ in a convergent DAC algorithm.
+ To get a faster convergence rate, a optimization problem can be solved
+ to minimize the spectrum radius of weight matrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+.
+ However, it requires knowledge of network topology to solve the problem.
+ 
+\end_layout
+
+\begin_layout Standard
+Some feasible weight matrices are given below.
+ The first one is the best constant weight matrix.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+w_{ij}=\begin{cases}
+\epsilon, & \mbox{if }(i,j)\in\mathit{\mathcal{E}}\\
+1-d(i)\epsilon, & i=j\\
+0, & \mbox{otherwise}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is the step length for the iteration, 
+\begin_inset Formula $d(i)$
+\end_inset
+
+ is the degree of the node 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ The best step length that maximize the convergence rate is obtained when
+ the eigenvalues of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Laplacian matrix
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is available.
+ It is given by 
+\begin_inset Formula $\epsilon=2/\left(\lambda_{2}\left(L\right)+\lambda_{n}\left(L\right)\right)$
+\end_inset
+
+, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+where 
+\begin_inset Formula $\lambda_{i}\left(L\right)$
+\end_inset
+
+ is the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ smallest eigenvalue of the Laplacian matrix.
+ 
+\end_layout
+
+\begin_layout Standard
+Another option is Metropolis weight matrix (or local degree weight matrix),
+ where each weight is determined by degree of the two nodes on the edge,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+w_{ij}=\begin{cases}
+\frac{1}{1+\max\left\{ d(i),d(j)\right\} }, & \mbox{if }(i,j)\in\mathit{\mathcal{E}}\\
+1-\sum_{(i,k)\in\mathit{\mathcal{E}}}w_{ik}, & i=j\\
+0, & \mbox{otherwise}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $d(i)$
+\end_inset
+
+ and 
+\begin_inset Formula $d(j)$
+\end_inset
+
+ are the degrees of nodes 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+As shown above, the weight matrix of conventional DAC algorithm is depends
+ on 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\lambda_{i}\left(L\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ or the nodes' degree.
+ However, as shown in the next section, the requirements for the weight
+ matrix can be reduced, if 
+\begin_inset Formula $\mathbf{x}\left(k\right)$
+\end_inset
+
+ can be decomposed in terms of eigenvalues and eigenvectors and find the
+ coefficients before each term.
+ 
+\end_layout
+
+\begin_layout Section
+Linear Filter Algorithm For Average Consensus
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+In the network that adopts first order linear consensus algorithm, each
+ node has a number of consecutive local values
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ obtained by Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1st iter. ni"
+
+\end_inset
+
+.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+There exists a linear high-order filter, if each node passes its local values
+ through this
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ filter, the output after a certain time is the global average of the initial
+ values over the network.
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ Such a filter is referred to the consensus finding filter.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "Def.A-consensus-finding"
+
+\end_inset
+
+A consensus finding filter is a linear filter defined by 
+\begin_inset Formula $\mathbf{h}\in R^{d}$
+\end_inset
+
+, such that by passing 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+through 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+local values 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+obtained by Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1st iter. ni"
+
+\end_inset
+
+, 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+the output 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\hat{x}_{i}(k)=\mathbf{h}(k)*x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is the consensus value 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\overline{x}=\frac{1}{n}\sum_{i=1}^{n}x_{i}(0)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ of the network after 
+\begin_inset Formula $k$
+\end_inset
+
+ step 
+\begin_inset Formula $\left(k\geqslant m\right)$
+\end_inset
+
+, where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $m$
+\end_inset
+
+ is the number of
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ distinct and nonzero eigenvalues of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+the weight matrix 
+\begin_inset Formula $ W$
+\end_inset
+
+.
+ And 
+\begin_inset Formula $ W$
+\end_inset
+
+ satisfies 
+\strikeout off
+\uuline off
+\uwave off
+
+\begin_inset Formula $ W= W^{\mathrm{T}}$
+\end_inset
+
+ and 
+\begin_inset Formula $ W\mathbf{1}=\mathbf{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Suppose an undirected network with 
+\begin_inset Formula $n$
+\end_inset
+
+ nodes, where duplex communication is possible in each link.
+ Therefore, the associated weight matrix 
+\begin_inset Formula $ W\in\mathbf{R}^{n\times n}$
+\end_inset
+
+ is symmetric and diagonalizable.
+ And there are 
+\begin_inset Formula $n$
+\end_inset
+
+ linear independent eigenvectors of the weight matrix.
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ Thus, any initial value vector can be written in a linear combination of
+ these eigenvectors, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}\left(0\right)=\alpha_{1}\mathbf{e}_{1}+\alpha_{2}\mathbf{e}_{2}+\ldots+\alpha_{n}\mathbf{e}_{n}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha_{i}(i=1,2,\ldots,n)$
+\end_inset
+
+ is the coefficient.
+ For 
+\begin_inset Formula $k=1,2,3,...$
+\end_inset
+
+ we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\mathbf{x}\left(k\right) & = &  W^{k}\left[\alpha_{1}\mathbf{e}_{1}+\alpha_{2}\mathbf{e}_{2}+\ldots+\alpha_{n}\mathbf{e}_{n}\right]\\
+ & = & \alpha_{1}\lambda_{1}^{k}\mathbf{e}_{1}+\alpha_{2}\lambda_{2}^{k}\mathbf{e}_{2}+\ldots+\alpha_{n}\lambda_{n}^{k}\mathbf{e}_{n}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+ is the eigenvalue of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $ W$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+By rewriting 
+\begin_inset Formula $\mathbf{x}\left(k\right)$
+\end_inset
+
+, it is clear that if all eigenvalues of the weight matrix are known, the
+ nodes' values vector
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ is predictable and the consensus value can be found
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+.
+ For any node 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $i=1,2,\ldots n$
+\end_inset
+
+, its local value at time 
+\begin_inset Formula $k$
+\end_inset
+
+ can be written as
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\begin_inset Formula 
+\begin{equation}
+x_{i}\left(k\right)=\alpha_{1}\lambda_{1}^{k}e_{i1}+\alpha_{2}\lambda_{2}^{k}e_{i2}+\ldots+\alpha_{n}\lambda_{n}^{k}e_{in}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+where 
+\begin_inset Formula $e_{ij}$
+\end_inset
+
+ is the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ component of eigenvector 
+\begin_inset Formula $\mathbf{e}_{j}$
+\end_inset
+
+.
+ Because of algebraic multiplicity of some eigenvalues, the equation can
+ be modified by combining the terms with the same eigenvalues.
+ Zero eigenvalues are ignored as they have no contribution in this equation.
+ Suppose 
+\begin_inset Formula $ W$
+\end_inset
+
+ has 
+\begin_inset Formula $m$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ distinct and nonzero eigenvalues, denoted by 
+\begin_inset Formula $\lambda_{1},\lambda_{2},\ldots,\lambda_{m}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+, then 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ evolves into
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\begin_inset Formula 
+\begin{equation}
+x_{i}\left(k\right)=\beta_{i1}\lambda_{1}^{k}+\beta_{i2}\lambda_{2}^{k}+\ldots+\beta_{im}\lambda_{m}^{k}
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+where
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+ is the coefficient after combination.
+ 
+\end_layout
+
+\begin_layout Standard
+In addition, if 
+\begin_inset Formula $ W$
+\end_inset
+
+ satisfies Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: Converge condition W 2"
+
+\end_inset
+
+, without loss of generality, let the eigenvalue 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\lambda_{1}=1$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ thus 
+\begin_inset Formula $\mathbf{e}_{1}=\frac{\mathbf{1}}{\sqrt{n}}$
+\end_inset
+
+ is the associated eigenvector, and 
+\begin_inset Formula $\beta_{i1}=\frac{\alpha_{1}}{\sqrt{n}}$
+\end_inset
+
+, 
+\strikeout off
+\uuline off
+\uwave off
+
+\begin_inset Formula $\forall i\in\mathcal{V}$
+\end_inset
+
+
+\strikeout default
+\uuline default
+\uwave default
+.
+ If all other eigenvalues of 
+\begin_inset Formula $ W$
+\end_inset
+
+ are less than one, it can be proved that the consensus value is equal to
+ the coefficient of the first term 
+\begin_inset Formula 
+\begin{equation}
+\beta_{i1}=\overline{x}=\frac{1}{n}\sum_{i\in\mathcal{N}}x_{i}(0)\label{eq:Coef_1=X_bar}
+\end{equation}
+
+\end_inset
+
+Actually, the condition for all other eigenvalues less than one is not necessary.
+ Even though they are larger than one, we can still find consensus value
+ by Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Coef_1=X_bar"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Let the sample vector 
+\begin_inset Formula $\mathbf{y}_{i}(k,d)\in R^{d}$
+\end_inset
+
+ is defined by the history of 
+\begin_inset Formula $x_{i}(k),$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\left[x_{i}(k),x_{i}(k-1),\ldots x_{i}(k-d+1)\right]^{\mathrm{T}}\label{eq:def. y(k,m)}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+and the Vandermonde matrix whose entries are the power of eigenvalues
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{V}(k,d)=\left[\begin{array}{cccc}
+\lambda_{1}^{k} & \lambda_{2}^{k} & \cdots & \lambda_{m}^{k}\\
+\lambda_{1}^{k-1} & \lambda_{2}^{k-1} & \cdots & \lambda_{m}^{k-1}\\
+\vdots & \vdots & \ddots & \vdots\\
+\lambda_{1}^{k-d+1} & \lambda_{2}^{k-d+1} & \cdots & \lambda_{m}^{k-d+1}
+\end{array}\right]\label{eq:def. Lamda(k,m)}
+\end{equation}
+
+\end_inset
+
+and 
+\begin_inset Formula $\mathbf{b}_{i}\left(d\right)=\left[\beta_{i1},\beta_{i2},\cdots\beta_{id}\right]^{\mathrm{T}}$
+\end_inset
+
+, then we have the following equation satisfied
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\mathbf{V}(k,d)\mathbf{b}_{i}\left(d\right)\label{eq:  Vander matrix and consensus-d*m}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+To obtain the consensus value 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ for node 
+\begin_inset Formula $i$
+\end_inset
+
+,
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ we need to take sufficient samples of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+and solve Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:  Vander matrix and consensus-d*m"
+
+\end_inset
+
+, where 
+\begin_inset Formula $d$
+\end_inset
+
+ should at least equal or larger than
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\begin_inset Formula $m$
+\end_inset
+
+
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+It is worth noting that Vandermonde matrix is related to a polynomial interpolat
+ion problem and can be easily inverted in terms of Lagrange basis polynomials
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Prass2007"
+
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ Due to this reason, this method can be treated as an extrapolation method
+ which find the consensus value at infinity.
+ At the same time, we only need to find out the first coefficient 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\beta_{i1}$
+\end_inset
+
+ in the distributed averaging.
+ Therefore, 
+\strikeout default
+\uuline default
+\uwave default
+only the elements in the corresponding row of 
+\strikeout off
+\uuline off
+\uwave off
+
+\begin_inset Formula $\mathbf{V}^{-1}(k,m)$
+\end_inset
+
+
+\strikeout default
+\uuline default
+\uwave default
+ need to be found.
+ This approach can save lots of computation time when using the algorithm
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Prass2007"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Let 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula $A(k,m)=\mathbf{V}^{-1}(k,m)$
+\end_inset
+
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+and
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ the first row of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $A(k,m)$
+\end_inset
+
+ is given by
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula 
+\begin{equation}
+\mathbf{h}=\left[A_{11}(k,m),A_{12}(k,m),\ldots,A_{1m}(k,m)\right]^{\mathrm{T}}
+\end{equation}
+
+\end_inset
+
+ we have 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\beta_{i1}=\mathbf{h}^{\mathrm{T}}\mathbf{y}_{i}(k,m)\label{eq:Find Consensus m order}
+\end{equation}
+
+\end_inset
+
+ Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Find Consensus m order"
+
+\end_inset
+
+ shows that the consensus value can be calculated 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+by the filter defined in Def.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Def.A-consensus-finding"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Since 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+simulation result shows that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{h}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is only depends the associated Vandermonde matrix
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\begin_inset Formula $\mathbf{V}(k,m)$
+\end_inset
+
+ which is 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+is independent of the nodes' initial values and time index 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ Therefore, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+each node in the network could find the consensus value at any time 
+\begin_inset Formula $k\geqslant m$
+\end_inset
+
+ by passing a number of consecutive local values through this filter.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ In addition, all nodes in this network may share the same filter, which
+ means all the filters have the same impulse response.
+ However, such a consensus finding filter it is not unique.
+ As an example, a number of filters which have different impulse response
+ or filter lengths are found by different samples 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+of 
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+.
+  Each node could choose its own, but filter length determines the how many
+ time-steps before a node could find 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+the consensus value.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Suppose we take 
+\begin_inset Formula $d$
+\end_inset
+
+ samples of 
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+, where 
+\begin_inset Formula $d>m$
+\end_inset
+
+.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+Because
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ the Vandermonde matrix 
+\begin_inset Formula $\mathbf{V}(k,d)\in R^{d\times m}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is non-square, we introduce the Moore-penrose pseudo inverse to find the
+ least mean square solution.
+ 
+\end_layout
+
+\begin_layout Standard
+Let
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A(k,d)=\mathbf{V}^{+}(k,d)
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $^{+}$
+\end_inset
+
+ denote the Moore-penrose pseudo inverse.
+ And
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ the first row of 
+\begin_inset Formula $A(k,d)$
+\end_inset
+
+ is given by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{h}'=\left[A{}_{11}(k,d),A_{12}(k,d),\ldots,A_{1d}(k,d)\right]^{\mathrm{T}}
+\end{equation}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+Still, the value 
+\strikeout off
+\uuline off
+\uwave off
+
+\begin_inset Formula $\beta_{i1}=\mathbf{h}'^{\mathrm{T}}\mathbf{y}_{i}(k,m)$
+\end_inset
+
+ 
+\strikeout default
+\uuline default
+\uwave default
+is an accurate estimation of consensus value.
+ Therefore, another consensus finding filter is obtained.
+\end_layout
+
+\begin_layout Standard
+Due to the multiplication of the consensus finding filter, the set of filter
+ is defined by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H=\{\mathbf{h}\in R^{d}|\forall d\geqslant m,\:\mathbf{h}^{\mathrm{T}}\mathbf{y}_{i}(k,d)=\bar{x}\}
+\end{equation}
+
+\end_inset
+
+However, the shortest filter has its length equal to 
+\begin_inset Formula $m$
+\end_inset
+
+, which means node can only have the consensus value after 
+\begin_inset Formula $m$
+\end_inset
+
+ steps.
+ 
+\end_layout
+
+\begin_layout Standard
+In the next section, the performance of this algorithm is shown by comparing
+ it with the first order DAC algorithm using optimal weight matrix in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Numerical Simulation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../Distributed Consensus Algorithm/Report_DAC/Net_Weight/graph with 8 nodes and 17 edges.pdf
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Graph in Xiao'paper"
+
+\end_inset
+
+Graph with optimal weights which maximize convergence rate 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider the graph from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+, the weight matrix 
+\series bold
+
+\begin_inset Formula $ W$
+\end_inset
+
+
+\series default
+ corresponding to this graph is symmetric and has eigenvalues 
+\begin_inset Formula $\lambda( W)=\{1,0.6,0.4,0,0,0,-0.4,-0.6\}$
+\end_inset
+
+.
+ The time index 
+\begin_inset Formula $k$
+\end_inset
+
+ can be chosen large enough so that there are only positive powers in the
+ matrix 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{V}(k,d)$
+\end_inset
+
+.
+ For example, there are
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 5 distinct and nonzero eigenvalues of 
+\series bold
+
+\begin_inset Formula $ W$
+\end_inset
+
+
+\series default
+, so we choose 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+the time index 
+\begin_inset Formula $k=5$
+\end_inset
+
+ and 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula $d=5$
+\end_inset
+
+ which is the minimum filter length
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\mathbf{V}(5,5)=\left[\begin{array}{ccccc}
+1 & 0.0778 & 0.0102 & -0.0102 & -0.0778\\
+1 & 0.1296 & 0.0256 & 0.0256 & 0.1296\\
+1 & 0.216 & 0.064 & -0.064 & -0.216\\
+1 & 0.36 & 0.16 & 0.16 & 0.36\\
+1 & 0.6 & 0.4 & -0.4 & -0.6
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ the first row of the inverse matrix 
+\begin_inset Formula $\mathbf{V}^{-1}(5,5)$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+gives the consensus finding filter 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{h}=\left[1.8601,\;0,\;-0.9673,\;0,\;0.1071\right]^{\mathrm{T}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../Distributed Consensus Algorithm/Report_DAC/MSE/MSE_Filter vs FODAC.eps
+	width 8cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:perform. Consensus Filter"
+
+\end_inset
+
+Performance of the first order iteration with optimal matrix vs.
+ consensus finding filter algorithm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For any random generated 
+\begin_inset Formula $\mathbf{x}(0)\in R^{n}$
+\end_inset
+
+, node values vector 
+\begin_inset Formula $\mathbf{x}(k)$
+\end_inset
+
+ is updated by the iteration Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:first order matrix"
+
+\end_inset
+
+.
+ At the same time each node passes its local values though filter 
+\begin_inset Formula $\mathbf{h}$
+\end_inset
+
+.
+ Filter output is given by 
+\begin_inset Formula $\hat{x}_{i}(k)=\mathbf{h}(k)*x_{i}(k)$
+\end_inset
+
+.
+ Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:perform. Consensus Filter"
+
+\end_inset
+
+ compares the first order DAC (FO-DAC) algorithm with optimal matrix and
+ the proposed algorithm with consensus finding filter.
+ The performance is evaluated by the mean square error (MSE), defined by
+ 
+\begin_inset Formula $\mbox{MSE}_{\mbox{FO-DAC}}(k)=\sum_{i\in\mathcal{N}}E[\left|x_{i}(k)-\bar{x}\right|^{2}]$
+\end_inset
+
+, 
+\begin_inset Formula $\mbox{MSE}_{\mbox{filter}}(k)=\sum_{i\in\mathcal{N}}E[\left|\alpha_{i}(k)-\bar{x}\right|^{2}]$
+\end_inset
+
+ respectively, where 
+\begin_inset Formula $\bar{x}=(1/n)\sum_{i\in\mathcal{N}}x_{i}(0)$
+\end_inset
+
+.
+ The result shows that the consensus finding filter calculate the consensus
+ value after a finite number of iteration and MSE drops dramatically to
+ the quantization error at the same time.
+ 
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+In this paper, we show that the local value of first order consensus algorithm
+ has a strong connection with the eigenvalues and eigenvectors of graph
+ matrix which reveals an important property of the iteration.
+ Therefore, we proposed a filtering technique that calculate consensus value
+ after a number of iterations.
+ By passing a number of consecutive local values through the filter, which
+ is called the consensus finding filter, each node in the network could
+ find the consensus value distributively.
+ The impulse response of the filter in each node could be the same.
+ However, such filter is not unique.
+ There are a number of filters could find the consensus value.
+ 
+\end_layout
+
+\begin_layout Standard
+Then simulation result is given by comparing the convergence rate of the
+ first order DAC algorithm and filter output over time.
+ The performance is evaluated by mean square error.
+ The result shows that if consecutive local values obtained by conventional
+ first order iteration are passing through the consensus finding filter,
+ the output is an estimation of consensus value with high accuracy and mean
+ square error drops dramatically to quantization error after sufficient
+ number of time-steps.
+ The consensus finding filter is independent of iteration time and initial
+ local value.
+ The minimum length of the filter is equal to the number of distinct eigenvalues
+ of the weight matrix associated to the network.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "DistributedConsensus"
+options "IEEEtran"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

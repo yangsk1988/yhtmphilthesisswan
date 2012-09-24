@@ -1,0 +1,1343 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+theorems-ams
+theorems-sec
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding ascii
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection
+Graph Theory and Matrix Theory
+\end_layout
+
+\begin_layout Standard
+(todo, why consensus algorithm needs matrix and graph theory?)
+\end_layout
+
+\begin_layout Standard
+In this section, some basic concepts of the graph theory and matrix theory
+ which will be used in the analysis of consensus algorithm will be introduced.
+ Because consensus algorithm actually relates to a matrix iteration algorithm,
+ it is necessary to introduce some of these theorems, especially in the
+ analysis of convergence rate of consensus algorithm.
+ For full information about matrix theory, see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+, and the work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Russell1994"
+
+\end_inset
+
+ states more details about Laplacian matrix.
+ However, some useful properties of Laplacian matrix will to be introduced
+ here.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula ${\cal G}=\left({\cal V},{\cal E},{\cal A}\right)$
+\end_inset
+
+ be a graph with 
+\begin_inset Formula $n$
+\end_inset
+
+ nodes.
+ The in-degree and out-degree of node 
+\begin_inset Formula $i$
+\end_inset
+
+ are defined by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+D_{in}\left(i\right)=\sum_{i=1}^{n}a_{i,j}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+D_{out}\left(i\right)=\sum_{j=1}^{n}a_{i,j}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $a_{i,j}$
+\end_inset
+
+ is the elements of matrix 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+.
+ This definition states that in-degree of node 
+\begin_inset Formula $i$
+\end_inset
+
+ is the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ column sum of matrix 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ and the out-degree of node 
+\begin_inset Formula $i$
+\end_inset
+
+ is the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ row sum of matrix 
+\begin_inset Formula ${\cal A}.$
+\end_inset
+
+ And the graph Laplacian matrix 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ induced by the 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ is the same as defined before(todo, add ref).
+ In addition, we can find the relationship of 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ and 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{equation}
+{\cal L}=\Delta-{\cal A}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ is a diagonal matrix 
+\begin_inset Formula $\Delta=\left[\Delta_{i,j}\right]$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta_{i,j}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta_{ii}=D_{out}\left(i\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note that we assume the diagonal elements 
+\begin_inset Formula $a_{i,i}$
+\end_inset
+
+ of matrix 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ equal to zero for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Thus, the Laplacian matrix is only dependent on the off-diagonal elements
+ of 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+.
+ Moreover, if we assume matrix 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ is non-negative, we can benifit from the properties of non-negative matrix,
+ and use them in optimization of convergence rate of consensus algorithm.
+\end_layout
+
+\begin_layout Subsubsection
+Irreducebility and Strong Connected Graph.
+\end_layout
+
+\begin_layout Standard
+For an undirected graph, the consensus can be achived if the graph is connected.
+ But for the directed graph, this condition of achiving consensus becomes
+ into if the graph is strongly connected.
+ A directed graph is strongly connected if and only if for any two distinct
+ nodes 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+, there exists a path that follows the direction of the edges and connects
+ 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ on the digraph.
+ 
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "Def.Irreducebility"
+
+\end_inset
+
+for 
+\begin_inset Formula $n>1$
+\end_inset
+
+, an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A\in R^{n\times n}$
+\end_inset
+
+ is reducible if there exists an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ permutation matrix 
+\begin_inset Formula $P$
+\end_inset
+
+ such that 
+\begin_inset Formula $PAP^{T}$
+\end_inset
+
+ is in block upper trangular form.
+ 
+\begin_inset Formula 
+\begin{equation}
+PAP^{T}=\left[\begin{array}{cc}
+A_{1,1} & A_{1,2,}\\
+O & A_{2,2}
+\end{array}\right]
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $A_{1,1}$
+\end_inset
+
+ is an 
+\begin_inset Formula $r\times r$
+\end_inset
+
+ submatrix and 
+\begin_inset Formula $A_{2,2}$
+\end_inset
+
+ is an 
+\begin_inset Formula $\left(n-r\right)\times\left(n-r\right)$
+\end_inset
+
+ submatrix, and 
+\begin_inset Formula $O$
+\end_inset
+
+ is an null matrix, 
+\begin_inset Formula $1\leq r<n$
+\end_inset
+
+.
+ If no such a permutation matrix exists, the matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ is irreducible.
+ If 
+\begin_inset Formula $n=1$
+\end_inset
+
+, then 
+\begin_inset Formula $A$
+\end_inset
+
+ is reducible if 
+\begin_inset Formula $A=0$
+\end_inset
+
+, and irreducible otherwise.
+ 
+\end_layout
+
+\begin_layout Standard
+The following theorem states the relationship of the irredicible property
+ of marix 
+\begin_inset Formula $A$
+\end_inset
+
+ and the strong connected property of directed graph 
+\begin_inset Formula ${\cal G}\left(A\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Theorem
+An 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ complex matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ is irreducible if and only if its directed graph 
+\begin_inset Formula ${\cal G}\left(A\right)$
+\end_inset
+
+ is strongly connected.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The proof of this theorem is obvious, that if a graph is strongly connected,
+ its graph matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ doesn't have the block upper trangular form as given in Def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Def.Irreducebility"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Spectral radius of a matrix
+\end_layout
+
+\begin_layout Standard
+(todo, delete this
+\end_layout
+
+\begin_layout Enumerate
+bounds for the spectral radius: 
+\end_layout
+
+\begin_layout Enumerate
+and Gerschgorin's theorem: 1.5 page 1.6; 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+theorem 1.5; Corollary 1; Corollary 2; give me the prossibility of a sub-optimal
+ distributed method.
+ Page 16
+\end_layout
+
+\begin_layout Enumerate
+Perron-Frobenius theorem: 2.1 page 30.
+\end_layout
+
+\begin_layout Enumerate
+Lemma 2.5 on page 31 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+todo delete)
+\end_layout
+
+\begin_layout Standard
+Spectral radius of a matrix is is one of the basic concepts in the matrix
+ iteration theory.
+ It is defined by the largest eigenvalue of the matrix.
+ The matrix iteration is very useful in many applications, and denoted by
+ 
+\begin_inset Formula $A,A^{2},A^{3},\ldots$
+\end_inset
+
+.
+ The matrix power sequence is said to be convergent, if and only if 
+\begin_inset Formula $\lim_{k\to\infty}A^{k}=O$
+\end_inset
+
+, where 
+\begin_inset Formula $O$
+\end_inset
+
+ is a zero matrix with all zero entries.
+ The following theorem states that the convergent property is strongly connected
+ with the spectral radius.
+ 
+\end_layout
+
+\begin_layout Theorem
+if 
+\begin_inset Formula $A$
+\end_inset
+
+ is an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix, then 
+\begin_inset Formula $A$
+\end_inset
+
+ is convergent if and only if 
+\begin_inset Formula $\rho\left(A\right)<1.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(todo)
+\end_layout
+
+\begin_layout Paragraph
+Gerschgorin's theorem
+\end_layout
+
+\begin_layout Standard
+The calculation of eigenvalues a matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ involves finding the determination of the matrix 
+\begin_inset Formula $\lambda I-A$
+\end_inset
+
+ and solving a high order polynomial equation.
+ In some situations, for example, when matrix dimension is very large, it
+ is difficult to determine the spectral radius precisely.
+ However, the following theorem of Gerschgorin provides an upper bound of
+ the spectral radius 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Horn1990"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $A=\left(a_{i,j}\right)$
+\end_inset
+
+ be an abitrary 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix.
+ Denote the 
+\begin_inset Formula 
+\begin{equation}
+d_{i}=\sum_{j=1,j\neq i}^{n}\left|a_{i,j}\right|
+\end{equation}
+
+\end_inset
+
+then all the eigenvalues of matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ are lie in the union of the disks.
+\begin_inset Formula 
+\begin{equation}
+\left|z-a_{i,i}\right|\leq d_{i},\ 1\leq i\leq n.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The above theorem is well-known, so the proof is omit here.
+ But the theorem immediatelly give the result of
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:Upper Bound of p(A)"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A=\left(a_{i,j}\right)$
+\end_inset
+
+ be an abitrary 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix, and 
+\begin_inset Formula 
+\begin{equation}
+v=\max_{1\leq i\leq n}\sum_{j=1}^{n}\left|a_{i,j}\right|
+\end{equation}
+
+\end_inset
+
+then we have 
+\begin_inset Formula $\rho\left(A\right)\leq v$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Therefore, the maximum of the row sums of the modular of the entries of
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ provides a upper bound for spectral radius 
+\begin_inset Formula $\rho\left(A\right)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $A^{T}$
+\end_inset
+
+ have the same eigenvalues, applying the 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:Upper Bound of p(A)"
+
+\end_inset
+
+ to 
+\begin_inset Formula $A^{T}$
+\end_inset
+
+ will lead to 
+\end_layout
+
+\begin_layout Corollary
+Let 
+\begin_inset Formula $A=\left(a_{i,j}\right)$
+\end_inset
+
+ be an abitrary 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix, and 
+\begin_inset Formula 
+\begin{equation}
+v'=\max_{1\leq j\leq n}\sum_{i=1}^{n}\left|a_{i,j}\right|
+\end{equation}
+
+\end_inset
+
+then we have 
+\begin_inset Formula $\rho\left(A\right)\leq v$
+\end_inset
+
+'.
+\end_layout
+
+\begin_layout Standard
+As both the row sum and column sum of the modular of the entries of matrix
+ can provide the upper bound for 
+\begin_inset Formula $\rho\left(A\right)$
+\end_inset
+
+, the minimun of 
+\begin_inset Formula $v$
+\end_inset
+
+ and 
+\begin_inset Formula $v'$
+\end_inset
+
+ gives the better upper bound.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+Just as we assume before, the adjacent matrix 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ of the graph 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ is non-negative, which means all elements are non-negative.
+ Then, the induced graph Laplacian matrix will have the following result
+ using the Gerschgorin's theorem.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Generlized from Gerschgorin's theorem
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2004"
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:Bounds of eig(L)"
+
+\end_inset
+
+Let the graph has the Laplacian matrix 
+\begin_inset Formula ${\cal L},$
+\end_inset
+
+ denote the maximum node outdegree of the graph by 
+\begin_inset Formula 
+\begin{equation}
+d_{max}=\max_{1\leq i\leq n}\left(\sum_{j=1,j\neq i}^{n}l_{i,j}\right)
+\end{equation}
+
+\end_inset
+
+Then, all the eigenvalues of 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ are located in the following disk,
+\begin_inset Formula 
+\begin{equation}
+\left|z-d_{max}\right|\leq d_{max}
+\end{equation}
+
+\end_inset
+
+which is centered at 
+\begin_inset Formula $z=d_{max}+0j$
+\end_inset
+
+ on the complex plane.
+\end_layout
+
+\begin_layout Proof
+Based on the Gerschgorin's theorem, all the eigenvalue of 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ are located in the union of the disks.
+\begin_inset Formula 
+\begin{equation}
+\left|z-l_{i,i}\right|\leq\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|,\ 1\leq i\leq n.\label{eq:disk Union of eig(L)}
+\end{equation}
+
+\end_inset
+
+Since 
+\begin_inset Formula ${\cal A}=\left[a_{i,j}\right]$
+\end_inset
+
+ is an non-negative matrix, by the definition of Laplacian matrix, 
+\begin_inset Formula $l_{i,j}\leq0$
+\end_inset
+
+ and 
+\begin_inset Formula $l_{i,i}=\sum_{k=1,k\neq i}^{n}a_{ik}\geq0.$
+\end_inset
+
+ Therefore, let 
+\begin_inset Formula $d_{i}=l_{i,i}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\begin{equation}
+d_{i}=\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|
+\end{equation}
+
+\end_inset
+
+ and the union of disks becomes
+\begin_inset Formula 
+\begin{equation}
+\bigcup_{1\leq i\leq n}\left\{ z\in\mathbb{C}:\left|z-d_{i}\right|\leq d_{i}\right\} 
+\end{equation}
+
+\end_inset
+
+On the other hand, all these disks are located inside the largest disk with
+ radius 
+\begin_inset Formula $d_{max}$
+\end_inset
+
+.
+ This result ends the proof of the theorem
+\end_layout
+
+\begin_layout Standard
+Based on the 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:Bounds of eig(L)"
+
+\end_inset
+
+, it is obvious all the nonzero eigenvalues of 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ have positive real parts.
+ This immediatelly lead to a convergence theorem of the continuous-time
+ consensus protocol 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:1st Order Protocol"
+
+\end_inset
+
+.
+ The solution given in exponential matrices form 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:x(t) of CT-1st-DAC"
+
+\end_inset
+
+ converge to a consensus value as 
+\begin_inset Formula $t\to\infty$
+\end_inset
+
+.
+ Since all the nonzero eigenvalue of 
+\begin_inset Formula $-{\cal L}$
+\end_inset
+
+ located in the disk 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left|z+d_{max}\right|\leq d_{max}$
+\end_inset
+
+, and the eigenspace associated with zero is one-dimentional.
+ Consequently, the eigenvector associated with zero eigenvalue has the form
+ 
+\begin_inset Formula $\alpha\mathbf{1}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $x_{i}=\alpha$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ This result will be very helpful as the negative real part can guarantee
+ that the system dynamic is stable and convergent.
+ We will show the proof after introduce the well-known Perron-Frobenius
+ Theorem.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Perron-Frobenius Theorem
+\end_layout
+
+\begin_layout Standard
+The well-known Perron-Frobenius Theorem states that if a e matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ is nonnegative and irreducible, which means the digraph of matrix A is
+ strongly connected, then 
+\begin_inset Formula $\rho(A)$
+\end_inset
+
+ is a simple eigenvalue of 
+\begin_inset Formula $A$
+\end_inset
+
+ associated with a positive eigenvector.
+ The details of Perron-Frobenius is as follows.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:Perron-Frobenius thm."
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ and irreducible matrix with non-negative and real numbers as its entries.
+ Then, 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A$
+\end_inset
+
+ has a positive real eigenvalue equal to its spectral radius 
+\begin_inset Formula $\rho\left(A\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\rho\left(A\right)$
+\end_inset
+
+ is a simple eigenvalue of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+To the eigenvalue 
+\begin_inset Formula $\rho\left(A\right)$
+\end_inset
+
+, the corrsponding eigenvector is positive, i.e.
+ 
+\begin_inset Formula $\mathbf{x}>\mathbf{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\rho\left(A\right)$
+\end_inset
+
+ increases if any entry of 
+\begin_inset Formula $A$
+\end_inset
+
+ increases.
+\end_layout
+
+\begin_layout Standard
+Recall the problem of finding the bounds for the spectral radius, the Perron-Fro
+benius theroem provides the nontrivial lower-bound of 
+\begin_inset Formula $\rho\left(A\right)$
+\end_inset
+
+.
+ In the 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "cor:Upper Bound of p(A)"
+
+\end_inset
+
+, the nontrivial upper bound of 
+\begin_inset Formula $\rho\left(A\right)$
+\end_inset
+
+ is found.
+ Together with these two results, we can have a conclusion of the sepctral
+ radius of a non-negative and irreducible matrix given in the following.
+\end_layout
+
+\begin_layout Lemma
+If 
+\begin_inset Formula $A=\left[a_{i,j}\right]$
+\end_inset
+
+ is an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ non-negative and irriducible matrix, then either 
+\begin_inset Formula 
+\begin{equation}
+\sum_{j=1}^{n}a_{i,j}=\rho\left(A\right),\mbox{for all }1\leq i\leq n,
+\end{equation}
+
+\end_inset
+
+or 
+\begin_inset Formula 
+\begin{equation}
+\min_{1\leq i\leq n}\left(\sum_{j=1}^{n}a_{i,j}\right)<\rho\left(A\right)<\max_{1\leq i\leq n}\left(\sum_{j=1}^{n}a_{i,j}\right).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $A=\left[a_{i,j}\right]$
+\end_inset
+
+ be an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ non-negative and irriducible matrix, for any 
+\begin_inset Formula $\mathbf{x}>\mathbf{0}$
+\end_inset
+
+ in the hyperotant 
+\begin_inset Formula $P$
+\end_inset
+
+, either
+\begin_inset Formula 
+\begin{equation}
+\min_{1\leq i\leq n}\left(\frac{\sum_{j=1}^{n}a_{i,j}x_{j}}{x_{i}}\right)<\rho\left(A\right)<\max_{1\leq i\leq n}\left(\frac{\sum_{j=1}^{n}a_{i,j}x_{j}}{x_{i}}\right)
+\end{equation}
+
+\end_inset
+
+or 
+\begin_inset Formula 
+\begin{equation}
+\frac{\sum_{j=1}^{n}a_{i,j}x_{j}}{x_{i}}=\rho\left(A\right),\ \mbox{for all }1\leq i\leq n.
+\end{equation}
+
+\end_inset
+
+Moreover,
+\begin_inset Formula 
+\begin{equation}
+\max_{\mathbf{x}\in P}\min_{1\leq i\leq n}\left(\frac{\sum_{j=1}^{n}a_{i,j}x_{j}}{x_{i}}\right)=\rho\left(A\right)=\min_{\mathbf{x}\in P}\max_{1\leq i\leq n}\left(\frac{\sum_{j=1}^{n}a_{i,j}x_{j}}{x_{i}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The equality is valid if we choose the 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ equal to the positive eigenvector 
+\begin_inset Formula $e\in P$
+\end_inset
+
+ corresponding to the eigenvalue 
+\begin_inset Formula $\rho\left(A\right)$
+\end_inset
+
+.
+ The method shown above will be applicable, because it provides us both
+ the upper bounds and lower bounds for the spectral radius of a non-negative
+ and irreducible matrix, by a simple algorithm without caculating the determinat
+ion of 
+\begin_inset Formula $\lambda I-A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Gernerlized from Perron-Frobenius theorem
+\end_layout
+
+\begin_layout Standard
+The result induced from Perron-Frobenius theorem gives the upper bound and
+ lower bound of the matrix.
+ Considering the system dynamic 
+\begin_inset Formula $x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)$
+\end_inset
+
+.
+ Because 
+\begin_inset Formula $\exp\left(-{\cal L}t\right)$
+\end_inset
+
+ is a non-negative matrix, the Perron-Frobenius theorem tell us that 
+\begin_inset Formula $\exp\left(-{\cal L}t\right)$
+\end_inset
+
+ has a positive real eigenvalue equals to one which is also the spectual
+ radius.
+ Together with the 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:Bounds of eig(L)"
+
+\end_inset
+
+ which implies that all the eigenvalues of 
+\begin_inset Formula $-{\cal L}$
+\end_inset
+
+ have negative real part, we immidiatelly come to the following theorem.
+\end_layout
+
+\begin_layout Theorem
+Assume 
+\begin_inset Formula ${\cal G}=\left({\cal V},{\cal E},{\cal A}\right)$
+\end_inset
+
+ is strongly connected graph, and the associated graph Laplacian matrix
+ 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ is definded in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Graph Laplacian def."
+
+\end_inset
+
+, which has only one zero eigenvalue.
+ Let the 
+\begin_inset Formula $u_{r}$
+\end_inset
+
+ is the uniformed right eigenvector and 
+\begin_inset Formula $u_{l}$
+\end_inset
+
+ is the uniformed left eigenvector associated with the zero eigenvalue,
+ i.e.
+ 
+\begin_inset Formula $Lu_{r}=0$
+\end_inset
+
+, 
+\begin_inset Formula $u_{l}^{T}L=0$
+\end_inset
+
+, then we have 
+\begin_inset Formula $u_{l}^{T}u_{r}=1$
+\end_inset
+
+ and the system dynamic 
+\begin_inset Formula 
+\begin{equation}
+x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)
+\end{equation}
+
+\end_inset
+
+will have the stable state of the system dynamic given by
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{equation}
+x\left(t\right)=Kx\left(0\right)
+\end{equation}
+
+\end_inset
+
+ where K is a matrix in 
+\begin_inset Formula $R^{n}$
+\end_inset
+
+, and 
+\begin_inset Formula $K=\lim_{t\to\infty}\exp\left(-{\cal L}t\right)=u_{r}u_{l}^{T}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $A=-{\cal L}$
+\end_inset
+
+, and it has a Jordan form of 
+\begin_inset Formula $A=UJU^{-1}$
+\end_inset
+
+.
+ Then we can have 
+\begin_inset Formula $\exp\left(At\right)=U\exp\left(Jt\right)U^{-1}$
+\end_inset
+
+.
+ Because 
+\begin_inset Formula $A$
+\end_inset
+
+ has all its eigenvalue except a simple zero eigenvalue have negative real
+ part, thus, as 
+\begin_inset Formula $t\to\infty$
+\end_inset
+
+, all other Jordan block vanish, and 
+\begin_inset Formula $\exp\left(Jt\right)$
+\end_inset
+
+ converges to a matrix with only single nonzero entry, denoted by 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ Since matrix 
+\begin_inset Formula $U$
+\end_inset
+
+ contains a column which associated with the zero eigenvalue of 
+\begin_inset Formula $A$
+\end_inset
+
+ is 
+\begin_inset Formula $u_{r}$
+\end_inset
+
+, similarly, 
+\begin_inset Formula $U^{-1}$
+\end_inset
+
+ has a corresponding row equals to 
+\begin_inset Formula $u_{l}$
+\end_inset
+
+.
+ By simply caculating the equation 
+\begin_inset Formula $K=UQU^{-1}$
+\end_inset
+
+, we can show that 
+\begin_inset Formula $K=u_{r}u_{l}^{T}$
+\end_inset
+
+.
+ And the fact 
+\begin_inset Formula $U^{-1}U=I$
+\end_inset
+
+ shows that 
+\begin_inset Formula $u_{l}^{T}u_{r}=1$
+\end_inset
+
+ .
+ This ends the proof.
+ 
+\end_layout
+
+\begin_layout Standard
+This is an improtant theory for continuours-time consensus problem.
+ It provides the necessary and sufficient conditions of the graph Laplacian
+ matrix so that a convergent consensus algorithm could be carried out on
+ the network.
+ For the average consensus problem, it is obvious tha all the elements in
+ 
+\begin_inset Formula $K$
+\end_inset
+
+ must equal to 
+\begin_inset Formula $\frac{1}{n}$
+\end_inset
+
+.
+ This requires the graph Laplacian 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ satisfies the conditions: 
+\begin_inset Formula ${\cal L}\mathbf{1}=0$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{1}^{T}{\cal L}=0$
+\end_inset
+
+, where 
+\begin_inset Formula $\mathbf{1}\in R^{n}$
+\end_inset
+
+ is an all unity vector.
+ And the 
+\begin_inset Formula $u_{r}$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{l}$
+\end_inset
+
+ will change into vectors with equivalent constant in all its components.
+ If they are uniformed, then 
+\begin_inset Formula $u_{r}=u_{l}=\frac{1}{\sqrt{n}}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Symmetric matrix
+\end_layout
+
+\begin_layout Standard
+symmetric matrix have all Jordan block with size one.
+ has 
+\begin_inset Formula $n$
+\end_inset
+
+ linear independent eigenvectors.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_body
+\end_document

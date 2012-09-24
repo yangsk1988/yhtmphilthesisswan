@@ -1,0 +1,125 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass IEEEtran
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Recall the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:local value linear combination"
+
+\end_inset
+
+, for any component 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+, if we take the z-transform of the equation, we obtain 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(z^{r+1}+a_{r}z^{r}+\cdots+a_{1}z+a_{0}\right)X_{i}\left(z\right)
+\]
+
+\end_inset
+
+As shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+, the consensus value can be found by using the final value theorem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\lim_{k\to\infty}x\left(k\right) & = & \lim_{z\to1}\left(z-1\right)X_{i}\left(z\right)\\
+ & = & \frac{\left[x_{i}\left[r\right],x_{i}\left[r-1\right],\ldots,x_{i}\left[0\right]\right]S}{\left[1,1,\ldots.,1\right]S}
+\end{eqnarray*}
+
+\end_inset
+
+where 
+\begin_inset Formula $S=\left[1,1+a_{r},1+a_{r}+a_{r-1},\ldots.,1+\sum_{j=1}^{r}a_{j}\right]^{T}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Compare this equation with the consensus finding filter, we see that the
+ they have little difference except the consensus finding filter is independent
+ of the iteration times.
+ Since the relationship of local value predictor and consensus finding filter
+ holds when the weight matrix is not symmetric.
+ Therefore, it is possible to calculate the consensus value by the proposed
+ method.
+ 
+\end_layout
+
+\end_body
+\end_document
