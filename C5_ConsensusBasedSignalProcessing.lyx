@@ -77,7 +77,7 @@ Consensus Based Signal Processing
 \end_layout
 
 \begin_layout Standard
-The difficulies of distributed signal processing is that any individual
+The difficulties of distributed signal processing is that any individual
  node only know partial information on the whole network.
  And information exchange only allowed between neighbors.
  The consensus algorithm is essential to keep the consistency of decisions
@@ -118,15 +118,15 @@ n to the destination.
 \end_layout
 
 \begin_layout Standard
-Based on the FT-DCA algorithm we introduced in the section 
+Based on the FT-DAC algorithm we introduced in the section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Finite-time-Consensus-on"
 
 \end_inset
 
-, each node could decomposite the local value vector by a linear combination
- of eigenvalues and eigenvectors and can caculate the coefficients before
+, each node could decompose the local value vector by a linear combination
+ of eigenvalues and eigenvectors and can calculate the coefficients before
  each term.
  Actually, with some signal processing techniques, there are more information
  in the local values sequence that each node can extract.
@@ -271,7 +271,7 @@ It is possible to exchange information between nodes in the network without
 \end_layout
 
 \begin_layout Standard
-To show how this method can be carried out distributively, recall the FT-DCA
+To show how this method can be carried out distributively, recall the FT-DAC
  algorithm in section 
 \family roman
 \series medium
@@ -406,508 +406,6 @@ The consensus based information flooding is ideally suitable for time-invariant
 , if the topology changes at a very low frequency.
 \end_layout
 
-\begin_layout Subsection
-Consensus based Data Fusion and Decision Making
-\end_layout
-
-\begin_layout Standard
-Sensor networks have a variety of applications in surveillance and environment
- monitoring, data gathering from spatially distributed sources, collaborative
- signal processing.
- A fundamental problem in sensor network is to process the local acquired
- data or signal using a scalable algorithm 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Olfati-Saber2005a"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-Generally, there are two options for multiple sensors signal processing:
- First option is centralized signal processing.
- This requires the network contains a fusion center, and all sensor's informatio
-n being transmuted to the central processor where the global LLR is calculated.
- At the same time, a hypothesis test based on the ML, MAP or Bayesian decision
- rule will be carried out at the a fusion center to make the decision.
- Besides, an optimal data fusion scheme is proposed in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chair1986"
-
-\end_inset
-
-, the decision is made by an optimal linear combination of local decisions
- of all sensors.
- 
-\end_layout
-
-\begin_layout Standard
-The Second option is distributive signal processing.
- In the consideration of reliability, survivability, and increase in range
- of coverage, there is an increasing interest in employing multiple sensors
- for these applications 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chair1986"
-
-\end_inset
-
-.
- Then, global LLR should be calculated in a distributive manner.
- In this section, we will consider a distributed detection problem in wireless
- sensor network without the fusion center.
- Then, there will be an introduction about consensus based approach in the
- distributed data fusion and decision making, in the case of each sensor
- acquires a scale value of an unknown parameter.
- However, 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xiao2005"
-
-\end_inset
-
- discussed the case when each sensor acquires a vector of unknown parameters
- and the signal is mixed with joint Gaussian white noise, and proposed a
- more sophisticated data fusion scheme.
- 
-\end_layout
-
-\begin_layout Standard
-(todo model: multiple sensors, data fusion.)
-\end_layout
-
-\begin_layout Standard
-Considering a binary hypothesis testing problem with the following two hypothese
-s
-\end_layout
-
-\begin_layout Enumerate
-H0: target is absent.
-\end_layout
-
-\begin_layout Enumerate
-H1: target is present.
-\end_layout
-
-\begin_layout Standard
-Suppose each sensor has the following observation
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-x_{l}=\begin{cases}
-\mu_{l,0}+n_{l} & \mbox{if no target presents}\\
-\mu_{l,1}+n_{l} & \mbox{if target presents}
-\end{cases}
-\end{equation}
-
-\end_inset
-
-where 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $\mu_{l,m}$
-\end_inset
-
- is 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-the mean value of 
-\begin_inset Formula $x_{l}$
-\end_inset
-
- depending on hypothesis 
-\begin_inset Formula $m$
-\end_inset
-
- and 
-\begin_inset Formula $n_{l}$
-\end_inset
-
- is the noise of 
-\begin_inset Formula $x_{l}$
-\end_inset
-
- .
- we need to make a declaration of the target presentation or absence based
- on sensors local observations.
- The prior probability of these two hypotheses is denoted by 
-\begin_inset Formula $P\left(H_{m}\right)=P_{m},m=1,2$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Based on classical hypothesis test theory, the global log likelihood ratio
- (G-LLR ) test is given by 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-LLR(x_{1},...,x_{L})=\log\frac{f\left(x_{1},...,x_{L}|H_{1}\right)}{f\left(x_{1},...,x_{L}|H_{0}\right)}\underset{H_{0}}{\overset{H_{1}}{\gtrless}\log}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}\label{eq:G-LLR define}
-\end{equation}
-
-\end_inset
-
-where 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)$
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- is the likelihood function of hypothesis 
-\begin_inset Formula $H_{m}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-To calculate the LLR in a distributed manner, a usual simplification is
- assuming sensor observations are independent from one to another.
- Therefore, we have 
-\begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)=f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)$
-\end_inset
-
-, and 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-LLR(\mathbf{x}) & = & \log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)}{f\left(x_{1}|H_{0}\right)\cdot\ldots\cdot f\left(x_{L}|H_{0}\right)}=\sum_{i=1}^{L}LLR\left(x_{i}\right)\label{eq:Sum L-LLR}
-\end{eqnarray}
-
-\end_inset
-
-.
- As seen from the above equation, in another option of data processing,
- if the sensor node could calculate its local log likelihood ratio instead
- of the complete local observation 
-\begin_inset Formula $x_{i}$
-\end_inset
-
- , the G-LLR changes into the sum of local log likelihood ratio (L-LLR).
- 
-\end_layout
-
-\begin_layout Standard
-According to Eq.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Sum L-LLR Cloud"
-
-\end_inset
-
-, the G-LLR is equal to the average multiply with the number of sensors
- in the network.
- Therefore, it can be calculated by distributed average consensus (DAC)
- algorithm.
- This is implemented by the following steps: First, each sensor calculates
- its local LLR individually; Then, all the sensors update their local LLR
- in the DAC iteration until they converge to a common value; Finally, once
- the algorithm converges, the global LLR is obtained by multiply the average
- local LLRs with the number of sensors in the network.
- 
-\end_layout
-
-\begin_layout Standard
-In the next, we will generalize the conditions step by step and drive some
- expressions to show the possibility of calculating G-LLR with DAC algorithm.
- First we assume the sensors observation is corrupted by joint Gaussian
- white noise 
-\begin_inset Formula $\mathbf{n}\sim\mathcal{N}\left(0,\Sigma\right)$
-\end_inset
-
-, which means noises are not independent from one sensor to another.
- Based on this assumption, the expression of G-LLR evolves into a weighted
- sum of sensors observation.
- In section 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sub:Distributed-Cloud-Declaration"
-
-\end_inset
-
-, we will take a further step.
- The sensor observations will be mixed with joint Gaussian white noises
- which is not only dependent among other sensors but also depends on the
- target existence.
- More results about the applying DAC algorithm in decision making will be
- presented.
- 
-\end_layout
-
-\begin_layout Standard
-Let the sensors observation, the joint Gaussian white noises and the mean
- of sensors observation in a vector form given by 
-\begin_inset Formula 
-\[
-\mathbf{x}=\left[x_{1},\ldots,x_{L}\right]^{\mathrm{T}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\mathbf{n}=\left[n_{1},\ldots,n_{L}\right]^{\mathrm{T}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\mathbf{u}_{m}=\left[\mu_{1,m},\ldots,\mu_{L,m}\right]^{\mathrm{T}},\; m=0,1.
-\end{equation}
-
-\end_inset
-
-Since 
-\begin_inset Formula $\mathbf{n}\sim\mathcal{N}\left(0,\Sigma\right)$
-\end_inset
-
-, the likelihood function is to be joint Gaussian function 
-\begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)=\frac{1}{\left(2\pi\right)^{L/2}\left|\Sigma\right|^{\frac{1}{2}}}\exp\left(-\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{m}\right)^{T}\Sigma^{-1}\left(\mathbf{x}-\mathbf{u}_{m}\right)\right)$
-\end_inset
-
-, the G-LLR becomes, 
-\begin_inset Formula 
-\begin{eqnarray}
-LLR(\mathbf{x}) & = & \left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{T}}\right)\mathbf{\Sigma}^{-1}\mathbf{x}+\frac{1}{2}\left(\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{0}-\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{1}\right)\label{eq:wight sum of detection}\\
- & = & \sum_{l=1}^{L}w_{l}x_{l}+C\nonumber 
-\end{eqnarray}
-
-\end_inset
-
-where 
-\begin_inset Formula $w_{l}$
-\end_inset
-
- is the 
-\begin_inset Formula $l^{th}$
-\end_inset
-
- component of 
-\begin_inset Formula $\left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{T}}\right)\mathbf{\Sigma}^{-1}$
-\end_inset
-
-, 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $C$
-\end_inset
-
- is the last term the equation.
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- This equation means the LLR can be a weighted sum of the signal acquired
- in each sensor.
-\end_layout
-
-\begin_layout Standard
-Provided that each sensor knows the weight 
-\begin_inset Formula $w_{l}$
-\end_inset
-
-, the Eq.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:wight sum of detection"
-
-\end_inset
-
- states that the G-LLR is equal to the weighted sum of local observation
- of sensors in the network together with the constant 
-\begin_inset Formula $C$
-\end_inset
-
-.
- Actually, the constant 
-\begin_inset Formula $C$
-\end_inset
-
- changes the threshold of the hypothesis testing and can be subtract from
- both side of hypothesis testing equation.
- Therefore, we modify the hypothesis testing into 
-\begin_inset Formula 
-\[
-\sum_{l=1}^{L}w_{l}x_{l}\underset{H_{0}}{\overset{H_{1}}{\gtrless}}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}-C
-\]
-
-\end_inset
-
-where the value 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $\sum_{l=1}^{L}w_{l}x_{l}$
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- is the average obtained by DAC multiplied by the number of sensors in the
- network.
- This is all about the distributed detection and decision making, when the
- noise are jointly white Gaussian.
- 
-\end_layout
-
-\begin_layout Standard
-The distributed detection will be implemented and simulated in the section
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:DAC-Implementation:-Distributed"
-
-\end_inset
-
-.
- More generalized condition of calculation of 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $LLR(\mathbf{x})$
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- when sensor signals are correlated is discussed
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
- in 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sub:Distributed-Cloud-Declaration"
-
-\end_inset
-
-.
- 
-\end_layout
-
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -942,7 +440,7 @@ key "Yang2010"
 
  adopt consensus algorithms to estimate and control of graph connectivity
  for mobile sensor networks.
- Their method is to iterasively calculate the the algebra connectivity of
+ Their method is to iteratively calculate the the algebra connectivity of
  a graph an iteratively.
  Average and maximum consensus are required in each step of the iteration.
  If the average consensus can be faster, the whole estimation can have a
@@ -967,9 +465,9 @@ key "Xiong2010"
 \end_inset
 
  proposed the method to find the optimal iteration matrix or the high order
- iteration matrix for DCA respectively.
+ iteration matrix respectively.
  Optimization of FO-DAC requires the whole network topology.
- In contract, optimization of Higher-order DACalgorithm doesn't have such
+ In contract, optimization of Higher-order DAC algorithm doesn't have such
  strong requirement, but the eigenvalues of the graph matrix or Laplacian
  matrix are required 
 \begin_inset CommandInset citation
@@ -987,7 +485,7 @@ key "Asensio-Marco2012"
 \end_inset
 
  proposed a method to remove some links in the network so that the topology
- is optimized for DAC, neverthless, optimization of topology is included
+ is optimized for DAC, nevertheless, optimization of topology is included
  in iteration matrix optimization.
  It might be a simpler but sub-optimal solution if they are solved separately.
  Besides, 
@@ -1029,11 +527,11 @@ key "Cavalcante2010"
 , can converge to the consensus value using an adaptive filter or even find
  the consensus value in finite number of iterations.
  However, it has been proved that the consensus value can be a linear combinatio
-n of local values obtained by FO-DCA.
+n of local values obtained by FO-DAC.
  Thus, the accuracy of the estimated consensus value highly relies on the
  accuracy of coefficients multiplying these local values.
  The reliability to network changes of these methods is still questionable.
- In addition, all these methods have an instance of FO-DCA running in background.
+ In addition, all these methods have an instance of FO-DAC running in background.
  Therefore, the asymptotic consensus algorithms are not out of time.
  In contract, they are already applied to network with a large number of
  nodes and robust to the topology variation.
@@ -1161,7 +659,7 @@ Distributed Eigenvalue Estimation
 \end_layout
 
 \begin_layout Standard
-In the distributed multi-vehicle cooperative control 
+In the distributed multiple vehicle cooperative control 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Fax2004"
@@ -1180,7 +678,7 @@ key "Fax2004"
 \begin_layout Standard
 If the network topology and all the weights to edges are known to a centralized
  nodes, then the eigenvalues can be calculated and flooded to all nodes,
- which be used to optimize the DCA or achieve consensus in finite-time.
+ which be used to optimize the DAC or achieve consensus in finite-time.
  However, in some cases there is no such a centralized node to collect the
  information and calculate parameters and transmit them.
  Therefore, it is necessary for nodes to estimate these parameters with
@@ -2030,7 +1528,7 @@ First, the new matrix can be built by the local values of
 \begin_inset Formula $v_{j}\in{\cal N}_{i}$
 \end_inset
 
-, whihc means, several Toeplitz matrices will be concatenated along the
+, which means, several Toeplitz matrices will be concatenated along the
  column to generate the new matrix.
  For example, node 
 \begin_inset Formula $v_{i}$
@@ -2302,7 +1800,7 @@ Simulation of Eigenvalue Estimation
 \end_layout
 
 \begin_layout Standard
-In the simulation, we take the follwoing steps.
+In the simulation, we take the following steps.
  First, a random network generator uniformly distribute 
 \begin_inset Formula $n$
 \end_inset
@@ -2398,7 +1896,7 @@ Finally, the eigenvalue estimation performance is evaluated by the estimation
 .
  Because the greedy search algorithm will always find a minimum match, which
  is wrong in this case.
- Therefore, the uncorrect match makes the error to be very large and creates
+ Therefore, the incorrect match makes the error to be very large and creates
  an outlier shown in Fig.
 \begin_inset CommandInset ref
 LatexCommand ref

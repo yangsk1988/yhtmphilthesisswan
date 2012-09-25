@@ -260,7 +260,7 @@ t
 T
 \change_unchanged
 he background radiation (for example, sunshine in the day time) will ruin
- the lidar signals.
+ the LIDAR signals.
  But it can be compensated by increase the laser power, add optical filter
  in front of the telescope or tracking the background radiation level.
  Second, the interference of moving objects in the sky like birds and balloons
@@ -279,7 +279,7 @@ key "N.Kh.2004"
 \end_inset
 
 .
- Finally, a lidar with discrimination ability is very expensive so that
+ Finally, a LIDAR with discrimination ability is very expensive so that
  it often performs passive detection and discrimination.
 
 \change_inserted -1199928310 1347292230
@@ -310,8 +310,8 @@ To overcome unreliability of sensor nodes and interference for outdoor remote
 \end_layout
 
 \begin_layout Standard
-Signal can be processed distributively by distributed consensus algorithm
- (DCA).
+Signal can be processed distributively by distributed average consensus
+ (DAC) algorithm .
  The word consensus means each node would have an agreement on the declaration
  of the target after the algorithm.
  In addition, each node only broadcast its local value until the algorithm
@@ -2145,6 +2145,22 @@ Distributed Cloud Detection Based on DAC algorithm
 \end_layout
 
 \begin_layout Standard
+In the applications of environment surveillance and monitoring, sensor networks
+ performs the data gathering of spatially distributed sources, and the collabora
+tive signal processing.
+ Processing the local acquired signals using a scalable algorithm is a fundament
+al problem in sensor network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2005a"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
 Cloud declaration is normally made through a hypothesis test.
  When new observation is acquired, the decision of cloud existence is made
  base on the ML or MAP decision rule 
@@ -2155,12 +2171,64 @@ key "Chair1986"
 \end_inset
 
 , which need the probability density function of all the sensor’s observation
- and caculate the log likelihood ratio.
- In a centralized processing method, these data can be gathered to the fusion
- center to perform the data processing.
- However, this can be achieved distributively without a fusion center, with
- the conditions that global log likelihood ratio (G-LLR) can be calculated
- by distributed consensus algorithm.
+ and calculate the log likelihood ratio.
+\end_layout
+
+\begin_layout Standard
+Generally, there are two options for multiple sensors signal processing.
+\end_layout
+
+\begin_layout Standard
+Firstly, is the centralized processing.
+ This requires the network contains a fusion center, and all sensor's data
+ need to be transmitted to the fusion center and processed.
+ At the same time, a hypothesis test based on the ML, MAP or Bayesian decision
+ rule will be carried out at the a fusion center.
+ Normally the global log likelihood ratio (G-LLR) is calculated and compared
+ with a threshold to make the decision.
+ Besides, an optimal data fusion scheme is proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chair1986"
+
+\end_inset
+
+, the decision is made by an optimal linear combination of local decisions
+ of all sensors.
+ 
+\end_layout
+
+\begin_layout Standard
+Secondly, the global LLR can be calculated without a fusion center by distributi
+ve signal processing.
+ In the consideration of reliability, survivability, and range of coverage,
+ there is an increasing interest in employing multiple sensors for these
+ applications 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chair1986"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In this section, we will consider a distributed detection problem in wireless
+ sensor network without the fusion center.
+ Then, there will be an introduction about consensus based approach in the
+ distributed data fusion and decision making, in the case of each sensor
+ acquires a scale value of an unknown parameter.
+ However, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2005"
+
+\end_inset
+
+ discussed the case when each sensor acquires a vector of unknown parameters
+ and the signal is mixed with joint Gaussian white noise, and proposed a
+ more sophisticated data fusion scheme.
  We will show it later.
 \end_layout
 
@@ -2172,7 +2240,32 @@ The detection method should be separated into two stages, training and detection
 \end_layout
 
 \begin_layout Subsubsection
-Training
+Hypothesis Test
+\end_layout
+
+\begin_layout Standard
+Considering a binary hypothesis testing problem with the following two hypothese
+s
+\end_layout
+
+\begin_layout Enumerate
+H0: target is absent.
+\end_layout
+
+\begin_layout Enumerate
+H1: target is present.
+\end_layout
+
+\begin_layout Standard
+The prior probability of these two hypotheses is denoted by 
+\begin_inset Formula $P\left(H_{m}\right)=P_{m}=\frac{1}{2},m=1,2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Signal Model
 \end_layout
 
 \begin_layout Standard
@@ -2289,13 +2382,13 @@ and
 \end_inset
 
  denote the mean and variation of cloud concentration, which represent the
- background radiation and the noise.
+ background radiation noise mean and the variance.
  These parameters should be estimated in the training stage by expectation-maxim
 ization algorithm.
 \end_layout
 
-\begin_layout Subsubsection
-Detection
+\begin_layout Paragraph
+Global and Local Log Likelihood Ratio 
 \end_layout
 
 \begin_layout Standard
@@ -2310,7 +2403,7 @@ Suppose the observation of all sensors
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-LLR(x_{1},...,x_{L})=log\frac{f\left(x_{1},...,x_{L}|H_{1}\right)}{f\left(x_{1},...,x_{L}|H_{0}\right)}\label{eq:G-LLR define Cloud}
+LLR(x_{1},...,x_{L})=log\frac{f\left(x_{1},...,x_{L}|H_{1}\right)}{f\left(x_{1},...,x_{L}|H_{0}\right)}\underset{H_{0}}{\overset{H_{1}}{\gtrless}\log}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}\label{eq:G-LLR define Cloud}
 \end{equation}
 
 \end_inset
@@ -2386,30 +2479,21 @@ reference "eq:Sum L-LLR Cloud"
 
 \end_inset
 
-, the G-LLR is equal to the average multiplied with the number of sensors
- in the network.
- Therefore, it can be calculated by distributed average consensus (DAC)
- algorithm.
- This is implemented by the following steps: First, each sensor calculates
- its local LLR individually; Then, all the sensors update their local LLR
- in the DAC iteration until they converge to a common value; Finally, once
- the algorithm converges, the global LLR is obtained by multiply the average
- local LLRs with the number of sensors in the network.
- When the G-LLR is available, cloud declaration could be made based on the
- ML or MAP decision rule.
+, the G-LLR is changes into the sum of local log likelihood ratio (L-LLR).
+ 
 \end_layout
 
 \begin_layout Standard
-To drive and simplify the expression of global log likelihood ratio when
- sensor’s observation which is described by the received signal model in
- 
+To drive and simplify the expression of global log likelihood ratio, sensor’s
+ observation is described by the model in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Received-Signal'-Model"
 
 \end_inset
 
-, let 
+.
+ Let 
 \begin_inset Formula 
 \[
 \mathbf{x}=\left[x_{1},\ldots,x_{L}\right]^{\mathrm{T}}
@@ -2443,15 +2527,14 @@ reference "sub:Received-Signal'-Model"
 \begin_inset Formula $\mathbf{n}_{m}\sim\mathcal{N}\left(0,\Sigma_{m}\right)$
 \end_inset
 
-, G-LLR becomes, 
+, G-LLR is given by 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray}
 LLR(\mathbf{x}) & = & -\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{1}\right)^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\left(\mathbf{x}-\mathbf{u}_{1}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{0}\right)^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\left(\mathbf{x}-\mathbf{u}_{0}\right)+\frac{1}{2}log\left(\frac{\left|\Sigma_{0}\right|}{\left|\Sigma_{1}\right|}\right)\nonumber \\
- & = & \left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)\mathbf{x}+\frac{1}{2}\left[log\left|\Sigma_{0}\right|-log\left|\Sigma_{1}\right|\right]\label{eq:G-LLR Expand}\\
- &  & -\frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right]\nonumber \\
+ & = & \left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)\mathbf{x}+\frac{1}{2}\left[log\left|\Sigma_{0}\right|-log\left|\Sigma_{1}\right|\right]-\frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right]\label{eq:G-LLR Expand}\\
  & = & \sum_{l=1}^{L}w_{l}x_{l}+C-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right],\label{eq:G-LLR simple}
 \end{eqnarray}
 
@@ -2475,6 +2558,85 @@ where
 
 .
  
+\end_layout
+
+\begin_layout Standard
+Provided that each sensor knows the weight 
+\begin_inset Formula $w_{l}$
+\end_inset
+
+, the Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:G-LLR simple"
+
+\end_inset
+
+ states that the G-LLR is equal to the weighted sum of local observation
+ of sensors in the network together with the constant 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ Actually, the constant 
+\begin_inset Formula $C$
+\end_inset
+
+ changes the threshold of the hypothesis testing and can be subtract from
+ both side of hypothesis testing equation.
+ Therefore, we modify the hypothesis testing into 
+\begin_inset Formula 
+\begin{equation}
+LLR(\mathbf{x})=\sum_{l=1}^{L}w_{l}x_{l}\underset{H_{0}}{\overset{H_{1}}{\gtrless}}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}-C\label{eq:GLLR in weighted sum}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $w_{l}$
+\end_inset
+
+ is the 
+\begin_inset Formula $l^{th}$
+\end_inset
+
+ component of 
+\begin_inset Formula $\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GLLR in weighted sum"
+
+\end_inset
+
+ means the G-LLR can be a weighted sum of the signal acquired in each sensor,
+ which can be obtained by the weight average multiplied with the number
+ of sensors in the network.
+ Therefore, the distributed average consensus (DAC) algorithm can be used
+ in its calculation.
+ 
+\end_layout
+
+\begin_layout Standard
+The algorithm is as follows: First, each sensor calculates its local LLR
+ individually; Then, each sensors update its local LLR in the DAC iterations
+ until it converges to the consensus value; Finally, after the algorithm
+ converges, the global LLR is obtained by multiply the average local LLRs
+ with the number of sensors in the network.
+ When the G-LLR is available, cloud declaration could be made based on the
+ ML or MAP decision rule.
+\end_layout
+
+\begin_layout Subsubsection
+Challenge of Distributed Detection of Cloud
 \end_layout
 
 \begin_layout Standard
