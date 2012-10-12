@@ -449,45 +449,6 @@ Spectral radius of a matrix
 \end_layout
 
 \begin_layout Standard
-(todo, delete this
-\end_layout
-
-\begin_layout Enumerate
-bounds for the spectral radius: 
-\end_layout
-
-\begin_layout Enumerate
-and Gerschgorin's theorem: 1.5 page 1.6; 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-theorem 1.5; Corollary 1; Corollary 2; give me the possibility of a sub-optimal
- distributed method.
- Page 16
-\end_layout
-
-\begin_layout Enumerate
-Perron-Frobenius theorem: 2.1 page 30.
-\end_layout
-
-\begin_layout Enumerate
-Lemma 2.5 on page 31 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Varga2010"
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-todo delete)
-\end_layout
-
-\begin_layout Standard
 Spectral radius of a matrix is one of the basic concepts in the matrix iteration
  theory.
  It is defined by the largest eigenvalue of the matrix.
