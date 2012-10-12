@@ -1616,7 +1616,7 @@ name "fig:Find-minimum-rho(H)"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset space \hfill{}
@@ -1984,25 +1984,25 @@ reference "eq:2nd-DAC lambda_H solution"
 \noun default
 \color inherit
 are all real values.
- Additionally, the optimal solution is located just on the board line of
- the regions (todo: 
-\begin_inset Quotes eld
-\end_inset
-
-R1 and R2, see figure ?
-\begin_inset Quotes erd
-\end_inset
-
- ) where 
+ Additionally, the optimal solution is located just on the boundary of the
+ regions where 
 \begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
 \end_inset
 
- is real and complex respectably.
+ is real and complex respectably, shown as dashed line in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Convergence-Region"
+
+\end_inset
+
+.
  
 \end_layout
 
 \begin_layout Subsubsection
-Simulation and Algorithms Performance 
+Simulation and Algorithms Performance
 \end_layout
 
 \begin_layout Standard
@@ -2049,7 +2049,7 @@ ty density function.
 placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset space \hfill{}
@@ -2059,7 +2059,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics

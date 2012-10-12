@@ -63,18 +63,19 @@ tabs-within-sections
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 5862369 "HT" 
 \author 5863457 "ht" 
 \end_header
 
 \begin_body
 
 \begin_layout Section
-Finite-time Consensus on generalized conditions (todo)
+Finite-time Consensus on generalized conditions (todo check 1)
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Finite-time-Consensus-on"
@@ -92,10 +93,14 @@ reference "sub:Find-the-Consensus"
 
 \end_inset
 
-, it shows if each node knows the network topology (for example, eigenvalues
- of the weight matrix), the consensus value can be calculated by a linear
- combination of past local values.
- However, having knowledge of the network topology in every node is a strong
+, it is shown that if each node knows the network topology (or eigenvalues
+ of the weight matrix 
+\begin_inset Formula $W$
+\end_inset
+
+), the consensus value can be calculated by a linear combination of past
+ local values.
+ However, having knowledge of the network topology in every node is a demanding
  assumption.
  Although a distributive algorithm to calculate the linear combination has
  also been introduced in 
@@ -105,34 +110,32 @@ key "Sundaram2007"
 
 \end_inset
 
-.
- This method requires several runs of the consensus algorithm initialized
- with a set of linear independent vectors.
+, it requires several runs of the consensus algorithm initialized with a
+ set of linear independent vectors.
  Alternatively, the original consensus algorithm can run many instances
  in parallel with a set of independent initial values.
  However, the data transmission at each iteration increases.
- In addition, this method may not reliable to topology changes during the
+ Futhermore, this method may not reliable to topology changes during the
  of multiple re-initializations of original consensus algorithm.
  
 \end_layout
 
 \begin_layout Standard
-Here we propose a generalized finite-time consensus algorithm without knowledge
- of network topology.
- It also does not require re-initialization of the original consensus algorithm
- for several times.
+Here we propose a generalized finite-time consensus algorithm, which does
+ not require knowledge of network topology and re-initialization of the
+ original consensus algorithm for several times.
  Before introducing the algorithm, there are too important linear filter
  need to be introduced, as the algorithm is based on the properties of these
  filters.
 \end_layout
 
 \begin_layout Subsection
-Linear Predictor For Local Value (todo check 0)
+Linear Predictor For Local Value (todo check 1)
 \end_layout
 
 \begin_layout Standard
-In observing the convergence behavior of each node's local value sequence,
- one would come to the idea that the sequence must obeys some rule as it
+In observing the convergence curve of each node's local value sequence,
+ we would come to the idea that the sequence must obeys some rule as it
  converges.
  In section 
 \begin_inset CommandInset ref
@@ -143,14 +146,22 @@ reference "sub:Local-Value-Decomposition"
 
 , it is shown that local value vector can be decomposed in terms of eigenvalues
  and eigenvectors.
- Based on this fact, a consensus estimation method by inverting the Vandermonde
- matrix and an information flooding techniques are proposed.
+ Based on this fact, a consensus value estimation method by inverting the
+ Vandermonde matrix 
+\change_deleted 5862369 1350052595
+and an information flooding techniques
+\change_unchanged
+ are proposed.
 \end_layout
 
 \begin_layout Standard
 However, another important property of the FO-DCA need to be highlighted
  in this section.
- To see how this property can be explained, we have the following theorem.
+ To show this 
+\change_deleted 5862369 1350052658
+see how this property can be explained
+\change_unchanged
+, we have the following theorem.
 \end_layout
 
 \begin_layout Theorem
@@ -229,7 +240,8 @@ where
 \begin_inset Formula $m=\sum_{i=1}^{r}r_{i}$
 \end_inset
 
-, Since 
+.
+ Since 
 \begin_inset Formula $p\left(W\right)=\mathbf{0}_{n\times n}$
 \end_inset
 
@@ -289,14 +301,18 @@ In other words,
 \begin_inset Formula $\left[-a_{r},-a_{r-1},\ldots,-a_{0}\right]$
 \end_inset
 
-, by passing a number of consecutive local values in the history through
- that filter, if 
+, if we pass a number of consecutive local values in the past through that
+ filter, after the time index 
 \begin_inset Formula $k>m$
 \end_inset
 
 .
  In addition, all the nodes in the network can share the same coefficients,
- only when the minimal polynomial of weight matrix is not changed.
+ when the minimal polynomial of 
+\begin_inset Formula $W$
+\end_inset
+
+ is not changed.
 \end_layout
 
 \begin_layout Lemma
