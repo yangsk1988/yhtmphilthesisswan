@@ -476,8 +476,7 @@ Similarly, the function
 \end_inset
 
 .
- Then, we have the solution of these equations given by.
- 
+ Then, we have the solution of these equations given by
 \end_layout
 
 \begin_layout Standard
@@ -521,7 +520,7 @@ reference "eq:Toeplitz Eq.-2"
 
 \begin_layout Standard
 Toeplitz matrix is a special type of matrix and can be inverted by some
- algorithm in the polynomial time of order 
+ algorithms in the polynomial time of order 
 \begin_inset Formula $N^{2}$
 \end_inset
 
