@@ -63,7 +63,7 @@ tabs-within-sections
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -414,7 +414,7 @@ name "sec:Online-Optimization-of"
 
 \end_inset
 
-Online Optimization of HO-DAC
+Real-time Optimization of HO-DAC
 \end_layout
 
 \begin_layout Standard
@@ -1956,6 +1956,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename D:/Dropbox/PaperWork/Autonomous Opt. DAC/Graph/N10_DAC1_NeiLV.pdf
+	width 7cm
 
 \end_inset
 
@@ -1995,6 +1996,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename D:/Dropbox/PaperWork/Autonomous Opt. DAC/Graph/N10_DAC1_NoNeiLV.pdf
+	width 7cm
 
 \end_inset
 
@@ -2041,6 +2043,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename D:/Dropbox/PaperWork/Autonomous Opt. DAC/Graph/N10_DAC2_NeiLV.pdf
+	width 7cm
 
 \end_inset
 
@@ -2080,6 +2083,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename D:/Dropbox/PaperWork/Autonomous Opt. DAC/Graph/N18_DAC18_NeiLV_4th.pdf
+	width 7cm
 
 \end_inset
 
