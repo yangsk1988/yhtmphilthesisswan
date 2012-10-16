@@ -2049,7 +2049,7 @@ ty density function.
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset space \hfill{}
@@ -2059,11 +2059,11 @@ status collapsed
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename D:/Dropbox/PaperWork/Master_Thesis_bak/Graph/FirstYearReport/Lyx_v/images/Net50Edges200.pdf
+	filename Graph/FirstYearReport/Lyx_v/images/Net50Edges200.pdf
 	lyxscale 50
 
 \end_inset
@@ -2103,8 +2103,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../FirstYearReport/Lyx_v/images/Network_N16_R0,3.pdf
-	lyxscale 120
+	filename Graph/FirstYearReport/Lyx_v/images/Network_N16_R0,3.pdf
 	width 7cm
 
 \end_inset
