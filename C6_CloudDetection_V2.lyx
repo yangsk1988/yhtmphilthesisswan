@@ -73,41 +73,29 @@ name "sec:DAC-Implementation:-Distributed"
 
 \end_inset
 
-DAC Implementation: Distributed Detection of Cloud
+A DAC Application: Distributed Detection of Cloud
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -1199928310 1347291893
-A cloud is a group of liquid or solid particles floated in the air.
- Sometime it contains harmful or dangerous particles so that it needs to
- be observed and tracked.
- Laser technology enables the remote detection of cloud.
-
-\change_unchanged
+In this chapter, the DAC algorithm will be applied to the remote detection
+ of cloud, which is to find out a group harmful liquids, solid particles
+ or gases floated in the air.
+ Enabled by laser technology, the sensor can illuminate these particles
+ and detect the backscatter.
+ However, background noise or moving object in the real environment may
+ interfere the the sensor signal.
+ Therefore, a method to use distributed detection is necessary.
+ The Gaussian plume model is widely used in cloud plume concentration modeling.
+ However, the cloud concentration is actually a random process with variance,
+ which the Gaussian plume model can not capture.
+ Therefore, a 3D cloud animation is implemented to get data of cloud concentrati
+on.
+ Then, the expectation-maximization algorithm is adopted to get the Gaussian
+ mixture model which gives the probability density function (PDF) of the
+ sensor’s observation.
+ The decision of cloud existence could be made based on the log likelihood
+ ratio when PDF for null and alternative hypotheses are available.
  
-\change_deleted -1199928310 1347291952
-In real environment, the received signals may be interfered by noise or
- corrupt by moving object.
- Thus, a method to use distributed detection is necessary.
-
-\change_unchanged
- 
-\change_deleted 5863457 1348411934
-Gaussian plume model is widely used in cloud plume modeling, which could
- be used to describe the mean value of cloud concentration.
- However, the sensor's observation is actually a random process with mean
- and variance values.
- So an expectation-maximization algorithm is adopted to get Gaussian mixture
- model that gives the distribution of the sensor’s observation.
- Then, the decision of cloud existence could be made based on the log likelihood
- ratio.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-(todo give some introduction)
 \end_layout
 
 \begin_layout Subsection
@@ -1496,7 +1484,7 @@ S(x,y)=\int_{-\infty}^{\infty}C(x,y,z)dz=\int_{-\infty}^{\infty}\int_{0}^{\infty
 
 \end_inset
 
-since the 
+since 
 \family roman
 \series medium
 \shape up
@@ -1512,7 +1500,7 @@ since the
 \begin_inset Formula $\int_{-\infty}^{\infty}\int_{0}^{\infty}\left|C(x,y,z,t)\right|dtdz<\infty$
 \end_inset
 
-, the integrations can be swapped.
+, the two integrations can be swapped.
  thus, we have 
 \begin_inset Formula 
 \[

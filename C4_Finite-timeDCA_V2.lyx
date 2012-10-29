@@ -1190,9 +1190,9 @@ Conclusion
 In this section, we introduced the finite-time DAC on gernerlized condition.
  Compared to the previous version of finite-time DAC, the improvements are:
  it doesn't require the eigenvalues to be known prior to the algorithm.
- However, the number of iterations can not be decreased, because the minimum
- number of iterations is depends on the weight matrix, which is the same
- as the previous finite-time DAC.
+ However, the number of iterations can not be less than a certain limit,
+ because the minimum number of iterations is depends on the weight matrix,
+ which is the same as the previous finite-time DAC.
  With this improment, some further algorithm could be drived.
  They will be introduced in chapter 
 \begin_inset CommandInset ref
