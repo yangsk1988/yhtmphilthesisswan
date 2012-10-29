@@ -166,23 +166,63 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-(todo)
+(todo today)
 \end_layout
 
 \begin_layout Standard
-In this thesis, 
+In this thesis, we first reviewed serveral DAC algorithms, including asymptotic
+ DAC, finite-time and adaptive filter DAC, also some accelaration techniques
+ are reviewed.
+ The optimization of these algorithms needs to konw the topology of the
+ network and the network can not changes during the optimizaion.
+ Actullay, based on the same assumption, the finite-time DAC or adaptive
+ filter DAC to can find the average in less time, after a non-optimized
+ first order DAC iterated for a certain steps.
+ 
 \end_layout
 
 \begin_layout Standard
-we 
+Second, in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Finite-time-Consensus-on"
+
+\end_inset
+
+, we presented a finite-time DAC on gerneralized condition.
+ Compared to the previous version of finite-time DAC, the itrations of first
+ order DAC is reduced to 2N, where N is the number of nodes in the network.
+ It doesn't require the eigenvalues to be known prior to the algorithm.
+ However, the number of iterations can not be decreased, because the minimum
+ number of iterations is depends on the weight matrix, which is the same
+ as the previous finite-time DAC.
+ With this improment, some further algorithm could be drived.
 \end_layout
 
-\begin_layout Enumerate
-reviewed serveral DAC algorithms.
-\end_layout
+\begin_layout Standard
+Third, In chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Online-Optimization-of"
 
-\begin_layout Enumerate
-presented an convergence rate optimization for DAC algorithm.
+\end_inset
+
+, we introduced a distributed optimization method for DAC, which try to
+ estimate the necessary optimal parameters.
+ However, numerical error of these parameters due to quantization and eigenvalue
+s missing can dramatically decline the algorithm performance.
+ To mitigate the effect, we introduce some techniques.
+ After the mitigation, numerical error of estimated parameters only decline
+ the performance of first order DAC and second order DAC slightly.
+ Even for the higher order DAC, estimated parameters by incomplete Laplacian
+ spectrum is still convergent and the algorithm is faster than second order.
+ However, there is a limit of this mitigation.
+ Increasing the number of equations does not always make the result more
+ accurate after a certain limit.
+ These findings indicate that the proposed method is applicable to optimization
+ of higher order DAC algorithms.
+ If the numerical error is too large even after mitigation, we should decreasing
+ the order of DAC or increasing the accuracy of the float number.
 \end_layout
 
 \begin_layout Enumerate
@@ -197,13 +237,25 @@ gave a example application in Cloud detection.
 Future Work
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 The DAC algorithm can coverge faster if we choose the right step length
  and forgeting factor.
- how to update these parameters when network changes should be inverstigated
- in the future, also some other aspect such as time delay, asynchrolization
- problem should be discussed.
  
+\end_layout
+
+\begin_layout Enumerate
+To develop a distributed system to validate and implement the proposed method.
+ 
+\end_layout
+
+\begin_layout Enumerate
+how to choose the step length and forgeting factor when network is dynamic
+ should be inverstigated in the future
+\end_layout
+
+\begin_layout Enumerate
+Also some other practical aspect such as the effect of link failure, time
+ delay, asynchrolization problem are intending to be investigated.
 \end_layout
 
 \begin_layout Standard
