@@ -63,7 +63,7 @@ tabs-within-sections
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -72,340 +72,6 @@ tabs-within-sections
 \end_header
 
 \begin_body
-
-\begin_layout Section
-Consensus Based Signal Processing
-\end_layout
-
-\begin_layout Standard
-The difficulties of distributed signal processing is that any individual
- node only know partial information on the whole network.
- And information exchange only allowed between neighbors.
- The consensus algorithm is essential to keep the consistency of decisions
- and actions at all nodes.
- 
-\end_layout
-
-\begin_layout Subsection
-Consensus Based Network Information Flooding(todo check)
-\end_layout
-
-\begin_layout Standard
-The conventional information flooding is actually done by copying information
- to all other nodes.
- Each node maintains a table of the of all nodes values in the network,
- initialized with its own value, and exchanges the tables of their own with
- those from their neighbors in each step.
- After a certain number of time steps which is equal to the diameter of
- the network, each node will obtain values of all nodes.
- distributed averaging can also be implemented by this way.
- 
-\end_layout
-
-\begin_layout Standard
-However, copying information and forwarding to all other nodes takes too
- much resources for the networks.
- If a networks has 
-\begin_inset Formula $n$
-\end_inset
-
- nodes, the conventional flooding will needs at least 
-\begin_inset Formula $\left(n-1\right)$
-\end_inset
-
- copies for each piece of information.
- And this estimation doesn't considering the cost in transmitting the informatio
-n to the destination.
-\end_layout
-
-\begin_layout Standard
-Based on the FT-DAC algorithm we introduced in the section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Finite-time-Consensus-on"
-
-\end_inset
-
-, each node could decompose the local value vector by a linear combination
- of eigenvalues and eigenvectors and can calculate the coefficients before
- each term.
- Actually, with some signal processing techniques, there are more information
- in the local values sequence that each node can extract.
- These may also be applied to wireless sensor networks as they could be
- carried out distributively.
- 
-\end_layout
-
-\begin_layout Standard
-Therefore, in this section we propose a novel network information flooding
- technique based on consensus algorithm.
- It doesn't require copying information for so many time, instead, it transmit
- information by broadcasting.
- The advantage of this method is that it can save the costs in copying and
- transmitting information.
- 
-\end_layout
-
-\begin_layout Standard
-Suppose the network weight matrix 
-\begin_inset Formula $W$
-\end_inset
-
- satisfies the same condition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:convege condition W"
-
-\end_inset
-
-.
- Recall the initial local value decomposition given in Eq.
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:initial vector decompose"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\begin_inset Formula 
-\begin{equation}
-\mathbf{x}\left(0\right)=\sum_{j=1}^{n}\alpha_{j}\mathbf{e}_{j}\label{eq:initial vector decompose}
-\end{equation}
-
-\end_inset
-
-which shows that the 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-initial
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
- local value vector can be defined by a set of coefficients and a new basis
- defined by the eigenvectors.
-
-\family default
-\series bold
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- 
-\series default
-In addition, the eigenvectors 
-\begin_inset Formula $\mathbf{e}_{i}$
-\end_inset
-
- are only depends on the weight matrix.
- Therefore,
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
- once the coefficients 
-\begin_inset Formula $\alpha_{i}$
-\end_inset
-
- and weight matrix are available, the initial values vector 
-\begin_inset Formula $\mathbf{x}\left(0\right)$
-\end_inset
-
- can be calculated.
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-It is possible to exchange information between nodes in the network without
- copying information to all other nodes.
-\end_layout
-
-\begin_layout Standard
-To show how this method can be carried out distributively, recall the FT-DAC
- algorithm in section 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
-
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "sub:Find-the-Consensus"
-
-\end_inset
-
-.
- Let the sample vector 
-\begin_inset Formula $\mathbf{y}_{i}(k,d)\in R^{d}$
-\end_inset
-
- is defined by the history of 
-\begin_inset Formula $x_{i}(k),$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\mathbf{y}_{i}(k,d)=\left[x_{i}(k),x_{i}(k-1),\ldots x_{i}(k-d+1)\right]^{\mathrm{T}}
-\end{equation}
-
-\end_inset
-
-and the coefficients vector 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $\mathbf{a}=\left[\alpha_{1},\alpha_{2},\ldots,\alpha_{n}\right]^{T}$
-\end_inset
-
-.
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- If we involve the eigenvectors and redefine the 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:Vander matrix and consensus-d*m"
-
-\end_inset
-
- by 
-\begin_inset Formula 
-\begin{equation}
-\mathbf{y}_{i}(k,d)=\mathbf{V}_{i}(k,d)diag\left(\left[\mathbf{e}_{1}^{T}\mathbf{u}_{i},\mathbf{e}_{2}^{T}\mathbf{u}_{i},\ldots,\mathbf{e}_{n}^{T}\mathbf{u}_{i}\right]\right)\mathbf{a}\label{eq:Vander*Eigen i^th*Alpha}
-\end{equation}
-
-\end_inset
-
-where
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\begin_inset Formula $\mathbf{u}_{i}$
-\end_inset
-
- is the unit vector with all zero except the 
-\begin_inset Formula $i^{th}$
-\end_inset
-
- component is one, 
-\begin_inset Formula $\mathbf{e}_{j}^{T}\mathbf{u}_{i}$
-\end_inset
-
- means the 
-\begin_inset Formula $i^{th}$
-\end_inset
-
- component of 
-\begin_inset Formula $\mathbf{e}_{j}$
-\end_inset
-
-.
- Solving the above equation will obtain the coefficients 
-\begin_inset Formula $\alpha_{j}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-The consensus based information flooding is ideally suitable for time-invariant
- network.
- Because this method requires a node know all the eigenvectors and eigenvalues
- of the network before it can estimate initial values of other nodes.
- It can be initialized by all flooding weight coefficients to all nodes
- in the network.
- However, instead of flooding a table of local values, flooding the weight
- matrix is only performed at the stage initialization for one time.
- The proposed method could have lower cost both in computation and communication
-, if the topology changes at a very low frequency.
-\end_layout
 
 \begin_layout Section
 \begin_inset CommandInset label
@@ -418,9 +84,47 @@ Real-time Optimization of HO-DAC(todo)
 \end_layout
 
 \begin_layout Standard
+Distributed average consensus (DAC) algorithm 
+\change_deleted 5862369 1353531593
+is widely used in many applications.
+ It
+\change_unchanged
+ utilizes matrix iteration to find the dominant eigenvector.
+ To minimize the required number of iterations, the algorithm needs to be
+ optimized.
+ However, this optimization needs the knowledge of network topology, which
+ is very hard to obtain for an individual agent in distributed networks.
+  Thus, optimal step length and forgetting factor need to be calculated
+ offline and forwarded to every agent.
+  To solve this problem, we proposed a distributed real-time optimization
+ technique so that each node can estimate these optimal parameters individually.
+ In addition, the method is based on constant first-order DAC itself, so
+ it will not stop the consensus process.
+ The 
+\change_inserted 5862369 1353531637
+simulation 
+\change_unchanged
+result shows that a numerical error due to quantization would exist in the
+ distributed solution.
+ It will increase as the network becomes larger.
+ Thus, a numerical  technique is introduced  to mitigate the error.
+ The estimated parameters after mitigation do not obviously  decline the
+ performance of higher-order DAC when network size is small.
+ 
+\end_layout
+
+\begin_layout Standard
 
 \change_deleted 5862369 1350054120
 (todo compare existing algorithm AESOPS AND PEALS ALGORITHMS in power system)
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsection
+Introduction
+\change_deleted 5862369 1350054120
+
 \end_layout
 
 \begin_layout Standard

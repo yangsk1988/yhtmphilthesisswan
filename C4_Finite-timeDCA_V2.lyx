@@ -844,7 +844,7 @@ status open
 
 
 \begin_inset Graphics
-	filename ../Distributed Consensus Algorithm/Report_DAC/Net_Weight/graph with 8 nodes and 17 edges.pdf
+	filename Graph/Report_DAC/Net_Weight/graph with 8 nodes and 17 edges.pdf
 
 \end_inset
 
@@ -1090,7 +1090,7 @@ status open
 
 
 \begin_inset Graphics
-	filename ../Distributed Consensus Algorithm/Report_DAC/MSE/MSE_Filter vs FODAC.eps
+	filename Graph/Report_DAC/MSE/MSE_Filter vs FODAC.pdf
 	width 8cm
 
 \end_inset
