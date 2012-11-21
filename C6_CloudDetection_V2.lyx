@@ -55,12 +55,13 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
 \author -1199928310 "yanghaitao" 
+\author 5862369 "HT" 
 \author 5863457 "ht" 
 \end_header
 
@@ -81,7 +82,11 @@ In this chapter, the DAC algorithm will be applied to the remote detection
  of cloud, which is to find out a group harmful liquids, solid particles
  or gases floated in the air.
  Enabled by laser technology, the sensor can illuminate these particles
- and detect the backscatter.
+ and detect the backscatter
+\change_inserted 5862369 1353452479
+s
+\change_unchanged
+.
  However, background noise or moving object in the real environment may
  interfere the the sensor signal.
  Therefore, a method to use distributed detection is necessary.
@@ -2693,11 +2698,27 @@ In a network without fusion center, it is desirable to find the
 \begin_inset Formula $LLR(\mathbf{x})$
 \end_inset
 
- in a distributed manner by distributed consensus algorithm (DCA).
- Some properties of DCA should emphasize here.
+ in a distributed manner by distributed average consensus
+\change_deleted 5862369 1353452547
+ 
+\change_unchanged
+ (DAC) algorithm.
+ Some properties of 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ should emphasize here.
  First values can only be exchanged between neighbors.
- Second, DCA is a tool to find the average of the local values that initially
- hold by all the nodes in the networks.
+ Second, 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ is a tool to find the average of the local values that initially hold by
+ all the nodes in the networks.
  
 \end_layout
 
@@ -2720,7 +2741,13 @@ reference "eq:G-LLR simple"
 \end_inset
 
  in in a distributed manner.
- Both make it is impossible for DCA to calculate G-LLR.
+ Both make it is impossible for 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ to calculate G-LLR.
  So sensors can only build the Gaussian mixture model separately.
  Thus, the observation of sensors is assume to be independent from on to
  another.
@@ -2808,7 +2835,13 @@ reference "eq:Sum L-LLR Cloud"
 
 \end_inset
 
- using DCA.
+ using 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+.
  As each node only stores the coefficient 
 \family roman
 \series medium
@@ -3071,7 +3104,13 @@ The distributed cloud detection simulation consists of two stages, training
  In the training stage, sensors are trained to build the Gaussian mixture
  models, which are important to calculate the L-LLR.
  After the training, when a new observation comes, all sensors calculated
- the L-LLRs and take them into DCA iteration to obtain G-LLR.
+ the L-LLRs and take them into 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ iteration to obtain G-LLR.
  The decision of cloud existence could be made distributively once the algorithm
  converges.
  
@@ -3241,10 +3280,22 @@ Again, sensors are randomly distributed in the sensing area with the uniform
 \end_inset
 
  is the distance from the cloud source on the downwind direction.
- After they are distributed, to get ready for the DCA algorithm, all the
- nodes will automatically find its neighbors and obtain a network.
- Using DCA algorithm is to obtain G-LLR without copy L-LLRs to all sensor
- nodes in the network.
+ After they are distributed, to get ready for the 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ algorithm, all the nodes will automatically find its neighbors and obtain
+ a network.
+ Using 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ algorithm is to obtain G-LLR without copy L-LLRs to all sensor nodes in
+ the network.
  Once the G-LLR is available, cloud declaration could be made base on the
  ML or MAP decision rule.
 \end_layout
@@ -3307,7 +3358,7 @@ reference "fig:Global-LLR-and"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset space \hfill{}
@@ -3414,7 +3465,7 @@ reference "fig:GMM (x1,x2)"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset space \hfill{}
@@ -3538,7 +3589,7 @@ Performance of Cloud Detection Sensor Network
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset space \hfill{}
@@ -3618,6 +3669,8 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1353452453
 The simulation of multiple observation shows that the detections of sensors
  are correlated when they are located in short distance.
  The correlation can be an indicate of the cloud plume.
@@ -3636,6 +3689,39 @@ The simulation of multiple observation shows that the detections of sensors
  The cloud deceleration could be made distributively based on the ML or
  MAP decision rule.
  
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+In this chapter, we introduced a distributed detection method using wireless
+ sensor networks and the DAC algorithm.
+ First, the hypothesis testing 
+\change_inserted 5862369 1353451924
+based on the ML or MAP decision rule 
+\change_unchanged
+is introduced.
+ In the outdoor environment, signal of an individual sensor might be corrupted
+ by Gaussian noise or moving object with high reflect coefficient, which
+ might raise the false alarm in high possibility.
+ Because multiple sensors detection have better performance, it was adopted
+ in the cloud detection and the expectation-maximization algorithm is used
+ to build the joint Gaussian model of background noise and cloud backscatter.
+ Thus, interferences to a few sensors in the network are less likely to
+ raise the false alarm.
+ Second, By assuming sensors signals are independent, global log likelihood
+ ratio is the average of local log likelihood ratio.
+ The global log likelihood ratio in the hypothesis testing is calculated
+ by the DAC algorithm.
+
+\change_deleted 5862369 1353453024
+ 
+\change_unchanged
+ Each sensor calculate the local log likelihood ratio and substitute it
+ into the DAC iteration as the initial local value.
+ The global log likelihood ratio is available to each sensor once the algorithm
+ converges.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -3643,30 +3729,60 @@ Further Research
 \end_layout
 
 \begin_layout Standard
-In the future research, the position of the plume should be treated as random
- in a horizontal plane.
- Moreover, the parameters of plume dynamics should be different from one
- plume to another.
- Therefore, sensors need to be able to estimate these parameters from their
- observation.
+In the future research, 
+\change_inserted 5862369 1353449798
+the correlation of detections of nodes can be used to improve the performance
+ of the cloud detection.
+ 
+\change_deleted 5862369 1353451486
+we first intend to investigate the correlation of detection signals of different
+ nodes and use it to improve the hypothesis testing.
+ 
+\change_unchanged
+ If sensors are are located in short distance in the plume, their detections
+ are correlated.
+ In addition, 
+\change_deleted 5862369 1353452584
+iterference
+\change_inserted 5862369 1353452584
+interference
+\change_unchanged
+ due to Gaussian noise or moving object has very low correlation between
+ sensors.
+ Therefore, correlation can be an important property of the cloud plume.
+ Besides, a modified Gaussian plume model need to be developed to capture
+ the mean value, variance and correlation of the concentration at different
+ position.
+ 
+\end_layout
+
+\begin_layout Standard
+Second, the parameters of cloud plume should be should be treated as unknown
+ random variable, such as the position of the plume
+\change_inserted 5862369 1353452587
+, the diffusion coefficient, wind speed
+\change_unchanged
+ 
+\change_inserted 5862369 1353451777
+and so on.
+ 
+\change_deleted 5862369 1353451758
+should be treated as random
+\change_unchanged
+.
+ 
+\change_deleted 5862369 1353451783
+Therefore,
+\change_inserted 5862369 1353451789
+ At the same time
+\change_unchanged
+ sensors need to be able to estimate these parameters from their observation.
  
 \change_deleted 5863457 1348421364
 Gaussian plume model can only describe the mean value of a cloud plume.
 
 \change_unchanged
- Furthermore, a modified Gaussian plume model should be developed.
- The correlation
-\change_inserted 5863457 1348421394
- of node's detection signals
-\change_unchanged
- can be an 
-\change_deleted 5863457 1348421408
-indicate
-\change_inserted 5863457 1348421410
-indecation
-\change_unchanged
- of the cloud plume and will be considered in further research to improve
- the performance.
+ 
 \end_layout
 
 \end_body
