@@ -630,24 +630,17 @@ However, average consensus is more challenging problem than the maximum
 \end_layout
 
 \begin_layout Subsection
-Categories of Consensus Algorithm
+Categories of Distributed Consensus Average Algorithm
 \end_layout
 
 \begin_layout Standard
-To introduce the distributive consensus algorithm, we may started from one
- of the simplest algorithm in their family.
- 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "fig:Categories-of-Discrete-time"
+Distributed average consensus (DAC) algorithms is one of the most widely
+ used consensus algorithm.
+\end_layout
 
-\end_inset
-
- only shows the branch of discrete-time distributive consensus algorithm,
- continuous-time consensus algorithm has some similarities with discrete-time
- ones.
- However, their performance is quite different when Gaussian white noise
- exists, so it can be categorized in another branch.
+\begin_layout Standard
+To introduce the DAC algorithm, we may started from one of the simplest
+ one in their family.
  As shown in 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -655,7 +648,19 @@ reference "sub:DT-First-Order-DAC"
 
 \end_inset
 
-, the first order DAC algorithm is the simplest algorithm that can solve
+.
+ (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Categories-of-Discrete-time"
+
+\end_inset
+
+ only shows the branch of discrete-time distributive consensus algorithm.
+ Although continuous-time consensus algorithms have some similarities with
+ discrete-time ones, their performance are quite different when Gaussian
+ white noise exists).
+ The first order DAC algorithm is the simplest algorithm that can solve
  the consensus problem in a number of iteration.
  It's convergence rate is related to the spectral radius of a graph dependent
  matrix.
