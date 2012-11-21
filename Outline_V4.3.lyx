@@ -163,11 +163,17 @@ filename "C6_CloudDetection_V2.lyx"
 \end_layout
 
 \begin_layout Section
-Conclusion
+Conclusion and Future Work
 \end_layout
 
 \begin_layout Standard
-(todo today)
+(todo)
+\end_layout
+
+\begin_layout Subsection
+Conclusion
+\change_inserted 5862369 1353536074
+
 \end_layout
 
 \begin_layout Standard
@@ -307,10 +313,59 @@ each sensor calculate the local log likelihood ratio and substitute it into
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Future Work
-\change_inserted 5862369 1353533144
+\change_inserted 5862369 1353536226
 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1353536271
+we reviewed some DAC algorithms, and gerneralized FT-DAC, and optimized
+ HO-DAC, and apply the DAC algorithm to the cloud detection.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1353536332
+However, some algorithms are not robust against network topology changes,
+ and the network is assumed to be symmetric.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1353536737
+first, the optimization to HO-DAC can be the most important contribution,
+ it can be applied to the practice.
+ so the next step is to develop a practical distributed system to implement
+ it.
+ we will in contact with some of the problems in practice, such as link
+ failure, channel noise, time-delay, synchronous or asynchronous communication.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1353536980
+the FO-DAC may be the best in practice.
+ even when a link failure happen, the previous step length is still convergent
+ in the new network.
+ However, there still no theroem or conclusion about the similiar property
+ of SO-DAC.
+ We can do some research on this.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1353537051
+second, some other DAC algorithm can be developed, but it seems to be very
+ difficult in when node don't know the network topoloby.
+ The better way is to optimize the existing algorithm instead of finding
+ new algorithms.
 \end_layout
 
 \begin_layout Enumerate
