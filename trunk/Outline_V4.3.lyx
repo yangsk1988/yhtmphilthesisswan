@@ -172,8 +172,17 @@ Conclusion
 
 \begin_layout Standard
 In this thesis, we first reviewed serveral DAC algorithms, including asymptotic
- DAC, finite-time and adaptive filter DAC, also some accelaration techniques
- are reviewed.
+ DAC, finite-time and adaptive filter DAC, 
+\change_deleted 5862369 1353533017
+also
+\change_inserted 5862369 1353533029
+ as well as
+\change_unchanged
+ some accelaration techniques
+\change_deleted 5862369 1353533022
+ are reviewed
+\change_unchanged
+.
  The optimization of these algorithms needs to konw the topology of the
  network and the network can not changes during the optimizaion.
  Actullay, based on the same assumption, the finite-time DAC or adaptive
@@ -183,16 +192,30 @@ In this thesis, we first reviewed serveral DAC algorithms, including asymptotic
 \end_layout
 
 \begin_layout Standard
-Second, in section 
+Second, we presented 
+\change_deleted 5862369 1353533080
+a
+\change_inserted 5862369 1353533083
+the
+\change_unchanged
+ finite-time DAC on gerneralized condition in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Finite-time-Consensus-on"
 
 \end_inset
 
-, we presented a finite-time DAC on gerneralized condition.
+.
  Compared to the previous version of finite-time DAC, the itrations of first
- order DAC is reduced to 2N, where N is the number of nodes in the network.
+ order DAC is reduced to 
+\begin_inset Formula $2N$
+\end_inset
+
+, where 
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of nodes in the network.
  It doesn't require the eigenvalues to be known prior to the algorithm.
  However, the number of iterations can not be decreased, because the minimum
  number of iterations is depends on the weight matrix, which is the same
@@ -201,7 +224,7 @@ reference "sub:Finite-time-Consensus-on"
 \end_layout
 
 \begin_layout Standard
-Third, In chapter 
+Third, in chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Online-Optimization-of"
@@ -224,68 +247,47 @@ s missing can dramatically decline the algorithm performance.
  of higher order DAC algorithms.
  If the numerical error is too large even after mitigation, we should decreasing
  the order of DAC or increasing the accuracy of the float number.
+ 
 \end_layout
 
 \begin_layout Standard
-Finally, in chapter 
+Finally, we introduced a distributed detection of cloud plume using wireless
+ sensor networks and the DAC algorithm in chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:DAC-Implementation:-Distributed"
 
 \end_inset
 
-, we introduced a distributed detection of cloud plume
-\change_deleted 5862369 1353452765
- 
-\change_unchanged
- using wireless sensor networks and the DAC algorithm.
+.
  First, the hypothesis testing based on the ML or MAP decision rule is introduce
 d.
-
-\change_inserted 5862369 1353452914
- 
-\change_unchanged
-In the outdoor environment, signal of an individual sensor might be corrupted
+ In the outdoor environment, signal of an individual sensor might be corrupted
  by Gaussian noise or moving object with high reflect coefficient, which
  might raise the false alarm.
  Because multiple sensors detection have better performance, it was adopted
- in the cloud detection
-\change_inserted 5862369 1353452836
-.
+ in the cloud detection.
 
-\change_unchanged
+\change_deleted 5862369 1353529921
  
-\change_deleted 5862369 1353452842
-and the
 \change_unchanged
- 
-\change_deleted 5862369 1353452845
-e
-\change_inserted 5862369 1353452845
-E
-\change_unchanged
-xpectation-maximization algorithm is used 
-\change_inserted 5862369 1353452866
-here 
-\change_unchanged
-to build the joint Gaussian model of background noise and cloud backscatter.
+ Expectation-maximization algorithm is used here to build the joint Gaussian
+ model of background noise and cloud backscatter.
  Thus, interferences to a few sensors in the network are less likely to
  raise the false alarm.
  Second, 
-\change_inserted 5862369 1353453072
+\change_inserted 5862369 1353529824
 if 
 \change_unchanged
 we assume sensors signals are independent, the global log likelihood ratio
  in the hypothesis testing 
 \change_deleted 5862369 1353453080
 is
-\change_inserted 5862369 1353453082
+\change_inserted 5862369 1353529824
 can be
 \change_unchanged
  calculated by the DAC algorithm.
 
-\change_inserted 5862369 1353453089
- 
 \change_deleted 5862369 1353452979
  assuming sensors signals are independent
 \change_unchanged
@@ -307,6 +309,8 @@ each sensor calculate the local log likelihood ratio and substitute it into
 
 \begin_layout Section
 Future Work
+\change_inserted 5862369 1353533144
+
 \end_layout
 
 \begin_layout Enumerate
@@ -328,10 +332,6 @@ how to choose the step length and forgeting factor when network is dynamic
 \begin_layout Enumerate
 Also some other practical aspect such as the effect of link failure, time
  delay, asynchrolization problem are intending to be investigated.
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Section

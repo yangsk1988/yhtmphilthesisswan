@@ -1616,7 +1616,7 @@ name "fig:Find-minimum-rho(H)"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset space \hfill{}
@@ -2300,7 +2300,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../FirstYearReport/Lyx_v/images/Spectrum radius Compare_old_Ord1234.eps
+	filename Graph/FirstYearReport/Lyx_v/images/Spectrum radius Compare_old_Ord1234.pdf
 	lyxscale 60
 
 \end_inset
@@ -2337,7 +2337,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../FirstYearReport/Lyx_v/images/DAC_Compr_ord1234&hybrid.eps
+	filename Graph/FirstYearReport/Lyx_v/images/DAC_Compr_ord1234&hybrid.pdf
 	lyxscale 60
 
 \end_inset
