@@ -78,6 +78,7 @@ theorems-ams-extended
 \html_css_as_file 0
 \html_be_strict false
 \author 5862369 "HT" 
+\author 5863457 "ht" 
 \end_header
 
 \begin_body
@@ -315,6 +316,14 @@ each sensor calculate the local log likelihood ratio and substitute it into
 
 \begin_layout Subsection
 Future Work
+\change_inserted 5863457 1353890926
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1353890951
+in the invariant network,
 \change_inserted 5862369 1353536226
 
 \end_layout
@@ -366,6 +375,16 @@ second, some other DAC algorithm can be developed, but it seems to be very
  difficult in when node don't know the network topoloby.
  The better way is to optimize the existing algorithm instead of finding
  new algorithms.
+\change_inserted 5863457 1353890954
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1353890972
+in the dynamic network:
+\change_inserted 5862369 1353537051
+
 \end_layout
 
 \begin_layout Enumerate
@@ -387,6 +406,44 @@ how to choose the step length and forgeting factor when network is dynamic
 \begin_layout Enumerate
 Also some other practical aspect such as the effect of link failure, time
  delay, asynchrolization problem are intending to be investigated.
+\change_inserted 5863457 1353890910
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1353890921
+(in the application)
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1353890906
+In the future research, the correlation of detections of nodes can be used
+ to improve the performance of the cloud detection.
+  If sensors are are located in short distance in the plume, their detections
+ are correlated.
+ In addition, interference due to Gaussian noise or moving object has very
+ low correlation between sensors.
+ Therefore, correlation can be an important property of the cloud plume.
+ Besides, a modified Gaussian plume model need to be developed to capture
+ the mean value, variance and correlation of the concentration at different
+ position.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1353890906
+Second, the parameters of cloud plume should be should be treated as unknown
+ random variable, such as the position of the plume, the diffusion coefficient,
+ wind speed and so on.
+ .
+  At the same time sensors need to be able to estimate these parameters
+ from their observation.
+  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
