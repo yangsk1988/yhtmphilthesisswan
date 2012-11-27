@@ -143,6 +143,66 @@ conclusions)
 \end_layout
 
 \begin_layout Standard
+(how to Introduction: we want to answe the question: what is DAC and what's
+ its application, how to optimize the algorithm.
+\end_layout
+
+\begin_layout Standard
+1.introduces the topic)
+\end_layout
+
+\begin_layout Standard
+2.states why the topic is important
+\end_layout
+
+\begin_layout Standard
+3.states that there is a difference of opinion about this topic
+\end_layout
+
+\begin_layout Standard
+4.
+ describes how the assignment will be structured and clearly states the
+ writer's main premise_qian2ti2
+\end_layout
+
+\begin_layout Standard
+my plan is to structure the introduction like that
+\end_layout
+
+\begin_layout Standard
+1.
+ what's DAC and what's its application
+\end_layout
+
+\begin_layout Standard
+2.
+ DAC is applied in many area
+\end_layout
+
+\begin_layout Standard
+3.
+ various DAC algorithm
+\end_layout
+
+\begin_layout Standard
+4.
+ various DAC optimization(either more sophisticated algorithm or optimization
+ to the existing algorithm, all the purposes are going to have the consensus
+ in less time.)
+\end_layout
+
+\begin_layout Standard
+5.
+ and the DAC have a little modification depends on the application itself.
+ 
+\end_layout
+
+\begin_layout Standard
+5.
+ my contribution)
+\end_layout
+
+\begin_layout Standard
 In a distributed system, processing information that originally and locally
  acquired by the nodes is often necessary.
  Centralized signal processing require a special node called fusion center,
