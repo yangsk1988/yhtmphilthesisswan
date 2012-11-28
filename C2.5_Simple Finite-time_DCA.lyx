@@ -136,7 +136,7 @@ key "Kokiopoulou2007"
  (OK 3) 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsubsection*
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Find-the-Consensus"

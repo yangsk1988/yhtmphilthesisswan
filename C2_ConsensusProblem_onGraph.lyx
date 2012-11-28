@@ -80,8 +80,7 @@ name "sec:Consensus-problem-on"
 
 \end_inset
 
-Background of Distributed Consensus Algorithm [Literature Review] [Consensus
- problem on Graphs]
+Background of Distributed Consensus Algorithm [Literature Review]
 \end_layout
 
 \begin_layout Subsection
@@ -307,6 +306,10 @@ local value vector
 consensus value
 \shape default
 .
+\end_layout
+
+\begin_layout Subsubsection*
+ Consensus problem on Graphs
 \end_layout
 
 \begin_layout Standard

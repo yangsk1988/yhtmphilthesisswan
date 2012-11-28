@@ -35,7 +35,16 @@ theorems-sec
 \index_command default
 \paperfontsize 12
 \spacing onehalf
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry true
 \use_amsmath 1
@@ -1563,7 +1572,7 @@ reference "eq:HO-DAC Opt. Problem"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset space \hfill{}
@@ -1572,7 +1581,7 @@ status collapsed
 
 \begin_inset Graphics
 	filename D:/Dropbox/PaperWork/FirstYearReport/Lyx_v/images/3order_max_lambda.pdf
-	width 10cm
+	height 9cm
 
 \end_inset
 
@@ -1616,7 +1625,7 @@ name "fig:Find-minimum-rho(H)"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset space \hfill{}
@@ -1625,7 +1634,7 @@ status collapsed
 
 \begin_inset Graphics
 	filename Graph/Convergence region.eps
-	width 10cm
+	height 9cm
 
 \end_inset
 
@@ -2065,6 +2074,7 @@ status collapsed
 \begin_inset Graphics
 	filename Graph/FirstYearReport/Lyx_v/images/Net50Edges200.pdf
 	lyxscale 50
+	width 7cm
 
 \end_inset
 
@@ -2302,6 +2312,8 @@ status collapsed
 \begin_inset Graphics
 	filename Graph/FirstYearReport/Lyx_v/images/Spectrum radius Compare_old_Ord1234.pdf
 	lyxscale 60
+	width 7cm
+	height 6.5cm
 
 \end_inset
 
@@ -2339,6 +2351,8 @@ status collapsed
 \begin_inset Graphics
 	filename Graph/FirstYearReport/Lyx_v/images/DAC_Compr_ord1234&hybrid.pdf
 	lyxscale 60
+	width 7cm
+	height 6.5cm
 
 \end_inset
 
