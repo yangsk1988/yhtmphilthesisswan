@@ -72,7 +72,7 @@ theorems-ams-extended
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -178,21 +178,21 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-In this thesis, we first reviewed serveral DAC algorithms, including asymptotic
+In this thesis, we first reviewed several DAC algorithms, including asymptotic
  DAC, finite-time and adaptive filter DAC, 
 \change_deleted 5862369 1353533017
 also
 \change_inserted 5862369 1353533029
  as well as
 \change_unchanged
- some accelaration techniques
+ some acceleration techniques
 \change_deleted 5862369 1353533022
  are reviewed
 \change_unchanged
 .
- The optimization of these algorithms needs to konw the topology of the
- network and the network can not changes during the optimizaion.
- Actullay, based on the same assumption, the finite-time DAC or adaptive
+ The optimization of these algorithms needs to know the topology of the
+ network and the network can not changes during the optimization.
+ Actually, based on the same assumption, the finite-time DAC or adaptive
  filter DAC to can find the average in less time, after a non-optimized
  first order DAC iterated for a certain steps.
  
@@ -205,7 +205,7 @@ a
 \change_inserted 5862369 1353533083
 the
 \change_unchanged
- finite-time DAC on gerneralized condition in section 
+ finite-time DAC on generalized condition in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Finite-time-Consensus-on"
@@ -213,13 +213,13 @@ reference "sub:Finite-time-Consensus-on"
 \end_inset
 
 .
- Compared to the previous version of finite-time DAC, the itrations of first
- order DAC is reduced to 
-\begin_inset Formula $2N$
+ Compared to the previous version of finite-time DAC, the iterations of
+ first order DAC is reduced to 
+\begin_inset Formula $2n$
 \end_inset
 
 , where 
-\begin_inset Formula $N$
+\begin_inset Formula $n$
 \end_inset
 
  is the number of nodes in the network.
@@ -227,7 +227,7 @@ reference "sub:Finite-time-Consensus-on"
  However, the number of iterations can not be decreased, because the minimum
  number of iterations is depends on the weight matrix, which is the same
  as the previous finite-time DAC.
- With this improment, some further algorithm could be drived.
+ With this improvement, some further algorithm could be obtained.
 \end_layout
 
 \begin_layout Standard
@@ -314,6 +314,77 @@ each sensor calculate the local log likelihood ratio and substitute it into
 
 \end_layout
 
+\begin_layout Standard
+
+\change_inserted 5863457 1353890951
+in the invariant network,
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+(todo something could be put into conclusion and introduction)
+\end_layout
+
+\begin_layout Standard
+In this thesis, 
+\change_inserted 5862369 1353536271
+we reviewed some DAC algorithms, 
+\change_unchanged
+they can be categorized in to asymptotic and non-asymptotic algorithms.
+ As stated before, the asymptotic algorithms, including first order DAC
+ and higher order DAC, are robust against topology changes.
+ On the other hand, for non-asymptotic algorithms, such as finite-time DAC
+ and adaptive filter DAC algorithm, although they can find the average much
+ faster than asymptotic algorithms in a time-invariant network, they must
+ be restarted once topology is changed.
+ 
+\end_layout
+
+\begin_layout Standard
+Therefore, to choose a better DAC algorithm, depend on the network properties.
+ In a time-invariant network, all these DAC algorithms can work.
+ But generalized finite-time DAC algorithm is fastest in these algorithms.
+ The number of iteration is less or equal than 2
+\begin_inset Formula $n$
+\end_inset
+
+, where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the network size.
+ It requires a filter to estimate the consensus value which can be calculated
+ by the same method provided by adaptive filter DAC algorithm.
+ However, in the dynamic network, the filter estimation is not reliable,
+ as outdated information before the change will lead to a wrong answer of
+ the filter.
+ 
+\end_layout
+
+\begin_layout Standard
+It seems impossible to find an algorithm that not only robust against topology
+ changes but also as fast as the finite-time DAC.
+ Therefore, in a distributed and dynamic network, a tradeoff between speed
+ and robustness is inevitable.
+ 
+\end_layout
+
+\begin_layout Standard
+To find a faster DAC algorithm in distributed and dynamic network, we proposed
+ a distributed real-time optimization method to increase the convergence
+ rate of asymptotic DAC algorithms.
+ Actually, the optimization algorithm itself is non-asymptotic so it is
+ not robust against topology changes.
+ The old optimized parameters might not located in the convergence region
+ for the new network topology.
+ So the DAC algorithm must be reinitialized with convergent parameters to
+ continue the consensus process.
+ If the network topology can be invariant in a certain time, the optimal
+ parameters can be estimated by the proposed optimization method.
+ 
+\end_layout
+
 \begin_layout Subsection
 Future Work
 \change_inserted 5863457 1353890926
@@ -321,107 +392,140 @@ Future Work
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 5863457 1353890951
-in the invariant network,
-\change_inserted 5862369 1353536226
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5862369 1353536271
-we reviewed some DAC algorithms, and gerneralized FT-DAC, and optimized
- HO-DAC, and apply the DAC algorithm to the cloud detection.
+In this thesis, we introduced several DAC algorithms.
+ 
+\change_deleted 5862369 1354061759
+and the application of DAC in cloud detection.
+ 
+\change_unchanged
+ It seems to be impossible to find an algorithm robust against topology
+ changes and faster than finite-time DAC in a distributed and dynamic network.
+ It is very demanding for any individual node to know the network topology
+\change_inserted 5862369 1354061913
+.
  
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 5862369 1353536332
-However, some algorithms are not robust against network topology changes,
- and the network is assumed to be symmetric.
+Therefore,
+\change_deleted 5862369 1354062067
  
+\change_unchanged
+ further research could be carried out to optimize the existing algorithms
+ and make some modifications according to the applications.
 \end_layout
 
 \begin_layout Standard
-
+First, the distributed real-time
 \change_inserted 5862369 1353536737
-first, the optimization to HO-DAC can be the most important contribution,
- it can be applied to the practice.
- so the next step is to develop a practical distributed system to implement
- it.
- we will in contact with some of the problems in practice, such as link
- failure, channel noise, time-delay, synchronous or asynchronous communication.
+ optimization to DAC can be applied
+\change_unchanged
+ on a distributed system
+\change_inserted 5862369 1353536737
+.
+
+\change_unchanged
+ Before that, a consensus protocol should be 
+\change_inserted 5862369 1353536737
+develop 
+\change_unchanged
+and implemented
+\change_inserted 5862369 1353536737
+.
  
+\change_unchanged
+We are supposed to deal with s
+\change_inserted 5862369 1353536737
+ome of the problems in practice, such as link failure, channel noise, time-delay
+\change_unchanged
+ and asynchronous 
+\change_inserted 5862369 1353536737
+communication.
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted 5862369 1353536980
-the FO-DAC may be the best in practice.
- even when a link failure happen, the previous step length is still convergent
- in the new network.
- However, there still no theroem or conclusion about the similiar property
- of SO-DAC.
- We can do some research on this.
- 
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5862369 1353537051
-second, some other DAC algorithm can be developed, but it seems to be very
+\change_deleted 5862369 1354057424
+Second, some other DAC algorithm can be developed, but it seems to be very
  difficult in when node don't know the network topoloby.
  The better way is to optimize the existing algorithm instead of finding
  new algorithms.
-\change_inserted 5863457 1353890954
+\change_unchanged
 
 \end_layout
 
 \begin_layout Standard
+Second, the distributed real-time optimization to DAC might be able to generaliz
+e to dynamic network.
 
-\change_inserted 5863457 1353890972
-in the dynamic network:
-\change_inserted 5862369 1353537051
+\change_deleted 5862369 1354064775
+  because distributed real-time optimization is not robust against network
+ topology changes, it may have problems in dynamic network.
 
-\end_layout
+\change_unchanged
+ 
+\change_inserted 5862369 1354057175
+As stated in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Online-Optimization-of"
 
-\begin_layout Enumerate
-The DAC algorithm can coverge faster if we choose the right step length
- and forgeting factor.
+\end_inset
+
+, 
+\change_unchanged
+the optimal parameters is only related to eigenvalue
+\change_inserted 5862369 1354064878
+s of the Laplacian matrix associated to the network
+\change_unchanged
+.
+ Therefore, optimized parameters for the old network are usually not optimal
+ or not located in the convergence region for the new network.
+ However, simulation result shows that constant first-order DAC algorithm
+ and second-order DAC algorithm can maintain the convergence in most of
+ the time, even old parameters are used.
+ Some research should be carried out to find out the conditions to maintain
+ the convergence.
  
 \end_layout
 
-\begin_layout Enumerate
-To develop a distributed system to validate and implement the proposed method.
+\begin_layout Standard
+Third, to avoid complex analysis, the network graph is assumed to be symmetric
+ in the analysis.
+ However, some algorithm, such as the finite-time DAC algorithm and the
+ eigenvalue estimation algorithm, can be generalized to the case when the
+ network in unsymmetrical.
+ Therefore, the distributed real-time optimization might able to be generalized
+ the unsymmetrical network.
  
 \end_layout
 
-\begin_layout Enumerate
-how to choose the step length and forgeting factor when network is dynamic
- should be inverstigated in the future
-\end_layout
-
-\begin_layout Enumerate
-Also some other practical aspect such as the effect of link failure, time
- delay, asynchrolization problem are intending to be investigated.
-\change_inserted 5863457 1353890910
-
-\end_layout
-
 \begin_layout Standard
-
-\change_inserted 5863457 1353890921
-(in the application)
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5863457 1353890906
-In the future research, the correlation of detections of nodes can be used
- to improve the performance of the cloud detection.
-  If sensors are are located in short distance in the plume, their detections
+Finally, 
+\change_inserted 5862369 1354064680
+for the application of cloud detection, the cloud model is going to be extended
+ to capture the correlation and random properties of the cloud plume.
+ As a result,
+\change_unchanged
+ 
+\change_inserted 5862369 1354063144
+some parameters of cloud plume will be treated as random variable, 
+\change_unchanged
+the DAC algorithm 
+\change_inserted 5862369 1354063096
+need to be modified to
+\change_unchanged
+ 
+\change_inserted 5862369 1354063151
+capture these changes.
+ 
+\change_deleted 5862369 1354064703
+the correlation of detections of nodes can be used to improve the performance
+ of the cloud detection.
+ If sensors are are located in short distance in the plume, their detections
  are correlated.
  In addition, interference due to Gaussian noise or moving object has very
  low correlation between sensors.
@@ -429,20 +533,18 @@ In the future research, the correlation of detections of nodes can be used
  Besides, a modified Gaussian plume model need to be developed to capture
  the mean value, variance and correlation of the concentration at different
  position.
- 
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5863457 1353890906
-Second, the parameters of cloud plume should be should be treated as unknown
+ Second, the parameters of cloud plume should be should be treated as unknown
  random variable, such as the position of the plume, the diffusion coefficient,
  wind speed and so on.
- .
-  At the same time sensors need to be able to estimate these parameters
- from their observation.
-  
+
 \change_unchanged
+ At the same time
+\change_inserted 5862369 1354064711
+,
+\change_unchanged
+ sensors need to be able to estimate these parameters from their observation.
+ 
+\change_inserted 5862369 1354064724
 
 \end_layout
 
