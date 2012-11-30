@@ -76,8 +76,8 @@ Consensus Algorithm and its Applications in Cloud Detection
 \end_layout
 
 \begin_layout Abstract
-Distributed Consensus algorithm (DCA) has application in data fusion in
- wireless sensor networks and coordination of multi-agent system.
+Distributed Consensus algorithm has application in data fusion in wireless
+ sensor networks and coordination of multi-agent system.
  Some distributive signal processing based on consensus algorithm, such
  as, local value linear prediction, information flooding and network eigenvalues
  estimation, were introduced in this thesis.
@@ -253,7 +253,7 @@ key "Kam1992"
 \end_layout
 
 \begin_layout Standard
-Distributed Average Consensus (DAC) algorithm has received significant attention
+Distributed average consensus (DAC) algorithm has received significant attention
  recently because of its robustness and simplicity for processing distributed
  information over networks.
  It have applications in rendezvous, formation control, flocking, attitude
@@ -534,7 +534,42 @@ key "Kokiopoulou2007"
 Motivatioin of Research
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%2.为什么要在distributed system研究和应用DAC算法中？
+\end_layout
+
+\begin_layout Plain Layout
+
+%3.本文中的cloud detection作为一个具体应用，如何与前面的内容结合？
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+why we need to use the DAC algorithm in the distributed network?
+\end_layout
+
+\begin_layout Standard
+why we need to optimize the DAC algorithm?
+\end_layout
+
+\begin_layout Standard
+why finite-time DAC algorithm need to be generalized?
+\end_layout
+
+\begin_layout Standard
+why cloud detection by distributed system?
+\end_layout
+
+\begin_layout Subsection
 Contribution
 \end_layout
 
@@ -560,36 +595,56 @@ Online optimization of HO-DAC algorithm, an alternative eigenvalue estimation
 a modified gaussian plume model
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Outline
 \end_layout
 
 \begin_layout Standard
-In this thesis, 
-\end_layout
+This thesis is structrued as follows: Chapter  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Consensus-problem-on"
 
-\begin_layout Standard
-we will
-\end_layout
+\end_inset
 
-\begin_layout Enumerate
-review serveral DAC algorithms.
-\end_layout
+ is the review of some asymptotic and non-asymptotic DAC algorithms, as
+ well as some distributed signal processing methods based on DAC algorithm.
+ In chapter  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Finite-time-Consensus-on"
 
-\begin_layout Enumerate
-presentan convergence rate optimization for DAC algorithm.
-\end_layout
+\end_inset
 
-\begin_layout Enumerate
-give some example of distributed signal processing based on DAC.
-\end_layout
+, a generalized finite-time DAC algorithm will be presented.
+ Compared to the previous version of finite-time DAC, the number of iteration
+ can be reduced.
+ In chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Online-Optimization-of"
 
-\begin_layout Enumerate
-give a example application in Cloud detection.
-\end_layout
+\end_inset
 
-\begin_layout Standard
+, a distributed real-time optimization method to increase the convergence
+ rate of asymptotic DAC algorithms.
+ Finally, a distributed detection of cloud plume using wireless sensor networks
+ and the DAC algorithm will be introduced in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:DAC-Implementation:-Distributed"
 
+\end_inset
+
+.
+ Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusion-and-Future"
+
+\end_inset
+
+ concludes this thesis and gives out the direction of further work.
 \end_layout
 
 \end_body
