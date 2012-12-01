@@ -74,7 +74,7 @@ name "sec:DAC-Implementation:-Distributed"
 
 \end_inset
 
-A DAC Application: Distributed Detection of Cloud
+An Application of DAC: Distributed Detection of Cloud
 \end_layout
 
 \begin_layout Standard
@@ -82,11 +82,7 @@ In this chapter, the DAC algorithm will be applied to the remote detection
  of cloud, which is to find out a group harmful liquids, solid particles
  or gases floated in the air.
  Enabled by laser technology, the sensor can illuminate these particles
- and detect the backscatter
-\change_inserted 5862369 1353452479
-s
-\change_unchanged
-.
+ and detect the backscatters.
  However, background noise or moving object in the real environment may
  interfere the the sensor signal.
  Therefore, a method to use distributed detection is necessary.
@@ -2095,14 +2091,39 @@ Simulated Cloud by fluid dynamics
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1354380066
 The Gaussian plume model can describe the mean value of the cloud concentration
  at any position in the plume, but it can not describe the cloud concentration
  variance.
- With the help of 3D fluid simulation, a cloud could be more like real while
+ 
+\change_unchanged
+ In 3D fluid simulation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "He2011"
+
+\end_inset
+
+, the cloud model is a 3D space which is divided the into tiny cells where
  fluid dynamics and wind turbulence is considered.
- And this kind of model is simulated to generate a number of cloud plumes.
- The data is used in the distributed cloud detection to training the sensor
- networks.
+ The cloud plume could be more like real with the help of this technology.
+ 
+\change_deleted 5862369 1354380074
+The simulation method divided the 3D space into small cells and each cells
+ satisfies the Navier-Stokes Equation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Navier-Stokes_Wiki"
+
+\end_inset
+
+.
+ 
+\change_unchanged
+ A number of cloud plumes is generated to be used in the distributed cloud
+ detection or training of sensor networks.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3633,7 +3654,12 @@ Simulation is running for hundreds of times to give the average performance
 \begin_inset Formula $x>128$
 \end_inset
 
-, The Figure 
+ (
+\begin_inset Formula $x$
+\end_inset
+
+ is the index of the pixel).
+ The Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ROC-of-CDWSN"
