@@ -583,16 +583,14 @@ generalized finite time consensus algorithm.
 \end_layout
 
 \begin_layout Standard
-Consensus based imformation flooding and data fusion.
-\end_layout
-
-\begin_layout Standard
 Online optimization of HO-DAC algorithm, an alternative eigenvalue estimation
  method.
 \end_layout
 
 \begin_layout Standard
-a modified gaussian plume model
+modified gaussian plume models, to simulate the laser intergration.
+ to reveal [todo: delete reveal present express perform]the fluid dynamics
+ and turbulance.
 \end_layout
 
 \begin_layout Subsection
