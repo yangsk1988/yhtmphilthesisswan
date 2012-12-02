@@ -373,7 +373,16 @@ key "Fax2004"
 
 \end_inset
 
-, the eigenvalues of the Laplacian matrix about network topology is sometimes
+, the eigenvalues of the Laplacian matrix about network topology 
+\change_deleted 5862369 1354475312
+is
+\change_inserted 5862369 1354475313
+are
+\change_unchanged
+ 
+\change_deleted 5862369 1354475298
+sometimes
+\change_unchanged
  very important.
  Traditional optimization of HO-DAC or constant FO-DAC requires a centralized
  node to gather information of network topology.
@@ -396,7 +405,13 @@ If the network topology and all the weights to edges are known to a centralized
 The purpose of the distributed eigenvalue estimation is to enable the distribute
 d optimization, while avoid complex and costly initialization.
  Once we randomly distribute a certain number of nodes in the field, they
- can automatically implement the optimization for DAC algorithm.
+ can automatically 
+\change_deleted 5862369 1354475350
+implement
+\change_inserted 5862369 1354475351
+execute
+\change_unchanged
+ the optimization for DAC algorithm.
  There is no need of centralized node any more.
  
 \end_layout
