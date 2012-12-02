@@ -68,6 +68,7 @@ tabs-within-sections
 \html_css_as_file 0
 \html_be_strict false
 \author 5862369 "HT" 
+\author 5863457 "ht" 
 \end_header
 
 \begin_body
@@ -581,9 +582,12 @@ Contribution
 \end_layout
 
 \begin_layout Standard
-The main contribution of this thesis is that it propose a distributed real-time
- optimization method, which will not interrupt the constant first-order
- DAC algorithm.
+The main contribution of this thesis is that it propose
+\change_inserted 5863457 1354407240
+d
+\change_unchanged
+ a distributed real-time optimization method, which will not interrupt the
+ constant first-order DAC algorithm.
  Thus, the consensus algorithm and the optimization method can be executed
  simultaneously.
  As a result, communication cost and optimization initialization time can
@@ -644,31 +648,48 @@ key "Sundaram2007"
 \end_layout
 
 \begin_layout Standard
-Finally, amodified Gaussian plume models, to simulate the laser integration.
- to reveal [todo: delete reveal present express perform]the fluid dynamics
- and turbulence.
-
-\change_inserted 5862369 1354403383
+Finally, a modified Gaussian plume models is presented, which is the integration
+ of the original Gaussian plume model along the laser beam to simulate the
+ laser penetration.
+ This Gaussian plume model can only describe the mean of the cloud concentration.
+ However, a real cloud cloud concentration is actually a random process.
+ To reveal 
+\change_deleted 5863457 1354406881
+[todo: delete reveal present express perform]
+\change_inserted 5863457 1354407000
  
 \change_unchanged
-The Gaussian plume model can only capture describe the mean value of the
- cloud concentration.
- However, in a real cloud plume The cloud concentration is actually a random
- process.
- In this section, first some expressions are driven based on the diffusive
- equations to obtain the modified Gaussian plume model especially for laser
- detection.
- Second, With the computer graphic technology 
+the
+\change_deleted 5863457 1354407202
+ 
+\change_unchanged
+ dynamics and turbulence properties of the cloud plume, a 3D cloud animation
+ is implemented with the computer graphic technology 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "He2011"
 
 \end_inset
 
-, a 3D cloud animation capture the fluid dynamics and wind turbulence is
- implemented.
- A bunch of cloud plumes is simulated to generate enough data for algorithm
- testing and detection.
+.
+
+\change_deleted 5863457 1354407225
+ 
+\change_inserted 5863457 1354407118
+ 
+\change_unchanged
+A bunch of the simulated cloud plumes is generated for algorithm testing
+ and detection.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5863457 1354407224
+In this section, first some expressions are driven based on the diffusive
+ equations to obtain the modified Gaussian plume model especially for laser
+ detection.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
