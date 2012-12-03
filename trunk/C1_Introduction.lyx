@@ -534,8 +534,272 @@ key "Kokiopoulou2007"
 
 \begin_layout Subsection
 Motivation of Research
-\change_inserted 5862369 1354483925
+\change_inserted 5863457 1354550889
 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1354553232
+The research is motivated by the distributed detection of cloud detection
+ using WSN.
+ One of the properties of mobile sensor nodes is the limited energe capacity.
+ Therefore, to minimize the power consuption of the sensor nodes, DAC algorithm
+ to perform the distributed signal processing need to be optimized.
+ In addition, the model of cloud requires a modification because the sensor
+ is using similar technology like LIDAR.
+ It emit a laser to illuminate the cloud and collect the backscatters to
+ sample the concentration of the cloud.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+To find a faster DAC algorithm.
+ 
+\end_layout
+
+\begin_layout Standard
+DAC algorithm is a tool of distributed signal processing.
+ It can performs the task of data fusion, dicision making, and so on.
+ It is widly used in many applications, such as time synchronization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schenato2011"
+
+\end_inset
+
+, cooperative control of vehicles 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yang2010"
+
+\end_inset
+
+, formation control/flocking 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2012"
+
+\end_inset
+
+ and wireless sensor networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hlinka2012"
+
+\end_inset
+
+.
+ In these systems, it is often required that
+\change_deleted 5863457 1354550678
+ 
+\change_unchanged
+ the DAC algorithm returns the result in a short time.
+ For example, the sensors need to sample at a very high frequency.
+ Thus, many efforts have been devoted to optimize the algorithm.
+\end_layout
+
+\begin_layout Standard
+DAC algorithms can be divided into asymptotic and non-asymptotic algorithms.
+ For asymptotic algorithms, the optimization is to minimize the sub-dominate
+ eigenvalue of a weight matrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Asensio-Marco2012"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ In addition,
+\change_deleted 5863457 1354550678
+ 
+\change_unchanged
+ the iteration acceleration might be accelerated 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+.
+ However, these optimization of DAC algorithms are centralized methods,
+ which means a centralized node calculates the optimal parameters and forwards
+ them to the whole network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For non-asymptotic DAC algorithms, such as finite-time 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ and adaptive filter DAC algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+, the optimization is to minimize the number of necessary iteration before
+ a FIR filter
+\change_deleted 5863457 1354553326
+ can be
+\change_inserted 5863457 1354553326
+ is
+\change_unchanged
+ estimated.
+
+\change_deleted 5863457 1354550678
+ 
+\change_unchanged
+ Sumdaram and Hadjicostis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ verify that there exists a 
+\change_inserted 5863457 1354553338
+FIR 
+\change_unchanged
+filter that can estimate the consensus value.
+ Cavalcante and Mulgrew 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+ follow Sundaram and Hadjicostis's work to propose an adaptive algorithm
+ to find the filter.
+ However, they are not robust against topology changes.
+ 
+\change_deleted 5863457 1354550752
+Both of them
+\change_unchanged
+ 
+\change_deleted 5863457 1354550746
+have a first-order DAC running in the background and the
+\change_unchanged
+ Local values over time obtained by the first-order DAC
+\change_deleted 5863457 1354550787
+ 
+\change_unchanged
+ are taken as inputs of the filter estimation algorithm for both of them.
+ As a result, if the network topology changes, these algorithms have to
+ be reinitialized, as outdated information during the filter estimation
+ will lead to a wrong answer.
+\end_layout
+
+\begin_layout Standard
+A distributed method inspired by the gossip algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boyd2006"
+
+\end_inset
+
+ can be used to optimize the first order DAC but it converges very slowly.
+ The method involves triple nested distributed matrix iterations.
+ The inner iteration has to converge to a certain range so that the iteration
+ outside can return the right result.
+ Thus, It is not surprising that it could not finish in a reasonable time
+ when the network size is large.
+ 
+\end_layout
+
+\begin_layout Standard
+To solve these problems, a distributed optimization method with less computation
+ time is required.
+ In addition, it is better that no further comuunication cost is required.
+ Moreover, if the optimization 
+\change_inserted 5863457 1354553427
+algorithm 
+\change_unchanged
+and the DAC algorithm can 
+\change_deleted 5863457 1354553466
+be running
+\change_inserted 5863457 1354553470
+be executed
+\change_unchanged
+ simultaneously, then 
+\change_deleted 5863457 1354553483
+DAC algorithm
+\change_inserted 5863457 1354553487
+concensus process
+\change_unchanged
+ will not be interrupted and the optimization can be running in background
+ to keep the optimal parameters updated in a dynamic network.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 5863457 1354553534
+To detect the clould plume by laser sensor.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1354553700
+The cloud to be detected is a group of harmful gas or particals floating
+ in the air.
+ A laser beam penertrate the cloud and the backscatters (light reflected
+ by particals) are detected by the sensor.
+ In outdoor enviroment, the sensor may be covered by a moving object and
+ cause a false alarm.
+ To solve this problem, we involves the distributed detection and the model
+ of cloud plume.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1354553652
+build a new signal model when laser illuminate the cloud plume.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1354553614
+Specifically, in the cloud detection application the DAC algorithm performs
+ the task of distribued hypothesis testing.
+ To find the production of the global likelihood ratio, DAC algorithm may
+ have a little modification.
+ Each sensor first caculate the log of the local likelihood ratio and substitute
+ it into the DAC algroithm as the initial local value.
+ DAC algorithm will then find the average.
+ The average multiplied by the number of nodes in the network is log of
+ global likelihood ratio.
 \end_layout
 
 \begin_layout Standard
@@ -696,9 +960,7 @@ key "Hlinka2012"
 .
  In these systems, it is often necessary that a group of agents can agree
  on certain quantities.
- 
-\lang british
-The problem of how to achieve such an agreement in a distributed system
+ The problem of how to achieve such an agreement in a distributed system
  is called the 
 \shape italic
 consensus problem
@@ -710,8 +972,6 @@ consensus problem
 \begin_layout Standard
 
 \change_inserted 5862369 1354484073
-
-\lang british
 An example application is distributed detection of a moving target by wireless
  sensor networks.
  Suppose each sensor is observing the target coordinates but the output
@@ -724,8 +984,6 @@ An example application is distributed detection of a moving target by wireless
 \begin_layout Standard
 
 \change_inserted 5862369 1354484073
-
-\lang british
 When the moving target is highly dynamic or the sensors need to sample at
  a very high frequency, it requires that  the DAC algorithm returns the
  result in a short time.
@@ -859,6 +1117,8 @@ for non-asymptotic DAC algorithm, the optimization is to minimize the time
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5863457 1354550588
 For non-asymptotic DAC algorithms, such as finite-time 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -880,81 +1140,25 @@ key "Cavalcante2010"
 they find the average in some sophisticated ways but not robust against
  topology changes.
  
-\change_inserted 5862369 1354484760
- 
-\change_unchanged
-Sumdaram and Hadjicostis 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sundaram2007"
-
-\end_inset
-
- verify that there exists a filter that can estimate the consensus value.
- Cavalcante and Mulgrew 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Cavalcante2010"
-
-\end_inset
-
- follow Sundaram and Hadjicostis's work to propose an adaptive algorithm
- to find the filter.
- 
-\change_inserted 5862369 1354484777
-However, they are not robust against topology changes.
- 
-\change_unchanged
-Both of them have a first-order DAC running in the background and the local
- values over time are taken as inputs of the filter.
- As a result, if the network topology changes, these algorithms have to
- be reinitialized, as outdated information during the filter estimation
- will lead to a wrong answer.
-\change_inserted 5862369 1354484836
-
-\end_layout
-
-\begin_layout Standard
-A distributed method inspired by the gossip algorithm 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Boyd2006"
-
-\end_inset
-
- can be used to optimize the first order DAC but it converges very slowly.
- The method involves triple nested distributed matrix iterations.
- The inner iteration has to converge to a certain range so that the iteration
- outside can return the right result.
- Thus, It is not surprising that it could not finish in a reasonable time
- when the network size is large.
-
-\change_inserted 5862369 1354485682
- 
 \change_unchanged
 
 \end_layout
 
 \begin_layout Standard
-Based on these problem, a distributed optimization method with less computation
- time is required.
- In addition, it is better that no further comuunication cost is required.
- Moreover, if the optimization and the DAC algorithm can be running simultaneous
-ly, then DAC algorithm will not be interrupted and the optimization can
- keep the optimal parameters updated in a dynamic network.
- 
-\end_layout
 
-\begin_layout Standard
-
+\change_deleted 5863457 1354553529
+Specifically, the DAC algorithm may have a little modification.
+ the cloud 
 \change_inserted 5862369 1354477681
-Specifically, the DAC algorithm may have a little modification in the cloud
- detection application.
- the cloud detection
+
 \end_layout
 
 \begin_layout Subsection
 Contribution
+\change_inserted 5863457 1354549053
+s
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
