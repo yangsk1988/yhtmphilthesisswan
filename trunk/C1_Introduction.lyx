@@ -757,49 +757,76 @@ concensus process
  will not be interrupted and the optimization can be running in background
  to keep the optimal parameters updated in a dynamic network.
  
+\change_inserted 5862369 1354568556
+
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 5863457 1354553534
-To detect the clould plume by laser sensor.
+To Detect The Clould Plume By Laser Sensor
 \end_layout
 
 \begin_layout Standard
 
 \change_inserted 5863457 1354553700
-The cloud to be detected is a group of harmful gas or particals floating
- in the air.
- A laser beam penertrate the cloud and the backscatters (light reflected
- by particals) are detected by the sensor.
- In outdoor enviroment, the sensor may be covered by a moving object and
- cause a false alarm.
- To solve this problem, we involves the distributed detection and the model
- of cloud plume.
+The cloud 
+\change_deleted 5862369 1354569488
+to be detected
+\change_inserted 5862369 1354569491
+here
+\change_inserted 5863457 1354553700
+ is a group of harmful gas or particals floating in the air.
+ 
+\change_inserted 5862369 1354569510
+To detecte the cloud, it is illuminated by 
+\change_deleted 5862369 1354569194
+A
+\change_inserted 5862369 1354569398
+a
+\change_inserted 5863457 1354553700
+ laser beam
+\change_inserted 5862369 1354569520
+ emitted by a sensor and 
+\change_deleted 5862369 1354569466
+ 
+\change_inserted 5863457 1354553700
+the backscatters (light reflected by particals)
+\change_inserted 5862369 1354569526
+ are collected to generate signals
+\change_inserted 5863457 1354553700
+.
+ 
+\change_deleted 5862369 1354568537
+In the outdoor enviroment, the sensor may be covered by a moving object
+ and which causes a false alarm.
+ To solve this problem, we involves the distributed detection.
+ 
+\change_inserted 5862369 1354569453
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1354570235
+Because the laser beam penertrate the cloud, the intensity of backscatters
+ is the intergration along the laser beam in that range.
+ Consequently, a new cloud plume model need to be obtained by take intergration
+ of original Gaussian plume model along the direction of laser beam.
  
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted 5863457 1354553652
-build a new signal model when laser illuminate the cloud plume.
- 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5863457 1354553614
-Specifically, in the cloud detection application the DAC algorithm performs
- the task of distribued hypothesis testing.
- To find the production of the global likelihood ratio, DAC algorithm may
- have a little modification.
- Each sensor first caculate the log of the local likelihood ratio and substitute
- it into the DAC algroithm as the initial local value.
+\change_inserted 5862369 1354570298
+Specifically, in the cloud detection application, the DAC algorithm performs
+ the task of distribued hypothesis testing may also have a little modification.
+ To find the production of the global likelihood ratio, each sensor first
+ caculate the log of the local likelihood ratio and substitute it into the
+ DAC algroithm as the initial local value.
  DAC algorithm will then find the average.
  The average multiplied by the number of nodes in the network is log of
  global likelihood ratio.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1116,58 +1143,14 @@ for non-asymptotic DAC algorithm, the optimization is to minimize the time
  
 \end_layout
 
-\begin_layout Standard
-
-\change_deleted 5863457 1354550588
-For non-asymptotic DAC algorithms, such as finite-time 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sundaram2007"
-
-\end_inset
-
- and adaptive filter DAC algorithm 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Cavalcante2010"
-
-\end_inset
-
-, the optimization is to minimize the number of necessary iteration before
- a FIR filter can be estimated.
- 
-\change_deleted 5862369 1354484760
-they find the average in some sophisticated ways but not robust against
- topology changes.
- 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5863457 1354553529
-Specifically, the DAC algorithm may have a little modification.
- the cloud 
-\change_inserted 5862369 1354477681
-
-\end_layout
-
 \begin_layout Subsection
-Contribution
-\change_inserted 5863457 1354549053
-s
-\change_unchanged
-
+Contributions
 \end_layout
 
 \begin_layout Standard
-The main contribution of this thesis is that it propose
-\change_inserted 5863457 1354407240
-d
-\change_unchanged
- a distributed real-time optimization method, which will not interrupt the
- constant first-order DAC algorithm.
+The main contribution of this thesis is that it proposed a distributed real-time
+ optimization method, which will not interrupt the constant first-order
+ DAC algorithm.
  Thus, the consensus algorithm and the optimization method can be executed
  simultaneously.
  As a result, communication cost and optimization initialization time can
@@ -1191,11 +1174,7 @@ key "Yang2010"
 
 .
  The proposed method could obtain the result with sufficient numerical accuracy.
- Matrix iteration
-\change_inserted 5862369 1354402711
-s
-\change_unchanged
- only need to be executed for times in order of 
+ Matrix iterations only need to be executed for times in order of 
 \begin_inset Formula $n$
 \end_inset
 
@@ -1207,11 +1186,7 @@ s
 Moreover, we propose a generalized finite-time DAC algorithm, which does
  not require knowledge of network topology but will estimate the necessary
  parameters during the iteration.
- Compared to the distributive algorithm
-\change_deleted 5862369 1354402776
- 
-\change_unchanged
- introduced in 
+ Compared to the distributive algorithm introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sundaram2007"
