@@ -547,9 +547,31 @@ The research is motivated by the distributed detection of cloud detection
  Therefore, to minimize the power consuption of the sensor nodes, DAC algorithm
  to perform the distributed signal processing need to be optimized.
  In addition, the model of cloud requires a modification because the sensor
- is using similar technology like LIDAR.
+ is using 
+\change_inserted 5862369 1354637268
+laser sensing
+\change_inserted 5863457 1354553232
+ technology
+\change_deleted 5862369 1354637313
+ similar to LIDAR
+\change_inserted 5863457 1354553232
+.
  It emit a laser to illuminate the cloud and collect the backscatters to
- sample the concentration of the cloud.
+ 
+\change_deleted 5862369 1354637341
+sample
+\change_inserted 5862369 1354637343
+sense
+\change_inserted 5863457 1354553232
+ the
+\change_deleted 5862369 1354637381
+ concentration of the
+\change_inserted 5863457 1354553232
+ cloud
+\change_inserted 5862369 1354637376
+ concentration
+\change_inserted 5863457 1354553232
+.
 \change_unchanged
 
 \end_layout
