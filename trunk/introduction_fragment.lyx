@@ -1,0 +1,286 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 5862369 "HT" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+introduction_fragment
+\end_layout
+
+\begin_layout Standard
+(todo some can be put into the introduction)
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1354832888
+%2.为什么要在distributed system研究和应用DAC算法中？
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1354832888
+%3.本文中的cloud detection作为一个具体应用，如何与前面的内容结合？
+\change_unchanged
+
+\end_layout
+
+\begin_layout Itemize
+1.why by distributed system? .1.
+ distributed system has better performance.
+ and has some other benifite.
+\end_layout
+
+\begin_layout Standard
+In outdoor surveillance and monitoring by sensors, multiple sensors system
+ has better performance such as reliability, simplicity and larger area
+ coverage.
+ In this system, signal processing can be achived either by gathering informatio
+n to a fusion center or processed distributively.
+ These two mehtods can be called centrilized signal processing and distributed
+ signal processing.
+ However, which one is better depends on many aspects and needs more discussion.
+ 
+\end_layout
+
+\begin_layout Standard
+Sometimes, having all the information available on a fusion center is a
+ good assumption.
+ We can design the algorithm first and try to decentrilize it later.
+ However, once the fusion center is destroyed or failed, the whole network
+ breaks down.
+ In addition, limited energy is also a problem for WSN in centralized signal
+ processing.
+ Because data gathering is a energy consuming process, there is unbalance
+ energy consumption between nodes with different communication loads 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cristescu2004"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yuen2008"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In contrast, distributed signal processing can be more reliable to node
+ failure or topology changes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chair1986"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kam1992"
+
+\end_inset
+
+.
+ Also the distributed signal processing has the advantages of balanced energy
+ consumption.
+ 
+\end_layout
+
+\begin_layout Itemize
+2.why we need to use the DAC algorithm in the distributed network? 
+\end_layout
+
+\begin_layout Standard
+DAC algorithm is a tool of distributed signal processing.
+ It can performs the task of data fusion, dicision making, and so on.
+ It is widly used in many applications, such as time synchronization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schenato2011"
+
+\end_inset
+
+, cooperative control of vehicles 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yang2010"
+
+\end_inset
+
+, formation control/flocking 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2012"
+
+\end_inset
+
+ and wireless sensor networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hlinka2012"
+
+\end_inset
+
+.
+ In these systems, it is often necessary that a group of agents can agree
+ on certain quantities.
+ The problem of how to achieve such an agreement in a distributed system
+ is called the 
+\shape italic
+consensus problem
+\shape default
+,  which is solved by distributed average consensus (DAC) algorithms.
+ 
+\end_layout
+
+\begin_layout Standard
+An example application is distributed detection of a moving target by wireless
+ sensor networks.
+ Suppose each sensor is observing the target coordinates but the output
+ is corrupted by independent and identically distributed zero-mean Gaussian
+ noise, to minimize the interference from the noise, the sensors need to
+ take the average of all initial values.
+ 
+\end_layout
+
+\begin_layout Standard
+When the moving target is highly dynamic or the sensors need to sample at
+ a very high frequency, it requires that  the DAC algorithm returns the
+ result in a short time.
+ Thus, many efforts have been devoted to optimize the algorithm.
+\end_layout
+
+\begin_layout Itemize
+3.why we need to optimize the DAC algorithm? to find a DAC algorithm that
+ can find the average in less time.
+ to reduce the number of matrix iteration, then the algorithm complexity
+ can be reduced.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1354928428
+ 
+\change_unchanged
+DAC algorithms can be divided into asymptotic and non-asymptotic algorithms.
+ For
+\change_inserted 5862369 1354928439
+ 
+\change_unchanged
+asymptotic algorithms, the optimization is to minimize the sub-dominate
+ eigenvalue of a weight matrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Asensio-Marco2012"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.In addition,  the iteration acceleration might be accelerated 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+.
+ However, these optimization of DAC algorithms are centralized methods,
+ which means a centralized node calculates the optimal parameters and forwards
+ them to the whole network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+why finite-time DAC algorithm need to be generalized? for non-asymptotic
+ DAC algorithm, the optimization is to minimize the time of filter estimation.
+ to reduce the number of matrix iteration, no imfomation of network topology
+ is required.
+ 
+\end_layout
+
+\end_body
+\end_document
