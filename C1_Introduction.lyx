@@ -74,12 +74,20 @@ tabs-within-sections
 \begin_body
 
 \begin_layout Title
-Consensus Algorithm and its Applications in Cloud Detection
+
+\change_inserted 5862369 1354927521
+Optimized 
+\change_unchanged
+Average Consensus Algorithm and its Applications 
 \end_layout
 
 \begin_layout Abstract
 Distributed Consensus algorithm has application in data fusion in wireless
- sensor networks and coordination of multi-agent system.
+ se
+\change_inserted 5862369 1354927621
+ 
+\change_unchanged
+nsor networks and coordination of multi-agent system.
  Some distributive signal processing based on consensus algorithm, such
  as, local value linear prediction, information flooding and network eigenvalues
  estimation, were introduced in this thesis.
@@ -205,18 +213,116 @@ my plan is to structure the introduction like that
 \end_layout
 
 \begin_layout Standard
-In a distributed system, processing information that originally and locally
- acquired by the nodes is often necessary.
- Centralized signal processing require a special node called fusion center,
- which has to be involved if the signal processing is too complicate so
- that it is not possible to find a distributive solution.
- Fusion center is the most important node in the network that responsible
- for data gathering and data processing.
- However, once the fusion center is destroyed or failed, the whole network
- breaks down.
- In addition, limited energy is also a problem for WSN in centralized signal
- processing because data gathering is a energy consuming process.
- Also there is unbalance energy consumption between nodes with different
+
+\change_deleted 5862369 1354832787
+移动设备的发展，使得
+\change_inserted 5862369 1354933047
+信息多样化，并且分布在各个设备上。如何
+\change_deleted 5862369 1354832787
+处理
+\change_inserted 5862369 1354933056
+这些
+\change_deleted 5862369 1354832787
+分布原本在各个设备上的信息变得尤为重要。
+\change_inserted 5862369 1354932925
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1354933839
+(todo only give a background here..)
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 5862369 1354933843
+background
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+In a distributed system, processing information that originally
+\change_deleted 5862369 1354920951
+ 
+\change_unchanged
+ locally acquired by the nodes is often necessary.
+
+\change_deleted 5862369 1354920302
+ This centralized signal processing method is intuitive.
+
+\change_unchanged
+ As any node
+\change_inserted 5862369 1354921320
+ 
+\change_unchanged
+only have partial information,
+\change_deleted 5862369 1354921329
+To process the information, 
+\change_unchanged
+ 
+\change_deleted 5862369 1354932047
+one option is gathering
+\change_unchanged
+ all
+\change_inserted 5862369 1354921454
+ 
+\change_unchanged
+partial information 
+\change_inserted 5862369 1354932051
+need 
+\change_unchanged
+to 
+\change_inserted 5862369 1354932121
+be gatherred and processed at 
+\change_unchanged
+a special node called 
+\change_deleted 5862369 1354932083
+the
+\change_unchanged
+ fusion center
+\change_inserted 5862369 1354932133
+.
+ 
+\change_unchanged
+This mehtod is
+\change_inserted 5862369 1354932117
+ 
+\change_unchanged
+intuitive 
+\change_deleted 5862369 1354921466
+and
+\change_unchanged
+ and is called centrilized signal processing.
+
+\change_deleted 5862369 1354921447
+  centrilized signal processing.
+ Whichhas to be involved if the signal processing is too complicate so that
+ it is not possible to find a distributive solution.
+ 
+\change_unchanged
+ 
+\change_inserted 5862369 1354933409
+
+\end_layout
+
+\begin_layout Standard
+However, fusion center is the most important node in the network
+\change_inserted 5862369 1354932117
+.
+
+\change_deleted 5862369 1354921405
+ that responsible for data processing,
+\change_inserted 5862369 1354932117
+ 
+\change_unchanged
+Once it is destroyed or failed, the whole network breaks down.
+
+\change_inserted 5862369 1354933595
+ In addition, as data gathering is a energy consuming process, centralized
+ signal processing is limited by energy constrain of mobile nodes.
+ Moreover, there is unbalance energy consumption between nodes with different
  communication loads 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -232,9 +338,22 @@ key "Yuen2008"
 \end_inset
 
 .
- In contrast, distributed signal processing involves multiple sensors date
- fusion, can normally be more reliable than single sensor node detection
  
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1354932203
+ In contrast, d
+\change_inserted 5862369 1354932204
+ D
+\change_unchanged
+istributed signal processing
+\change_deleted 5862369 1354932208
+ involves multiple sensors date fusion, can normally be more reliable than
+ single sensor node detection 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chair1986"
@@ -249,41 +368,222 @@ key "Kam1992"
 \end_inset
 
 .
- Also the distributed signal processing has the advantages of reliability
- to nodes failure or topology changes as well as balanced energy consumption.
-  
+ Also the distributed signal processing 
+\change_inserted 5862369 1354933681
+ can be robust against 
+\change_deleted 5862369 1354921722
+has the advantages of reliability to
+\change_unchanged
+ nodes failure or topology changes
+\change_inserted 5862369 1354921772
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chair1986"
+
+\end_inset
+
+
+\change_deleted 5862369 1354924422
+ In addition,
+\change_inserted 5862369 1354924423
+ and
+\change_unchanged
+ there is balanced energy consumption between nodes
+\change_inserted 5862369 1354922035
+ (todo Ref) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cristescu2004"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yuen2008"
+
+\end_inset
+
+
+\change_unchanged
+.
+ 
+\change_inserted 5862369 1354933665
+It is desirable to process information distributively, however, not all
+ the signal processing tasks can be distributed.
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-Distributed average consensus (DAC) algorithm has received significant attention
- recently because of its robustness and simplicity for processing distributed
- information over networks.
- It have applications in rendezvous, formation control, flocking, attitude
- alignment and wireless sensor networks 
+Distributed average consensus (DAC) algorithm
+\change_inserted 5862369 1354933348
+ is a tool for processing information over networks.
+ It
+\change_unchanged
+ has received significant attention recently because of its robustness and
+ simplicity.
+ 
+\change_deleted 5862369 1354924632
+It have
+\change_inserted 5862369 1354933347
+It is widly used in
+\change_unchanged
+ applications 
+\change_deleted 5862369 1354924642
+in
+\change_inserted 5862369 1354933347
+like
+\change_unchanged
+ 
+\change_inserted 5862369 1354933347
+time synchronization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schenato2011"
+
+\end_inset
+
+, rendezvous(todo ref 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ren2007"
 
 \end_inset
 
+), cooperative control of vehicles 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yang2010"
+
+\end_inset
+
+, formation control/flocking 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2012"
+
+\end_inset
+
+ and WSNs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hlinka2012"
+
+\end_inset
+
 .
- For these applications, reaching to an agreement among all the nodes in
- a distributed network is often necessary.
- There are many algorithms developed by now.
- We discuss these DAC algorithms by mainly comparing the convergence rate
- of them.
- The agreement is achieved if local values of nodes converge to a common
- value which is referred to as a consensus value.
+
+\change_unchanged
+ 
+\change_deleted 5862369 1354924778
+For
+\change_inserted 5862369 1354933347
+In
+\change_unchanged
+ these applications,
+\change_inserted 5862369 1354933347
+ it is often necessary that a group of nodes can agree on certain quantities.
+
+\change_unchanged
  
 \end_layout
 
 \begin_layout Standard
-In conventional DAC algorithms, each node updates its local value repeatedly
- as a weighted linear combination of its previous local value and those
- from its neighbors.
- The iteration is continued until all the local values converge to a global
- average within a desired error level.
- These methods are referred as asymptotic consensus in 
+
+\change_deleted 5862369 1354925755
+The problem of how to achieve such an agreement in a distributed network
+ is called the 
+\shape italic
+consensus problem
+\shape default
+.
+ The quantitiy that all node agreed on is called the 
+\shape italic
+consensus value
+\shape default
+.
+ Specifically, if the consensus value is the average of all node's initial
+ value, the average is obtained by the distributed average consensus (DAC)
+ algorithms.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1354933861
+An example application of DAC is distributed detection of a moving target
+ by wireless sensor networks.
+ Suppose each sensor is observing the target coordinates but the output
+ is corrupted by independent and identically distributed zero-mean Gaussian
+ noise, to minimize the interference from the noise, the sensors need to
+ take the average of all initial values.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 5862369 1354933876
+Why optimization
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1354925774
+When the moving target is highly dynamic or the sensors need to sample at
+ a very high frequency, it requires that  the DAC algorithm returns the
+ result in a short time.
+ Thus, many efforts have been devoted to optimize the algorithm.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1354928324
+There are many algorithms developed by now.
+ We discuss these DAC algorithms by mainly comparing the convergence rate
+ of them.
+
+\change_unchanged
+ 
+\change_deleted 5862369 1354924983
+The agreement is achieved if local values of nodes converge to a common
+ value which is referred to as a consensus value.
+ 
+\change_inserted 5862369 1354929275
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1354929299
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 5862369 1354933891
+different optimization of asymptotic and nonasymptotic DAC 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1354932357
+The DAC algorithms can be divided into asymptotic and non-asymptotic DAC
+ algorithms 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sundaram2007"
@@ -291,7 +591,142 @@ key "Sundaram2007"
 \end_inset
 
 .
- By introducing the associated network graph matrix, whose entries are the
+ The optimization of these two kind of algorithms are different.
+ 
+\change_unchanged
+For asymptotic DAC algorithms, 
+\change_deleted 5862369 1354932376
+each node updates its local value repeatedly as a weighted sum of  previous
+ local value of itself and   its neighbors, until all the local values converge
+ tothe average within a desired error tolerence.
+  The convergence rate of asymptotic DAC algorithms is determined by the
+ spectral radius of a weight matrix associated to the network.
+
+\change_inserted 5862369 1354932377
+ the optimization is to minimize the sub-dominate eigenvalue of the weight
+ matrix associated to the network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Asensio-Marco2012"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ However, these optimization of DAC algorithms are centralized methods 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1354930825
+For non-asymptotic DAC algorithms, 
+\change_deleted 5862369 1354931300
+such as finite-time 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ and adaptive filter DAC algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+,
+\change_unchanged
+ 
+\change_inserted 5862369 1354931340
+the optimization is to minimize the time to find a filter that can estimate
+ the consensus value.
+ 
+\change_deleted 5862369 1354930710
+they find the average  in some sophisticated ways but not robust against
+ topology changes.
+
+\change_inserted 5862369 1354932417
+ Sumdaram and Hadjicostis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ verify that there exists such a filter.
+ They presented a method based on z-transform and final value theorem to
+ estimate it.
+ Cavalcante and Mulgrew 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+ follow Sundaram and Hadjicostis's work to propose an adaptive algorithm
+ to find the filter.
+ However, both of them have a first-order DAC running in the background
+ and the local values over time are taken as inputs of the filter.
+ As a result, if the network topology changes, outdated information during
+ the filter estimation will lead to a wrong answer.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1354931252
+After reviewing these algorithm, we can get the awarness that DAC algorithms
+ are required to be robust against topology changes.
+ In addition,
+\change_unchanged
+ 
+\change_deleted 5862369 1354931131
+A
+\change_inserted 5862369 1354931194
+ the optimization should be distributed so that the whole system can work
+ distributively.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1354932457
+Inspired by the gossip algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boyd2006"
+
+\end_inset
+
+, a distributed method can be used to optimize the first order DAC.
+ The method involves triple nested distributed matrix iterations.
+ The inner iteration has to converge to a certain range so that the iteration
+ outside can return the right result.
+ Thus, It is not surprising that it could not finish in a reasonable time
+ when the network size is large.
+\change_deleted 5862369 1354928829
+By introducing the associated network graph matrix, whose entries are the
  corresponding weights assigned to the edges, the convergence rate of linear
  DAC is determined by the spectral radius of the matrix.
  Commonly, the edge weights are determined by degree of nodes and their
@@ -304,9 +739,13 @@ key "Xiong2009a"
 
 .
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1354928868
 To find an algorithm that finds consensus value more quickly, a great deal
  of research interest has been devoted to more sophisticated consensus algorithm
 s 
@@ -446,9 +885,13 @@ key "Li2010"
  accelerate the slow convergence by overcoming the diffusive behavior of
  reversible chains.
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1354929178
 It needs mentioned that some novel methods increase the convergence rate
  by taking a number of consecutive local values obtained by asymptotic consensus
  into consideration.
@@ -462,7 +905,12 @@ key "Ren2005"
 
 , which treats the final consensus value as the system state, and it is
  shown that algorithm is convergent for strongly connected networks.
- Later, a modification to the basic Kalman filter algorithm is presented
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1354929178
+Later, a modification to the basic Kalman filter algorithm is presented
  to ensure the Kalman Filter converges to an unbiased estimate 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -480,7 +928,13 @@ key "Kokiopoulou2007"
 
  applies scalar epsilon algorithm (SEA) to the local values sequence in
  each node to accelerate the convergence.
- The main disadvantage of this method is that it uses all previous estimates
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1354929178
+The main disadvantage of this method is that it uses all previous estimates
  and its robustness against changes in the network topology is questionable
  
 \begin_inset CommandInset citation
@@ -513,9 +967,13 @@ key "Sundaram2007"
  Therefore, a decentralized method is proposed to computer the matrix polynomial.
  This method requires several runs of the consensus algorithm initialized
  with a set of linear independent vectors.
+\change_inserted 5862369 1354929258
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1354929178
 Motivated by the works in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -530,10 +988,58 @@ key "Kokiopoulou2007"
  estimate the consensus value by passing through consecutive local values
  obtained by the first order linear DAC algorithm without more information
  exchanged between nodes.
+\change_inserted 5862369 1354931557
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1354932730
+To solve these problems, we proposed a distributed optimization method for
+ the constant first-order DAC and higher-order DAC algorithms in chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Online-Optimization-of"
+
+\end_inset
+
+.
+ Because optimal parameters obtained by centralized optimization are only
+ related to the eigenvalues of Laplacian matrix of the network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+, consequently, a distributed eigenvalue estimation algorithm is proposed
+ to enable the distributed optimization.
+ In contrast to other distributed algorithms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kempe2008"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Franceschelli2009"
+
+\end_inset
+
+, its advantages are that first-order DAC will not be interrupted during
+ the optimization and algorithm complexity and communication cost can be
+ dramatically reduced.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
 Motivation of Research
+\change_inserted 5862369 1354932873
+ 
 \change_inserted 5863457 1354550889
 
 \end_layout
@@ -849,320 +1355,6 @@ Specifically, in the cloud detection application, the DAC algorithm performs
  global likelihood ratio.
 \change_unchanged
 
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5862369 1354483938
-(todo some can be put into the introduction)
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\change_deleted 5862369 1354403339
-
-%2.为什么要在distributed system研究和应用DAC算法中？
-\end_layout
-
-\begin_layout Plain Layout
-
-\change_deleted 5862369 1354403339
-
-%3.本文中的cloud detection作为一个具体应用，如何与前面的内容结合？
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted 5862369 1354485709
-1.why by distributed system? .1.
- distributed system has better performance.
- and has some other benifite.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5862369 1354480301
-In outdoor surveillance and monitoring by sensors, multiple sensors system
- has better performance such as reliability, simplicity and larger area
- coverage.
- In this system, signal processing can be achived either by gathering informatio
-n to a fusion center or processed distributively.
- These two mehtods can be called centrilized signal processing and distributed
- signal processing.
- However, which one is better depends on many aspects and needs more discussion.
- 
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5862369 1354483663
-Sometimes, having all the information available on a fusion center is a
- good assumption.
- We can design the algorithm first and try to decentrilize it later.
- However, once the fusion center is destroyed or failed, the whole network
- breaks down.
- In addition, limited energy is also a problem for WSN in centralized signal
- processing.
- Because data gathering is a energy consuming process, there is unbalance
- energy consumption between nodes with different communication loads 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Cristescu2004"
-
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Yuen2008"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5862369 1354483774
-In contrast, distributed signal processing can be more reliable to node
- failure or topology changes 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chair1986"
-
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kam1992"
-
-\end_inset
-
-.
- Also the distributed signal processing has the advantages of balanced energy
- consumption.
- 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted 5862369 1354485712
-2.
-\change_unchanged
-why we need to use the DAC algorithm in the distributed network?
-\change_inserted 5862369 1354483852
- 
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5862369 1354484067
-DAC algorithm is a tool of distributed signal processing.
- It can performs the task of data fusion, dicision making, and so on.
- It is widly used in many applications, such as time synchronization 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Schenato2011"
-
-\end_inset
-
-, cooperative control of vehicles 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Yang2010"
-
-\end_inset
-
-, formation control/flocking 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Olfati-Saber2012"
-
-\end_inset
-
- and wireless sensor networks 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Hlinka2012"
-
-\end_inset
-
-.
- In these systems, it is often necessary that a group of agents can agree
- on certain quantities.
- The problem of how to achieve such an agreement in a distributed system
- is called the 
-\shape italic
-consensus problem
-\shape default
-,  which is solved by distributed average consensus (DAC) algorithms.
- 
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5862369 1354484073
-An example application is distributed detection of a moving target by wireless
- sensor networks.
- Suppose each sensor is observing the target coordinates but the output
- is corrupted by independent and identically distributed zero-mean Gaussian
- noise, to minimize the interference from the noise, the sensors need to
- take the average of all initial values.
- 
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5862369 1354484073
-When the moving target is highly dynamic or the sensors need to sample at
- a very high frequency, it requires that  the DAC algorithm returns the
- result in a short time.
- Thus, many efforts have been devoted to optimize the algorithm.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted 5862369 1354485722
-3.
-\change_unchanged
-why we need to optimize the DAC algorithm?
-\change_inserted 5862369 1354484251
- to find a DAC algorithm that can find the average in less time.
- to reduce the number of matrix iteration, then the algorithm complexity
- can be reduced.
- 
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1354484491
-The 
-\change_inserted 5862369 1354484491
- 
-\change_unchanged
-DAC algorithms can be divided into asymptotic and non-asymptotic algorithms.
-
-\change_inserted 5862369 1354484498
- For
-\change_deleted 5862369 1354484499
- A
-\change_inserted 5862369 1354484499
-a
-\change_unchanged
-symptotic algorithms
-\change_inserted 5862369 1354484530
-,
-\change_deleted 5862369 1354484533
- have been proved to be robust against  topology changes and they play important
- roles in practice 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ren2007"
-
-\end_inset
-
-.
-  Therefore, intend 
-\change_inserted 5862369 1354484546
- the optimization is 
-\change_unchanged
-to minimize the sub-dominate eigenvalue of a weight matrix 
-\change_inserted 5862369 1354484564
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Asensio-Marco2012"
-
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xiao2004"
-
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xiong2010"
-
-\end_inset
-
-.
-\change_deleted 5862369 1354484567
-to optimize the convergence rate.
- 
-\change_unchanged
-In addition, 
-\change_deleted 5862369 1354484575
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kokiopoulou2007"
-
-\end_inset
-
- deals with the
-\change_inserted 5862369 1354484578
- the
-\change_unchanged
- iteration acceleration
-\change_inserted 5862369 1354484598
- might be accelerated 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kokiopoulou2007"
-
-\end_inset
-
-
-\change_unchanged
-.
- However, these optimization of DAC algorithms are centralized methods,
- which means a centralized node calculates the optimal parameters and forwards
- them to the whole network 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xiong2010"
-
-\end_inset
-
-.
- 
-\change_inserted 5862369 1354485895
-
-\end_layout
-
-\begin_layout Itemize
-why finite-time DAC algorithm need to be generalized? 
-\change_inserted 5862369 1354485895
-for non-asymptotic DAC algorithm, the optimization is to minimize the time
- of filter estimation.
- to reduce the number of matrix iteration, no imfomation of network topology
- is required.
- 
 \end_layout
 
 \begin_layout Subsection
