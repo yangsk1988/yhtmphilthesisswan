@@ -166,6 +166,42 @@ Consensus Based Network Information Flooding(todo check)
 Consensus Based Distributed Eigenvalues Estimation(todo)
 \end_layout
 
+\begin_layout Enumerate
+add some new changes to chapter 
+\begin_inset Quotes eld
+\end_inset
+
+real-time...
+\begin_inset Quotes erd
+\end_inset
+
+ new changes can be found in 
+\begin_inset Quotes eld
+\end_inset
+
+introduction
+\begin_inset Quotes erd
+\end_inset
+
+ : 
+\begin_inset Quotes eld
+\end_inset
+
+motivation
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+contribution
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 Eigenvalue estimation
 \end_layout
