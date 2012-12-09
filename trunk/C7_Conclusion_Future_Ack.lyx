@@ -72,7 +72,7 @@ theorems-ams-extended
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -94,7 +94,7 @@ Conclusion and Future Work
 \end_layout
 
 \begin_layout Standard
-(todo)
+This section gives a summary of this thesis and direction for future research.
 \end_layout
 
 \begin_layout Subsection
@@ -104,9 +104,9 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-In this thesis, first some asymptotic and non-asymptotic DAC algorithms
- are reviewed.
- As stated before, the asymptotic algorithms
+In this thesis, at first asymptotic and non-asymptotic DAC algorithms are
+ reviewed.
+ The asymptotic algorithms
 \change_deleted 5862369 1354147985
 , including first order DAC and higher order DAC,
 \change_unchanged
@@ -125,16 +125,17 @@ of these algorithms
 \change_unchanged
 needs to know the network topology, which is very diffcult to obtain for
  any individual node and can not change during the optimization.
- On the other hand,
-\change_deleted 5862369 1354148035
- 
-\change_unchanged
- non-asymptotic algorithms
+ Non-asymptotic algorithms
 \change_deleted 5862369 1354148041
 , such as the finite-time DAC or adaptive filter DAC algorithm, they
 \change_unchanged
- can find the average faster than the asymptotic algorithms in a time-invariant
- network.
+ can find the average faster
+\change_deleted 5862369 1355074897
+ than the asymptotic algorithms 
+\change_inserted 5862369 1355074897
+ 
+\change_unchanged
+in a time-invariant network.
 
 \change_deleted 5862369 1354148366
  
@@ -144,9 +145,9 @@ They use a finite impulse response filter to estimate the consensus value.
 \change_unchanged
 However,
 \change_inserted 5862369 1354148622
- the filter estimation is not reliable and will be interrupted and reinitialized
- once the topology is changed, because outdated information will lead to
- a wrong answer of the filter.
+ the filter estimation is not reliable and will be interrupted once the
+ topology is changed, because outdated information will lead to a wrong
+ answer of the filter.
  
 \change_unchanged
 Therefore, to choose the suitable DAC algorithm, it depends on the network
@@ -537,6 +538,10 @@ Acknowledgment
 \end_layout
 
 \begin_layout Standard
+(todo)
+\end_layout
+
+\begin_layout Standard
 I thanks to my two supervisors Dr.Wang and Prof.Choi who give me lots of useful
  ideas and suggestions.
  Without your help, the thesis could not be finished within this time.
@@ -550,10 +555,6 @@ Also thanks to my father and mother, your encouragment during the pursuing
 
 \begin_layout Standard
 Thanks to the sponsor too.
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body
