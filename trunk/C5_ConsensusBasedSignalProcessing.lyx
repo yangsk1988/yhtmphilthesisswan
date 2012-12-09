@@ -6,11 +6,10 @@
 \options onecolumn,12pt,A4paper
 \use_default_options true
 \begin_modules
-theorems-ams
-theorems-sec
 eqs-within-sections
 figs-within-sections
 tabs-within-sections
+theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -351,17 +350,8 @@ TODO:
 
 \begin_layout Standard
 The rest of this chapter is structured as follows.
- First,  preliminary and definition of DAC will be introduced in section
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Preliminary"
-
-\end_inset
-
-.
- Second,    the distributed real-time optimization of DAC will be given
- in section 
+ First,  the distributed real-time optimization of DAC will be given in
+ section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Distributive-Eigenvalue-Estimati"
@@ -369,7 +359,8 @@ reference "sec:Distributive-Eigenvalue-Estimati"
 \end_inset
 
 .
- Third, the mitigation of numerical error  will be proposed in section 
+ Second, the mitigation of numerical error  will be proposed in section
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Mitigation-of-Numerical"
@@ -377,7 +368,7 @@ reference "sec:Mitigation-of-Numerical"
 \end_inset
 
 .
- Fourth, the algorithm complexity will be analysed in section 
+ Third, the algorithm complexity will be analysed in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Algorithm-Complexity"
@@ -385,7 +376,7 @@ reference "sec:Algorithm-Complexity"
 \end_inset
 
 .
- Fifth, in section 
+ Fourth, in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Simulation-of-Eigenvalue"
@@ -397,44 +388,11 @@ reference "sec:Simulation-of-Eigenvalue"
  Finally, the conclusion will be given in section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Conclusion"
+reference "sub:Conclusion"
 
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-The structure of the chapter is as follows.
- First, we will solve the distributed optimization problem in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Distributive-Eigenvalue-Estimati"
-
-\end_inset
-
-.
- The solution is theoretically the same as centralized one.
- However, we will show that there exists a numerical error when solving
- the problem.
- Second, the mitigation of numerical error will be proposed, see section
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Mitigation-of-Numerical"
-
-\end_inset
-
-.
- Finally, in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Simulation-of-Eigenvalue"
-
-\end_inset
-
-, the performance of DAC using the proposed optimization method will be
- illustrated and compared with optimal one.
 \end_layout
 
 \begin_layout Subsection
@@ -445,113 +403,6 @@ name "sec:Distributive-Eigenvalue-Estimati"
 \end_inset
 
 Real-time optimization of DAC 
-\end_layout
-
-\begin_layout Standard
-In the distributed multiple vehicle cooperative control 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Fax2004"
-
-\end_inset
-
-, the eigenvalues of the Laplacian matrix about network topology 
-\change_deleted 5862369 1354475312
-is
-\change_inserted 5862369 1354475313
-are
-\change_unchanged
- 
-\change_deleted 5862369 1354475298
-sometimes
-\change_unchanged
- very important.
- Traditional optimization of HO-DAC or constant FO-DAC requires a centralized
- node to gather information of network topology.
- Without these eigenvalues of Laplacian matrix, it is very hard to carry
- out the optimization.
- 
-\end_layout
-
-\begin_layout Standard
-If the network topology and all the weights to edges are known to a centralized
- nodes, then the eigenvalues can be calculated and flooded to all nodes,
- which be used to optimize the DAC or achieve consensus in finite-time.
- However, in some cases there is no such a centralized node to collect the
- information and calculate parameters and transmit them.
- Therefore, it is necessary for nodes to estimate these parameters with
- local information.
-\end_layout
-
-\begin_layout Standard
-The purpose of the distributed eigenvalue estimation is to enable the distribute
-d optimization, while avoid complex and costly initialization.
- Once we randomly distribute a certain number of nodes in the field, they
- can automatically 
-\change_deleted 5862369 1354475350
-implement
-\change_inserted 5862369 1354475351
-execute
-\change_unchanged
- the optimization for DAC algorithm.
- There is no need of centralized node any more.
- 
-\end_layout
-
-\begin_layout Standard
-They might be some eigenvalue estimation techniques 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Yang2010"
-
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kempe2008"
-
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Franceschelli2009"
-
-\end_inset
-
-.
- One method to estimate the range of eigenvalues of Laplacian matrix is
- introduced in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chung2006"
-
-\end_inset
-
-.
- However, it requires transmission of node degree and computation of minimum
- spanning tree or the estimated eigenvalues is not accurate enough to be
- used in optimization.
- 
-\end_layout
-
-\begin_layout Standard
-The proposed method is based on constant FO-DAC algorithm, which is actually
- a DAC algorithm itself.
- The benefit of this approach is that the consensus process will not be
- interrupted by the optimization.
- The distributed system can still works using a non-optimized average consensus
- algorithm at the very beginning after it is deployed.
- After a certain instances of DAC algorithm, these eigenvalues could be
- estimated by the proposed method.
- Then, optimal parameters could be estimated and used in the future DAC
- iteration.
- In addition,  there are sufficient accuracy of the optimal solution.
-\end_layout
-
-\begin_layout Subsubsection
-Find the Polynomial of Weight Matrix
 \end_layout
 
 \begin_layout Standard
@@ -854,6 +705,120 @@ reference "eq:x(k+D) vector predictor"
 
 .
  
+\end_layout
+
+\begin_layout Subsubsection
+Find the Polynomial Coefficients
+\end_layout
+
+\begin_layout Standard
+If more local values are available, node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ could list a number of equations similar to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:x(k+D) predictor"
+
+\end_inset
+
+.
+ Once they are sufficient to construct a matrix, we can have an important
+ result.
+\end_layout
+
+\begin_layout Standard
+Define the function 
+\begin_inset Formula $\mathbf{y}_{i}=\mathbf{y}_{i}\left(k,D_{i}\right)=\left[x_{i}\left(k+1\right),x_{i}\left(k+2\right),\ldots,x_{i}\left(k+D_{i}\right)\right]^{T}\in\mathbb{R}^{D_{i}}$
+\end_inset
+
+ which outputs a 
+\shape italic
+local value history vector
+\shape default
+ of 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ from time 
+\begin_inset Formula $k+1$
+\end_inset
+
+ to 
+\begin_inset Formula $k+D_{i}$
+\end_inset
+
+.
+ Then, define a function 
+\begin_inset Formula $T_{i}=T_{i}\left(k,D_{i}\right)\in\mathbb{R}^{D_{i}\times D_{i}}$
+\end_inset
+
+ that outputs a Toeplitz matrix with 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+ on the diagonal.
+  
+\begin_inset Formula $T_{i}\left(k,D_{i}\right)=$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\left[\begin{array}{cccc}
+x_{i}\left(k\right) & x_{i}\left(k-1\right) & \ldots & x_{i}\left(k-D_{i}+1\right)\\
+x_{i}\left(k+1\right) & x_{i}\left(k\right) & \cdots & x_{i}\left(k-D_{i}+2\right)\\
+\vdots & \vdots & \ddots & \vdots\\
+x_{i}\left(k+D_{i}-1\right) & x_{i}\left(k+D_{i}-2\right) & \cdots & x_{i}\left(k\right)
+\end{array}\right]\label{eq:Toeplitz_i simple}
+\end{align}
+
+\end_inset
+
+Besides, let 
+\begin_inset Formula $\mathbf{a}_{i}\left(D_{i}\right)=\left[a_{i,D_{i}-1},\ldots,a_{i,1},a_{i,0}\right]^{T}\in\mathbb{R}^{D_{i}}$
+\end_inset
+
+ be a vector  to store the coefficients calculated at 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+.
+ Finally, we have the solution of 
+\begin_inset Formula $\mathbf{a}_{i}\left(D_{i}\right)$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\begin{equation}
+\mathbf{a}_{i}\left(D_{i}\right)=-T_{i}^{-1}\left(k,D_{i}\right)\mathbf{y}_{i}\left(k,D_{i}\right).\label{eq:Toeplitz Eq.}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Toeplitz matrix is a special type of matrix and can be inverted by Levinson's
+ algorithms in the polynomial time of order 
+\begin_inset Formula $D_{i}^{2}$
+\end_inset
+
+, rather than the order of 
+\begin_inset Formula $D_{i}^{3}$
+\end_inset
+
+ in general case (for example by LU decomposition) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Prass2007"
+
+\end_inset
+
+.
+     
 \end_layout
 
 \begin_layout Subsubsection
@@ -2411,6 +2376,12 @@ reference "fig:Mean-of-spectral"
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Conclusion"
+
+\end_inset
+
 Conclusion
 \end_layout
 

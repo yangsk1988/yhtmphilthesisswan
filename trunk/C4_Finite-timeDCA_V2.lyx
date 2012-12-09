@@ -6,11 +6,10 @@
 \options onecolumn,12pt,A4paper
 \use_default_options true
 \begin_modules
-theorems-ams
-theorems-sec
 eqs-within-sections
 figs-within-sections
 tabs-within-sections
+theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
 \language english
