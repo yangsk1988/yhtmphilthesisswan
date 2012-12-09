@@ -83,11 +83,7 @@ Average Consensus Algorithm and its Applications
 
 \begin_layout Abstract
 Distributed Consensus algorithm has application in data fusion in wireless
- se
-\change_inserted 5862369 1354927621
- 
-\change_unchanged
-nsor networks and coordination of multi-agent system.
+ sensor networks and coordination of multi-agent system.
  Some distributive signal processing based on consensus algorithm, such
  as, local value linear prediction, information flooding and network eigenvalues
  estimation, were introduced in this thesis.
@@ -128,73 +124,92 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-(todo 
-\end_layout
 
-\begin_layout Enumerate
-motivation of research 
-\end_layout
-
-\begin_layout Enumerate
-key contributions
-\end_layout
-
-\begin_layout Enumerate
-literature review (could be done as a separate chapter or integrated into
- your research work
-\end_layout
-
-\begin_layout Enumerate
-research work
-\end_layout
-
-\begin_layout Enumerate
-conclusions)
+\change_deleted 5862369 1355082321
+(todo clear all comments, edit.)
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355082321
+(todo 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355082321
 (how to Introduction: we want to answer the question: what is DAC and what's
  its application, how to optimize the algorithm.
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355082321
 1.introduces the topic)
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355082321
 2.states why the topic is important
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355082321
 3.states that there is a difference of opinion about this topic
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355082321
 4.
  describes how the assignment will be structured and clearly states the
  writer's main premise_qian2ti2
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355082321
+)
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355082321
+(todo:DONE
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355082321
 my plan is to structure the introduction like that
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355082321
 1.
  what's DAC and what's its application
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355082321
 2.
  DAC is applied in many area
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355082321
 3.
  various DAC algorithm
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355082321
 4.
  various DAC optimization(either more sophisticated algorithm or optimization
  to the existing algorithm, all the purposes are going to have the consensus
@@ -202,56 +217,45 @@ my plan is to structure the introduction like that
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355082321
 5.
  and the DAC have a little modification depends on the application itself.
  
 \end_layout
 
 \begin_layout Standard
-5.
- my contribution)
+
+\change_deleted 5862369 1355082321
+6.
+ my contribution
 \end_layout
 
 \begin_layout Standard
 
-\change_deleted 5862369 1354832787
-移动设备的发展，使得
-\change_inserted 5862369 1354933047
-信息多样化，并且分布在各个设备上。如何
-\change_deleted 5862369 1354832787
-处理
-\change_inserted 5862369 1354933056
-这些
-\change_deleted 5862369 1354832787
-分布原本在各个设备上的信息变得尤为重要。
-\change_inserted 5862369 1354932925
+\change_deleted 5862369 1355082321
+)
+\change_unchanged
 
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted 5862369 1354933839
-(todo only give a background here..)
-\end_layout
-
-\begin_layout Subsection
-
-\change_inserted 5862369 1354982355
-background
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5862369 1354982375
-todo为什么要用distributed system？
-\end_layout
-
-\begin_layout Standard
-In a distributed system, processing information that originally
+\change_inserted 5862369 1355072876
+Due to the development of wireless sensor networks and the decreasing cost
+ of sensor nodes, 
+\change_deleted 5862369 1355072899
+In a distributed system,
+\change_unchanged
+ processing information that originally
 \change_deleted 5862369 1354920951
  
 \change_unchanged
- locally acquired by the nodes is often necessary.
+ 
+\change_deleted 5862369 1355072942
+locally
+\change_unchanged
+ acquired by the nodes is often necessary.
 
 \change_deleted 5862369 1354920302
  This centralized signal processing method is intuitive.
@@ -261,7 +265,17 @@ In a distributed system, processing information that originally
 \change_inserted 5862369 1354921320
  
 \change_unchanged
-only have partial information,
+only ha
+\change_inserted 5862369 1355072950
+s
+\change_unchanged
+ 
+\change_deleted 5862369 1355072961
+partial
+\change_inserted 5862369 1355072965
+a piece of local
+\change_unchanged
+ information,
 \change_deleted 5862369 1354921329
 To process the information, 
 \change_unchanged
@@ -269,36 +283,44 @@ To process the information,
 \change_deleted 5862369 1354932047
 one option is gathering
 \change_unchanged
- all
-\change_inserted 5862369 1354921454
- 
-\change_unchanged
-partial information 
-\change_inserted 5862369 1354932051
+ all information 
+\change_inserted 5862369 1355072943
 need 
 \change_unchanged
 to 
-\change_inserted 5862369 1354932121
-be gatherred and processed at 
+\change_inserted 5862369 1355072943
+be gathered and processed at 
 \change_unchanged
 a special node called 
 \change_deleted 5862369 1354932083
 the
 \change_unchanged
  fusion center
-\change_inserted 5862369 1354932133
+\change_inserted 5862369 1355072943
 .
  
 \change_unchanged
-This mehtod is
-\change_inserted 5862369 1354932117
+This 
+\change_deleted 5862369 1355069297
+mehtod
+\change_inserted 5862369 1355072943
+method
+\change_unchanged
+ is
+\change_inserted 5862369 1355072943
  
 \change_unchanged
 intuitive 
 \change_deleted 5862369 1354921466
 and
 \change_unchanged
- and is called centrilized signal processing.
+ and is called 
+\change_deleted 5862369 1355069300
+centrilized
+\change_inserted 5862369 1355072943
+centralized
+\change_unchanged
+ signal processing.
 
 \change_deleted 5862369 1354921447
   centrilized signal processing.
@@ -307,12 +329,20 @@ and
  
 \change_unchanged
  
-\change_inserted 5862369 1354933409
+\change_inserted 5862369 1355072943
 
 \end_layout
 
 \begin_layout Standard
-However, fusion center is the most important node in the network
+However, fusion center is 
+\change_inserted 5862369 1355073362
+usually 
+\change_unchanged
+the most important 
+\change_inserted 5862369 1355073346
+and expense 
+\change_unchanged
+node in the network
 \change_inserted 5862369 1354932117
 .
 
@@ -323,9 +353,9 @@ However, fusion center is the most important node in the network
 \change_unchanged
 Once it is destroyed or failed, the whole network breaks down.
 
-\change_inserted 5862369 1354933595
- In addition, as data gathering is a energy consuming process, centralized
- signal processing is limited by energy constrain of mobile nodes.
+\change_inserted 5862369 1355073974
+ In addition, as data gathering is an energy consuming process, centralized
+ signal processing is limited due to energy constrain of mobile nodes.
  Moreover, there is unbalance energy consumption between nodes with different
  communication loads 
 \begin_inset CommandInset citation
@@ -349,12 +379,12 @@ key "Yuen2008"
 
 \begin_layout Standard
 
-\change_deleted 5862369 1354932203
- In contrast, d
 \change_inserted 5862369 1354932204
- D
+D
 \change_unchanged
 istributed signal processing
+\change_inserted 5862369 1355073987
+ has become more attractive, as it
 \change_deleted 5862369 1354932208
  involves multiple sensors date fusion, can normally be more reliable than
  single sensor node detection 
@@ -378,24 +408,16 @@ key "Kam1992"
 \change_deleted 5862369 1354921722
 has the advantages of reliability to
 \change_unchanged
- nodes failure or topology changes
-\change_inserted 5862369 1354921772
- 
+ nodes failure or topology changes 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chair1986"
 
 \end_inset
 
-
-\change_deleted 5862369 1354924422
- In addition,
-\change_inserted 5862369 1354924423
- and
-\change_unchanged
- there is balanced energy consumption between nodes
-\change_inserted 5862369 1354922035
- (todo Ref) 
+ 
+\change_deleted 5862369 1355073689
+and there is balanced energy consumption between nodes 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Cristescu2004"
@@ -413,18 +435,17 @@ key "Yuen2008"
 \change_unchanged
 .
  
-\change_inserted 5862369 1354933665
-It is desirable to process information distributively, however, not all
- the signal processing tasks can be distributed.
- 
+\change_inserted 5862369 1355074003
+However, not all the signal processing can be distributed many processing
+ algorithm are still implemented by centralized method.
 \change_unchanged
 
 \end_layout
 
 \begin_layout Standard
 Distributed average consensus (DAC) algorithm
-\change_inserted 5862369 1354933348
- is a tool for processing information over networks.
+\change_inserted 5862369 1355073823
+ is a tool for distributed information processing.
  It
 \change_unchanged
  has received significant attention recently because of its robustness and
@@ -432,17 +453,21 @@ Distributed average consensus (DAC) algorithm
  
 \change_deleted 5862369 1354924632
 It have
-\change_inserted 5862369 1354933347
-It is widly used in
-\change_unchanged
- applications 
-\change_deleted 5862369 1354924642
-in
-\change_inserted 5862369 1354933347
-like
+\change_inserted 5862369 1355073819
+It is widely used in
 \change_unchanged
  
-\change_inserted 5862369 1354986167
+\change_inserted 5862369 1355074131
+many 
+\change_unchanged
+applications 
+\change_deleted 5862369 1354924642
+in
+\change_inserted 5862369 1355074135
+such as
+\change_unchanged
+ 
+\change_inserted 5862369 1355073819
 time synchronization 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -484,11 +509,11 @@ key "Hlinka2012"
  
 \change_deleted 5862369 1354924778
 For
-\change_inserted 5862369 1354933347
+\change_inserted 5862369 1355073819
 In
 \change_unchanged
  these applications,
-\change_inserted 5862369 1354933347
+\change_inserted 5862369 1355073819
  it is often necessary that a group of nodes can agree on certain quantities.
 
 \change_unchanged
@@ -519,8 +544,8 @@ consensus value
 
 \begin_layout Standard
 
-\change_inserted 5862369 1354986411
-In different applications, DAC algorithms may have a little modification.
+\change_inserted 5862369 1355074163
+In different applications, DAC algorithms may also need a little modification.
  For example, in distributed tracking of a moving target by wireless sensor
  networks.
  Suppose each sensor is observing the target coordinates but the output
@@ -530,8 +555,8 @@ In different applications, DAC algorithms may have a little modification.
  In distributed hypothesis testing, the goal is to find the production of
  the global likelihood ratio which is the product of the local likelihood
  ratio.
- Therefore, each sensor first caculate the log of the local likelihood ratio
- and substitute it into the DAC algroithm.
+ Therefore, each sensor first calculate the log of the local likelihood
+ ratio and substitute it into the DAC algorithm.
  The average obtained by DAC algorithm multiplied with the number of nodes
  in the network is log of global likelihood ratio.
 \end_layout
@@ -552,7 +577,7 @@ key "Ren2007"
 \end_inset
 
 .
- Its optimization in a dynamic network still attract lots of interest 
+ Its optimization in a dynamic network still attract lots of interest 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jakovetic?2010"
@@ -585,9 +610,21 @@ Motivation of Research
 \change_inserted 5863457 1354553232
 The research is motivated by the distributed detection of cloud detection
  using WSN.
- One of the properties of mobile sensor nodes is the limited energe capacity.
- Therefore, to minimize the power consuption of the sensor nodes, DAC algorithm
- to perform the distributed signal processing need to be optimized.
+ One of the properties of mobile sensor nodes is the limited 
+\change_deleted 5862369 1355069314
+energe
+\change_inserted 5862369 1355069314
+energy
+\change_inserted 5863457 1354553232
+ capacity.
+ Therefore, to minimize the power 
+\change_deleted 5862369 1355069325
+consuption
+\change_inserted 5862369 1355069325
+consumption
+\change_inserted 5863457 1354553232
+ of the sensor nodes, DAC algorithm to perform the distributed signal processing
+ need to be optimized.
  In addition, the model of cloud requires a modification because the sensor
  is using 
 \change_inserted 5862369 1354637268
@@ -616,12 +653,6 @@ sense
 .
 \change_unchanged
 
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_inserted 5862369 1354984416
-Why optimization
 \end_layout
 
 \begin_layout Subsubsection
@@ -719,10 +750,12 @@ key "Xiong2010"
 \end_inset
 
 .
- In addition,
+ 
+\change_deleted 5862369 1355068732
+In addition,
 \change_deleted 5863457 1354550678
  
-\change_unchanged
+\change_deleted 5862369 1355068732
  the iteration acceleration might be accelerated 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -731,8 +764,11 @@ key "Kokiopoulou2007"
 \end_inset
 
 .
- However, these optimization of DAC algorithms are centralized methods,
- which means a centralized node calculates the optimal parameters and forwards
+
+\change_unchanged
+ However, these optimization of DAC algorithms are centralized methods
+\change_deleted 5862369 1355068739
+, which means a centralized node calculates the optimal parameters and forwards
  them to the whole network 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -740,6 +776,10 @@ key "Xiong2010"
 
 \end_inset
 
+
+\change_inserted 5862369 1355068739
+ 
+\change_unchanged
 .
  
 \end_layout
@@ -812,6 +852,16 @@ have a first-order DAC running in the background and the
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 5862369 1355069214
+To enable the whole system work distributively, the DAC algorithms should
+ be robust against topology changes and the optimization should be distributed.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1355069004
 A distributed method inspired by the gossip algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -829,9 +879,24 @@ key "Boyd2006"
 \end_layout
 
 \begin_layout Standard
-To solve these problems, a distributed optimization method with less computation
- time is required.
- In addition, it is better that no further comuunication cost is required.
+
+\change_inserted 5862369 1355069060
+Therefore
+\change_unchanged
+, a distributed optimization method with less computation time is required.
+ In addition, it is better that no 
+\change_deleted 5862369 1355069231
+further
+\change_inserted 5862369 1355069233
+additional
+\change_unchanged
+ 
+\change_deleted 5862369 1355069335
+comuunication
+\change_inserted 5862369 1355069335
+communication
+\change_unchanged
+ cost is required.
  Moreover, if the optimization 
 \change_inserted 5863457 1354553427
 algorithm 
@@ -842,21 +907,16 @@ be running
 \change_inserted 5863457 1354553470
 be executed
 \change_unchanged
- simultaneously, then 
-\change_deleted 5863457 1354553483
-DAC algorithm
-\change_inserted 5863457 1354553487
-concensus process
-\change_unchanged
- will not be interrupted and the optimization can be running in background
- to keep the optimal parameters updated in a dynamic network.
+ simultaneously, then consensus process will not be interrupted and the
+ optimization can be running in background to keep the optimal parameters
+ updated in a dynamic network.
  
-\change_inserted 5862369 1354568556
+\change_inserted 5862369 1355068995
 
 \end_layout
 
 \begin_layout Subsubsection
-To Detect The Clould Plume By Laser Sensor
+To Detect The Cloud Plume By Laser Sensor
 \end_layout
 
 \begin_layout Standard
@@ -868,10 +928,18 @@ to be detected
 \change_inserted 5862369 1354569491
 here
 \change_inserted 5863457 1354553700
- is a group of harmful gas or particals floating in the air.
+ is a group of harmful gas or 
+\change_unchanged
+particles
+\change_inserted 5863457 1354553700
+ floating in the air.
  
 \change_inserted 5862369 1354569510
-To detecte the cloud, it is illuminated by 
+To 
+\change_unchanged
+detect
+\change_inserted 5862369 1354569510
+ the cloud, it is illuminated by 
 \change_deleted 5862369 1354569194
 A
 \change_inserted 5862369 1354569398
@@ -883,7 +951,11 @@ a
 \change_deleted 5862369 1354569466
  
 \change_inserted 5863457 1354553700
-the backscatters (light reflected by particals)
+the backscatters (light reflected by 
+\change_unchanged
+particles
+\change_inserted 5863457 1354553700
+)
 \change_inserted 5862369 1354569526
  are collected to generate signals
 \change_inserted 5863457 1354553700
@@ -901,9 +973,19 @@ In the outdoor enviroment, the sensor may be covered by a moving object
 \begin_layout Standard
 
 \change_inserted 5862369 1354570235
-Because the laser beam penertrate the cloud, the intensity of backscatters
- is the intergration along the laser beam in that range.
- Consequently, a new cloud plume model need to be obtained by take intergration
+Because the laser beam 
+\change_unchanged
+penetrate
+\change_inserted 5862369 1354570235
+ the cloud, the intensity of backscatters is the 
+\change_unchanged
+integration
+\change_inserted 5862369 1354570235
+ along the laser beam in that range.
+ Consequently, a new cloud plume model need to be obtained by take 
+\change_unchanged
+integration
+\change_inserted 5862369 1354570235
  of original Gaussian plume model along the direction of laser beam.
  
 \end_layout
@@ -912,10 +994,21 @@ Because the laser beam penertrate the cloud, the intensity of backscatters
 
 \change_inserted 5862369 1354570298
 Specifically, in the cloud detection application, the DAC algorithm performs
- the task of distribued hypothesis testing may also have a little modification.
+ the task of 
+\change_unchanged
+distributed
+\change_inserted 5862369 1354570298
+ hypothesis testing may also have a little modification.
  To find the production of the global likelihood ratio, each sensor first
- caculate the log of the local likelihood ratio and substitute it into the
- DAC algroithm as the initial local value.
+ 
+\change_unchanged
+calculate
+\change_inserted 5862369 1354570298
+ the log of the local likelihood ratio and substitute it into the DAC 
+\change_unchanged
+algorithm
+\change_inserted 5862369 1354570298
+ as the initial local value.
  DAC algorithm will then find the average.
  The average multiplied by the number of nodes in the network is log of
  global likelihood ratio.

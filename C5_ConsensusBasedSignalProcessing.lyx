@@ -63,7 +63,7 @@ tabs-within-sections
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -84,12 +84,9 @@ Real-time Optimization of HO-DAC(todo)
 \end_layout
 
 \begin_layout Standard
-Distributed average consensus (DAC) algorithm 
-\change_deleted 5862369 1353531593
-is widely used in many applications.
- It
-\change_unchanged
- utilizes matrix iteration to find the dominant eigenvector.
+Distributed average consensus (DAC) algorithm is widely used in many application
+s.
+ It utilizes matrix iteration to find the dominant eigenvector.
  To minimize the required number of iterations, the algorithm needs to be
  optimized.
  However, this optimization needs the knowledge of network topology, which
@@ -100,16 +97,12 @@ is widely used in many applications.
  technique so that each node can estimate these optimal parameters individually.
  In addition, the method is based on constant first-order DAC itself, so
  it will not stop the consensus process.
- The 
-\change_inserted 5862369 1353531637
-simulation 
-\change_unchanged
-result shows that a numerical error due to quantization would exist in the
- distributed solution.
+ The result shows that a numerical error due to quantization would exist
+ in the distributed solution.
  It will increase as the network becomes larger.
  Thus, a numerical  technique is introduced  to mitigate the error.
  The estimated parameters after mitigation do not obviously  decline the
- performance of higher-order DAC when network size is small.
+ performance of higher-order DAC when network size is smaller than a threshold.
  
 \end_layout
 
@@ -128,87 +121,110 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-In many situations, when the mobile sensors is high dynamic or the sensors
- need to sample at very high frequency, it is required that the average
- consensus algorithm obtains the average value in a short time.
- Thus, many efforts have been devoted to the optimization of convergence
- rate.
- 
-\end_layout
+In many applications, such as time synchronization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schenato2011"
 
-\begin_layout Standard
-For instance, Yang et al.
- 
+\end_inset
+
+, cooperative control of vehicles 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Yang2010"
 
 \end_inset
 
- adopt consensus algorithms to estimate and control of graph connectivity
- for mobile sensor networks.
- Their method is to iteratively calculate the the algebra connectivity of
- a graph an iteratively.
- Average and maximum consensus are required in each step of the iteration.
- If the average consensus can be faster, the whole estimation can have a
- significant improvement.
+, formation control 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2012"
+
+\end_inset
+
+ and WSNs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hlinka2012"
+
+\end_inset
+
+, it is often necessary that a group of agents in a distributed system can
+ agree on certain quantities.
+ An example application is distributed detection of a moving target by wireless
+ sensor networks.
+ Suppose each sensor is observing the target coordinates but the output
+ is corrupted by independent and identically distributed zero-mean Gaussian
+ noise, to minimize the interference from the noise, the sensors need to
+ take the average of all initial values.
  
 \end_layout
 
 \begin_layout Standard
-There are some major methods to optimize the consensus algorithm.
- For example, 
+The problem of how to achieve this average in a distributed system is called
+ the 
+\shape italic
+average consensus problem
+\shape default
+,  which is solved by distributed average consensus (DAC) algorithms.
+ 
+\end_layout
+
+\begin_layout Standard
+When the moving target is highly dynamic or the sensors need to sample at
+ a very high frequency, it requires that  the DAC algorithm returns the
+ result in a short time.
+ Thus, many efforts have been devoted to optimize the algorithm.
+\end_layout
+
+\begin_layout Standard
+The DAC algorithms can be divided into asymptotic and non-asymptotic algorithms.
+ Asymptotic algorithms have been proved to be robust against  topology changes
+ and they play important roles in practice 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Xiao2004"
-
-\end_inset
-
- and 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xiong2010"
-
-\end_inset
-
- proposed the method to find the optimal iteration matrix or the high order
- iteration matrix respectively.
- Optimization of FO-DAC requires the whole network topology.
- In contract, optimization of Higher-order DAC algorithm doesn't have such
- strong requirement, but the eigenvalues of the graph matrix or Laplacian
- matrix are required 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xiong2010"
+key "Ren2007"
 
 \end_inset
 
 .
- 
+  Therefore, 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Asensio-Marco2012"
 
 \end_inset
 
- proposed a method to remove some links in the network so that the topology
- is optimized for DAC, nevertheless, optimization of topology is included
- in iteration matrix optimization.
- It might be a simpler but sub-optimal solution if they are solved separately.
- Besides, 
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+  intend to minimize the sub-dominate eigenvalue of the  weight matrix to
+ optimize the convergence rate.
+ In addition, 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kokiopoulou2007"
 
 \end_inset
 
- deal with the iteration acceleration.
- There are also some other aspects need our consideration in practice, such
- as link failure, synchronous or asynchronous, time-delay in communication
- 
+ deals with the iteration acceleration.
+ However, these optimization of DAC algorithms are centralized methods,
+ which means a centralized node calculates the optimal parameters and forwards
+ them to the whole network 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Olfati-Saber2004"
+key "Xiong2010"
 
 \end_inset
 
@@ -217,109 +233,175 @@ key "Olfati-Saber2004"
 \end_layout
 
 \begin_layout Standard
-Some sophisticated algorithm, such as the finite-time consensus 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sundaram2007"
-
-\end_inset
-
- and adaptive filter algorithm for consensus 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Cavalcante2010"
-
-\end_inset
-
-, can converge to the consensus value using an adaptive filter or even find
- the consensus value in finite number of iterations.
- However, it has been proved that the consensus value can be a linear combinatio
-n of local values obtained by FO-DAC.
- Thus, the accuracy of the estimated consensus value highly relies on the
- accuracy of coefficients multiplying these local values.
- The reliability to network changes of these methods is still questionable.
- In addition, all these methods have an instance of FO-DAC running in background.
- Therefore, the asymptotic consensus algorithms are not out of time.
- In contract, they are already applied to network with a large number of
- nodes and robust to the topology variation.
- 
-\end_layout
-
-\begin_layout Standard
-Although there above centralized method could solve or partially solve the
- optimization problem, in ad-hoc network, each node has the knowledge of
- network topology is a strong condition.
- Nodes need to share their tables of adjacent nodes to build up the network
- topology.
- However, it is still a problem to maintain this table when the network
- topology changes frequently.
- 
-\end_layout
-
-\begin_layout Standard
-It need to be mentioned that 
+A distributed method inspired by the gossip algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Boyd2006"
 
 \end_inset
 
- provides a distributed optimization for the gossip averaging algorithm.
- The distributed optimization is an approximate subgradient method to minimize
- the second largest eigenvalue of a matrix, which is based on the same principle
- of first order DAC.
- Consequently, this method is applicable to the distributed optimization
- of first order DAC after a little modification.
- However, this method involves nested distributed matrix iterations, which
- is quite limited when the network size is large.
- Because the inner the matrix iteration need to converge to a certain accuracy
- so that the method can returns the right result.
- 
+ can be used to optimize the first order DAC but it converges very slowly.
+   The method involves triple nested distributed matrix iterations.
+ The inner iteration has to converge to a certain range so that the iteration
+ outside can return the right result.
+ Thus, It is not surprising that it could not finish in a reasonable time
+ when the network size is large.
 \end_layout
 
 \begin_layout Standard
-As far as we know, the optimization of high order DAC algorithm is done
- offline, which means a centralized node that knows the network topology
- calculates the optimal parameters, then forwards these parameters to the
- whole network.
- This centralized optimization is not possible in a distributed system.
-\end_layout
-
-\begin_layout Standard
-The main contribution of this section is to propose a distributed eigenvalue
- estimation and an optimization method for the asymptotic algorithm.
- The distributed method will find the same solution, which used to be found
- by centralized method.
- Simulation results show that there is only a numerical error due to quantizatio
-n.
- And we can mitigate the numerical error by some techniques and evaluate
- the performance by the estimated errors.
- Sometimes the numerical error becomes unacceptable even after mitigation.
- We should consider increasing the accuracy of the float number or use a
- lower order consensus algorithms.
- The second-order consensus algorithm could be an option as it requires
- fewer parameters in the optimization.
- Therefore, the DAC algorithm can have a trade-off between speed and simplicity.
- 
-\end_layout
-
-\begin_layout Standard
-As an alternative method to 
+For non-asymptotic DAC algorithms, such as finite-time 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Yang2010"
+key "Sundaram2007"
 
 \end_inset
 
-, our eigenvalue estimation could obtain the algebra connectivity with sufficien
-t numerical accuracy.
- In addition, we demonstrated some techniques to mitigate the numerical
- error.
- Furthermore, average consensus only need to be executed for a number of
- times, depending on the network size and the accuracy required.
- Therefore, the computation complexity and communication cost are dramatically
- reduced.
+ and adaptive filter DAC algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+, they find the average  in some sophisticated ways but not robust against
+ topology changes.
+ Sumdaram and Hadjicostis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ verify that there exists a filter that can estimate the consensus value.
+  Cavalcante and Mulgrew 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+ follow Sundaram and Hadjicostis's work to propose an adaptive algorithm
+ to find the filter.
+ Both  of them have a first-order DAC running in the background and the
+ local values over time are taken as  inputs of the filter.
+ As a result,  if the network topology changes, these algorithms have to
+ be reinitialized, as outdated information during the filter estimation
+ will lead to a wrong answer.
+\end_layout
+
+\begin_layout Standard
+After investigating these problems, we intend to find a distributed optimization
+ method for the constant first-order DAC and higher-order DAC algorithms.
+ Because in centralized optimization methods, optimal parameters of these
+ algorithms are only related to the eigenvalues of Laplacian matrix of the
+ network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+, if we could estimate these eigenvalues in a distributed manner, these
+ centralized methods could be carried out distributively.
  
+\end_layout
+
+\begin_layout Standard
+Consequently, a distributed eigenvalue estimation algorithm is proposed
+ in this chapter.
+ In contrast to other distributed algorithms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kempe2008"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Franceschelli2009"
+
+\end_inset
+
+, initialization of the proposed algorithm is actually the first-order DAC
+ itself.
+ Therefore, first-order DAC will not be interrupted during the optimization
+ and algorithm complexity and communication cost can be dramatically reduced.
+  
+\end_layout
+
+\begin_layout Standard
+However, the distributed solution has a numerical error due to quantization,
+ which may decline the algorithm performance.
+ Therefore, a least mean square solution is obtained to mitigate the numerical
+ error.
+ When using the floating point number in double format and the network size
+ is smaller than 32, the numerical error after mitigation does not dramatically
+ decline the performance and the proposed method is applicable.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+TODO:
+\end_layout
+
+\begin_layout Standard
+The rest of this chapter is structured as follows.
+ First,  preliminary and definition of DAC will be introduced in section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Preliminary"
+
+\end_inset
+
+.
+ Second,    the distributed real-time optimization of DAC will be given
+ in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Distributive-Eigenvalue-Estimati"
+
+\end_inset
+
+.
+ Third, the mitigation of numerical error  will be proposed in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Mitigation-of-Numerical"
+
+\end_inset
+
+.
+ Fourth, the algorithm complexity will be analysed in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Algorithm-Complexity"
+
+\end_inset
+
+.
+ Fifth, in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Simulation-of-Eigenvalue"
+
+\end_inset
+
+, the performance of DAC using the distributed real-time optimization  will
+ be  analysed and compared with the centralized one.
+ Finally, the conclusion will be given in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusion"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -362,7 +444,7 @@ name "sec:Distributive-Eigenvalue-Estimati"
 
 \end_inset
 
-Distributed Eigenvalue Estimation
+Real-time optimization of DAC 
 \end_layout
 
 \begin_layout Standard
@@ -473,92 +555,140 @@ Find the Polynomial of Weight Matrix
 \end_layout
 
 \begin_layout Standard
-Suppose a network 
+Traditional optimization of HO-DAC or CFO-DAC requires a centralized node
+ to gather information of the Laplacian matrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ Without the spectrum of Laplacian matrix, each node could only choose a
+ non-optimal point 
+\begin_inset Formula $\left(\epsilon,\gamma\right)$
+\end_inset
+
+ in the boundary of  the convergence region.
+\end_layout
+
+\begin_layout Standard
+Because 
+\begin_inset Formula $\epsilon_{opt},\gamma_{opt}$
+\end_inset
+
+ are only related to 
+\begin_inset Formula $\lambda_{i}\left(L\right)$
+\end_inset
+
+, to enable the distributed optimization, the key is to estimate these eigenvalu
+es.
+  
+\end_layout
+
+\begin_layout Standard
+In fact, there are some decentralized techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kempe2008"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Franceschelli2009"
+
+\end_inset
+
+ to estimate the eigenvalues.
+ However, they are not designed for DAC algorithm and will involve complex
+ and costly initialization.
+ In addition, DAC algorithm has to be stopped during the estimation.
+ 
+\end_layout
+
+\begin_layout Standard
+In contrast, the distributed real-time optimization and CFO-DAC can be running
+ simultaneously  and algorithm complexity and communication cost can be
+ dramatically reduced.
+ Because the initialization of the proposed algorithm is to store a number
+ of local values  obtained by  CFO-DAC, the distributed system can still
+ work using non-optimal parameters at the very beginning just after the
+ deployment.
+ After a number of iterations of CFO-DAC, these eigenvalues could be estimated
+ and better parameters could be used in the next iterations.
+\end_layout
+
+\begin_layout Standard
+  
+\end_layout
+
+\begin_layout Standard
+Because 
+\begin_inset Formula $\lambda_{i}\left(W\right)$
+\end_inset
+
+ is the root of the characteristic polynomial 
+\begin_inset Formula $p(\lambda)=\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\right)^{r_{i}}=\lambda^{D}+a_{D-1}\lambda^{D-1}+\ldots+a_{0}=0,$
+\end_inset
+
+ the distributed eigenvalues estimation can be cast into calculating the
+ coefficients 
+\begin_inset Formula $\left\{ a_{j}\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+To avoid complicated analysis, we assume duplex communication is possible
+ in each link.
+ Therefore, the  weight matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ is symmetric, diagonalizable and has 
+\begin_inset Formula $n$
+\end_inset
+
+ linear independent eigenvectors.
+  To calculate 
+\begin_inset Formula $\left\{ a_{j}\right\} $
+\end_inset
+
+, we need to use the following theorem:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:LV predictor a_i-1"
+
+\end_inset
+
+ Suppose an undirected graph 
 \begin_inset Formula ${\cal G}$
 \end_inset
 
- with associated iteration weight matrix 
+ with associated weight matrix 
 \begin_inset Formula $W\in\mathbb{R}^{n\times n}$
 \end_inset
 
- which satisfies the condition in theorem 
+ which satisfies the conditions in theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:convege condition W"
+reference "thm:convergence condition"
 
 \end_inset
 
 .
- Let 
-\begin_inset Formula $\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$
+ For the DAC iteration 
+\begin_inset Formula $\mathbf{x}(k+1)=W\mathbf{x}(k)$
 \end_inset
 
- be the eigenvectors and 
-\begin_inset Formula $\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$
-\end_inset
-
- be the associated eigenvalues, which are ordered so that 
-\begin_inset Formula $1=\left|\lambda_{1}\right|\geq\left|\lambda_{2}\right|\geq\ldots\geq\left|\lambda_{n}\right|\geq0$
-\end_inset
-
-.
- The minimal polynomial of 
-\begin_inset Formula $W$
-\end_inset
-
- is given by
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-p(\lambda) & = & \prod_{i=1}^{r}\left(\lambda-\lambda_{i}\right)^{r_{i}}=0\nonumber \\
- & = & \lambda^{m}+a_{m-1}\lambda^{m-1}+\ldots+a_{1}\lambda+a_{0}\label{eq:polynomial of matrix W-1}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Because the roots of the minimal polynomial 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:polynomial of matrix W"
-
-\end_inset
-
- are just the eigenvalues of 
-\begin_inset Formula $W$
-\end_inset
-
-.
- Before introducing how to calculate the eigenvalue, let's call back the
- 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "thm:LV predictor a_i"
-
-\end_inset
-
-.
- and 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "lem:Sum-coef.=1"
-
-\end_inset
-
-, which indicates that 
-\begin_inset Formula $\forall k\geq m$
-\end_inset
-
- , where 
-\begin_inset Formula $m$
-\end_inset
-
- is a certain number, local value 
+, local value 
 \shape up
 
 \begin_inset Formula $x_{i}\left(k\right)$
@@ -566,68 +696,163 @@ reference "lem:Sum-coef.=1"
 
 
 \shape default
- at node 
-\begin_inset Formula $v_{i}$
-\end_inset
-
- is equal to a linear combination of local values of itself in 
-\begin_inset Formula $m$
+  is equal to a linear combination of  itself in 
+\begin_inset Formula $D$
 \end_inset
 
  previous time steps, i.e.
  
-\begin_inset Formula $x_{i}\left(k\right)=-a_{m-1}x_{i}\left(k-1\right)-\ldots-a_{1}x_{i}\left(k-m+1\right)-a_{0}x_{i}\left(k-m\right)$
+\begin_inset Formula $x_{i}\left(k\right)=-a_{D-1}x_{i}\left(k-1\right)-\ldots-a_{1}x_{i}\left(k-D+1\right)-a_{0}x_{i}\left(k-D\right)$
 \end_inset
 
- and the sum coefficients 
-\shape up
-
-\begin_inset Formula $\left\{ a_{j}\right\} =\left\{ a_{m-1},\ldots,a_{1},a_{0}\right\} $
+, where 
+\begin_inset Formula $k\geq D$
 \end_inset
 
-
-\shape default
- is equals to negative one, i.e.
- 
-\begin_inset Formula $\sum_{j=0}^{m-1}a_{j}=-1$
+ and 
+\begin_inset Formula $D$
 \end_inset
 
+ is a certain number.
+\end_layout
 
-\shape up
+\begin_layout Proof
+Since all the eigenvectors of 
+\begin_inset Formula $W$
+\end_inset
+
+ consist a basis of 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+, any initial value vector can be decomposed into a linear combination of
+ these eigenvectors, 
+\begin_inset Formula $\mathbf{x}\left(0\right)=\alpha_{1}\mathbf{e}_{1}+\alpha_{2}\mathbf{e}_{2}+\ldots+\alpha_{n}\mathbf{e}_{n}$
+\end_inset
+
 .
- 
-\shape default
-The minimum number of equations to find 
-\begin_inset Formula $\left\{ a_{j}\right\} $
+ For 
+\begin_inset Formula $k=1,2,3,...$
 \end_inset
 
- is exactly the number of distinct and nonzero eigenvalues of 
+ we have
+\begin_inset Formula 
+\begin{eqnarray}
+\mathbf{x}\left(k\right) & = & W^{k}\mathbf{x}\left(0\right)=\sum_{i=1}^{n}\alpha_{i}\lambda_{i}^{k}\mathbf{e}_{i}\label{eq:x(k) decomposition-1}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+ is the eigenvalue of 
 \begin_inset Formula $W$
 \end_inset
 
 .
+  Substitute   
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:x(k) decomposition-1"
+
+\end_inset
+
+ into 
+\begin_inset Formula $p\left(\lambda\right)$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}\left(k\right)+a_{D-1}\mathbf{x}\left(k-1\right)+\ldots+a_{0}\mathbf{x}\left(k-D\right)=\mathbf{0}_{n\times1}\label{eq:x(k+D) vector predictor}
+\end{equation}
+
+\end_inset
+
+ 
+\begin_inset Formula $\forall v_{i}\in{\cal V}$
+\end_inset
+
+, its local value 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+ is the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ component of 
+\begin_inset Formula $\mathbf{x}\left(k\right)$
+\end_inset
+
+.
+ After a little evolution, we have
+\begin_inset Formula 
+\begin{equation}
+x_{i}\left(k\right)=-a_{D-1}x_{i}\left(k-1\right)-\ldots-a_{0}x_{i}\left(k-D\right).\label{eq:x(k+D) predictor}
+\end{equation}
+
+\end_inset
+
+In other words, 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+ can be predicted by a finite impulse response filter, if 
+\begin_inset Formula $k\geq D$
+\end_inset
+
+.
  
 \end_layout
 
-\begin_layout Standard
-These theorems tell us that calculating the coefficients 
-\begin_inset Formula $\left\{ a_{j}\right\} $
+\begin_layout Lemma
+The sum of coefficients 
+\shape up
+
+\begin_inset Formula $a_{D-1},\ldots,a_{1},a_{0}$
 \end_inset
 
- locally is followed by distributed eigenvalues estimation.
- Therefore, the algorithm is as follows.
- First execute the iteration 
-\begin_inset Formula $\mathbf{x}(k+1)=W\mathbf{x}(k)$
+
+\shape default
+ is equal to 
+\begin_inset Formula $-1$
 \end_inset
 
- is for a certain number of times.
- Second find the coefficients of the polynomial first.
- Third, solve the polynomial to obtain the eigenvalues.
+
+\shape up
+.
+ 
 \end_layout
 
-\begin_layout Standard
-In the next section, we will show the properties of estimated eigenvalues
- in more detail.
+\begin_layout Proof
+ Since  
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:x(k+D) vector predictor"
+
+\end_inset
+
+ satisfied as 
+\begin_inset Formula $k\to\infty$
+\end_inset
+
+, we have 
+\begin_inset Formula $\bar{\mathbf{x}}+a_{D-1}\bar{\mathbf{x}}+\ldots+a_{1}\bar{\mathbf{x}}+a_{0}\bar{\mathbf{x}}=\mathbf{0}$
+\end_inset
+
+.
+ Then, cancelling the vector 
+\begin_inset Formula $\bar{\mathbf{x}}$
+\end_inset
+
+ will obtain 
+\begin_inset Formula $\sum_{j=0}^{D-1}a_{j}=-1$
+\end_inset
+
+.
  
 \end_layout
 
@@ -636,7 +861,7 @@ Estimated Laplacian spectrum
 \end_layout
 
 \begin_layout Standard
-Once node 
+After node 
 \begin_inset Formula $v_{i}$
 \end_inset
 
@@ -649,15 +874,15 @@ Once node
 \end_inset
 
  and find the roots of the polynomial.
- Then, the eigenvalues of 
+ Then, the local eigenvalues spectrum of 
 \begin_inset Formula $W$
 \end_inset
 
- are estimated at 
+ at 
 \begin_inset Formula $v_{i}$
 \end_inset
 
-,
+ is obtained, which
 \family roman
 \series medium
 \shape up
@@ -669,7 +894,7 @@ Once node
 \uwave off
 \noun off
 \color none
- 
+ is defined 
 \family default
 \series default
 \shape default
@@ -681,39 +906,11 @@ Once node
 \uwave default
 \noun default
 \color inherit
-which
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
- are defined as follows
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-
-\begin_inset Formula 
-\begin{align}
-\left\{ \hat{\lambda}_{j}^{\left(i\right)}\left(W\right)\right\}  & =\left\{ \lambda|p_{i}\left(\lambda\right)=0\right\} \label{eq:local eigenspectrum W}
-\end{align}
-
+by 
+\begin_inset Formula $\hat{S}_{i}\left(W\right)=\left\{ \hat{\lambda}_{j}^{\left(i\right)}\left(W\right)\right\} =\left\{ \lambda|p_{i}\left(\lambda\right)=0\right\} $
 \end_inset
 
-where 
+,  
 \family roman
 \series medium
 \shape up
@@ -731,32 +928,34 @@ where
 
 .
  
-\end_layout
-
-\begin_layout Standard
-By letting 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+Because 
 \begin_inset Formula $W=I_{n}-\epsilon L$
 \end_inset
 
- , the eigenvalues of Laplacian matrix could be estimated because their
- eigenvalues have relationship given by 
-\begin_inset Formula 
-\[
-\hat{\lambda}_{j}^{\left(i\right)}\left(L\right)=\frac{1-\hat{\lambda}_{j}^{\left(i\right)}\left(W\right)}{\epsilon},\ j=1,2.\ldots,n
-\]
-
-\end_inset
-
-The estimated Laplacian spectrum at 
+, an estimated Laplacian spectrum at 
 \begin_inset Formula $v_{i}$
 \end_inset
 
- is denote by 
-\begin_inset Formula $\hat{S}_{i}\left(L\right)=\left\{ \hat{\lambda}_{j}^{\left(i\right)}\left(L\right)\right\} ,\ j=1,2.\ldots,n$
+ could be obtained, which is denoted by 
+\begin_inset Formula $\hat{S}_{i}\left(L\right)=\left\{ \hat{\lambda}_{j}^{\left(i\right)}\left(L\right)\right\} $
 \end_inset
 
-, which will be used in the optimization of HO-DAC.
- 
+, where 
+\begin_inset Formula $\hat{\lambda}_{j}^{\left(i\right)}\left(L\right)=\frac{1-\hat{\lambda}_{j}^{\left(i\right)}\left(W\right)}{\epsilon},\ j=1,2.\ldots,D_{i}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection
@@ -764,10 +963,43 @@ Eigenvalues missing and spectrum completion
 \end_layout
 
 \begin_layout Standard
-In simulation, some nodes could not estimate some of the eigenvalues.
- They are missed in the estimated eigenvalues spectrum.
- Why some nodes totally ignored some of the eigenvalues? We inspect this
- problem in detail and give the reasons here.
+In simulation, some eigenvalues are missed in some of the local eigenvalues
+ spectrums.
+ The reason is because sometimes the Toeplitz matrix 
+\begin_inset Formula $T_{i}$
+\end_inset
+
+ with the original size 
+\begin_inset Formula $D$
+\end_inset
+
+ will loss rank, and node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ could only build a smaller Toeplitz matrix with size 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ so that the solution is unique.
+ As a result, the local polynomial 
+\begin_inset Formula $p_{i}\left(\lambda\right)$
+\end_inset
+
+ will reduce to 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ (
+\begin_inset Formula $D_{i}\leq D\leq n$
+\end_inset
+
+) coefficients.
+ In addition, 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ may different from one to another.
 \end_layout
 
 \begin_layout Standard
@@ -821,28 +1053,15 @@ The example of a node
 \end_layout
 
 \begin_layout Standard
-Therefore, the Toeplitz matrix at 
-\begin_inset Formula $v_{i}$
+However, the following theorem in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
 \end_inset
 
- with the original size will loss rank and 
-\begin_inset Formula $v_{i}$
-\end_inset
-
- could only build a smaller Toeplitz matrix that is full rank to find the
- unique solution.
- Consequently, the number of coefficients in local polynomial at 
-\begin_inset Formula $v_{i}$
-\end_inset
-
- is less than 
-\begin_inset Formula $\tilde{m}$
-\end_inset
-
-.
- Length of local polynomial may different from one to another.
- However, the following theorem assure that the roots of local polynomial
- is the same roots of minimal polynomial of 
+ assure that the roots of local polynomial is the same roots of minimal
+ polynomial of 
 \begin_inset Formula $W$
 \end_inset
 
@@ -899,36 +1118,34 @@ For this reason, every node need to exchange its estimated eigenvalue spectrum
 \begin_inset Formula $\left(W\right)$
 \end_inset
 
-, there must exist at least one node who could estimated it.
- In other words, we should make sure that no eigenvalue is missed in all
- local spectrums.
+, it must be estimated by at least one node in the network.
  
 \end_layout
 
 \begin_layout Theorem
-For a graph 
+Suppose a graph 
 \begin_inset Formula ${\cal G}$
 \end_inset
 
- with associated weight matrix 
+ whose associated weight matrix 
 \begin_inset Formula $W$
 \end_inset
 
- which satisfies the convergence condition, and initial value vector 
+ satisfies the convergence condition, and initial value vector 
 \begin_inset Formula $\mathbf{x}\left(0\right)\in\mathbb{R}^{n}$
 \end_inset
 
  is chosen randomly.
- If all nodes distributively estimate the eigenvalue spectrum of 
+ If all nodes estimate the eigenvalue of 
 \begin_inset Formula $W$
 \end_inset
 
- using local values that are locally available, any eigenvalue 
+ by the proposed method using local values that are available, any eigenvalue
+ 
 \begin_inset Formula $\lambda_{l}\left(W\right)$
 \end_inset
 
  could be estimated by at least one node in the network.
- 
 \end_layout
 
 \begin_layout Proof
@@ -1018,8 +1235,8 @@ s is
 \end_layout
 
 \begin_layout Proof
-The proof can be generalized to non-diagnosable matrix.
- Here we needs the Jordan decomposition of matrix 
+The proof can be generalized to non-diagnosable matrix with the help of
+ Jordan decomposition of 
 \begin_inset Formula $W$
 \end_inset
 
@@ -1028,18 +1245,17 @@ The proof can be generalized to non-diagnosable matrix.
 \begin_inset Formula 
 \begin{eqnarray*}
 W^{k} & = & UJ^{k}U^{-1}\\
- & = & U\left[\begin{array}{cccc}
+ & = & U\left[\begin{array}{ccc}
 J_{1}^{k}\\
- & J_{2}^{k}\\
- &  & \ddots\\
- &  &  & J_{m}^{k}
+ & \ddots\\
+ &  & J_{\hat{m}}^{k}
 \end{array}\right]U^{-1}
 \end{eqnarray*}
 
 \end_inset
 
 where 
-\begin_inset Formula $m$
+\begin_inset Formula $\hat{m}$
 \end_inset
 
  is the number of Jordan blocks.
@@ -1050,30 +1266,21 @@ where
 .
 \end_layout
 
-\begin_layout Proof
-Let's make a assumption that all node miss a eigenvalue 
+\begin_layout Standard
+Assume that all node miss an eigenvalue 
 \begin_inset Formula $\lambda_{l}$
 \end_inset
 
  in their estimated eigenvalue spectrums, 
-\begin_inset Formula $l=1,2,\ldots,m$
+\begin_inset Formula $l=1,2,\ldots,\hat{m}$
 \end_inset
 
 .
- This means 
-\begin_inset Formula $\mathbf{x}\left(k\right)$
-\end_inset
-
- doesn't contain the term which involves 
+ This means all the terms contain 
 \begin_inset Formula $\lambda_{l}$
 \end_inset
 
-.
- In other words the terms involve 
-\begin_inset Formula $\lambda_{l}$
-\end_inset
-
- are all multiplied by zero.
+ are multiplied by zero.
  Since 
 \begin_inset Formula $\mathbf{x}\left(0\right)$
 \end_inset
@@ -1090,7 +1297,7 @@ Let's make a assumption that all node miss a eigenvalue
 \begin_inset Formula $\lambda_{l}$
 \end_inset
 
- are equal to zero, we will have 
+ are equal to zero, thus 
 \begin_inset Formula 
 \begin{equation}
 U\left[\begin{array}{ccc}
@@ -1136,164 +1343,80 @@ Mitigation of Numerical Error of Eigenvalues
 \end_layout
 
 \begin_layout Standard
-The simulation result shows the proposed method has a numerical error due
- to the limited accuracy of the float number.
- The reason is because when the network contains more nodes, The Toeplitz
- matrix becomes almost singular or even losses rank.
+Due to the limited accuracy of the floating point number, the solution obtained
+ by the proposed method has a numerical error.
+ To mitigate the  error, one of the options is to use floating number with
+ more bits.
+ However, communication cost is increased in each iteration.
  
 \end_layout
 
 \begin_layout Standard
-Take a deep inspection of the Toeplitz matrix.
- As network size increases, it needs more samples of 
-\begin_inset Formula $x_{i}\left(k\right)$
-\end_inset
-
- to construct the Toeplitz matrix and solve the equations Eq.
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Toeplitz Eq.-2"
-
-\end_inset
-
-.
- As 
-\begin_inset Formula $k\to\infty$
-\end_inset
-
-, local value 
-\begin_inset Formula $x_{i}\left(k\right)$
-\end_inset
-
- approaches the global average asymptotically, that is 
-\begin_inset Formula $\left\Vert \mathbf{x}\left(k+1\right)-\mathbf{\bar{x}}\right\Vert <\left\Vert \mathbf{x}\left(k\right)-\mathbf{\bar{x}}\right\Vert $
-\end_inset
-
-.
- Consequently, the row in Toeplitz matrix with large time index have entries
- with very little difference to each other.
- This is one of the reasons for the numerical error of the solution when
- the network size becomes large.
- Furthermore, the equation 
-\begin_inset Formula $p_{i}(\lambda)=0$
-\end_inset
-
- is a high order polynomial whose solutions are very sensitive to the permutatio
-n of coefficients.
- In other words, the numerical error of solutions is much larger than permutatio
-n of coefficients.
- 
+As floating point number in double  format is  available on most computers,
+ we apply our numerical mitigation  on this basis.
 \end_layout
 
 \begin_layout Standard
-One option to mitigating this problem, is using float number with higher
- accuracy.
- However, more bits have to be transmitted in each iteration so communication
- cost increases as well.
- Therefore, our simulation uses double accuracy for float numbers, which
- is used in most of the computer.
- Some other numerical techniques are also applied in mitigating the problem.
-\end_layout
-
-\begin_layout Standard
-To mitigate the numerical problems, Toeplitz matrix in Eq.
+The idea is to have more equations similar to  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:Toeplitz Eq.-2"
+reference "eq:x(k+D) predictor"
 
 \end_inset
 
- should be replaced by a matrix constructed by some other way.
- The idea is take more useful samples to have more equations similar to
- Eq.
+ and involve the Moore-Penrose pseudo-inverse to find the least mean square
+ solution.
+ Thus, Toeplitz matrix in  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:x(k+r) predictor"
+reference "eq:Toeplitz Eq."
 
 \end_inset
 
-.
- Then the new constructed matrix will have longer height than width.
+ should be replaced by a matrix constructed by some other way, whose height
+ is larger than width.
  The local value history vector 
 \begin_inset Formula $\mathbf{y}_{i}\left(k,D\right)$
 \end_inset
 
- on the left of Eq.
+ on the left of  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:Toeplitz Eq.-2"
+reference "eq:Toeplitz Eq."
 
 \end_inset
 
  is also expanded accordingly.
- In this case, we involve the Moore-Penrose pseudo-inverse 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Piziak2007"
-
-\end_inset
-
- to find the least mean square solution which is more accurate.
+ 
 \end_layout
 
 \begin_layout Standard
-We can introduce two levels of numerical mitigation.
- Both of them can be applied to generate a more accurate result.
-\end_layout
-
-\begin_layout Standard
-First, the new matrix can be built by the local values of 
-\begin_inset Formula $v_{i}$
-\end_inset
-
- itself together with these from its neighbors 
-\begin_inset Formula $v_{j}\in{\cal N}_{i}$
-\end_inset
-
-, which means, several Toeplitz matrices will be concatenated along the
- column to generate the new matrix.
- For example, node 
-\begin_inset Formula $v_{i}$
-\end_inset
-
- can concatenate Toeplitz matrix 
+There are two ways to expand the matrix.
+ First, the new matrix can be built by concatenating   Toeplitz matrix 
 \begin_inset Formula $T_{i}$
 \end_inset
 
- and other Toeplitz matrix 
-\begin_inset Formula $T_{j},v_{i}\in{\cal N}_{i}$
+  and 
+\begin_inset Formula $T_{j},v_{j}\in{\cal N}_{i}$
 \end_inset
 
- from its neighbors to build a new matrix, denoted by 
-\begin_inset Formula $M_{i}\in\mathbb{R}^{\left(\left|{\cal N}_{i}\right|+1\right)n\times n}$
+ along the column.
+  As 
+\begin_inset Formula $x_{j}$
 \end_inset
 
-.
- Because it need one more local values to build the corresponding local
- value history vector and local values from the neighbors arrive one time
- step later, the iteration should be continue until 
-\begin_inset Formula $x_{j}\left(k+n\right),v_{j}\in{\cal N}_{i}$
+ is available for node 
+\begin_inset Formula $v_{i}$
 \end_inset
 
- are available.
- This improvement will not increase the communication cost or number of
- DAC iteration.
+, this improvement will not increase the communication cost.
+ 
 \end_layout
 
 \begin_layout Standard
-Second, more than one instances of FO-DAC algorithms could be carried out
+Second, more than one instances of CFO-DAC algorithms could be carried out
  to obtain more useful local samples.
- When the current local value vector is updated for a number of times (as
- it converges very close to the consensus value vector 
-\begin_inset Formula $\bar{\mathbf{x}}$
-\end_inset
-
-), the FO-DAC is reinitialized with a new local value vector which is preferably
- independent of the old one.
-\end_layout
-
-\begin_layout Standard
-Let 
+ Let 
 \begin_inset Formula $\mathbf{x}_{1}\left(0\right),\mathbf{x}_{2}\left(0\right),\ldots,\mathbf{x}_{N}\left(0\right)$
 \end_inset
 
@@ -1301,36 +1424,23 @@ Let
 \begin_inset Formula $N$
 \end_inset
 
- different and independent initial local value vectors which are updated
- in 
-\begin_inset Formula $N$
+ different and independent initial local value vectors.
+  Each one of them is used to reinitialize an instance of CFO-DAC and  
+ each instance of CFO-DAC is iterated for at least 
+\begin_inset Formula $2n+2$
 \end_inset
 
- instances of FO-DAC separately.
- For each initial vector, it take at least 
-\begin_inset Formula $2\tilde{D}+2$
-\end_inset
-
- iterations, where 
-\begin_inset Formula $\tilde{D}=\max_{i}D_{i}$
-\end_inset
-
- and should be equal to 
-\begin_inset Formula $\tilde{m}$
-\end_inset
-
-.
- After this initialization, each node 
+ steps.
+ During this initialization, each node 
 \begin_inset Formula $v_{i}$
 \end_inset
 
- will store the local values obtained by the 
-\begin_inset Formula $N$
-\end_inset
+ will store the local values obtained by each instance of CFO-DAC.
+\end_layout
 
- instance of FO-DAC.
- Let 
-\begin_inset Formula $T_{i,s}$
+\begin_layout Standard
+To construct the new matrix, first let 
+\begin_inset Formula $T_{i,s}=T_{i,s}\left(D_{i}-1,D_{i}\right)$
 \end_inset
 
  be the Toeplitz matrix of 
@@ -1341,173 +1451,506 @@ Let
 \begin_inset Formula $s$
 \end_inset
 
- instance of FO-DAC, and 
-\begin_inset Formula $M_{i,s}$
+ instance of CFO-DAC, with 
+\begin_inset Formula $x_{i,s}\left(D_{i}-1\right)$
 \end_inset
 
- be the concatenated matrix of 
+ on the diagonal, where 
+\begin_inset Formula $x_{i,s}$
+\end_inset
+
+ is the local value of node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ at 
+\begin_inset Formula $s$
+\end_inset
+
+ instance of CFO-DAC.
+ Second, concatenating 
 \begin_inset Formula $T_{i,s}$
 \end_inset
 
  and 
-\begin_inset Formula $T_{j,s},j\in{\cal N}_{i}$
+\begin_inset Formula $T_{j,s},\forall v_{j}\in{\cal N}_{i}$
 \end_inset
 
-.
- Concatenating the matrix 
+ will obtain 
 \begin_inset Formula $M_{i,s}$
 \end_inset
 
- will construct a new matrix, denoted by 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\tilde{M}_{i}=\left[\begin{array}{c}
-M_{i,1}\\
-M_{i,2}\\
-\vdots\\
-M_{i,N}
-\end{array}\right]
-\]
-
-\end_inset
-
-where
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-M_{i,s}=\left[\begin{array}{c}
-T_{i,s}\\
-T_{j_{1},s}\\
-\vdots\\
-T_{j_{\left|{\cal N}_{i}\right|},s}
-\end{array}\right],\ j_{1},\ldots,j_{\left|{\cal N}_{i}\right|}\in{\cal N}_{i},\ s=1,...,N
-\]
-
-\end_inset
-
-and 
-\begin_inset Formula 
-\begin{align*}
-T_{l,s} & =\left[\begin{array}{cccc}
-x_{l,s}\left(D_{i}\right) & x_{l,s}\left(D_{i}-1\right) & \ldots & x_{l,s}\left(0\right)\\
-x_{l,s}\left(D+1\right) & x_{l,s}\left(D_{i}\right) & \cdots & x_{l,s}\left(1\right)\\
-\vdots & \vdots & \ddots & \vdots\\
-x_{l,s}\left(2D_{i}\right) & x_{l,s}\left(2D_{i}-1\right) & \cdots & x_{l,s}\left(D_{i}\right)
-\end{array}\right]\\
-l & =i,j_{1},\ldots,j_{\left|{\cal N}_{i}\right|}
-\end{align*}
-
-\end_inset
-
-where 
-\begin_inset Formula $D_{i}$
-\end_inset
-
- is the maximum integer so that the matrix 
-\begin_inset Formula $\tilde{M}_{i,s}$
-\end_inset
-
- is full column rank.
- It is not requiring the matrix at all nodes to have the same width.
- 
-\end_layout
-
-\begin_layout Standard
-Similarly, the vector 
-\begin_inset Formula $\tilde{\mathbf{q}}_{i}=\left[\mathbf{q}_{i,1}^{T},\mathbf{q}_{i,2}^{T},\ldots,\mathbf{q}_{i,N}^{T}\right]^{T}$
-\end_inset
-
- is consist with the corresponding local values, where 
-\begin_inset Formula $\mathbf{q}_{i,s}$
-\end_inset
-
- is the combination of local value history vector 
-\begin_inset Formula $\mathbf{y}_{i,s}$
-\end_inset
-
- of itself and those vectors 
-\begin_inset Formula $\mathbf{y}_{j,s}$
-\end_inset
-
-, 
-\begin_inset Formula $j\in{\cal N}_{i}$
-\end_inset
-
- from its neighbors at 
-\begin_inset Formula $s$
-\end_inset
-
- instance of FO-DAC.
- In other words, 
-\begin_inset Formula $\mathbf{q}_{i,s}=\left[\mathbf{y}_{i,s}^{T},\mathbf{y}_{j_{1},s}^{T},\mathbf{y}_{j_{2},s}^{T},\ldots,\mathbf{y}_{j_{\left|{\cal N}_{i}\right|},s}^{T}\right]^{T}$
-\end_inset
-
-, 
-\begin_inset Formula $j_{1},\ldots,j_{\left|{\cal N}_{i}\right|}\in{\cal N}_{i}$
-\end_inset
-
-, 
-\begin_inset Formula $s=1,...,N$
-\end_inset
-
- and 
-\begin_inset Formula $\mathbf{y}_{l,s}=\left[x_{l,s}\left(D_{i}+1\right),x_{l,s}\left(D_{i}+2\right),\dots,x_{l,s}\left(2D_{i}+1\right)\right]^{T}$
-\end_inset
-
-, 
-\begin_inset Formula $l=i,j_{1},\ldots,j_{\left|{\cal N}_{i}\right|}$
-\end_inset
-
 .
- Thus, the coefficients vector can be obtained by inverting the new concatenated
- matrix 
 \begin_inset Formula 
 \begin{equation}
-\mathbf{a}_{i}=-\tilde{M}_{i}^{+}\tilde{\mathbf{q}}_{i}\label{eq:expanded Toeplitz Eq.-1}
+M_{i,s}=\left[T_{i,s}^{T},T_{j_{1},s}^{T},\ldots,T_{j_{\left|{\cal N}_{i}\right|},s}^{T}\right]^{T}
 \end{equation}
 
 \end_inset
 
-The Moore-Penrose pseudoinverse in the above equation will find the least
- mean square solution.
- If more instances of FO-DAC are executed and more local value samples are
- taken, the solution could be more accurate.
- However, Our simulation result indicates that increasing the height of
- 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+where 
+\begin_inset Formula $s=1,...,N$
+\end_inset
 
+.
+  Finally, concatenating the matrix 
+\begin_inset Formula $M_{i,s}$
+\end_inset
+
+ will construct another matrix, 
+\begin_inset Formula 
+\begin{equation}
+\tilde{M}_{i}=\left[M_{i,1}^{T},M_{i,2}^{T},\ldots,M_{i,N}^{T}\right]^{T}.
+\end{equation}
+
+\end_inset
+
+The width of 
+\begin_inset Formula $\tilde{M}_{i,s}$
+\end_inset
+
+, denoted by 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+, is the maximum integer so that the matrix 
+\begin_inset Formula $\tilde{M}_{i,s}$
+\end_inset
+
+ has full column rank.
+ 
+\end_layout
+
+\begin_layout Standard
+On the other hand, let 
+\begin_inset Formula $\mathbf{y}_{i,s}=\mathbf{y}_{i,s}\left(D_{i}-1,D_{i}\right)=\left[x_{i,s}\left(D_{i}\right),x_{i,s}\left(D_{i}+1\right),\dots,x_{i,s}\left(2D_{i}\right)\right]^{T}$
+\end_inset
+
+ be the local value history vector of 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ at 
+\begin_inset Formula $s$
+\end_inset
+
+ instance of DAC.
+ First, concatenating 
+\begin_inset Formula $y_{i,s}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{j,s},v_{j}\in{\cal N}_{i}$
+\end_inset
+
+ will obtain
+\begin_inset Formula 
+\begin{equation}
+\mathbf{q}_{i,s}=\left[\mathbf{y}_{i,s}^{T},\mathbf{y}_{j_{1},s}^{T},\mathbf{y}_{j_{2},s}^{T},\ldots,\mathbf{y}_{j_{\left|{\cal N}_{i}\right|},s}^{T}\right]^{T}.
+\end{equation}
+
+\end_inset
+
+Second, concatenating 
+\begin_inset Formula $\mathbf{q}_{i,s}$
+\end_inset
+
+ will obtain
+\begin_inset Formula 
+\begin{equation}
+\tilde{\mathbf{q}}_{i}=\left[\mathbf{q}_{i,1}^{T},\mathbf{q}_{i,2}^{T},\ldots,\mathbf{q}_{i,N}^{T}\right]^{T}.
+\end{equation}
+
+\end_inset
+
+The vector 
+\begin_inset Formula $\tilde{\mathbf{q}}_{i}$
+\end_inset
+
+ is constructed by this way so that each  local value is one time step later
+ than the first  local value in each row of matrix 
+\begin_inset Formula $\tilde{M}_{i}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Therefore, the coefficient vector can be obtained by inverting the new 
+ matrix 
 \begin_inset Formula $\tilde{M}_{i}$
 \end_inset
 
 
-\family default
+\begin_inset Formula 
+\begin{equation}
+\mathbf{a}_{i}=-\tilde{M}_{i}^{+}\tilde{\mathbf{q}}_{i}\label{eq:expanded Toeplitz Eq.}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $^{+}$
+\end_inset
+
+ denotes the Moore-Penrose pseudoinverse.
+ Simulation result indicates that,  the more rows in 
+\begin_inset Formula $\tilde{M}_{i}$
+\end_inset
+
+, the more accurate the solution could be.
+ However, increasing the height of 
+\begin_inset Formula $\tilde{M}_{i}$
+\end_inset
+
+ after a  limit 
+\begin_inset Formula $n\left|{\cal N}_{i}\right|$
+\end_inset
+
+ can not obtain a more accurate result.
+ 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Algorithm-Complexity"
+
+\end_inset
+
+Analysis of Algorithm Complexity
+\end_layout
+
+\begin_layout Standard
+This section is to compare the algorithm complexity of the existing and
+ proposed distributed optimization  for DAC.
+ 
+\end_layout
+
+\begin_layout Standard
+To solve the problem 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:FO-DAC opt.problem"
+
+\end_inset
+
+, Xiao 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+ proposed two centralized methods:  interior-point method and subgradient
+ method to minimize 
+\begin_inset Formula $\rho\left(W-\mathbf{11}^{T}/n\right)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $n$
+\end_inset
+
+ be the network size and 
+\begin_inset Formula $m$
+\end_inset
+
+ be the number of edges.
+ The interior-point method is iterative and usually finds the optimal solution
+ in 
+\begin_inset Formula $20n\sim80n$
+\end_inset
+
+ step, at a cost of 
+\begin_inset Formula $(10/3)n^{3}+(1/3)m^{3}$
+\end_inset
+
+ flops per steps.
+ 
+\end_layout
+
+\begin_layout Standard
+Compared to interior-point method, the subgradient method can be computed
+ locally but relatively slow.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boyd2006"
+
+\end_inset
+
+ proposed a distributed subgradient method to minimize the sub-dominate
+ eigenvalue of a probability matrix.
+ This method can be used to optimize the first order DAC after a little
+ modification.
+ The modified method is given in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "alg:Distributed-FO-DAC-Optimization"
+
+\end_inset
+
+, where the function 
+\begin_inset Formula $\mbox{Avg}\left(u^{\left(s\right)}\right)=\frac{1}{n}\sum_{i=1}^{n}\left(u_{i}^{\left(s\right)}\right)$
+\end_inset
+
+ is implemented by DAC.
+ Given the error tolerance 
+\begin_inset Formula $\epsilon_{ave}$
+\end_inset
+
+, the DAC algorithm has to be iterated at least 
+\begin_inset Formula $T_{ave}=O\left(n^{2}log\left(\frac{1}{\epsilon_{ave}}\right)\right)$
+\end_inset
+
+ times 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhou2009"
+
+\end_inset
+
+, so that the local value vector can converge to the range 
+\begin_inset Formula $\left\Vert \mathbf{x}\left(T_{ave}\right)-\mathbf{\bar{x}}\right\Vert \leq\epsilon_{ave}$
+\end_inset
+
+.
+ The second loop to calculate sub-dominant eigenvector 
+\begin_inset Formula $u_{r}$
+\end_inset
+
+ is also similar to the first iteration.
+ It needs to be executed for a number of times to obtain a result within
+ the error tolerance 
+\begin_inset Formula $\epsilon_{sub}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boyd2006"
+
+\end_inset
+
+.
+ Furthermore, the third iteration, which is the subgradient algorithm, 
+ takes enormous steps to converge and there is no simple stopping criterion
+ to guarantee a certain level of optimality 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+.
+ Therefore, with a conservative estimation, the times of matrix iteration
+ might be more than 
+\begin_inset Formula $O\left(n^{4}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Itemize
+
+\series bold
+Initialization: 
 \series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- after a certain limit can not obtain a result with higher accuracy.
- There are always some numerical errors can not be reduce by mitigation.
+Initialize vector 
+\begin_inset Formula $\mathbf{w}$
+\end_inset
+
+ with some feasible entries, for example the maximum degree weights.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Repeat
+\series default
+ for 
+\begin_inset Formula $t\geq1$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $W=I-Q\mathbf{w}^{\left(t\right)}Q^{T}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Repeat 
+\series default
+for
+\series bold
+ 
+\begin_inset Formula $s\geq1$
+\end_inset
+
+ 
+\series default
+to find subgradient 
+\begin_inset Formula $g^{\left(t\right)}\in\mathbb{R}^{\left|{\cal E}\right|}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $u^{\left(s+1\right)}=Wu^{\left(s\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $u^{\left(s+1\right)}=u^{\left(s+1\right)}-\mbox{Avg}\left(u_{i}^{\left(s+1\right)}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $u^{\left(s+1\right)}=u^{\left(s+1\right)}/\left\Vert u^{\left(s+1\right)}\right\Vert $
+\end_inset
+
+,
+\begin_inset Formula $s=s+1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Until 
+\series default
+ 
+\series bold
+
+\begin_inset Formula $\left\Vert u^{\left(s\right)}-u_{r}\right\Vert _{2}\leq\epsilon_{sub}$
+\end_inset
+
+
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $g_{l}=\begin{cases}
+-\left(u_{i}-u_{j}\right)^{2} & \mbox{if }\rho\left(W-\frac{\mathbf{11}^{T}}{n}\right)=\lambda_{2}\left(W\right)\\
+\left(u_{i}-u_{j}\right)^{2} & \mbox{if }\rho\left(W-\frac{\mathbf{11}^{T}}{n}\right)=\lambda_{n}\left(W\right)
+\end{cases}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $l\sim\left(i,j\right)\in{\cal E}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathbf{w}^{\left(t+1\right)}=\mathbf{w}^{\left(t\right)}-\beta_{k}\frac{g^{\left(t\right)}}{\left\Vert g^{\left(t\right)}\right\Vert }$
+\end_inset
+
+,
+\begin_inset Formula $t=t+1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Distributed-FO-DAC-Optimization"
+
+\end_inset
+
+Distributively find the Optimal Matrix for FO-DAC.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Compare to the enormous number of matrix iterations in  Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Distributed-FO-DAC-Optimization"
+
+\end_inset
+
+, there is a significant time reduction by the proposed optimization if
+ problem 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:FO-DAC opt.problem"
+
+\end_inset
+
+ reduces to find the best constant.
+  When higher accuracy is needed, we execute 
+\begin_inset Formula $n$
+\end_inset
+
+ instances of CFO-DAC  and the number of matrix iterations is in the order
+ of 
+\begin_inset Formula $n^{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+ Furthermore, if the network topology doesn't change after the optimization,
+ the estimated eigenvalues  can drive to an estimated  solution 
+\begin_inset Formula $\left(\hat{\epsilon},\hat{\gamma}\right)$
+\end_inset
+
+ for HO-DAC algorithm, which is faster than the optimal FO-DAC.
  
 \end_layout
 
@@ -1522,22 +1965,23 @@ Simulation of Eigenvalue Estimation
 \end_layout
 
 \begin_layout Standard
-In the simulation, we take the following steps.
- First, a random network generator uniformly distribute 
+The simulation is taken by the following steps.
+ First, 
 \begin_inset Formula $n$
 \end_inset
 
- nodes in a unit square.
- Then, connect the network use the communication range constraint.
- That means there is a link between any two nodes if their distance is less
- than a certain threshold 
+ nodes are uniformly distributed in an unit square and a link is established
+  between any two nodes if their distance is less than a   threshold 
 \begin_inset Formula $r$
 \end_inset
 
 .
- To ensure the generated graph is connected with high possibility, the communica
-tion range is chosen as 
-\begin_inset Formula $r=\sqrt{\log_{10}\left(n\right)/n}$
+ To ensure the generated graph is connected with high possibility,  
+\begin_inset Formula $r$
+\end_inset
+
+ is chosen as 
+\begin_inset Formula $\sqrt{\log_{10}\left(n\right)/n}$
 \end_inset
 
  
@@ -1548,102 +1992,60 @@ key "Li2010"
 \end_inset
 
 .
- Besides, assume duplex communication is possible in each link so that the
- network graph is undirected.
+ Besides, assume  each link is symmetric so that the network graph is undirected.
  
 \end_layout
 
 \begin_layout Standard
-Second, on the random network generated by the above method, one or more
- instances of constant FO-DAC algorithm is performed.
+Second, on the random generated network, one or more instances of CFO-DAC
+  are executed.
  Local values obtained in each DAC instance are stored in local memory of
  each node.
- The step length is a constant shared by all nodes and chosen in the range
- 
-\begin_inset Formula $\epsilon\in\left(\frac{2}{max\left\{ d_{u}+d_{v}\right\} },\frac{1}{d_{max}}\right)$
-\end_inset
-
-, which ensure the algorithm is convergent as well as high performance in
- the eigenvalue estimation.
+ The step length is a constant shared by all nodes and chosen in the convergence
+ range.
 \end_layout
 
 \begin_layout Standard
-Third, eigenvalue estimation algorithm at each node is waiting for the time
- that sufficient number of local values are obtained.
- Once the estimation algorithm is executed, each node would has a local
- Laplacian spectrum.
+Third,  once sufficient number of local values are obtained, the eigenvalue
+ estimation algorithm is executed and local Laplacian spectrum is obtained
+ at each node.
 \end_layout
 
 \begin_layout Standard
-Finally, the eigenvalue estimation performance is evaluated by the estimation
+Finally, the performance of eigenvalue estimation is evaluated by the estimation
  errors.
- Because there are missed eigenvalues in some nodes, the estimated eigenvalues
- need to be matched with the corresponding Laplacian eigenvalues.
- For example, each node 
-\begin_inset Formula $v_{i}$
-\end_inset
-
- has several estimated eigenvalues, denoted by 
-\begin_inset Formula $\hat{\lambda}_{i,\hat{j}}\left(L\right)$
-\end_inset
-
-.
- Then, each Laplacian eigenvalues 
+ Before that, each Laplacian eigenvalue 
 \begin_inset Formula $\lambda_{j}\left(L\right)$
 \end_inset
 
- is matched to only one of the 
-\begin_inset Formula $\hat{\lambda}_{i,\hat{j}}\left(L\right)$
+ is matched with only one eigenvalue 
+\begin_inset Formula $\hat{\lambda}_{k}^{\left(i\right)}\left(L\right)$
 \end_inset
 
- in the local Laplacian spectrum, if the distance is the minimum for all
- estimated eigenvalues at node 
-\begin_inset Formula $v_{i}$
+, if the distance 
+\begin_inset Formula $\left|\hat{\lambda}_{k}^{\left(i\right)}\left(L\right)-\lambda_{j}\left(L\right)\right|$
 \end_inset
 
-, i.e.
+ is the minimum for all eigenvalues in the estimated local Laplacian spectrum.
+ Let 
+\begin_inset Formula $e_{i,j}=\min_{l=1,\ldots,D_{i}}\left|\hat{\lambda}_{l}^{\left(i\right)}\left(L\right)-\lambda_{j}\left(L\right)\right|$
+\end_inset
+
+ be the minimum distance.
+ The mean estimation error of 
+\begin_inset Formula $\lambda_{j}\left(L\right)$
+\end_inset
+
+ is 
+\begin_inset Formula $\frac{1}{n}\sum_{i=1,\ldots n}e_{i,j}$
+\end_inset
+
+.
  
-\begin_inset Formula $e_{i,j}=\min_{\hat{j}}\left|\hat{\lambda}_{i,\hat{j}}\left(L\right)-\lambda_{j}\left(L\right)\right|$
-\end_inset
-
-.
- However, there is a problem if node 
-\begin_inset Formula $v_{i}$
-\end_inset
-
- happen to miss the eigenvalue of 
-\begin_inset Formula $\lambda_{j}\left(L\right)$
-\end_inset
-
-.
- Because the greedy search algorithm will always find a minimum match, which
- is wrong in this case.
- Therefore, the incorrect match makes the error to be very large and creates
- an outlier shown in Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Box-plot N10 1DAC"
-
-\end_inset
-
-.
- The mean estimation error of eigenvalue 
-\begin_inset Formula $\lambda_{j}\left(L\right)$
-\end_inset
-
- is the sum of 
-\begin_inset Formula $\sum_{i=1,\ldots n}e_{i,j}$
-\end_inset
-
- divided by the times of 
-\begin_inset Formula $\lambda_{j}\left(L\right)$
-\end_inset
-
- been matched by all nodes in the network.
 \end_layout
 
 \begin_layout Standard
-In the Fig.
+In Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Box-plot N10 1DAC"
@@ -1651,9 +2053,10 @@ reference "fig:Box-plot N10 1DAC"
 \end_inset
 
 , we use the box plot to graphically illustrate the performance of eigenvalue
- estimation algorithm.
- The distribution of log mean estimation error are obtained from 1000 simulation
-, where networks and step lengths are randomly generated.
+ estimation.
+ The distribution of log mean estimation errors are obtained from 1000 simulatio
+ns.
+  
 \end_layout
 
 \begin_layout Standard
@@ -1863,125 +2266,51 @@ Box plot of log mean estimation error of eigenvalues, with/without local
 \end_layout
 
 \begin_layout Standard
-It is shown in Fig.
+Simulation results show that taking local values from neighbours has better
+ performance in lower estimation errors.
+ In addition, the estimation errors will decrease if more instances of CFO-DAC
+ are taken.
+ On the other hand, the estimation errors  will increase as the network
+ size becomes larger.
+ However, the numerical errors of 
+\begin_inset Formula $\lambda_{2}\left(L\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{n}\left(L\right)$
+\end_inset
+
+ increase very slowly compared to other eigenvalues in the spectrum.
+ Even their outliers in Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Box-plot N10 1DAC"
 
 \end_inset
 
- that algorithm taking local values from neighbors has better performance
- not only in lower estimation error, but also in less number of outliers.
- Since it does not increase the communication cost, as long as there is
- sufficient memory to store these values, this mitigation technique will
- be taken as a default in the following simulation.
- On the other hand, if we take more DAC instances, the estimation error
- also decrease.
- Simulation of more nodes shows that the estimation error and number of
- outliers increases too, see Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:18-nodes,-18"
-
-\end_inset
-
-.
- Therefore, more than one DAC instance is inevitable to obtain a solution
- with adequate accuracy.
-\end_layout
-
-\begin_layout Standard
-However, the numerical errors of 
-\begin_inset Formula $\lambda_{2}\left(L\right)$
-\end_inset
-
- and 
-\begin_inset Formula $\lambda_{n}\left(L\right)$
-\end_inset
-
- do not increase alarmingly as the number of nodes increases.
- Even the outliers of them in Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:18-nodes,-18"
-
-\end_inset
-
- has estimated error lower than 
+ have estimated error lower than 
 \begin_inset Formula $1e-8$
 \end_inset
 
 .
- It is possible to use the estimated eigenvalues in the optimization of
- best constant FO-DAC and SO-DAC, since their optimal solutions are only
- calculated by 
-\begin_inset Formula $\lambda_{2}\left(L\right)$
-\end_inset
-
- and 
-\begin_inset Formula $\lambda_{n}\left(L\right)$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
-On the contrary, it is more hard to find the solution for higher order DAC.
- Because their optimization problems need to solve a high order polynomial
- to obtain the spectral radius of a deflated matrix 
-\begin_inset Formula $\left(H-J\right)$
+To see how these estimation errors take effect on the performance of DAC,
+ we conducted another simulation where estimated parameters 
+\begin_inset Formula $\left(\hat{\epsilon},\hat{\gamma}\right)$
 \end_inset
 
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xiong2010"
-
-\end_inset
-
-.
- Thus, finding the global minimum on the surface of 
-\begin_inset Formula $\rho\left(H-J\right)$
-\end_inset
-
- is more challenging and requires all eigenvalues in Laplacian spectrum.
-\end_layout
-
-\begin_layout Standard
-Since each node only has a estimated Laplacian spectrum, a sub-optimal solution
- for higher-order DAC could be obtained.
- However, HO-DAC algorithm using the estimated step length 
-\begin_inset Formula $\hat{\epsilon}$
-\end_inset
-
- and forgetting factor 
-\begin_inset Formula $\hat{\gamma}$
-\end_inset
-
- is still convergent when the estimation error is low.
- To see how these estimation error take effect on the performance of DAC,
- we conducted another simulation.
- where 
-\begin_inset Formula $n$
-\end_inset
-
- instance of DAC are taken and 
-\begin_inset Formula $\hat{\epsilon}$
-\end_inset
-
- and 
-\begin_inset Formula $\hat{\gamma}$
-\end_inset
-
- are used to construct the non-optimal high order iteration matrix 
+  are used to construct a suboptimal higher-order weight matrix 
 \begin_inset Formula $\hat{H}$
 \end_inset
 
- and show the spectral radius of 
+.
+ The spectral radius of 
 \begin_inset Formula $\left(\hat{H}-J\right)$
 \end_inset
 
- in Fig.
+ is plotted and compared with the optimal one in Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Mean-of-spectral"
@@ -2005,7 +2334,8 @@ status open
 
 \begin_inset Graphics
 	filename D:/Dropbox/PaperWork/Autonomous Opt. DAC/Graph/spectral_radius_Ord123_N8-32.pdf
-	width 8cm
+	width 8.5cm
+	BoundingBox 0bp 0bp 430bp 338bp
 
 \end_inset
 
@@ -2026,8 +2356,8 @@ name "fig:Mean-of-spectral"
 
 \end_inset
 
-Mean of spectral radius of constant FO-DAC, SO-DAC and third order DAC,
- using optimal parameters and estimated parameters .
+Mean of spectral radius of CFO-DACand HO-DAC, using optimal parameters and
+ estimated parameters.
  
 \end_layout
 
@@ -2049,8 +2379,8 @@ reference "fig:Mean-of-spectral"
 
 \end_inset
 
-, FO-DAC and SO-DAC using estimated parameters almost have the same spectral
- radius as the optimal ones.
+, CFO-DAC or SO-DAC using estimated parameters has similar spectral radius
+ as the one using optimal parameters.
  It seems that the numerical errors of 
 \begin_inset Formula $\lambda_{2}\left(L\right)$
 \end_inset
@@ -2059,20 +2389,25 @@ reference "fig:Mean-of-spectral"
 \begin_inset Formula $\lambda_{n}\left(L\right)$
 \end_inset
 
- do not decline the performance dramatically.
- There are only a little differences between them which can not be observed
- on this figure.
- Moreover, eigenvalues missing or large numerical errors of outliers doesn't
- have disastrous impact on the performance of for higher order DAC algorithm.
- Its spectral radius goes slightly upper than the optimal one after the
+ do not decline their performances dramatically.
+ For third order DAC algorithm, estimated errors of eigenvalues don't have
+ disastrous impact on the performance.
+ The spectral radius goes slightly upper than the optimal one after the
  network size is larger than 25.
  It seems that estimating other eigenvalues with low accuracy is not a critical
  problem.
- However, this result only holds when the network size small.
- The simulation of forth order DAC for even larger network up to 40 nodes
- reports several sets of estimated parameters that are divergent.
- If the network size is too large, we should consider decreasing the order
- of DAC or increasing the accuracy of the float number.
+ However, the parameters 
+\begin_inset Formula $\hat{\epsilon}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\gamma}$
+\end_inset
+
+ might not be located in the convergence region if the network size is larger
+ than 32.
+ The simulation of fourth-order DAC for even larger network up to 40 nodes,
+ reports several divergent cases.
 \end_layout
 
 \begin_layout Subsection
@@ -2080,26 +2415,30 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-In this chapter, we introduced a distributed optimization method for higher-orde
-r DAC algorithm, which try to estimate the necessary optimal parameters.
- However, numerical error of these parameters due to quantization and eigenvalue
-s missing can dramatically decline the algorithm performance.
- To mitigate the effect, we introduce some techniques, which increase the
- numerical accuracy by increasing number equations and finding the least
- mean square solution.
- After the mitigation, numerical error of estimated parameters just slightly
- decline the performance of first order DAC and second order DAC.
- Even for the higher order DAC, estimated parameters by incomplete Laplacian
- spectrum is still convergent and the algorithm is faster than second order.
- However, there is a limit of this mitigation.
- Increasing the number of equations does not always make the result more
- accurate after a certain limit.
- These findings indicate that the proposed method is applicable to optimization
- of higher order DAC algorithms.
- If the numerical error is too large even after mitigation, we should decreasing
- the order of DAC or increasing the accuracy of the float number.
+In this chapter, we introduced a distributed method to estimate the optimal
+ parameters for DAC algorithms.
+ However, numerical errors of these parameters due to quantization  can
+ decline the algorithm performance.
+ Especially for DAC algorithms with order larger than second, they are more
+ sensitive to the errors.
+ To mitigate this effect, we introduce a numerical technique to find the
+ least mean square solution.
+ After mitigation, the numerical errors of estimated parameters slightly
+ declines the performance of first order DAC and second order DAC.
+ For the third order DAC, estimated parameters by local Laplacian spectrum
+ is still convergent and the algorithm is faster than second order.
+  However, if floating point number in double format is used and the network
+ size is larger than 32 nodes, the numerical errors will be too large even
+ after mitigation.
+ These findings indicate that the proposed method is applicable to optimize
+ higher order DAC algorithms when network size is small.
+  Otherwise, we should decrease the order of DAC or increase the accuracy
+ of the floating point number.
+ The second-order consensus algorithm could be a compromise as it requires
+ fewer parameters, converges faster than first order DAC and maintains convergen
+ce reliability.
  In the future, we are intending to investigate the effect of link failure
- and other practical aspect, while applying the proposed method to a distributed
+ and other practical aspects while applying the proposed method to a distributed
  system.
  
 \end_layout
