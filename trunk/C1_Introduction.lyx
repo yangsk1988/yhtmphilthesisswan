@@ -72,52 +72,6 @@ theorems-ams-bytype
 
 \begin_body
 
-\begin_layout Title
-
-\change_inserted 5862369 1354927521
-Optimized 
-\change_unchanged
-Average Consensus Algorithm and its Applications 
-\end_layout
-
-\begin_layout Abstract
-Distributed Consensus algorithm has application in data fusion in wireless
- sensor networks and coordination of multi-agent system.
- Some distributive signal processing based on consensus algorithm, such
- as, local value linear prediction, information flooding and network eigenvalues
- estimation, were introduced in this thesis.
- Finally, a simulation of distributive cloud detection was given, in which
- data acquired by sensor nodes is processed by distributed consensus algorithm.
- A modification to the conventional consensus algorithm is also applied
- to make it possible to find the global log likelihood ratio when signals
- are correlated.
-\end_layout
-
-\begin_layout Abstract
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FloatList figure
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FloatList table
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Introduction 
 \end_layout
