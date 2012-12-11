@@ -60,6 +60,18 @@
 \begin_body
 
 \begin_layout Abstract
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
 Distributed information processing has attract more interest recently because
  its advantages in distributed network than centralized method.
  One of the tools of distributed signal processing is the distributed consensus
