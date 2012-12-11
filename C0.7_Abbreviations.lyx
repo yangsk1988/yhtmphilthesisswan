@@ -2,7 +2,7 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass article
+\textclass book
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -25,6 +25,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -55,32 +56,325 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 5862369 "HT" 
 \end_header
 
 \begin_body
 
-\begin_layout Section*
-Abbreviations
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter*{Abbreviations} %[List of Abbreviations]
+\end_layout
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+begin{thenomenclature} 
+\end_layout
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+begin{abbreviations}{WidestAbbreviation} 
+\end_layout
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+begin{itemize} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{p{3.5cm} p{11cm}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bf{2D}						  & Two Dimensional 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bf{3D}						  & Three Dimensional 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bf{WSNs}						  & Wireless Sensor Netoworks
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bf{DACA}               & Distributed Average Consensus Algorithm
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bf{FIR filter}	& Finite Impulse Response Filter
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bf{FO-DACA}	& First-order Distributed Average Consensus Algorithm
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bf{HO-DACA}	& Higher-order Distributed Average Consensus Algorithm
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bf{CFO-DACA}	& Constant First Order Distributed Average Consensus Algorithm
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bf{FT-DACA}	& Finite Time Distributed Average Consensus Algorithm
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355261444
 DAC algorithm: Distributed average consensus algorithm
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355261444
 WSNs: wireless sensor networks
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355261444
 FIR filter: finite impulse response filter
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355261444
 FO-DAC: first time distributed average consensus algorithm.
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355261444
 CFO-DAC: constant first time distributed average consensus algorithm.
+\change_inserted 5862369 1355265242
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter*{Notations} %[List of Notations]
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+begin{listofsymbols} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{p{2.4cm} p{11cm}} %
+\backslash
+begin{abmbreviations}{WidestAbbreviation}
+\end_layout
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+nomgroup{A}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\epsilon_{r}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+& Relative permittivity
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\lambda_{0}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+& Free space wavelength
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular} 
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+end{listofsymbols}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

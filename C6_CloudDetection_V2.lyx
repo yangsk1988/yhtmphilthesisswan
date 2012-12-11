@@ -2,7 +2,7 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass article
+\textclass book
 \use_default_options true
 \begin_modules
 eqs-within-sections
@@ -73,7 +73,7 @@ theorems-ams-bytype
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Chapter
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:DAC-Implementation:-Distributed"
@@ -105,7 +105,7 @@ on.
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Introduction 
 \end_layout
 
@@ -323,7 +323,7 @@ key "Xiao2004"
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Background and System model 
 \end_layout
 
@@ -382,7 +382,7 @@ reference "sec:Simulation"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Cloud Detection Scenario
 \begin_inset CommandInset label
 LatexCommand label
@@ -569,7 +569,7 @@ System model
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Gaussian Plume Model of Diffusive Cloud 
 \end_layout
 
@@ -1265,7 +1265,7 @@ of cloud concentration
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Received-Signal'-Model"
@@ -1448,7 +1448,7 @@ reference "par:Gaussian-mixture-model"
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 \begin_inset CommandInset label
 LatexCommand label
 name "par:Gaussian-mixture-model"
@@ -1633,7 +1633,7 @@ Once the probability density function (PDF) for background and cloud reflection
  LLR, without data gathering or fusion center.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Modified-Gaussian-Plume"
@@ -1664,7 +1664,7 @@ key "He2011"
  testing and detection.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Integration of Cloud Along Laser Beam
 \end_layout
 
@@ -2092,7 +2092,7 @@ name "fig:2-D-Gaussian-Plume"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Simulated Cloud by fluid dynamics
 \end_layout
 
@@ -2265,7 +2265,7 @@ Relationship between 3D cloud concentration and Sensor's observation.
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Distributed-Cloud-Declaration"
@@ -2370,7 +2370,7 @@ The detection method should be separated into two stages, training and detection
  mixture model) based on their own observation distributively.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Hypothesis Test
 \end_layout
 
@@ -2395,11 +2395,11 @@ The prior probability of these two hypotheses is denoted by
 .
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Global and Local Log Likelihood Ratio 
 \end_layout
 
@@ -2647,7 +2647,7 @@ The algorithm is as follows: First, each sensor calculates its local LLR
  ML or MAP decision rule.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Challenge of Distributed Detection of Cloud
 \end_layout
 
@@ -3106,7 +3106,7 @@ equal to
 .
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Simulation
 \begin_inset CommandInset label
 LatexCommand label
@@ -3207,7 +3207,7 @@ Some other consideration for this simulation is that sensors are randomly
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Sensor's Observation 
 \end_layout
 
@@ -3600,7 +3600,7 @@ Sensor's observation of background noise and cloud backscatters
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Performance of Cloud Detection Sensor Network
 \end_layout
 
@@ -3688,7 +3688,7 @@ reference "fig:ROC-of-CDWSN"
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Conclusion
 \end_layout
 
@@ -3748,7 +3748,7 @@ is introduced.
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Further Research
 \end_layout
 

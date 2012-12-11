@@ -2,7 +2,7 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass article
+\textclass book
 \options 12pt,A4paper,onecolumn
 \use_default_options true
 \begin_modules
@@ -71,7 +71,7 @@ theorems-ams-bytype
 
 \begin_body
 
-\begin_layout Subsection
+\begin_layout Section
 Graph Theory and Matrix Theory Review 
 \end_layout
 
@@ -252,7 +252,7 @@ Note that we assume the diagonal elements
  and use them in optimization of convergence rate of consensus algorithm.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Irreducibility and Strong Connected Graph.
 \end_layout
 
@@ -442,7 +442,7 @@ reference "Def.Irreducebility"
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Spectral radius of a matrix
 \end_layout
 
@@ -690,7 +690,7 @@ reference "sec:Finite-Time-Distributed-Consensu"
  
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Gerschgorin's theorem
 \end_layout
 
@@ -880,7 +880,7 @@ Just as we assume before, the adjacent matrix
  
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Generalize from Gerschgorin's theorem
 \end_layout
 
@@ -1060,7 +1060,7 @@ reference "eq:x(t) of CT-1st-DAC"
  
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Perron-Frobenius Theorem
 \end_layout
 
@@ -1270,7 +1270,7 @@ tion of
  
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Generalized from Perron-Frobenius theorem
 \end_layout
 
@@ -1563,7 +1563,7 @@ This is an important theory for continuous-time consensus problem.
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Diagonalizable matrix & Symmetric matrix
 \end_layout
 

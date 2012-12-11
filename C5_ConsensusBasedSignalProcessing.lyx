@@ -2,7 +2,7 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass article
+\textclass book
 \options onecolumn,12pt,A4paper
 \use_default_options true
 \begin_modules
@@ -72,7 +72,7 @@ theorems-ams-bytype
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Chapter
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Online-Optimization-of"
@@ -113,7 +113,7 @@ s.
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Introduction
 \change_deleted 5862369 1350054120
 
@@ -395,7 +395,7 @@ reference "sub:Conclusion"
 .
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Distributive-Eigenvalue-Estimati"
@@ -707,7 +707,7 @@ reference "eq:x(k+D) vector predictor"
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Find the Polynomial Coefficients
 \end_layout
 
@@ -821,7 +821,7 @@ key "Prass2007"
      
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Estimated Laplacian spectrum
 \end_layout
 
@@ -923,7 +923,7 @@ Because
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Eigenvalues missing and spectrum completion
 \end_layout
 
@@ -1297,7 +1297,7 @@ reference "eq:Jordan decom.under assumption"
  could be estimated by at least one nodes in the network.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Mitigation-of-Numerical"
@@ -1577,7 +1577,7 @@ where
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Algorithm-Complexity"
@@ -1919,7 +1919,7 @@ reference "eq:FO-DAC opt.problem"
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Simulation-of-Eigenvalue"
@@ -2375,7 +2375,7 @@ reference "fig:Mean-of-spectral"
  reports several divergent cases.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Conclusion"

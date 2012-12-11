@@ -2,7 +2,7 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass article
+\textclass book
 \use_default_options true
 \begin_modules
 eqs-within-sections
@@ -72,7 +72,7 @@ theorems-ams-bytype
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Chapter
 Introduction 
 \end_layout
 
@@ -550,7 +550,7 @@ key "Nedic2010"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Motivation of Research
 \change_inserted 5862369 1354932873
  
@@ -608,7 +608,7 @@ sense
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 To find a faster DAC algorithm.
  
 \end_layout
@@ -868,7 +868,7 @@ be executed
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 To Detect The Cloud Plume By Laser Sensor
 \end_layout
 
@@ -969,7 +969,7 @@ algorithm
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Contributions
 \end_layout
 
@@ -1073,7 +1073,7 @@ In this section, first some expressions are driven based on the diffusive
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Outline
 \end_layout
 

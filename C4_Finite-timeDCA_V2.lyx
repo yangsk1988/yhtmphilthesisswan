@@ -2,7 +2,7 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass article
+\textclass book
 \options onecolumn,12pt,A4paper
 \use_default_options true
 \begin_modules
@@ -73,7 +73,7 @@ theorems-ams-bytype
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Chapter
 Finite-time Consensus on generalized conditions (todo check 1)
 \begin_inset CommandInset label
 LatexCommand label
@@ -128,7 +128,7 @@ Here we propose a generalized finite-time consensus algorithm, which does
  filters.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Linear Predictor For Local Value (todo check 1)
 \end_layout
 
@@ -379,7 +379,7 @@ Given the local value vector sequence obtained by FO-DCA, one may instantly
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Find the coefficients of polynomial
 \end_layout
 
@@ -625,7 +625,7 @@ reference "sub:Convert-Linear-Predictor "
  coefficients.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Convert-Linear-Predictor "
@@ -820,7 +820,7 @@ This indicates the possibility of using the adaptive filter to estimate
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Simulation
 \begin_inset CommandInset label
 LatexCommand label
@@ -1181,7 +1181,7 @@ reference "cap:perform. Consensus Filter"
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Conclusion
 \end_layout
 
