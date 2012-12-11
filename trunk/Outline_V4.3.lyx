@@ -11,6 +11,7 @@ tabs-within-sections
 theorems-ams-bytype
 theorems-sec-bytype
 theorems-ams-extended-bytype
+customHeadersFooters
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -82,23 +83,21 @@ theorems-ams-extended-bytype
 \begin_body
 
 \begin_layout Title
-Optimized Distributed Average Consensus Algorithm and its Applications 
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
- 
+
 \backslash
-thispagestyle{empty}
+thispagestyle{empty}%
+\backslash
+pagestyle{empty} %multiple pages
 \end_layout
 
 \end_inset
 
-
+Optimized Distributed Average Consensus Algorithm and its Applications 
 \end_layout
 
 \begin_layout Standard
@@ -185,6 +184,13 @@ status open
 
 \backslash
 pagenumbering{arabic}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+pagestyle{fancy} 
 \end_layout
 
 \begin_layout Plain Layout
