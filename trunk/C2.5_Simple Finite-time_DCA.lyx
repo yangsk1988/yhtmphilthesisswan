@@ -2,7 +2,7 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass article
+\textclass book
 \options onecolumn,12pt,A4paper
 \use_default_options true
 \begin_modules
@@ -71,7 +71,7 @@ theorems-ams-bytype
 
 \begin_body
 
-\begin_layout Subsection
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Finite-Time-Distributed-Consensu"
@@ -135,7 +135,7 @@ key "Kokiopoulou2007"
  (OK 3) 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection*
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Find-the-Consensus"
@@ -1434,7 +1434,7 @@ key "Xiao2004"
 .
 \end_layout
 
-\begin_layout Subparagraph
+\begin_layout Paragraph
 Inverse the Vandermonde matrix
 \end_layout
 
@@ -1725,7 +1725,7 @@ inverse Vandermonde's matrix
  The computation saving can be enormous by this approach.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Consensus Based Network Information Flooding(todo check)
 \end_layout
 

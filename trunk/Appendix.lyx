@@ -2,7 +2,7 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass article
+\textclass book
 \use_default_options true
 \begin_modules
 eqs-within-sections
@@ -71,7 +71,7 @@ theorems-sec
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Chapter*
 Appendix 
 \end_layout
 
