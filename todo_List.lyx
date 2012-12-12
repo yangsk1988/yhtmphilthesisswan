@@ -65,6 +65,19 @@ todo
 \end_layout
 
 \begin_layout Enumerate
+Linear Predictor For Local Value (todo check 0)
+\end_layout
+
+\begin_layout Enumerate
+The Consensus Finding Filter and The Relationship with Linear Predictor
+ (todo check)
+\end_layout
+
+\begin_layout Enumerate
+Consensus Based Network Information Flooding(todo check)
+\end_layout
+
+\begin_layout Enumerate
 consensus is also used in WSN power control.
  
 \begin_inset CommandInset citation
@@ -74,12 +87,6 @@ key "Mitliagkas2011"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Enumerate
-a)motivation of research.
- b) key contribution.
- c)literature review d)research work e) conclusions.
 \end_layout
 
 \begin_layout Enumerate
@@ -102,13 +109,25 @@ However, the resulting polynomials of degree
 \end_layout
 
 \begin_layout Enumerate
-the properties of Laplacian matrix.
- lambda_2 of unweighted L is called algebraic connectivity of the graph.
- weighted L has similar properties with unweighted L.
+(check clear explained or not in C3 Consensus based signal processing &
+ C5 cloud detection) what's the benefit of using it? A:we use the algorithm
+ to find the global log likelihood ratio, which is the average of local
+ log likelihood ratio.
 \end_layout
 
 \begin_layout Enumerate
-rewrite 
+why we use the consensus algorithm to solve the problem in cloud detection?
+\begin_inset Newline newline
+\end_inset
+
+A: The challenge of cloud detection.
+ It is a diffusive target.
+ Interference from the outdoor environment.
+ (check, explained in C5 )
+\end_layout
+
+\begin_layout Enumerate
+review 
 \begin_inset Quotes eld
 \end_inset
 
@@ -117,57 +136,179 @@ introduction
 \end_inset
 
 .
+ (times 1.)
 \end_layout
 
 \begin_layout Enumerate
-(done in C2 consensus problem description) what is consensus algorithm?
- A:the algorithm to find the average value.
+the properties of Laplacian matrix.
+ lambda_2 of unweighted L is called algebraic connectivity of the graph.
+ weighted L has similar properties with unweighted L.
+\end_layout
+
+\begin_layout Subsection
+Eigenvalue estimation
 \end_layout
 
 \begin_layout Enumerate
-(check clear explained or not in C3 Consensus based signal processing &
- C5 cloud detection) what's the benefit of using it? A:we use the algorithm
- to find the global log likelihood ratio, which is the average of local
- log likelihood ratio.
+What's 
+\begin_inset Quotes eld
+\end_inset
+
+consensus principal component analysis
+\begin_inset Quotes erd
+\end_inset
+
+ ?
 \end_layout
 
 \begin_layout Enumerate
-why we use the consensus algorithm to solve the problem in cloud detection?A:
- The challenge of cloud detection.
- It is a diffusive target.
- Interference from the outdoor environment.
- (check, explained in C5 )
+(todo compare existing algorithm AESOPS AND PEALS ALGORITHMS in power system)
+\end_layout
+
+\begin_layout Subsection
+cloud detection
 \end_layout
 
 \begin_layout Enumerate
-Asymptotic distributed consensus algorithm plays an important role in the
- practical problems.
- (todo)
-\begin_inset Newline newline
+(partially done)improve 
+\begin_inset Quotes eld
 \end_inset
 
-Finite-Time Consensus without Knowledge of Network Topology(todo)
-\begin_inset Newline newline
+Consensus based Data Fusion and Decision Making
+\begin_inset Quotes erd
 \end_inset
 
-Linear Predictor For Local Value (todo check 0)
-\begin_inset Newline newline
-\end_inset
 
-The Consensus Finding Filter and The Relationship with Linear Predictor
- (todo check)
-\begin_inset Newline newline
-\end_inset
-
-Consensus Based Network Information Flooding(todo check)
-\begin_inset Newline newline
-\end_inset
-
-Consensus Based Distributed Eigenvalues Estimation(todo)
 \end_layout
 
 \begin_layout Enumerate
-add some new changes to chapter 
+improve 
+\begin_inset Quotes eld
+\end_inset
+
+cloud detection problem
+\begin_inset Quotes erd
+\end_inset
+
+ explain the problem using maximum expectation....
+\end_layout
+
+\begin_layout Section
+done
+\end_layout
+
+\begin_layout Enumerate
+(Done)Finite-Time Consensus without Knowledge of Network Topology
+\end_layout
+
+\begin_layout Enumerate
+(Done)Asymptotic distributed consensus algorithm plays an important role
+ in the practical problems.
+ 
+\end_layout
+
+\begin_layout Enumerate
+(Done)
+\begin_inset Quotes eld
+\end_inset
+
+Now assume instead of 
+\begin_inset Formula $\lambda_{n}$
+\end_inset
+
+, we are interested in its second-largest eigenvalue 
+\begin_inset Formula $\lambda_{n-1}$
+\end_inset
+
+.
+ If we already know 
+\begin_inset Formula $\lambda_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{n}$
+\end_inset
+
+, we can estimate 
+\begin_inset Formula $\lambda_{n-1}$
+\end_inset
+
+ by running the power iteration on the deflated matrix
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yang2010"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(Done)( we need to show the numerical error.
+ The simulation result shows that when using float number with double accuracy,
+ there can be 
+\begin_inset Quotes eld
+\end_inset
+
+iterative improvement of a solution
+\begin_inset Quotes erd
+\end_inset
+
+ to mitigate the numerical error.
+ )(we tried the 
+\begin_inset Quotes eld
+\end_inset
+
+iterative improvement
+\begin_inset Quotes erd
+\end_inset
+
+ method, will have some improvement, not as much as the method to find the
+ least mean square solution.)
+\end_layout
+
+\begin_layout Enumerate
+(Done)improve 
+\begin_inset Quotes eld
+\end_inset
+
+Eigenvalue predict
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+do a experiment compare the difference, average of best coefficients, 
+\begin_inset Newline newline
+\end_inset
+
+add ref 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yang2010"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+The best step length is distribute the eigenvalues of weight matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ in the unit circle, if all the eigenvalues are real, they are distributed
+ in the range [-1,1]
+\end_layout
+
+\begin_layout Enumerate
+(done)add some new changes to chapter 
 \begin_inset Quotes eld
 \end_inset
 
@@ -202,120 +343,15 @@ contribution
 .
 \end_layout
 
-\begin_layout Subsection
-Eigenvalue estimation
+\begin_layout Enumerate
+(done)a)motivation of research.
+ b) key contribution.
+ c)literature review d)research work e) conclusions.
 \end_layout
 
 \begin_layout Enumerate
-What's 
-\begin_inset Quotes eld
-\end_inset
-
-consensus principal component analysis
-\begin_inset Quotes erd
-\end_inset
-
- ?
-\end_layout
-
-\begin_layout Enumerate
-improve 
-\begin_inset Quotes eld
-\end_inset
-
-Eigenvalue predict
-\begin_inset Quotes erd
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-do a experiment compare the difference, average of best coefficients, best
- coefficients.
-\begin_inset Newline newline
-\end_inset
-
-add ref 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Yang2010"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-(todo compare existing algorithm AESOPS AND PEALS ALGORITHMS in power system)
-\begin_inset Newline newline
-\end_inset
-
-(todo if we need to show the numerical error.
- The simulation result shows that when using float number with double accuracy,
- there can be 
-\begin_inset Quotes eld
-\end_inset
-
-iterative improvement of a solution
-\begin_inset Quotes erd
-\end_inset
-
- to mitigate the numerical error.
- )
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Quotes eld
-\end_inset
-
-Now assume instead of n, we are interested in its second-largest eigenvalue
- n􀀀1.
- If we already know n and vn, we can estimate n􀀀1 by running the power iteration
- on the deflated matrix
-\begin_inset Quotes erd
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Yang2010"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-cloud detection
-\end_layout
-
-\begin_layout Enumerate
-(partially done)improve 
-\begin_inset Quotes eld
-\end_inset
-
-Consensus based Data Fusion and Decision Making
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-improve 
-\begin_inset Quotes eld
-\end_inset
-
-cloud detection problem
-\begin_inset Quotes erd
-\end_inset
-
- explain the problem using maximum expectation....
-\end_layout
-
-\begin_layout Section
-done
+(done in C2 consensus problem description) what is consensus algorithm?
+ A:the algorithm to find the average value.
 \end_layout
 
 \begin_layout Enumerate

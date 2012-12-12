@@ -410,7 +410,11 @@ After running FO-DAC algorithm for a number of step, node
 \end_layout
 
 \begin_layout Standard
-Let the 
+Let 
+\change_deleted 5863457 1355319626
+the
+\change_unchanged
+ 
 \begin_inset Formula $T_{i}=T_{i}\left(k,D_{i}\right)\in\mathbb{R}^{D_{i}\times D_{i}}$
 \end_inset
 
@@ -447,10 +451,18 @@ x_{i}\left(k+D_{i}-1\right) & x_{i}\left(k+D_{i}-2\right) & \cdots & x_{i}\left(
 
 \end_inset
 
-Similarly, the function 
-\begin_inset Formula $\mathbf{y}_{i}=\mathbf{y}_{i}\left(k,D_{i}\right)=\left[x_{i}\left(k+1\right),x_{i}\left(k+2\right),\ldots,x_{i}\left(k+D_{i}\right)\right]^{T}$
+Similarly, 
+\change_inserted 5863457 1355319633
+Define 
+\change_unchanged
+the function 
+\begin_inset Formula $\mathbf{y}_{i}=\mathbf{y}_{i}\left(k,D_{i}\right)=\left[x_{i}\left(k+1\right),x_{i}\left(k+2\right),\ldots,x_{i}\left(k+D_{i}\right)\right]^{T}\in\mathbb{R}^{D_{i}}$
 \end_inset
 
+
+\change_inserted 5863457 1355319646
+ which
+\change_unchanged
  outputs the local value history at 
 \begin_inset Formula $v_{i}$
 \end_inset
@@ -464,7 +476,9 @@ Similarly, the function
 \end_inset
 
 .
- When input parameter are not given, 
+ 
+\change_deleted 5863457 1355319693
+When input parameter are not given, 
 \begin_inset Formula $T_{i}$
 \end_inset
 
@@ -478,8 +492,12 @@ Similarly, the function
 \end_inset
 
 .
- Let 
-\begin_inset Formula $\mathbf{a}_{i}\left(D_{i}\right)=\left[a_{i,D_{i}-1},\ldots,a_{i,1},a_{i,0}\right]^{T}$
+
+\change_inserted 5863457 1355319701
+ Then,
+\change_unchanged
+ let 
+\begin_inset Formula $\mathbf{a}_{i}\left(D_{i}\right)=\left[a_{i,D_{i}-1},\ldots,a_{i,1},a_{i,0}\right]^{T}\in\mathbb{R}^{D_{i}}$
 \end_inset
 
  be a vector of length 
@@ -536,11 +554,11 @@ reference "eq:Toeplitz Eq.-2"
 \begin_layout Standard
 Toeplitz matrix is a special type of matrix and can be inverted by some
  algorithms in the polynomial time of order 
-\begin_inset Formula $N^{2}$
+\begin_inset Formula $D_{i}^{2}$
 \end_inset
 
 , rather than the order of 
-\begin_inset Formula $N^{3}$
+\begin_inset Formula $D_{i}^{3}$
 \end_inset
 
  in general case (for example by LU decomposition), which is an enormous

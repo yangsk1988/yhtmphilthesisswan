@@ -793,7 +793,7 @@ Let the sample vector
 \begin_layout Proof
 \begin_inset Formula 
 \begin{equation}
-\mathbf{y}_{i}(k,d)=\left[x_{i}(k),x_{i}(k-1),\ldots x_{i}(k-d+1)\right]^{\mathrm{T}}\label{eq:def. y(k,m)}
+\mathbf{y}_{i}(k,d)=\left[x_{i}(k),x_{i}(k+1),\ldots x_{i}(k+d-1)\right]^{\mathrm{T}}\label{eq:def. y(k,m)}
 \end{equation}
 
 \end_inset
@@ -815,9 +815,9 @@ and the Vandermonde matrix whose entries are the power of eigenvalues
 \begin{equation}
 \mathbf{V}(k,d)=\left[\begin{array}{cccc}
 \lambda_{1}^{k} & \lambda_{2}^{k} & \cdots & \lambda_{m}^{k}\\
-\lambda_{1}^{k-1} & \lambda_{2}^{k-1} & \cdots & \lambda_{m}^{k-1}\\
+\lambda_{1}^{k+1} & \lambda_{2}^{k+1} & \cdots & \lambda_{m}^{k+1}\\
 \vdots & \vdots & \ddots & \vdots\\
-\lambda_{1}^{k-d+1} & \lambda_{2}^{k-d+1} & \cdots & \lambda_{m}^{k-d+1}
+\lambda_{1}^{k+d-1} & \lambda_{2}^{k+d-1} & \cdots & \lambda_{m}^{k+d-1}
 \end{array}\right]\label{eq:def. Lamda(k,m)}
 \end{equation}
 
