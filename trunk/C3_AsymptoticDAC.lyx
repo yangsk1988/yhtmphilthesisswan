@@ -916,7 +916,7 @@ For the constant FO-DAC algorithm, it is convergent, if and only if the
 
 .
  And the optimal step length which maximize the convergence rate is 
-\begin_inset Formula $\frac{2}{\lambda_{2}\left(L\right)+\lambda_{n}\left(L\right)}$
+\begin_inset Formula $\epsilon{}_{opt,FO}=\frac{2}{\lambda_{2}\left(L\right)+\lambda_{n}\left(L\right)}$
 \end_inset
 
  

@@ -80,7 +80,15 @@ name "sec:DAC-Implementation:-Distributed"
 
 \end_inset
 
-An Application of DAC: Distributed Detection of Cloud
+
+\change_deleted 5863457 1355275800
+An Application of DAC:
+\change_unchanged
+ Distributed 
+\change_inserted 5863457 1355275708
+Cloud 
+\change_unchanged
+Detection 
 \end_layout
 
 \begin_layout Standard

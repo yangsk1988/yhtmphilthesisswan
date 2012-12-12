@@ -33,7 +33,7 @@ customHeadersFooters
 \output_sync 0
 \bibtex_command default
 \index_command default
-\paperfontsize default
+\paperfontsize 12
 \spacing onehalf
 \use_hyperref true
 \pdf_bookmarks true
@@ -79,13 +79,12 @@ customHeadersFooters
 \html_css_as_file 0
 \html_be_strict false
 \author 5862369 "HT" 
+\author 5863457 "ht" 
 \end_header
 
 \begin_body
 
 \begin_layout Title
-
-\change_deleted 5862369 1355261703
 \begin_inset ERT
 status collapsed
 
@@ -101,7 +100,17 @@ pagestyle{empty} %multiple pages
 \end_inset
 
 Optimized Distributed Average Consensus Algorithm and its Applications 
-\change_unchanged
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1355270247
+\begin_inset CommandInset include
+LatexCommand include
+filename "C0.6_Acknowledgment.lyx"
+
+\end_inset
+
 
 \end_layout
 
@@ -141,6 +150,8 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5863457 1355270241
 \begin_inset CommandInset include
 LatexCommand include
 filename "C0.6_Acknowledgment.lyx"
@@ -153,60 +164,26 @@ filename "C0.6_Acknowledgment.lyx"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 5862369 1355265871
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 5862369 1355265872
-
-
-\backslash
-addcontentsline{toc}{chapter}{List of figures}
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset FloatList figure
 
 \end_inset
 
 
-\change_inserted 5862369 1355265888
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 5862369 1355265892
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-\change_inserted 5862369 1355265905
-
 
 \backslash
-addcontentsline{toc}{chapter}{List of Tables}
-\change_unchanged
-
+addcontentsline{toc}{chapter}{List of Figures}
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -219,6 +196,18 @@ addcontentsline{toc}{chapter}{List of Tables}
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{List of Tables}
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -245,7 +234,13 @@ pagenumbering{arabic}
 
 \begin_layout Plain Layout
 
+\change_deleted 5863457 1355275942
+
 %
+\change_inserted 5863457 1355276036
+%
+\change_unchanged
+
 \backslash
 pagestyle{fancy} 
 \end_layout
