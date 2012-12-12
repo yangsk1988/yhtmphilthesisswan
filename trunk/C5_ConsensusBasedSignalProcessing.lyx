@@ -62,12 +62,13 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
 \author 5862369 "HT" 
+\author 5863457 "ht" 
 \end_header
 
 \begin_body
@@ -79,7 +80,7 @@ name "sec:Online-Optimization-of"
 
 \end_inset
 
-Real-time Optimization of DAC(todo)
+Real-time Optimization of DAC(OK1)
 \end_layout
 
 \begin_layout Standard
@@ -187,7 +188,34 @@ key "Ren2007"
 \end_inset
 
 .
-  Therefore, 
+  
+\change_inserted 5863457 1355325231
+The optimization of asymptotic algorithms is to minimize the sub-dominate
+ eigenvalue of a weight matrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Asensio-Marco2012"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ 
+\change_deleted 5863457 1355325257
+Therefore, 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Asensio-Marco2012"
@@ -210,6 +238,8 @@ key "Xiong2010"
 
   intend to minimize the sub-dominate eigenvalue of the  weight matrix to
  optimize the convergence rate.
+
+\change_unchanged
  In addition, 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -229,9 +259,18 @@ key "Xiong2010"
 
 .
  
+\change_deleted 5863457 1355325265
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 5863457 1355325311
+To enable the whole system work distributively, the optimization should
+ be distributed and the DAC algorithms should be robust against topology
+ changes.
+ 
+\change_unchanged
 A distributed method inspired by the gossip algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -245,6 +284,8 @@ key "Boyd2006"
  outside can return the right result.
  Thus, It is not surprising that it could not finish in a reasonable time
  when the network size is large.
+\change_inserted 5863457 1355325305
+
 \end_layout
 
 \begin_layout Standard
@@ -262,8 +303,15 @@ key "Cavalcante2010"
 
 \end_inset
 
-, they find the average  in some sophisticated ways but not robust against
- topology changes.
+, they find the average
+\change_deleted 5863457 1355325447
+ 
+\change_unchanged
+ in some sophisticated ways
+\change_deleted 5863457 1355325364
+ but not robust against topology changes
+\change_unchanged
+.
  Sumdaram and Hadjicostis 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -272,7 +320,11 @@ key "Sundaram2007"
 \end_inset
 
  verify that there exists a filter that can estimate the consensus value.
-  Cavalcante and Mulgrew 
+
+\change_deleted 5863457 1355325447
+ 
+\change_unchanged
+ Cavalcante and Mulgrew 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Cavalcante2010"
@@ -281,11 +333,54 @@ key "Cavalcante2010"
 
  follow Sundaram and Hadjicostis's work to propose an adaptive algorithm
  to find the filter.
- Both  of them have a first-order DAC running in the background and the
- local values over time are taken as  inputs of the filter.
- As a result,  if the network topology changes, these algorithms have to
- be reinitialized, as outdated information during the filter estimation
- will lead to a wrong answer.
+ 
+\change_inserted 5863457 1355325419
+The optimization for both of them is to minimize the number of necessary
+ iteration before a FIR filter is estimated.
+ However, they are not robust against topology changes.
+ 
+\change_unchanged
+Both
+\change_deleted 5863457 1355325424
+  
+\change_inserted 5863457 1355325424
+ 
+\change_unchanged
+of them have a first-order DAC running in the background and the local values
+ over time are taken as
+\change_deleted 5863457 1355325447
+ 
+\change_unchanged
+ inputs of the 
+\change_inserted 5863457 1355325445
+filter estimation algorithm
+\change_unchanged
+.
+ As a result,
+\change_deleted 5863457 1355325447
+ 
+\change_unchanged
+ if the network topology changes, these algorithms have to be 
+\change_inserted 5863457 1355325464
+terminated
+\change_unchanged
+, as outdated information during the filter estimation will lead to a wrong
+ answer.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5863457 1355325528
+Therefore, a distributed optimization method with less computation time
+ is required.
+ In addition, it is better that no additional communication cost is required.
+ Moreover, if the optimization algorithm and the DAC algorithm can be executed
+ simultaneously, then consensus process will not be interrupted and the
+ optimization can be running in background to keep the optimal parameters
+ updated in a dynamic network.
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -322,6 +417,17 @@ key "Franceschelli2009"
 
 \end_inset
 
+
+\change_inserted 5863457 1355325744
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yang2010"
+
+\end_inset
+
+
+\change_unchanged
 , initialization of the proposed algorithm is actually the first-order DAC
  itself.
  Therefore, first-order DAC will not be interrupted during the optimization
@@ -424,21 +530,34 @@ key "Xiong2010"
 \end_layout
 
 \begin_layout Standard
-Because 
+Because in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Discrete-High-Order"
+
+\end_inset
+
+, it is shown that the optimal parameters 
 \begin_inset Formula $\epsilon_{opt},\gamma_{opt}$
 \end_inset
 
- are only related to 
+ of HO-DAC are only related to 
 \begin_inset Formula $\lambda_{i}\left(L\right)$
 \end_inset
 
 , to enable the distributed optimization, the key is to estimate these eigenvalu
-es.
+es in a distributed manner.
   
 \end_layout
 
 \begin_layout Standard
-In fact, there are some decentralized techniques 
+In fact, there are some decentralized techniques
+\change_inserted 5863457 1355325722
+ 
+\change_deleted 5863457 1355325724
+ 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kempe2008"
@@ -452,10 +571,29 @@ key "Franceschelli2009"
 
 \end_inset
 
+
+\change_inserted 5863457 1355325730
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yang2010"
+
+\end_inset
+
+
+\change_unchanged
  to estimate the eigenvalues.
  However, they are not designed for DAC algorithm and will involve complex
  and costly initialization.
- In addition, DAC algorithm has to be stopped during the estimation.
+ In addition, 
+\change_inserted 5863457 1355325845
+as they are also matrix iteration algorithms, 
+\change_unchanged
+DAC algorithm has to be stopped during the 
+\change_inserted 5863457 1355325791
+eigenvalue 
+\change_unchanged
+estimation.
  
 \end_layout
 
@@ -822,7 +960,7 @@ key "Prass2007"
 \end_layout
 
 \begin_layout Subsection
-Estimated Laplacian spectrum
+Estimated Eigenvalues of Laplacian Matrix
 \end_layout
 
 \begin_layout Standard
@@ -924,7 +1062,7 @@ Because
 \end_layout
 
 \begin_layout Subsection
-Eigenvalues missing and spectrum completion
+Eigenvalues missing in local spectrum 
 \end_layout
 
 \begin_layout Standard

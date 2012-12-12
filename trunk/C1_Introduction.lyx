@@ -609,7 +609,7 @@ sense
 \end_layout
 
 \begin_layout Subsection
-To find a faster DAC algorithm.
+To Find a Faster DAC Algorithm.
  
 \end_layout
 
@@ -869,7 +869,13 @@ be executed
 \end_layout
 
 \begin_layout Subsection
-To Detect The Cloud Plume By Laser Sensor
+To Detect The Cloud Plume 
+\change_deleted 5863457 1355325688
+B
+\change_inserted 5863457 1355325688
+b
+\change_unchanged
+y Laser Sensor
 \end_layout
 
 \begin_layout Standard
