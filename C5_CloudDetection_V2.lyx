@@ -1301,7 +1301,7 @@ Suppose the sensor's observation has the following form:
 x_{l}=\begin{cases}
 \mu_{l,0}+n_{l,0} & \mbox{if no cloud exists}\\
 \mu_{l,1}+n_{l,1} & \mbox{if cloud exists}
-\end{cases}
+\end{cases}\label{eq:Model of Received signal}
 \end{equation}
 
 \end_inset
@@ -2404,10 +2404,6 @@ The prior probability of these two hypotheses is denoted by
 \end_layout
 
 \begin_layout Subsubsection
-
-\end_layout
-
-\begin_layout Subsubsection
 Global and Local Log Likelihood Ratio 
 \end_layout
 
@@ -2465,7 +2461,11 @@ where
 \end_layout
 
 \begin_layout Standard
-For the received signal model described either by 
+For the received signal model described
+\change_deleted 5862369 1355335724
+ 
+\change_unchanged
+ by 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:GMM density function"
@@ -2475,7 +2475,7 @@ reference "eq:GMM density function"
  or 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "eq:Cloud signal model"
+reference "eq:Model of Received signal"
 
 \end_inset
 

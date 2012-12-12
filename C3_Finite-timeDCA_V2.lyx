@@ -136,16 +136,62 @@ key "Sundaram2007"
 \end_layout
 
 \begin_layout Standard
-Here we propose a generalized finite-time consensus algorithm, which does
- not require knowledge of network topology and re-initialization of the
- original consensus algorithm for several times.
- Before introducing the algorithm, there are too important linear filter
+Here we propose a generalized finite-time 
+\change_deleted 5862369 1355334721
+consensus
+\change_inserted 5862369 1355334721
+DAC
+\change_unchanged
+ algorithm, which does not require knowledge of network topology and re-initiali
+zation of the original consensus algorithm for several times.
+ 
+\change_inserted 5862369 1355335000
+In the future research, the finite-time DAC algorithm probably will be generaliz
+ed to non-symmetrical network.
+ 
+\change_unchanged
+Before introducing the algorithm, there are too important linear filter
  need to be introduced, as the algorithm is based on the properties of these
  filters.
+
+\change_inserted 5862369 1355335166
+ The first is the FIR filter to estimate the consensus value which introduced
+ in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Find-the-Consensus"
+
+\end_inset
+
+.
+ The second is introduced in the next section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Linear-Predictor-For"
+
+\end_inset
+
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
-Linear Predictor For Local Value (todo check 1)
+
+\change_inserted 5862369 1355335123
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Linear-Predictor-For"
+
+\end_inset
+
+
+\change_unchanged
+Linear Predictor For Local Value (todo check 
+\change_inserted 5862369 1355334005
+times 
+\change_unchanged
+1)
 \end_layout
 
 \begin_layout Standard
@@ -395,8 +441,8 @@ Given the local value vector sequence obtained by FO-DCA, one may instantly
  
 \end_layout
 
-\begin_layout Section
-Find the coefficients of polynomial
+\begin_layout Subsection*
+Find the Coefficients of Linear Predictor.
 \end_layout
 
 \begin_layout Standard
@@ -572,8 +618,22 @@ key "Prass2007"
 .
  Levinson developed a recursive algorithm to solve the system quickly if
  the Toeplitz matrix is symmetric.
- However, the fact that the method can be generalized to the non-symmetric
- case is also stated in the texts 
+
+\change_deleted 5862369 1355333256
+ 
+\change_inserted 5862369 1355333252
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+One interesting advantage of Levinson's method is it can also apply to the
+ case when weight matrix is non-symmetric.
+
+\change_inserted 5862369 1355333230
+ The fact that the method can be generalized to the non-symmetric case is
+ stated in the texts 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Robinson2000"
@@ -581,13 +641,11 @@ key "Robinson2000"
 \end_inset
 
 .
- Therefore, we will invert this Toeplitz matrix using Levinson's method.
-\end_layout
 
-\begin_layout Standard
-One interesting advantage of Levinson's method is it can also apply to the
- case when weight matrix is non-symmetric.
- It can be demonstrated by just finding the inverse of a confluent Vandermonde
+\change_unchanged
+ 
+\change_deleted 5862369 1355333181
+It can be demonstrated by just finding the inverse of a confluent Vandermonde
  matrix.
  In examining the inverse of confluent Vandermonde matrix and find the the
  expression of the row who corresponds to the unity eigenvalue, we note
@@ -604,7 +662,39 @@ One interesting advantage of Levinson's method is it can also apply to the
 .
  However, the relationship of local value predictor and consensus finding
  filter still holds.
- Therefore, the proposed method and doesn't need to change and generalizes
+ 
+\change_inserted 5862369 1355333213
+ 
+\change_unchanged
+Therefore, 
+\change_inserted 5862369 1355333320
+We will invert this Toeplitz matrix using Levinson's method.
+ 
+\change_deleted 5862369 1355333327
+t
+\change_inserted 5862369 1355333327
+T
+\change_unchanged
+he proposed method 
+\change_deleted 5862369 1355333291
+and
+\change_unchanged
+ doesn't need to 
+\change_inserted 5862369 1355333295
+be 
+\change_unchanged
+change
+\change_inserted 5862369 1355333296
+d
+\change_unchanged
+ and 
+\change_inserted 5862369 1355333312
+can 
+\change_unchanged
+generalize
+\change_deleted 5862369 1355333307
+s
+\change_unchanged
  to the non-symmetric weight matrix case.
  
 \end_layout
@@ -667,6 +757,10 @@ name "sub:Convert-Linear-Predictor "
 \end_inset
 
 Convert Linear Predictor To Consensus Finding Filter
+\change_inserted 5862369 1355334143
+(todo check times 0)
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -851,6 +945,34 @@ where
 \color inherit
 This indicates the possibility of using the adaptive filter to estimate
  the consensus value after a certain number of iterations.
+ 
+\change_inserted 5862369 1355333420
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1355333902
+One interesting property of the consensus finding filter is that it can
+ be found by this method when the weight matrix is non-symmetric.
+ It can be demonstrated by finding the inverse of a confluent Vandermonde
+ matrix.
+ In examining the expression of the inverse of confluent Vandermonde matrix,
+ we note that the row corresponding to the unity eigenvalue, can actually
+ the coefficients of a consensus finding filter.
+ The the length of the filter is not required to be the same.
+ It may be not equal to the number of distinct and nonzero eigenvalues 
+\begin_inset Formula $m$
+\end_inset
+
+, but equal to the sum of all orders in minimal polynomial of weight matrix
+ 
+\begin_inset Formula $\sum_{i=1}^{m}r_{i}$
+\end_inset
+
+.
+ However, the relationship of local value predictor and consensus finding
+ filter still holds.
  
 \end_layout
 

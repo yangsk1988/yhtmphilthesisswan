@@ -65,19 +65,6 @@ todo
 \end_layout
 
 \begin_layout Enumerate
-Linear Predictor For Local Value (todo check 0)
-\end_layout
-
-\begin_layout Enumerate
-The Consensus Finding Filter and The Relationship with Linear Predictor
- (todo check)
-\end_layout
-
-\begin_layout Enumerate
-Consensus Based Network Information Flooding(todo check)
-\end_layout
-
-\begin_layout Enumerate
 consensus is also used in WSN power control.
  
 \begin_inset CommandInset citation
@@ -87,25 +74,6 @@ key "Mitliagkas2011"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Enumerate
-use the term ill-condition to describe the polynomial 
-\begin_inset Quotes eld
-\end_inset
-
-However, the resulting polynomials of degree 
-\begin_inset Formula $m$
-\end_inset
-
- corresponding to equation (8) can be very ill-conditioned (in the sense
- that small changes in the coefficients can give arbitrarily large changes
- in the roots), and better results can be obtained using the methods described
- in Section 5.3 of the next chapter 
-\begin_inset Quotes erd
-\end_inset
-
- Computational methods for matrix eigenproblems, QA193 Gou.
 \end_layout
 
 \begin_layout Enumerate
@@ -141,8 +109,11 @@ introduction
 
 \begin_layout Enumerate
 the properties of Laplacian matrix.
- lambda_2 of unweighted L is called algebraic connectivity of the graph.
- weighted L has similar properties with unweighted L.
+ 
+\end_layout
+
+\begin_layout Enumerate
+weighted L has similar properties with unweighted L.
 \end_layout
 
 \begin_layout Subsection
@@ -195,6 +166,30 @@ cloud detection problem
 
 \begin_layout Section
 done
+\end_layout
+
+\begin_layout Enumerate
+(Done)lambda_2 of unweighted L is called algebraic connectivity of the graph.
+ 
+\end_layout
+
+\begin_layout Enumerate
+(Done)use the term ill-condition to describe the polynomial 
+\begin_inset Quotes eld
+\end_inset
+
+However, the resulting polynomials of degree 
+\begin_inset Formula $m$
+\end_inset
+
+ corresponding to equation (8) can be very ill-conditioned (in the sense
+ that small changes in the coefficients can give arbitrarily large changes
+ in the roots), and better results can be obtained using the methods described
+ in Section 5.3 of the next chapter 
+\begin_inset Quotes erd
+\end_inset
+
+ Computational methods for matrix eigenproblems, QA193 Gou.
 \end_layout
 
 \begin_layout Enumerate
