@@ -1,0 +1,213 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+different optimization of asymptotic and nonasymptotic DAC 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The DAC algorithms can be divided into asymptotic and non-asymptotic DAC
+ algorithms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+.
+ The optimization of these two kind of algorithms are different.
+ For asymptotic DAC algorithms,  the optimization is to minimize the sub-dominat
+e eigenvalue of the weight matrix associated to the network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Asensio-Marco2012"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ However, these optimization of DAC algorithms are centralized methods 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For non-asymptotic DAC algorithms,  the optimization is to minimize the
+ time to find a filter that can estimate the consensus value.
+  Sumdaram and Hadjicostis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ verify that there exists such a filter.
+ They presented a method based on z-transform and final value theorem to
+ estimate it.
+ Cavalcante and Mulgrew 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+ follow Sundaram and Hadjicostis's work to propose an adaptive algorithm
+ to find the filter.
+ However, both of them have a first-order DAC running in the background
+ and the local values over time are taken as inputs of the filter.
+ As a result, if the network topology changes, outdated information during
+ the filter estimation will lead to a wrong answer.
+\end_layout
+
+\begin_layout Standard
+After reviewing these algorithm, we can get the awarness that DAC algorithms
+ are required to be robust against topology changes.
+ In addition,  the optimization should be distributed so that the whole
+ system can work distributively.
+ 
+\end_layout
+
+\begin_layout Standard
+Inspired by the gossip algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boyd2006"
+
+\end_inset
+
+, a distributed method can be used to optimize the first order DAC.
+ The method involves triple nested distributed matrix iterations.
+ The inner iteration has to converge to a certain range so that the iteration
+ outside can return the right result.
+ Thus, It is not surprising that it could not finish in a reasonable time
+ when the network size is large.
+\end_layout
+
+\begin_layout Standard
+To solve these problems, we proposed a distributed optimization method for
+ the constant first-order DAC and higher-order DAC algorithms in chapter
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Online-Optimization-of"
+
+\end_inset
+
+.
+ Because optimal parameters obtained by centralized optimization are only
+ related to the eigenvalues of Laplacian matrix of the network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+, consequently, a distributed eigenvalue estimation algorithm is proposed
+ to enable the distributed optimization.
+ In contrast to other distributed algorithms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kempe2008"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Franceschelli2009"
+
+\end_inset
+
+, its advantages are that first-order DAC will not be interrupted during
+ the optimization and algorithm complexity and communication cost can be
+ dramatically reduced.
+\end_layout
+
+\end_body
+\end_document

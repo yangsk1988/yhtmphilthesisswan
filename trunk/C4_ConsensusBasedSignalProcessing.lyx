@@ -1443,13 +1443,46 @@ name "sec:Mitigation-of-Numerical"
 \end_inset
 
 Mitigation of Numerical Error of Eigenvalues 
+\change_inserted 5862369 1355348772
+
 \end_layout
 
 \begin_layout Standard
-Due to the limited accuracy of the floating point number, the solution obtained
- by the proposed method has a numerical error.
- To mitigate the  error, one of the options is to use floating number with
- more bits.
+
+\change_inserted 5862369 1355349169
+The resulting polynomials 
+\begin_inset Formula $p_{i}\left(\lambda\right)$
+\end_inset
+
+ of degree 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ to can be very ill-conditioned 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gourlay1973"
+
+\end_inset
+
+, which means small changes in the coefficients can give arbitrarily large
+ changes in the roots.
+ 
+\change_deleted 5862369 1355348903
+Due to the limited accuracy of the floating point number, 
+\change_inserted 5862369 1355348934
+Therefore, 
+\change_unchanged
+the solution obtained by the proposed method has a numerical error
+\change_inserted 5862369 1355348958
+ that is unacceptable
+\change_unchanged
+.
+ To mitigate the
+\change_deleted 5862369 1355348896
+ 
+\change_unchanged
+ error, one of the options is to use floating number with more bits.
  However, communication cost is increased in each iteration.
  
 \end_layout
@@ -1735,7 +1768,7 @@ This section is to compare the algorithm complexity of the existing and
 To solve the problem 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:FO-DAC opt.problem"
+reference "eq: Opt. FO-DAC Problem"
 
 \end_inset
 
@@ -1746,8 +1779,11 @@ key "Xiao2004"
 
 \end_inset
 
- proposed two centralized methods:  interior-point method and subgradient
- method to minimize 
+ proposed two centralized methods:
+\change_deleted 5862369 1355335771
+ 
+\change_unchanged
+ interior-point method and subgradient method to minimize 
 \begin_inset Formula $\rho\left(W-\mathbf{11}^{T}/n\right)$
 \end_inset
 
@@ -2014,7 +2050,11 @@ Distributively find the Optimal Matrix for FO-DAC.
 \end_layout
 
 \begin_layout Standard
-Compare to the enormous number of matrix iterations in  Algorithm 
+Compare to the enormous number of matrix iterations in
+\change_deleted 5862369 1355335787
+ 
+\change_unchanged
+ Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:Distributed-FO-DAC-Optimization"
@@ -2025,17 +2065,24 @@ reference "alg:Distributed-FO-DAC-Optimization"
  problem 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:FO-DAC opt.problem"
+reference "eq: Opt. FO-DAC Problem"
 
 \end_inset
 
  reduces to find the best constant.
-  When higher accuracy is needed, we execute 
+
+\change_deleted 5862369 1355335787
+ 
+\change_unchanged
+ When higher accuracy is needed, we execute 
 \begin_inset Formula $n$
 \end_inset
 
- instances of CFO-DAC  and the number of matrix iterations is in the order
- of 
+ instances of CFO-DAC
+\change_deleted 5862369 1355335787
+ 
+\change_unchanged
+ and the number of matrix iterations is in the order of 
 \begin_inset Formula $n^{2}$
 \end_inset
 

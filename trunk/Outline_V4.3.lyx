@@ -78,8 +78,6 @@ customHeadersFooters
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 5862369 "HT" 
-\author 5863457 "ht" 
 \end_header
 
 \begin_body
@@ -103,8 +101,6 @@ Optimized Distributed Average Consensus Algorithm and its Applications
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 5863457 1355270247
 \begin_inset CommandInset include
 LatexCommand include
 filename "C0.6_Acknowledgment.lyx"
@@ -146,20 +142,6 @@ LatexCommand tableofcontents
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5863457 1355270241
-\begin_inset CommandInset include
-LatexCommand include
-filename "C0.6_Acknowledgment.lyx"
-
-\end_inset
-
-
-\change_inserted 5862369 1355265870
 
 \end_layout
 
@@ -234,13 +216,7 @@ pagenumbering{arabic}
 
 \begin_layout Plain Layout
 
-\change_deleted 5863457 1355275942
-
 %
-\change_inserted 5863457 1355276036
-%
-\change_unchanged
-
 \backslash
 pagestyle{fancy} 
 \end_layout
@@ -280,7 +256,7 @@ filename "C2_ConsensusProblem_onGraph.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "C3_AsymptoticDAC.lyx"
+filename "C2.3_AsymptoticDAC.lyx"
 
 \end_inset
 
@@ -300,6 +276,16 @@ filename "C2.5_Simple Finite-time_DCA.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
+filename "C2.6_ConsensusBasedSigProc.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
 filename "C2.2_Graph&MatrixTheory.lyx"
 
 \end_inset
@@ -310,7 +296,7 @@ filename "C2.2_Graph&MatrixTheory.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "C4_Finite-timeDCA_V2.lyx"
+filename "C3_Finite-timeDCA_V2.lyx"
 
 \end_inset
 
@@ -320,7 +306,7 @@ filename "C4_Finite-timeDCA_V2.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "C5_ConsensusBasedSignalProcessing.lyx"
+filename "C4_ConsensusBasedSignalProcessing.lyx"
 
 \end_inset
 
@@ -330,7 +316,7 @@ filename "C5_ConsensusBasedSignalProcessing.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "C6_CloudDetection_V2.lyx"
+filename "C5_CloudDetection_V2.lyx"
 
 \end_inset
 

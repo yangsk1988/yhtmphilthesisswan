@@ -257,11 +257,7 @@ where
 \begin_inset Formula $L$
 \end_inset
 
- and we assume they are ordered non-decreasingly so that, 
-\begin_inset Formula $0=\lambda_{1}\left(L\right)\leq\lambda_{2}\left(L\right)\leq\ldots\leq\lambda_{n}\left(L\right)$
-\end_inset
-
-.
+ .
  When refer to multiple matrix, we use 
 \begin_inset Formula $\lambda_{i}\left(A\right)$
 \end_inset
@@ -271,6 +267,17 @@ where
 \end_inset
 
 .
+ We assume these eigenvalues are ordered non-decreasingly so that, 
+\begin_inset Formula $0=\lambda_{1}\left(L\right)\leq\lambda_{2}\left(L\right)\leq\ldots\leq\lambda_{n}\left(L\right)$
+\end_inset
+
+.
+ The second smallest eigenvalue 
+\begin_inset Formula $\lambda_{2}\left(L\right)$
+\end_inset
+
+ is called algebraic connectivity of the graph.
+ 
 \end_layout
 
 \begin_layout Standard
