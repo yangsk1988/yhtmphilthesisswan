@@ -1398,7 +1398,7 @@ Due to the multiplication of the consensus finding filter, the set of filter
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-H=\{\mathbf{h}\in R^{d}|\forall d\geqslant m,\:\mathbf{h}^{\mathrm{T}}\mathbf{y}_{i}(k,d)=\bar{x}\}
+\{\mathbf{h}\in R^{d}|\forall d\geqslant m,\:\mathbf{h}^{\mathrm{T}}\mathbf{y}_{i}(k,d)=\bar{x}\}
 \end{equation}
 
 \end_inset

@@ -62,7 +62,7 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -74,7 +74,19 @@ theorems-ams-bytype
 \begin_body
 
 \begin_layout Chapter
-Finite-time Consensus on generalized conditions (todo check 1)
+Finite-time 
+\change_deleted 5863457 1355276196
+Consensus
+\change_inserted 5863457 1355276196
+DAC
+\change_unchanged
+ 
+\change_deleted 5863457 1355276199
+O
+\change_inserted 5863457 1355276199
+o
+\change_unchanged
+n Generalized Conditions 
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Finite-time-Consensus-on"
@@ -82,6 +94,10 @@ name "sub:Finite-time-Consensus-on"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+(todo check 1)
 \end_layout
 
 \begin_layout Standard
