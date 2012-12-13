@@ -1056,8 +1056,8 @@ eigenvalues of graph Laplacian matrix
  or degree of nodes.
  However, in the section 
 \begin_inset CommandInset ref
-LatexCommand formatted
-reference "sub:Find-the-Consensus"
+LatexCommand ref
+reference "sub:Finite-time-Consensus-on"
 
 \end_inset
 

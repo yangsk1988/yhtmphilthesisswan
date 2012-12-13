@@ -1699,14 +1699,6 @@ key "Cavalcante2010"
 \end_inset
 
 .
- Reader can find the definition of these parameters in 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sub:Find-the-Consensus"
-
-\end_inset
-
-.
  As a contribution of this thesis, a method to calculate these necessary
  parameters by inverting Toeplitz matrix is introduced in 
 \begin_inset CommandInset ref
