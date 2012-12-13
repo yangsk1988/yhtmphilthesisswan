@@ -186,7 +186,7 @@ begin{acknowledgements}
 
 \begin_layout Standard
 \paragraph_spacing double
-(todo)
+ 
 \end_layout
 
 \begin_layout Standard
@@ -250,7 +250,11 @@ I'd like to thank the following for the financial aid received in support
 
 \begin_layout Standard
 \paragraph_spacing double
-Thanks to my colleagues Frank Liu, Tommy Todo, Laurie Todo.
+Thanks to my colleagues Frank Liu, Tommy To, Laurie Hughes
+\change_inserted 5862369 1355421674
+, John Li
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -269,7 +273,13 @@ I wish to express my personal appreciation to Avri Cui for her excellent
 \begin_layout Standard
 \paragraph_spacing double
 At last, I would like to sincerely thank my parents, for their encouragement
- and understanding during all phases of this work.
+ and 
+\change_deleted 5862369 1355421688
+understanding
+\change_inserted 5862369 1355421690
+support
+\change_unchanged
+ during all phases of this work.
 \change_inserted 5862369 1355264119
 
 \end_layout
