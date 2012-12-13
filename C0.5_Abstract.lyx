@@ -235,10 +235,10 @@ s are applied to perform the hypothesis testing.
 \change_deleted 5862369 1355262497
 Distributed Consensus algorithm has application in data fusion in wireless
  sensor networks and coordination of multi-agent system.
- Some distributive signal processing based on consensus algorithm, such
+ Some distributed signal processing based on consensus algorithm, such
  as, local value linear prediction, information flooding and network eigenvalues
  estimation, were introduced in this thesis.
- Finally, a simulation of distributive cloud detection was given, in which
+ Finally, a simulation of distributed cloud detection was given, in which
  data acquired by sensor nodes is processed by distributed consensus algorithm.
  A modification to the conventional consensus algorithm is also applied
  to make it possible to find the global log likelihood ratio when signals

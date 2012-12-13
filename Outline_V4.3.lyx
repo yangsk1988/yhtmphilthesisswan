@@ -336,7 +336,7 @@ filename "C7_Conclusion_Future.lyx"
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "D:/Dropbox/Citation_DS/EigenValueEstimation,D:/Dropbox/Citation_DS/DistributedConsensus,D:/Dropbox/Citation_DS/Consensus_Finte-Time,D:/Dropbox/Citation_DS/Consensus&Filter,D:/Dropbox/Citation_DS/WirelessSensorNetwork,D:/Dropbox/Citation_DS/SmokeAnimation,D:/Dropbox/Citation_DS/Smoke_Gas_Detection,D:/Dropbox/Citation_DS/PlumeDetection,D:/Dropbox/Citation_DS/GaussianPlumeModel,D:/Dropbox/Citation_DS/DataFusion,D:/Dropbox/Citation_DS/CloudDetection,D:/Dropbox/Citation_DS/Lidar"
+bibfiles "D:/Dropbox/Citation_DS/EigenValueEstimation,D:/Dropbox/Citation_DS/DistributedConsensus,D:/Dropbox/Citation_DS/Consensus_Finte-Time,D:/Dropbox/Citation_DS/Consensus&Filter,D:/Dropbox/Citation_DS/WirelessSensorNetwork,D:/Dropbox/Citation_DS/SmokeAnimation,D:/Dropbox/Citation_DS/Smoke_Gas_Detection,D:/Dropbox/Citation_DS/PlumeDetection,D:/Dropbox/Citation_DS/GaussianPlumeModel,D:/Dropbox/Citation_DS/DataFusion,D:/Dropbox/Citation_DS/CloudDetection,D:/Dropbox/Citation_DS/Lidar,D:/Dropbox/Citation_DS/ConsensusApplication"
 options "IEEEtran"
 
 \end_inset

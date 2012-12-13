@@ -176,8 +176,7 @@ key "Chair1986"
 \change_inserted 5862369 1355343985
  
 \change_unchanged
-Therefore, we intend to carry out the hypothesis test in a distributive
- manner.
+Therefore, we intend to carry out the hypothesis test in a distributed manner.
  
 \change_inserted 5862369 1355344018
 
@@ -357,7 +356,7 @@ detections
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray}
-LLR(\mathbf{x}) & = & \log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)}{f\left(x_{1}|H_{0}\right)\cdot\ldots\cdot f\left(x_{L}|H_{0}\right)}=\sum_{i=1}^{L}LLR\left(x_{i}\right)\label{eq:Sum L-LLR}
+LLR(\mathbf{x}) & = & \log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)}{f\left(x_{1}|H_{0}\right)\cdot\ldots\cdot f\left(x_{L}|H_{0}\right)}=\sum_{i=1}^{L}LLR\left(x_{i}\right)\label{eq:Sum_L_LLR}
 \end{eqnarray}
 
 \end_inset
@@ -366,10 +365,10 @@ LLR(\mathbf{x}) & = & \log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left
 \end_layout
 
 \begin_layout Standard
-According to 
+According to Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Sum L-LLR"
+LatexCommand formatted
+reference "eq:Sum_L_LLR"
 
 \end_inset
 
@@ -449,7 +448,7 @@ Since
 , the G-LLR becomes 
 \begin_inset Formula 
 \begin{eqnarray}
-LLR(\mathbf{x}) & = & \left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{T}}\right)\mathbf{\Sigma}^{-1}\mathbf{x}+\frac{1}{2}\left(\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{0}-\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{1}\right)\label{eq:wight sum of detection}\\
+LLR(\mathbf{x}) & = & \left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{T}}\right)\mathbf{\Sigma}^{-1}\mathbf{x}+\frac{1}{2}\left(\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{0}-\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{1}\right)\label{eq:wighted_sum_LLR}\\
  & = & \sum_{l=1}^{L}w_{l}x_{l}+C\nonumber 
 \end{eqnarray}
 
@@ -496,10 +495,11 @@ where
 \uwave default
 \noun default
 \color inherit
- Equation 
+ Eq.
+ 
 \begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:wight sum of detection"
+LatexCommand formatted
+reference "eq:wighted_sum_LLR"
 
 \end_inset
 
@@ -564,7 +564,7 @@ This finish the distributed detection and decision making under the condition
 In the section of cloud detection 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Distributed-Cloud-Declaration"
+reference "sec:Distributed_Cloud_De"
 
 \end_inset
 
@@ -684,14 +684,7 @@ reference "eq:convege condition W"
 \end_inset
 
 .
- Recall the initial local value decomposition given in Eq.
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:initial vector decompose-1"
-
-\end_inset
-
-
+ Recall the initial local value decomposition given by
 \end_layout
 
 \begin_layout Standard
@@ -809,8 +802,8 @@ To show how this method can be carried out distributively, recall the FT-DAC
 \color none
 
 \begin_inset CommandInset ref
-LatexCommand eqref
-reference "sub:Find-the-Consensus"
+LatexCommand formatted
+reference "sub:Find_Consensus"
 
 \end_inset
 
@@ -820,7 +813,7 @@ reference "sub:Find-the-Consensus"
 \end_inset
 
  is defined by the history of 
-\begin_inset Formula $x_{i}(k),$
+\begin_inset Formula $x_{i}(k)$
 \end_inset
 
  
@@ -866,14 +859,14 @@ and the coefficients vector
  If we involve the eigenvectors and redefine the 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "eq:Vander matrix and consensus-d*m"
+reference "eq:Vander_beta"
 
 \end_inset
 
  by 
 \begin_inset Formula 
 \begin{equation}
-\mathbf{y}_{i}(k,d)=\mathbf{V}_{i}(k,d)diag\left(\left[\mathbf{e}_{1}^{T}\mathbf{u}_{i},\mathbf{e}_{2}^{T}\mathbf{u}_{i},\ldots,\mathbf{e}_{n}^{T}\mathbf{u}_{i}\right]\right)\mathbf{a}\label{eq:Vander*Eigen i^th*Alpha-1}
+\mathbf{y}_{i}(k,d)=\mathbf{V}_{i}(k,d)diag\left(\left[\mathbf{e}_{1}^{T}\mathbf{u}_{i},\mathbf{e}_{2}^{T}\mathbf{u}_{i},\ldots,\mathbf{e}_{n}^{T}\mathbf{u}_{i}\right]\right)\mathbf{a}\label{eq:Vander_Eigen_ith_Alpha}
 \end{equation}
 
 \end_inset

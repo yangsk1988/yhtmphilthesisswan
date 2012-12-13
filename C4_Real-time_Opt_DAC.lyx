@@ -460,7 +460,7 @@ The rest of this chapter is structured as follows.
  section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Distributive-Eigenvalue-Estimati"
+reference "sec:distributed-Eigenvalue-Estimati"
 
 \end_inset
 
@@ -504,7 +504,7 @@ reference "sub:Conclusion"
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Distributive-Eigenvalue-Estimati"
+name "sec:distributed-Eigenvalue-Estimati"
 
 \end_inset
 
@@ -743,7 +743,7 @@ where
 .
   Substitute   
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:x(k) decomposition-1"
 
 \end_inset
@@ -819,7 +819,7 @@ The sum of coefficients
 \begin_layout Proof
  Since  
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:x(k+D) vector predictor"
 
 \end_inset
@@ -856,7 +856,7 @@ If more local values are available, node
 
  could list a number of equations similar to 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:x(k+D) predictor"
 
 \end_inset
@@ -1422,7 +1422,7 @@ Since
 
  is consist by linear independent vectors, the above equation 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:Jordan decom.under assumption"
 
 \end_inset
@@ -1462,7 +1462,7 @@ As floating point number in double  format is  available on most computers,
 \begin_layout Standard
 The idea is to have more equations similar to  
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:x(k+D) predictor"
 
 \end_inset
@@ -1471,7 +1471,7 @@ reference "eq:x(k+D) predictor"
  solution.
  Thus, Toeplitz matrix in  
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:Toeplitz Eq."
 
 \end_inset
@@ -1484,7 +1484,7 @@ reference "eq:Toeplitz Eq."
 
  on the left of  
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:Toeplitz Eq."
 
 \end_inset
@@ -1734,7 +1734,7 @@ This section is to compare the algorithm complexity of the existing and
 \begin_layout Standard
 To solve the problem 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Opt. FO-DAC Problem"
 
 \end_inset
@@ -2031,7 +2031,7 @@ reference "alg:Distributed-FO-DAC-Optimization"
 , there is a significant time reduction by the proposed optimization if
  problem 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Opt. FO-DAC Problem"
 
 \end_inset
