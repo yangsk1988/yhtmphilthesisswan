@@ -306,7 +306,7 @@ filename "C3_Finite-timeDCA_V2.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "C4_ConsensusBasedSignalProcessing.lyx"
+filename "C4_Real-time_Opt_DAC.lyx"
 
 \end_inset
 

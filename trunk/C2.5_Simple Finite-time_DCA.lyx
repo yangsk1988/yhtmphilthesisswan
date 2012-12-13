@@ -133,13 +133,13 @@ key "Kokiopoulou2007"
 , we try to decompose the local value vector in a form which reveals an
  important property of its iteration.
  Therefore we propose a filtering technique to estimate the consensus value.
- (OK 3) 
+ 
 \end_layout
 
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Find_Consensus"
+name "sub:Find_Consensus_Value"
 
 \end_inset
 
@@ -1699,7 +1699,7 @@ reference "eq:Vander Eq."
 If we only need to calculate the consensus value, as explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Find_Consensus"
+reference "sub:Find_Consensus_Value"
 
 \end_inset
 

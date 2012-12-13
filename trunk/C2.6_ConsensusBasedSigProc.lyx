@@ -790,8 +790,7 @@ It is possible to exchange information between nodes in the network without
 \end_layout
 
 \begin_layout Standard
-To show how this method can be carried out distributively, recall the FT-DAC
- algorithm in section 
+To show how this method can be carried out distributively, l
 \family roman
 \series medium
 \shape up
@@ -800,15 +799,7 @@ To show how this method can be carried out distributively, recall the FT-DAC
 \bar no
 \noun off
 \color none
-
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sub:Find_Consensus"
-
-\end_inset
-
-.
- Let the sample vector 
+et the sample vector 
 \begin_inset Formula $\mathbf{y}_{i}(k,d)\in R^{d}$
 \end_inset
 

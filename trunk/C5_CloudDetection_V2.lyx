@@ -2553,8 +2553,9 @@ reference "sub:Received-Signal'-Model"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray}
-LLR(\mathbf{x}) & = & -\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{1}\right)^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\left(\mathbf{x}-\mathbf{u}_{1}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{0}\right)^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\left(\mathbf{x}-\mathbf{u}_{0}\right)+\frac{1}{2}log\left(\frac{\left|\Sigma_{0}\right|}{\left|\Sigma_{1}\right|}\right)\nonumber \\
- & = & \left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)\mathbf{x}+\frac{1}{2}\left[log\left|\Sigma_{0}\right|-log\left|\Sigma_{1}\right|\right]-\frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right]\label{eq:G-LLR Expand}\\
+LLR(\mathbf{x}) & = & -\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{1}\right)^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\left(\mathbf{x}-\mathbf{u}_{1}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{0}\right)^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\left(\mathbf{x}-\mathbf{u}_{0}\right)+\frac{1}{2}log\left(\frac{\left|\Sigma_{0}\right|}{\left|\Sigma_{1}\right|}\right)\\
+ & = & \left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)\mathbf{x}+\frac{1}{2}\left[log\left|\Sigma_{0}\right|-log\left|\Sigma_{1}\right|\right]-\nonumber \\
+ &  & \frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right]\label{eq:G-LLR Expand}\\
  & = & \sum_{l=1}^{L}w_{l}x_{l}+C-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right],\label{eq:G-LLR simple}
 \end{eqnarray}
 
@@ -2813,7 +2814,7 @@ DCA
 the Eq.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:G-LLR Expand"
+reference "eq:"
 
 \end_inset
 
@@ -3096,7 +3097,7 @@ The G-LLR
 \noun default
 \color inherit
 equal to 
-\begin_inset Formula $\bar{u}+\bar{v+C}$
+\begin_inset Formula $\bar{u}+\bar{v}+C$
 \end_inset
 
  multiply with the number of sensors in the network

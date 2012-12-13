@@ -74,6 +74,12 @@ theorems-ams-bytype
 \begin_body
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Finite-time-Consensus-on"
+
+\end_inset
+
 Finite-time 
 \change_deleted 5863457 1355276196
 Consensus
@@ -87,13 +93,6 @@ O
 o
 \change_unchanged
 n Generalized Conditions 
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Finite-time-Consensus-on"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -106,7 +105,7 @@ It is shown i
 n section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Find_Consensus"
+reference "sub:Find_Consensus_Value"
 
 \end_inset
 
@@ -163,7 +162,7 @@ Before introducing the algorithm, there are too important linear filter
  in section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Find_Consensus"
+reference "sub:Find_Consensus_Value"
 
 \end_inset
 
@@ -204,8 +203,8 @@ In observing the convergence curve of each node's local value sequence,
  converges.
  In section 
 \begin_inset CommandInset ref
-LatexCommand formatted
-reference "sub:Find_Consensus"
+LatexCommand ref
+reference "sub:Find_Consensus_Value"
 
 \end_inset
 
@@ -807,7 +806,7 @@ reference "thm:convergence condition"
  As shown in section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Find_Consensus"
+reference "sub:Find_Consensus_Value"
 
 \end_inset
 
