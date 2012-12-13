@@ -624,7 +624,7 @@ However, average consensus is more challenging problem than the maximum
 \end_inset
 
  has to be satisfied.
- In this paper, we will discuss the average consensus and especially its
+ In this chapter, we will discuss the average consensus and especially its
  optimization problem, which is solved distributively by discrete-time matrix
  iteration.
  Furthermore, the variance consensus problem can be solved by two instances
