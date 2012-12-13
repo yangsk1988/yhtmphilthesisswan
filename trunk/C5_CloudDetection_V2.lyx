@@ -1899,7 +1899,7 @@ For point and continuous source at origin, an integration form
  is taken to find the concentration distribution.
  The integration of Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:3D point Model"
 
 \end_inset
@@ -2276,7 +2276,7 @@ Relationship between 3D cloud concentration and Sensor's observation.
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Distributed-Cloud-Declaration"
+name "sec:Distributed_Cloud_De"
 
 \end_inset
 
@@ -2632,7 +2632,7 @@ where
 \begin_layout Standard
 Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:GLLR in weighted sum"
 
 \end_inset

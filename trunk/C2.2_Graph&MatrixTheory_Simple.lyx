@@ -506,7 +506,7 @@ reference "thm:Convergent <=> p(A)<1"
 \end_inset
 
  is not presented here, however it will be very useful in the proof of an
- convergence conditions theorem for distributive consensus algorithm, see
+ convergence conditions theorem for distributed consensus algorithm, see
  
 \begin_inset CommandInset ref
 LatexCommand formatted

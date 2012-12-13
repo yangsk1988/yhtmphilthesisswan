@@ -572,7 +572,7 @@ At each time-step
 
  is updated based on the same strategy, given by Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:1st iter. ni"
 
 \end_inset
@@ -674,7 +674,7 @@ Convergence Conditions
 \color none
 For the matrix iteration defined in Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:first order matrix"
 
 \end_inset
@@ -790,7 +790,7 @@ s
 \color inherit
 Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:convege condition W"
 
 \end_inset
@@ -850,7 +850,7 @@ key "Xiao2004"
 \color inherit
  Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Converge condition W 2"
 
 \end_inset
@@ -893,7 +893,7 @@ First Order DAC Weight Matrix
 \begin_layout Standard
 As we know the weight matrix must satisfy Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Converge condition W 2"
 
 \end_inset
@@ -1085,7 +1085,7 @@ In the network that adopts first order linear consensus algorithm, each
 \color inherit
  obtained by Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:1st iter. ni"
 
 \end_inset
@@ -1186,7 +1186,7 @@ local values
 \color none
 obtained by Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:1st iter. ni"
 
 \end_inset
@@ -1569,7 +1569,7 @@ In addition, if
 
  satisfies Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Converge condition W 2"
 
 \end_inset
@@ -1643,7 +1643,7 @@ Actually, the condition for all other eigenvalues less than one is not necessary
  Even though they are larger than one, we can still find consensus value
  by Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:Coef_1=X_bar"
 
 \end_inset
@@ -1779,7 +1779,7 @@ To obtain the consensus value
 \color none
 and solve Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:  Vander matrix and consensus-d*m"
 
 \end_inset
@@ -1986,7 +1986,7 @@ and
 
  Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:Find Consensus m order"
 
 \end_inset
@@ -2577,7 +2577,7 @@ For any random generated
 
  is updated by the iteration Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:first order matrix"
 
 \end_inset

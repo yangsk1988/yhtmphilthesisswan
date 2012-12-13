@@ -62,11 +62,12 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 5862369 "HT" 
 \end_header
 
 \begin_body
@@ -313,8 +314,8 @@ consensus value
 .
 \end_layout
 
-\begin_layout Subsection*
- Consensus problem on Graphs
+\begin_layout Subsection
+Consensus problem on Graphs
 \end_layout
 
 \begin_layout Standard
@@ -442,7 +443,7 @@ reference "eq:consensus protocol"
 \end_inset
 
 .
- If the network graph is not fully connected, it is said to be a distributive
+ If the network graph is not fully connected, it is said to be a distributed
  consensus protocol.
  
 \end_layout
@@ -469,7 +470,7 @@ Let
 \begin_inset Formula ${\cal X}$
 \end_inset
 
--consensus problem is a distributive method to calculate the consensus value
+-consensus problem is a distributed method to calculate the consensus value
  
 \begin_inset Formula ${\cal X}\left(\mathbf{x}\left(0\right)\right)$
 \end_inset
@@ -506,7 +507,7 @@ Consensus problems can be different by their consensus values.
 \begin_inset Formula $\overline{x}=\mbox{mean}\left(\mathbf{x}\right)=\frac{1}{n}\sum_{i=1}^{n}x_{i}\left(0\right)$
 \end_inset
 
- using a distributive system dynamics 
+ using a distributed system dynamics 
 \family roman
 \series medium
 \shape up
@@ -542,7 +543,7 @@ Consensus problems can be different by their consensus values.
 \end_layout
 
 \begin_layout Standard
-We are interested in the distributive solutions of the consensus problem
+We are interested in the distributed solutions of the consensus problem
  as the network only allows an node to communicate with its neighbors.
  We say the protocol 
 \begin_inset CommandInset ref
@@ -637,6 +638,957 @@ However, average consensus is more challenging problem than the maximum
  
 \end_layout
 
+\begin_layout Subsection
+Continuous-time vs.
+ Discrete-time Consensus
+\end_layout
+
+\begin_layout Standard
+In this section, we will show the difference between continuous-time and
+ discrete-time consensus 
+\end_layout
+
+\begin_layout Standard
+The dynamics of the consensus protocol is given by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\dot{x}_{i}\left(t\right)=u_{i}\left(t\right)\label{eq:continuous_time_consensus}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $u_{i}\left(t\right)$
+\end_inset
+
+ is a consensus protocol 
+\begin_inset Formula 
+\begin{equation}
+u_{i}\left(t\right)=\sum_{j\in{\cal N}_{i}}a_{ij}\left(x_{j}-x_{i}\right)\label{eq:1st Order Protocol}
+\end{equation}
+
+\end_inset
+
+that solves the average consensus problem 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula ${\cal X}\left(\mathbf{x}\right)=\mbox{mean}\left(\mathbf{x}\right)$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\end_layout
+
+\begin_layout Standard
+The continuous-time consensus requires the nodes in a network have dynamics
+ in a form of differential equations.
+ Continuous-time consensus involves analog signals that are easily interfered
+ by channel noise.
+ Consequently, the finally consensus value will be a random variable with
+ mean equals to the consensus value without noise and variance proportional
+ to the signal noise ratio.
+ It is shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kar2009"
+
+\end_inset
+
+, the variance is also proportional to time 
+\begin_inset Formula $t$
+\end_inset
+
+ hence it is increasing as the algorithm executing.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355435213
+(todo give a simulation with channel noise)
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+On the other hand, discrete-time consensus only involves the quantization
+ error during the algorithm execution as long as the data packages are correctly
+ received.
+ 
+\change_deleted 5862369 1355425060
+Nodes in the discrete-time consensus has dynamics in difference equation.
+ 
+\change_inserted 5862369 1355425062
+ 
+\change_unchanged
+Nowadays, sensor nodes with digital processing unit becomes more cheaper,
+ we can get more benefits from the advantages of discrete-time consensus
+ algorithms.
+ Consequently, discrete-time consensus algorithms are mainly discussed in
+ the following of this thesis.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Continuous-time Consensus
+\end_layout
+
+\begin_layout Standard
+The continuous-time consensus with system dynamics 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:continuous_time_consensus"
+
+\end_inset
+
+ is a linear differential equation 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{\dot{x}}\left(t\right)=-{\cal L}\mathbf{x}\left(t\right)\label{eq:system differential dynamics}
+\end{equation}
+
+\end_inset
+
+Solving the differential equation 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:system differential dynamics"
+
+\end_inset
+
+ will yield a continuous-time solution in an exponential matrices form 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}\left(t\right)=\exp\left(-{\cal L}t\right)\mathbf{x}\left(0\right)\label{eq:x(t) of CT-1st-DAC}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ is called the 
+\shape italic
+weighted graph Laplacian
+\shape default
+ associated with network graph 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+, which is defined by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+l_{ij}=\begin{cases}
+\sum_{k=1,k\neq i}^{n}a_{ik} & j=i\\
+-a_{ij} & j\neq i
+\end{cases}\label{eq:Graph Laplacian def.}
+\end{equation}
+
+\end_inset
+
+For a graph with 0-1 adjacency, the weighted graph Laplacian can be denoted
+ in another form, which is unweighted Laplacian matrix denoted by 
+\begin_inset Formula $L$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+l_{ij}=\begin{cases}
+\left|{\cal N}_{i}\right| & j=i\\
+-1 & j\in{\cal N}_{i}\\
+0 & \mbox{otherwise}
+\end{cases}\label{eq:Laplacian def.}
+\end{equation}
+
+\end_inset
+
+In some literature 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2009a"
+
+\end_inset
+
+, they use the second definition (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Laplacian def."
+
+\end_inset
+
+) of the Laplacian matrix to analyze the convergence rate of DAC algorithm.
+ It is a special case when weights 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ for all edges in 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ equal to one.
+ Therefore, to distinguish them, we denote the weighted graph Laplacian
+ matrix and the unweighted Laplacian matrix by 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ and 
+\begin_inset Formula $L$
+\end_inset
+
+ respectively.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+
+\change_inserted 5862369 1355424581
+Convergence Conditions for Continuous-time Consensus
+\change_deleted 5862369 1355424562
+Generalized from Perron-Frobenius theorem
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+There is 
+\change_deleted 5862369 1355425433
+an
+\change_inserted 5862369 1355425433
+some
+\change_unchanged
+ important theor
+\change_inserted 5862369 1355425436
+ies
+\change_deleted 5862369 1355425436
+y
+\change_unchanged
+ for continuous-time consensus 
+\change_inserted 5862369 1355425664
+convergence 
+\change_unchanged
+problem.
+ To provides the necessary and sufficient conditions of the graph Laplacian
+ matrix so that a convergent consensus algorithm could be carried out on
+ the network , some result is induced from Perron-Frobenius theorem and
+ Gerschgorin's theorem
+\change_inserted 5862369 1355425736
+ that
+\change_unchanged
+ gives the upper
+\change_deleted 5862369 1355425750
+ 
+\change_unchanged
+ and lower bound
+\change_inserted 5862369 1355425743
+ary
+\change_unchanged
+ of the spectral radius.
+ 
+\change_inserted 5862369 1355425700
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355425574
+
+\series bold
+Generalize from Gerschgorin's theorem
+\change_inserted 5862369 1355425471
+
+\end_layout
+
+\begin_layout Theorem
+
+\change_inserted 5862369 1355425471
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2004"
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:Bounds of eig(L)-1"
+
+\end_inset
+
+Let the graph has the Laplacian matrix 
+\begin_inset Formula ${\cal L},$
+\end_inset
+
+ denote the maximum node outdegree of the graph by 
+\begin_inset Formula 
+\begin{equation}
+d_{max}=\max_{1\leq i\leq n}\left(\sum_{j=1,j\neq i}^{n}l_{i,j}\right)
+\end{equation}
+
+\end_inset
+
+Then, all the eigenvalues of 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ are located in the following disk,
+\begin_inset Formula 
+\begin{equation}
+\left|z-d_{max}\right|\leq d_{max}
+\end{equation}
+
+\end_inset
+
+which is centered at 
+\begin_inset Formula $z=d_{max}+0j$
+\end_inset
+
+ on the complex plane.
+\end_layout
+
+\begin_layout Proof
+
+\change_inserted 5862369 1355425471
+Based on the Gerschgorin's theorem, all the eigenvalue of 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ are located in the union of the disks.
+\begin_inset Formula 
+\begin{equation}
+\left|z-l_{i,i}\right|\leq\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|,\ 1\leq i\leq n.\label{eq:disk Union of eig(L)-1}
+\end{equation}
+
+\end_inset
+
+Since 
+\begin_inset Formula ${\cal A}=\left[a_{i,j}\right]$
+\end_inset
+
+ is an non-negative matrix, by the definition of Laplacian matrix, 
+\begin_inset Formula $l_{i,j}\leq0$
+\end_inset
+
+ and 
+\begin_inset Formula $l_{i,i}=\sum_{k=1,k\neq i}^{n}a_{ik}\geq0.$
+\end_inset
+
+ Therefore, let 
+\begin_inset Formula $d_{i}=l_{i,i}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\begin{equation}
+d_{i}=\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|
+\end{equation}
+
+\end_inset
+
+ and the union of disks becomes
+\begin_inset Formula 
+\begin{equation}
+\bigcup_{1\leq i\leq n}\left\{ z\in\mathbb{C}:\left|z-d_{i}\right|\leq d_{i}\right\} 
+\end{equation}
+
+\end_inset
+
+On the other hand, all these disks are located inside the largest disk with
+ radius 
+\begin_inset Formula $d_{max}$
+\end_inset
+
+.
+ This result ends the proof of the theorem
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1355426240
+Based on the 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:Bounds of eig(L)-1"
+
+\end_inset
+
+, it is obvious all the nonzero eigenvalues of 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ have positive real parts.
+ This immediately lead to a convergence theorem of the continuous-time consensus
+ protocol 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:1st Order Protocol"
+
+\end_inset
+
+.
+ Since all the nonzero eigenvalue of 
+\begin_inset Formula $-{\cal L}$
+\end_inset
+
+ located in the disk 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left|z+d_{max}\right|\leq d_{max}$
+\end_inset
+
+, and the eigenspace associated with zero is one-dimensional, the eigenvector
+ associated with zero eigenvalue has the form 
+\begin_inset Formula $\alpha\mathbf{1}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $x_{i}=\alpha$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ This result will be very helpful as the negative real part can guarantee
+ that the system dynamic is stable and convergent
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+, see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Boundary-of-eigenvalues-1"
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1355426346
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+We will prove that the 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+solution given in exponential matrices form 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:x(t) of CT-1st-DAC"
+
+\end_inset
+
+ converge to a consensus value as 
+\begin_inset Formula $t\to\infty$
+\end_inset
+
+
+\change_unchanged
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\change_inserted 5862369 1355426352
+in the next.
+ 
+\change_deleted 5862369 1355426347
+after introduce the well-known Perron-Frobenius Theorem.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename Graph/location of laplacian eigenvalue.pdf
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Boundary-of-eigenvalues-1"
+
+\end_inset
+
+Boundary of eigenvalues of Laplacian matrix
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted 5862369 1355425548
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355425604
+
+\series bold
+Generalized from Perron-Frobenius theorem
+\change_inserted 5862369 1355426092
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1355426092
+Considering the system dynamic 
+\begin_inset Formula $x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)$
+\end_inset
+
+.
+ Because 
+\begin_inset Formula $\exp\left(-{\cal L}t\right)$
+\end_inset
+
+ is a non-negative matrix, the Perron-Frobenius theorem tell us that 
+\begin_inset Formula $\exp\left(-{\cal L}t\right)$
+\end_inset
+
+ has a positive real eigenvalue equals to one which is also the spectral
+ radius.
+ Together with the 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:Bounds of eig(L)-1"
+
+\end_inset
+
+ which implies that all the eigenvalues of 
+\begin_inset Formula $-{\cal L}$
+\end_inset
+
+ have negative real part, see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Boundary-of-eigenvalues-1"
+
+\end_inset
+
+, we immediately come to the following theorem.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Theorem
+Assume 
+\begin_inset Formula ${\cal G}=\left({\cal V},{\cal E},{\cal A}\right)$
+\end_inset
+
+ is strongly connected graph, and the associated graph Laplacian matrix
+ 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ is defined in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Graph Laplacian def."
+
+\end_inset
+
+, which has only one zero eigenvalue.
+ Let the 
+\begin_inset Formula $u_{r}$
+\end_inset
+
+ is the uniformed right eigenvector and 
+\begin_inset Formula $u_{l}$
+\end_inset
+
+ is the uniformed left eigenvector associated with the zero eigenvalue,
+ i.e.
+ 
+\begin_inset Formula $Lu_{r}=0$
+\end_inset
+
+, 
+\begin_inset Formula $u_{l}^{T}L=0$
+\end_inset
+
+, then we have 
+\begin_inset Formula $u_{l}^{T}u_{r}=1$
+\end_inset
+
+ and the system dynamic 
+\begin_inset Formula 
+\begin{equation}
+x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)
+\end{equation}
+
+\end_inset
+
+will have the stable state of the system dynamic given by
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{equation}
+x\left(t\right)=Kx\left(0\right)
+\end{equation}
+
+\end_inset
+
+ where K is a matrix in 
+\begin_inset Formula $R^{n}$
+\end_inset
+
+, and 
+\begin_inset Formula $K=\lim_{t\to\infty}\exp\left(-{\cal L}t\right)=u_{r}u_{l}^{T}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $A=-{\cal L}$
+\end_inset
+
+, and it has a Jordan form of 
+\begin_inset Formula $A=UJU^{-1}$
+\end_inset
+
+.
+ Then we can have 
+\begin_inset Formula $\exp\left(At\right)=U\exp\left(Jt\right)U^{-1}$
+\end_inset
+
+.
+ Because 
+\begin_inset Formula $A$
+\end_inset
+
+ has all its eigenvalue except a simple zero eigenvalue have negative real
+ part, thus, as 
+\begin_inset Formula $t\to\infty$
+\end_inset
+
+, all other Jordan block vanish, and 
+\begin_inset Formula $\exp\left(Jt\right)$
+\end_inset
+
+ converges to a matrix with only single nonzero entry, denoted by 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ Since matrix 
+\begin_inset Formula $U$
+\end_inset
+
+ contains a column which associated with the zero eigenvalue of 
+\begin_inset Formula $A$
+\end_inset
+
+ is 
+\begin_inset Formula $u_{r}$
+\end_inset
+
+, similarly, 
+\begin_inset Formula $U^{-1}$
+\end_inset
+
+ has a corresponding row equals to 
+\begin_inset Formula $u_{l}$
+\end_inset
+
+.
+ By simply calculating the equation 
+\begin_inset Formula $K=UQU^{-1}$
+\end_inset
+
+, we can show that 
+\begin_inset Formula $K=u_{r}u_{l}^{T}$
+\end_inset
+
+.
+ And the fact 
+\begin_inset Formula $U^{-1}U=I$
+\end_inset
+
+ shows that 
+\begin_inset Formula $u_{l}^{T}u_{r}=1$
+\end_inset
+
+ .
+ This ends the proof.
+ 
+\end_layout
+
+\begin_layout Standard
+For the average consensus problem, it is obvious that all the elements in
+ 
+\begin_inset Formula $K$
+\end_inset
+
+ must equal to 
+\begin_inset Formula $\frac{1}{n}$
+\end_inset
+
+.
+ This requires the graph Laplacian 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+ satisfies the conditions: 
+\begin_inset Formula ${\cal L}\mathbf{1}=0$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{1}^{T}{\cal L}=0$
+\end_inset
+
+, where 
+\begin_inset Formula $\mathbf{1}\in R^{n}$
+\end_inset
+
+ is an all unity vector.
+ And the 
+\begin_inset Formula $u_{r}$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{l}$
+\end_inset
+
+ will change into vectors with equivalent constant in all its components.
+ If they are uniformed, then 
+\begin_inset Formula $u_{r}=u_{l}=\frac{1}{\sqrt{n}}.$
+\end_inset
+
+ 
+\change_inserted 5862369 1355425940
+
+\end_layout
+
+\begin_layout Subsubsection
+Discrete-time Consensus
+\end_layout
+
+\begin_layout Standard
+The discrete-time consensus with the dynamics 
+\change_inserted 5862369 1355436496
+Eq.
+\change_unchanged
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:continuous_time_consensus"
+
+\end_inset
+
+ is 
+\begin_inset Formula 
+\begin{equation}
+x_{i}\left(k+1\right)=x_{i}\left(k\right)+u_{i}\left(k\right)\label{eq:discre-time consensus-1}
+\end{equation}
+
+\end_inset
+
+For network agents have discrete-time consensus protocol, their system dynamics
+ can be given in a matrix form
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}(k+1)=W\mathbf{x}(k)
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $W=\left[w_{ij}\right]=I-{\cal L}$
+\end_inset
+
+.
+ We say the iteration is convergent if there exists a vector denoted by
+ 
+\begin_inset Formula $\mathbf{x}^{*}$
+\end_inset
+
+, which satisfies.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}^{*}=W\mathbf{x}^{*}\label{eq:stable state iteration}
+\end{equation}
+
+\end_inset
+
+Moreover, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}(k+1)-\mathbf{x}^{*}=W\left[\mathbf{x}(k)-\mathbf{x}^{*}\right]\label{eq:error vector iter. 1st}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:stable state iteration"
+
+\end_inset
+
+ states that 
+\begin_inset Formula $\mathbf{x}^{*}$
+\end_inset
+
+ is a right eigenvector of matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ associated with a simple eigenvalue 1.
+ For 
+\change_deleted 5862369 1355426651
+more details about 
+\change_inserted 5862369 1355426656
+ convergence conditions and more details about 
+\change_deleted 5862369 1355426630
+the 
+\change_unchanged
+discrete-time first-order DAC algorithm, see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:DT-First-Order-DAC"
+
+\end_inset
+
+.
+ 
+\end_layout
+
 \begin_layout Section
 Categories of Distributed Consensus Average Algorithm
 \end_layout
@@ -664,7 +1616,7 @@ reference "fig:Categories-of-Discrete-time"
 
 \end_inset
 
- only shows the branch of discrete-time distributive consensus algorithm.
+ only shows the branch of discrete-time distributed consensus algorithm.
  Although continuous-time consensus algorithms have some similarities with
  discrete-time ones, their performance are quite different when Gaussian
  white noise exists).
@@ -815,288 +1767,7 @@ Categories of Discrete-time Consensus Algorithm
 \end_layout
 
 \begin_layout Subsection*
-Continuous-time vs.
- Discrete-time Consensus
-\end_layout
 
-\begin_layout Standard
-In this section, we illustrate consensus protocol 
-\begin_inset Formula 
-\begin{equation}
-u_{i}\left(t\right)=\sum_{j\in{\cal N}_{i}}a_{ij}\left(x_{j}-x_{i}\right)\label{eq:1st Order Protocol}
-\end{equation}
-
-\end_inset
-
-that solves the average consensus problem 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula ${\cal X}\left(\mathbf{x}\right)=\mbox{mean}\left(\mathbf{x}\right)$
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- and show the difference and similarity of continuous-time with the dynamics
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\dot{x}_{i}\left(t\right)=u_{i}\left(t\right)\label{eq:continuous-time consensus}
-\end{equation}
-
-\end_inset
-
-and discrete-time consensus with the dynamics 
-\begin_inset Formula 
-\begin{equation}
-x_{i}\left(k+1\right)=x_{i}\left(k\right)+u_{i}\left(k\right)\label{eq:discre-time consensus}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The continuous-time consensus requires the nodes in a network have dynamics
- in a form of differential equations while nodes in the discrete-time consensus
- has dynamics in difference equation.
- Continuous-time consensus involves analog signals that are easily interfered
- by channel noise.
- Consequently, the finally consensus value will be a random variable with
- mean equals to the consensus value without noise and variance proportional
- to the signal noise ratio.
- It is shown in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kar2009"
-
-\end_inset
-
-, the variance is also proportional to time 
-\begin_inset Formula $t$
-\end_inset
-
- hence it is increasing as the algorithm executing.
- 
-\end_layout
-
-\begin_layout Standard
-(todo give a simulation with channel noise)
-\end_layout
-
-\begin_layout Standard
-Without the channel noise, the system dynamics with the feedback in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:1st Order Protocol"
-
-\end_inset
-
- can evolve into a linear system with differential equation given by 
-\begin_inset Formula 
-\begin{equation}
-\mathbf{\dot{x}}\left(t\right)=-{\cal L}\mathbf{x}\left(t\right)\label{eq:system differential dynamics}
-\end{equation}
-
-\end_inset
-
-Solving the differential equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:system differential dynamics"
-
-\end_inset
-
- will yield a continuous-time solution in an exponential matrices form 
-\begin_inset Formula 
-\begin{equation}
-\mathbf{x}\left(t\right)=\exp\left(-{\cal L}t\right)\mathbf{x}\left(0\right)\label{eq:x(t) of CT-1st-DAC}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula ${\cal L}$
-\end_inset
-
- is called the weighted graph Laplacian associated with network graph 
-\begin_inset Formula ${\cal G}$
-\end_inset
-
-, which is defined by
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-l_{ij}=\begin{cases}
-\sum_{k=1,k\neq i}^{n}a_{ik} & j=i\\
--a_{ij} & j\neq i
-\end{cases}\label{eq:Graph Laplacian def.}
-\end{equation}
-
-\end_inset
-
-For a graph with 0-1 adjacency, the graph Laplacian can be denoted in another
- form, which is unweighted Laplacian matrix denoted by 
-\begin_inset Formula $L$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-l_{ij}=\begin{cases}
-\left|{\cal N}_{i}\right| & j=i\\
--1 & j\in{\cal N}_{i}\\
-0 & \mbox{otherwise}
-\end{cases}\label{eq:Laplacian def.}
-\end{equation}
-
-\end_inset
-
-In some literature for example 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xiong2009a"
-
-\end_inset
-
-, they use the second definition (
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:Laplacian def."
-
-\end_inset
-
-) of the Laplacian matrix to analyze the convergence rate of DAC algorithm.
- It is a special case when weights 
-\begin_inset Formula $a_{ij}$
-\end_inset
-
- for all edges in 
-\begin_inset Formula ${\cal E}$
-\end_inset
-
- equal to one.
- Therefore, to distinguish them, we denote the weighted graph Laplacian
- matrix and the unweighted Laplacian matrix by 
-\begin_inset Formula ${\cal L}$
-\end_inset
-
- and 
-\begin_inset Formula $L$
-\end_inset
-
- respectively.
- 
-\end_layout
-
-\begin_layout Standard
-On the other hand, discrete-time consensus only involves the quantization
- error during the algorithm execution as long as the data packages are correctly
- received.
- Nowadays, sensor nodes with digital processing unit becomes more cheaper,
- we can get more benefits from the advantages of discrete-time consensus
- algorithms.
- Consequently, discrete-time consensus algorithms are mainly discussed in
- the following of this thesis.
- 
-\end_layout
-
-\begin_layout Standard
-For network agents have discrete-time consensus protocol, their system dynamics
- can be given in a matrix form
-\begin_inset Formula 
-\begin{equation}
-\mathbf{x}(k+1)=W\mathbf{x}(k)
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $W=\left[w_{ij}\right]=I-{\cal L}$
-\end_inset
-
-.
- We say the iteration is convergent if there exists a vector denoted by
- 
-\begin_inset Formula $\mathbf{x}^{*}$
-\end_inset
-
-, which satisfies.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\mathbf{x}^{*}=W\mathbf{x}^{*}\label{eq:stable state iteration}
-\end{equation}
-
-\end_inset
-
-Moreover, 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\mathbf{x}(k+1)-\mathbf{x}^{*}=W\left[\mathbf{x}(k)-\mathbf{x}^{*}\right]\label{eq:error vector iter. 1st}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:stable state iteration"
-
-\end_inset
-
- states that 
-\begin_inset Formula $\mathbf{x}^{*}$
-\end_inset
-
- is a right eigenvector of matrix 
-\begin_inset Formula $W$
-\end_inset
-
- associated with a simple eigenvalue 1.
- For more details about the discrete-time first-order DAC algorithm, see
- 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sub:DT-First-Order-DAC"
-
-\end_inset
-
-.
- 
 \end_layout
 
 \end_body

@@ -88,10 +88,10 @@ Consensus Based Signal Processing and its Application in Cloud Detection
 \begin_layout Abstract
 Distributed Consensus algorithm (DCA) has application in data fusion in
  wireless sensor networks and coordination of multi-agent system.
- Some distributive signal processing based on consensus algorithm , such
+ Some distributed signal processing based on consensus algorithm , such
  as, local value linear prediction, information flooding and network eigenvalues
  estimation, were introduced in this thesis.
- Finally, a simulation of distributive cloud detection was given, in which
+ Finally, a simulation of distributed cloud detection was given, in which
  data acquired by sensor nodes is processed by distributed consensus algorithm.
  A modification to the conventional consensus algorithm is also applied
  to make it possible to find the global log likelihood ratio when signals
@@ -111,7 +111,7 @@ In a distributed system, processing information that originally and locally
  acquired by the nodes is often necessary.
  Centralized signal processing require a special node called fusion center.
  Sometimes fusion center has to be involved if the signal processing is
- complicate and it is not possible to find a distributive solution.
+ complicate and it is not possible to find a distributed solution.
  However, fusion center is the most important node in the network that responsib
 le for data gathering and data processing.
  Once the fusion center is destroyed or failed, the whole network breaks
@@ -439,7 +439,7 @@ Categories of Consensus Algorithm
 \end_layout
 
 \begin_layout Standard
-To introduce the distributive consensus algorithm, we may started from one
+To introduce the distributed consensus algorithm, we may started from one
  of the simplest algorithm in their family.
  
 \begin_inset CommandInset ref
@@ -448,7 +448,7 @@ reference "fig:Categories-of-Discrete-time"
 
 \end_inset
 
- only shows the branch of discrete-time distributive consensus algorithm,
+ only shows the branch of discrete-time distributed consensus algorithm,
  continuous-time consensus algorithm has some similarities with discrete-time
  ones.
  However, their performance is quite different when Gaussian white noise
@@ -844,7 +844,7 @@ reference "eq:consensus protocol"
 \end_inset
 
 .
- If the network graph is not fully connected, it is said to be a distributive
+ If the network graph is not fully connected, it is said to be a distributed
  consensus protocol.
  
 \end_layout
@@ -871,7 +871,7 @@ Let
 \begin_inset Formula ${\cal X}$
 \end_inset
 
--consensus problem is a distributive method to calculate the consensus value
+-consensus problem is a distributed method to calculate the consensus value
  
 \begin_inset Formula ${\cal X}\left(\mathbf{x}\left(0\right)\right)$
 \end_inset
@@ -932,7 +932,7 @@ Actually, there are different consensus problems too.
 \begin_inset Formula $\overline{x}=\mbox{mean}\left(\mathbf{x}\right)=\frac{1}{n}\sum_{i=1}^{n}x_{i}\left(0\right)$
 \end_inset
 
- using a distributive system dynamics 
+ using a distributed system dynamics 
 \family roman
 \series medium
 \shape up
@@ -969,7 +969,7 @@ Actually, there are different consensus problems too.
 \end_layout
 
 \begin_layout Standard
-We are interested in the distributive solutions of the consensus problem
+We are interested in the distributed solutions of the consensus problem
  as the network only allows an node to communicate with its neighbors.
  We say the protocol 
 \begin_inset CommandInset ref
@@ -1132,7 +1132,7 @@ key "Kar2009"
 \begin_layout Standard
 Without the channel noise, the system dynamics with the feedback in 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:1st Order Protocol"
 
 \end_inset
@@ -1147,7 +1147,7 @@ reference "eq:1st Order Protocol"
 
 Solving the differential equation 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:system differential dynamics"
 
 \end_inset
@@ -1754,7 +1754,7 @@ reference "thm:Convergent <=> p(A)<1"
 \end_inset
 
  is not presented here, however it will be very useful in the proof of an
- convergence conditions theorem for distributive consensus algorithm, see
+ convergence conditions theorem for distributed consensus algorithm, see
  
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -2757,7 +2757,7 @@ First Order Distributed Consensus Algorithm (FO-DCA) is an algorithm that
 
 , based on node’s previous values one time step before, given by Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:1st iter. ni"
 
 \end_inset
@@ -2894,7 +2894,7 @@ Convergence Conditions
 \color none
 For the matrix iteration defined in Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:first order matrix"
 
 \end_inset
@@ -2993,7 +2993,7 @@ s
 \color inherit
 Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:convege condition W"
 
 \end_inset
@@ -3022,7 +3022,7 @@ where vector
 \begin_layout Standard
 Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Converge condition W_Left"
 
 \end_inset
@@ -3044,7 +3044,7 @@ reference "eq: Converge condition W_Left"
  is equal to one.
  Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Converge condition W_right"
 
 \end_inset
@@ -3079,21 +3079,21 @@ reference "eq: Converge condition W_right"
 .
  Both 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Converge condition W_Left"
 
 \end_inset
 
  and 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Converge condition W_right"
 
 \end_inset
 
  together with the convergence condition 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:Converge cond. rhu<1"
 
 \end_inset
@@ -3401,7 +3401,7 @@ But it requires knowledge of network topology to solve the problem.
  However, some non-optimal convergent weight matrices that satisfy the condition
  in Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:convege condition W"
 
 \end_inset
@@ -3611,7 +3611,7 @@ eigenvalues of graph Laplacian matrix
  or degree of nodes.
  However, in the section 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "sub:Find-the-Consensus"
 
 \end_inset
@@ -3629,7 +3629,7 @@ reference "sub:Find-the-Consensus"
 .
  Thus, the weight matrix doesn't have too much requirements and can be more
  easily chosen.
- This would be very applicable because nodes in a distributive network usually
+ This would be very applicable because nodes in a distributed network usually
  doesn't have any knowledge of network topology.
  
 \end_layout
@@ -3943,7 +3943,7 @@ key "Xiong2010"
 \begin_layout Standard
 As shown in Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: High order spectral radius problem"
 
 \end_inset
@@ -4008,7 +4008,7 @@ Since each
 .
  Then, problem Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: High order spectral radius problem"
 
 \end_inset
@@ -5043,7 +5043,7 @@ In the network that adopts first order linear consensus algorithm, each
 \color inherit
  obtained by Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:1st iter. ni"
 
 \end_inset
@@ -5174,7 +5174,7 @@ local values
 \color none
 obtained by Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:1st iter. ni"
 
 \end_inset
@@ -5694,7 +5694,7 @@ To obtain the consensus value
 \color none
 and solve Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:Vander matrix and consensus-d*m"
 
 \end_inset
@@ -5828,7 +5828,7 @@ and
 
  Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:Find Consensus m order"
 
 \end_inset
@@ -6390,7 +6390,7 @@ where
 
  is exactly the inverse of the matrix 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:Vander Matrix"
 
 \end_inset
@@ -6804,7 +6804,7 @@ For any random generated
 
  is updated by the iteration Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:first order matrix"
 
 \end_inset
@@ -6866,7 +6866,7 @@ reference "sub:Find-the-Consensus"
  by a linear combination of past local values.
  However, having knowledge of the network topology in every node is a strong
  assumption.
- Although a distributive algorithm to calculate the linear combination has
+ Although a distributed algorithm to calculate the linear combination has
  also been introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -7521,7 +7521,7 @@ reference "eq:convege condition W"
 .
  Recall the initial local value decomposition given in Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:initial vector decompose"
 
 \end_inset
@@ -7644,7 +7644,7 @@ To show how this method can be carried out distributively, recall the FT-DCA
 \color none
 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "sub:Find-the-Consensus"
 
 \end_inset
@@ -7882,7 +7882,7 @@ The work of this section is as follows, first we analyze the properties
 \end_layout
 
 \begin_layout Standard
-Suppose we have a distributive network with the same system model described
+Suppose we have a distributed network with the same system model described
  in 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -8240,7 +8240,7 @@ key "Chair1986"
 \end_layout
 
 \begin_layout Standard
-The Second option is distributive signal processing.
+The Second option is distributed signal processing.
  In the consideration of reliability, survivability, and increase in range
  of coverage, there is an increasing interest in employing multiple sensors
  for these applications 
@@ -8251,7 +8251,7 @@ key "Chair1986"
 \end_inset
 
 .
- Then, global LLR should be calculated in a distributive manner.
+ Then, global LLR should be calculated in a distributed manner.
  In this section, we will consider a distributed detection problem in wireless
  sensor network without the fusion center.
  Then, there will be a introduction about consensus based approach in the
@@ -9902,7 +9902,7 @@ a point instantaneous source,
 \color none
  the solution to 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:3D diffusion Eq."
 
 \end_inset
@@ -9959,7 +9959,7 @@ For point and continuous source at origin, an integration form
  is taken to find the concentration distribution.
  The integration of Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:3D point Model"
 
 \end_inset

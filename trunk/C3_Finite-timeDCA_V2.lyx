@@ -62,7 +62,7 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -101,23 +101,27 @@ name "sub:Finite-time-Consensus-on"
 \end_layout
 
 \begin_layout Standard
-In the section 
+It is shown i
+\change_inserted 5862369 1355435274
+n section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Find-the-Consensus"
+reference "sub:Find_Consensus"
 
 \end_inset
 
-, it is shown that if each node knows the network topology (or eigenvalues
- of the weight matrix 
+ 
+\change_unchanged
+that finite-time DAC algorithm can calculate the consensus value by a linear
+ combination of local values in the past, if each node knows the network
+ topology (or eigenvalues of the weight matrix 
 \begin_inset Formula $W$
 \end_inset
 
-), the consensus value can be calculated by a linear combination of past
- local values.
+).
  However, having knowledge of the network topology in every node is a demanding
  assumption.
- Although a distributive algorithm to calculate the linear combination has
+ Although a distributed algorithm to calculate the linear combination has
  also been introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -159,7 +163,7 @@ Before introducing the algorithm, there are too important linear filter
  in section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Find-the-Consensus"
+reference "sub:Find_Consensus"
 
 \end_inset
 
@@ -200,8 +204,8 @@ In observing the convergence curve of each node's local value sequence,
  converges.
  In section 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Local-Value-Decomposition"
+LatexCommand formatted
+reference "sub:Find_Consensus"
 
 \end_inset
 
@@ -407,7 +411,7 @@ It is obvious when the iteration converges.
  Since Eq.
  
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:x(k+r) vector predictor"
 
 \end_inset
@@ -577,7 +581,7 @@ The size of the Toeplitz block
  so that the Eq.
  
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:Toeplitz Eq.-2"
 
 \end_inset
@@ -803,7 +807,7 @@ reference "thm:convergence condition"
  As shown in section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Find-the-Consensus"
+reference "sub:Find_Consensus"
 
 \end_inset
 
@@ -1292,7 +1296,7 @@ For any random generated
 
  is updated by the iteration Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:first order matrix"
 
 \end_inset

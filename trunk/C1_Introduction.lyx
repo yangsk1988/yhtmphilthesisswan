@@ -278,7 +278,7 @@ centralized
 \change_deleted 5862369 1354921447
   centrilized signal processing.
  Whichhas to be involved if the signal processing is too complicate so that
- it is not possible to find a distributive solution.
+ it is not possible to find a distributed solution.
  
 \change_unchanged
  
@@ -516,7 +516,7 @@ In different applications, DAC algorithms may also need a little modification.
 
 \begin_layout Standard
 
-\change_inserted 5862369 1354985876
+\change_inserted 5862369 1355435949
 In practice, DAC algorithms also face the challenges of link failure, time
  delay, dynamic network, asynchronous communication and other practical
  aspects.
@@ -533,7 +533,7 @@ key "Ren2007"
  Its optimization in a dynamic network still attract lots of interest 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Jakovetic?2010"
+key "Jakovetic2010"
 
 \end_inset
 
@@ -1018,7 +1018,7 @@ key "Yang2010"
 Moreover, we propose a generalized finite-time DAC algorithm, which does
  not require knowledge of network topology but will estimate the necessary
  parameters during the iteration.
- Compared to the distributive algorithm introduced in 
+ Compared to the distributed algorithm introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sundaram2007"

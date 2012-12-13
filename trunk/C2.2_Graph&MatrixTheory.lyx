@@ -62,11 +62,12 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 5862369 "HT" 
 \end_header
 
 \begin_body
@@ -661,7 +662,7 @@ reference "thm:Convergent <=> p(A)<1"
 \end_inset
 
  here as it will be very useful in the proof of an convergence conditions
- theorem for distributive consensus algorithm, see 
+ theorem for distributed consensus algorithm, see 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:DT-First-Order-DAC"
@@ -880,184 +881,14 @@ Just as we assume before, the adjacent matrix
  
 \end_layout
 
-\begin_layout Subsubsection
-Generalize from Gerschgorin's theorem
-\end_layout
-
-\begin_layout Theorem
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Olfati-Saber2004"
-
-\end_inset
-
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "thm:Bounds of eig(L)"
-
-\end_inset
-
-Let the graph has the Laplacian matrix 
-\begin_inset Formula ${\cal L},$
-\end_inset
-
- denote the maximum node outdegree of the graph by 
-\begin_inset Formula 
-\begin{equation}
-d_{max}=\max_{1\leq i\leq n}\left(\sum_{j=1,j\neq i}^{n}l_{i,j}\right)
-\end{equation}
-
-\end_inset
-
-Then, all the eigenvalues of 
-\begin_inset Formula ${\cal L}$
-\end_inset
-
- are located in the following disk,
-\begin_inset Formula 
-\begin{equation}
-\left|z-d_{max}\right|\leq d_{max}
-\end{equation}
-
-\end_inset
-
-which is centered at 
-\begin_inset Formula $z=d_{max}+0j$
-\end_inset
-
- on the complex plane.
-\end_layout
-
-\begin_layout Proof
-Based on the Gerschgorin's theorem, all the eigenvalue of 
-\begin_inset Formula ${\cal L}$
-\end_inset
-
- are located in the union of the disks.
-\begin_inset Formula 
-\begin{equation}
-\left|z-l_{i,i}\right|\leq\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|,\ 1\leq i\leq n.\label{eq:disk Union of eig(L)}
-\end{equation}
-
-\end_inset
-
-Since 
-\begin_inset Formula ${\cal A}=\left[a_{i,j}\right]$
-\end_inset
-
- is an non-negative matrix, by the definition of Laplacian matrix, 
-\begin_inset Formula $l_{i,j}\leq0$
-\end_inset
-
- and 
-\begin_inset Formula $l_{i,i}=\sum_{k=1,k\neq i}^{n}a_{ik}\geq0.$
-\end_inset
-
- Therefore, let 
-\begin_inset Formula $d_{i}=l_{i,i}$
-\end_inset
-
- and 
-\begin_inset Formula 
-\begin{equation}
-d_{i}=\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|
-\end{equation}
-
-\end_inset
-
- and the union of disks becomes
-\begin_inset Formula 
-\begin{equation}
-\bigcup_{1\leq i\leq n}\left\{ z\in\mathbb{C}:\left|z-d_{i}\right|\leq d_{i}\right\} 
-\end{equation}
-
-\end_inset
-
-On the other hand, all these disks are located inside the largest disk with
- radius 
-\begin_inset Formula $d_{max}$
-\end_inset
-
-.
- This result ends the proof of the theorem
-\end_layout
-
 \begin_layout Standard
-Based on the 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "thm:Bounds of eig(L)"
 
-\end_inset
+\change_deleted 5862369 1355426470
 
-, it is obvious all the nonzero eigenvalues of 
-\begin_inset Formula ${\cal L}$
-\end_inset
+\series bold
+Subtitle Generalize from Gerschgorin's theorem
+\change_inserted 5862369 1355425634
 
- have positive real parts.
- This immediately lead to a convergence theorem of the continuous-time consensus
- protocol 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:1st Order Protocol"
-
-\end_inset
-
-.
- The solution given in exponential matrices form 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:x(t) of CT-1st-DAC"
-
-\end_inset
-
- converge to a consensus value as 
-\begin_inset Formula $t\to\infty$
-\end_inset
-
-.
- Since all the nonzero eigenvalue of 
-\begin_inset Formula $-{\cal L}$
-\end_inset
-
- located in the disk 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $\left|z+d_{max}\right|\leq d_{max}$
-\end_inset
-
-, and the eigenspace associated with zero is one-dimensional.
- Consequently, the eigenvector associated with zero eigenvalue has the form
- 
-\begin_inset Formula $\alpha\mathbf{1}$
-\end_inset
-
-, i.e.
- 
-\begin_inset Formula $x_{i}=\alpha$
-\end_inset
-
- for all 
-\begin_inset Formula $i$
-\end_inset
-
-.
- This result will be very helpful as the negative real part can guarantee
- that the system dynamic is stable and convergent.
- We will show the proof after introduce the well-known Perron-Frobenius
- Theorem.
- 
 \end_layout
 
 \begin_layout Subsubsection
@@ -1268,299 +1099,16 @@ tion of
 
 .
  
-\end_layout
+\change_deleted 5862369 1355425133
 
-\begin_layout Subsubsection
-Generalized from Perron-Frobenius theorem
 \end_layout
 
 \begin_layout Standard
-The result induced from Perron-Frobenius theorem gives the upper bound and
- lower bound of the matrix.
- Considering the system dynamic 
-\begin_inset Formula $x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)$
-\end_inset
 
-.
- Because 
-\begin_inset Formula $\exp\left(-{\cal L}t\right)$
-\end_inset
+\change_deleted 5862369 1355426478
 
- is a non-negative matrix, the Perron-Frobenius theorem tell us that 
-\begin_inset Formula $\exp\left(-{\cal L}t\right)$
-\end_inset
-
- has a positive real eigenvalue equals to one which is also the spectral
- radius.
- Together with the 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "thm:Bounds of eig(L)"
-
-\end_inset
-
- which implies that all the eigenvalues of 
-\begin_inset Formula $-{\cal L}$
-\end_inset
-
- have negative real part, see figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Boundary-of-eigenvalues"
-
-\end_inset
-
-, we immediately come to the following theorem.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset space \hfill{}
-\end_inset
-
-
-\begin_inset Graphics
-	filename Graph/location of laplacian eigenvalue.pdf
-
-\end_inset
-
-
-\begin_inset space \hfill{}
-\end_inset
-
-
-\begin_inset space \hfill{}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Boundary-of-eigenvalues"
-
-\end_inset
-
-Boundary of eigenvalues of Laplacian matrix
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Theorem
-Assume 
-\begin_inset Formula ${\cal G}=\left({\cal V},{\cal E},{\cal A}\right)$
-\end_inset
-
- is strongly connected graph, and the associated graph Laplacian matrix
- 
-\begin_inset Formula ${\cal L}$
-\end_inset
-
- is defined in 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:Graph Laplacian def."
-
-\end_inset
-
-, which has only one zero eigenvalue.
- Let the 
-\begin_inset Formula $u_{r}$
-\end_inset
-
- is the uniformed right eigenvector and 
-\begin_inset Formula $u_{l}$
-\end_inset
-
- is the uniformed left eigenvector associated with the zero eigenvalue,
- i.e.
- 
-\begin_inset Formula $Lu_{r}=0$
-\end_inset
-
-, 
-\begin_inset Formula $u_{l}^{T}L=0$
-\end_inset
-
-, then we have 
-\begin_inset Formula $u_{l}^{T}u_{r}=1$
-\end_inset
-
- and the system dynamic 
-\begin_inset Formula 
-\begin{equation}
-x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)
-\end{equation}
-
-\end_inset
-
-will have the stable state of the system dynamic given by
-\end_layout
-
-\begin_layout Theorem
-\begin_inset Formula 
-\begin{equation}
-x\left(t\right)=Kx\left(0\right)
-\end{equation}
-
-\end_inset
-
- where K is a matrix in 
-\begin_inset Formula $R^{n}$
-\end_inset
-
-, and 
-\begin_inset Formula $K=\lim_{t\to\infty}\exp\left(-{\cal L}t\right)=u_{r}u_{l}^{T}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Proof
-Let 
-\begin_inset Formula $A=-{\cal L}$
-\end_inset
-
-, and it has a Jordan form of 
-\begin_inset Formula $A=UJU^{-1}$
-\end_inset
-
-.
- Then we can have 
-\begin_inset Formula $\exp\left(At\right)=U\exp\left(Jt\right)U^{-1}$
-\end_inset
-
-.
- Because 
-\begin_inset Formula $A$
-\end_inset
-
- has all its eigenvalue except a simple zero eigenvalue have negative real
- part, thus, as 
-\begin_inset Formula $t\to\infty$
-\end_inset
-
-, all other Jordan block vanish, and 
-\begin_inset Formula $\exp\left(Jt\right)$
-\end_inset
-
- converges to a matrix with only single nonzero entry, denoted by 
-\begin_inset Formula $Q$
-\end_inset
-
-.
- Since matrix 
-\begin_inset Formula $U$
-\end_inset
-
- contains a column which associated with the zero eigenvalue of 
-\begin_inset Formula $A$
-\end_inset
-
- is 
-\begin_inset Formula $u_{r}$
-\end_inset
-
-, similarly, 
-\begin_inset Formula $U^{-1}$
-\end_inset
-
- has a corresponding row equals to 
-\begin_inset Formula $u_{l}$
-\end_inset
-
-.
- By simply calculating the equation 
-\begin_inset Formula $K=UQU^{-1}$
-\end_inset
-
-, we can show that 
-\begin_inset Formula $K=u_{r}u_{l}^{T}$
-\end_inset
-
-.
- And the fact 
-\begin_inset Formula $U^{-1}U=I$
-\end_inset
-
- shows that 
-\begin_inset Formula $u_{l}^{T}u_{r}=1$
-\end_inset
-
- .
- This ends the proof.
- 
-\end_layout
-
-\begin_layout Standard
-This is an important theory for continuous-time consensus problem.
- It provides the necessary and sufficient conditions of the graph Laplacian
- matrix so that a convergent consensus algorithm could be carried out on
- the network.
- For the average consensus problem, it is obvious that all the elements
- in 
-\begin_inset Formula $K$
-\end_inset
-
- must equal to 
-\begin_inset Formula $\frac{1}{n}$
-\end_inset
-
-.
- This requires the graph Laplacian 
-\begin_inset Formula ${\cal L}$
-\end_inset
-
- satisfies the conditions: 
-\begin_inset Formula ${\cal L}\mathbf{1}=0$
-\end_inset
-
-, 
-\begin_inset Formula $\mathbf{1}^{T}{\cal L}=0$
-\end_inset
-
-, where 
-\begin_inset Formula $\mathbf{1}\in R^{n}$
-\end_inset
-
- is an all unity vector.
- And the 
-\begin_inset Formula $u_{r}$
-\end_inset
-
- and 
-\begin_inset Formula $u_{l}$
-\end_inset
-
- will change into vectors with equivalent constant in all its components.
- If they are uniformed, then 
-\begin_inset Formula $u_{r}=u_{l}=\frac{1}{\sqrt{n}}.$
-\end_inset
-
- 
+\series bold
+Subtitle Generalized from Perron-Frobenius theorem
 \end_layout
 
 \begin_layout Subsection

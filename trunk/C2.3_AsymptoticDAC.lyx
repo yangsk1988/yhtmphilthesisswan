@@ -130,8 +130,8 @@ Discrete First Order Distributed Consensus Algorithm
 \end_layout
 
 \begin_layout Standard
-First Order Distributed Consensus Algorithm (FO-DCA) is an algorithm that
- update the local value of node 
+First Order Distributed Consensus Algorithm (FO-DCA) update the local value
+ of node 
 \begin_inset Formula $i$
 \end_inset
 
@@ -139,14 +139,8 @@ First Order Distributed Consensus Algorithm (FO-DCA) is an algorithm that
 \begin_inset Formula $k$
 \end_inset
 
-, based on node’s previous values one time step before, given by Eq.
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:1st iter. ni"
-
-\end_inset
-
-
+ by a weighted sum of node’s local values one time step before, given by
+ 
 \end_layout
 
 \begin_layout Standard
@@ -276,9 +270,9 @@ Convergence Conditions
 \uwave off
 \noun off
 \color none
-For the matrix iteration defined in Eq.
+For the matrix iteration defined in 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:first order matrix"
 
 \end_inset
@@ -377,7 +371,7 @@ s
 \color inherit
 Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:convege condition W"
 
 \end_inset
@@ -406,7 +400,7 @@ where vector
 \begin_layout Standard
 Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Converge condition W_Left"
 
 \end_inset
@@ -428,7 +422,7 @@ reference "eq: Converge condition W_Left"
  is equal to one.
  Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Converge condition W_right"
 
 \end_inset
@@ -463,21 +457,21 @@ reference "eq: Converge condition W_right"
 .
  Both 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Converge condition W_Left"
 
 \end_inset
 
  and 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: Converge condition W_right"
 
 \end_inset
 
  together with the convergence condition 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:Converge cond. rhu<1"
 
 \end_inset
@@ -781,7 +775,7 @@ But it requires knowledge of network topology to solve the problem.
  However, some non-optimal convergent weight matrices that satisfy the condition
  in Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:convege condition W"
 
 \end_inset
@@ -871,7 +865,7 @@ dominant eigenvector
 \begin_layout Standard
 From Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq:def. const FO-DAC"
 
 \end_inset
@@ -1062,7 +1056,7 @@ eigenvalues of graph Laplacian matrix
  or degree of nodes.
  However, in the section 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "sub:Find-the-Consensus"
 
 \end_inset
@@ -1080,7 +1074,7 @@ reference "sub:Find-the-Consensus"
 .
  Thus, the weight matrix doesn't have too much requirements and can be more
  easily chosen.
- This would be very applicable because nodes in a distributive network usually
+ This would be very applicable because nodes in a distributed network usually
  doesn't have any knowledge of network topology.
  
 \end_layout
@@ -1394,7 +1388,7 @@ key "Xiong2010"
 \begin_layout Standard
 As shown in Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: High order spectral radius problem"
 
 \end_inset
@@ -1438,7 +1432,7 @@ where
  smallest eigenvalue of the Laplacian Matrix 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Xiong10"
+key "Xiong2010"
 
 \end_inset
 
@@ -1466,7 +1460,7 @@ Since each
 .
  Then, problem Eq.
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand formatted
 reference "eq: High order spectral radius problem"
 
 \end_inset
