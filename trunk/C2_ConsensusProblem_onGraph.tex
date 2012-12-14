@@ -1,28 +1,64 @@
 
-\section{\label{sec:Consensus-problem-on}Consensus problem on Graphs (todo)}
+\chapter{\label{sec:Consensus-problem-on}Background of DAC}
 
-Consider a network (connected graph) $\mathcal{G}=\left(\mathcal{V},\mathcal{E},{\cal A}\right)$
+
+\section{Prelimilary}
+
+Consider a connected graph $\mathcal{G}=\left(\mathcal{V},\mathcal{E},{\cal A}\right)$
 be a weighted digraph (or undirected graph) consisted by a set of
-nodes $\mathcal{V}=\left\{ 1,2,...,n\right\} $, a set of edges $\mathcal{E}\subseteq\mathcal{V}\times\mathcal{V}$
-and a weighted adjacency matrix ${\cal A}=\left[a_{ij}\right]$. The
-edge $\left(i,j\right)\in\mathfrak{\mathcal{E}}$ is an unordered
-pair of distinct nodes, associated with an element in the adjacency
-matrix ${\cal A}$, i.e. $\left(i,j\right)\in\mathfrak{\mathcal{E}}\Leftrightarrow a_{ij}$.
-we assume $a_{ij}=0$, if $j\notin{\cal N}_{i}$ (note that $a_{ii}=0$,
-as $i\notin{\cal N}_{i}$) for all $i\in\mathcal{V}$.. Moreover,
-the set of neighbors of node $i$ is denoted by $\mathcal{N}_{i}=\text{ }\left\{ j\in{\cal V}|\left(i,j\right)\in\mathcal{E}\right\} $,
-an node $i$ can only transmit information to other nodes that belong
-to the neighbors set. (OK1)
+nodes $\mathcal{V}=\left\{ v_{1},v_{2},...,v_{n}\right\} $, a set
+of edges $\mathcal{E}\subseteq\mathcal{V}\times\mathcal{V}$ and a
+\textit{weighted adjacency matrix} ${\cal A}=\left[a_{ij}\right]$.
+The edge $\left(v_{i},v_{j}\right)\in\mathfrak{\mathcal{E}}$ is a
+ordered pair of distinct nodes, associated with an element in the
+adjacency matrix ${\cal A}$, i.e. $\left(v_{i},v_{j}\right)\in\mathfrak{\mathcal{E}}\Leftrightarrow a_{ij}$.
+For $v_{i}$, its set of communication neighbors is denoted by $\mathcal{N}_{i}=\text{ }\left\{ v_{j}\in{\cal V}|\left(v_{i},v_{j}\right)\in\mathcal{E}\right\} $.
+And $\left|\mathcal{N}_{i}\right|$ denotes the number of neighbors
+of $v_{i}$. We assume $a_{ij}=0$, if $v_{j}\notin{\cal N}_{i}$
+(note that $a_{ii}=0$, as $v_{i}\notin{\cal N}_{i}$) for all $v_{i}\in\mathcal{V}$.
+Any node $v_{i}$ can only transmit information to other nodes that
+belong to the neighbors set. 
 
-Suppose each node holds an initial scalar value $x_{i}\left(0\right)\in R$,
+For each edge $e_{k}=\left(v_{i},v_{j}\right)\in{\cal E}$, we arbitrarily
+choose one end of $e_{k}$ to be positive and another to be negative.
+The\textit{ incidence matrix} $Q=Q\left({\cal G}\right)\in\mathbb{R}^{n\times\left|{\cal E}\right|}$
+is defined by 
+\[
+Q=\left(q_{ik}\right)=\begin{cases}
+1 & \mbox{if }v_{i}\mbox{ is the positive end of }e_{k}\\
+-1 & \mbox{if }v_{i}\mbox{ is the negative end of }e_{k}\\
+0 & \mbox{otherwise}
+\end{cases}
+\]
+The \textit{Laplacian matrix} of the graph ${\cal G}$ is defined
+by $L=L\left({\cal G}\right)=QQ^{\mathrm{T}}$. In fact $L$ is independent
+of the choice of positive ends of the edges. It is a symmetric, positive
+semidefinite, singular matrix \cite{Russell1994}.
+
+The \textit{Laplacian spectrum} of a graph \cite{Das2004} is denoted
+by 
+\[
+S\left(L\right)=\left\{ \lambda_{1}\left(L\right),\lambda_{2}\left(L\right),\ldots,\lambda_{n}\left(L\right)\right\} 
+\]
+where $\lambda_{i}\left(L\right)$ is the eigenvalue of $L$ . When
+refer to multiple matrix, we use $\lambda_{i}\left(A\right)$ to denote
+the eigenvalues of matrix $A$. We assume these eigenvalues are ordered
+non-decreasingly so that, $0=\lambda_{1}\left(L\right)\leq\lambda_{2}\left(L\right)\leq\ldots\leq\lambda_{n}\left(L\right)$.
+The second smallest eigenvalue $\lambda_{2}\left(L\right)$ is called
+algebraic connectivity of the graph. 
+
+Suppose each node holds an initial scalar local value $x_{i}\left(0\right)\in\mathbb{R}$,
 which can be a value that locally acquired by node representing physical
-quantities including temperature, humidity, illumination, attitude,
-and so on. We define the local value vector $\mathbf{x}\left(0\right)=\left[x_{1}\left(0\right),...,x_{n}\left(0\right)\right]^{T}\in R^{n}$
+quantities such as temperature, humidity, illumination, attitude,
+etc. We define the \textit{local value vector} $\mathbf{x}\left(0\right)=\left[x_{1}\left(0\right),...,x_{n}\left(0\right)\right]^{T}\in\mathbb{R}^{n}$
 to represent all the initial values on the network. The network is
 said to be reached a consensus if and only if $x_{i}=x_{j}$, for
-all nodes $i,j\in{\cal V},i\neq j$. In the other words, all the nodes
-of the network are in an agreement, the common value of all nodes
-is called the consensus value. (OK1)
+all nodes $v_{i},v_{j}\in{\cal V},i\neq j$. In the other words, all
+the nodes are in an agreement of a quantity, the common value of all
+nodes is called the \textit{consensus value}.
+
+
+\subsection{Consensus problem on Graphs}
 
 To describe the behavior of each node or agent, suppose each node
 has the following dynamics 
@@ -49,27 +85,27 @@ u_{i}=g\left(x_{j_{1}},x_{j_{2}},\ldots,x_{j_{m_{i}}}\right)\label{eq:consensus 
 where $j_{1},\ldots,j_{m_{i}}$ are the node indexes that belong to
 the set $\left\{ i\right\} \cup{\cal N}_{i}$. \prettyref{eq:consensus protocol}
 is called a consensus protocol under topology $G$. If the network
-graph is not fully connected, it is said to be a distributive consensus
+graph is not fully connected, it is said to be a distributed consensus
 protocol. 
 \begin{defn}
 Let ${\cal X}:R^{n}\to R$ be a function of $n$ variables of $x_{1},x_{2},\ldots,x_{n}$
 and let $\mathbf{x}\left(0\right)$ denotes the initial condition
-of the network. The ${\cal X}$-consensus problem is a distributive
+of the network. The ${\cal X}$-consensus problem is a distributed
 method to calculate the consensus value ${\cal X}\left(\mathbf{x}\left(0\right)\right)$
 in a graph $G$. 
 \end{defn}
-Actually, there are different consensus problems too. For instance,
-the average consensus ${\cal X}\left(\mathbf{x}\right)=\frac{1}{n}\sum_{i=1}^{n}x_{i}\left(0\right)$,
+Consensus problems can be different by their consensus values. For
+instance, we give the definition of the average consensus ${\cal X}\left(\mathbf{x}\right)=\frac{1}{n}\sum_{i=1}^{n}x_{i}\left(0\right)$,
 maximum consensus ${\cal X}\left(\mathbf{x}\right)=\max\left(\mathbf{x}\right)$,
 minimum consensus ${\cal X}\left(\mathbf{x}\right)=\min\left(\mathbf{x}\right)$
 and variance consensus ${\cal X}\left(\mathbf{x}\right)=\mbox{var}\left(\mathbf{x}\right)$
-are given by their expressions respectively. The average consensus
-is a special case of consensus problem, which computing the average
-of all initial values $\overline{x}=\mbox{mean}\left(\mathbf{x}\right)=\frac{1}{n}\sum_{i=1}^{n}x_{i}\left(0\right)$
-using a distributive system dynamics $\mathbf{\dot{x}}=F\left(\mathbf{x},\mathbf{u}\right)$
+by their expressions respectively. The average consensus is a special
+case of consensus problem, which computing the average of all initial
+values $\overline{x}=\mbox{mean}\left(\mathbf{x}\right)=\frac{1}{n}\sum_{i=1}^{n}x_{i}\left(0\right)$
+using a distributed system dynamics $\mathbf{\dot{x}}=F\left(\mathbf{x},\mathbf{u}\right)$
 in a network $G$.(OK1)
 
-We are interested in the distributive solutions of the consensus problem
+We are interested in the distributed solutions of the consensus problem
 as the network only allows an node to communicate with its neighbors.
 We say the protocol \prettyref{eq:consensus protocol} solves the
 consensus problem asymptotically if and only if there exists an asymptotically
@@ -78,38 +114,43 @@ stable state $x^{*}={\cal X}\left(\mathbf{x}\right)$ of system dynamics
 there exists a time index $t^{*}>0$, such that $\left|x_{i}(t)-x^{*}\right|<\delta$
 for all $t>t^{*}$ and $\forall i\in{\cal V}$.
 
-The average consensus problem is much challenge than the maximum consensus
-(or minimum consensus), since it relates a linear combination of all
-the initial states of network nodes and the condition $x_{i}^{*}={\cal X}\left(\mathbf{x}\right)$
-for all nodes $i$ has to be satisfied. Furthermore, the variance
-consensus problem can be solved by two instances of average consensus,
-because we have the relation $\mbox{var}\left(\mathbf{x}\right)=\mbox{mean}\left(\mathbf{x}\cdot\mathbf{x}\right)-\left[\mbox{mean}\left(\mathbf{x}\right)\right]^{2}$.
-Thus, in the following of this thesis we focus on the average consensus
-problem and the distributed average consensus (DAC) algorithms. (OK1)
+Maximum or minimum consensus is very similar to information flooding.
+Each node $v_{i}$ in the network just compare the local values held
+by itself and others in ${\cal N}_{i}$, then broadcast the maximal
+or minimal values. Therefore, maximum/minimum consensus can be finished
+in a number of step that equal to the diameter of the graph. For upper
+boundary of the diameter, see \cite{Russell1994}.
+
+However, average consensus is more challenging problem than the maximum
+(or minimum) consensus. Because, the average value is a linear combination
+of all the initial states of network nodes and the condition $x_{i}^{*}={\cal X}\left(\mathbf{x}\right)$
+for all $i$ has to be satisfied. In this chapter, we will discuss
+the average consensus and especially its optimization problem, which
+is solved distributively by discrete-time matrix iteration. Furthermore,
+the variance consensus problem can be solved by two instances of average
+consensus, because we have the relation $\mbox{var}\left(\mathbf{x}\right)=\mbox{mean}\left(\mathbf{x}\cdot\mathbf{x}\right)-\left[\mbox{mean}\left(\mathbf{x}\right)\right]^{2}$.
+Thus, in the following of this work we focus on the average consensus
+problem and the distributed average consensus (DAC) algorithms. 
 
 
 \subsection{Continuous-time vs. Discrete-time Consensus}
 
-In this section, we illustrate consensus protocol 
+In this section, we will show the difference between continuous-time
+and discrete-time consensus 
+
+The dynamics of the consensus protocol is given by 
+
+\begin{equation}
+\dot{x}_{i}\left(t\right)=u_{i}\left(t\right)\label{eq:continuous_time_consensus}
+\end{equation}
+where $u_{i}\left(t\right)$ is a consensus protocol 
 \begin{equation}
 u_{i}\left(t\right)=\sum_{j\in{\cal N}_{i}}a_{ij}\left(x_{j}-x_{i}\right)\label{eq:1st Order Protocol}
 \end{equation}
-that solves the average consensus problem ${\cal X}\left(\mathbf{x}\right)=\mbox{mean}\left(\mathbf{x}\right)$
-and show the difference and similarity of continuous-time with the
-dynamics 
-
-\begin{equation}
-\dot{x}_{i}\left(t\right)=u_{i}\left(t\right)\label{eq:continuous-time consensus}
-\end{equation}
-and discrete-time consensus with the dynamics 
-\begin{equation}
-x_{i}\left(k+1\right)=x_{i}\left(k\right)+u_{i}\left(k\right)\label{eq:discre-time consensus}
-\end{equation}
-
+that solves the average consensus problem ${\cal X}\left(\mathbf{x}\right)=\mbox{mean}\left(\mathbf{x}\right)$. 
 
 The continuous-time consensus requires the nodes in a network have
-dynamics in a form of differential equations while nodes in the discrete-time
-consensus has dynamics in difference equation. Continuous-time consensus
+dynamics in a form of differential equations. Continuous-time consensus
 involves analog signals that are easily interfered by channel noise.
 Consequently, the finally consensus value will be a random variable
 with mean equals to the consensus value without noise and variance
@@ -117,21 +158,31 @@ proportional to the signal noise ratio. It is shown in \cite{Kar2009},
 the variance is also proportional to time $t$ hence it is increasing
 as the algorithm executing. 
 
-(todo give a simulation with channel noise)
 
-Without the channel noise, the system dynamics with the feedback in
-\ref{eq:1st Order Protocol} can evolve into a linear system with
-differential equation given by 
+
+On the other hand, discrete-time consensus only involves the quantization
+error during the algorithm execution as long as the data packages
+are correctly received.  Nowadays, sensor nodes with digital processing
+unit becomes more cheaper, we can get more benefits from the advantages
+of discrete-time consensus algorithms. Consequently, discrete-time
+consensus algorithms are mainly discussed in the following of this
+thesis. 
+
+
+\subsubsection{Continuous-time Consensus}
+
+The continuous-time consensus with system dynamics \prettyref{eq:continuous_time_consensus}
+is a linear differential equation 
 \begin{equation}
 \mathbf{\dot{x}}\left(t\right)=-{\cal L}\mathbf{x}\left(t\right)\label{eq:system differential dynamics}
 \end{equation}
-Solving the differential equation \ref{eq:system differential dynamics}
+Solving the differential equation \prettyref{eq:system differential dynamics}
 will yield a continuous-time solution in an exponential matrices form
 \begin{equation}
 \mathbf{x}\left(t\right)=\exp\left(-{\cal L}t\right)\mathbf{x}\left(0\right)\label{eq:x(t) of CT-1st-DAC}
 \end{equation}
-where ${\cal L}$ is called the weighted graph Laplacian associated
-with network graph ${\cal G}$, which is defined by
+where ${\cal L}$ is called the \textit{weighted graph Laplacian}
+associated with network graph ${\cal G}$, which is defined by
 
 \begin{equation}
 l_{ij}=\begin{cases}
@@ -139,8 +190,9 @@ l_{ij}=\begin{cases}
 -a_{ij} & j\neq i
 \end{cases}\label{eq:Graph Laplacian def.}
 \end{equation}
-For a graph with 0-1 adjacency, the graph Laplacian can be denoted
-in another form, which is unweighted Laplacian matrix denoted by $\mathbf{L}$
+For a graph with 0-1 adjacency, the weighted graph Laplacian can be
+denoted in another form, which is unweighted Laplacian matrix denoted
+by $L$
 
 \begin{equation}
 l_{ij}=\begin{cases}
@@ -149,40 +201,205 @@ l_{ij}=\begin{cases}
 0 & \mbox{otherwise}
 \end{cases}\label{eq:Laplacian def.}
 \end{equation}
-In some literature for example \cite{Xiong2009a}, they use the second
-definition (\prettyref{eq:Laplacian def.}) of the Laplacian matrix
-to analyze the convergence rate of DAC algorithm. It is a special
-case when weights $a_{ij}$ for all edges in ${\cal E}$ equal to
-one. Therefore, to distinguish them, we denote the weighted graph
-Laplacian matrix and the unweighted Laplacian matrix by ${\cal L}$
-and $\mathbf{L}$ respectively. 
+In some literature \cite{Xiong2009a}, they use the second definition
+(\prettyref{eq:Laplacian def.}) of the Laplacian matrix to analyze
+the convergence rate of DAC algorithm. It is a special case when weights
+$a_{ij}$ for all edges in ${\cal E}$ equal to one. Therefore, to
+distinguish them, we denote the weighted graph Laplacian matrix and
+the unweighted Laplacian matrix by ${\cal L}$ and $L$ respectively. 
 
-On the other hand, discrete-time consensus only involves the quantization
-error during the algorithm execution as long as the data packages
-are correctly received. Nowadays, sensor nodes with digital processing
-unit becomes more cheaper, we can get more benefits from the advantages
-of discrete-time consensus algorithms. Consequently, discrete-time
-consensus algorithms are mainly discussed in the following of this
-thesis. 
 
+\paragraph*{Convergence Conditions for Continuous-time Consensus}
+
+There is some important theories for continuous-time consensus convergence
+problem. To provides the necessary and sufficient conditions of the
+graph Laplacian matrix so that a convergent consensus algorithm could
+be carried out on the network , some result is induced from Perron-Frobenius
+theorem and Gerschgorin's theorem that gives the upper and lower boundary
+of the spectral radius. 
+
+
+\begin{thm}
+\cite{Olfati-Saber2004} \label{thm:Bounds of eig(L)-1}Let the graph
+has the Laplacian matrix ${\cal L},$ denote the maximum node outdegree
+of the graph by 
+\begin{equation}
+d_{max}=\max_{1\leq i\leq n}\left(\sum_{j=1,j\neq i}^{n}l_{i,j}\right)
+\end{equation}
+Then, all the eigenvalues of ${\cal L}$ are located in the following
+disk,
+\begin{equation}
+\left|z-d_{max}\right|\leq d_{max}
+\end{equation}
+which is centered at $z=d_{max}+0j$ on the complex plane.\end{thm}
+\begin{proof}
+Based on the Gerschgorin's theorem, all the eigenvalue of ${\cal L}$
+are located in the union of the disks.
+\begin{equation}
+\left|z-l_{i,i}\right|\leq\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|,\ 1\leq i\leq n.\label{eq:disk Union of eig(L)-1}
+\end{equation}
+Since ${\cal A}=\left[a_{i,j}\right]$ is an non-negative matrix,
+by the definition of Laplacian matrix, $l_{i,j}\leq0$ and $l_{i,i}=\sum_{k=1,k\neq i}^{n}a_{ik}\geq0.$
+Therefore, let $d_{i}=l_{i,i}$ and 
+\begin{equation}
+d_{i}=\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|
+\end{equation}
+ and the union of disks becomes
+\begin{equation}
+\bigcup_{1\leq i\leq n}\left\{ z\in\mathbb{C}:\left|z-d_{i}\right|\leq d_{i}\right\} 
+\end{equation}
+On the other hand, all these disks are located inside the largest
+disk with radius $d_{max}$. This result ends the proof of the theorem
+\end{proof}
+Based on the \prettyref{thm:Bounds of eig(L)-1}, it is obvious all
+the nonzero eigenvalues of ${\cal L}$ have positive real parts. This
+immediately lead to a convergence theorem of the continuous-time consensus
+protocol \prettyref{eq:1st Order Protocol}. Since all the nonzero
+eigenvalue of $-{\cal L}$ located in the disk $\left|z+d_{max}\right|\leq d_{max}$,
+and the eigenspace associated with zero is one-dimensional, the eigenvector
+associated with zero eigenvalue has the form $\alpha\mathbf{1}$,
+i.e. $x_{i}=\alpha$ for all $i$. This result will be very helpful
+as the negative real part can guarantee that the system dynamic is
+stable and convergent, see figure \ref{fig:Boundary-of-eigenvalues-1}.
+
+We will prove that the solution given in exponential matrices form
+\prettyref{eq:x(t) of CT-1st-DAC} converge to a consensus value as
+$t\to\infty$ in the next. 
+
+\begin{figure}
+\hfill{}\includegraphics{\string"Graph/location of laplacian eigenvalue\string".pdf}\hfill{}\hfill{}
+
+\caption{\label{fig:Boundary-of-eigenvalues-1}Boundary of eigenvalues of Laplacian
+matrix}
+\end{figure}
+
+
+
+
+Considering the system dynamic $x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)$.
+Because $\exp\left(-{\cal L}t\right)$ is a non-negative matrix, the
+Perron-Frobenius theorem tell us that $\exp\left(-{\cal L}t\right)$
+has a positive real eigenvalue equals to one which is also the spectral
+radius. Together with the \prettyref{thm:Bounds of eig(L)-1} which
+implies that all the eigenvalues of $-{\cal L}$ have negative real
+part, see figure \ref{fig:Boundary-of-eigenvalues-1}, we immediately
+come to the following theorem.
+\begin{thm}
+Assume ${\cal G}=\left({\cal V},{\cal E},{\cal A}\right)$ is strongly
+connected graph, and the associated graph Laplacian matrix ${\cal L}$
+is defined in \prettyref{eq:Graph Laplacian def.}, which has only
+one zero eigenvalue. Let the $u_{r}$ is the uniformed right eigenvector
+and $u_{l}$ is the uniformed left eigenvector associated with the
+zero eigenvalue, i.e. $Lu_{r}=0$, $u_{l}^{T}L=0$, then we have $u_{l}^{T}u_{r}=1$
+and the system dynamic 
+\begin{equation}
+x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)
+\end{equation}
+will have the stable state of the system dynamic given by
+
+\begin{equation}
+x\left(t\right)=Kx\left(0\right)
+\end{equation}
+ where K is a matrix in $R^{n}$, and $K=\lim_{t\to\infty}\exp\left(-{\cal L}t\right)=u_{r}u_{l}^{T}$. \end{thm}
+\begin{proof}
+Let $A=-{\cal L}$, and it has a Jordan form of $A=UJU^{-1}$. Then
+we can have $\exp\left(At\right)=U\exp\left(Jt\right)U^{-1}$. Because
+$A$ has all its eigenvalue except a simple zero eigenvalue have negative
+real part, thus, as $t\to\infty$, all other Jordan block vanish,
+and $\exp\left(Jt\right)$ converges to a matrix with only single
+nonzero entry, denoted by $Q$. Since matrix $U$ contains a column
+which associated with the zero eigenvalue of $A$ is $u_{r}$, similarly,
+$U^{-1}$ has a corresponding row equals to $u_{l}$. By simply calculating
+the equation $K=UQU^{-1}$, we can show that $K=u_{r}u_{l}^{T}$.
+And the fact $U^{-1}U=I$ shows that $u_{l}^{T}u_{r}=1$ . This ends
+the proof. 
+\end{proof}
+For the average consensus problem, it is obvious that all the elements
+in $K$ must equal to $\frac{1}{n}$. This requires the graph Laplacian
+${\cal L}$ satisfies the conditions: ${\cal L}\mathbf{1}=0$, $\mathbf{1}^{T}{\cal L}=0$,
+where $\mathbf{1}\in R^{n}$ is an all unity vector. And the $u_{r}$
+and $u_{l}$ will change into vectors with equivalent constant in
+all its components. If they are uniformed, then $u_{r}=u_{l}=\frac{1}{\sqrt{n}}.$ 
+
+
+\subsubsection{Discrete-time Consensus}
+
+The discrete-time consensus with the dynamics Eq.\prettyref{eq:continuous_time_consensus}
+is 
+\begin{equation}
+x_{i}\left(k+1\right)=x_{i}\left(k\right)+u_{i}\left(k\right)\label{eq:discre-time consensus-1}
+\end{equation}
 For network agents have discrete-time consensus protocol, their system
 dynamics can be given in a matrix form
 \begin{equation}
-\mathbf{x}(k+1)=\mathbf{W}\mathbf{x}(k)
+\mathbf{x}(k+1)=W\mathbf{x}(k)
 \end{equation}
-where $\mathbf{W}=\left[w_{ij}\right]=I-{\cal L}$. We say the iteration
-is convergent if there exists a vector denoted by $\mathbf{x}^{*}$,
+where $W=\left[w_{ij}\right]=I-{\cal L}$. We say the iteration is
+convergent if there exists a vector denoted by $\mathbf{x}^{*}$,
 which satisfies.
 
 \begin{equation}
-\mathbf{x}^{*}=\mathbf{W}\mathbf{x}^{*}\label{eq:stable state iteration}
+\mathbf{x}^{*}=W\mathbf{x}^{*}\label{eq:stable state iteration}
 \end{equation}
 Moreover, 
 
 \begin{equation}
-\mathbf{x}(k+1)-\mathbf{x}^{*}=\mathbf{W}\left[\mathbf{x}(k)-\mathbf{x}^{*}\right]\label{eq:error vector iter. 1st}
+\mathbf{x}(k+1)-\mathbf{x}^{*}=W\left[\mathbf{x}(k)-\mathbf{x}^{*}\right]\label{eq:error vector iter. 1st}
 \end{equation}
 \prettyref{eq:stable state iteration} states that $\mathbf{x}^{*}$
-is a right eigenvector of matrix $\mathbf{W}$ associated to a simple
-eigenvalue 1. For more details about the discrete-time first-order
-DAC algorithm, see \prettyref{sub:DT-First-Order-DAC}. 
+is a right eigenvector of matrix $W$ associated with a simple eigenvalue
+1. For  convergence conditions and more details about discrete-time
+first-order DAC algorithm, see \prettyref{sub:DT-First-Order-DAC}. 
+
+
+\section{Categories of Distributed Consensus Average Algorithm}
+
+Distributed average consensus (DAC) algorithms is one of the most
+widely used consensus algorithm.
+
+To introduce the DAC algorithm, we may started from one of the simplest
+one in their family. As shown in \prettyref{sub:DT-First-Order-DAC}.
+(\prettyref{fig:Categories-of-Discrete-time} only shows the branch
+of discrete-time distributed consensus algorithm. Although continuous-time
+consensus algorithms have some similarities with discrete-time ones,
+their performance are quite different when Gaussian white noise exists).
+The first order DAC algorithm is the simplest algorithm that can solve
+the consensus problem in a number of iteration. It's convergence rate
+is related to the spectral radius of a graph dependent matrix. So
+the optimization problem is to find the optimal matrix with minimum
+spectral radius. However, global information of the graph matrix must
+be available. In distributed methods, this is a quite strong condition.
+Without the global information, best constant and metropolitan matrix
+can be the sub-optimal solution to the consensus problem \cite{Xiao2004}.
+The first order DAC algorithm is one of the asymptotic algorithms
+together with higher-order DAC algorithm. The demand of higher-order
+algorithm is mainly because the requirement for a fast convergence
+rate is always a matter of issue. In \prettyref{sub:Discrete-High-Order},
+we introduced higher-order DAC algorithm, which could have faster
+convergence rate, and no additional requirement and communication
+cost is required compared with first-order DAC \cite{Xiong2010}.
+Therefore, it is shortly applied into practical consensus problem
+after invented. (OK first half 0.5)
+
+Some of the novel methods can solve the average consensus problem
+in finite number of iterations. These methods are referred to as finite-time
+consensus algorithm \cite{Sundaram2007}. It actually a very sophisticated
+signal processing technique that find the asymptotically stable equilibrium
+$\bar{x}$ by extrapolation, see \prettyref{sec:Finite-Time-Distributed-Consensu}.
+A derivative of finite-time consensus algorithm is the adaptive filter
+algorithm for average consensus . It applies an adaptive filter algorithm
+to asymptotically converge the set of parameters which are required
+in the computation of consensus value \cite{Cavalcante2010}. As a
+contribution of this thesis, a method to calculate these necessary
+parameters by inverting Toeplitz matrix is introduced in \prettyref{sub:Finite-time-Consensus-on}. 
+
+\begin{figure}
+\hfill{}\includegraphics[width=13.5cm]{\string"Graph/Categories of DAC_Nor\string".pdf}\hfill{}
+
+\caption{\label{fig:Categories-of-Discrete-time}Categories of Discrete-time
+Consensus Algorithm}
+\end{figure}
+
+
+
+\subsection*{}

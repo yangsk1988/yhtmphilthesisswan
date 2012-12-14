@@ -1,303 +1,231 @@
 
-\section{\label{sec:Finite-Time-Distributed-Consensu}Finite-Time Distributed
-Consensus Algorithm}
+\chapter{\label{sub:Finite-time-Consensus-on}Finite-time DAC on Generalized
+Conditions }
 
-Finite-Time Distributed Consensus Algorithm (FT-DCA) tries to find
-the consensus value after each node run the FO-DCA algorithm iteratively
-for a certain number of time. This is based on the assumption that
-after a certain number of iterations, local values would contain sufficient
-information to estimate the consensus value. (OK2.5)
-\begin{defn}
-Given the network $\mathcal{G}$, and initial local value vector $\mathbf{x}\left(0\right)$,
-it is said the algorithm achieves a finite-time consensus if it solve
-a consensus problem, and there exist a time $t^{*}$ and the consensus
-value $\bar{x}$ such that $x_{i}\left(t\right)=\bar{x}$, for all
-time $t>t^{*}$. 
-\end{defn}
-Motivated by the works in \cite{Kokiopoulou2007}, we try to decompose
-the local value vector in a form which reveals an important property
-of its iteration. Therefore we propose a filtering technique to estimate
-the consensus value. (OK 3) 
+(todo check 1)
 
-In the network that adopts first order linear consensus algorithm,
-each node has a number of consecutive local values obtained by Eq.\eqref{eq:1st iter. ni}.
-There exists a linear filter. If each node passes its consecutive
-local values through this filter, the output after a certain time
-is the global average of the initial values over the network. Compared
-to first order DCA algorithm, no more information exchanged between
-nodes is needed. Such a filter is defined as the consensus finding
-filter. (OK 2.5) 
-\begin{defn}
-\label{Def.A-consensus-finding}A consensus finding filter is a linear
-filter defined by $\mathbf{h}\in R^{d}$, such that by passing through
-local values $x_{i}(k)$ obtained by Eq.\eqref{eq:1st iter. ni},
-the output $\hat{x}_{i}(k)=\mathbf{h}(k)*x_{i}(k)$ is the consensus
-value $\overline{x}=\frac{1}{n}\sum_{i=1}^{n}x_{i}(0)$ of the network
-after $k$ step $\left(k\geqslant m\right)$, where $m$ is the number
-of distinct and nonzero eigenvalues of the weight matrix $\mathbf{W}$.
-And $\mathbf{W}$ satisfies the convergence condition \ref{eq:convege condition W}.
-\end{defn}
+It is shown in section \ref{sub:Find_Consensus_Value} that finite-time
+DAC algorithm can calculate the consensus value by a linear combination
+of local values in the past, if each node knows the network topology
+(or eigenvalues of the weight matrix $W$). However, having knowledge
+of the network topology in every node is a demanding assumption. Although
+a distributed algorithm to calculate the linear combination has also
+been introduced in \cite{Sundaram2007}, it requires several runs
+of the consensus algorithm initialized with a set of linear independent
+vectors. Alternatively, the original consensus algorithm can run many
+instances in parallel with a set of independent initial values. However,
+the data transmission at each iteration increases. Futhermore, this
+method may not reliable to topology changes during the of multiple
+re-initializations of original consensus algorithm. 
 
-\subsection{\label{sub:Local-Value-Decomposition}Local Value Decomposition (OK
-3)}
+Here we propose a generalized finite-time DAC algorithm, which does
+not require knowledge of network topology and re-initialization of
+the original consensus algorithm for several times. In the future
+research, the finite-time DAC algorithm probably will be generalized
+to non-symmetrical network. Before introducing the algorithm, there
+are too important linear filter need to be introduced, as the algorithm
+is based on the properties of these filters. The first is the FIR
+filter to estimate the consensus value which introduced in section
+\ref{sub:Find_Consensus_Value}. The second is introduced in the next
+section \ref{sec:Linear-Predictor-For}.
 
-Suppose an undirected network with $n$ nodes, where duplex communication
-is possible in each link. Therefore, the associated weight matrix
-$\mathbf{W}\in\mathbf{R}^{n\times n}$ is symmetric and diagonalizable.
-And there are $n$ linear independent eigenvectors of the weight matrix.
-Thus, any initial value vector can be written in a linear combination
-of these eigenvectors, 
 
-\begin{equation}
-\mathbf{x}\left(0\right)=\alpha_{1}\mathbf{e}_{1}+\alpha_{2}\mathbf{e}_{2}+\ldots+\alpha_{n}\mathbf{e}_{n}
-\end{equation}
-where $\alpha_{i}(i=1,2,\ldots,n)$ is the coefficient. For $k=1,2,3,...$
-we have
+\section{\label{sec:Linear-Predictor-For}Linear Predictor For Local Value
+(todo check times 1)}
+
+In observing the convergence curve of each node's local value sequence,
+we would come to the idea that the sequence must obeys some rule as
+it converges. In section \ref{sub:Find_Consensus_Value}, it is shown
+that local value vector can be decomposed in terms of eigenvalues
+and eigenvectors. Based on this fact, a consensus value estimation
+method by inverting the Vandermonde matrix  are proposed.
+
+However, another important property of the FO-DCA need to be highlighted
+in this section. To show this , we have the following theorem.
+\begin{thm}
+\label{thm:LV predictor a_i} For the DAC iteration $\mathbf{x}(k+1)=W\mathbf{x}(k)$
+with $W$ satisfying the convergence condition in theorem \ref{thm:convergence condition}
+, for any $k\geq m$ , where $m$ is a certain number, local value
+\textup{$x_{i}\left(k\right)$} at node $v_{i}$ is equal to a linear
+combination of local values of itself in $m$ previous time steps,
+i.e. $x_{i}\left(k\right)=-a_{m-1}x_{i}\left(k-1\right)-\ldots-a_{1}x_{i}\left(k-m+1\right)-a_{0}x_{i}\left(k-m\right)$. \end{thm}
+\begin{proof}
+the minimal polynomial of $W$ is given by
 
 \begin{eqnarray}
-\mathbf{x}\left(k\right) & = & \mathbf{W}^{k}\left[\alpha_{1}\mathbf{e}_{1}+\alpha_{2}\mathbf{e}_{2}+\ldots+\alpha_{n}\mathbf{e}_{n}\right]\nonumber \\
- & = & \alpha_{1}\lambda_{1}^{k}\mathbf{e}_{1}+\alpha_{2}\lambda_{2}^{k}\mathbf{e}_{2}+\ldots+\alpha_{n}\lambda_{n}^{k}\mathbf{e}_{n}\label{eq:x(k) decomposition}\\
- & = & \sum_{i=1}^{n}\alpha_{i}\lambda_{i}^{k}\mathbf{e}_{i}\nonumber 
+p(\lambda) & = & \prod_{i=1}^{r}\left(\lambda-\lambda_{i}\right)^{r_{i}}=0\nonumber \\
+ & = & \lambda^{m}+a_{m-1}\lambda^{m-1}+\ldots+a_{1}\lambda+a_{0}\label{eq:polynomial of matrix W}
 \end{eqnarray}
-where $\lambda_{i}$ is the eigenvalue of $\mathbf{W}$. 
-
-By rewriting $\mathbf{x}\left(k\right)$, it is clear that if all
-eigenvalues of the weight matrix are known, the node values vector
-is predictable and the consensus value can be found. For any node
-$i=1,2,\ldots n$, its local value at time $k$ can be written as
+where $m=\sum_{i=1}^{r}r_{i}$. Since $p\left(W\right)=\mathbf{0}_{n\times n}$,
+we have, 
+\[
+W^{m}+a_{m-1}W^{m-1}+\ldots+a_{1}W+a_{0}I=\mathbf{0}_{n\times n}
+\]
+multiplying both sides with $\mathbf{x}\left(0\right)$ we obtain
 \begin{equation}
-x_{i}\left(k\right)=\alpha_{1}\lambda_{1}^{k}e_{i1}+\alpha_{2}\lambda_{2}^{k}e_{i2}+\ldots+\alpha_{n}\lambda_{n}^{k}e_{in}
+\mathbf{x}\left(k\right)+a_{m-1}\mathbf{x}\left(k-1\right)+\ldots+a_{0}\mathbf{x}\left(k-m\right)=\mathbf{0}_{n\times n}\label{eq:x(k+r) vector predictor}
 \end{equation}
-where $e_{ij}$ is the $i^{th}$ component of eigenvector $\mathbf{e}_{j}$.
-Because of algebraic multiplicity of some eigenvalues, the equation
-can be modified by combining the terms with the same eigenvalues.
-Zero eigenvalues are ignored as they have no contribution in this
-equation. Suppose $\mathbf{W}$ has $m$ distinct and nonzero eigenvalues,
-denoted by $\lambda_{1},\lambda_{2},\ldots,\lambda_{m}$, then $x_{i}\left(k\right)$
-evolves into 
+For any node $v_{i}\in{\cal V}$, its local value at time $k$ is
+just the $i^{th}$ component of $\mathbf{x}\left(k\right)$. After
+a little evolution, we have
+
 \begin{equation}
-x_{i}\left(k\right)=\beta_{i1}\lambda_{1}^{k}+\beta_{i2}\lambda_{2}^{k}+\ldots+\beta_{im}\lambda_{m}^{k}
+x_{i}\left(k\right)=-a_{m-1}x_{i}\left(k-1\right)-\ldots-a_{0}x_{i}\left(k-m\right)\label{eq:x(k+r) predictor}
 \end{equation}
-where $\beta_{ij}$ is the coefficient after combination. 
+In other words, $x_{i}\left(k\right)$ can be predicted by a FIR filter
+given by $\left[-a_{r},-a_{r-1},\ldots,-a_{0}\right]$, if we pass
+a number of consecutive local values in the past through that filter,
+after the time index $k>m$. In addition, all the nodes in the network
+can share the same coefficients, when the minimal polynomial of $W$
+is not changed.\end{proof}
+\begin{lem}
+\label{lem:Sum-coef.=00003D1}The sum coefficients \textup{$\left\{ a_{j}\right\} =\left\{ a_{m-1},\ldots,a_{1},a_{0}\right\} $}
+is equals to negative one, i.e. $\sum_{j=0}^{m-1}a_{j}=-1$\textup{. }\end{lem}
+\begin{proof}
+It is obvious when the iteration converges. Since Eq. \prettyref{eq:x(k+r) vector predictor}
+satisfied as $k\to\infty$, we have $\bar{\mathbf{x}}+a_{m-1}\bar{\mathbf{x}}+\ldots+a_{1}\bar{\mathbf{x}}+a_{0}\bar{\mathbf{x}}=\mathbf{0}$.
+Then, canceling the vector $\bar{\mathbf{x}}$ from the equation obtains
+that the sum of all coefficients equals to negative one. 
+\end{proof}
+Given the local value vector sequence obtained by FO-DCA, one may
+instantly comes to the idea of applying an adaptive filter algorithm
+to estimate the set of coefficient. For example, LMS, LSL and Kalman
+filter algorithms. One advantage of the adaptive filter algorithm
+is that when the network topology is changed, the filter could adaptively
+change its coefficient during the iteration. 
 
 
-\subsection{\label{sub:Find-the-Consensus}Find the Consensus Value by Linear
-Filter}
+\subsection*{Find the Coefficients of Linear Predictor.}
 
-Let the sample vector $\mathbf{y}_{i}(k,d)\in R^{d}$ is defined by
-the history of $x_{i}(k),$ 
+After running FO-DAC algorithm for a number of step, node $v_{i}$
+could list a number of equations by its available local values. Once
+they are sufficient equations to construct a matrix, which is a Toeplitz
+matrix, we can have a important result in the following.
 
-\begin{equation}
-\mathbf{y}_{i}(k,d)=\left[x_{i}(k),x_{i}(k-1),\ldots x_{i}(k-d+1)\right]^{\mathrm{T}}\label{eq:def. y(k,m)}
-\end{equation}
-and the Vandermonde matrix whose entries are the power of eigenvalues
+Let  $T_{i}=T_{i}\left(k,D_{i}\right)\in\mathbb{R}^{D_{i}\times D_{i}}$
+be a function at $v_{i}$ which outputs a Toeplitz matrix with size
+$D_{i}$ with $x_{i}\left(k\right)$ as diagonal entries.
 
-\begin{equation}
-\mathbf{V}(k,d)=\left[\begin{array}{cccc}
-\lambda_{1}^{k} & \lambda_{2}^{k} & \cdots & \lambda_{m}^{k}\\
-\lambda_{1}^{k-1} & \lambda_{2}^{k-1} & \cdots & \lambda_{m}^{k-1}\\
-\vdots & \vdots & \ddots & \vdots\\
-\lambda_{1}^{k-d+1} & \lambda_{2}^{k-d+1} & \cdots & \lambda_{m}^{k-d+1}
-\end{array}\right]\label{eq:def. Lamda(k,m)}
-\end{equation}
-and $\mathbf{b}_{i}\left(d\right)=\left[\beta_{i1},\beta_{i2},\cdots\beta_{id}\right]^{\mathrm{T}}$,
-then we have the following equation satisfied
-
-\begin{equation}
-\mathbf{y}_{i}(k,d)=\mathbf{V}(k,d)\mathbf{b}_{i}\left(d\right)\label{eq:Vander matrix and consensus-d*m}
-\end{equation}
-To obtain the consensus value $\bar{x}$ for node $i$, we need to
-take sufficient samples of $x_{i}(k)$\textbf{ }and solve Eq.\eqref{eq:Vander matrix and consensus-d*m},
-where $d$ should at least equal or larger than\textbf{ $m$}, which
-is the number of distinct and nonzero eigenvalues of weight matrix
-$\mathbf{W}$
-
-Let $A(k,m)=\mathbf{V}^{-1}(k,m)$ and the first row of $A(k,m)$
-is given by 
-\begin{equation}
-\mathbf{h}=\left[A_{11}(k,m),A_{12}(k,m),\ldots,A_{1m}(k,m)\right]^{\mathrm{T}}
-\end{equation}
- we have 
-
-\begin{equation}
-\beta_{i1}=\mathbf{h}^{\mathrm{T}}\mathbf{y}_{i}(k,m)\label{eq:Find Consensus m order}
-\end{equation}
- Eq.\eqref{eq:Find Consensus m order} shows that the consensus value
-can be calculated by the filter defined in Def.\ref{Def.A-consensus-finding}. 
-
-It is worth noting that Vandermonde matrix is related to a polynomial
-interpolation problem and can be easily inverted in terms of Lagrange
-basis polynomials \cite{Prass2007}. Due to this reason, this method
-can be treated as an extrapolation method which find the consensus
-value at infinity. At the same time, we only need to find out the
-first coefficient $\beta_{i1}$ in the distributed averaging. Therefore,
-only the elements in the corresponding row of $\mathbf{V}^{-1}(k,m)$
-need to be found. This approach can save lots of computation time
-in the inverting of Vandermonde matrix. 
-
-Since simulation result shows that $\mathbf{h}$ is only depends the
-associated Vandermonde matrix $\mathbf{V}(k,m)$ which is independent
-of the nodes initial values and time index $k$. Therefore, each node
-in the network could find the consensus value at any time $k\geqslant m$
-by passing a number of consecutive local values through this filter.
-In addition, all nodes in this network may share the same filter,
-which means all the filters have the same impulse response. However,
-such a consensus finding filter it is not unique. As an example, a
-number of filters which have different impulse response or filter
-lengths are found by different samples of $x_{i}(k)$.  Each node
-could choose its own, but filter length determines the how many time-steps
-before a node could find the consensus value. 
-
-Suppose we take $d$ samples of $x_{i}(k)$, where $d>m$. Because
-the Vandermonde matrix $\mathbf{V}(k,d)\in R^{d\times m}$ is non-square,
-we introduce the Moore-Penrose pseudo inverse to find the least mean
-square solution. 
-
-Let
-
-\begin{equation}
-A(k,d)=\mathbf{V}^{+}(k,d)
-\end{equation}
-where $^{+}$ denote the Moore-Penrose pseudo inverse \cite{Piziak2007}.
-And the first row of $A(k,d)$ is given by 
-
-\begin{equation}
-\mathbf{h}'=\left[A{}_{11}(k,d),A_{12}(k,d),\ldots,A_{1d}(k,d)\right]^{\mathrm{T}}
-\end{equation}
-Still, the value $\beta_{i1}=\mathbf{h}'^{\mathrm{T}}\mathbf{y}_{i}(k,m)$
-is an accurate estimation of consensus value. Therefore, another consensus
-finding filter is obtained.
-
-Due to the multiplication of the consensus finding filter, the set
-of filter is defined by
-
-\begin{equation}
-H=\{\mathbf{h}\in R^{d}|\forall d\geqslant m,\:\mathbf{h}^{\mathrm{T}}\mathbf{y}_{i}(k,d)=\bar{x}\}
-\end{equation}
-However, the shortest filter has its length equal to $m$, which means
-node can only have the consensus value after $m$ steps. 
-
-In \prettyref{sub:Numerical-Simulation}, the performance of this
-algorithm is shown by comparing it with the first order DAC algorithm
-using optimal weight matrix in \cite{Xiao2004}.
-
-
-\subsubsection{Inverse the Vandermonde matrix}
-
-The Vandermonde matrix has its application in some problems like polynomial
-fitting, reconstruction of distributions from their moments, and so
-on. Solving Vandermonde matrix is related to a polynomial interpolation
-problem and can be easily inverted in terms of Lagrange basis polynomials.
-It can be very difficult to invert in other way if the size of the
-matrix is large, as the Vandermonde matrix is T is notoriously ill-conditioned
-by its nature. It is a good way to always work on the problems related
-to Vandermonde matrix in double precision or higher. 
-
-Let $V_{m}$ be the Vandermonde's matrix of order $m$ given by 
-
-\begin{equation}
-V_{m}=\left[\begin{array}{cccc}
-\lambda_{1} & \lambda_{2} & \cdots & \lambda_{m}\\
-\lambda_{1}^{2} & \lambda_{2}^{2} & \cdots & \lambda_{m}^{2}\\
-\vdots & \vdots & \ddots & \vdots\\
-\lambda_{1}^{m} & \lambda_{2}^{m} & \cdots & \lambda_{m}^{m}
-\end{array}\right]\label{eq:Vander Matrix}
-\end{equation}
-Then the equation 
-\begin{equation}
+$T_{i}\left(k,D_{i}\right)=$ 
+\begin{align}
 \left[\begin{array}{cccc}
-\lambda_{1} & \lambda_{2} & \cdots & \lambda_{m}\\
-\lambda_{1}^{2} & \lambda_{2}^{2} & \cdots & \lambda_{m}^{2}\\
+x_{i}\left(k\right) & x_{i}\left(k-1\right) & \ldots & x_{i}\left(k-D_{i}+1\right)\\
+x_{i}\left(k+1\right) & x_{i}\left(k\right) & \cdots & x_{i}\left(k-D_{i}+2\right)\\
 \vdots & \vdots & \ddots & \vdots\\
-\lambda_{1}^{m} & \lambda_{2}^{m} & \cdots & \lambda_{m}^{m}
-\end{array}\right]\left[\begin{array}{c}
-\beta_{1}\\
-\beta_{2}\\
-\vdots\\
-\beta_{m}
-\end{array}\right]=\left[\begin{array}{c}
-y_{1}\\
-y_{2}\\
-\vdots\\
-y_{m}
-\end{array}\right]\label{eq:Vander Eq.}
-\end{equation}
-is related to the problem of moments: Given the values of all $\lambda_{i}$,
-find the unknown coefficients $b_{i}$, so that they match the given
-values $y_{i}$ of the first $m$ moments. 
+x_{i}\left(k+D_{i}-2\right) & x_{i}\left(k+D_{i}-3\right) & \cdots & x_{i}\left(k-2\right)\\
+x_{i}\left(k+D_{i}-1\right) & x_{i}\left(k+D_{i}-2\right) & \cdots & x_{i}\left(k\right)
+\end{array}\right]\label{eq:Toeplitz_i simple-1}
+\end{align}
+Similarly, Define the function $\mathbf{y}_{i}=\mathbf{y}_{i}\left(k,D_{i}\right)=\left[x_{i}\left(k+1\right),x_{i}\left(k+2\right),\ldots,x_{i}\left(k+D_{i}\right)\right]^{T}\in\mathbb{R}^{D_{i}}$
+which outputs the local value history at $v_{i}$ from time $k+1$
+to $k+D_{i}$.  Then, let $\mathbf{a}_{i}\left(D_{i}\right)=\left[a_{i,D_{i}-1},\ldots,a_{i,1},a_{i,0}\right]^{T}\in\mathbb{R}^{D_{i}}$
+be a vector of length $D_{i}$ representing the coefficients in the
+minimal polynomial calculated at $v_{i}$. Then, we have the solution
+of these equations given by
 
-Its inverse is closely related to Lagrange's polynomial interpolation
-formula. 
-
-Let the polynomial of degree $m$ defined by 
 \begin{equation}
-P_{j}\left(\lambda\right)=\prod_{\begin{array}{c}
-i=1\\
-i\neq j
-\end{array}}^{m}\frac{\lambda-\lambda_{i}}{\lambda_{j}-\lambda_{i}}=\sum_{k=1}^{m}b_{jk}\lambda^{k-1}\label{eq:Lagrange's polynomial}
+\mathbf{a}_{i}\left(D_{i}\right)=-T_{i}^{-1}\left(k,D_{i}\right)\mathbf{y}_{i}\left(k,D_{i}\right)\label{eq:Toeplitz Eq.-2}
 \end{equation}
-The polynomial $P_{j}\left(\lambda\right)$ a function of $\lambda$
-and is specially designed so that it is equal to zero at all $\lambda_{i}$
-except $i=j$ and takes on a value of one at $\lambda=\lambda_{j}$.
-In other words, 
+The size of the Toeplitz block $D_{i}$, should be less or equal to
+$m$ so that the Eq. \prettyref{eq:Toeplitz Eq.-2} have unique solution.
+To solve Eq.\ref{eq:Toeplitz Eq.-2}, node $i$ need to have sufficient
+local values.
+
+Toeplitz matrix is a special type of matrix and can be inverted by
+some algorithms in the polynomial time of order $D_{i}^{2}$, rather
+than the order of $D_{i}^{3}$ in general case (for example by LU
+decomposition), which is an enormous computational saving \cite{Prass2007}.
+Levinson developed a recursive algorithm to solve the system quickly
+if the Toeplitz matrix is symmetric. 
+
+One interesting advantage of Levinson's method is it can also apply
+to the case when weight matrix is non-symmetric. The fact that the
+method can be generalized to the non-symmetric case is stated in the
+texts \cite{Robinson2000}.  Therefore, We will invert this Toeplitz
+matrix using Levinson's method. The proposed method  doesn't need
+to be changed and can generalize to the non-symmetric weight matrix
+case. 
+
+It totally needs $2r+2$ local values and $2r+1$ iterations to construct
+the Toeplitz matrix and Eq.\ref{eq:Toeplitz Eq.-2}, but all the local
+value can be obtained from one instance of FO-DCA. In contract, the
+the original finite-time consensus algorithm in \cite{Sundaram2007}
+requires $r$ iterations of FO-DCA for each instance, and totally
+$r$ instances. Therefore, the proposed method has some improvement
+to the original finite-time consensus algorithm. 
+
+In the next section \ref{sub:Convert-Linear-Predictor }, we will
+show how to obtain the consensus finding filter by linear predictor
+coefficients.
+
+
+\section{\label{sub:Convert-Linear-Predictor }Convert Linear Predictor To
+Consensus Finding Filter(todo check times 0)}
+
+Once there are sufficient local values, node $i$ can solve the equation
+and obtain the set of coefficients \textbf{$\mathbf{a}$} and construct
+the polynomial 
 \[
-P_{j}\left(\lambda_{i}\right)=\delta_{ij}=\sum_{k=1}^{m}b_{jk}\lambda_{i}^{k-1}
+p(\lambda)=\lambda^{m}+a_{m-1}\lambda^{m-1}+\ldots+a_{1}\lambda+a_{0}
 \]
-where $\delta_{ij}=1$ when $i=j$ . The equation says that $b_{jk}$
-is exactly the inverse of the matrix \eqref{eq:Vander Matrix}, with
-the subscript $k$ as the column index. 
 
-To drive the analytical expression of $b_{jk}$ and make it as easy
-as possible, let's define some intermediate result. Define the polynomial
-$q_{j}\left(\lambda\right)$ and work out its coefficients
 
-\begin{eqnarray}
-q_{j}\left(\lambda\right) & = & \frac{\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\right)}{\left(\lambda-\lambda_{j}\right)}=\prod_{i=1,i\neq j}^{m}\left(\lambda-\lambda_{i}\right)\label{eq:intermindia polynomial}\\
- & = & c_{j,m}\lambda^{m-1}+c_{j,m-1}\lambda^{m-2}+\ldots+c_{j,2}\lambda+c_{j,1}\nonumber 
-\end{eqnarray}
-Examining the polynomial \ref{eq:Lagrange's polynomial} and polynomial
-\ref{eq:intermindia polynomial}, we have 
-\begin{eqnarray*}
-b_{jk} & = & \frac{c_{j,m}}{q_{j}\left(\lambda_{j}\right)}
-\end{eqnarray*}
-Therefore, the solution of Eq.\ref{eq:Vander Eq.} is just the inverse
-of Vandermonde matrix time the vector on the right. 
+If matrix $W$ satisfies the condition in \prettyref{thm:convergence condition}
+there is a simple eigenvalue equals to one. As shown in section \ref{sub:Find_Consensus_Value},
+the consensus finding filter is given by the row of inverse of Vandermonde's
+matrix which corresponding to an eigenvalue equals to one. Without
+loss of generality, let the first eigenvalue $\lambda_{1}=1$. Thus,
+the consensus finding filter is given by the first row of the inverse
+of Vandermonde's Matrix.
+
+Examining the the Lagrange's polynomial interpolation formula \prettyref{eq:Lagrange's polynomial}
+we can rewrite the consensus finding filter in terms of $a_{k}$. 
+
+To make the expression simple, we may define another polynomial (Also
+see Eq.\prettyref{eq:intermindia polynomial})
+
 \[
-\beta_{j}=\sum_{k=1}^{m}b_{jk}y_{k}
+q\left(\lambda\right)=\frac{p\left(\lambda\right)}{\lambda-1}=c_{m}\lambda^{m-1}+c_{m-1}\lambda^{m-2}+\ldots+c_{2}\lambda+c_{1}
 \]
-If we only need to calculate the consensus value, as explained in
-\ref{sub:Find-the-Consensus} only the elements in the corresponding
-row of inverse Vandermonde's matrix need to be found. The computation
-saving can be enormous by this approach.
+where $c_{k}=1+\sum_{j=k+1}^{m}a_{j}$. The consensus finding filter
+can be given by the coefficient in $q\left(\lambda\right)$. 
+\begin{equation}
+\mathbf{h}=\frac{\left[c_{m},c_{m-1},\ldots,c_{2}\right]}{\sum_{k=1}^{m}c_{k}}\label{eq:Consensus Filter by polynomial}
+\end{equation}
+This indicates the possibility of using the adaptive filter to estimate
+the consensus value after a certain number of iterations. 
+
+One interesting property of the consensus finding filter is that it
+can be found by this method when the weight matrix is non-symmetric.
+It can be demonstrated by finding the inverse of a confluent Vandermonde
+matrix. In examining the expression of the inverse of confluent Vandermonde
+matrix, we note that the row corresponding to the unity eigenvalue,
+can actually the coefficients of a consensus finding filter. The the
+length of the filter is not required to be the same. It may be not
+equal to the number of distinct and nonzero eigenvalues $m$, but
+equal to the sum of all orders in minimal polynomial of weight matrix
+$\sum_{i=1}^{m}r_{i}$. However, the relationship of local value predictor
+and consensus finding filter still holds. 
 
 
-\subsubsection{\label{sub:Numerical-Simulation}Numerical Simulation}
+\section{Simulation\label{sub:Numerical-Simulation}}
 
 \begin{figure}
-\hfill{}\includegraphics{\string"../Distributed Consensus Algorithm/Report_DAC/Net_Weight/graph with 8 nodes and 17 edges\string".pdf}\hfill{}\hfill{}\caption{\label{fig:Graph in Xiao'paper}Graph with optimal weights which maximize
+\hfill{}\includegraphics{\string"Graph/Report_DAC/Net_Weight/graph with 8 nodes and 17 edges\string".pdf}\hfill{}\hfill{}\caption{\label{fig:Graph in Xiao'paper}Graph with optimal weights which maximize
 convergence rate }
 \end{figure}
 
 
-Consider the graph from \cite{Xiao2004}, the weight matrix \textbf{$\mathbf{W}$}
-corresponding to this graph is symmetric and has eigenvalues $\lambda(\mathbf{W})=\{1,0.6,0.4,0,0,0,-0.4,-0.6\}$.
-The time index $k$ can be chosen large enough so that there are only
-positive powers in the matrix $\mathbf{V}(k,d)$. For example, there
-are 5 distinct and nonzero eigenvalues of \textbf{$\mathbf{W}$},
-so we choose the time index $k=5$ and $d=5$ which is the minimum
-filter length.
+Consider the graph from \cite{Xiao2004}, the weight matrix \textbf{$W$}
+corresponding to this graph is symmetric and has eigenvalues $\lambda(W)=\{1,0.6,0.4,0,0,0,-0.4,-0.6\}$.
+The time index $k$ can be chosen large enough so that there are surfficient
+number of local values to estimate the filter coefficients.  For example,
+there are 5 distinct and nonzero eigenvalues of \textbf{$W$}, so
+we choose the time index $k=5$ and $d=5$ which is the minimum filter
+length.
 
-\[
-\mathbf{V}(5,5)=\left[\begin{array}{ccccc}
-1 & 0.0778 & 0.0102 & -0.0102 & -0.0778\\
-1 & 0.1296 & 0.0256 & 0.0256 & 0.1296\\
-1 & 0.216 & 0.064 & -0.064 & -0.216\\
-1 & 0.36 & 0.16 & 0.16 & 0.36\\
-1 & 0.6 & 0.4 & -0.4 & -0.6
-\end{array}\right]
-\]
- the first row of the inverse matrix $\mathbf{V}^{-1}(5,5)$ gives
-the consensus finding filter 
+ Based on Eq.\ref{eq:Consensus Filter by polynomial}  the consensus
+finding filter is given by
 
 \[
 \mathbf{h}=\left[1.8601,\;0,\;-0.9673,\;0,\;0.1071\right]^{\mathrm{T}}
@@ -305,7 +233,7 @@ the consensus finding filter
 
 
 \begin{figure}
-\hfill{}\includegraphics[width=8cm]{\string"../Distributed Consensus Algorithm/Report_DAC/MSE/MSE_Filter vs FODAC\string".pdf}\hfill{}
+\hfill{}\includegraphics[width=8cm]{\string"Graph/Report_DAC/MSE/MSE_Filter vs FODAC\string".pdf}\hfill{}
 
 \caption{\label{cap:perform. Consensus Filter}Performance of the first order
 iteration with optimal matrix vs. consensus finding filter algorithm}
@@ -313,7 +241,7 @@ iteration with optimal matrix vs. consensus finding filter algorithm}
 
 
 For any random generated $\mathbf{x}(0)\in R^{n}$, node values vector
-$\mathbf{x}(k)$ is updated by the iteration Eq.\eqref{eq:first order matrix}.
+$\mathbf{x}(k)$ is updated by the iteration Eq.\prettyref{eq:first order matrix}.
 At the same time each node passes its local values though filter $\mathbf{h}$.
 Filter output is given by $\hat{x}_{i}(k)=\mathbf{h}(k)*x_{i}(k)$.
 Fig.\ref{cap:perform. Consensus Filter} compares the first order
@@ -327,191 +255,13 @@ value after a finite number of iteration and MSE drops dramatically
 to the quantization error at the same time. 
 
 
-\subsection{Generalized FT-DAC: Unknown Network Topology (todo)}
+\section{Conclusion}
 
-In the section \ref{sub:Find-the-Consensus}, It shows if each node
-has knowledge of the network topology (for example, eigenvalues of
-the weight matrix), the consensus value can be calculated by a linear
-combination of past local values. However, having knowledge of the
-network topology in every node is a strong assumption. Although a
-distributive algorithm to calculate the linear combination has also
-been introduced in \cite{Sundaram2007}. This method requires several
-runs of the consensus algorithm initialized with a set of linear independent
-vectors. Alternatively, the original consensus algorithm can run many
-instances in parallel with a set of independent initial values. However,
-the data transmission at each iteration increases. In addition, this
-method may not reliable to topology changes during the of multiple
-re-initializations of original consensus algorithm. 
-
-Here we propose a generalized finite-time consensus algorithm without
-knowledge of network topology. It also does not require re-initialization
-of the original consensus algorithm for several times. Before introducing
-the algorithm, there are too important linear filter need to be introduced,
-as the algorithm is based on the properties of these filters.
-
-
-\subsubsection{Linear Predictor For Local Value (todo check 0)}
-
-In observing the convergence behavior of each node's local value sequence,
-one would come to the idea that the sequence must obeys some rule
-as it converges. In section \ref{sub:Local-Value-Decomposition},
-it is shown that local value vector can be decomposed in terms of
-eigenvalues and eigenvectors. Based on this fact, a consensus estimation
-method by inverting the Vandermonde matrix and an information flooding
-techniques are proposed.
-
-However, another important property of the FO-DCA need to be highlighted
-in this section, because it will also inspire some ideas on signal
-processing and applications in distributed systems.
-
-To see how this property can be explained in an equation, we use the
-concept of minimal polynomial of the weight matrix $\mathbf{W}$.
-For any weight matrix $\mathbf{W}$, it has distinct eigenvalues denoted
-by $\lambda_{1},\lambda_{2},\ldots,\lambda_{m},$ then the minimal
-polynomial can be obtained by 
-\[
-p(\lambda)=\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\right)^{r_{i}}
-\]
-where $r_{i}$ is the size of the largest Jordan block of $\mathbf{W}$
-corresponding to eigenvalue $\lambda_{i}$. The minimal polynomial
-can also be expanded into the form 
-\[
-p\left(\lambda\right)=\lambda^{r+1}+a_{r}\lambda^{r}+\ldots+a_{1}\lambda+a_{0}
-\]
-where $r+1$ is the degree of the minimal polynomial. Since the minimal
-polynomial of matrix $\mathbf{W}$ satisfies $p\left(\mathbf{W}\right)=0$.
-We have
-\[
-\mathbf{W}^{r+1}+a_{r}\mathbf{W}^{r}+\ldots+a_{1}\mathbf{W}+a_{0}\mathbf{I}=0
-\]
-if we multiply each side with initial value vector, and use the fact
-$\mathbf{x}\left(k+1\right)=\mathbf{W}^{k+1}\mathbf{x}\left(0\right)$,
-the above equation evolves into
-\begin{equation}
-\mathbf{x}\left(r+1\right)+a_{r}\mathbf{x}\left(r\right)+\ldots+a_{1}\mathbf{x}\left(1\right)+a_{0}\mathbf{x}\left(0\right)=0\label{eq:local value linear combination}
-\end{equation}
-Therefore, for any $k\geq r$
-\begin{equation}
-\mathbf{x}\left(k+1\right)=-a_{r}\mathbf{x}\left(k\right)-\ldots-a_{1}\mathbf{x}\left(k-r+1\right)+a_{0}\mathbf{x}\left(k-r\right)\label{eq:local value linear predictor}
-\end{equation}
-This equation shows that the vector sequence can be predict by a FIR
-filter with coefficient given by $\left[-a_{r},-a_{r-1},\ldots,-a_{0}\right].$
-
-Given the local value vector sequence obtained by FO-DCA, one may
-instantly comes to the idea of applying an adaptive filter algorithm
-to estimate the set of coefficient. For example, LMS, LSL and Kalman
-filter algorithms. One advantage of the adaptive filter algorithm
-is that when the network topology is changed, the filter could adaptively
-change its coefficient during the iteration. 
-
-In the next section \ref{sub:Cons.Find.Filter and relationship},
-we will show that the relationship of linear predictor of local value
-and the consensus finding filter.
-
-
-\subsubsection{\label{sub:Cons.Find.Filter and relationship}The Consensus Finding
-Filter and The Relationship with Linear Predictor (todo check)}
-
-If matrix $\mathbf{W}$ satisfies the condition in \prettyref{thm:convergence condition}
-there is a simple eigenvalue equals to one. As shown in section \ref{sub:Cons.Find.Filter and relationship},
-the consensus finding filter is given by the row of inverse of Vandermonde's
-matrix which corresponding to an eigenvalue equals to one. Without
-loss of generality, let the first eigenvalue $\lambda_{1}=1$. Thus,
-the corresponding row of the inverse of Vandermonde's Matrix is equal
-to the consensus finding filter, whose coefficients are given by the
-coefficients $b_{1k}$ in the polynomial. 
-
-\begin{equation}
-\mathbf{h}=\left[b_{11},b_{12},\ldots,b_{1m}\right]\label{eq:Consensus Finding filter Entry}
-\end{equation}
-
-
-Examining the minimal polynomial of weight matrix. (Since the symmetric
-weight matrix has only $m$ distinct and non zero eigenvalues) 
-\begin{equation}
-p(\lambda)=\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\right)=\lambda^{m}+a_{m}\lambda^{m-1}+\ldots+a_{2}\lambda+a_{1}\label{eq:Polynomial of matrix}
-\end{equation}
-and the Lagrange's polynomial interpolation formula \prettyref{eq:Lagrange's polynomial}
-we can rewrite the $b_{jk}$ in terms of $a_{k}$. To make the expression
-simple, we may also use the polynomial defined in \prettyref{eq:intermindia polynomial}.
-Therefore, 
-\begin{equation}
-\mathbf{h}=\frac{\left[c_{1,m},c_{1,m-1},\ldots,c_{1,2}\right]}{\sum_{k=1}^{m}c_{1,k}}\label{eq:Consensus Find coeff. c}
-\end{equation}
-more specifically, we have $c_{1,k}=1+\sum_{j=k+1}^{m}a_{j}$. This
-make it is possible for the adaptive filter to estimate the consensus
-value by after all coefficients converge. 
-
-
-\subsubsection{\label{sub:Finite-time-Consensus-on}Finite-time Consensus on generalized
-condition}
-
-Suppose the history of local values at node $x_{i}\left(k\right)$
-is available at node $i$ after running one instance of FO-DCA algorithm.
-Let the Toeplitz matrix be
-\[
-T=\left[\begin{array}{cccc}
-x_{i}\left(k\right) & x_{i}\left(k-1\right) & \ldots & x_{i}\left(k-r\right)\\
-x_{i}\left(k+1\right) & x_{i}\left(k\right) & \cdots\\
-\vdots & \vdots & \ddots & \vdots\\
-x_{i}\left(k+r-1\right) & x_{i}\left(k+r-2\right) & \cdots & x_{i}\left(k-1\right)\\
-x_{i}\left(k+r\right) & x_{i}\left(k+r-1\right) & \cdots & x_{i}\left(k\right)
-\end{array}\right]
-\]
-and $\mathbf{a}=\left[a_{r},\ldots,a_{1},a_{0}\right]^{T}$, $\mathbf{y}=\left[x\left(k+1\right),x\left(k+2\right),\ldots,x\left(k+r+1\right)\right]^{T}$.
-Then they can be written in a matrix notation as
-
-\begin{equation}
-\mathbf{y}=T\mathbf{a}\label{eq:Toepliz Eq.}
-\end{equation}
- Toeplitz matrix is a special type of matrix. It can be inverted by
-some algorithm in the polynomial time of order $N^{2}$, rather than
-the order of $N^{3}$ in general case (for example by LU decomposition).
-This is an enormous computational saving. Levinson developed a recursive
-algorithm to solve the system quickly if the Toeplitz matrix is symmetric.
-However, the fact that the method can be generalized to the non-symmetric
-case is not well known until it is stated in texts \cite{Robinson2000}.
-Therefore, we can still invert this Toeplitz matrix using Levinson's
-method. 
-
-Now the requirement for node $i$ to solve Eq.\ref{eq:Toepliz Eq.}
-is having sufficient local values. Once this is satisfied, node $i$
-can solve the equation and obtain the set of coefficients \textbf{$\mathbf{a}$}
-and construct the polynomial 
-\[
-p(\lambda)=\lambda^{r+1}+a_{r}\lambda^{r}+\ldots+a_{1}\lambda+a_{0}
-\]
-If the weight matrix have one simple eigenvalue equals to one, the
-consensus finding filter can be easily obtain by defining another
-polynomial 
-
-\[
-q\left(\lambda\right)=\frac{p\left(\lambda\right)}{\lambda-1}=c_{m}\lambda^{m-1}+c_{m-1}\lambda^{m-2}+\ldots+c_{2}\lambda+c_{1}
-\]
-and the consensus filter to be construct is given by the coefficient
-in the new polynomial 
-\[
-\mathbf{h}=\frac{\left[c_{m},c_{m-1},\ldots,c_{2}\right]}{\sum_{k=1}^{m}c_{k}}
-\]
-where $c_{k}=1+\sum_{j=k+1}^{m}a_{j}$. 
-
-It totally needs $2r+2$ local values and $2r+1$ iterations to construct
-the Toeplitz matrix and Eq.\ref{eq:Toepliz Eq.}, but all the local
-value can be obtained from one instance of FO-DCA. In contract, the
-the original finite-time consensus algorithm in \cite{Sundaram2007}
-requires $r$ iterations of FO-DCA for each instance, and totally
-$r$ instances. Therefore, the proposed method has some improvement
-to the original finite-time consensus algorithm. 
-
-One interesting advantage of this method is that it can also apply
-to the case when weight matrix is non-symmetric. It can be demonstrated
-by just finding the inverse of a confluent Vandermonde matrix. In
-examining the inverse of confluent Vandermonde matrix and find the
-the expression of the row who corresponds to the unity eigenvalue,
-we note that the difference is that the length of consensus filter.
-It is not equal to the number of distinct and nonzero eigenvalues
-$m$, but equal to the sum of all orders in minimal polynomial of
-weight matrix $\sum_{i=1}^{m}r_{i}$. However, the relationship of
-local value predictor and consensus finding filter still holds. Therefore,
-the proposed method and doesn't need to change and generalizes to
-the non-symmetric weight matrix case. 
+In this section, we introduced the finite-time DAC on gernerlized
+condition. Compared to the previous version of finite-time DAC, the
+improvements are: it doesn't require the eigenvalues to be known prior
+to the algorithm. However, the number of iterations can not be less
+than a certain limit, because the minimum number of iterations is
+depends on the weight matrix, which is the same as the previous finite-time
+DAC. With this improment, some further algorithm could be drived.
+They will be introduced in chapter \ref{sec:Online-Optimization-of}.
