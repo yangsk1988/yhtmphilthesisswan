@@ -84,7 +84,7 @@ name "sec:DAC-Implementation:-Distributed"
 \change_deleted 5863457 1355275800
 An Application of DAC:
 \change_unchanged
- Distributed 
+Distributed 
 \change_inserted 5863457 1355275708
 Cloud 
 \change_unchanged
@@ -402,16 +402,37 @@ name "sub:Cloud-Detection-Scenario"
 \end_layout
 
 \begin_layout Standard
-In the cloud detection scenario shown by Figure 
+In the cloud detection scenario shown by Fig
+\change_deleted 5862369 1355519638
+ure
+\change_inserted 5862369 1355519638
+.
+
+\change_deleted 5862369 1355519639
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Cloud-detection-scenario"
 
 \end_inset
 
-, a source produces cloud in a fixed position with fixed power; a time invariant
- wind velocity parallel to the ground, blows the cloud to the positive direction
- of the x-axis.
+, a source produces cloud in a fixed position with fixed power
+\change_deleted 5862369 1355519652
+;
+\change_inserted 5862369 1355519652
+.
+
+\change_unchanged
+ 
+\change_deleted 5862369 1355519655
+a
+\change_inserted 5862369 1355519655
+A
+\change_unchanged
+ time invariant wind velocity parallel to the ground, blows the cloud to
+ the positive direction of the x-axis.
  With these parameters available, the Gaussian plume model 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1273,372 +1294,8 @@ of cloud concentration
  
 \end_layout
 
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Received-Signal'-Model"
-
-\end_inset
-
-Received Signal Model 
-\end_layout
-
-\begin_layout Standard
-As we know, the cloud concentration variation is caused by turbulence flow,
- which is a random process which brings the cloud particles more far away
- than the molecular motion.
- Because of this reason,and the associated sensor's detection at a given
- position is a random process with mean and variance.
-\end_layout
-
-\begin_layout Standard
-Suppose the sensor's observation has the following form:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-x_{l}=\begin{cases}
-\mu_{l,0}+n_{l,0} & \mbox{if no cloud exists}\\
-\mu_{l,1}+n_{l,1} & \mbox{if cloud exists}
-\end{cases}\label{eq:Model of Received signal}
-\end{equation}
-
-\end_inset
-
-where
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\begin_inset Formula $\mu_{l,m}$
-\end_inset
-
- is 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-the mean value of 
-\begin_inset Formula $x_{l}$
-\end_inset
-
- depending on hypothesis 
-\begin_inset Formula $m$
-\end_inset
-
-; 
-\begin_inset Formula $n_{l,m}$
-\end_inset
-
- is the noise of 
-\begin_inset Formula $x_{l}$
-\end_inset
-
- depending on hypothesis 
-\begin_inset Formula $m$
-\end_inset
-
- and 
-\begin_inset Formula $n_{l,m}\sim\mathcal{N}\left(0,\sigma_{m}\right)$
-\end_inset
-
-.
- Actually, 
-\begin_inset Formula $\mu_{l,0}$
-\end_inset
-
-and 
-\begin_inset Formula $\sigma_{l,0}$
-\end_inset
-
- denote the mean and variation of background noise.
- So let 
-\begin_inset Formula $\mu_{t}$
-\end_inset
-
- and 
-\begin_inset Formula $n_{t}$
-\end_inset
-
- denote the mean of cloud concentration and signal flucturation due to cloud
- turbulence.
- Besides,
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
- we have 
-\begin_inset Formula $\mu_{l,1}=\mu_{l,0}+\mu_{t}$
-\end_inset
-
-, 
-\begin_inset Formula $n_{l,1}=n_{l,0}+n_{t}$
-\end_inset
-
-.
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- These parameters is estimated or calculated expectation-maximization algorithm
- in the training stage.
-\end_layout
-
 \begin_layout Standard
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-This received signal model doesn't consider interference of moving objects
- or be covered by obstacles.
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- To deal with this problems, sensors may need to build the Gaussian mixture
- model, which introduced in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "par:Gaussian-mixture-model"
-
-\end_inset
-
-.
- 
-\change_inserted 5863457 1348412207
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset CommandInset label
-LatexCommand label
-name "par:Gaussian-mixture-model"
-
-\end_inset
-
-Gaussian mixture model
-\end_layout
-
-\begin_layout Standard
-Background radiation and moving objects in the sky have different strength
- and variance.
- When interference exists, the probability of received signal strength may
- be a mixture Gaussian distribution.
- Gaussian mixture model is a very successful tool in modeling the background
- noise in such situation 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Stauffer1999"
-
-\end_inset
-
-.
- To build the Gaussian mixture model, the recent history of a sensor's detection
- values is stored.
- Then, Expectation-Maximization(EM) algorithm 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Moon1996"
-
-\end_inset
-
- can be adopted.
- The model can also be adaptive to track the background changes.
- 
-\end_layout
-
-\begin_layout Standard
-Suppose the recent history of a sensor's detections, are given by 
-\begin_inset Formula $\left\{ x_{1},\ldots,x_{t}\right\} $
-\end_inset
-
-, which is modeled by a mixture of 
-\begin_inset Formula $K$
-\end_inset
-
- Gaussian distributions.
- The probability density function of observing a detection value is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-f(\mathbf{x}_{t})=\sum_{i=1}^{K}\omega_{i,t}*\eta(\mathbf{x}_{t},\mu_{i,t},\Sigma_{i,t})\label{eq:GMM density function}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $K$
-\end_inset
-
- is the number of distributions, 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $\omega_{i,t}$
-\end_inset
-
- is the weight of the 
-\begin_inset Formula $i^{th}$
-\end_inset
-
- Gaussian in the mixture at time 
-\begin_inset Formula $t$
-\end_inset
-
-, 
-\begin_inset Formula $\mu_{i,t}$
-\end_inset
-
- is the mean value of the 
-\begin_inset Formula $i^{th}$
-\end_inset
-
- Gaussian in the mixture at time 
-\begin_inset Formula $t$
-\end_inset
-
-, 
-\begin_inset Formula $\Sigma_{i,t}$
-\end_inset
-
- is the covariance matrix of the 
-\begin_inset Formula $i^{th}$
-\end_inset
-
- Gaussian in the mixture at time 
-\begin_inset Formula $t$
-\end_inset
-
- , and 
-\begin_inset Formula $\eta$
-\end_inset
-
- is a Gaussian probability density function given by
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\begin_inset Formula 
-\begin{equation}
-\eta(\mathbf{x}_{t},\mu_{i,t},\Sigma_{i,t})=\frac{1}{\left(2\pi\right)^{\frac{t}{2}}\left|\Sigma\right|^{\frac{1}{2}}}\cdot e^{-\frac{1}{2}\left(\mathbf{x}_{t}-\mu_{t}\right)^{\mathrm{T}}\Sigma^{-1}\left(\mathbf{x}_{t}-\mu_{t}\right)},
-\end{equation}
-
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-Thus, the distribution of recent detection values are modeled by a mixture
- of Gaussian distribution.
- The recent detections are classified in 
-\begin_inset Formula $K$
-\end_inset
-
- categories.
- For the background model, all categories correspond to background noise.
- When a new detection comes, generally it will be matched to one of the
- major components of the model and was used to update the background model.
- If a group of adjacent sensors having detections do not match any categories
- of background model, it is more likely the cloud exists.
- 
-\end_layout
-
-\begin_layout Standard
-Similarly, EM algorithm could also build the Gaussian mixture model for
- the observing when cloud exists.
- In this case, one or more categories will correspond to the detection mainly
- raised by clouds reflection.
- If a group of adjacent sensors having detections match the categories of
- cloud, it is more likely the cloud exists.
- 
-\end_layout
-
-\begin_layout Standard
-Once the probability density function (PDF) for background and cloud reflection
- signals are available, the hypothesis test of cloud existence is made based
- on the observation.
- Normally, this is done by gathering all the data and taking the log likelihood
- ratio(LLR) in the fusion center.
- In section III-C, distributed consensus algorithm is adopted to find the
- LLR, without data gathering or fusion center.
 \end_layout
 
 \begin_layout Section
@@ -2379,7 +2036,429 @@ The detection method should be separated into two stages, training and detection
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Received-Signal'-Model"
+
+\end_inset
+
+
+\series bold
+
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Gaussian-mixture-model-1"
+
+\end_inset
+
+
+\series default
+Received Signal Model 
+\end_layout
+
+\begin_layout Standard
+As we know, the cloud concentration variation is caused by turbulence flow,
+ which is a random process which brings the cloud particles more far away
+ than the molecular motion.
+ Because of this reason,and the associated sensor's detection at a given
+ position is a random process with mean and variance.
+\end_layout
+
+\begin_layout Standard
+Suppose the sensor's observation has the following form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x_{l}=\begin{cases}
+\mu_{l,0}+n_{l,0} & \mbox{if no cloud exists}\\
+\mu_{l,1}+n_{l,1} & \mbox{if cloud exists}
+\end{cases}\label{eq:Model of Received signal}
+\end{equation}
+
+\end_inset
+
+where
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $\mu_{l,m}$
+\end_inset
+
+ is 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+the mean value of 
+\begin_inset Formula $x_{l}$
+\end_inset
+
+ depending on hypothesis 
+\begin_inset Formula $m$
+\end_inset
+
+; 
+\begin_inset Formula $n_{l,m}$
+\end_inset
+
+ is the noise of 
+\begin_inset Formula $x_{l}$
+\end_inset
+
+ depending on hypothesis 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{l,m}\sim\mathcal{N}\left(0,\sigma_{m}\right)$
+\end_inset
+
+.
+ Actually, 
+\begin_inset Formula $\mu_{l,0}$
+\end_inset
+
+and 
+\begin_inset Formula $\sigma_{l,0}$
+\end_inset
+
+ denote the mean and variation of background noise.
+ So let 
+\begin_inset Formula $\mu_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+ denote the mean of cloud concentration and signal 
+\change_deleted 5862369 1355526745
+flucturation
+\change_inserted 5862369 1355526745
+fluctuation
+\change_unchanged
+ due to cloud turbulence.
+ Besides,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ we have 
+\begin_inset Formula $\mu_{l,1}=\mu_{l,0}+\mu_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $n_{l,1}=n_{l,0}+n_{t}$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ These parameters is estimated or calculated expectation-maximization algorithm
+ in the training stage.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+This received signal model doesn't consider interference of moving objects
+ or be covered by obstacles.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ To deal with this problems, sensors may need to build the Gaussian mixture
+ model, which introduced in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stauffer1999"
+
+\end_inset
+
+.
+ Expectation-Maximization(EM) algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moon1996"
+
+\end_inset
+
+ can be adopted to build the Gaussian mixture mode.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355516244
+
+\series bold
+Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Gaussian-mixture-model"
+
+\end_inset
+
+Gaussian mixture mode
+\series default
+l
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355516244
+Background radiation and moving objects in the sky have different strength
+ and variance.
+ When interference exists, the probability of received signal strength may
+ be a mixture Gaussian distribution.
+ Gaussian mixture model is a very successful tool in modeling the background
+ noise in such situation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stauffer1999"
+
+\end_inset
+
+.
+ To build the Gaussian mixture model, the recent history of a sensor's detection
+ values is stored.
+ Then, Expectation-Maximization(EM) algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moon1996"
+
+\end_inset
+
+ can be adopted.
+ The model can also be adaptive to track the background changes.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355516244
+Suppose the recent history of a sensor's detections, are given by 
+\begin_inset Formula $\left\{ x_{1},\ldots,x_{t}\right\} $
+\end_inset
+
+, which is modeled by a mixture of 
+\begin_inset Formula $K$
+\end_inset
+
+ Gaussian distributions.
+ The probability density function of observing a detection value is
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355516244
+\begin_inset Formula 
+\begin{equation}
+f(\mathbf{x}_{t})=\sum_{i=1}^{K}\omega_{i,t}*\eta(\mathbf{x}_{t},\mu_{i,t},\Sigma_{i,t})\label{eq:GMM density function}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $K$
+\end_inset
+
+ is the number of distributions, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\omega_{i,t}$
+\end_inset
+
+ is the weight of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ Gaussian in the mixture at time 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_{i,t}$
+\end_inset
+
+ is the mean value of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ Gaussian in the mixture at time 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $\Sigma_{i,t}$
+\end_inset
+
+ is the covariance matrix of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ Gaussian in the mixture at time 
+\begin_inset Formula $t$
+\end_inset
+
+ , and 
+\begin_inset Formula $\eta$
+\end_inset
+
+ is a Gaussian probability density function given by
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355516244
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\eta(\mathbf{x}_{t},\mu_{i,t},\Sigma_{i,t})=\frac{1}{\left(2\pi\right)^{\frac{t}{2}}\left|\Sigma\right|^{\frac{1}{2}}}\cdot e^{-\frac{1}{2}\left(\mathbf{x}_{t}-\mu_{t}\right)^{\mathrm{T}}\Sigma^{-1}\left(\mathbf{x}_{t}-\mu_{t}\right)},
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+Thus, the distribution of recent detection values are modeled by a mixture
+ of Gaussian distribution.
+ The recent detections are classified in 
+\begin_inset Formula $K$
+\end_inset
+
+ categories.
+ For the background model, all categories correspond to background noise.
+ When a new detection comes, generally it will be matched to one of the
+ major components of the model and was used to update the background model.
+ If a group of adjacent sensors having detections do not match any categories
+ of background model, it is more likely the cloud exists.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355516244
+Similarly, EM algorithm could also build the Gaussian mixture model for
+ the observing when cloud exists.
+ In this case, one or more categories will correspond to the detection mainly
+ raised by clouds reflection.
+ If a group of adjacent sensors having detections match the categories of
+ cloud, it is more likely the cloud exists.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355525810
+Once the probability density function (PDF) for background and cloud reflection
+ signals are available, the hypothesis test of cloud existence is made based
+ on the observation.
+ Normally, this is done by gathering all the data and taking the log likelihood
+ ratio(LLR) in the fusion center.
+ In section todo
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Distributed-Calculation-of"
+
+\end_inset
+
+, distributed consensus algorithm is adopted to find the LLR, without data
+ gathering or fusion center.
+\change_inserted 5862369 1355516082
+
+\end_layout
+
+\begin_layout Subsection
 Hypothesis Test
+\change_inserted 5862369 1355526206
+ing
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2403,8 +2482,12 @@ The prior probability of these two hypotheses is denoted by
 .
 \end_layout
 
-\begin_layout Subsubsection
-Global and Local Log Likelihood Ratio 
+\begin_layout Standard
+
+\change_deleted 5862369 1355526135
+Global  Log Likelihood Ratio Testing 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2579,6 +2662,93 @@ where
 
 .
  
+\change_inserted 5862369 1355523820
+
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 5862369 1355525782
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Distributed-Calculation-of"
+
+\end_inset
+
+Distributed Calculation of G-LLR 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355526574
+If we 
+\change_inserted 5862369 1355526620
+A common 
+\change_deleted 5862369 1355526606
+assum
+\change_inserted 5862369 1355526614
+approximation is assume 
+\change_deleted 5862369 1355526582
+e
+\change_unchanged
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Sigma_{1}=diag\left(\sigma_{1,1}^{2},\sigma_{2,1}^{2},\ldots,\sigma_{L,1}^{2}\right)$
+\end_inset
+
+
+\change_inserted 5862369 1355517196
+ and 
+\change_deleted 5862369 1355517195
+, 
+\change_unchanged
+
+\begin_inset Formula $\Sigma_{0}=\sigma_{0}^{2}I$
+\end_inset
+
+, 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+the Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:G-LLR simple"
+
+\end_inset
+
+ can be reduced to 
+\begin_inset Formula 
+\begin{equation}
+LLR(\mathbf{x})=\sum_{l=1}^{L}w_{l}x_{l}+C-\frac{1}{2}\sum_{l=1}^{L}\left(\sigma_{1,1}^{-2}-\sigma_{0}^{-2}\right)x_{l}^{2}\label{eq:G-LLR_independent}
+\end{equation}
+
+\end_inset
+
+which can be calculated by two instances of DAC algorithms.
+ Thus, the observation of sensors is assume to be independent from on to
+ another.
+ Sensors will build the Gaussian signal model separately.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2586,20 +2756,61 @@ Provided that each sensor knows the weight
 \begin_inset Formula $w_{l}$
 \end_inset
 
-, the Eq.
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\sigma_{1,1}^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{0}^{2}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+, Eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:G-LLR simple"
+reference "eq:G-LLR_independent"
 
 \end_inset
 
- states that the G-LLR is equal to the weighted sum of local observation
- of sensors in the network together with the constant 
+ states that the G-LLR is equal to the weighted sum of 
+\begin_inset Formula $x_{l}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{l}^{2}$
+\end_inset
+
+ plus the constant 
 \begin_inset Formula $C$
 \end_inset
 
 .
+ Therefore, the distributed average consensus (DAC) algorithm can be used
+ to calculate it.
  Actually, the constant 
 \begin_inset Formula $C$
 \end_inset
@@ -2609,7 +2820,7 @@ reference "eq:G-LLR simple"
  Therefore, we modify the hypothesis testing into 
 \begin_inset Formula 
 \begin{equation}
-LLR(\mathbf{x})=\sum_{l=1}^{L}w_{l}x_{l}\underset{H_{0}}{\overset{H_{1}}{\gtrless}}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}-C\label{eq:GLLR in weighted sum}
+LLR(\mathbf{x})=\sum_{l=1}^{L}w_{l}x_{l}-\frac{1}{2}\sum_{l=1}^{L}\left(\sigma_{1,1}^{-2}-\sigma_{0}^{-2}\right)x_{l}^{2}\underset{H_{0}}{\overset{H_{1}}{\gtrless}}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}-C\label{eq:GLLR in weighted sum}
 \end{equation}
 
 \end_inset
@@ -2631,6 +2842,8 @@ where
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355517070
 Eq.
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -2641,9 +2854,9 @@ reference "eq:GLLR in weighted sum"
  means the G-LLR can be a weighted sum of the signal acquired in each sensor,
  which can be obtained by the weight average multiplied with the number
  of sensors in the network.
- Therefore, the distributed average consensus (DAC) algorithm can be used
- in its calculation.
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2656,8 +2869,135 @@ The algorithm is as follows: First, each sensor calculates its local LLR
  ML or MAP decision rule.
 \end_layout
 
-\begin_layout Subsection
-Challenge of Distributed Detection of Cloud
+\begin_layout Subsubsection*
+Challenge
+\change_inserted 5862369 1355526685
+s
+\change_unchanged
+ of 
+\change_deleted 5862369 1355526644
+Distributed Detection 
+\change_inserted 5862369 1355526656
+Distributed Calculation of G-LLR
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1355526424
+In a network without fusion center, it is desirable to find the 
+\begin_inset Formula $LLR(\mathbf{x})$
+\end_inset
+
+ in a distributed manner.
+ 
+\change_unchanged
+However, the quadratic form in Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:G-LLR simple"
+
+\end_inset
+
+ contains high order components of 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+.
+ To calculate the global LLR, 
+\begin_inset Formula $\mathbf{\Sigma}_{1}^{-1}$
+\end_inset
+
+, 
+\begin_inset Formula $\Sigma_{0}^{-1}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{u}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{u}_{0}$
+\end_inset
+
+ should be known.
+ 
+\change_inserted 5862369 1355519158
+Specifically, the entries of 
+\begin_inset Formula $\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)$
+\end_inset
+
+ should be known to nodes.
+ 
+\change_deleted 5862369 1355517591
+Both make it is impossible to calculate G-LLR by distributed algorithms.
+ 
+\change_inserted 5862369 1355518352
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1355518167
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+In centralized method, 
+\begin_inset Formula $\mathbf{\Sigma}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{u}_{1}$
+\end_inset
+
+ can be obtained by expectation-maximization (EM) algorithm.
+ But
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ it seems not possible to calculate 
+\begin_inset Formula $\mathbf{\Sigma}_{1}^{-1}$
+\end_inset
+
+ without global information.
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\change_deleted 5862369 1355518173
+This is more related to sensor learning.
+ In real sensing area, sensors should need to learn their environments and
+ get these parameters updated and tracked.
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2673,8 +3013,11 @@ Challenge of Distributed Detection of Cloud
 \uwave off
 \noun off
 \color none
-When no cloud exists, the sensor's observation signal is only caused by
- atmospheric backscatter and noise.
+When no cloud exists, the sensor's
+\change_deleted 5862369 1355517743
+ 
+\change_unchanged
+ signal is only caused by atmospheric backscatter and noise.
  It is described by joint Gaussian distribution 
 \begin_inset Formula $\mathcal{N}\left(\mathbf{u}_{0},\Sigma_{0}\right)$
 \end_inset
@@ -2688,15 +3031,57 @@ When no cloud exists, the sensor's observation signal is only caused by
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1355526310
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
 On the contrary, 
 \begin_inset Formula $\mathbf{\Sigma}_{1}$
 \end_inset
 
  can't be written in the same form.
- Because the fluctuating amplitude of cloud concentration may different
- from one sensor to another.
- In addition, fluctuating of cloud concentration or sensor's observation
- are correlated, especially for the sensors close to each other.
+ 
+\change_deleted 5862369 1355526317
+Because
+\change_inserted 5862369 1355526322
+At first,
+\change_unchanged
+ the 
+\change_deleted 5862369 1355517280
+fluctuating amplitude of
+\change_unchanged
+ cloud concentration 
+\change_inserted 5862369 1355517271
+fluctuating 
+\change_unchanged
+may different from one sensor to another.
+ 
+\change_deleted 5862369 1355526326
+In addition,
+\change_inserted 5862369 1355526331
+Second, the
+\change_unchanged
+ fluctuating of cloud concentration 
+\change_deleted 5862369 1355526344
+or sensor's observation 
+\change_inserted 5862369 1355526344
+ 
+\change_unchanged
+are correlated, especially for the sensors close to each other.
  As shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2706,133 +3091,45 @@ reference "fig:GMM (x1,x2)"
 
 , the correlation is obvious when sensor's observation is shifted with the
  right time delay.
- However, if the training data are available, 
+
+\change_deleted 5862369 1355518138
+ 
+\change_inserted 5862369 1355526449
+The correlation is the major challenge to invert the 
 \begin_inset Formula $\mathbf{\Sigma}_{1}$
 \end_inset
 
- and 
-\begin_inset Formula $\mathbf{u}_{1}$
-\end_inset
-
- can be obtained by expectation-maximization (EM) algorithm.
- This is more related to sensor learning.
- In real sensing area, sensors should need to learn their environments and
- get these parameters updated and tracked.
+.
  
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355526417
 In a network without fusion center, it is desirable to find the 
 \begin_inset Formula $LLR(\mathbf{x})$
 \end_inset
 
- in a distributed manner by distributed average consensus
-\change_deleted 5862369 1353452547
- 
-\change_unchanged
- (DAC) algorithm.
- Some properties of 
-\change_inserted 5862369 1353452567
-DAC
-\change_deleted 5862369 1353452567
-DCA
-\change_unchanged
- should emphasize here.
- First values can only be exchanged between neighbors.
- Second, 
-\change_inserted 5862369 1353452567
-DAC
-\change_deleted 5862369 1353452567
-DCA
-\change_unchanged
- is a tool to find the average of the local values that initially hold by
- all the nodes in the networks.
+ in a distributed manner by distributed average consensus  (DAC) algorithm.
  
 \end_layout
 
 \begin_layout Standard
-The quadratic form in Eq.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:G-LLR simple"
 
-\end_inset
-
- contains high order components of 
-\begin_inset Formula $\mathbf{x}$
-\end_inset
-
-.
- On the other hand, without global information, it seems not possible to
- calculate 
-\begin_inset Formula $\mathbf{\Sigma}_{1}^{-1}$
-\end_inset
-
- in in a distributed manner.
- Both make it is impossible for 
-\change_inserted 5862369 1353452567
-DAC
-\change_deleted 5862369 1353452567
-DCA
-\change_unchanged
- to calculate G-LLR.
- So sensors can only build the Gaussian mixture model separately.
- Thus, the observation of sensors is assume to be independent from on to
- another.
- If we assume 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $\Sigma_{1}=diag\left(\sigma_{1,1}^{2},\sigma_{2,1}^{2},\ldots,\sigma_{L,1}^{2}\right)$
-\end_inset
-
-, 
-\begin_inset Formula $\Sigma_{0}=\sigma_{0}^{2}I$
-\end_inset
-
-, 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-the Eq.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:"
-
-\end_inset
-
- evolves into Eq.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Sum L-LLR Cloud"
-
-\end_inset
-
-, in which the G-LLR is equal to the average multiply with the number of
- sensors in the network.
+\change_deleted 5862369 1355518264
+Some properties of DAC should emphasize here.
+ First, local values can only be exchanged between neighbors.
+ Second, DAC is a tool to find the average of the local values that initially
+ hold by all the nodes in the networks.
+ 
+\change_inserted 5862369 1355526463
  
 \end_layout
 
 \begin_layout Standard
-However, the assumption that correlation only exist between sensors located
- very close to each other makes it possible to calculate the G-LLR
+
+\change_inserted 5862369 1355518486
+To make it possible to calculate the G-LLR
 \family roman
 \series medium
 \shape up
@@ -2856,50 +3153,24 @@ However, the assumption that correlation only exist between sensors located
 \uwave default
 \noun default
 \color inherit
-in Eq.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Sum L-LLR Cloud"
-
-\end_inset
-
- using 
-\change_inserted 5862369 1353452567
-DAC
-\change_deleted 5862369 1353452567
-DCA
+using DAC algorithm,
 \change_unchanged
-.
- As each node only stores the coefficient 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-corresponding to itself.
+ we assume that correlation
+\change_inserted 5862369 1355518499
+s
+\change_unchanged
+ only exist between sensors 
+\change_inserted 5862369 1355526508
+that 
+\change_unchanged
+located very close to each other.
  
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-When signal are correlated, we make approximation that 
-\begin_inset Formula $c_{ij}=0,$
-\end_inset
-
- if node 
+\change_deleted 5862369 1355518686
+i
+\change_inserted 5862369 1355518686
+I
+\change_unchanged
+f node 
 \begin_inset Formula $i$
 \end_inset
 
@@ -2907,19 +3178,86 @@ When signal are correlated, we make approximation that
 \begin_inset Formula $j$
 \end_inset
 
- are not neighbors.
- So in the term, 
+ are not neighbors
+\change_inserted 5862369 1355518696
+, 
+\change_deleted 5862369 1355518695
+.
+
+\change_inserted 5862369 1355526749
+ their signals have low correlation and are approximately not correlated.
+ Therefore, each node can only stores the entries of 
+\begin_inset Formula $\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)$
+\end_inset
+
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+that related to itself and its neighbors.
+ The last term in 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:G-LLR simple"
+
+\end_inset
+
+ can be written into
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\frac{1}{2}\sum_{i=1}^{L}\sum_{j=1}^{L}c_{ij}x_{i}x_{j}\label{eq:Term x_i*x_j}
+\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right]=\frac{1}{2}\sum_{i=1}^{L}\sum_{j=1}^{L}c_{ij}x_{i}x_{j}\label{eq:Term x_i*x_j}
 \end{equation}
 
 \end_inset
 
-we can find the value of Eq.
+where 
+\begin_inset Formula $\left[c_{ij}\right]=\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $c_{ij}=0$
+\end_inset
+
+, if 
+\begin_inset Formula $v_{i}\notin{\cal N}_{i}$
+\end_inset
+
+.
+ 
+\change_inserted 5862369 1355519423
+
+\end_layout
+
+\begin_layout Standard
+We can find the value of Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Term x_i*x_j"
+LatexCommand formatted
+reference "eq:G-LLR simple"
 
 \end_inset
 
@@ -2931,7 +3269,13 @@ Assume for all node
 \begin_inset Formula $i$
 \end_inset
 
-, it has the value 
+, it 
+\change_deleted 5862369 1355519443
+has
+\change_inserted 5862369 1355519445
+stores
+\change_unchanged
+ the value 
 \begin_inset Formula $x_{i}$
 \end_inset
 
@@ -2944,7 +3288,13 @@ Assume for all node
 \begin_inset Formula $c_{ij}=c_{ji}$
 \end_inset
 
+
+\change_inserted 5862369 1355519459
+, 
+\change_deleted 5862369 1355519459
 .
+
+\change_unchanged
  node 
 \begin_inset Formula $i$
 \end_inset
@@ -2965,8 +3315,18 @@ Assume for all node
 \begin_inset Formula ${\cal N}_{i}$
 \end_inset
 
+
+\change_deleted 5862369 1355519467
 .
- Compute the value 
+
+\change_inserted 5862369 1355519468
+ to 
+\change_deleted 5862369 1355519468
+ C
+\change_inserted 5862369 1355519469
+c
+\change_unchanged
+ompute the value 
 \begin_inset Formula 
 \begin{equation}
 v_{i}=\sum_{j\in{\cal N}_{i}}c_{ij}x_{i}x_{j}+c_{ii}x_{i}^{2}

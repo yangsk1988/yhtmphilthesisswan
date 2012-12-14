@@ -33,7 +33,7 @@ the fire alarm sensor inside buildings, which is contact sensing devices.
 When smoke or gas agent contacts with the sensing element, the chemical
 or physical reactions change the electrical characteristics of the
 sensing element. Then the alarm is set if the agent's concentration
-is larger than a threshold. (OK2)
+is larger than a threshold.  
 
 Smoke detection based on video and image processing is also possible.
 For example, in the wildfire video surveillance, people try to change
@@ -185,7 +185,7 @@ are the horizontal and vertical dispersions, $H$ the source height
 . 
 
 To describe the continuous cloud source emitted into the air. An integration
-form $t=0$ to $\infty$ is taken for Eq.\ref{eq:Point source concentration}.
+form $t=0$ to $\infty$ is taken for Eq.\prettyref{eq:Point source concentration}.
 So for continuous source the model is not related to the time $t$,
  The model after integration is called Gaussian plume model. To make
 things easy, assume the wind velocity components $v=0,w=0$. The Gaussian
@@ -546,7 +546,7 @@ into the sum of L-LLR.
 \begin{eqnarray}
 LLR(x_{1},...,x_{L}) & = & log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)}{f\left(x_{1}|H_{0}\right)\cdot\ldots\cdot f\left(x_{L}|H_{0}\right)}=\sum_{i=1}^{L}LLR\left(x_{i}\right)\label{eq:Sum L-LLR Cloud}
 \end{eqnarray}
-According to Eq.\ref{eq:Sum L-LLR Cloud}, the G-LLR is changes into
+According to Eq.\prettyref{eq:Sum L-LLR Cloud}, the G-LLR is changes into
 the sum of local log likelihood ratio (L-LLR). 
 
 To drive and simplify the expression of global log likelihood ratio,
@@ -577,7 +577,7 @@ LLR(\mathbf{x}) & = & -\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{1}\right)^{\mathr
 where $w_{l}$ denotes the $l\mbox{th}$ component of $\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}$,
 and $C=\frac{1}{2}\left[log\left(\left|\Sigma_{0}\right|\right)-log(\left|\Sigma_{1}\right|)\right]-\frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)$. 
 
-Provided that each sensor knows the weight $w_{l}$, the Eq. \ref{eq:G-LLR simple}
+Provided that each sensor knows the weight $w_{l}$, the Eq.\prettyref{eq:G-LLR simple}
 states that the G-LLR is equal to the weighted sum of local observation
 of sensors in the network together with the constant $C$. Actually,
 the constant $C$ changes the threshold of the hypothesis testing
@@ -631,27 +631,27 @@ be exchanged between neighbors. Second, DAC is a tool to find the
 average of the local values that initially hold by all the nodes in
 the networks. 
 
-The quadratic form in Eq.\ref{eq:G-LLR simple} contains high order
+The quadratic form in Eq.\prettyref{eq:G-LLR simple} contains high order
 components of $\mathbf{x}$. On the other hand, without global information,
 it seems not possible to calculate $\mathbf{\Sigma}_{1}^{-1}$ in
 in a distributed manner. Both make it is impossible for DAC to calculate
 G-LLR. So sensors can only build the Gaussian mixture model separately.
 Thus, the observation of sensors is assume to be independent from
 on to another. If we assume $\Sigma_{1}=diag\left(\sigma_{1,1}^{2},\sigma_{2,1}^{2},\ldots,\sigma_{L,1}^{2}\right)$,
-$\Sigma_{0}=\sigma_{0}^{2}I$, the Eq.\ref{eq:} evolves into Eq.\ref{eq:Sum L-LLR Cloud},
+$\Sigma_{0}=\sigma_{0}^{2}I$, the Eq.\prettyref{eq:G-LLR Expand}} evolves into Eq.\prettyref{eq:Sum L-LLR Cloud},
 in which the G-LLR is equal to the average multiply with the number
 of sensors in the network. 
 
 However, the assumption that correlation only exist between sensors
 located very close to each other makes it possible to calculate the
-G-LLR in Eq.\ref{eq:Sum L-LLR Cloud} using DAC. As each node only
+G-LLR in Eq.\prettyref{eq:Sum L-LLR Cloud} using DAC. As each node only
 stores the coefficient corresponding to itself. When signal are correlated,
 we make approximation that $c_{ij}=0,$ if node $i$ and node $j$
 are not neighbors. So in the term, 
 \begin{equation}
 \frac{1}{2}\sum_{i=1}^{L}\sum_{j=1}^{L}c_{ij}x_{i}x_{j}\label{eq:Term x_i*x_j}
 \end{equation}
-we can find the value of Eq.\ref{eq:Term x_i*x_j} by the following
+we can find the value of Eq.\prettyref{eq:Term x_i*x_j} by the following
 algorithm:
 \begin{enumerate}
 \item Assume for all node $i$, it has the value $x_{i}$ and $c_{ij}$.

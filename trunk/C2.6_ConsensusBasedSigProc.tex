@@ -21,7 +21,7 @@ and simplicity. In this section, we will introduce two distributed
 signal processing methods based on consensus algorithm.
 
 
-\subsection{Data Fusion and Decision Making(todo check times 2)}
+\subsection{Data Fusion and Decision Making}
 
 In this section, we will consider a distributed detection problem
 in wireless sensor network without the fusion center. A consensus
@@ -73,7 +73,7 @@ LLR(\mathbf{x}) & = & \log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left
 \end{eqnarray}
 
 
-According to Eq.\eqref{Sum_L_LLR}, the G-LLR is the sum of local
+According to Eq.\prettyref{eq:Sum_L_LLR}, the G-LLR is the sum of local
 log likelihood ratio (L-LLR) and can be calculated by distributed
 average consensus (DAC) algorithm. This is implemented by the following
 steps: First, each sensor node $i$ only calculate its L-LLR individually
@@ -115,8 +115,8 @@ LLR(\mathbf{x}) & = & \left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{
  & = & \sum_{l=1}^{L}w_{l}x_{l}+C\nonumber 
 \end{eqnarray}
 where $w_{l}$ is the $l^{th}$ component of $\left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{T}}\right)\mathbf{\Sigma}^{-1}$,
-$C$ is the last term the equation. Eq. \eqref{wighted_sum_LLR} means
-the G-LLR can be a weighted sum of sensor's observation. 
+$C$ is the last term the equation. Eq.\ref{eq:wighted_sum_LLR}\prettyref{wighted_sum_LLR} means
+ the G-LLR can be a weighted sum of sensor's observation. 
 
 Provided that each sensor knows the weight $w_{l}$ and $C$, the
 G-LLR is equal to the weighted sum of sensor's observation plus $C$.
@@ -139,7 +139,7 @@ noises. In addition, the noises are not only correlated but also depends
 on the existence of target. 
 
 
-\subsection{Network Information Flooding(todo check times 0)}
+\subsection{Network Information Flooding}
 
 The conventional information flooding is actually done by copying
 information to all other nodes. Each node maintains a table of the

@@ -79,18 +79,6 @@ Introduction
 \begin_layout Standard
 
 \change_deleted 5862369 1355082321
-(todo clear all comments, edit.)
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-(todo 
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
 (how to Introduction: we want to answer the question: what is DAC and what's
  its application, how to optimize the algorithm.
 \end_layout
@@ -130,7 +118,7 @@ Introduction
 \begin_layout Standard
 
 \change_deleted 5862369 1355082321
-(todo:DONE
+(DONE
 \end_layout
 
 \begin_layout Standard
@@ -174,20 +162,7 @@ my plan is to structure the introduction like that
 \change_deleted 5862369 1355082321
 5.
  and the DAC have a little modification depends on the application itself.
- 
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-6.
- my contribution
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-)
+ )
 \change_unchanged
 
 \end_layout
@@ -1042,7 +1017,11 @@ Finally, a modified Gaussian plume models is presented, which is the integration
  However, a real cloud cloud concentration is actually a random process.
  To reveal 
 \change_deleted 5863457 1354406881
-[todo: delete reveal present express perform]
+[
+\change_deleted 5862369 1355523539
+done
+\change_deleted 5863457 1354406881
+: delete reveal present express perform]
 \change_inserted 5863457 1354407000
  
 \change_unchanged

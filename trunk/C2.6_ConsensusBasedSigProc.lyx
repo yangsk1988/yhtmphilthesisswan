@@ -62,7 +62,7 @@ theorems-sec-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -81,9 +81,13 @@ Sensor networks have a variety of applications such as surveillance, environment
  monitoring and collaborative signal processing.
  
 \change_inserted 5862369 1355343581
-As the advatages of reliability, survivability, and increased range of coverage,
- there is an increasing interest in employing multiple distributed sensors
- for these applications 
+As the 
+\change_unchanged
+advantages
+\change_inserted 5862369 1355343581
+ of reliability, survivability, and increased range of coverage, there is
+ an increasing interest in employing multiple distributed sensors for these
+ applications 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chair1986"
@@ -94,12 +98,7 @@ key "Chair1986"
  
 \change_unchanged
 A fundamental problem in sensor network is to process spatially distributed
- information using a scalable algorithm
-\change_deleted 5862369 1355343356
-.
-
-\change_unchanged
- 
+ information using a scalable algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Olfati-Saber2005a"
@@ -196,8 +195,8 @@ H1: target is present.
 \end_layout
 
 \begin_layout Standard
-Suppose each sensor acquires a scale value from its sensoring area, its
- signal has the following form
+Suppose each sensor acquires a scale value from its sensing area, its signal
+ has the following form
 \end_layout
 
 \begin_layout Standard
@@ -395,12 +394,8 @@ Generalization of LLR Calculation
 \begin_layout Standard
 In this section, we will generalize the conditions step by step and drive
  some expressions to show how to calculate G-LLR with DAC algorithms.
- 
-\end_layout
-
-\begin_layout Standard
-First we assume the noises in sensor's signals are not independent from
- one to another.
+ We assume the noises in sensor's signals are not independent from one to
+ another.
  The noises can be denoted by the joint Gaussian white noise.
  
 \end_layout

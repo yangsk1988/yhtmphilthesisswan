@@ -1090,7 +1090,7 @@ Discrete High Order Distributed Consensus Algorithm
 \end_layout
 
 \begin_layout Standard
-Higher order Distributed Consensus Algorithm (HO-DCA) can have faster convergenc
+Higher order Distributed Consensus Algorithm (HO-DAC) can have faster convergenc
 e rate and potentially faster than FO-DCA.
  It can be easily implemented by storing and using past data, and doesn't
  require additional communication and network configuration.
@@ -1114,14 +1114,14 @@ key "Xiong2010"
  topology-dependent matrix to update the initial data.
  It involves more parameters than FO-DAC so that the optimization problem
  has more degrees of freedom.
- When some parameters are set to zero, the HO-DCA algorithm can reduce to
+ When some parameters are set to zero, the HO-DAC algorithm can reduce to
  the best constant FO-DAC algorithm.
 \end_layout
 
 \begin_layout Standard
 Since the convergence rate of the initial values is related to eigenvalues
  of Laplacian matrix.
- In the optimization problem of HO-DCA, eigenvalues of the associated graph
+ In the optimization problem of HO-DAC, eigenvalues of the associated graph
  Laplacian matrix or weight matrix must known.
  
 \end_layout

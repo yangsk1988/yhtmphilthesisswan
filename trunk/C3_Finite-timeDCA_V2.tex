@@ -2,7 +2,7 @@
 \chapter{\label{sub:Finite-time-Consensus-on}Finite-time DAC on Generalized
 Conditions }
 
-(todo check 1)
+
 
 It is shown in section \ref{sub:Find_Consensus_Value} that finite-time
 DAC algorithm can calculate the consensus value by a linear combination
@@ -31,7 +31,7 @@ section \ref{sec:Linear-Predictor-For}.
 
 
 \section{\label{sec:Linear-Predictor-For}Linear Predictor For Local Value
-(todo check times 1)}
+}
 
 In observing the convergence curve of each node's local value sequence,
 we would come to the idea that the sequence must obeys some rule as
@@ -82,7 +82,7 @@ is not changed.\end{proof}
 \label{lem:Sum-coef.=00003D1}The sum coefficients \textup{$\left\{ a_{j}\right\} =\left\{ a_{m-1},\ldots,a_{1},a_{0}\right\} $}
 is equals to negative one, i.e. $\sum_{j=0}^{m-1}a_{j}=-1$\textup{. }\end{lem}
 \begin{proof}
-It is obvious when the iteration converges. Since Eq. \prettyref{eq:x(k+r) vector predictor}
+It is obvious when the iteration converges. Since Eq.\prettyref{eq:x(k+r) vector predictor}
 satisfied as $k\to\infty$, we have $\bar{\mathbf{x}}+a_{m-1}\bar{\mathbf{x}}+\ldots+a_{1}\bar{\mathbf{x}}+a_{0}\bar{\mathbf{x}}=\mathbf{0}$.
 Then, canceling the vector $\bar{\mathbf{x}}$ from the equation obtains
 that the sum of all coefficients equals to negative one. 
@@ -127,8 +127,8 @@ of these equations given by
 \mathbf{a}_{i}\left(D_{i}\right)=-T_{i}^{-1}\left(k,D_{i}\right)\mathbf{y}_{i}\left(k,D_{i}\right)\label{eq:Toeplitz Eq.-2}
 \end{equation}
 The size of the Toeplitz block $D_{i}$, should be less or equal to
-$m$ so that the Eq. \prettyref{eq:Toeplitz Eq.-2} have unique solution.
-To solve Eq.\ref{eq:Toeplitz Eq.-2}, node $i$ need to have sufficient
+$m$ so that the Eq.\prettyref{eq:Toeplitz Eq.-2} have unique solution.
+To solve Eq.\prettyref{eq:Toeplitz Eq.-2}, node $i$ need to have sufficient
 local values.
 
 Toeplitz matrix is a special type of matrix and can be inverted by
@@ -147,7 +147,7 @@ to be changed and can generalize to the non-symmetric weight matrix
 case. 
 
 It totally needs $2r+2$ local values and $2r+1$ iterations to construct
-the Toeplitz matrix and Eq.\ref{eq:Toeplitz Eq.-2}, but all the local
+the Toeplitz matrix and Eq.\prettyref{eq:Toeplitz Eq.-2}, but all the local
 value can be obtained from one instance of FO-DCA. In contract, the
 the original finite-time consensus algorithm in \cite{Sundaram2007}
 requires $r$ iterations of FO-DCA for each instance, and totally
@@ -160,7 +160,7 @@ coefficients.
 
 
 \section{\label{sub:Convert-Linear-Predictor }Convert Linear Predictor To
-Consensus Finding Filter(todo check times 0)}
+Consensus Finding Filter}
 
 Once there are sufficient local values, node $i$ can solve the equation
 and obtain the set of coefficients \textbf{$\mathbf{a}$} and construct
@@ -224,7 +224,7 @@ there are 5 distinct and nonzero eigenvalues of \textbf{$W$}, so
 we choose the time index $k=5$ and $d=5$ which is the minimum filter
 length.
 
- Based on Eq.\ref{eq:Consensus Filter by polynomial}  the consensus
+ Based on Eq.\prettyref{eq:Consensus Filter by polynomial}  the consensus
 finding filter is given by
 
 \[

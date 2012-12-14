@@ -29,123 +29,130 @@ R.~Cristescu, B.~Beferull-Lozano, and M.~Vetterli, ``On network correlated data
 
 \bibitem{Yuen2008}
 K.~Yuen, B.~Liang, and L.~Baochun, ``A distributed framework for correlated
-  data gathering in sensor networks,'' vol.~57, no.~1, pp. 578--593, 2008.
+  data gathering in sensor networks,'' \emph{IEEE Transactions on Vehicular
+  Technology}, vol.~57, no.~1, pp. 578--593, 2008.
 
 \bibitem{Chair1986}
 Z.~Chair and P.~K. Varshney, ``Optimal data fusion in multiple sensor detection
-  systems,'' no.~1, pp. 98--101, 1986.
+  systems,'' \emph{IEEE Transactions on Aerospace and Electronic Systems},
+  no.~1, pp. 98--101, 1986.
 
-\bibitem{Kam1992}
-M.~Kam, Q.~Zhu, and W.~S. Gray, ``Optimal data fusion of correlated local
-  decisions in multiple sensor detection systems,'' vol.~28, no.~3, pp.
-  916--920, 1992.
+\bibitem{Schenato2011}
+L.~Schenato and F.~Fiorentin, ``Average timesynch: A consensus-based protocol
+  for clock synchronization in wireless sensor networks,'' \emph{Automatica},
+  vol.~47, no.~9, pp. 1878 -- 1886, 2011.
+
+\bibitem{Ren2008}
+W.~Ren, H.~Chao, W.~Bourgeous, N.~Sorensen, and Y.~Chen, ``Experimental
+  validation of consensus algorithms for multivehicle cooperative control,''
+  \emph{Control Systems Technology, IEEE Transactions on}, vol.~16, no.~4, pp.
+  745 --752, july 2008.
+
+\bibitem{Yang2010}
+P.~Yang, R.~Freeman, G.~Gordon, K.~Lynch, S.~Srinivasa, and R.~Sukthankar,
+  ``Decentralized estimation and control of graph connectivity for mobile
+  sensor networks,'' \emph{Automatica}, vol.~46, no.~2, pp. 390 -- 396, 2010.
+
+\bibitem{Olfati-Saber2012}
+R.~Olfati-Saber and P.~Jalalkamali, ``Coupled distributed estimation and
+  control for mobile sensor networks,'' \emph{Automatic Control, IEEE
+  Transactions on}, vol.~PP, no.~99, p.~1, 2012.
+
+\bibitem{Hlinka2012}
+O.~Hlinka, O.~Sluč~andiak, F.~Hlawatsch, P.~Djurić~and, and M.~Rupp,
+  ``Likelihood consensus and its application to distributed particle
+  filtering,'' \emph{IEEE Transactions on Signal Processing}, vol.~60, no.~8,
+  pp. 4334 --4349, aug. 2012.
 
 \bibitem{Ren2007}
 W.~Ren, R.~W. Beard, and E.~M. Atkins, ``Information consensus in multivehicle
-  cooperative control,'' \emph{IEEE Control Systems}, vol.~27, no.~2, pp.
-  71--82, 2007.
+  cooperative control,'' \emph{IEEE Control Systems Magazine}, vol.~27, no.~2,
+  pp. 71--82, 2007.
 
-\bibitem{Sundaram2007}
-S.~Sundaram and C.~N. Hadjicostis, ``Finite-time distributed consensus in
-  graphs with time-invariant topologies,'' in \emph{Proc. American Control
-  Conf. ACC '07}, 2007, pp. 711--716.
+\bibitem{Jakovetic2010}
+D.~Jakovetić~and, J.~Xavier, and J.~Moura, ``Weight optimization for
+  consensus algorithms with correlated switching topology,'' \emph{Signal
+  Processing, IEEE Transactions on}, vol.~58, no.~7, pp. 3788 --3801, july
+  2010.
 
-\bibitem{Xiong2009a}
-G.~Xiong and S.~Kishore, ``Discrete-time second-order distributed consensus
-  time synchronization algorithm for wireless sensor networks,'' \emph{EURASIP
-  J. Wirel. Commun. Netw.}, vol. 2009, pp. 1:1--1:12, January 2009.
+\bibitem{Nedic2010}
+A.~Nedic, A.~Ozdaglar, and P.~Parrilo, ``Constrained consensus and optimization
+  in multi-agent networks,'' \emph{Automatic Control, IEEE Transactions on},
+  vol.~55, no.~4, pp. 922 --938, april 2010.
+
+\bibitem{Asensio-Marco2012}
+C.~Asensio-Marco and B.~Beferull-Lozano, ``Network topology optimization for
+  accelerating consensus algorithms under power constraints,'' in
+  \emph{Distributed Computing in Sensor Systems (DCOSS), 2012 IEEE 8th
+  International Conference on}, may 2012, pp. 224 --229.
 
 \bibitem{Xiao2004}
 L.~Xiao and S.~Boyd, ``Fast linear iterations for distributed averaging,''
-  \emph{Systems \&amp; Control Letters}, vol.~53, no.~1, pp. 65 -- 78, 2004.
-
-\bibitem{Moreau2004}
-L.~Moreau, ``Stability of continuous-time distributed consensus algorithms,''
-  in \emph{Decision and Control, 2004. CDC. 43rd IEEE Conference on}, vol.~4,
-  dec. 2004, pp. 3998 -- 4003 Vol.4.
-
-\bibitem{Khan2010}
-U.~Khan, S.~Kar, and J.~Moura, ``Higher dimensional consensus: Learning in
-  large-scale networks,'' \emph{IEEE Transactions on Signal Processing},
-  vol.~58, no.~5, pp. 2836 --2849, may 2010.
-
-\bibitem{Li2010}
-W.~Li, H.~Dai, and Y.~Zhang, ``Location-aided fast distributed consensus in
-  wireless networks,'' \emph{IEEE Transactions on Information Theory}, vol.~56,
-  no.~12, pp. 6208--6227, 2010.
-
-\bibitem{Kokiopoulou2007}
-E.~Kokiopoulou and P.~Frossard, ``Accelerating distributed consensus using
-  extrapolation,'' \emph{Signal Processing Letters, IEEE}, vol.~14, no.~10, pp.
-  665 --668, oct. 2007.
-
-\bibitem{Cavalcante2010}
-R.~L.~G. Cavalcante and B.~Mulgrew, ``Adaptive filter algorithms for
-  accelerated discrete-time consensus,'' \emph{IEEE Transactions on Signal
-  Processing}, vol.~58, no.~3, pp. 1049--1058, 2010.
-
-\bibitem{MiroslavFiedler1973}
-P.~Miroslav~Fiedler, ``Algebraic connectivity of graphs,'' \emph{Czechoslovak
-  Mathematical Journal}, vol.~23, p.~98, 1973.
-
-\bibitem{Russell1994}
-Russell and Merris, ``Laplacian matrices of graphs: a survey,'' \emph{Linear
-  Algebra and its Applications}, vol. 197-198, no.~0, pp. 143 -- 176, 1994.
+  \emph{Systems \& Control Letters}, vol.~53, no.~1, pp. 65 -- 78, 2004.
 
 \bibitem{Xiong2010}
 G.~Xiong and S.~Kishore, ``Linear high-order distributed average consensus
   algorithm in wireless sensor networks,'' \emph{EURASIP J. Adv. Signal
   Process}, vol. 2010, pp. 31:1--31:6, February 2010.
 
-\bibitem{Ren2005}
-W.~Ren, R.~Beard, and D.~Kingston, ``Multi-agent kalman consensus with relative
-  uncertainty,'' in \emph{American Control Conference, 2005. Proceedings of the
-  2005}, june 2005, pp. 1865 -- 1870 vol. 3.
+\bibitem{Sundaram2007}
+S.~Sundaram and C.~N. Hadjicostis, ``Finite-time distributed consensus in
+  graphs with time-invariant topologies,'' in \emph{Proc. American Control
+  Conf. ACC '07}, 2007, pp. 711--716.
 
-\bibitem{Alighanbari2006}
-M.~Alighanbari and J.~How, ``An unbiased kalman consensus algorithm,'' in
-  \emph{American Control Conference, 2006}, Jun 2006, p. 6 pp.
+\bibitem{Cavalcante2010}
+R.~L.~G. Cavalcante and B.~Mulgrew, ``Adaptive filter algorithms for
+  accelerated discrete-time consensus,'' \emph{IEEE Transactions on Signal
+  Processing}, vol.~58, no.~3, pp. 1049--1058, 2010.
+
+\bibitem{Boyd2006}
+S.~Boyd, A.~Ghosh, B.~Prabhakar, and D.~Shah, ``Randomized gossip algorithms,''
+  \emph{IEEE Transactions on Information Theory}, vol.~52, no.~6, pp. 2508 --
+  2530, june 2006.
+
+\bibitem{He2011}
+S.~He, H.-C. Wong, and U.-H. Wong, ``An efficient adaptive vortex particle
+  method for real-time smoke simulation,'' in \emph{Computer-Aided Design and
+  Computer Graphics (CAD/Graphics), 2011 12th International Conference on},
+  sept. 2011, pp. 317 --324.
+
+\bibitem{Russell1994}
+Russell and Merris, ``Laplacian matrices of graphs: a survey,'' \emph{Linear
+  Algebra and its Applications}, vol. 197-198, no.~0, pp. 143 -- 176, 1994.
+
+\bibitem{Das2004}
+K.~Das, ``The laplacian spectrum of a graph,'' \emph{Computers \& Mathematics
+  with Applications}, vol.~48, no. 5-6, pp. 715 -- 724, 2004.
 
 \bibitem{Kar2009}
 S.~Kar and J.~Moura, ``Distributed consensus algorithms in sensor networks with
-  imperfect communication: Link failures and channel noise,'' \emph{Signal
-  Processing, IEEE Transactions on}, vol.~57, no.~1, pp. 355 --369, jan. 2009.
+  imperfect communication: Link failures and channel noise,'' \emph{IEEE
+  Transactions on Signal Processing}, vol.~57, no.~1, pp. 355 --369, jan. 2009.
 
-\bibitem{Varga2010}
-R.~Varga, \emph{Matrix iterative analysis}.\hskip 1em plus 0.5em minus
-  0.4em\relax Springer, 2010, vol.~27.
-
-\bibitem{Horn1990}
-R.~Horn and C.~Johnson, \emph{Matrix analysis}.\hskip 1em plus 0.5em minus
-  0.4em\relax Cambridge Univ Pr, 1990.
+\bibitem{Xiong2009a}
+G.~Xiong and S.~Kishore, ``Discrete-time second-order distributed consensus
+  time synchronization algorithm for wireless sensor networks,'' \emph{EURASIP
+  J. Wirel. Commun. Netw.}, vol. 2009, pp. 1:1--1:12, January 2009.
 
 \bibitem{Olfati-Saber2004}
 R.~Olfati-Saber and R.~M. Murray, ``Consensus problems in networks of agents
-  with switching topology and time-delays,'' vol.~49, no.~9, pp. 1520--1533,
-  2004.
+  with switching topology and time-delays,'' \emph{IEEE Transactions on
+  Automatic Control}, vol.~49, no.~9, pp. 1520--1533, 2004.
 
-\bibitem{Piziak2007}
-R.~Piziak and P.~Odell, \emph{Matrix theory: from generalized inverses to
-  Jordan form}, ser. Pure and applied mathematics.\hskip 1em plus 0.5em minus
-  0.4em\relax Chapman \& Hall/CRC, 2007.
+\bibitem{Kokiopoulou2007}
+E.~Kokiopoulou and P.~Frossard, ``Accelerating distributed consensus using
+  extrapolation,'' \emph{Signal Processing Letters, IEEE}, vol.~14, no.~10, pp.
+  665 --668, oct. 2007.
 
 \bibitem{Prass2007}
 W.~Prass, \emph{Numerical recipes: the art of scientific computing},
   3rd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Cambridge University Press,
   2007.
 
-\bibitem{Robinson2000}
-E.~Robinson and S.~Treitel, \emph{Geophysical signal analysis}.\hskip 1em plus
-  0.5em minus 0.4em\relax Soc of Exploration Geophysicists, 2000.
-
-\bibitem{Fax2004}
-J.~Fax and R.~Murray, ``Information flow and cooperative control of vehicle
-  formations,'' \emph{Automatic Control, IEEE Transactions on}, vol.~49, no.~9,
-  pp. 1465 -- 1476, sept. 2004.
-
-\bibitem{Chung2006}
-F.~Chung, ``The diameter and laplacian eigenvalues of directed graphs,''
-  \emph{Electronic Journal of Combinatorics}, vol.~13, no.~4, 2006.
+\bibitem{Piziak2007}
+R.~Piziak and P.~Odell, \emph{Matrix theory: from generalized inverses to
+  Jordan form}, ser. Pure and applied mathematics.\hskip 1em plus 0.5em minus
+  0.4em\relax Chapman \& Hall/CRC, 2007.
 
 \bibitem{Olfati-Saber2005a}
 R.~Olfati-Saber and J.~Shamma, ``Consensus filters for sensor networks and
@@ -159,6 +166,39 @@ L.~Xiao, S.~Boyd, and S.~Lall, ``A scheme for robust distributed sensor fusion
   Networks, 2005. IPSN 2005. Fourth International Symposium on}.\hskip 1em plus
   0.5em minus 0.4em\relax Ieee, 2005, pp. 63--70.
 
+\bibitem{Varga2010}
+R.~Varga, \emph{Matrix iterative analysis}.\hskip 1em plus 0.5em minus
+  0.4em\relax Springer, 2010, vol.~27.
+
+\bibitem{Horn1990}
+R.~Horn and C.~Johnson, \emph{Matrix analysis}.\hskip 1em plus 0.5em minus
+  0.4em\relax Cambridge Univ Pr, 1990.
+
+\bibitem{Li2010}
+W.~Li, H.~Dai, and Y.~Zhang, ``Location-aided fast distributed consensus in
+  wireless networks,'' \emph{IEEE Transactions on Information Theory}, vol.~56,
+  no.~12, pp. 6208--6227, 2010.
+
+\bibitem{Robinson2000}
+E.~Robinson and S.~Treitel, \emph{Geophysical signal analysis}.\hskip 1em plus
+  0.5em minus 0.4em\relax Soc of Exploration Geophysicists, 2000.
+
+\bibitem{Kempe2008}
+D.~Kempe and F.~McSherry, ``A decentralized algorithm for spectral analysis,''
+  \emph{Journal of Computer and System Sciences}, vol.~74, no.~1, pp. 70 -- 83,
+  2008.
+
+\bibitem{Franceschelli2009}
+M.~Franceschelli, A.~Gasparri, A.~Giua, and C.~Seatzu, ``Decentralized
+  laplacian eigenvalues estimation for networked multi-agent systems,'' in
+  \emph{CDC/CCC 2009. Proceedings of the 48th IEEE Conference on Decision and
+  Control}, dec. 2009, pp. 2717 --2722.
+
+\bibitem{Zhou2009}
+J.~Zhou and Q.~Wang, ``Convergence speed in distributed consensus over
+  dynamically switching random networks,'' \emph{Automatica}, vol.~45, no.~6,
+  pp. 1455--1461, 2009.
+
 \bibitem{Lidar.Wiki.2011}
 \BIBentryALTinterwordspacing
 (2011, Sep) Lidar. Wikipedia. [Online]. Available:
@@ -169,6 +209,17 @@ L.~Xiao, S.~Boyd, and S.~Lall, ``A scheme for robust distributed sensor fusion
 P.M.Hamilton, ``The application of a pulsed-light rangefinder (lidar) to the
   study of chimney plumes,'' \emph{Royal Society of London Philosophical
   Transactions Series A}, vol. 265, pp. 153--172, Nov. 1969.
+
+\bibitem{Simard2004}
+J.~Simard, G.~Roy, P.~Mathieu, V.~Larochelle, J.~McFee, and J.~Ho, ``Standoff
+  sensing of bioaerosols using intensified range-gated spectral analysis of
+  laser-induced fluorescence,'' \emph{Geoscience and Remote Sensing, IEEE
+  Transactions on}, vol.~42, no.~4, pp. 865--874, 2004.
+
+\bibitem{Bufton2007}
+J.~Bufton, ``Development of the lidar controlled-airspace scanner for
+  bio-aerosol detection,'' in \emph{Lasers and Electro-Optics, 2007. CLEO 2007.
+  Conference on}, may 2007, p.~1.
 
 \bibitem{N.Kh.2004}
 N.Kh. and Arystanbekova, ``Application of gaussian plume models for air
@@ -191,12 +242,6 @@ J.-S. Lin and L.~M. Hildemann, ``Analytical solutions of the atmospheric
 L.~J. Shieh, P.~K. Halpern, B.~A. Clemens, H.~H. Wang, and F.~F. Abraham, ``Air
   quality diffusion model; application to new york city,'' \emph{IBM Journal of
   Research and Development}, vol.~16, no.~2, pp. 162 --170, march 1972.
-
-\bibitem{He2011}
-S.~He, H.-C. Wong, and U.-H. Wong, ``An efficient adaptive vortex particle
-  method for real-time smoke simulation,'' in \emph{Computer-Aided Design and
-  Computer Graphics (CAD/Graphics), 2011 12th International Conference on},
-  sept. 2011, pp. 317 --324.
 
 \bibitem{Stauffer1999}
 C.~Stauffer and W.~E.~L. Grimson, ``Adaptive background mixture models for
