@@ -1,24 +1,24 @@
 
-\section{Distributed Detection of Cloud}
+\chapter{\label{sec:DAC-Implementation:-Distributed} Distributed Cloud Detection }
 
-A cloud is a group of liquid or solid particles floated in the air.
-Sometime it contains harmful or dangerous particles so that it needs
-to be observed and tracked. Laser technology enables the remote detection
-of cloud. In real environment, the received signals may be interfered
-by noise or corrupt by moving object. Thus, a method to use distributed
-detection is necessary. Gaussian plume model is widely used in cloud
-plume modeling, which could be used to describe the mean value of
-cloud concentration. However, the sensor's observation is actually
-a random process with mean and variance values. So an expectation-maximization
-algorithm is adopted to get Gaussian mixture model that gives the
-distribution of the sensor\textquoteright{}s observation. Then, the
-decision of cloud existence could be made based on the log likelihood
-ratio.
+In this chapter, the DAC algorithm will be applied to the remote detection
+of cloud, which is to find out a group harmful liquids, solid particles
+or gases floated in the air. Enabled by laser technology, the sensor
+can illuminate these particles and detect the backscatters. However,
+background noise or moving object in the real environment may interfere
+the the sensor signal. Therefore, a method to use distributed detection
+is necessary. The Gaussian plume model is widely used in cloud plume
+concentration modeling. However, the cloud concentration is actually
+a random process with variance, which the Gaussian plume model can
+not capture. Therefore, a 3D cloud animation is implemented to get
+data of cloud concentration. Then, the expectation-maximization algorithm
+is adopted to get the Gaussian mixture model which gives the probability
+density function (PDF) of the sensor\textquoteright{}s observation.
+The decision of cloud existence could be made based on the log likelihood
+ratio when PDF for null and alternative hypotheses are available. 
 
 
-\subsection{Introduction }
-
-(todo add reference)
+\section{Introduction }
 
 A cloud is a group of liquid or solid particles floated in the air.
 Sometime it contains harmful or dangerous particles so that it needs
@@ -26,11 +26,11 @@ to be observed and tracked. There are various types of sensors can
 perform the detection. According to their types of targets, the detection
 can be categorized into smoke/gas/aerosol detection. On the other
 hand, based on their sensing methods, there are also divided into
-contact detection and remote sensing. (OK1)
+contact detection and remote sensing. 
 
 Smoke and gas detection is very common in daily life. For example,
-the fire alarm sensor in building, which is contact sensing device.
-When the sensing element contacts with smoke or gas agent, the chemical
+the fire alarm sensor inside buildings, which is contact sensing devices.
+When smoke or gas agent contacts with the sensing element, the chemical
 or physical reactions change the electrical characteristics of the
 sensing element. Then the alarm is set if the agent's concentration
 is larger than a threshold. (OK2)
@@ -40,13 +40,13 @@ For example, in the wildfire video surveillance, people try to change
 the human based surveillance into automatic smoke/fire detection.
 These intelligent algorithms extract smoke's features based on video
 signal, and then classify the objects in the video as smoke or non-smoke.
-This also attracts much research interest. (OK2)
+This also attracts much research interest. 
 
 Some time, the agent does not directly contact with the sensing element.
 The device pumps in some air and illuminate the air with multiple
 wavelengths to get the absorption spectrum, which normally obtained
 by an infrared spectroscopy. Then the concentration or species of
-the agent can be estimated when prior knowledge is available. (OK1)
+the agent can be estimated when prior knowledge is available. 
 
 When sensors are not able to contact with cloud in the sky, laser
 technology enables the remote detection. The concept of remote sensing
@@ -54,7 +54,7 @@ is very close to that of a spectroscopy. It is an optical technology
 that can measure the distance to a target, or other properties of
 a target by illuminating the target with light, often using pulses
 from a laser. The devices typically used for studies of aerosols and
-clouds remotely is called LIDAR. (OK1)
+clouds remotely is called LIDAR. 
 
 When the cloud is illuminated by a laser beam, the particles absorb
 the energy and emit fluorescent light, as well as ``reflect'' light
@@ -63,60 +63,62 @@ wavelength is identical to the transmitted light \cite{Lidar.Wiki.2011},
 and the magnitude of the back-scattered light at the given range depends
 on the back-scatter coefficient of scatterers and the extinction coefficients
 of the scatterers along the path at that range \cite{P.M.Hamilton1969}.
-The ``fingerprint'' of the fluorescent light or backscatter can
-be an evidence of the concentration or species of particles in that
-cloud. The microprocessor in the sensor node could identify the received
-signals, and make a declaration of cloud. (OK1)
+The ``fingerprint'' of the fluorescent light can be an evidence
+of the species of particles in that cloud \cite{Simard2004}. Then,
+microprocessor in sensor node could identify the received signal,
+and make a declaration of cloud. 
 
 In battle field applications, aerosol detection may also related to
-bio-aerosol detection. As the bio-aerosol release by a biological
-weapon is extremely dangerous to any biological element in that area.
-It is necessary to detect and discrimination it as soon as possible.
-The detection and discrimination can be done by a remote sensing lidar,
-which illuminate the bio-aerosol  and collect back-scatters by a telescope
-just similar to the spectroscopy. Therefore, the agent could be discriminated
-according to its spectrum. In research simulation, the bio-aerosol
-is often created by spread bacillus subtilis spores in the air. However,
-the reflection and extinction coefficients are closely related to
-the particles species and absorption spectrum are different from one
-agent to another. To estimate the concentration of an aerosol based
-on backscatter spectrum requires prior knowledge of the wavelength-dependent
-backscatter coefficients.(OK1)
+bio-aerosol detection \cite{Bufton2007}. As the bio-aerosol release
+by a biological weapon is extremely dangerous to any biological unit
+in that area. It is necessary to detect and discrimination it as soon
+as possible. The detection and discrimination can be done by a remote
+sensing LIDAR, which illuminate the bio-aerosol  and collect back-scatters
+by a telescope just similar to the spectroscopy. Therefore, the agent
+could be discriminated according to its spectrum. In research simulation,
+the bio-aerosol is often created by spread bacillus subtilis spores
+in the air. However, the reflection and extinction coefficients are
+closely related to the particles species and absorption spectrum are
+different from one agent to another. To estimate the concentration
+of an aerosol based on backscatter spectrum requires prior knowledge
+of the wavelength-dependent backscatter coefficients. 
 
 There are many challenges in outdoor environment for this method.
-First, the background radiation (for example, sunshine in the day
-time) will ruin the lidar signals. But it can be compensated by increase
-the laser power, add optical filter in front of the telescope or tracking
-the background radiation level. Second, the interference of moving
-objects in the sky like birds and balloons will have a very high reflect
-coefficient compared with gases. Third, failure of sensor nodes. Because
-of the properties of sensor nodes, such as energy constrains, vulnerable
-to intruders, they often malfunction and become unreliable. Fourth,
-Cloud is a diffusive target. The diffusion target will have different
-concentration from one sensor to another, so the distribution of cloud
-has random variables that capture the special variation of concentration
-\cite{N.Kh.2004}. Finally, a lidar with discrimination ability is
-very expensive so that it often performs passive detection and discrimination.
-Active detection of the bio-aerosol is taken by some other sensors
-distributing in the battle field. So this comes to our problem: detecting
-the bio-aerosol with sensors distributed in the environment with noise
-and interference. (OK1)
-
-To overcome unreliability of sensor nodes and interference for outdoor
-remote cloud detection, the distributed detection method could be
-adopted.
-
-Signal can be processed distributively by distributed consensus algorithm
-(DCA). The word consensus means each node would have an agreement
-on the declaration of the target after the algorithm. In addition,
-each node only broadcast its local value until the algorithm converges
-\cite{Xiao2004}. This method can save much energy for nodes that
-heavy loaded in the data gathering. (OK2)
+First, In real environment, the received signals may be interfered
+by noise or corrupt by moving object. The background radiation (for
+example, sunshine in the day time) will ruin the LIDAR signals. But
+it can be compensated by increase the laser power, add optical filter
+in front of the telescope or tracking the background radiation level.
+Second, the interference of moving objects in the sky like birds and
+balloons will have a very high reflect coefficient compared with gases.
+Third, failure of sensor nodes. Because of the properties of sensor
+nodes, such as energy constrains, vulnerable to intruders, they often
+malfunction and become unreliable. Fourth, Cloud is a diffusive target.
+The diffusion target will have different concentration from one sensor
+to another, so the distribution of cloud has random variables that
+capture the special variation of concentration \cite{N.Kh.2004}.
+Finally, a LIDAR with discrimination ability is very expensive so
+that it often performs passive detection and discrimination. For these
+reasons, a method to use distributed detection is necessary to overcome
+unreliability of sensor nodes and interference for outdoor remote
+cloud detection,. Active detection of the bio-aerosol is taken by
+some cheaper sensors distributing in the battle field. So this comes
+to our problem: detecting the bio-aerosol with sensors distributed
+in the environment with noise and interference. 
 
 
-\subsection{Background and System model }
 
-This section is structured in the following way, section \ref{sub:Cloud-Detection-Scenario}
+Signal can be processed distributively by distributed average consensus
+(DAC) algorithm . The word consensus means each node would have an
+agreement on the declaration of the target after the algorithm. In
+addition, each node only broadcast its local value until the algorithm
+converges \cite{Xiao2004}. This method can save much energy for nodes
+that heavy loaded in the data gathering. 
+
+
+\section{Background and System model }
+
+This section is structured as follows, section \ref{sub:Cloud-Detection-Scenario}
 shows the system model. Section \ref{sub:Received-Signal'-Model}
 illustrates the sensor observation model and explain some techniques
 in distributed detection of cloud. In the training stage, expectation-maximization
@@ -132,7 +134,7 @@ detection system is also given. It shows the multiple sensor detection
 will be more reliable in the noisy environment.
 
 
-\subsubsection{Cloud Detection Scenario\label{sub:Cloud-Detection-Scenario}}
+\subsection{Cloud Detection Scenario\label{sub:Cloud-Detection-Scenario}}
 
 In the cloud detection scenario shown by Figure \ref{fig:Cloud-detection-scenario},
 a source produces cloud in a fixed position with fixed power; a time
@@ -159,29 +161,15 @@ backscatters are observed by the laser receivers.
 
 
 
-\subsubsection{Diffusive Cloud Model}
+\subsection{Gaussian Plume Model of Diffusive Cloud }
 
-Since 1970's, The Gaussian plume model is widely used in cloud plume
-concentration modeling, which can describe the mean value of the cloud
-concentration at any position \cite{Shieh1972}. However, The cloud
-concentration is actually a random process in a real plume, the Gaussian
-plume model can not describe its variance. If we observing the real
-cloud plume for a long time and take the average, the result is Gaussian
-plume model. (OK1)
-
-With the computer graphic technology of 3D fluid simulation \cite{He2011},
-a 3D cloud animation is implemented to get more real cloud plume while
-fluid dynamics and wind turbulence is considered. (OK1)
-
-This section first introduce the Gaussian plume model mentioned in
-some state-of-art applications. Then, some expressions are driven
-based on the diffusive equations to obtain the modified Gaussian plume
-model especially for laser detection. Finally, cloud targets are generated
-by 3D cloud animation. A bunch of cloud plumes is simulated to generate
-enough data of cloud concentration for algorithm testing. (OK1)
-
-
-\paragraph{Gaussian Plume Model }
+This section introduces the Gaussian plume model mentioned in some
+state-of-art applications. The Gaussian plume model is widely used
+in cloud plume concentration modeling since 1970's, which can describe
+the mean value of the cloud concentration at any position \cite{Shieh1972}.
+If we observing the real cloud plume for a long time and take the
+average, the result is Gaussian plume model. However, in a real cloud
+plume, the concentration is actually a random process. 
 
 \cite{N.Kh.2004} gives a model of the concentration values $C$ of
 pollutants to be emitted by point instantaneous source at height $H$,
@@ -240,147 +228,21 @@ G & 0.046 & 0.902 & 0.10 & 0.62\tabularnewline
 \end{table}
 
 
-
-\paragraph{Modified Gaussian Plume Model For Laser Detection}
-
-Because laser emitted by optical sensor is penetrating the could,
-the received signal at each sensor can be simplified to be proportional
-to the integration of concentration along the line of laser. Therefore,
-based on the same diffusion equation, the Gaussian plume model needs
-some modifications. 
-
-Similar to the heat diffusion model, the cloud's diffusive behavior
-can be described by the 3-dimensional partial derivative equation. 
-
-\begin{equation}
-\frac{\partial C}{\partial t}=D_{x}\frac{\partial^{2}C}{\partial^{2}x}+D_{y}\frac{\partial^{2}C}{\partial^{2}y}+D_{z}\frac{\partial^{2}C}{\partial^{2}z}\label{eq:3D diffusion Eq.}
-\end{equation}
-where $C$ is cloud concentration, and $D_{x},D_{y},D_{z}$ are the
-diffusion coefficients along three axis respectively. 
-
-This equation indicates that the rate of density change is proportional
-to the curvature of cloud concentration. The density increases where
-curvature is positive and decreases where it is negative. If the cloud
-is released instantaneously at a single point, the spatial distribution
-will be a 3-dimensional normal distribution.
-
-In consideration of the isotropic diffusion case, the diffusion equation
-can be simplified. which means $D_{x}=D_{y}=D_{z}=D$. Assume a point
-instantaneous source, located at the origin starts to release cloud
-at time $t=0$, the solution to \ref{eq:3D diffusion Eq.} is 
-
-\begin{equation}
-C(x,y,z,t)=\frac{Q}{\left(4\pi Dt\right)^{3/2}}exp\left(-\frac{x{}^{2}+y^{2}+z^{2}}{4Dt}\right)
-\end{equation}
-Where $Q$ is the power of the point source. This solution can be
-verified by taking partial derivative for both sides.
-
-In addition, if the surrounding air is assumed to be moving towards
-the positive direction of x-coordinate in a constant velocity $u$
-. The model changes into
-
-\begin{equation}
-C(x,y,z,t)=\frac{Q}{\left(4\pi Dt\right)^{3/2}}\cdot exp\left(\frac{(x-ut){}^{2}+y^{2}+z^{2}}{4Dt}\right)\label{eq:3D point Model}
-\end{equation}
+The Gaussian plume model can not describe its variance. Then, in section
+\ref{sub:Modified-Gaussian-Plume},  some other modelsespecially designed
+for laser detection are introduced. With the  3D  animation technology
+\cite{He2011}, simulated cloud plume is implemented to show its fluid
+dynamics and  turbulence properties. In addition, a bunch of cloud
+plumes are  generated   for testing and detection. 
 
 
-For point and continuous source at origin, an integration form $t=0$
-to $T$ is taken to find the concentration distribution. The integration
-of Eq.\eqref{eq:3D point Model} is very hard to find without the
-help of computer, as in the denominator contains $t^{\frac{3}{2}}$.
-However, some later research have found the analytical integration
-of the atmospheric diffusion equation \cite{Lin1996}. 
-
-As $T\rightarrow\infty$ , the concentration model for continuous
-source evolves into
-
-\begin{eqnarray}
-C(x,y,z) & = & \int_{0}^{\infty}C(x,y,z,t)dt
-\end{eqnarray}
-as the laser penetrate the could, the received signal at each sensor
-can be simplified to be proportional to the integration of concentration
-along the line of laser. Therefore, the received signal 
-
-\[
-S(x,y)=\int_{-\infty}^{\infty}C(x,y,z)dz=\int_{-\infty}^{\infty}\int_{0}^{\infty}C(x,y,z,t)dtdz
-\]
-since the $\int_{-\infty}^{\infty}\int_{0}^{\infty}\left|C(x,y,z,t)\right|dtdz<\infty$,
-the integrations can be swapped. thus, we have 
-\[
-\int_{-\infty}^{\infty}\int_{0}^{\infty}C(x,y,z,t)dtdz=\int_{0}^{\infty}\int_{-\infty}^{\infty}C(x,y,z,t)dzdt
-\]
-and 
-\[
-S(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot K_{0}\left(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\right)
-\]
-where $K_{0}(z)$ is the special case of modified Bessel function
-of the second kind $K_{n}(z)$. $K_{0}(z)$ is simplified to 
-\[
-K_{0}(z)=\int_{0}^{\infty}\mbox{cos}(z\cdot\mbox{sinh}t)dt=\int_{0}^{\infty}\frac{\mbox{cos}(z\cdot t)}{\sqrt{t^{2}+1}}dt
-\]
-Therefore, the finial model of concentration at point $\left(x,y\right)$
-can be given by 
-\[
-C(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot\int_{0}^{\infty}\frac{1}{\sqrt{t^{2}+1}}\mbox{cos}(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\cdot t)dt
-\]
-The concentration distribution is shown in Figure.\ref{fig:2-D-Gaussian-Plume}.
-
-\begin{figure}
-\hfill{}\includegraphics[height=6cm]{\string"D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/GaussianPlumeModel/Plume_2D\string".pdf}\hfill{}
-
-\caption{\label{fig:2-D-Gaussian-Plume}2-D Gaussian Plume Model (modified
-for laser detection)}
-\end{figure}
-
-
-
-\paragraph{Simulated Cloud by fluid dynamics}
-
-The Gaussian plume model can describe the mean value of the cloud
-concentration at any position in the plume, but it can not describe
-the cloud concentration variance. With the help of 3D fluid simulation,
-a cloud could be more like real while fluid dynamics and wind turbulence
-is considered. And this kind of model is simulated to generate a number
-of cloud plumes. The data is used in the distributed cloud detection
-to training the sensor networks.
-
-As shown in the Figure \ref{fig:Frame-projection}, the frame image
-is obtained by taking integration of the 3D raw data over z-dimension.
-This is similar to the effect of laser beam penetrating through cloud.
-The received light magnitude is the integration of backscatter along
-the laser beam. Therefore, pixels value in the frame image is proportional
-to the magnitude of sensor observation. In this simulation, they are
-treated as equal. After the integration, the pixel values in these
-frames is normalized by dividing them with the maximum pixel value
-in these frames.
-
-\begin{figure}
-\hfill{}\includegraphics[width=14cm]{\string"D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Smoke Sequance\string".png}\hfill{}\hfill{}
-
-\caption{\label{fig:Cloud-simulation-frame}Cloud simulation frame sequence,
-$192\times256$ pixels for each frame}
-\end{figure}
-
-
-\begin{figure}
-\hfill{}\includegraphics[width=8cm]{\string"D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/SmokeProject/SmokeProjection_PhS\string".pdf}\hfill{}\hfill{}
-
-\caption{\label{fig:Frame-projection}Relationship between 3D cloud concentration
-and Sensor's observation. Frame images are obtained by 3D raw data
-projection }
-\end{figure}
-
-
-
-
-
-\subsubsection{\label{sub:Received-Signal'-Model}Received Signal Model }
+\subsection{\label{sub:Received-Signal'-Model}Received Signal Model }
 
 As we know, the cloud concentration variation is caused by turbulence
 flow, which is a random process which brings the cloud particles more
-far away than the molecular motion. Because of this reason, the cloud
-concentration at a given position and the associated sensor's detection
-is a random process. 
+far away than the molecular motion. Because of this reason,and the
+associated sensor's detection at a given position is a random process
+with mean and variance.
 
 Suppose the sensor's observation has the following form:
 
@@ -388,15 +250,17 @@ Suppose the sensor's observation has the following form:
 x_{l}=\begin{cases}
 \mu_{l,0}+n_{l,0} & \mbox{if no cloud exists}\\
 \mu_{l,1}+n_{l,1} & \mbox{if cloud exists}
-\end{cases}
+\end{cases}\label{eq:Model of Received signal}
 \end{equation}
 where $\mu_{l,m}$ is the mean value of $x_{l}$ depending on hypothesis
 $m$; $n_{l,m}$ is the noise of $x_{l}$ depending on hypothesis
 $m$ and $n_{l,m}\sim\mathcal{N}\left(0,\sigma_{m}\right)$. Actually,
 $\mu_{l,0}$and $\sigma_{l,0}$ denote the mean and variation of background
 noise. So let $\mu_{t}$ and $n_{t}$ denote the mean of cloud concentration
-and cloud turbulence, we have $\mu_{l,1}=\mu_{l,0}+\mu_{t}$, $n_{l,1}=n_{l,0}+n_{t}$.
-These parameters is initialized or calculated in the training stage.
+and signal flucturation due to cloud turbulence. Besides, we have
+$\mu_{l,1}=\mu_{l,0}+\mu_{t}$, $n_{l,1}=n_{l,0}+n_{t}$. These parameters
+is estimated or calculated expectation-maximization algorithm in the
+training stage.
 
 This received signal model doesn't consider interference of moving
 objects or be covered by obstacles. To deal with this problems, sensors
@@ -404,7 +268,7 @@ may need to build the Gaussian mixture model, which introduced in
 \ref{par:Gaussian-mixture-model}. 
 
 
-\paragraph{\label{par:Gaussian-mixture-model}Gaussian mixture model}
+\subsubsection{\label{par:Gaussian-mixture-model}Gaussian mixture model}
 
 Background radiation and moving objects in the sky have different
 strength and variance. When interference exists, the probability of
@@ -457,71 +321,237 @@ center. In section III-C, distributed consensus algorithm is adopted
 to find the LLR, without data gathering or fusion center.
 
 
-\subsection{\label{sub:Distributed-Cloud-Declaration}Distributed Cloud Detection
-Based on DAC algorithm}
+\section{\label{sub:Modified-Gaussian-Plume}Modified Gaussian Plume Model
+For Laser Detection}
 
-The method is organized in two stage, training and detection. The
-training stage is to build the probability density function (PDF)
-for background radiation and cloud reflection signals (modeled by
-a Gaussian mixture model) based on their own observation distributively.
+The Gaussian plume model can only capture describe the mean value
+of the cloud concentration. However, in a real cloud plume The cloud
+concentration is actually a random process. In this section, first
+some expressions are driven based on the diffusive equations to obtain
+the modified Gaussian plume model especially for laser detection.
+Second, With the computer graphic technology \cite{He2011}, a 3D
+cloud animation capture the fluid dynamics and wind turbulence is
+implemented. A bunch of cloud plumes is simulated to generate enough
+data for algorithm testing and detection.
+
+
+\subsection{Integration of Cloud Along Laser Beam}
+
+Because laser emitted by optical sensor is penetrating the could,
+the received signal at each sensor can be simplified to be proportional
+to the integration of concentration along the line of laser. Therefore,
+based on the same diffusion equation, the Gaussian plume model needs
+some modifications. 
+
+Similar to the heat diffusion model, the cloud's diffusive behavior
+can be described by the 3-dimensional partial derivative equation. 
+
+\begin{equation}
+\frac{\partial C}{\partial t}=D_{x}\frac{\partial^{2}C}{\partial^{2}x}+D_{y}\frac{\partial^{2}C}{\partial^{2}y}+D_{z}\frac{\partial^{2}C}{\partial^{2}z}\label{eq:3D diffusion Eq.}
+\end{equation}
+where $C$ is cloud concentration, and $D_{x},D_{y},D_{z}$ are the
+diffusion coefficients along three axis respectively. 
+
+This equation indicates that the rate of density change is proportional
+to the curvature of cloud concentration. The density increases where
+curvature is positive and decreases where it is negative. If the cloud
+is released instantaneously at a single point, the spatial distribution
+will be a 3-dimensional normal distribution.
+
+In consideration of the isotropic diffusion case, the diffusion equation
+can be simplified. which means $D_{x}=D_{y}=D_{z}=D$. Assume a point
+instantaneous source, located at the origin starts to release cloud
+at time $t=0$, the solution to \ref{eq:3D diffusion Eq.} is 
+
+\begin{equation}
+C(x,y,z,t)=\frac{Q}{\left(4\pi Dt\right)^{3/2}}exp\left(-\frac{x{}^{2}+y^{2}+z^{2}}{4Dt}\right)
+\end{equation}
+Where $Q$ is the power of the point source. This solution can be
+verified by taking partial derivative for both sides.
+
+In addition, if the surrounding air is assumed to be moving towards
+the positive direction of x-coordinate in a constant velocity $u$
+. The model changes into
+
+\begin{equation}
+C(x,y,z,t)=\frac{Q}{\left(4\pi Dt\right)^{3/2}}\cdot exp\left(\frac{(x-ut){}^{2}+y^{2}+z^{2}}{4Dt}\right)\label{eq:3D point Model}
+\end{equation}
+
+
+For point and continuous source at origin, an integration form $t=0$
+to $T$ is taken to find the concentration distribution. The integration
+of Eq.\prettyref{eq:3D point Model} is very hard to find without
+the help of computer, as in the denominator contains $t^{\frac{3}{2}}$.
+However, some later research have found the analytical integration
+of the atmospheric diffusion equation \cite{Lin1996}. 
+
+As $T\rightarrow\infty$ , the concentration model for continuous
+source evolves into
+
+\begin{eqnarray}
+C(x,y,z) & = & \int_{0}^{\infty}C(x,y,z,t)dt
+\end{eqnarray}
+as the laser penetrate the could, the received signal at each sensor
+can be simplified to be proportional to the integration of concentration
+along the line of laser. Therefore, the received signal 
+
+\[
+S(x,y)=\int_{-\infty}^{\infty}C(x,y,z)dz=\int_{-\infty}^{\infty}\int_{0}^{\infty}C(x,y,z,t)dtdz
+\]
+since $\int_{-\infty}^{\infty}\int_{0}^{\infty}\left|C(x,y,z,t)\right|dtdz<\infty$,
+the two integrations can be swapped. thus, we have 
+\[
+\int_{-\infty}^{\infty}\int_{0}^{\infty}C(x,y,z,t)dtdz=\int_{0}^{\infty}\int_{-\infty}^{\infty}C(x,y,z,t)dzdt
+\]
+and 
+\[
+S(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot K_{0}\left(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\right)
+\]
+where $K_{0}(z)$ is the special case of modified Bessel function
+of the second kind $K_{n}(z)$. $K_{0}(z)$ is simplified to 
+\[
+K_{0}(z)=\int_{0}^{\infty}\mbox{cos}(z\cdot\mbox{sinh}t)dt=\int_{0}^{\infty}\frac{\mbox{cos}(z\cdot t)}{\sqrt{t^{2}+1}}dt
+\]
+Therefore, the finial model of concentration at point $\left(x,y\right)$
+can be given by 
+\[
+C(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot\int_{0}^{\infty}\frac{1}{\sqrt{t^{2}+1}}\mbox{cos}(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\cdot t)dt
+\]
+The concentration distribution is shown in Figure.\ref{fig:2-D-Gaussian-Plume}.
+
+\begin{figure}
+\hfill{}\includegraphics[height=6cm]{\string"D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/GaussianPlumeModel/Plume_2D\string".pdf}\hfill{}
+
+\caption{\label{fig:2-D-Gaussian-Plume}2-D Gaussian Plume Model (modified
+for laser detection)}
+\end{figure}
+
+
+
+\subsection{Simulated Cloud by fluid dynamics}
+
+ In 3D fluid simulation \cite{He2011}, the cloud model is a 3D space
+which is divided the into tiny cells where fluid dynamics and wind
+turbulence is considered. The cloud plume could be more like real
+with the help of this technology.  A number of cloud plumes is generated
+to be used in the distributed cloud detection or training of sensor
+networks. 
+
+As shown in the Figure \ref{fig:Frame-projection}, the frame image
+is obtained by taking integration of the 3D raw data over z-dimension.
+This is similar to the effect of laser beam penetrating through cloud.
+The received light magnitude is the integration of backscatter along
+the laser beam. Therefore, pixels value in the frame image is proportional
+to the magnitude of sensor observation. In this simulation, they are
+treated as equal. After the integration, the pixel values in these
+frames is normalized by dividing them with the maximum pixel value
+in these frames.
+
+\begin{figure}
+\hfill{}\includegraphics[width=14cm]{\string"D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Smoke Sequance\string".png}\hfill{}\hfill{}
+
+\caption{\label{fig:Cloud-simulation-frame}Cloud simulation frame sequence,
+$192\times256$ pixels for each frame}
+\end{figure}
+
+
+\begin{figure}
+\hfill{}\includegraphics[width=8cm]{\string"D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/SmokeProject/SmokeProjection_PhS\string".pdf}\hfill{}\hfill{}
+
+\caption{\label{fig:Frame-projection}Relationship between 3D cloud concentration
+and Sensor's observation. Frame images are obtained by 3D raw data
+projection }
+\end{figure}
+
+
+
+
+
+\section{\label{sec:Distributed_Cloud_De}Distributed Cloud Detection Based
+on DAC algorithm}
+
+In the applications of environment surveillance and monitoring, sensor
+networks performs the data gathering of spatially distributed sources,
+and the collaborative signal processing. Processing the local acquired
+signals using a scalable algorithm is a fundamental problem in sensor
+network \cite{Olfati-Saber2005a}. 
 
 Cloud declaration is normally made through a hypothesis test. When
 new observation is acquired, the decision of cloud existence is made
 base on the ML or MAP decision rule \cite{Chair1986}, which need
-the PDF and all the sensor\textquoteright{}s observation. In a centralized
-processing method, these data can be gathered to the fusion center
-to perform the data processing. However, they can achieve this distributively
-without a fusion center. However, some conditions should be satisfied
-to calculating global log likelihood ratio (G-LLR) by distributed
-consensus algorithm without the fusion center, and it will be given
-later.
+the probability density function of all the sensor\textquoteright{}s
+observation and calculate the log likelihood ratio.
 
-Suppose the sensor's observation has the following form:
+Generally, there are two options for multiple sensors signal processing.
 
-\begin{equation}
-x_{l}=\begin{cases}
-\mu_{l,0}+n_{l,0} & \mbox{if no cloud exists}\\
-\mu_{l,1}+n_{l,1} & \mbox{if cloud exists}
-\end{cases}\label{eq:Cloud signal model}
-\end{equation}
-where $\mu_{l,m}$ is the mean value of $x_{l}$ depending on hypothesis
-$m$ and $n_{l,m}$ is the noise of $x_{l}$ depending on hypothesis
-$m$. Actually, $u_{l,0}$and $n_{l,0}$ denote the mean and variation
-of background noise. $\mu_{l,1}=\mu_{l,0}+u_{t}$, $n_{l,1}=n_{l,0}+n_{t}$
-, $u_{t}$ and $n_{t}$ denote the mean and variation of cloud concentration. 
+Firstly, is the centralized processing. This requires the network
+contains a fusion center, and all sensor's data need to be transmitted
+to the fusion center and processed. At the same time, a hypothesis
+test based on the ML, MAP or Bayesian decision rule will be carried
+out at the a fusion center. Normally the global log likelihood ratio
+(G-LLR) is calculated and compared with a threshold to make the decision.
+Besides, an optimal data fusion scheme is proposed in \cite{Chair1986},
+the decision is made by an optimal linear combination of local decisions
+of all sensors. 
+
+Secondly, the global LLR can be calculated without a fusion center
+by distributive signal processing. In the consideration of reliability,
+survivability, and range of coverage, there is an increasing interest
+in employing multiple sensors for these applications \cite{Chair1986}.
+
+In this section, we will consider a distributed detection problem
+in wireless sensor network without the fusion center. Then, there
+will be an introduction about consensus based approach in the distributed
+data fusion and decision making, in the case of each sensor acquires
+a scale value of an unknown parameter. However, \cite{Xiao2005} discussed
+the case when each sensor acquires a vector of unknown parameters
+and the signal is mixed with joint Gaussian white noise, and proposed
+a more sophisticated data fusion scheme. We will show it later.
+
+The detection method should be separated into two stages, training
+and detection. The training stage is to build the probability density
+function (PDF) for background radiation and cloud reflection signals
+(modeled by a Gaussian mixture model) based on their own observation
+distributively.
+
+
+\subsection{Hypothesis Test}
+
+Considering a binary hypothesis testing problem with the following
+two hypotheses
+\begin{enumerate}
+\item H0: target is absent.
+\item H1: target is present.
+\end{enumerate}
+The prior probability of these two hypotheses is denoted by $P\left(H_{m}\right)=P_{m}=\frac{1}{2},m=1,2$.
+
+
+\subsubsection{Global and Local Log Likelihood Ratio }
 
 Suppose the observation of all sensors $x_{1},...,x_{L}$ is available
 (for example, gathered by a fusion center) at this moment, we can
 have the global log likelihood ratio (G-LLR ) given by
 
 \begin{equation}
-LLR(x_{1},...,x_{L})=log\frac{f\left(x_{1},...,x_{L}|H_{1}\right)}{f\left(x_{1},...,x_{L}|H_{0}\right)}\label{eq:G-LLR define Cloud}
+LLR(x_{1},...,x_{L})=log\frac{f\left(x_{1},...,x_{L}|H_{1}\right)}{f\left(x_{1},...,x_{L}|H_{0}\right)}\underset{H_{0}}{\overset{H_{1}}{\gtrless}\log}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}\label{eq:G-LLR define Cloud}
 \end{equation}
 where $f\left(x_{1},...,x_{L}|H_{m}\right)$ is the likelihood function
 of $H_{m}$. 
 
-For the received signal model described either by \prettyref{eq:GMM density function}
-or \prettyref{eq:Cloud signal model}, if we assume sensor\textquoteright{}s
+For the received signal model described by \prettyref{eq:GMM density function}
+or \prettyref{eq:Model of Received signal}, if we assume sensor\textquoteright{}s
 observation is independent from one to another, the G-LLR can be changed
 into the sum of L-LLR. 
 
 \begin{eqnarray}
 LLR(x_{1},...,x_{L}) & = & log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)}{f\left(x_{1}|H_{0}\right)\cdot\ldots\cdot f\left(x_{L}|H_{0}\right)}=\sum_{i=1}^{L}LLR\left(x_{i}\right)\label{eq:Sum L-LLR Cloud}
 \end{eqnarray}
-According to Eq.\ref{eq:Sum L-LLR Cloud}, the G-LLR is equal to the
-average multiply with the number of sensors in the network. Therefore,
-it can be calculated by distributed average consensus (DAC) algorithm.
-This is implemented by the following steps: First, each sensor calculates
-its local LLR individually; Then, all the sensors update their local
-LLR in the DAC iteration until they converge to a common value; Finally,
-once the algorithm converges, the global LLR is obtained by multiply
-the average local LLRs with the number of sensors in the network.
-When the G-LLR is available, cloud declaration could be made based
-on the ML or MAP decision rule.
+According to Eq.\ref{eq:Sum L-LLR Cloud}, the G-LLR is changes into
+the sum of local log likelihood ratio (L-LLR). 
 
-To drive and simplify the expression of global log likelihood ratio
-when sensor\textquoteright{}s observation which is described by the
-received signal model in \ref{sub:Received-Signal'-Model}, let 
+To drive and simplify the expression of global log likelihood ratio,
+sensor\textquoteright{}s observation is described by the model in
+\ref{sub:Received-Signal'-Model}. Let 
 \[
 \mathbf{x}=\left[x_{1},\ldots,x_{L}\right]^{\mathrm{T}}
 \]
@@ -536,23 +566,51 @@ received signal model in \ref{sub:Received-Signal'-Model}, let
 \mathbf{u}_{m}=\left[\mu_{1,m},\ldots,\mu_{L,m}\right]^{\mathrm{T}},\; m=0,1.
 \end{equation}
  if $\mathbf{n}_{m}\sim\mathcal{N}\left(0,\Sigma_{m}\right)$, G-LLR
-becomes, 
+is given by 
 
 \begin{eqnarray}
-LLR(\mathbf{x}) & = & -\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{1}\right)^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\left(\mathbf{x}-\mathbf{u}_{1}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{0}\right)^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\left(\mathbf{x}-\mathbf{u}_{0}\right)+\frac{1}{2}log\left(\frac{\left|\Sigma_{0}\right|}{\left|\Sigma_{1}\right|}\right)\nonumber \\
- & = & \left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)\mathbf{x}+\frac{1}{2}\left[log\left|\Sigma_{0}\right|-log\left|\Sigma_{1}\right|\right]\label{eq:G-LLR Expand}\\
- &  & -\frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right]\nonumber \\
+LLR(\mathbf{x}) & = & -\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{1}\right)^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\left(\mathbf{x}-\mathbf{u}_{1}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{0}\right)^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\left(\mathbf{x}-\mathbf{u}_{0}\right)+\frac{1}{2}log\left(\frac{\left|\Sigma_{0}\right|}{\left|\Sigma_{1}\right|}\right)\\
+ & = & \left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)\mathbf{x}+\frac{1}{2}\left[log\left|\Sigma_{0}\right|-log\left|\Sigma_{1}\right|\right]-\nonumber \\
+ &  & \frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right]\label{eq:G-LLR Expand}\\
  & = & \sum_{l=1}^{L}w_{l}x_{l}+C-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right],\label{eq:G-LLR simple}
 \end{eqnarray}
 where $w_{l}$ denotes the $l\mbox{th}$ component of $\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}$,
 and $C=\frac{1}{2}\left[log\left(\left|\Sigma_{0}\right|\right)-log(\left|\Sigma_{1}\right|)\right]-\frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)$. 
+
+Provided that each sensor knows the weight $w_{l}$, the Eq. \ref{eq:G-LLR simple}
+states that the G-LLR is equal to the weighted sum of local observation
+of sensors in the network together with the constant $C$. Actually,
+the constant $C$ changes the threshold of the hypothesis testing
+and can be subtract from both side of hypothesis testing equation.
+Therefore, we modify the hypothesis testing into 
+\begin{equation}
+LLR(\mathbf{x})=\sum_{l=1}^{L}w_{l}x_{l}\underset{H_{0}}{\overset{H_{1}}{\gtrless}}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}-C\label{eq:GLLR in weighted sum}
+\end{equation}
+where $w_{l}$ is the $l^{th}$ component of $\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)$. 
+
+Eq.\prettyref{eq:GLLR in weighted sum} means the G-LLR can be a weighted
+sum of the signal acquired in each sensor, which can be obtained by
+the weight average multiplied with the number of sensors in the network.
+Therefore, the distributed average consensus (DAC) algorithm can be
+used in its calculation. 
+
+The algorithm is as follows: First, each sensor calculates its local
+LLR individually; Then, each sensors update its local LLR in the DAC
+iterations until it converges to the consensus value; Finally, after
+the algorithm converges, the global LLR is obtained by multiply the
+average local LLRs with the number of sensors in the network. When
+the G-LLR is available, cloud declaration could be made based on the
+ML or MAP decision rule.
+
+
+\subsection{Challenge of Distributed Detection of Cloud}
 
 When no cloud exists, the sensor's observation signal is only caused
 by atmospheric backscatter and noise. It is described by joint Gaussian
 distribution $\mathcal{N}\left(\mathbf{u}_{0},\Sigma_{0}\right)$.
 If these distributions are independent and identical, we have 
 \begin{equation}
-\mathbf{\Sigma}_{0}=\sigma_{0}^{2}\mathbf{I}.
+\mathbf{\Sigma}_{0}=\sigma_{0}^{2}I.
 \end{equation}
 On the contrary, $\mathbf{\Sigma}_{1}$ can't be written in the same
 form. Because the fluctuating amplitude of cloud concentration may
@@ -567,26 +625,26 @@ area, sensors should need to learn their environments and get these
 parameters updated and tracked. 
 
 In a network without fusion center, it is desirable to find the $LLR(\mathbf{x})$
-in a distributed manner by distributed consensus algorithm (DCA).
-Some properties of DCA should emphasize here. First values can only
-be exchanged between neighbors. Second, DCA is a tool to find the
+in a distributed manner by distributed average consensus (DAC) algorithm.
+Some properties of DAC should emphasize here. First values can only
+be exchanged between neighbors. Second, DAC is a tool to find the
 average of the local values that initially hold by all the nodes in
 the networks. 
 
 The quadratic form in Eq.\ref{eq:G-LLR simple} contains high order
 components of $\mathbf{x}$. On the other hand, without global information,
 it seems not possible to calculate $\mathbf{\Sigma}_{1}^{-1}$ in
-in a distributed manner. Both make it is impossible for DCA to calculate
+in a distributed manner. Both make it is impossible for DAC to calculate
 G-LLR. So sensors can only build the Gaussian mixture model separately.
 Thus, the observation of sensors is assume to be independent from
 on to another. If we assume $\Sigma_{1}=diag\left(\sigma_{1,1}^{2},\sigma_{2,1}^{2},\ldots,\sigma_{L,1}^{2}\right)$,
-$\Sigma_{0}=\sigma_{0}^{2}\mathbf{I}$, the Eq.\ref{eq:G-LLR Expand}
-evolves into Eq.\ref{eq:Sum L-LLR Cloud}, in which the G-LLR is equal
-to the average multiply with the number of sensors in the network. 
+$\Sigma_{0}=\sigma_{0}^{2}I$, the Eq.\ref{eq:} evolves into Eq.\ref{eq:Sum L-LLR Cloud},
+in which the G-LLR is equal to the average multiply with the number
+of sensors in the network. 
 
 However, the assumption that correlation only exist between sensors
 located very close to each other makes it possible to calculate the
-G-LLR in Eq.\ref{eq:Sum L-LLR Cloud} using DCA. As each node only
+G-LLR in Eq.\ref{eq:Sum L-LLR Cloud} using DAC. As each node only
 stores the coefficient corresponding to itself. When signal are correlated,
 we make approximation that $c_{ij}=0,$ if node $i$ and node $j$
 are not neighbors. So in the term, 
@@ -607,17 +665,17 @@ v_{i}=\sum_{j\in{\cal N}_{i}}c_{ij}x_{i}x_{j}+c_{ii}x_{i}^{2}
 \item Initialize a DAC algorithm with local values $v_{i}$ until they converges
 to the average $\bar{v}=\frac{1}{L}\sum_{i=1}^{L}v_{i}$. 
 \item Start another DAC algorithm to find $\bar{u}=\sum_{l=1}^{L}w_{l}x_{l}$. 
-\item The G-LLR is equal to $\bar{u}+\bar{v+C}$ multiply with the number
+\item The G-LLR is equal to $\bar{u}+\bar{v}+C$ multiply with the number
 of sensors in the network.
 \end{enumerate}
 
-\subsection{Simulation\label{sec:Simulation}}
+\section{Simulation\label{sec:Simulation}}
 
 The distributed cloud detection simulation consists of two stages,
 training and detection. In the training stage, sensors are trained
 to build the Gaussian mixture models, which are important to calculate
 the L-LLR. After the training, when a new observation comes, all sensors
-calculated the L-LLRs and take them into DCA iteration to obtain G-LLR.
+calculated the L-LLRs and take them into DAC iteration to obtain G-LLR.
 The decision of cloud existence could be made distributively once
 the algorithm converges. 
 
@@ -644,7 +702,7 @@ distributed in the sensing area and sensor's detections are impaired
 by Gaussian white noise, which will be introduced in the following. 
 
 
-\subsubsection{Sensor's Observation }
+\subsection{Sensor's Observation }
 
 Gaussian white noise impaired the received signal when sensor observing
 the cloud concentration. And the source of noise includes: (i) the
@@ -661,8 +719,8 @@ Again, sensors are randomly distributed in the sensing area with the
 uniform distribution. The sensing area in this simulation is defined
 by pixels in the frame which has $x>D$, where $D$ is the distance
 from the cloud source on the downwind direction. After they are distributed,
-to get ready for the DCA algorithm, all the nodes will automatically
-find its neighbors and obtain a network. Using DCA algorithm is to
+to get ready for the DAC algorithm, all the nodes will automatically
+find its neighbors and obtain a network. Using DAC algorithm is to
 obtain G-LLR without copy L-LLRs to all sensor nodes in the network.
 Once the G-LLR is available, cloud declaration could be made base
 on the ML or MAP decision rule.
@@ -706,7 +764,7 @@ $\tau$ is the time delay }]{\includegraphics[width=7cm,height=6cm]{\string"D:/Dr
 
 
 
-\subsubsection{Performance of Cloud Detection Sensor Network}
+\subsection{Performance of Cloud Detection Sensor Network}
 
 \begin{figure}
 \hfill{}\includegraphics[width=9cm,height=7.5cm]{\string"D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/ROC/ROC_mix_RandPos_256x192\string".pdf}\hfill{}\hfill{}\caption{\label{fig:ROC-of-CDWSN}Detection relative operating characteristic
@@ -716,43 +774,57 @@ for different sensors numbers}
 
 Simulation is running for hundreds of times to give the average performance
 for different number of sensors in the network. The sensor's positions
-are chosen randomly in the area where $x>128$, The Figure \ref{fig:ROC-of-CDWSN}
-gives the relative operating characteristic (Also known as a ROC curve)
-of the detection system with different sensors numbers. The curve
-is represented by plotting the fraction of true detection out of the
-cloud exist vs. the fraction of false alarm out of the cloud not exist.
-When there is only one sensor is operation, a special case is that
-the position is chosen by hand to make sure the sensor can contact
-with the cloud plume. With this assurance, the one sensor detecting
-system could have performance close to the three sensor detecting
-system randomly distributed. The advantage of using distributed detection
-with multiple sensors is obvious. As the detecting system with more
-sensors is more reliable to noise which leads to a higher performance. 
+are chosen randomly in the area where $x>128$ ($x$ is the index
+of the pixel). The Figure \ref{fig:ROC-of-CDWSN} gives the relative
+operating characteristic (Also known as a ROC curve) of the detection
+system with different sensors numbers. The curve is represented by
+plotting the fraction of true detection out of the cloud exist vs.
+the fraction of false alarm out of the cloud not exist. When there
+is only one sensor is operation, a special case is that the position
+is chosen by hand to make sure the sensor can contact with the cloud
+plume. With this assurance, the one sensor detecting system could
+have performance close to the three sensor detecting system randomly
+distributed. The advantage of using distributed detection with multiple
+sensors is obvious. As the detecting system with more sensors is more
+reliable to noise which leads to a higher performance. 
 
 
-\subsection{Conclusion}
-
-The simulation of multiple observation shows that the detections of
-sensors are correlated when they are located in short distance. The
-correlation can be an indicate of the cloud plume. Because Gaussian
-noise or Moving object cause very low correlation between sensors.
-If this can be recognized, it will not likely to raise the false alarm.
-In the noisy environment, sensors will adopt the expectation-maximization
-algorithm to build the model of background noise and cloud backscatter.
-By assume that sensors observation is independent, the global log
-likelihood ratio is the average of local log likelihood ratio. Therefore,
-global log likelihood ratio can be calculated by distributed consensus
-algorithm, where each sensor take local log likelihood ratio into
-the DCA iteration. Once the algorithm converges, the global log likelihood
-ratio is available to each sensor. The cloud deceleration could be
-made distributively based on the ML or MAP decision rule. 
+\section{Conclusion}
 
 
-\subsection{Further Research}
 
-In the future research, the parameters of the plume are treated as
-random. Therefore, sensors should be able to estimate these parameters
-from their observation. Gaussian plume model can only describe the
-mean value of a cloud plume. So a modified Gaussian plume model should
-be developed. The correlation can be an indicate of the cloud plume
-and will be considered in further research to improve the performance.
+In this chapter, we introduced a distributed detection method using
+wireless sensor networks and the DAC algorithm. First, the hypothesis
+testing based on the ML or MAP decision rule is introduced. In the
+outdoor environment, signal of an individual sensor might be corrupted
+by Gaussian noise or moving object with high reflect coefficient,
+which might raise the false alarm in high possibility. Because multiple
+sensors detection have better performance, it was adopted in the cloud
+detection and the expectation-maximization algorithm is used to build
+the joint Gaussian model of background noise and cloud backscatter.
+Thus, interferences to a few sensors in the network are less likely
+to raise the false alarm. Second, By assuming sensors signals are
+independent, global log likelihood ratio is the average of local log
+likelihood ratio. The global log likelihood ratio in the hypothesis
+testing is calculated by the DAC algorithm. Each sensor calculate
+the local log likelihood ratio and substitute it into the DAC iteration
+as the initial local value. The global log likelihood ratio is available
+to each sensor once the algorithm converges. 
+
+
+\section{Further Research}
+
+In the future research, the correlation of detections of nodes can
+be used to improve the performance of the cloud detection.  If sensors
+are are located in short distance in the plume, their detections are
+correlated. In addition, interference due to Gaussian noise or moving
+object has very low correlation between sensors. Therefore, correlation
+can be an important property of the cloud plume. Besides, a modified
+Gaussian plume model need to be developed to capture the mean value,
+variance and correlation of the concentration at different position. 
+
+Second, the parameters of cloud plume should be should be treated
+as unknown random variable, such as the position of the plume, the
+diffusion coefficient, wind speed and so on. .  At the same time sensors
+need to be able to estimate these parameters from their observation.
+ 

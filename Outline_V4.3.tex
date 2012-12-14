@@ -1,11 +1,15 @@
-%% LyX 2.0.3 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.0.5 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[12pt,english]{article}
+\documentclass[12pt,oneside]{book}
 \usepackage[T1]{fontenc}
 \usepackage{geometry}
 \geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=4cm,rmargin=2.5cm}
-\usepackage{babel}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 \usepackage{prettyref}
+\usepackage{refstyle}
+\usepackage{float}
+\usepackage{enumitem}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -21,69 +25,110 @@
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+
+\AtBeginDocument{\providecommand\eqref[1]{\ref{eq:#1}}}
+\AtBeginDocument{\providecommand\secref[1]{\ref{sec:#1}}}
 %% Because html converters don't know tabularnewline
 \providecommand{\tabularnewline}{\\}
 %% A simple dot to overcome graphicx limitations
 \newcommand{\lyxdot}{.}
+
+\floatstyle{ruled}
+\newfloat{algorithm}{tbp}{loa}[chapter]
+\providecommand{\algorithmname}{Algorithm}
+\floatname{algorithm}{\protect\algorithmname}
+\RS@ifundefined{subref}
+  {\def\RSsubtxt{section~}\newref{sub}{name = \RSsubtxt}}
+  {}
+\RS@ifundefined{thmref}
+  {\def\RSthmtxt{theorem~}\newref{thm}{name = \RSthmtxt}}
+  {}
+\RS@ifundefined{lemref}
+  {\def\RSlemtxt{lemma~}\newref{lem}{name = \RSlemtxt}}
+  {}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
-\theoremstyle{plain}
-\newtheorem{thm}{\protect\theoremname}[section]
   \theoremstyle{definition}
-  \newtheorem{defn}[thm]{\protect\definitionname}
+  \newtheorem{defn}{\protect\definitionname}[section]
   \theoremstyle{plain}
-  \newtheorem{cor}[thm]{\protect\corollaryname}
+  \newtheorem{thm}{\protect\theoremname}[section]
   \theoremstyle{plain}
-  \newtheorem{lem}[thm]{\protect\lemmaname}
-  \newcounter{casectr}
-  \newenvironment{caseenv}
-  {\begin{list}{{\itshape\ \protect\casename} \arabic{casectr}.}{%
-   \setlength{\leftmargin}{\labelwidth}
-   \addtolength{\leftmargin}{\parskip}
-   \setlength{\itemindent}{\listparindent}
-   \setlength{\itemsep}{\medskipamount}
-   \setlength{\topsep}{\itemsep}}
-   \setcounter{casectr}{0}
-   \usecounter{casectr}}
-  {\end{list}}
+  \newtheorem{lem}{\protect\lemmaname}[section]
+ \newlist{casenv}{enumerate}{4}
+ \setlist[casenv]{leftmargin=*,align=left,widest={iiii}}
+ \setlist[casenv,1]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
+ \setlist[casenv,2]{label={{\itshape\ \casename} \roman*.},ref=\roman*}
+ \setlist[casenv,3]{label={{\itshape\ \casename\ \alph*.}},ref=\alph*}
+ \setlist[casenv,4]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
+  \theoremstyle{plain}
+  \newtheorem{cor}{\protect\corollaryname}[section]
 
 \@ifundefined{showcaptionsetup}{}{%
  \PassOptionsToPackage{caption=false}{subfig}}
 \usepackage{subfig}
 \makeatother
 
-  \providecommand{\casename}{Case}
-  \providecommand{\corollaryname}{Corollary}
   \providecommand{\definitionname}{Definition}
   \providecommand{\lemmaname}{Lemma}
+ \providecommand{\casename}{Case}
+\providecommand{\corollaryname}{Corollary}
 \providecommand{\theoremname}{Theorem}
 
 \begin{document}
+
+\title{\thispagestyle{empty}%\pagestyle{empty} %multiple pagesOptimized
+Distributed Average Consensus Algorithm and its Applications }
+
+\maketitle
+\include{C0.6_Acknowledgment}
+
+\include{C0.5_Abstract}
+
+\pagenumbering{roman}
+
+\tableofcontents{}
+
+\listoffigures
+
+
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\listoftables
+
+
+\addcontentsline{toc}{chapter}{List of Tables}
+
+\include{C0.7_Abbreviations}
+
+\pagenumbering{arabic}
+%\pagestyle{fancy} 
+\setcounter{page}{1}
+
 \include{C1_Introduction}
 
 \include{C2_ConsensusProblem_onGraph}
 
+\include{C2.3_AsymptoticDAC}
+
+\include{\string"C2.5_Simple Finite-time_DCA\string"}
+
+\include{C2.6_ConsensusBasedSigProc}
+
 \include{C2.2_Graph&MatrixTheory}
 
-\include{C3_AsymptoticDAC}
+\include{C3_Finite-timeDCA_V2}
 
-\include{C4_Finite-timeDCA_V2}
+\include{C4_Real-time_Opt_DAC}
 
-\include{C5_ConsensusBasedSignalProcessing}
+\include{C5_CloudDetection_V2}
 
-\include{C6_CloudDetection_V2}
-
-
-\section{Conclusion}
-
-
-\section{Acknowledgment}
+\include{C7_Conclusion_Future}
 
 \bibliographystyle{IEEEtran}
-\bibliography{D:/Dropbox/Citation_DS/EigenValueEstimation,D:/Dropbox/Citation_DS/DistributedConsensus,D:/Dropbox/Citation_DS/Consensus_Finte-Time,D:/Dropbox/Citation_DS/Consensus&Filter,D:/Dropbox/Citation_DS/WirelessSensorNetwork,D:/Dropbox/Citation_DS/SmokeAnimation,D:/Dropbox/Citation_DS/Smoke_Gas_Detection,D:/Dropbox/Citation_DS/PlumeDetection,D:/Dropbox/Citation_DS/GaussianPlumeModel,D:/Dropbox/Citation_DS/DataFusion,D:/Dropbox/Citation_DS/CloudDetection,D:/Dropbox/Citation_DS/Lidar}
+\bibliography{D:/Dropbox/Citation_DS/EigenValueEstimation,D:/Dropbox/Citation_DS/DistributedConsensus,D:/Dropbox/Citation_DS/Consensus_Finte-Time,D:/Dropbox/Citation_DS/Consensus&Filter,D:/Dropbox/Citation_DS/WirelessSensorNetwork,D:/Dropbox/Citation_DS/SmokeAnimation,D:/Dropbox/Citation_DS/Smoke_Gas_Detection,D:/Dropbox/Citation_DS/PlumeDetection,D:/Dropbox/Citation_DS/GaussianPlumeModel,D:/Dropbox/Citation_DS/DataFusion,D:/Dropbox/Citation_DS/CloudDetection,D:/Dropbox/Citation_DS/Lidar,D:/Dropbox/Citation_DS/ConsensusApplication}
 
 \end{document}

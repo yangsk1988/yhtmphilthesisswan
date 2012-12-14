@@ -1,5 +1,5 @@
 
-\subsection{Graph Theory and Matrix Theory}
+\section{Graph Theory and Matrix Theory Review }
 
 In this section, some basic concepts of the graph theory and matrix
 theory will be introduced. They are used in the analysis of convergence
@@ -40,7 +40,7 @@ of non-negative matrix, and use them in optimization of convergence
 rate of consensus algorithm.
 
 
-\subsubsection{Irreducibility and Strong Connected Graph.}
+\subsection{Irreducibility and Strong Connected Graph.}
 
 For an undirected graph, the consensus $\mathbf{x}^{*}$ can be achieved
 if and only if the graph is connected. (Note that the consensus is
@@ -83,21 +83,7 @@ by matrix permutation. Therefore, matrix $A$ doesn't exists the block
 upper triangular form as given in Def. \ref{Def.Irreducebility}. 
 
 
-\subsubsection{Spectral radius of a matrix}
-
-(todo, delete this
-\begin{enumerate}
-\item bounds for the spectral radius: 
-\item and Gerschgorin's theorem: 1.5 page 1.6; 
-
-\begin{enumerate}
-\item theorem 1.5; Corollary 1; Corollary 2; give me the possibility of
-a sub-optimal distributed method. Page 16
-\item Perron-Frobenius theorem: 2.1 page 30.
-\item Lemma 2.5 on page 31 \cite{Varga2010}
-\end{enumerate}
-\end{enumerate}
-todo delete)
+\subsection{Spectral radius of a matrix}
 
 Spectral radius of a matrix is one of the basic concepts in the matrix
 iteration theory. It is defined by the largest eigenvalue of the matrix.
@@ -175,7 +161,7 @@ the proof.
 \end{proof}
 We give the proof of \prettyref{thm:Convergent <=00003D> p(A)<1}
 here as it will be very useful in the proof of an convergence conditions
-theorem for distributive consensus algorithm, see \prettyref{sub:DT-First-Order-DAC}.
+theorem for distributed consensus algorithm, see \prettyref{sub:DT-First-Order-DAC}.
 At the same time, the Jordan normal form weight matrix $W^{k}=TJ^{k}T^{-1}$
 gives the local value vector $\mathbf{x}\left(k\right)=W^{k}\mathbf{x}\left(0\right)$
 another expression in terms of eigenvalues and eigenvectors, which
@@ -183,9 +169,7 @@ reflects the basic ideas of the finite-time consensus algorithm. This
 will be introduced in \prettyref{sec:Finite-Time-Distributed-Consensu}. 
 
 
-
-
-\paragraph{Gerschgorin's theorem}
+\subsubsection{Gerschgorin's theorem}
 
 The calculation of eigenvalues a matrix $A$ involves determination
 of the matrix $\lambda I-A$ and solving a high order polynomial equation.
@@ -240,55 +224,9 @@ Then, the induced graph Laplacian matrix will have the following result
 using the Gerschgorin's theorem. 
 
 
-\paragraph{Generalize from Gerschgorin's theorem}
-\begin{thm}
-\cite{Olfati-Saber2004} \label{thm:Bounds of eig(L)}Let the graph
-has the Laplacian matrix ${\cal L},$ denote the maximum node outdegree
-of the graph by 
-\begin{equation}
-d_{max}=\max_{1\leq i\leq n}\left(\sum_{j=1,j\neq i}^{n}l_{i,j}\right)
-\end{equation}
-Then, all the eigenvalues of ${\cal L}$ are located in the following
-disk,
-\begin{equation}
-\left|z-d_{max}\right|\leq d_{max}
-\end{equation}
-which is centered at $z=d_{max}+0j$ on the complex plane.\end{thm}
-\begin{proof}
-Based on the Gerschgorin's theorem, all the eigenvalue of ${\cal L}$
-are located in the union of the disks.
-\begin{equation}
-\left|z-l_{i,i}\right|\leq\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|,\ 1\leq i\leq n.\label{eq:disk Union of eig(L)}
-\end{equation}
-Since ${\cal A}=\left[a_{i,j}\right]$ is an non-negative matrix,
-by the definition of Laplacian matrix, $l_{i,j}\leq0$ and $l_{i,i}=\sum_{k=1,k\neq i}^{n}a_{ik}\geq0.$
-Therefore, let $d_{i}=l_{i,i}$ and 
-\begin{equation}
-d_{i}=\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|
-\end{equation}
- and the union of disks becomes
-\begin{equation}
-\bigcup_{1\leq i\leq n}\left\{ z\in\mathbb{C}:\left|z-d_{i}\right|\leq d_{i}\right\} 
-\end{equation}
-On the other hand, all these disks are located inside the largest
-disk with radius $d_{max}$. This result ends the proof of the theorem
-\end{proof}
-Based on the \prettyref{thm:Bounds of eig(L)}, it is obvious all
-the nonzero eigenvalues of ${\cal L}$ have positive real parts. This
-immediately lead to a convergence theorem of the continuous-time consensus
-protocol \prettyref{eq:1st Order Protocol}. The solution given in
-exponential matrices form \prettyref{eq:x(t) of CT-1st-DAC} converge
-to a consensus value as $t\to\infty$. Since all the nonzero eigenvalue
-of $-{\cal L}$ located in the disk $\left|z+d_{max}\right|\leq d_{max}$,
-and the eigenspace associated with zero is one-dimensional. Consequently,
-the eigenvector associated with zero eigenvalue has the form $\alpha\mathbf{1}$,
-i.e. $x_{i}=\alpha$ for all $i$. This result will be very helpful
-as the negative real part can guarantee that the system dynamic is
-stable and convergent. We will show the proof after introduce the
-well-known Perron-Frobenius Theorem. 
 
 
-\paragraph{Perron-Frobenius Theorem}
+\subsubsection{Perron-Frobenius Theorem}
 
 The Perron-Frobenius theorem states that if matrix $A$ is nonnegative
 and irreducible which means the digraph of matrix A is strongly connected,
@@ -347,70 +285,19 @@ a non-negative and irreducible matrix, by a simple algorithm without
 calculating the determination of $\lambda I-A$. 
 
 
-\paragraph{Generalized from Perron-Frobenius theorem}
-
-The result induced from Perron-Frobenius theorem gives the upper bound
-and lower bound of the matrix. Considering the system dynamic $x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)$.
-Because $\exp\left(-{\cal L}t\right)$ is a non-negative matrix, the
-Perron-Frobenius theorem tell us that $\exp\left(-{\cal L}t\right)$
-has a positive real eigenvalue equals to one which is also the spectral
-radius. Together with the \prettyref{thm:Bounds of eig(L)} which
-implies that all the eigenvalues of $-{\cal L}$ have negative real
-part, we immediately come to the following theorem.
-\begin{thm}
-Assume ${\cal G}=\left({\cal V},{\cal E},{\cal A}\right)$ is strongly
-connected graph, and the associated graph Laplacian matrix ${\cal L}$
-is defined in \prettyref{eq:Graph Laplacian def.}, which has only
-one zero eigenvalue. Let the $u_{r}$ is the uniformed right eigenvector
-and $u_{l}$ is the uniformed left eigenvector associated with the
-zero eigenvalue, i.e. $Lu_{r}=0$, $u_{l}^{T}L=0$, then we have $u_{l}^{T}u_{r}=1$
-and the system dynamic 
-\begin{equation}
-x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)
-\end{equation}
-will have the stable state of the system dynamic given by
-
-\begin{equation}
-x\left(t\right)=Kx\left(0\right)
-\end{equation}
- where K is a matrix in $R^{n}$, and $K=\lim_{t\to\infty}\exp\left(-{\cal L}t\right)=u_{r}u_{l}^{T}$. \end{thm}
-\begin{proof}
-Let $A=-{\cal L}$, and it has a Jordan form of $A=UJU^{-1}$. Then
-we can have $\exp\left(At\right)=U\exp\left(Jt\right)U^{-1}$. Because
-$A$ has all its eigenvalue except a simple zero eigenvalue have negative
-real part, thus, as $t\to\infty$, all other Jordan block vanish,
-and $\exp\left(Jt\right)$ converges to a matrix with only single
-nonzero entry, denoted by $Q$. Since matrix $U$ contains a column
-which associated with the zero eigenvalue of $A$ is $u_{r}$, similarly,
-$U^{-1}$ has a corresponding row equals to $u_{l}$. By simply calculating
-the equation $K=UQU^{-1}$, we can show that $K=u_{r}u_{l}^{T}$.
-And the fact $U^{-1}U=I$ shows that $u_{l}^{T}u_{r}=1$ . This ends
-the proof. 
-\end{proof}
-This is an important theory for continuous-time consensus problem.
-It provides the necessary and sufficient conditions of the graph Laplacian
-matrix so that a convergent consensus algorithm could be carried out
-on the network. For the average consensus problem, it is obvious that
-all the elements in $K$ must equal to $\frac{1}{n}$. This requires
-the graph Laplacian ${\cal L}$ satisfies the conditions: ${\cal L}\mathbf{1}=0$,
-$\mathbf{1}^{T}{\cal L}=0$, where $\mathbf{1}\in R^{n}$ is an all
-unity vector. And the $u_{r}$ and $u_{l}$ will change into vectors
-with equivalent constant in all its components. If they are uniformed,
-then $u_{r}=u_{l}=\frac{1}{\sqrt{n}}.$ (todo Give a figure about
-the eigenvalue of Laplacian matrix)
 
 
-\subsubsection{Diagonalizable matrix \& Symmetric matrix}
+\subsection{Diagonalizable matrix \& Symmetric matrix}
 
-The Jordan normal form of weight matrix $W^{k}=TJ^{k}T^{-1}$
-gives the local value vector $\mathbf{x}\left(k\right)=W^{k}\mathbf{x}\left(0\right)$
+The Jordan normal form of weight matrix $W^{k}=TJ^{k}T^{-1}$ gives
+the local value vector $\mathbf{x}\left(k\right)=W^{k}\mathbf{x}\left(0\right)$
 an analitical expression in terms of eigenvalues and eigenvectors.
-Moreover, if the matrix $W$ is symmetric, the expressions
-of $\mathbf{x}\left(k\right)$ can be simplified. Then, algorithms
-such as the finite-time consensus, can be implemented more easily.
-In addition, under the the assumption of symmetric weight matrices,
-the optimal weight matrix which has the fastest convergence rate can
-be found through a semi-definite problem. \cite{Li2010}. 
+Moreover, if the matrix $W$ is symmetric, the expressions of $\mathbf{x}\left(k\right)$
+can be simplified. Then, algorithms such as the finite-time consensus,
+can be implemented more easily. In addition, under the the assumption
+of symmetric weight matrices, the optimal weight matrix which has
+the fastest convergence rate can be found through a semi-definite
+problem. \cite{Li2010}. 
 \begin{defn}
 A matrix $A$ is diagonalized, if and only if there exist a nonsigular
 matrix $T$, which reduce $A$ into the form 
