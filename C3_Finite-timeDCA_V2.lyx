@@ -133,7 +133,7 @@ key "Sundaram2007"
  Alternatively, the original consensus algorithm can run many instances
  in parallel with a set of independent initial values.
  However, the data transmission at each iteration increases.
- Futhermore, this method may not reliable to topology changes during the
+ Furthermore, this method may not reliable to topology changes during the
  of multiple re-initializations of original consensus algorithm.
  
 \end_layout
@@ -1064,7 +1064,11 @@ key "Xiao2004"
 
  can be chosen large enough so that there are
 \change_inserted 5863457 1348434085
- surfficient number of local values to estimate the filter coefficients.
+ 
+\change_unchanged
+sufficient
+\change_inserted 5863457 1348434085
+ number of local values to estimate the filter coefficients.
 
 \change_unchanged
  
@@ -1345,13 +1349,13 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-In this section, we introduced the finite-time DAC on gernerlized condition.
+In this section, we introduced the finite-time DAC on generalized condition.
  Compared to the previous version of finite-time DAC, the improvements are:
  it doesn't require the eigenvalues to be known prior to the algorithm.
  However, the number of iterations can not be less than a certain limit,
  because the minimum number of iterations is depends on the weight matrix,
  which is the same as the previous finite-time DAC.
- With this improment, some further algorithm could be drived.
+ With this improvement, some further algorithm could be driven.
  They will be introduced in chapter 
 \begin_inset CommandInset ref
 LatexCommand ref

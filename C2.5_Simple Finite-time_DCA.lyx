@@ -82,9 +82,9 @@ Finite-Time Distributed Consensus Algorithm
 \end_layout
 
 \begin_layout Standard
-Finite-Time Distributed Consensus Algorithm (FT-DCA) is an non-asymptotic
+Finite-Time Distributed Consensus Algorithm (FT-DAC) is an non-asymptotic
  algorithm.
- It tries to find the consensus value after each node run the FO-DCA algorithm
+ It tries to find the consensus value after each node run the FO-DAC algorithm
  iteratively for a certain number of time.
  This is based on the assumption that after a certain number of iterations,
  local values would contain sufficient information to estimate the consensus
@@ -213,7 +213,7 @@ consecutive
 \color inherit
  filter, the output after a certain time is the global average of the initial
  values over the network.
- Compared to first order DCA algorithm, no more information exchanged between
+ Compared to first order DAC algorithm, no more information exchanged between
  nodes is needed.
  
 \family roman

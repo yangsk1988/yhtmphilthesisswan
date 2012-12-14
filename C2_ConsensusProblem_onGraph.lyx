@@ -62,7 +62,7 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -83,7 +83,13 @@ Background of DAC
 \end_layout
 
 \begin_layout Section
+
+\change_deleted 5862369 1355527044
 Prelimilary
+\change_inserted 5862369 1355527044
+Preliminary
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -346,7 +352,7 @@ where
 \begin_inset Formula $F\left(\mathbf{x},\mathbf{u}\right)$
 \end_inset
 
- is the columnwise concatenation of individual dynamics 
+ is the column-wise concatenation of individual dynamics 
 \family roman
 \series medium
 \shape up
@@ -612,8 +618,12 @@ key "Russell1994"
 \end_layout
 
 \begin_layout Standard
-However, average consensus is more challenging problem than the maximum
- (or minimum) consensus.
+However,
+\change_inserted 5862369 1355520679
+ distributed
+\change_unchanged
+ average consensus is more challenging problem than the maximum (or minimum)
+ consensus.
  Because, the average value is a linear combination of all the initial states
  of network nodes and the condition 
 \begin_inset Formula $x_{i}^{*}={\cal X}\left(\mathbf{x}\right)$
@@ -639,6 +649,16 @@ However, average consensus is more challenging problem than the maximum
 \end_layout
 
 \begin_layout Subsection
+
+\change_inserted 5862369 1355521665
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Continuous-vs-Discrete-DAC"
+
+\end_inset
+
+
+\change_unchanged
 Continuous-time vs.
  Discrete-time Consensus
 \end_layout
@@ -951,7 +971,11 @@ Let the graph has the Laplacian matrix
 \begin_inset Formula ${\cal L},$
 \end_inset
 
- denote the maximum node outdegree of the graph by 
+ denote the maximum node 
+\change_unchanged
+out-degree
+\change_inserted 5862369 1355425471
+ of the graph by 
 \begin_inset Formula 
 \begin{equation}
 d_{max}=\max_{1\leq i\leq n}\left(\sum_{j=1,j\neq i}^{n}l_{i,j}\right)
@@ -1594,21 +1618,31 @@ Categories of Distributed Consensus Average Algorithm
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355520620
 Distributed average consensus (DAC) algorithms is one of the most widely
  used consensus algorithm.
+\change_inserted 5862369 1355521375
+
 \end_layout
 
 \begin_layout Standard
-To introduce the DAC algorithm, we may started from one of the simplest
- one in their family.
- As shown in 
+To introduce the DAC algorithm
+\change_inserted 5862369 1355520696
+s
+\change_unchanged
+, 
+\change_inserted 5862369 1355521715
+let's first take a look at the Fig.
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:DT-First-Order-DAC"
+reference "fig:Categories-of-Discrete-time"
 
 \end_inset
 
 .
+
+\change_unchanged
  (
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -1616,20 +1650,73 @@ reference "fig:Categories-of-Discrete-time"
 
 \end_inset
 
- only shows the branch of discrete-time distributed consensus algorithm.
- Although continuous-time consensus algorithms have some similarities with
+ only shows the family of discrete-time distributed consensus algorithms.
+ 
+\change_deleted 5862369 1355521608
+Although continuous-time consensus algorithms have some similarities with
  discrete-time ones, their performance are quite different when Gaussian
- white noise exists).
+ white noise exists
+\change_inserted 5862369 1355521677
+ For more details about continuous-time consensus algorithms, see section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Continuous-vs-Discrete-DAC"
+
+\end_inset
+
+
+\change_unchanged
+).
+ We may started from one of the simplest one in their family: the first-order
+ DAC algorithm introduced in section 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:DT-First-Order-DAC"
+
+\end_inset
+
+.
+
+\change_deleted 5862369 1355521510
  The first order DAC algorithm is the simplest algorithm that can solve
  the consensus problem in a number of iteration.
+
+\change_unchanged
  It's convergence rate is related to the spectral radius of a graph dependent
  matrix.
  So the optimization problem is to find the optimal matrix with minimum
- spectral radius.
+ sub-dominant
+\change_inserted 5862369 1355521636
+ eigenvalue.
+ 
+\change_deleted 5862369 1355520839
+spectral radius.
+
+\change_unchanged
  However, global information of the graph matrix must be available.
- In distributed methods, this is a quite strong condition.
- Without the global information, best constant and metropolitan matrix can
- be the sub-optimal solution to the consensus problem 
+ In distributed methods, this is a quite 
+\change_deleted 5862369 1355520855
+strong
+\change_inserted 5862369 1355521636
+demanding
+\change_unchanged
+ condition.
+ Without the global information,
+\change_deleted 5862369 1355520868
+ 
+\change_unchanged
+ constant
+\change_inserted 5862369 1355521636
+ first-order DAC
+\change_unchanged
+ and metropolitan
+\change_deleted 5862369 1355520878
+ 
+\change_inserted 5862369 1355521636
+DAC
+\change_unchanged
+ can be the sub-optimal solution to the consensus problem 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Xiao2004"
@@ -1637,20 +1724,77 @@ key "Xiao2004"
 \end_inset
 
 .
- The first order DAC algorithm is one of the asymptotic algorithms together
- with higher-order DAC algorithm.
- The demand of higher-order algorithm is mainly because the requirement
- for a fast convergence rate is always a matter of issue.
- In 
+ The first-order DAC algorithm
+\change_deleted 5862369 1355520936
+ 
+\change_inserted 5862369 1355521636
+ together with higher-order DAC algorithms ( introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Discrete-High-Order"
 
 \end_inset
 
-, we introduced higher-order DAC algorithm, which could have faster convergence
- rate, and no additional requirement and communication cost is required
- compared with first-order DAC 
+ )
+\change_deleted 5862369 1355520946
+is
+\change_inserted 5862369 1355521636
+belong to the family of
+\change_unchanged
+ the asymptotic algorithms.
+ The 
+\change_deleted 5862369 1355520979
+demand
+\change_inserted 5862369 1355521636
+motivation
+\change_unchanged
+ 
+\change_deleted 5862369 1355521115
+of
+\change_inserted 5862369 1355521636
+to
+\change_unchanged
+ 
+\change_inserted 5862369 1355521636
+develop the 
+\change_unchanged
+higher-order algorithm is 
+\change_deleted 5862369 1355521125
+mainly
+\change_unchanged
+ 
+\change_deleted 5862369 1355521122
+because
+\change_unchanged
+ the 
+\change_deleted 5862369 1355521001
+requirement
+\change_inserted 5862369 1355521636
+demand of
+\change_unchanged
+ a fast convergen
+\change_inserted 5862369 1355521636
+t
+\change_unchanged
+ rate
+\change_inserted 5862369 1355521636
+ algorithm
+\change_unchanged
+.
+
+\change_deleted 5862369 1355521307
+ 
+\change_unchanged
+ The
+\change_deleted 5862369 1355521307
+ 
+\change_unchanged
+ higher-order DAC algorithms
+\change_deleted 5862369 1355521307
+ 
+\change_unchanged
+ could have faster convergence rate, and no additional requirement and communica
+tion cost is required compared with first-order DAC 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Xiong2010"
@@ -1658,9 +1802,39 @@ key "Xiong2010"
 \end_inset
 
 .
- Therefore, it is shortly applied into practical consensus problem after
- invented.
- (OK first half 0.5)
+
+\change_deleted 5862369 1355521262
+ 
+\change_unchanged
+Therefore, it is shortly applied 
+\change_deleted 5862369 1355521958
+into
+\change_inserted 5862369 1355521958
+to
+\change_unchanged
+ practical consensus 
+\change_deleted 5862369 1355521948
+problem
+\change_inserted 5862369 1355521952
+protocols
+\change_unchanged
+ 
+\change_deleted 5862369 1355521964
+after invented
+\change_inserted 5862369 1355521964
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yu2011"
+
+\end_inset
+
+
+\change_unchanged
+.
+ (OK 1)
+\change_inserted 5862369 1355521636
+
 \end_layout
 
 \begin_layout Standard
@@ -1687,11 +1861,60 @@ reference "sec:Finite-Time-Distributed-Consensu"
 \end_inset
 
 .
- A derivative of finite-time consensus algorithm is the adaptive filter
- algorithm for average consensus .
- It applies an adaptive filter algorithm to asymptotically converge the
- set of parameters which are required in the computation of consensus value
  
+\change_inserted 5862369 1355520351
+Given the sequence of local values obtained by the first-order DAC, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ verifies that there exists a filter that can estimate the consensus value.
+ 
+\change_deleted 5862369 1355520132
+A derivative of finite-time consensus algorithm is the adaptive filter algorithm
+ for average consensus .
+\change_inserted 5862369 1355520415
+Based on
+\change_unchanged
+ 
+\change_inserted 5862369 1355520436
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+'s work, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cavalcante2010"
+
+\end_inset
+
+ 
+\change_deleted 5862369 1355520440
+It applies
+\change_inserted 5862369 1355520441
+proposed
+\change_unchanged
+ an adaptive filter algorithm to asymptotically converge the
+\change_deleted 5862369 1355520453
+ 
+\change_unchanged
+ 
+\change_deleted 5862369 1355520162
+parameters
+\change_inserted 5862369 1355520518
+estimated coefficients to the correct coefficients of the filter
+\change_deleted 5862369 1355520188
+ which are required in the computation of consensus value 
+\change_inserted 5862369 1355520435
+ 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Cavalcante2010"
@@ -1699,8 +1922,27 @@ key "Cavalcante2010"
 \end_inset
 
 .
- As a contribution of this thesis, a method to calculate these necessary
- parameters by inverting Toeplitz matrix is introduced in 
+ As a contribution of this thesis, a method to
+\change_deleted 5862369 1355520541
+ 
+\change_inserted 5862369 1355520528
+ 
+\change_unchanged
+calculate 
+\change_deleted 5862369 1355520223
+these necessary parameters
+\change_inserted 5862369 1355520435
+ the filter
+\change_unchanged
+ 
+\change_inserted 5862369 1355520543
+directly 
+\change_unchanged
+by inverting 
+\change_inserted 5862369 1355520550
+a 
+\change_unchanged
+Toeplitz matrix is introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Finite-time-Consensus-on"
@@ -1709,6 +1951,8 @@ reference "sub:Finite-time-Consensus-on"
 
 .
  
+\change_inserted 5862369 1355520435
+
 \end_layout
 
 \begin_layout Standard
@@ -1758,7 +2002,7 @@ Categories of Discrete-time Consensus Algorithm
 
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Standard
 
 \end_layout
 

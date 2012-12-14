@@ -447,14 +447,6 @@ However, the distributed solution has a numerical error due to quantization,
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
-TODO:
-\end_layout
-
-\begin_layout Standard
 The rest of this chapter is structured as follows.
  First,  the distributed real-time optimization of DAC will be given in
  section 
@@ -817,7 +809,11 @@ The sum of coefficients
 \end_layout
 
 \begin_layout Proof
- Since  
+
+\change_deleted 5862369 1355526896
+ 
+\change_unchanged
+Since  
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:x(k+D) vector predictor"
@@ -833,7 +829,13 @@ reference "eq:x(k+D) vector predictor"
 \end_inset
 
 .
- Then, cancelling the vector 
+ Then, 
+\change_deleted 5862369 1355526896
+cancelling
+\change_inserted 5862369 1355526896
+canceling
+\change_unchanged
+ the vector 
 \begin_inset Formula $\bar{\mathbf{x}}$
 \end_inset
 
@@ -2383,8 +2385,13 @@ Box plot of log mean estimation error of eigenvalues, with/without local
 \end_layout
 
 \begin_layout Standard
-Simulation results show that taking local values from neighbours has better
- performance in lower estimation errors.
+Simulation results show that taking local values from 
+\change_deleted 5862369 1355526900
+neighbours
+\change_inserted 5862369 1355526900
+neighbors
+\change_unchanged
+ has better performance in lower estimation errors.
  In addition, the estimation errors will decrease if more instances of CFO-DAC
  are taken.
  On the other hand, the estimation errors  will increase as the network
@@ -2473,8 +2480,8 @@ name "fig:Mean-of-spectral"
 
 \end_inset
 
-Mean of spectral radius of CFO-DACand HO-DAC, using optimal parameters and
- estimated parameters.
+Mean of spectral radius of CFO-DAC and HO-DAC, using optimal parameters
+ and estimated parameters.
  
 \end_layout
 

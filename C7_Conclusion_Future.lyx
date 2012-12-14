@@ -121,8 +121,13 @@ of these algorithms
 \change_inserted 5862369 1354148161
  
 \change_unchanged
-needs to know the network topology, which is very diffcult to obtain for
- any individual node and can not change during the optimization.
+needs to know the network topology, which is very 
+\change_deleted 5862369 1355526844
+diffcult
+\change_inserted 5862369 1355526844
+difficult
+\change_unchanged
+ to obtain for any individual node and can not change during the optimization.
  Non-asymptotic algorithms
 \change_deleted 5862369 1354148041
 , such as the finite-time DAC or adaptive filter DAC algorithm, they
@@ -209,8 +214,14 @@ Laplacian
 of the associated weight matrix 
 \change_unchanged
 are not required prior to the algorithm.
- Actully, the number of iterations can be further reduced to the number
- of distinct eigenvalues of the
+ 
+\change_deleted 5862369 1355526846
+Actully
+\change_inserted 5862369 1355526846
+Actually
+\change_unchanged
+, the number of iterations can be further reduced to the number of distinct
+ eigenvalues of the
 \change_inserted 5862369 1354148828
  associated
 \change_unchanged
