@@ -1,0 +1,110 @@
+
+\chapter{\label{sec:Conclusion-and-Future}Conclusion and Future Work}
+
+This section gives a summary of this thesis and direction for future
+research.
+
+
+\section{Conclusion}
+
+In this thesis, at first asymptotic and non-asymptotic DAC algorithms
+are reviewed. The asymptotic algorithms are robust against topology
+changes and their optimization  needs to know the network topology,
+which is very diffcult to obtain for any individual node and can not
+change during the optimization. Non-asymptotic algorithms can find
+the average faster in a time-invariant network.They use a finite impulse
+response filter to estimate the consensus value. However, the filter
+estimation is not reliable and will be interrupted once the topology
+is changed, because outdated information will lead to a wrong answer
+of the filter. Therefore, to choose the suitable DAC algorithm, it
+depends on the network properties. 
+
+ 
+
+Second, in section \ref{sub:Finite-time-Consensus-on}, a generalized
+finite-time DAC algorithm is presented. Compared to the previous version
+of finite-time DAC, the number of iteration can be reduced to $2n$,
+where $n$ is the number of nodes in the network. In addition, the
+ eigenvalues of the associated weight matrix are not required prior
+to the algorithm. Actully, the number of iterations can be further
+reduced to the number of distinct eigenvalues of the associated weight
+matrix. 
+
+
+
+Third, in chapter \ref{sec:Online-Optimization-of}, we proposed a
+distributed real-time optimization method to increase the convergence
+rate of asymptotic DAC algorithms. As stated in chapter \ref{sec:Online-Optimization-of},
+the optimal parameters is only related to eigenvalues of the Laplacian
+matrix associated to the network. Therefore, the key of the optimization
+algorithm is to distributively estimate the eigenvalues.  However,
+numerical errors of these parameters due to quantization can decline
+the algorithm performance. To mitigate this effect, we introduce a
+numerical technique to find the least mean square solution. If floating
+point number in double format is used and the network size is smaller
+than 32 nodes, the numerical errors of estimated parameters after
+mitigation will only slightly declines the performance of higher-order
+DAC.  Otherwise, the numerical errors will be too large even after
+mitigation.  Generally, optimized parameters for the old network are not
+optimal or even not located in the convergence region for the new
+network. So the DAC algorithm must be reinitialized with convergent
+parameters to continue the consensus process, until the network topology
+is stable for a certain time and the optimal parameters are estimated. 
+
+Finally, we introduced a distributed detection of cloud plume using
+wireless sensor networks and the DAC algorithm in chapter \ref{sec:DAC-Implementation:-Distributed}.
+First, the hypothesis testing based on the ML or MAP decision rule
+is introduced. In the outdoor environment, signal of an individual
+sensor might be corrupted by Gaussian noise or moving object with
+high reflect coefficient, which might raise the false alarm. Because
+multiple sensors detection have better performance, it was adopted
+in the cloud detection. Expectation-maximization algorithm is used
+here to build the joint Gaussian model of background noise and cloud
+backscatter. Thus, interferences to a few sensors in the network are
+less likely to raise the false alarm. Second, if we assume sensors
+signals are independent, the global log likelihood ratio in the hypothesis
+testing can be calculated by the DAC algorithm. , 
+
+
+\section{Future Work}
+
+In this thesis, we introduced several DAC algorithms.  It seems to
+be impossible to find an algorithm robust against topology changes
+and faster than finite-time DAC in a distributed and dynamic network.
+It is very demanding for any individual node to know the network topology. 
+
+Therefore, further research could be carried out to optimize the existing
+algorithms and make some modifications according to the applications.
+
+First, the distributed real-time optimization to DAC can be applied
+on a distributed system. Before that, a consensus protocol should
+be develop and implemented. We are supposed to deal with some of the
+problems in practice, such as link failure, channel noise, time-delay
+and asynchronous communication. 
+
+
+
+Second, the distributed real-time optimization to DAC might be able
+to applied in a dynamic network.  As stated in chapter \ref{sec:Online-Optimization-of},
+the optimal parameters is only related to eigenvalues of the Laplacian
+matrix associated to the network. Therefore, optimized parameters
+for the old network are usually not optimal or not located in the
+convergence region for the new network. However, simulation result
+shows that constant first-order DAC algorithm and second-order DAC
+algorithm can maintain the convergence in most of the time, even old
+parameters are used. Some research should be carried out to find out
+the conditions to maintain the convergence. 
+
+Third, to avoid complex analysis, the network graph is assumed to
+be symmetric in the analysis. However, some algorithm, such as the
+finite-time DAC algorithm and the eigenvalue estimation algorithm,
+can be generalized to the case when the network in unsymmetrical.
+Therefore, the distributed real-time optimization might able to be
+generalized the unsymmetrical network. 
+
+Finally, for the application of cloud detection, the cloud model is
+going to be extended to capture the correlation and random properties
+of the cloud plume. As a result, some parameters of cloud plume will
+be treated as random variable, the DAC algorithm need to be modified
+to capture these changes.  At the same time, sensors need to be able
+to estimate these parameters from their observation. 

@@ -1,0 +1,124 @@
+
+\chapter*{Abbreviations}
+
+%\chapter*{Abbreviations} %[List of Abbreviations]
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+% \begin{thenomenclature} 
+% \begin{abbreviations}{WidestAbbreviation} 
+% \begin{itemize} 
+\begin{tabular}{p{4.0cm} p{11cm}}2D &  Two Dimensional \\
+3D &  Three Dimensional\\
+WSNs &  Wireless Sensor Netoworks\\
+DAC Algorithm &  Distributed Average Consensus Algorithm\\
+FIR filter &  Finite Impulse Response Filter\\
+FO-DAC Algorithm &  First-order Distributed Average Consensus Algorithm\\
+HO-DAC Algorithm &  Higher-order Distributed Average Consensus Algorithm\\
+CFO-DAC Algorithm &  Constant First Order Distributed Average Consensus
+Algorithm\\
+FT-DAC Algorithm &  Finite Time Distributed Average Consensus Algorithm\\
+LLR  &  Log Likelihood ratio\\
+
+
+\end{tabular}
+
+
+\chapter*{Notations}
+
+%\chapter*{Notations} %[List of Notations]
+\addcontentsline{toc}{chapter}{List of Notations}
+%\begin{listofsymbols} 
+\begin{tabular}{p{2.5cm} p{11cm}} %\begin{abmbreviations}{WidestAbbreviation}
+% \nomgroup{A}
+
+
+
+
+
+${\cal G}$  &  Graph associated to the network \\
+
+
+$\mathcal{V}$  &  Set of nodes $\mathcal{V}=\left\{ v_{1},v_{2},...,v_{n}\right\} $
+in the graph ${\cal G}$\\
+
+
+$\mathcal{E}$  &  Set of edges $\mathcal{E}\subseteq\mathcal{V}\times\mathcal{V}$
+in the graph ${\cal G}$\\
+
+
+${\cal A}$  &  Weighted adjacency associated with graph ${\cal G}$\\
+
+
+$W$  &  Weight matrix of first-order DAC algorithm \\
+
+
+$w_{ij}$  &  Entry of weight matrix $W$\\
+
+
+$\mathbf{H}$  &  weight matrix of higher-order DAC algorithm \\
+
+
+$\lambda_{i}\left(W\right)$ &  The $i^{th}$ Eigenvalue of weight
+matrix $W$\\
+
+
+$S\left(W\right)$  &  Spectrum of of the matrix $W$\\
+
+
+\textit{$Q$ } &  Incidence matrix associated with graph ${\cal G}$\\
+
+
+$L$  &  Laplacian matrix induced by ${\cal G}$\\
+
+
+$l_{ij}$  &  Entry of Laplacian matrix $L$\\
+
+
+$\lambda_{i}\left(L\right)$ &  The $i^{th}$ Eigenvalue of Laplacian
+matrix $L=L\left({\cal G}\right)$\\
+
+
+$S\left(L\right)$  &  Spectrum of the Laplacian matrix\\
+
+
+$\mathbf{x}\left(k\right)$  &  Local value vector at time index
+$k$\\
+
+
+$x_{i}\left(k\right)$  &  Local value of node $i$ at time index
+$k$\\
+
+
+$\epsilon$ &  Step length of DAC algorithms\\
+
+
+$\gamma$ &  Forgetting factor of DAC algorithms\\
+
+
+$\epsilon_{opt,FO}$ &  Optimal step length of first-order DAC algorithms\\
+
+
+$\epsilon_{opt,SO}$ &  Optimal step length of second-order DAC algorithms\\
+
+
+$\gamma_{opt,SO}$ &  Optimal forgetting factor of second-order DAC
+algorithms\\
+
+
+$p(\lambda)$  &  The minimal polynomial of $W$ \\
+
+
+$T_{i}\left(k,D_{i}\right)$  &  Toeplitz matrix in $\mathbb{R}^{D_{i}\times D_{i}}$
+at $v_{i}$ with $x_{i}\left(k\right)$ as diagonal entries.\\
+
+
+$\mathbf{y}_{i}\left(k,D_{i}\right)$  &  The local value history
+vector at $v_{i}$ constructed by $\left[x_{i}\left(k+1\right),x_{i}\left(k+2\right),\ldots,x_{i}\left(k+D_{i}\right)\right]^{T}$
+\\
+
+
+$\mathbf{h}$  &  An FIR filter that can estimate the consensus value
+\\
+
+
+\end{tabular} 
+%\end{listofsymbols}

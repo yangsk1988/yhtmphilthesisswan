@@ -1,0 +1,220 @@
+
+\section{Consensus Based Signal Processing}
+
+Sensor networks have a variety of applications such as surveillance,
+environment monitoring and collaborative signal processing. As the
+advatages of reliability, survivability, and increased range of coverage,
+there is an increasing interest in employing multiple distributed
+sensors for these applications \cite{Chair1986}. A fundamental problem
+in sensor network is to process spatially distributed information
+using a scalable algorithm \cite{Olfati-Saber2005a}. 
+
+Generally, there are two options for multiple sensors signal processing:
+First option is centralized signal processing. This requires the network
+contains a fusion center, and all sensor's information being transmuted
+to the central processor. 
+
+The Second option is distributed signal processing. Distributed average
+consensus (DAC) algorithm is a tool for distributed information processing.
+It has received significant attention recently because of its robustness
+and simplicity. In this section, we will introduce two distributed
+signal processing methods based on consensus algorithm.
+
+
+\subsection{Data Fusion and Decision Making(todo check times 2)}
+
+In this section, we will consider a distributed detection problem
+in wireless sensor network without the fusion center. A consensus
+based approach of distributed data fusion and decision making is introduced.
+
+In centralized data fusion and decision making, a hypothesis test
+based on the ML, MAP or Bayesian decision rule will be carried out
+at the a fusion center.  Therefore, we intend to carry out the hypothesis
+test in a distributed manner. 
+
+Considering a binary hypothesis testing problem with the following
+two hypotheses
+\begin{enumerate}
+\item H0: target is absent
+\item H1: target is present.
+\end{enumerate}
+Suppose each sensor acquires a scale value from its sensoring area,
+its signal has the following form
+
+\begin{equation}
+x_{l}=\begin{cases}
+\mu_{l,0}+n_{l} & \mbox{if no target presents}\\
+\mu_{l,1}+n_{l} & \mbox{if target presents}
+\end{cases}
+\end{equation}
+where $\mu_{l,m}$ is the mean value of $x_{l}$ depending on hypothesis
+$m$ and $n_{l}$ is the noise of $x_{l}$. The prior probability
+of these two hypotheses is denoted by $P\left(H_{m}\right)=P_{m},m=1,2$.
+The case when each sensor acquires a vector of unknown parameters
+is discussed in \cite{Xiao2005}, where a more sophisticated data
+fusion scheme is proposed.   
+
+To make a declaration whether the target presents or not, based on
+classical hypothesis test theory, the global log likelihood ratio
+(G-LLR ) test is given by 
+
+\begin{equation}
+LLR(x_{1},...,x_{L})=\log\frac{f\left(x_{1},...,x_{L}|H_{1}\right)}{f\left(x_{1},...,x_{L}|H_{0}\right)}\underset{H_{0}}{\overset{H_{1}}{\gtrless}\log}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}\label{eq:G-LLR define}
+\end{equation}
+where $f\left(x_{1},...,x_{L}|H_{m}\right)$ is the likelihood function
+of hypothesis $H_{m}$.
+
+Usually  we can assume the sensor detections are independent from
+one to another. Therefore, we have $f\left(x_{1},...,x_{L}|H_{m}\right)=f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)$
+and 
+
+\begin{eqnarray}
+LLR(\mathbf{x}) & = & \log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)}{f\left(x_{1}|H_{0}\right)\cdot\ldots\cdot f\left(x_{L}|H_{0}\right)}=\sum_{i=1}^{L}LLR\left(x_{i}\right)\label{eq:Sum_L_LLR}
+\end{eqnarray}
+
+
+According to Eq.\eqref{Sum_L_LLR}, the G-LLR is the sum of local
+log likelihood ratio (L-LLR) and can be calculated by distributed
+average consensus (DAC) algorithm. This is implemented by the following
+steps: First, each sensor node $i$ only calculate its L-LLR individually
+based on $x_{i}$; Then, all the sensors update their L-LLR in the
+DAC iteration until they converge to a common value; Finally, once
+the algorithm converges, the G-LLR is obtained by multiply the average
+value with the number of sensors in the network.
+
+
+\subsubsection*{Generalization of LLR Calculation }
+
+In this section, we will generalize the conditions step by step and
+drive some expressions to show how to calculate G-LLR with DAC algorithms. 
+
+First we assume the noises in sensor's signals are not independent
+from one to another. The noises can be denoted by the joint Gaussian
+white noise. 
+
+Let the sensors observation, the joint Gaussian white noises and the
+mean of sensor observation in a vector form given by 
+\[
+\mathbf{x}=\left[x_{1},\ldots,x_{L}\right]^{\mathrm{T}}
+\]
+
+
+\[
+\mathbf{n}=\left[n_{1},\ldots,n_{L}\right]^{\mathrm{T}}\sim\mathcal{N}\left(0,\Sigma\right)
+\]
+
+
+\begin{equation}
+\mathbf{u}_{m}=\left[\mu_{1,m},\ldots,\mu_{L,m}\right]^{\mathrm{T}},\; m=0,1.
+\end{equation}
+Since $\mathbf{n}\sim\mathcal{N}\left(0,\Sigma\right)$, the likelihood
+function is a joint Gaussian function $f\left(x_{1},...,x_{L}|H_{m}\right)=\frac{1}{\left(2\pi\right)^{L/2}\left|\Sigma\right|^{\frac{1}{2}}}\exp\left(-\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{m}\right)^{T}\Sigma^{-1}\left(\mathbf{x}-\mathbf{u}_{m}\right)\right)$,
+the G-LLR becomes 
+\begin{eqnarray}
+LLR(\mathbf{x}) & = & \left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{T}}\right)\mathbf{\Sigma}^{-1}\mathbf{x}+\frac{1}{2}\left(\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{0}-\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{1}\right)\label{eq:wighted_sum_LLR}\\
+ & = & \sum_{l=1}^{L}w_{l}x_{l}+C\nonumber 
+\end{eqnarray}
+where $w_{l}$ is the $l^{th}$ component of $\left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{T}}\right)\mathbf{\Sigma}^{-1}$,
+$C$ is the last term the equation. Eq. \eqref{wighted_sum_LLR} means
+the G-LLR can be a weighted sum of sensor's observation. 
+
+Provided that each sensor knows the weight $w_{l}$ and $C$, the
+G-LLR is equal to the weighted sum of sensor's observation plus $C$.
+Actually, the constant $C$ changes the threshold of the hypothesis
+testing and can be subtract from both side of the equation. Therefore,
+we modify the hypothesis testing into 
+\[
+\sum_{l=1}^{L}w_{l}x_{l}\underset{H_{0}}{\overset{H_{1}}{\gtrless}}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}-C
+\]
+where the average values $\mbox{Avg}\left(w_{l}x_{l}\right)$ is obtained
+by distributed average consensus (DAC) algorithm. Then the average
+is multiplied with the number of sensors in the network to get $\sum_{l=1}^{L}w_{l}x_{l}$.
+
+
+In the section of cloud detection \secref{Distributed_Cloud_De},
+more generalized conditions of calculating the G-LLR is discussed
+and more results about applying DAC algorithm will be presented. The
+sensor signals will be correlated and mixed with joint Gaussian white
+noises. In addition, the noises are not only correlated but also depends
+on the existence of target. 
+
+
+\subsection{Network Information Flooding(todo check times 0)}
+
+The conventional information flooding is actually done by copying
+information to all other nodes. Each node maintains a table of the
+of all nodes values in the network, initialized with its own value,
+and exchanges the tables of their own with those from their neighbors
+in each step. After a certain number of time steps which is equal
+to the diameter of the network, each node will obtain values of all
+nodes. distributed averaging can also be implemented by this way. 
+
+However, copying information and forwarding to all other nodes takes
+too much resources for the networks. If a networks has $n$ nodes,
+the conventional flooding will needs at least $\left(n-1\right)$
+copies for each piece of information. And this estimation doesn't
+considering the cost in transmitting the information to the destination.
+
+We intend to develop an algorithm to accomplish the information flooding,
+but didn't copy all the information to other nodes, so that the communication
+cost can be dramatically reduced. However, The difficulties of this
+kinds of distributed signal processing is that any individual node
+only know partial information on the whole network. And information
+exchange only allowed between neighbors. 
+
+Based on the FT-DAC algorithm we introduced in the section \ref{sub:Finite-time-Consensus-on},
+each node could decompose the local value vector by a linear combination
+of eigenvalues and eigenvectors and can calculate the coefficients
+before each term. Actually, with some signal processing techniques,
+there are more information in the local values sequence that each
+node can extract. These may also be applied to wireless sensor networks
+as they could be carried out distributively. 
+
+Therefore, in this section we propose a novel network information
+flooding technique based on consensus algorithm. It doesn't require
+copying information for so many time, instead, it transmit information
+by broadcasting. The advantage of this method is that it can save
+the costs in copying and transmitting information. 
+
+Suppose the network weight matrix $W$ satisfies the same condition
+\ref{eq:convege condition W}. Recall the initial local value decomposition
+given by
+
+\begin{equation}
+\mathbf{x}\left(0\right)=\sum_{j=1}^{n}\alpha_{j}\mathbf{e}_{j}\label{eq:initial vector decompose-1}
+\end{equation}
+which shows that the initial local value vector can be defined by
+a set of coefficients and a new basis defined by the eigenvectors.\textbf{
+}In addition, the eigenvectors $\mathbf{e}_{i}$ are only depends
+on the weight matrix. Therefore, once the coefficients $\alpha_{i}$
+and weight matrix are available, the initial values vector $\mathbf{x}\left(0\right)$
+can be calculated. It is possible to exchange information between
+nodes in the network without copying information to all other nodes.
+
+To show how this method can be carried out distributively, let the
+sample vector $\mathbf{y}_{i}(k,d)\in R^{d}$ is defined by the history
+of $x_{i}(k)$ 
+
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\left[x_{i}(k),x_{i}(k-1),\ldots x_{i}(k-d+1)\right]^{\mathrm{T}}
+\end{equation}
+and the coefficients vector $\mathbf{a}=\left[\alpha_{1},\alpha_{2},\ldots,\alpha_{n}\right]^{T}$.
+If we involve the eigenvectors and redefine the \eqref{Vander_beta}
+by 
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\mathbf{V}_{i}(k,d)diag\left(\left[\mathbf{e}_{1}^{T}\mathbf{u}_{i},\mathbf{e}_{2}^{T}\mathbf{u}_{i},\ldots,\mathbf{e}_{n}^{T}\mathbf{u}_{i}\right]\right)\mathbf{a}\label{eq:Vander_Eigen_ith_Alpha}
+\end{equation}
+where $\mathbf{u}_{i}$ is the unit vector with all zero except the
+$i^{th}$ component is one, $\mathbf{e}_{j}^{T}\mathbf{u}_{i}$ means
+the $i^{th}$ component of $\mathbf{e}_{j}$. Solving the above equation
+will obtain the coefficients $\alpha_{j}$. 
+
+The consensus based information flooding is ideally suitable for time-invariant
+network. Because this method requires a node know all the eigenvectors
+and eigenvalues of the network before it can estimate initial values
+of other nodes. It can be initialized by all flooding weight coefficients
+to all nodes in the network. However, instead of flooding a table
+of local values, flooding the weight matrix is only performed at the
+stage initialization for one time. The proposed method could have
+lower cost both in computation and communication, if the topology
+changes at a very low frequency.
