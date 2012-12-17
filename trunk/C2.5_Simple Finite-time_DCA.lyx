@@ -166,15 +166,7 @@ In the network that adopts first order linear consensus algorithm, each
 \bar default
 \noun default
 \color inherit
- obtained by Eq.
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:1st iter. ni"
-
-\end_inset
-
-.
- 
+ obtained by 
 \family roman
 \series medium
 \shape up
@@ -183,7 +175,8 @@ reference "eq:1st iter. ni"
 \bar no
 \noun off
 \color none
-There exists a linear filter.
+first-order DAC algorithm.
+ There exists a linear filter.
  If each node passes its 
 \family default
 \series default
@@ -216,6 +209,20 @@ consecutive
  Compared to first order DAC algorithm, no more information exchanged between
  nodes is needed.
  
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def.Consensus_finding_filter"
+
+\end_inset
+
+The linear filter 
+\begin_inset Formula $\mathbf{h}\in R^{d}$
+\end_inset
+
+, whos output 
 \family roman
 \series medium
 \shape up
@@ -224,25 +231,10 @@ consecutive
 \bar no
 \noun off
 \color none
-Such a filter is defined as the 
-\family default
-\series default
-\shape italic
-\size default
-\emph default
-\bar default
-\noun default
-\color inherit
-consensus finding filter
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
-.
+
+\begin_inset Formula $\hat{x}_{i}(k)=\mathbf{h}*x_{i}(k)$
+\end_inset
+
 
 \family default
 \series default
@@ -252,6 +244,106 @@ consensus finding filter
 \bar default
 \noun default
 \color inherit
+ is the consensus value 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\overline{x}=\frac{1}{n}\sum_{i=1}^{n}x_{i}(0)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ of the network 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+is called the 
+\family default
+\series default
+\shape italic
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+consensus finding filter, 
+\shape default
+where local values 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+is obtained by Eq.
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:1st iter. ni"
+
+\end_inset
+
+,
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\begin_inset Formula $k>d$
+\end_inset
+
+.
  
 \end_layout
 
@@ -323,7 +415,7 @@ the output
 \noun off
 \color none
 
-\begin_inset Formula $\hat{x}_{i}(k)=\mathbf{h}(k)*x_{i}(k)$
+\begin_inset Formula $\hat{x}_{i}(k)=\mathbf{h}*x_{i}(k)$
 \end_inset
 
 

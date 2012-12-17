@@ -2440,7 +2440,7 @@ Once the probability density function (PDF) for background and cloud reflection
  on the observation.
  Normally, this is done by gathering all the data and taking the log likelihood
  ratio(LLR) in the fusion center.
- In section todo
+ In section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Distributed-Calculation-of"
@@ -2454,11 +2454,7 @@ reference "sub:Distributed-Calculation-of"
 \end_layout
 
 \begin_layout Subsection
-Hypothesis Test
-\change_inserted 5862369 1355526206
-ing
-\change_unchanged
-
+Hypothesis Testing
 \end_layout
 
 \begin_layout Standard
