@@ -268,7 +268,11 @@ usually
 \change_unchanged
 the most important 
 \change_inserted 5862369 1355073346
-and expense 
+and 
+\change_unchanged
+expensive
+\change_inserted 5862369 1355073346
+ 
 \change_unchanged
 node in the network
 \change_inserted 5862369 1354932117
@@ -364,8 +368,16 @@ key "Yuen2008"
 .
  
 \change_inserted 5862369 1355074003
-However, not all the signal processing can be distributed many processing
- algorithm are still implemented by centralized method.
+However, not all the signal processing can be distributed
+\change_inserted 5863457 1355579867
+.
+
+\change_inserted 5862369 1355074003
+ 
+\change_unchanged
+Many
+\change_inserted 5862369 1355074003
+ processing algorithm are still implemented by centralized method.
 \change_unchanged
 
 \end_layout
@@ -505,7 +517,23 @@ key "Ren2007"
 \end_inset
 
 .
- Its optimization in a dynamic network still attract lots of interest 
+ 
+\change_deleted 5863457 1355580001
+Its
+\change_inserted 5863457 1355580003
+The
+\change_inserted 5862369 1355435949
+ optimization
+\change_deleted 5863457 1355580011
+ 
+\change_inserted 5863457 1355580012
+of first-order DAC algorithms 
+\change_inserted 5862369 1355435949
+in a dynamic network still attract lots of
+\change_inserted 5863457 1355580025
+ research
+\change_inserted 5862369 1355435949
+ interest 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jakovetic2010"
@@ -536,8 +564,7 @@ Motivation of Research
 \begin_layout Standard
 
 \change_inserted 5863457 1354553232
-The research is motivated by the distributed detection of cloud detection
- using WSN.
+The research is motivated by the distributed detection of cloud using WSN.
  One of the properties of mobile sensor nodes is the limited 
 \change_deleted 5862369 1355069314
 energe
@@ -550,10 +577,10 @@ energy
 consuption
 \change_inserted 5862369 1355069325
 consumption
-\change_inserted 5863457 1354553232
- of the sensor nodes, DAC algorithm to perform the distributed signal processing
- need to be optimized.
- In addition, the model of cloud requires a modification because the sensor
+\change_inserted 5863457 1355580078
+ of the sensor nodes, DAC algorithms to perform the distributed signal processin
+g need to be optimized.
+ In addition, the cloud model requires a modification because the sensor
  is using 
 \change_inserted 5862369 1354637268
 laser sensing
@@ -584,8 +611,7 @@ sense
 \end_layout
 
 \begin_layout Subsection
-To Find a Faster DAC Algorithm.
- 
+To Find a Faster DAC Algorithm 
 \end_layout
 
 \begin_layout Standard
@@ -727,8 +753,11 @@ key "Cavalcante2010"
 
 \end_inset
 
-, the optimization is to minimize the number of necessary iteration before
- a FIR filter
+, the optimization is to minimize the number of necessary iteration
+\change_inserted 5863457 1355580289
+s
+\change_unchanged
+ before a FIR filter
 \change_deleted 5863457 1354553326
  can be
 \change_inserted 5863457 1354553326
@@ -760,7 +789,13 @@ key "Cavalcante2010"
 
  follow Sundaram and Hadjicostis's work to propose an adaptive algorithm
  to find the filter.
- However, they are not robust against topology changes.
+ However, 
+\change_deleted 5863457 1355580344
+they are
+\change_inserted 5863457 1355580370
+their filter estimation algorithms are
+\change_unchanged
+ not robust against topology changes.
  
 \change_deleted 5863457 1354550752
 Both of them
@@ -862,7 +897,7 @@ to be detected
 \change_inserted 5862369 1354569491
 here
 \change_inserted 5863457 1354553700
- is a group of harmful gas or 
+ is a group of harmful 
 \change_unchanged
 particles
 \change_inserted 5863457 1354553700
@@ -920,21 +955,35 @@ integration
 \change_unchanged
 integration
 \change_inserted 5862369 1354570235
- of original Gaussian plume model along the direction of laser beam.
+ of original Gaussian plume model along the direction of 
+\change_inserted 5863457 1355584072
+the 
+\change_inserted 5862369 1354570235
+laser beam.
  
 \end_layout
 
 \begin_layout Standard
 
 \change_inserted 5862369 1354570298
-Specifically, in the cloud detection application, the DAC algorithm performs
- the task of 
+Specifically, in the cloud detection application, the DAC algorithm
+\change_inserted 5863457 1355584167
+ may also have a little modification.
+ Because DAC algorithm
+\change_inserted 5862369 1354570298
+ performs the task of 
 \change_unchanged
 distributed
 \change_inserted 5862369 1354570298
- hypothesis testing may also have a little modification.
- To find the production of the global likelihood ratio, each sensor first
- 
+ hypothesis testing
+\change_inserted 5863457 1355584178
+, t
+\change_inserted 5862369 1354570298
+o find the 
+\change_deleted 5863457 1355584232
+production of the
+\change_inserted 5862369 1354570298
+ global likelihood ratio, each sensor first 
 \change_unchanged
 calculate
 \change_inserted 5862369 1354570298
@@ -956,12 +1005,30 @@ Contributions
 
 \begin_layout Standard
 The main contribution of this thesis is that it proposed a distributed real-time
- optimization method, which will not interrupt the constant first-order
- DAC algorithm.
- Thus, the consensus algorithm and the optimization method can be executed
- simultaneously.
+ optimization method, which 
+\change_deleted 5863457 1355620905
+will not interrupt the
+\change_inserted 5863457 1355620927
+could run simultaneously with
+\change_unchanged
+ constant first-order DAC algorithm.
+ Thus, the consensus algorithm 
+\change_deleted 5863457 1355620951
+and
+\change_inserted 5863457 1355620958
+will not be interrupted by
+\change_unchanged
+ the optimization
+\change_deleted 5863457 1355620967
+ method can be executed simultaneously
+\change_unchanged
+.
  As a result, communication cost and optimization initialization time can
- be dramatically reduced compare to conventional distributed optimization.
+ be dramatically reduced compare
+\change_inserted 5863457 1355620996
+d
+\change_unchanged
+ to conventional distributed optimization.
  In addition, a least mean square solution is obtained to mitigate the numerical
  error of the optimal solution calculated by the proposed method.
  When using floating point number in double format and the network size
@@ -972,7 +1039,7 @@ The main contribution of this thesis is that it proposed a distributed real-time
 
 \begin_layout Standard
 In addition, the proposed distributed eigenvalue estimation algorithm could
- be an alternative to the estimation of algebra connectivity, such as 
+ be an alternative of algebra connectivity estimation, such as 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Yang2010"
@@ -990,9 +1057,22 @@ key "Yang2010"
 \end_layout
 
 \begin_layout Standard
-Moreover, we propose a generalized finite-time DAC algorithm, which does
- not require knowledge of network topology but will estimate the necessary
- parameters during the iteration.
+Moreover, we 
+\change_inserted 5863457 1355621112
+have 
+\change_unchanged
+propose
+\change_inserted 5863457 1355621092
+d
+\change_unchanged
+ a generalized finite-time DAC algorithm, which does not require knowledge
+ of network topology but will estimate the necessary 
+\change_deleted 5863457 1355621143
+parameters
+\change_inserted 5863457 1355621145
+filter
+\change_unchanged
+ during the iteration.
  Compared to the distributed algorithm introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite

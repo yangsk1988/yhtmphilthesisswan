@@ -62,7 +62,7 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -96,7 +96,7 @@ n Generalized Conditions
 \end_layout
 
 \begin_layout Standard
-(todo check 1)
+(todo check 2)
 \end_layout
 
 \begin_layout Standard
@@ -112,30 +112,30 @@ reference "sub:Find_Consensus_Value"
  
 \change_unchanged
 that finite-time DAC algorithm can calculate the consensus value by a linear
- combination of local values in the past, if each node knows the network
- topology (or eigenvalues of the weight matrix 
+ combination of local values in the past, provided that each node knows
+ the network topology (or eigenvalues of the weight matrix 
 \begin_inset Formula $W$
 \end_inset
 
 ).
  However, having knowledge of the network topology in every node is a demanding
  assumption.
- Although a distributed algorithm to calculate the linear combination has
- also been introduced in 
+ Although a distributed algorithm to calculate the coefficients of the linear
+ combination has been introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sundaram2007"
 
 \end_inset
 
-, it requires several runs of the consensus algorithm initialized with a
- set of linear independent vectors.
- Alternatively, the original consensus algorithm can run many instances
+, it requires the consensus algorithm being executed for several instances
+ initialized with a set of linear independent vectors.
+ As mentioned before, the finite-time DAC is not reliable to topology changes.
+ If the method have to run multiple re-initializations of original consensus
+ algorithm, it may take more risks of being terminated by topology changes.
+ Alternatively, the original consensus algorithm can run these instances
  in parallel with a set of independent initial values.
  However, the data transmission at each iteration increases.
- Furthermore, this method may not reliable to topology changes during the
- of multiple re-initializations of original consensus algorithm.
- 
 \end_layout
 
 \begin_layout Standard
@@ -145,21 +145,24 @@ consensus
 \change_inserted 5862369 1355334721
 DAC
 \change_unchanged
- algorithm, which does not require knowledge of network topology and re-initiali
-zation of the original consensus algorithm for several times.
+ algorithm, which does not require knowledge of network topology and multiple
+ re-initializations of the original consensus algorithm.
  
 \change_inserted 5862369 1355335000
 In the future research, the finite-time DAC algorithm probably will be generaliz
 ed to non-symmetrical network.
  
 \change_unchanged
-Before introducing the algorithm, there are too important linear filter
- need to be introduced, as the algorithm is based on the properties of these
- filters.
+Before introducing the algorithm, there are too important linear filters
+ need to be introduced, as the algorithm is based on the relathonship of
+ these filters.
 
 \change_inserted 5862369 1355335166
- The first is the FIR filter to estimate the consensus value which introduced
- in section 
+ The first is the FIR filter to estimate the consensus value which 
+\change_unchanged
+already 
+\change_inserted 5862369 1355335166
+introduced in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Find_Consensus_Value"
@@ -167,7 +170,11 @@ reference "sub:Find_Consensus_Value"
 \end_inset
 
 .
- The second is introduced in the next section 
+ The second
+\change_unchanged
+ one
+\change_inserted 5862369 1355335166
+ is introduced in the next section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Linear-Predictor-For"
@@ -190,17 +197,12 @@ name "sec:Linear-Predictor-For"
 
 
 \change_unchanged
-Linear Predictor For Local Value (todo check 
-\change_inserted 5862369 1355334005
-times 
-\change_unchanged
-1)
+Linear Predictor For Local Value (todo check times 2)
 \end_layout
 
 \begin_layout Standard
 In observing the convergence curve of each node's local value sequence,
- we would come to the idea that the sequence must obeys some rule as it
- converges.
+ we come to the idea that the sequence must obeys some rules as it converges.
  In section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -215,17 +217,16 @@ reference "sub:Find_Consensus_Value"
 \change_deleted 5862369 1350052595
 and an information flooding techniques
 \change_unchanged
- are proposed.
+ is proposed.
 \end_layout
 
 \begin_layout Standard
-However, another important property of the FO-DCA need to be highlighted
- in this section.
- To show this 
+Furthermore, another important property of the FO-DCA need to be highlighted
+ in this section, which described by 
 \change_deleted 5862369 1350052658
 see how this property can be explained
 \change_unchanged
-, we have the following theorem.
+ the following theorem.
 \end_layout
 
 \begin_layout Theorem
@@ -436,16 +437,20 @@ reference "eq:x(k+r) vector predictor"
 \begin_layout Standard
 Given the local value vector sequence obtained by FO-DCA, one may instantly
  comes to the idea of applying an adaptive filter algorithm to estimate
- the set of coefficient.
+ the set of coefficients.
  For example, LMS, LSL and Kalman filter algorithms.
- One advantage of the adaptive filter algorithm is that when the network
- topology is changed, the filter could adaptively change its coefficient
- during the iteration.
+ One benifit of the adaptive filter algorithm is that when the network topology
+ is changed, the filter could adaptively change its coefficient during the
+ iteration.
  
 \end_layout
 
 \begin_layout Subsection*
-Find the Coefficients of Linear Predictor.
+Find the Coefficients of Linear Predictor
+\change_deleted 5863457 1355532379
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -669,74 +674,87 @@ It can be demonstrated by just finding the inverse of a confluent Vandermonde
 \change_inserted 5862369 1355333213
  
 \change_unchanged
-Therefore, 
-\change_inserted 5862369 1355333320
-We will invert this Toeplitz matrix using Levinson's method.
+Therefore, We will invert this Toeplitz matrix using Levinson's method.
+
+\change_inserted 5863457 1355531109
  
-\change_deleted 5862369 1355333327
-t
-\change_inserted 5862369 1355333327
-T
-\change_unchanged
-he proposed method 
-\change_deleted 5862369 1355333291
-and
-\change_unchanged
- doesn't need to 
-\change_inserted 5862369 1355333295
-be 
-\change_unchanged
-change
-\change_inserted 5862369 1355333296
-d
-\change_unchanged
- and 
-\change_inserted 5862369 1355333312
-can 
-\change_unchanged
-generalize
-\change_deleted 5862369 1355333307
-s
-\change_unchanged
- to the non-symmetric weight matrix case.
+\change_deleted 5863457 1355531167
+The proposed method doesn't need to be changed and can generalize to the
+ non-symmetric weight matrix case.
  
+\change_inserted 5863457 1355531167
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 It totally needs 
-\begin_inset Formula $2r+2$
+\begin_inset Formula $2D_{i}+2$
 \end_inset
 
- local values and 
-\begin_inset Formula $2r+1$
-\end_inset
-
- iterations to construct the Toeplitz matrix and Eq.
+ local values
+\change_deleted 5863457 1355531206
+ 
+\change_unchanged
+ to construct the Toeplitz matrix and Eq.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:Toeplitz Eq.-2"
 
 \end_inset
 
-, but all the local value can be obtained from one instance of FO-DCA.
- In contract, the the original finite-time consensus algorithm in 
+, 
+\change_deleted 5863457 1355531217
+but
+\change_unchanged
+ all the local value can be obtained from one instance of FO-DCA
+\change_inserted 5863457 1355531225
+ after 
+\begin_inset Formula $2D_{i}+1$
+\end_inset
+
+ iterations
+\change_unchanged
+.
+ In compare to the original finite-time consensus algorithm 
+\change_deleted 5863457 1355531391
+in
+\change_unchanged
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sundaram2007"
 
 \end_inset
 
- requires 
-\begin_inset Formula $r$
+ 
+\change_inserted 5863457 1355531394
+who 
+\change_unchanged
+requires 
+\begin_inset Formula $D_{i}^{2}$
 \end_inset
 
- iterations of FO-DCA for each instance, and totally 
-\begin_inset Formula $r$
-\end_inset
-
- instances.
- Therefore, the proposed method has some improvement to the original finite-time
- consensus algorithm.
+ iterations of FO-DCA
+\change_deleted 5863457 1355531384
+, and
+\change_unchanged
+ 
+\change_inserted 5863457 1355531398
+in 
+\change_unchanged
+total, the proposed method has 
+\change_deleted 5863457 1355531297
+some
+\change_unchanged
+ improvement 
+\change_inserted 5863457 1355531291
+in reduced number of matrix iterations
+\change_deleted 5863457 1355531282
+to the original finite-time consensus algorithm
+\change_unchanged
+.
  
 \end_layout
 
@@ -748,8 +766,15 @@ reference "sub:Convert-Linear-Predictor "
 
 \end_inset
 
-, we will show how to obtain the consensus finding filter by linear predictor
- coefficients.
+, we will show how to obtain the consensus finding filter by 
+\change_inserted 5863457 1355531489
+the 
+\change_unchanged
+linear predictor
+\change_deleted 5863457 1355531456
+ coefficients
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Section
@@ -759,11 +784,7 @@ name "sub:Convert-Linear-Predictor "
 
 \end_inset
 
-Convert Linear Predictor To Consensus Finding Filter
-\change_inserted 5862369 1355334143
-(todo check times 0)
-\change_unchanged
-
+Convert Linear Predictor to Consensus Finding Filter (todo check times 1)
 \end_layout
 
 \begin_layout Standard
@@ -782,7 +803,7 @@ Once there are sufficient local values, node
  and construct the polynomial 
 \begin_inset Formula 
 \[
-p(\lambda)=\lambda^{m}+a_{m-1}\lambda^{m-1}+\ldots+a_{1}\lambda+a_{0}
+p_{i}(\lambda)=\lambda^{m}+a_{m-1}\lambda^{m-1}+\ldots+a_{1}\lambda+a_{0}
 \]
 
 \end_inset
@@ -802,23 +823,45 @@ reference "thm:convergence condition"
 
 \end_inset
 
- there is a simple eigenvalue equals to one.
- As shown in section 
+ there is a simple eigenvalue
+\change_deleted 5863457 1355531905
+ 
+\change_inserted 5863457 1355531906
+ 
+\change_unchanged
+equals to one.
+ 
+\change_inserted 5863457 1355532179
+As shown in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Find_Consensus_Value"
 
 \end_inset
 
-, the consensus finding filter is given by the row of inverse of Vandermonde's
- matrix which corresponding to an eigenvalue equals to one.
- Without loss of generality, let the first eigenvalue 
+ we can let the first eigenvalue 
 \begin_inset Formula $\lambda_{1}=1$
 \end_inset
 
-.
- Thus, the consensus finding filter is given by the first row of the inverse
+, and it will be located in the first row of Vandermonde's matrix.
+ Therefore,
+\change_deleted 5863457 1355532176
+,
+\change_unchanged
+ the consensus finding filter is given by the 
+\change_inserted 5863457 1355532148
+first 
+\change_unchanged
+row of inverse of Vandermonde's matrix.
+ 
+\change_deleted 5863457 1355532194
+Thus, the consensus finding filter is given by the first row of the inverse
  of Vandermonde's Matrix.
+
+\change_inserted 5863457 1355532194
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -899,7 +942,7 @@ reference "eq:intermindia polynomial"
 \begin_layout Standard
 \begin_inset Formula 
 \[
-q\left(\lambda\right)=\frac{p\left(\lambda\right)}{\lambda-1}=c_{m}\lambda^{m-1}+c_{m-1}\lambda^{m-2}+\ldots+c_{2}\lambda+c_{1}
+q_{i}\left(\lambda\right)=\frac{p_{i}\left(\lambda\right)}{\lambda-1}=c_{m}\lambda^{m-1}+c_{m-1}\lambda^{m-2}+\ldots+c_{2}\lambda+c_{1}
 \]
 
 \end_inset
@@ -921,8 +964,14 @@ where
 \end_inset
 
 .
- The consensus finding filter can be given by the coefficient in 
-\begin_inset Formula $q\left(\lambda\right)$
+ The consensus finding filter can be given by the coefficient 
+\change_deleted 5863457 1355532254
+in
+\change_inserted 5863457 1355532255
+of
+\change_unchanged
+ 
+\begin_inset Formula $q_{i}\left(\lambda\right)$
 \end_inset
 
 .
@@ -961,15 +1010,47 @@ One interesting property of the consensus finding filter is that it can
  It can be demonstrated by finding the inverse of a confluent Vandermonde
  matrix.
  In examining the expression of the inverse of confluent Vandermonde matrix,
- we note that the row corresponding to the unity eigenvalue, can actually
- the coefficients of a consensus finding filter.
- The the length of the filter is not required to be the same.
+ we note that 
+\change_unchanged
+the 
+\change_inserted 5863457 1355531786
+corresponding 
+\change_unchanged
+row
+\change_inserted 5862369 1355333902
+ 
+\change_deleted 5863457 1355531795
+corresponding to
+\change_inserted 5862369 1355333902
+ 
+\change_deleted 5863457 1355531798
+the unity eigenvalue
+\change_inserted 5863457 1355531837
+ where the dominant eigenvalue
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+ is located
+\change_deleted 5863457 1355532317
+, can
+\change_inserted 5863457 1355532324
+ are
+\change_inserted 5862369 1355333902
+ actually the coefficients of a consensus finding filter.
+ The
+\change_deleted 5863457 1355532338
+ 
+\change_inserted 5862369 1355333902
+ length of the filter is not required to be the same.
  It may be not equal to the number of distinct and nonzero eigenvalues 
 \begin_inset Formula $m$
 \end_inset
 
-, but equal to the sum of all orders in minimal polynomial of weight matrix
- 
+, but 
+\change_inserted 5863457 1355532281
+less or 
+\change_inserted 5862369 1355333902
+equal to the sum of all orders in minimal polynomial of weight matrix 
 \begin_inset Formula $\sum_{i=1}^{m}r_{i}$
 \end_inset
 
