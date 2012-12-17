@@ -1143,47 +1143,69 @@ Outline
 \end_layout
 
 \begin_layout Standard
-This thesis is structured as follows: Chapter  
+This thesis is structured as follows: 
+\change_deleted 5862369 1355762043
+Chapter
+\change_inserted 5862369 1355762043
+ 
+\change_unchanged
+  
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Consensus-problem-on"
+LatexCommand formatted
+reference "chap:Consensus-problem-on"
 
 \end_inset
 
  is the review of some asymptotic and non-asymptotic DAC algorithms, as
  well as some distributed signal processing methods based on DAC algorithm.
- In chapter  
+ In 
+\change_deleted 5862369 1355762048
+chapter
+\change_unchanged
+  
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Finite-time-Consensus-on"
+LatexCommand formatted
+reference "chap:Finite-time-Consensus-on"
 
 \end_inset
 
 , a generalized finite-time DAC algorithm will be presented.
  Compared to the previous version of finite-time DAC, the number of iteration
  can be reduced.
- In chapter 
+ In 
+\change_deleted 5862369 1355762049
+chapter
+\change_unchanged
+ 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Online-Optimization-of"
+LatexCommand formatted
+reference "chap:Online-Optimization-of"
 
 \end_inset
 
 , a distributed real-time optimization method to increase the convergence
  rate of asymptotic DAC algorithms.
  Finally, a distributed detection of cloud plume using wireless sensor networks
- and the DAC algorithm will be introduced in chapter 
+ and the DAC algorithm will be introduced in 
+\change_deleted 5862369 1355762051
+chapter
+\change_unchanged
+ 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:DAC-Implementation:-Distributed"
+LatexCommand formatted
+reference "chap:DAC-Implementation:-Distributed"
 
 \end_inset
 
 .
- Chapter 
+ 
+\change_deleted 5862369 1355762053
+Chapter
+\change_unchanged
+ 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Conclusion-and-Future"
+LatexCommand formatted
+reference "chap:Conclusion-and-Future"
 
 \end_inset
 

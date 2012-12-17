@@ -174,7 +174,7 @@ To solve these problems, we proposed a distributed optimization method for
  the constant first-order DAC and higher-order DAC algorithms in chapter
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:Online-Optimization-of"
 
 \end_inset

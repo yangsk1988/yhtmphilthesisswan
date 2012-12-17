@@ -2002,7 +2002,7 @@ reference "eq:Find Consensus m order"
 \color inherit
 by the filter defined in Def.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "Def.A-consensus-finding"
 
 \end_inset
@@ -2595,7 +2595,7 @@ reference "eq:first order matrix"
 .
  Fig.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "cap:perform. Consensus Filter"
 
 \end_inset

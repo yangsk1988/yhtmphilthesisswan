@@ -504,7 +504,7 @@ the output
 \color none
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:convege condition W"
 
 \end_inset
@@ -1133,7 +1133,7 @@ reference "eq:Find Consensus m order"
 \color inherit
 by the filter defined in Def.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "thm.A-consensus-finding"
 
 \end_inset
@@ -1740,14 +1740,14 @@ q_{j}\left(\lambda\right) & = & \frac{\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\r
 
 Examining the polynomial 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Lagrange's polynomial"
 
 \end_inset
 
  and polynomial 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:intermindia polynomial"
 
 \end_inset
@@ -1762,7 +1762,7 @@ b_{jk} & = & \frac{c_{j,m}}{q_{j}\left(\lambda_{j}\right)}
 
 Therefore, the solution of Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Vander Eq."
 
 \end_inset
@@ -1790,7 +1790,7 @@ reference "eq:Vander Eq."
 \color none
 If we only need to calculate the consensus value, as explained in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Find_Consensus_Value"
 
 \end_inset

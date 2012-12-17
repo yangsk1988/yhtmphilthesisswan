@@ -63,7 +63,7 @@
 \begin_layout Standard
 Recall the equation 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:local value linear combination"
 
 \end_inset

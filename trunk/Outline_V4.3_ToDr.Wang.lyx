@@ -4540,7 +4540,7 @@ To test the performance of high-order DAC algorithm with different orders,
  a simulation is carry out on 1000 random generated networks.
  The methods and parameters of network generation are illustrated in fig.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Net-N16-R0,3"
 
 \end_inset
@@ -4705,7 +4705,7 @@ There are some cases to generate the links between nodes.
 \begin_layout Case
 Consider the graph show in the Fig.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Net-N50-E200"
 
 \end_inset
@@ -4720,7 +4720,7 @@ reference "fig:Net-N50-E200"
 \begin_layout Case
 The network in Fig.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Net-N16-R0,3"
 
 \end_inset
@@ -4741,7 +4741,7 @@ Performance Comparison for Asymptotic DAC
 \begin_layout Standard
 The figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:DAC-SR-comp"
 
 \end_inset
@@ -4773,7 +4773,7 @@ ing to the radius constrain.
 \begin_layout Standard
 In another point of view, figure.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:DAC MSE Compare"
 
 \end_inset
@@ -5844,7 +5844,7 @@ reference "eq:Find Consensus m order"
 \color inherit
 by the filter defined in Def.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "Def.A-consensus-finding"
 
 \end_inset
@@ -6822,7 +6822,7 @@ reference "eq:first order matrix"
 .
  Fig.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "cap:perform. Consensus Filter"
 
 \end_inset
@@ -6856,7 +6856,7 @@ Generalized FT-DAC: Unknown Network Topology
 \begin_layout Standard
 In the section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Find-the-Consensus"
 
 \end_inset
@@ -6905,7 +6905,7 @@ In observing the convergence behavior of each node's local value sequence,
  converges.
  In section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Local-Value-Decomposition"
 
 \end_inset
@@ -7034,7 +7034,7 @@ Given the local value vector sequence obtained by FO-DCA, one may instantly
 \begin_layout Standard
 In the next section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Cons.Find.Filter and relationship"
 
 \end_inset
@@ -7069,7 +7069,7 @@ reference "thm:convergence condition"
  there is a simple eigenvalue equals to one.
  As shown in section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Cons.Find.Filter and relationship"
 
 \end_inset
@@ -7318,7 +7318,7 @@ Now the requirement for node
 
  to solve Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Toepliz Eq."
 
 \end_inset
@@ -7396,7 +7396,7 @@ It totally needs
 
  iterations to construct the Toeplitz matrix and Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Toepliz Eq."
 
 \end_inset
@@ -8159,7 +8159,7 @@ x_{i,j}\left(2D\right) & x_{i,j}\left(2D-1\right) & \cdots & x_{i,j}\left(D\righ
 
 Similarly to Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Toepliz Eq."
 
 \end_inset
@@ -8436,7 +8436,7 @@ LLR(\mathbf{x}) & = & \log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left
 \begin_layout Standard
 According to Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Sum L-LLR Cloud"
 
 \end_inset
@@ -8581,7 +8581,7 @@ Provided that each sensor knows the weight
 
 , the Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:wight sum of detection"
 
 \end_inset
@@ -8893,7 +8893,7 @@ Background and System model
 \begin_layout Standard
 This section is structured in the following way, section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Cloud-Detection-Scenario"
 
 \end_inset
@@ -8901,7 +8901,7 @@ reference "sub:Cloud-Detection-Scenario"
  shows the system model.
  Section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Received-Signal'-Model"
 
 \end_inset
@@ -8918,7 +8918,7 @@ reference "sub:Received-Signal'-Model"
  on declaring the cloud or not.
  Finally, simulation and result is give in section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:Simulation"
 
 \end_inset
@@ -8945,7 +8945,7 @@ name "sub:Cloud-Detection-Scenario"
 \begin_layout Standard
 In the cloud detection scenario shown by Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Cloud-detection-scenario"
 
 \end_inset
@@ -9298,7 +9298,7 @@ where
  are the coefficients which relate to the atmospheric stability are shown
  in Table 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "tab:The-parameter-of"
 
 \end_inset
@@ -10104,7 +10104,7 @@ C(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot\int_{0}^{\infty}
 
 The concentration distribution is shown in Figure.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:2-D-Gaussian-Plume"
 
 \end_inset
@@ -10178,7 +10178,7 @@ The Gaussian plume model can describe the mean value of the cloud concentration
 \begin_layout Standard
 As shown in the Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Frame-projection"
 
 \end_inset
@@ -10478,7 +10478,7 @@ This received signal model doesn't consider interference of moving objects
  To deal with this problems, sensors may need to build the Gaussian mixture
  model, which introduced in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "par:Gaussian-mixture-model"
 
 \end_inset
@@ -10908,7 +10908,7 @@ LLR(x_{1},...,x_{L}) & = & log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\
 
 According to Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Sum L-LLR Cloud"
 
 \end_inset
@@ -10931,7 +10931,7 @@ To drive and simplify the expression of global log likelihood ratio when
  sensor’s observation which is described by the received signal model in
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Received-Signal'-Model"
 
 \end_inset
@@ -11043,7 +11043,7 @@ On the contrary,
  are correlated, especially for the sensors close to each other.
  As shown in Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:GMM (x1,x2)"
 
 \end_inset
@@ -11142,7 +11142,7 @@ reference "eq:G-LLR Expand"
 
  evolves into Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Sum L-LLR Cloud"
 
 \end_inset
@@ -11180,7 +11180,7 @@ However, the assumption that correlation only exist between sensors located
 \color inherit
 in Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Sum L-LLR Cloud"
 
 \end_inset
@@ -11234,7 +11234,7 @@ When signal are correlated, we make approximation that
 
 we can find the value of Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Term x_i*x_j"
 
 \end_inset
@@ -11597,7 +11597,7 @@ these parameters are chosen as
 
 , shown in Fig
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Sensor's obs"
 
 \end_inset
@@ -11630,7 +11630,7 @@ Again, sensors are randomly distributed in the sensing area with the uniform
 Here we give an example, three sensors are distributed as shown in Figure
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Sensor's obs"
 
 \end_inset
@@ -11651,7 +11651,7 @@ reference "fig:Sensor's obs"
  through all the sensors frame by frame.
  As shown in Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Global-LLR-and"
 
 \end_inset
@@ -11766,14 +11766,14 @@ Another interesting thing is that, if two sensors
  on the cloud particle's moving path, their observation have high correlation.
  For example in Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Sensor's obs"
 
 \end_inset
 
  and Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:GMM (x1,x2)"
 
 \end_inset
@@ -11969,7 +11969,7 @@ Simulation is running for hundreds of times to give the average performance
 
 , The Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:ROC-of-CDWSN"
 
 \end_inset

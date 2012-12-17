@@ -84,7 +84,7 @@ theorems-ams-bytype
 \begin_layout Chapter
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Conclusion-and-Future"
+name "chap:Conclusion-and-Future"
 
 \end_inset
 
@@ -181,8 +181,8 @@ finite-time DAC algorithm is the fastest in these algorithms.
 \begin_layout Standard
 Second, in section 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Finite-time-Consensus-on"
+LatexCommand formatted
+reference "chap:Finite-time-Consensus-on"
 
 \end_inset
 
@@ -244,10 +244,14 @@ It seems impossible to find an algorithm that not only robust against topology
 \end_layout
 
 \begin_layout Standard
-Third, in chapter 
+Third, in 
+\change_deleted 5862369 1355762121
+chapter
+\change_unchanged
+ 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Online-Optimization-of"
+LatexCommand formatted
+reference "chap:Online-Optimization-of"
 
 \end_inset
 
@@ -258,11 +262,11 @@ we proposed a distributed real-time optimization method to increase the
 
 \change_unchanged
  
-\change_inserted 5862369 1354151662
-As stated in chapter 
+\change_inserted 5862369 1355762124
+As stated in  
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Online-Optimization-of"
+LatexCommand formatted
+reference "chap:Online-Optimization-of"
 
 \end_inset
 
@@ -271,7 +275,7 @@ reference "sec:Online-Optimization-of"
  Therefore, the key of the optimization algorithm is to distributively estimate
  the eigenvalues.
  
-\change_deleted 5862369 1354151699
+\change_deleted 5862369 1355762121
 so it is not robust against topology changes.
  
 \change_unchanged
@@ -287,7 +291,7 @@ higher-order DAC
 \change_unchanged
 .
  
-\change_deleted 5862369 1354152401
+\change_deleted 5862369 1355762121
 first order DAC and second order DAC.
  Even for the third order DAC, estimated parameters by incomplete Laplacian
  spectrum is still convergent and the algorithm is faster than second order.
@@ -295,25 +299,25 @@ first order DAC and second order DAC.
 \change_unchanged
  Otherwise, the numerical errors will be too large even after mitigation.
  
-\change_deleted 5862369 1354152227
+\change_deleted 5862369 1355762121
 These findings indicate that the proposed method is applicable to optimize
  higher order DAC algorithms when network size is small.
   The second-order consensus algorithm could be an option as it requires
  fewer parameters, converges faster than FO-DAC and maintains convergence
  reliability.
  
-\change_inserted 5862369 1354152243
+\change_inserted 5862369 1354152399
  
 \change_unchanged
 Generally, optimized parameters for the old network are
-\change_deleted 5862369 1354152255
+\change_deleted 5862369 1355762121
  
 \change_unchanged
  not optimal or even not located in the convergence region for the new network.
  So the DAC algorithm must be reinitialized with convergent parameters to
  continue the consensus process, until the network topology is stable for
  a certain time and the optimal parameters are estimated
-\change_deleted 5862369 1354152369
+\change_deleted 5862369 1355762121
  by the proposed optimization method
 \change_unchanged
 .
@@ -322,10 +326,14 @@ Generally, optimized parameters for the old network are
 
 \begin_layout Standard
 Finally, we introduced a distributed detection of cloud plume using wireless
- sensor networks and the DAC algorithm in chapter 
+ sensor networks and the DAC algorithm in 
+\change_deleted 5862369 1355762127
+chapter
+\change_unchanged
+ 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:DAC-Implementation:-Distributed"
+LatexCommand formatted
+reference "chap:DAC-Implementation:-Distributed"
 
 \end_inset
 
@@ -338,7 +346,7 @@ d.
  Because multiple sensors detection have better performance, it was adopted
  in the cloud detection.
 
-\change_deleted 5862369 1353529921
+\change_deleted 5862369 1355762127
  
 \change_unchanged
  Expectation-maximization algorithm is used here to build the joint Gaussian
@@ -351,23 +359,23 @@ if
 \change_unchanged
 we assume sensors signals are independent, the global log likelihood ratio
  in the hypothesis testing 
-\change_deleted 5862369 1353453080
+\change_deleted 5862369 1355762127
 is
 \change_inserted 5862369 1353529824
 can be
 \change_unchanged
  calculated by the DAC algorithm.
  
-\change_deleted 5862369 1353452979
+\change_deleted 5862369 1355762127
  assuming sensors signals are independent
 \change_unchanged
 ,
-\change_deleted 5862369 1353452900
+\change_deleted 5862369 1355762127
  global log likelihood ratio is the average of local log likelihood ratio.
 
 \change_unchanged
  
-\change_deleted 5862369 1353452999
+\change_deleted 5862369 1355762127
 each sensor calculate the local log likelihood ratio and substitute it into
  the DAC iteration as the initial local value.
  Once the algorithm converges, the global log likelihood ratio is available
@@ -461,11 +469,11 @@ Second, the distributed real-time optimization to DAC might be able to applied
 
 \change_unchanged
  
-\change_inserted 5862369 1354057175
-As stated in chapter 
+\change_inserted 5862369 1355762132
+As stated in  
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Online-Optimization-of"
+LatexCommand formatted
+reference "chap:Online-Optimization-of"
 
 \end_inset
 

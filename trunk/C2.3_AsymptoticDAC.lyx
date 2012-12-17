@@ -71,11 +71,12 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 5862369 "HT" 
 \end_header
 
 \begin_body
@@ -521,7 +522,7 @@ If
 \begin_layout Proof
 Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq: Converge condition W_Left"
 
 \end_inset
@@ -537,7 +538,7 @@ reference "eq: Converge condition W_Left"
  associated with eigenvalue one.
  And Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq: Converge condition W_right"
 
 \end_inset
@@ -702,7 +703,7 @@ As the property of unitary matrix
 
  Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:u*v=11"
 
 \end_inset
@@ -1056,8 +1057,8 @@ eigenvalues of graph Laplacian matrix
  or degree of nodes.
  However, in the section 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Finite-time-Consensus-on"
+LatexCommand formatted
+reference "chap:Finite-time-Consensus-on"
 
 \end_inset
 
@@ -1225,7 +1226,7 @@ Define
 
 The Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Iteration Second order x_i(k)"
 
 \end_inset
@@ -1283,7 +1284,7 @@ Convergence Rate Maximization Problem For HO-DAC
 \begin_layout Standard
 Based on the iteration equation 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:High Order Iter.Vec"
 
 \end_inset
@@ -1509,7 +1510,7 @@ Solve The Problem: Convergence rate maximization
 \begin_layout Standard
 The convergence rate optimization problem 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:HO-DAC Opt. Problem"
 
 \end_inset
@@ -1548,7 +1549,7 @@ reference "eq: eigenvalue equation of H-J"
 
  are network topology dependent, the solution of the problem 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:HO-DAC Opt. Problem"
 
 \end_inset
@@ -1689,9 +1690,9 @@ key "Xiong2009a"
 
 \end_inset
 
-Fig.
+
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Convergence-Region"
 
 \end_inset
@@ -1990,10 +1991,9 @@ are all real values.
 \begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
 \end_inset
 
- is real and complex respectably, shown as dashed line in Fig.
- 
+ is real and complex respectably, shown as dashed line in  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Convergence-Region"
 
 \end_inset
@@ -2009,9 +2009,9 @@ Simulation and Algorithms Performance
 \begin_layout Standard
 To test the performance of high-order DAC algorithm with different orders,
  a simulation is carry out on 1000 random generated networks.
- The methods and parameters of network generation are illustrated in fig.
+ The methods and parameters of network generation are illustrated in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Net-N16-R0,3"
 
 \end_inset
@@ -2170,9 +2170,9 @@ There are some cases to generate the links between nodes.
 \end_layout
 
 \begin_layout Case
-Consider the graph show in the Fig.
+Consider the graph show in the 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Net-N50-E200"
 
 \end_inset
@@ -2185,9 +2185,9 @@ reference "fig:Net-N50-E200"
 \end_layout
 
 \begin_layout Case
-The network in Fig.
+The network in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Net-N16-R0,3"
 
 \end_inset
@@ -2206,9 +2206,16 @@ Performance Comparison for Asymptotic DAC
 \end_layout
 
 \begin_layout Standard
-The figure.
+The 
+\change_deleted 5862369 1355762510
+figure.
+
+\change_inserted 5862369 1355762510
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:DAC-SR-comp"
 
 \end_inset
@@ -2238,9 +2245,13 @@ ing to the radius constrain.
 \end_layout
 
 \begin_layout Standard
-In another point of view, figure.
+In another point of view, 
+\change_deleted 5862369 1355762515
+figure.
+\change_unchanged
+
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:DAC MSE Compare"
 
 \end_inset

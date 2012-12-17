@@ -180,7 +180,7 @@ where
 
  is the same as defined before, see 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Graph Laplacian def."
 
 \end_inset
@@ -435,7 +435,7 @@ The proof of this theorem is obvious.
  doesn't exists the block upper triangular form as given in Def.
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "Def.Irreducebility"
 
 \end_inset
