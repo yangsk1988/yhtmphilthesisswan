@@ -76,7 +76,7 @@ theorems-ams-bytype
 \begin_layout Chapter
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Finite-time-Consensus-on"
+name "chap:Finite-time-Consensus-on"
 
 \end_inset
 
@@ -104,7 +104,7 @@ It is shown i
 \change_inserted 5862369 1355435274
 n section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Find_Consensus_Value"
 
 \end_inset
@@ -164,7 +164,7 @@ already
 \change_inserted 5862369 1355335166
 introduced in section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Find_Consensus_Value"
 
 \end_inset
@@ -176,7 +176,7 @@ reference "sub:Find_Consensus_Value"
 \change_inserted 5862369 1355335166
  is introduced in the next section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:Linear-Predictor-For"
 
 \end_inset
@@ -205,7 +205,7 @@ In observing the convergence curve of each node's local value sequence,
  we come to the idea that the sequence must obeys some rules as it converges.
  In section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Find_Consensus_Value"
 
 \end_inset
@@ -246,7 +246,7 @@ name "thm:LV predictor a_i"
 
  satisfying the convergence condition in theorem 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "thm:convergence condition"
 
 \end_inset
@@ -593,7 +593,7 @@ reference "eq:Toeplitz Eq.-2"
  have unique solution.
  To solve Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Toeplitz Eq.-2"
 
 \end_inset
@@ -699,7 +699,7 @@ It totally needs
 \change_unchanged
  to construct the Toeplitz matrix and Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Toeplitz Eq.-2"
 
 \end_inset
@@ -761,7 +761,7 @@ to the original finite-time consensus algorithm
 \begin_layout Standard
 In the next section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Convert-Linear-Predictor "
 
 \end_inset
@@ -834,7 +834,7 @@ equals to one.
 \change_inserted 5863457 1355532179
 As shown in section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Find_Consensus_Value"
 
 \end_inset
@@ -1292,7 +1292,7 @@ the time index
 \color inherit
 Based on Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Consensus Filter by polynomial"
 
 \end_inset
@@ -1396,9 +1396,13 @@ reference "eq:first order matrix"
 \end_inset
 
 .
- Fig.
+ 
+\change_deleted 5862369 1355761491
+Fig.
+\change_unchanged
+
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "cap:perform. Consensus Filter"
 
 \end_inset
@@ -1437,10 +1441,14 @@ In this section, we introduced the finite-time DAC on generalized condition.
  because the minimum number of iterations is depends on the weight matrix,
  which is the same as the previous finite-time DAC.
  With this improvement, some further algorithm could be driven.
- They will be introduced in chapter 
+ They will be introduced in 
+\change_deleted 5862369 1355762081
+chapter
+\change_unchanged
+ 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Online-Optimization-of"
+LatexCommand formatted
+reference "chap:Online-Optimization-of"
 
 \end_inset
 

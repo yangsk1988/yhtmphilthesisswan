@@ -76,7 +76,7 @@ theorems-ams-bytype
 \begin_layout Chapter
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:DAC-Implementation:-Distributed"
+name "chap:DAC-Implementation:-Distributed"
 
 \end_inset
 
@@ -350,7 +350,7 @@ ing way
 \change_unchanged
 , section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Cloud-Detection-Scenario"
 
 \end_inset
@@ -358,7 +358,7 @@ reference "sub:Cloud-Detection-Scenario"
  shows the system model.
  Section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Received-Signal'-Model"
 
 \end_inset
@@ -375,7 +375,7 @@ reference "sub:Received-Signal'-Model"
  on declaring the cloud or not.
  Finally, simulation and result is give in section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:Simulation"
 
 \end_inset
@@ -402,18 +402,17 @@ name "sub:Cloud-Detection-Scenario"
 \end_layout
 
 \begin_layout Standard
-In the cloud detection scenario shown by Fig
-\change_deleted 5862369 1355519638
-ure
-\change_inserted 5862369 1355519638
-.
-
-\change_deleted 5862369 1355519639
+In the cloud detection scenario shown by 
+\change_deleted 5862369 1355762548
+Figure
+\change_inserted 5862369 1355762548
+ 
+\change_deleted 5862369 1355762548
  
 \change_unchanged
 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Cloud-detection-scenario"
 
 \end_inset
@@ -709,7 +708,7 @@ To describe the continuous cloud source emitted into the air.
 
  is taken for Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Point source concentration"
 
 \end_inset
@@ -750,9 +749,13 @@ where
 \end_inset
 
  are the coefficients which relate to the atmospheric stability are shown
- in Table 
+ in 
+\change_deleted 5862369 1355761859
+Table
+\change_unchanged
+ 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "tab:The-parameter-of"
 
 \end_inset
@@ -1194,7 +1197,7 @@ G
 The Gaussian plume model can not describe its variance.
  Then, in section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Modified-Gaussian-Plume"
 
 \end_inset
@@ -1499,7 +1502,7 @@ a point instantaneous source,
 \color none
  the solution to 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:3D diffusion Eq."
 
 \end_inset
@@ -1699,9 +1702,16 @@ C(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot\int_{0}^{\infty}
 
 \end_inset
 
-The concentration distribution is shown in Figure.
+The concentration distribution is shown in 
+\change_deleted 5862369 1355762557
+Figure.
+
+\change_inserted 5862369 1355762557
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:2-D-Gaussian-Plume"
 
 \end_inset
@@ -1800,7 +1810,7 @@ key "Navier-Stokes_Wiki"
 \begin_layout Standard
 As shown in the Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Frame-projection"
 
 \end_inset
@@ -2442,7 +2452,7 @@ Once the probability density function (PDF) for background and cloud reflection
  ratio(LLR) in the fusion center.
  In section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Distributed-Calculation-of"
 
 \end_inset
@@ -2573,7 +2583,7 @@ LLR(x_{1},...,x_{L}) & = & log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\
 
 According to Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Sum L-LLR Cloud"
 
 \end_inset
@@ -2586,7 +2596,7 @@ reference "eq:Sum L-LLR Cloud"
 To drive and simplify the expression of global log likelihood ratio, sensor’s
  observation is described by the model in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Received-Signal'-Model"
 
 \end_inset
@@ -2727,7 +2737,7 @@ e
 \color inherit
 the Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:G-LLR simple"
 
 \end_inset
@@ -2787,7 +2797,7 @@ Provided that each sensor knows the weight
 , Eq.
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:G-LLR_independent"
 
 \end_inset
@@ -2891,7 +2901,7 @@ In a network without fusion center, it is desirable to find the
 \change_unchanged
 However, the quadratic form in Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:G-LLR simple"
 
 \end_inset
@@ -3080,7 +3090,7 @@ or sensor's observation
 are correlated, especially for the sensors close to each other.
  As shown in Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:GMM (x1,x2)"
 
 \end_inset
@@ -3643,7 +3653,7 @@ these parameters are chosen as
 
 , shown in Fig
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Sensor's obs"
 
 \end_inset
@@ -3688,7 +3698,7 @@ DCA
 Here we give an example, three sensors are distributed as shown in Figure
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Sensor's obs"
 
 \end_inset
@@ -3709,7 +3719,7 @@ reference "fig:Sensor's obs"
  through all the sensors frame by frame.
  As shown in Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Global-LLR-and"
 
 \end_inset
@@ -3824,14 +3834,14 @@ Another interesting thing is that, if two sensors
  on the cloud particle's moving path, their observation have high correlation.
  For example in Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Sensor's obs"
 
 \end_inset
 
  and Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:GMM (x1,x2)"
 
 \end_inset
@@ -4032,7 +4042,7 @@ Simulation is running for hundreds of times to give the average performance
  is the index of the pixel).
  The Figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:ROC-of-CDWSN"
 
 \end_inset

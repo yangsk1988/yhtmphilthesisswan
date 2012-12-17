@@ -641,7 +641,7 @@ We intend to develop an algorithm to accomplish the information flooding,
 \begin_layout Standard
 Based on the FT-DAC algorithm we introduced in the section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Finite-time-Consensus-on"
 
 \end_inset
@@ -673,7 +673,7 @@ Suppose the network weight matrix
 
  satisfies the same condition 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:convege condition W"
 
 \end_inset

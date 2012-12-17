@@ -75,7 +75,7 @@ theorems-ams-bytype
 \begin_layout Chapter
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Consensus-problem-on"
+name "chap:Consensus-problem-on"
 
 \end_inset
 
@@ -1132,7 +1132,7 @@ reference "eq:1st Order Protocol"
 \color inherit
 , see figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Boundary-of-eigenvalues-1"
 
 \end_inset
@@ -1310,7 +1310,7 @@ reference "thm:Bounds of eig(L)-1"
 
  have negative real part, see figure 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Boundary-of-eigenvalues-1"
 
 \end_inset
@@ -1632,8 +1632,8 @@ To introduce the DAC algorithm
 s
 \change_unchanged
 , 
-\change_inserted 5862369 1355521715
-let's first take a look at the Fig.
+\change_inserted 5862369 1355521964
+let's first take a look at the 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Categories-of-Discrete-time"
@@ -1656,11 +1656,11 @@ reference "fig:Categories-of-Discrete-time"
 Although continuous-time consensus algorithms have some similarities with
  discrete-time ones, their performance are quite different when Gaussian
  white noise exists
-\change_inserted 5862369 1355521677
+\change_inserted 5862369 1355521715
  For more details about continuous-time consensus algorithms, see section
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Continuous-vs-Discrete-DAC"
 
 \end_inset
@@ -1687,7 +1687,7 @@ reference "sub:DT-First-Order-DAC"
  matrix.
  So the optimization problem is to find the optimal matrix with minimum
  sub-dominant
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
  eigenvalue.
  
 \change_deleted 5862369 1355520839
@@ -1698,7 +1698,7 @@ spectral radius.
  In distributed methods, this is a quite 
 \change_deleted 5862369 1355520855
 strong
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
 demanding
 \change_unchanged
  condition.
@@ -1707,13 +1707,13 @@ demanding
  
 \change_unchanged
  constant
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
  first-order DAC
 \change_unchanged
  and metropolitan
 \change_deleted 5862369 1355520878
  
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
 DAC
 \change_unchanged
  can be the sub-optimal solution to the consensus problem 
@@ -1727,7 +1727,7 @@ key "Xiao2004"
  The first-order DAC algorithm
 \change_deleted 5862369 1355520936
  
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
  together with higher-order DAC algorithms ( introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -1738,24 +1738,24 @@ reference "sub:Discrete-High-Order"
  )
 \change_deleted 5862369 1355520946
 is
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
 belong to the family of
 \change_unchanged
  the asymptotic algorithms.
  The 
 \change_deleted 5862369 1355520979
 demand
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
 motivation
 \change_unchanged
  
 \change_deleted 5862369 1355521115
 of
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
 to
 \change_unchanged
  
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
 develop the 
 \change_unchanged
 higher-order algorithm is 
@@ -1769,15 +1769,15 @@ because
  the 
 \change_deleted 5862369 1355521001
 requirement
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
 demand of
 \change_unchanged
  a fast convergen
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
 t
 \change_unchanged
  rate
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521715
  algorithm
 \change_unchanged
 .
@@ -1815,7 +1815,7 @@ to
  practical consensus 
 \change_deleted 5862369 1355521948
 problem
-\change_inserted 5862369 1355521952
+\change_inserted 5862369 1355521958
 protocols
 \change_unchanged
  
@@ -1833,7 +1833,7 @@ key "Yu2011"
 \change_unchanged
 .
  (OK 1)
-\change_inserted 5862369 1355521636
+\change_inserted 5862369 1355521964
 
 \end_layout
 
@@ -1945,7 +1945,7 @@ a
 Toeplitz matrix is introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Finite-time-Consensus-on"
+reference "chap:Finite-time-Consensus-on"
 
 \end_inset
 

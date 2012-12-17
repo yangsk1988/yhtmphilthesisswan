@@ -76,7 +76,7 @@ theorems-ams-bytype
 \begin_layout Chapter
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Online-Optimization-of"
+name "chap:Online-Optimization-of"
 
 \end_inset
 
@@ -451,7 +451,7 @@ The rest of this chapter is structured as follows.
  First,  the distributed real-time optimization of DAC will be given in
  section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:distributed-Eigenvalue-Estimati"
 
 \end_inset
@@ -460,7 +460,7 @@ reference "sec:distributed-Eigenvalue-Estimati"
  Second, the mitigation of numerical error  will be proposed in section
  
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:Mitigation-of-Numerical"
 
 \end_inset
@@ -468,7 +468,7 @@ reference "sec:Mitigation-of-Numerical"
 .
  Third, the algorithm complexity will be analysed in section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:Algorithm-Complexity"
 
 \end_inset
@@ -476,7 +476,7 @@ reference "sec:Algorithm-Complexity"
 .
  Fourth, in section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sec:Simulation-of-Eigenvalue"
 
 \end_inset
@@ -485,7 +485,7 @@ reference "sec:Simulation-of-Eigenvalue"
  be  analysed and compared with the centralized one.
  Finally, the conclusion will be given in section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Conclusion"
 
 \end_inset
@@ -524,7 +524,7 @@ key "Xiong2010"
 \begin_layout Standard
 Because in section 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "sub:Discrete-High-Order"
 
 \end_inset
@@ -659,7 +659,7 @@ name "thm:LV predictor a_i-1"
 
  which satisfies the conditions in theorem 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "thm:convergence condition"
 
 \end_inset
@@ -2025,7 +2025,7 @@ Compare to the enormous number of matrix iterations in
 \change_unchanged
  Algorithm 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "alg:Distributed-FO-DAC-Optimization"
 
 \end_inset
@@ -2164,9 +2164,13 @@ Finally, the performance of eigenvalue estimation is evaluated by the estimation
 \end_layout
 
 \begin_layout Standard
-In Fig.
+In 
+\change_deleted 5862369 1355761500
+Fig.
+\change_unchanged
+
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Box-plot N10 1DAC"
 
 \end_inset
@@ -2405,9 +2409,13 @@ neighbors
 \end_inset
 
  increase very slowly compared to other eigenvalues in the spectrum.
- Even their outliers in Fig.
+ Even their outliers in 
+\change_deleted 5862369 1355761503
+Fig.
+\change_unchanged
+
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Box-plot N10 1DAC"
 
 \end_inset
@@ -2434,9 +2442,13 @@ To see how these estimation errors take effect on the performance of DAC,
 \begin_inset Formula $\left(\hat{H}-J\right)$
 \end_inset
 
- is plotted and compared with the optimal one in Fig.
+ is plotted and compared with the optimal one in 
+\change_deleted 5862369 1355761505
+Fig.
+\change_unchanged
+
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Mean-of-spectral"
 
 \end_inset
@@ -2496,9 +2508,13 @@ Mean of spectral radius of CFO-DAC and HO-DAC, using optimal parameters
 \end_layout
 
 \begin_layout Standard
-As shown in Fig.
+As shown in 
+\change_deleted 5862369 1355761507
+Fig.
+\change_unchanged
+
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "fig:Mean-of-spectral"
 
 \end_inset
