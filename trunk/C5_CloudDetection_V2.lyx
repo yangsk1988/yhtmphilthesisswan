@@ -731,7 +731,7 @@ reference "eq:Point source concentration"
 \begin_inset Formula 
 \begin{eqnarray}
 C(x,y,z,H) & = & \int_{0}^{\infty}C(x,y,z,t)dt\label{eq:Continous source C}\\
- & = & \frac{Q}{2\pi u\sigma_{y}\sigma_{z}}\exp\left(\tfrac{-y^{2}}{2\sigma_{y}^{2}}\right)\left(\exp\left(\tfrac{-\left(z-H\right)^{2}}{2\sigma_{z}^{2}}\right)+\exp\left(\tfrac{-\left(z+H\right)^{2}}{2\sigma_{z}^{2}}\right)\right)\nonumber 
+ & = & \frac{Q}{2\pi u\sigma_{y}\sigma_{z}}\exp\left(\tfrac{-y^{2}}{2\sigma_{y}^{2}}\right)\left(\exp\left(\tfrac{-\left(z-H\right)^{2}}{2\sigma_{z}^{2}}\right)+\exp\left(\tfrac{-\left(z+H\right)^{2}}{2\sigma_{z}^{2}}\right)\right)
 \end{eqnarray}
 
 \end_inset
@@ -1630,9 +1630,9 @@ as the laser penetrate the could, the received signal at each sensor can
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 S(x,y)=\int_{-\infty}^{\infty}C(x,y,z)dz=\int_{-\infty}^{\infty}\int_{0}^{\infty}C(x,y,z,t)dtdz
-\]
+\end{equation}
 
 \end_inset
 
@@ -1655,17 +1655,17 @@ since
 , the two integrations can be swapped.
  thus, we have 
 \begin_inset Formula 
-\[
+\begin{equation}
 \int_{-\infty}^{\infty}\int_{0}^{\infty}C(x,y,z,t)dtdz=\int_{0}^{\infty}\int_{-\infty}^{\infty}C(x,y,z,t)dzdt
-\]
+\end{equation}
 
 \end_inset
 
 and 
 \begin_inset Formula 
-\[
+\begin{equation}
 S(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot K_{0}\left(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\right)
-\]
+\end{equation}
 
 \end_inset
 
@@ -1684,9 +1684,9 @@ where
 
  is simplified to 
 \begin_inset Formula 
-\[
+\begin{equation}
 K_{0}(z)=\int_{0}^{\infty}\mbox{cos}(z\cdot\mbox{sinh}t)dt=\int_{0}^{\infty}\frac{\mbox{cos}(z\cdot t)}{\sqrt{t^{2}+1}}dt
-\]
+\end{equation}
 
 \end_inset
 
@@ -1696,9 +1696,9 @@ Therefore, the finial model of concentration at point
 
  can be given by 
 \begin_inset Formula 
-\[
+\begin{equation}
 C(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot\int_{0}^{\infty}\frac{1}{\sqrt{t^{2}+1}}\mbox{cos}(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\cdot t)dt
-\]
+\end{equation}
 
 \end_inset
 
@@ -2604,9 +2604,9 @@ reference "sub:Received-Signal'-Model"
 .
  Let 
 \begin_inset Formula 
-\[
+\begin{equation}
 \mathbf{x}=\left[x_{1},\ldots,x_{L}\right]^{\mathrm{T}}
-\]
+\end{equation}
 
 \end_inset
 
@@ -2615,9 +2615,9 @@ reference "sub:Received-Signal'-Model"
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 \mathbf{n}_{m}=\left[n_{1,m},\ldots,n_{L,m}\right]^{\mathrm{T}}
-\]
+\end{equation}
 
 \end_inset
 

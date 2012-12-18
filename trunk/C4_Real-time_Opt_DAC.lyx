@@ -2374,8 +2374,7 @@ name "fig:Box-plot N10 1DAC"
 
 Box plot of log mean estimation error of eigenvalues, with/without local
  value of neighbors.
- Note that excluding local values of neighbors will create more outliers
- as well as increase the estimation error.
+ 
 \end_layout
 
 \end_inset
@@ -2389,17 +2388,21 @@ Box plot of log mean estimation error of eigenvalues, with/without local
 \end_layout
 
 \begin_layout Standard
-Simulation results show that taking local values from 
-\change_deleted 5862369 1355526900
-neighbours
-\change_inserted 5862369 1355526900
-neighbors
+Simulation results show that taking local values from neighbors has better
+ performance in lower estimation errors.
+ 
+\change_inserted 5863457 1355711542
+Excluding local values of neighbors will create more outliers and increase
+ the estimation error.
+ 
 \change_unchanged
- has better performance in lower estimation errors.
- In addition, the estimation errors will decrease if more instances of CFO-DAC
+In addition, the estimation errors will decrease if more instances of CFO-DAC
  are taken.
- On the other hand, the estimation errors  will increase as the network
- size becomes larger.
+ On the other hand, the estimation errors
+\change_deleted 5863457 1355711561
+ 
+\change_unchanged
+ will increase as the network size becomes larger.
  However, the numerical errors of 
 \begin_inset Formula $\lambda_{2}\left(L\right)$
 \end_inset

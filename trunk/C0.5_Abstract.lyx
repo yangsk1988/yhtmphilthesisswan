@@ -200,11 +200,20 @@ Distributed information processing has attract more interest recently because
  is an matrix iterative algorithm to find the dominant eigenvector of the
  matrix.
  Generally, the algorithm is required to return the result more quickly
- so that the distributed system can have a higher data processing performance.
+ so that the distributed system can have 
+\change_deleted 5863457 1355710508
+a higher
+\change_inserted 5863457 1355710510
+ better
+\change_unchanged
+ data processing performance.
  Therefore, many efforts have been devoted into the optimization of the
  distributed average algorithm.
- However, most of the optimization are centralized method so the system
- can not be optimized in a distributed network.
+ However, most of the optimization are centralized method so
+\change_inserted 5863457 1355710592
+ that
+\change_unchanged
+ the system can not be optimized in a distributed network.
  In addition, the existing distributed optimization algorithm converges
  very slowly.
  
@@ -215,18 +224,32 @@ Distributed information processing has attract more interest recently because
 \begin_layout Abstract
 Consequently, we proposed a distributed real-time optimization for the DAC
  algorithms.
- The optimization has advantages in low computation time and can work simultaneo
-usly with the consensus algorithm.
- Later, an application of cloud detection is given where optimized DAC algorithm
-s are applied to perform the hypothesis testing.
- Simulation result shows that the DAC algorithm using centralized optimization
+ The optimization has advantages 
+\change_inserted 5863457 1355710630
+not only 
+\change_unchanged
+in low computation time 
+\change_inserted 5863457 1355710634
+but also 
+\change_unchanged
+and can work simultaneously with the consensus algorithm.
+ 
+\change_inserted 5863457 1355710721
+Simulation result shows that the DAC algorithms using centralized optimization
  and proposed optimization have similar performances in convergence rate,
  when floating point number with double format is used and the network size
  is less than 32.
+ 
+\change_unchanged
+Later, an application of cloud detection is given where optimized DAC algorithms
+ are applied to perform the hypothesis testing.
  In addition, the performances of the detection system with different number
  of sensors are plotted using relative operating characteristic curves.
- It is shown that the detection system with more sensors can have better
- performance.
+ It is shown that 
+\change_deleted 5863457 1355710844
+the
+\change_unchanged
+ detection system with more sensors can have better performance.
  
 \end_layout
 
@@ -235,8 +258,8 @@ s are applied to perform the hypothesis testing.
 \change_deleted 5862369 1355262497
 Distributed Consensus algorithm has application in data fusion in wireless
  sensor networks and coordination of multi-agent system.
- Some distributed signal processing based on consensus algorithm, such
- as, local value linear prediction, information flooding and network eigenvalues
+ Some distributed signal processing based on consensus algorithm, such as,
+ local value linear prediction, information flooding and network eigenvalues
  estimation, were introduced in this thesis.
  Finally, a simulation of distributed cloud detection was given, in which
  data acquired by sensor nodes is processed by distributed consensus algorithm.
