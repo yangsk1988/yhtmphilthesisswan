@@ -1347,5 +1347,86 @@ Specifically, any real nonsingular symmetric matrix
  one.
 \end_layout
 
+\begin_layout Section
+Summary
+\end_layout
+
+\begin_layout Standard
+As shown in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Asymptotic-Distributed-Consensus"
+
+\end_inset
+
+, a optimized higher order DAC will have better convergence rate than lower
+ order one.
+ However, there are negligible improvement for the fourth order DAC compared
+ to the third order one.
+ The algorithm complexity and computational cost will also increase by introduce
+ more order.
+ The convergence rates of HO-DAC algorithms are depend on 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+eigenvalues of graph Laplacian matrix 
+\begin_inset Formula $\lambda_{i}\left(L\right)$
+\end_inset
+
+ which is topology dependent.
+ Therefore, the optimizations of HO-DAC larger than second order don't 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ have unique analytic solution.
+ 
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Finite-Time-Distributed-Consensu"
+
+\end_inset
+
+, we  show that the finite-time DAC algorithm in an invariant network can
+ find the average in finite number of iterations, if 
+\begin_inset Formula $\mathbf{x}\left(k\right)$
+\end_inset
+
+ can be represented by a linear combination of a new normal basis defined
+ by eigenvectors of 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ Furthermore, the weight matrix doesn't need to be convergent and can be
+ more easily chosen.
+\end_layout
+
+\begin_layout Standard
+Some distributed signal processing based on consensus algorithm, such as
+ data fusion and decision making, information flooding were introduced in
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Consensus-Based-Signal"
+
+\end_inset
+
+.
+\end_layout
+
 \end_body
 \end_document

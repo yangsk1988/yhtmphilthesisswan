@@ -73,6 +73,12 @@ theorems-sec-bytype
 \begin_body
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Consensus-Based-Signal"
+
+\end_inset
+
 Consensus Based Signal Processing
 \end_layout
 
@@ -642,7 +648,7 @@ We intend to develop an algorithm to accomplish the information flooding,
 Based on the FT-DAC algorithm we introduced in the section 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Finite-time-Consensus-on"
+reference "sec:Finite-Time-DAC-Simple"
 
 \end_inset
 

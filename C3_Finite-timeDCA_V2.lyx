@@ -76,7 +76,7 @@ theorems-ams-bytype
 \begin_layout Chapter
 \begin_inset CommandInset label
 LatexCommand label
-name "chap:Finite-time-Consensus-on"
+name "chap:Finite-time-DAC-Gen"
 
 \end_inset
 

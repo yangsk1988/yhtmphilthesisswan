@@ -74,11 +74,11 @@ theorems-ams-bytype
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Finite-Time-Distributed-Consensu"
+name "sec:Finite-Time-DAC-Simple"
 
 \end_inset
 
-Finite-Time Distributed Consensus Algorithm
+Finite-Time DAC Algorithm
 \end_layout
 
 \begin_layout Standard

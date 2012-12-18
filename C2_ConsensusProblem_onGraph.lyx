@@ -62,12 +62,13 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
 \author 5862369 "HT" 
+\author 5863457 "ht" 
 \end_header
 
 \begin_body
@@ -83,13 +84,7 @@ Background of DAC
 \end_layout
 
 \begin_layout Section
-
-\change_deleted 5862369 1355527044
-Prelimilary
-\change_inserted 5862369 1355527044
 Preliminary
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -116,43 +111,55 @@ weighted adjacency matrix
 
 .
  The edge 
-\begin_inset Formula $\left(v_{i},v_{j}\right)\in\mathfrak{\mathcal{E}}$
+\begin_inset Formula $e_{l}=\left(v_{i},v_{j}\right)\in\mathfrak{\mathcal{E}},\ l\sim\left(i,j\right)$
 \end_inset
 
- is a ordered pair of distinct nodes, associated with an element in the
+ is an ordered pair of distinct nodes, associated with an element in the
  adjacency matrix 
 \begin_inset Formula ${\cal A}$
 \end_inset
 
 , i.e.
  
-\begin_inset Formula $\left(v_{i},v_{j}\right)\in\mathfrak{\mathcal{E}}\Leftrightarrow a_{ij}$
+\begin_inset Formula $e_{l}=\left(v_{i},v_{j}\right)\in\mathfrak{\mathcal{E}}\Leftrightarrow a_{ij}$
 \end_inset
 
 .
- For 
+ 
+\begin_inset Formula $\left|\mathcal{E}\right|$
+\end_inset
+
+ denotes the number of edges of the graph 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+.
+ For node 
 \begin_inset Formula $v_{i}$
 \end_inset
 
-, its set of communication neighbors is denoted by 
+, its  communication neighbors  set is denoted by 
 \begin_inset Formula $\mathcal{N}_{i}=\text{ }\left\{ v_{j}\in{\cal V}|\left(v_{i},v_{j}\right)\in\mathcal{E}\right\} $
 \end_inset
 
-.
- And 
+, and 
 \begin_inset Formula $\left|\mathcal{N}_{i}\right|$
 \end_inset
 
- denotes the number of neighbors of 
+ denotes the number of neighbours of 
 \begin_inset Formula $v_{i}$
 \end_inset
 
 .
- We assume 
+ Assume 
+\begin_inset Formula $\forall v_{i}\in\mathcal{V}$
+\end_inset
+
+, 
 \begin_inset Formula $a_{ij}=0$
 \end_inset
 
-, if 
+ if 
 \begin_inset Formula $v_{j}\notin{\cal N}_{i}$
 \end_inset
 
@@ -164,27 +171,26 @@ weighted adjacency matrix
 \begin_inset Formula $v_{i}\notin{\cal N}_{i}$
 \end_inset
 
-) for all 
-\begin_inset Formula $v_{i}\in\mathcal{V}$
-\end_inset
-
-.
- Any node 
+).
+ Node 
 \begin_inset Formula $v_{i}$
 \end_inset
 
- can only transmit information to other nodes that belong to the neighbors
- set.
+ can only transmit information to  nodes that belong to 
+\begin_inset Formula $\mathcal{N}_{i}$
+\end_inset
+
+.
  
 \end_layout
 
 \begin_layout Standard
 For each edge 
-\begin_inset Formula $e_{k}=\left(v_{i},v_{j}\right)\in{\cal E}$
+\begin_inset Formula $e_{l}=\left(v_{i},v_{j}\right)\in{\cal E}$
 \end_inset
 
 , we arbitrarily choose one end of 
-\begin_inset Formula $e_{k}$
+\begin_inset Formula $e_{l}$
 \end_inset
 
  to be positive and another to be negative.
@@ -196,15 +202,15 @@ For each edge
 \begin_inset Formula $Q=Q\left({\cal G}\right)\in\mathbb{R}^{n\times\left|{\cal E}\right|}$
 \end_inset
 
- is defined by 
+ is defined by
 \begin_inset Formula 
-\[
+\begin{equation}
 Q=\left(q_{ik}\right)=\begin{cases}
-1 & \mbox{if }v_{i}\mbox{ is the positive end of }e_{k}\\
--1 & \mbox{if }v_{i}\mbox{ is the negative end of }e_{k}\\
+1 & \mbox{if }v_{i}\mbox{ is the positive end of }e_{l}\\
+-1 & \mbox{if }v_{i}\mbox{ is the negative end of }e_{l}\\
 0 & \mbox{otherwise}
-\end{cases}
-\]
+\end{cases}.
+\end{equation}
 
 \end_inset
 
@@ -216,8 +222,15 @@ Laplacian matrix
 \begin_inset Formula ${\cal G}$
 \end_inset
 
- is defined by 
+, defined by 
 \begin_inset Formula $L=L\left({\cal G}\right)=QQ^{\mathrm{T}}$
+\end_inset
+
+, is a useful tool to analyse the network topology 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Russell1994"
+
 \end_inset
 
 .
@@ -229,11 +242,12 @@ Laplacian matrix
  It is a symmetric, positive semidefinite, singular matrix 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Russell1994"
+key "Varga2010"
 
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -248,15 +262,15 @@ key "Das2004"
 
 \end_inset
 
- is denoted by 
+, denoted by 
 \begin_inset Formula 
-\[
+\begin{equation}
 S\left(L\right)=\left\{ \lambda_{1}\left(L\right),\lambda_{2}\left(L\right),\ldots,\lambda_{n}\left(L\right)\right\} 
-\]
+\end{equation}
 
 \end_inset
 
-where 
+, reflects many properties of the graph, where 
 \begin_inset Formula $\lambda_{i}\left(L\right)$
 \end_inset
 
@@ -264,17 +278,7 @@ where
 \begin_inset Formula $L$
 \end_inset
 
- .
- When refer to multiple matrix, we use 
-\begin_inset Formula $\lambda_{i}\left(A\right)$
-\end_inset
-
- to denote the eigenvalues of matrix 
-\begin_inset Formula $A$
-\end_inset
-
-.
- We assume these eigenvalues are ordered non-decreasingly so that, 
+ and we assume they are ordered non-decreasingly so that 
 \begin_inset Formula $0=\lambda_{1}\left(L\right)\leq\lambda_{2}\left(L\right)\leq\ldots\leq\lambda_{n}\left(L\right)$
 \end_inset
 
@@ -284,6 +288,15 @@ where
 \end_inset
 
  is called algebraic connectivity of the graph.
+ When multiple matrices are referred to, we use 
+\begin_inset Formula $\lambda_{i}\left(A\right)$
+\end_inset
+
+ to denote the eigenvalues of matrix 
+\begin_inset Formula $A$
+\end_inset
+
+.
  
 \end_layout
 
@@ -294,7 +307,9 @@ Suppose each node holds an initial scalar local value
 
 , which can be a value that locally acquired by node representing physical
  quantities such as temperature, humidity, illumination, attitude, etc.
- We define the 
+ 
+\change_deleted 5863457 1355792460
+We define the 
 \shape italic
 local value vector
 \shape default
@@ -303,7 +318,9 @@ local value vector
 \end_inset
 
  to represent all the initial values on the network.
- The network is said to be reached a consensus if and only if 
+ 
+\change_unchanged
+ The network is said to have reached a consensus if and only if 
 \begin_inset Formula $x_{i}=x_{j}$
 \end_inset
 
@@ -312,8 +329,8 @@ local value vector
 \end_inset
 
 .
- In the other words, all the nodes are in an agreement of a quantity, the
- common value of all nodes is called the 
+ In the other words, all the nodes are in an agreement of a quantity.
+ The common value in the consensus state is called the 
 \shape italic
 consensus value
 \shape default
