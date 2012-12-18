@@ -562,7 +562,13 @@ Consensus problems can be different by their consensus values.
 \begin_inset Formula $G$
 \end_inset
 
-.(OK1)
+.
+\change_deleted 5862369 1355847710
+(OK1)
+\change_inserted 5862369 1355847710
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1147,7 +1153,7 @@ reference "eq:1st Order Protocol"
 \uwave default
 \noun default
 \color inherit
-, see figure 
+, see  
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Boundary-of-eigenvalues-1"
@@ -1325,7 +1331,7 @@ reference "thm:Bounds of eig(L)-1"
 \begin_inset Formula $-{\cal L}$
 \end_inset
 
- have negative real part, see figure 
+ have negative real part, see  
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Boundary-of-eigenvalues-1"
@@ -1674,8 +1680,7 @@ Although continuous-time consensus algorithms have some similarities with
  discrete-time ones, their performance are quite different when Gaussian
  white noise exists
 \change_inserted 5862369 1355521715
- For more details about continuous-time consensus algorithms, see section
- 
+ For more details about continuous-time consensus algorithms, see  
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Continuous-vs-Discrete-DAC"
@@ -1686,7 +1691,13 @@ reference "sub:Continuous-vs-Discrete-DAC"
 \change_unchanged
 ).
  We may started from one of the simplest one in their family: the first-order
- DAC algorithm introduced in section 
+ DAC algorithm introduced in 
+\change_deleted 5862369 1355847248
+section
+\change_inserted 5862369 1355847248
+ 
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:DT-First-Order-DAC"
@@ -1849,9 +1860,11 @@ key "Yu2011"
 
 \change_unchanged
 .
- (OK 1)
-\change_inserted 5862369 1355521964
-
+ 
+\change_deleted 5862369 1355847721
+(OK 1)
+\change_inserted 5862369 1355847721
+ 
 \end_layout
 
 \begin_layout Standard

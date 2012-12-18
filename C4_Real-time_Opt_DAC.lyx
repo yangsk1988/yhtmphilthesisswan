@@ -80,7 +80,13 @@ name "chap:Online-Optimization-of"
 
 \end_inset
 
-Real-time Optimization of DAC(OK1)
+Real-time Optimization of DAC
+\change_deleted 5862369 1355847752
+(OK1)
+\change_inserted 5862369 1355847752
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -449,7 +455,11 @@ However, the distributed solution has a numerical error due to quantization,
 \begin_layout Standard
 The rest of this chapter is structured as follows.
  First,  the distributed real-time optimization of DAC will be given in
- section 
+ 
+\change_deleted 5862369 1355847389
+section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:distributed-Eigenvalue-Estimati"
@@ -457,7 +467,10 @@ reference "sec:distributed-Eigenvalue-Estimati"
 \end_inset
 
 .
- Second, the mitigation of numerical error  will be proposed in section
+ Second, the mitigation of numerical error  will be proposed in 
+\change_deleted 5862369 1355847391
+section
+\change_unchanged
  
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -466,7 +479,13 @@ reference "sec:Mitigation-of-Numerical"
 \end_inset
 
 .
- Third, the algorithm complexity will be analysed in section 
+ Third, the algorithm complexity will be analysed in
+\change_deleted 5862369 1355847401
+ section
+\change_inserted 5862369 1355847401
+ 
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Algorithm-Complexity"
@@ -474,7 +493,11 @@ reference "sec:Algorithm-Complexity"
 \end_inset
 
 .
- Fourth, in section 
+ Fourth, in 
+\change_deleted 5862369 1355847393
+section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Simulation-of-Eigenvalue"
@@ -483,7 +506,13 @@ reference "sec:Simulation-of-Eigenvalue"
 
 , the performance of DAC using the distributed real-time optimization  will
  be  analysed and compared with the centralized one.
- Finally, the conclusion will be given in section 
+ Finally, the conclusion will be given in 
+\change_deleted 5862369 1355847408
+section
+\change_inserted 5862369 1355847408
+ 
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Conclusion"
@@ -522,7 +551,13 @@ key "Xiong2010"
 \end_layout
 
 \begin_layout Standard
-Because in section 
+Because in 
+\change_deleted 5862369 1355847412
+section
+\change_inserted 5862369 1355847412
+ 
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Discrete-High-Order"
