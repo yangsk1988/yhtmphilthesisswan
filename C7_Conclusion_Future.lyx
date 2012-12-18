@@ -179,10 +179,14 @@ finite-time DAC algorithm is the fastest in these algorithms.
 \end_layout
 
 \begin_layout Standard
-Second, in section 
+Second, in 
+\change_deleted 5863457 1355797998
+section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "chap:Finite-time-Consensus-on"
+reference "chap:Finite-time-DAC-Gen"
 
 \end_inset
 

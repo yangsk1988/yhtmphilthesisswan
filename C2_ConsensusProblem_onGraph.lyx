@@ -1873,7 +1873,7 @@ key "Sundaram2007"
  by extrapolation, see 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sec:Finite-Time-Distributed-Consensu"
+reference "sec:Finite-Time-DAC-Simple"
 
 \end_inset
 
@@ -1962,7 +1962,7 @@ a
 Toeplitz matrix is introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "chap:Finite-time-Consensus-on"
+reference "chap:Finite-time-DAC-Gen"
 
 \end_inset
 
