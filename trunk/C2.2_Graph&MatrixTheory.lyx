@@ -683,7 +683,7 @@ reference "sub:DT-First-Order-DAC"
  This will be introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sec:Finite-Time-Distributed-Consensu"
+reference "sec:Finite-Time-DAC-Simple"
 
 \end_inset
 
@@ -1396,7 +1396,7 @@ eigenvalues of graph Laplacian matrix
 In 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sec:Finite-Time-Distributed-Consensu"
+reference "sec:Finite-Time-DAC-Simple"
 
 \end_inset
 

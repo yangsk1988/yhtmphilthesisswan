@@ -1450,7 +1450,7 @@ eigenvalues of graph Laplacian matrix
  However, in the section 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "chap:Finite-time-Consensus-on"
+reference "chap:Finite-time-DAC-Gen"
 
 \end_inset
 
