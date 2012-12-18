@@ -297,7 +297,7 @@ A directed graph is strongly connected if and only if for any two distinct
 \begin_layout Definition
 \begin_inset CommandInset label
 LatexCommand label
-name "Def.Irreducebility"
+name "def:Irreducebility"
 
 \end_inset
 
@@ -435,7 +435,7 @@ The proof of this theorem is obvious.
  
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "Def.Irreducebility"
+reference "def:Irreducebility"
 
 \end_inset
 

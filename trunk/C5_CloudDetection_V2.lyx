@@ -76,7 +76,7 @@ theorems-ams-bytype
 \begin_layout Chapter
 \begin_inset CommandInset label
 LatexCommand label
-name "chap:DAC-Implementation:-Distributed"
+name "chap:DAC-Cloud-Detection"
 
 \end_inset
 
@@ -2555,13 +2555,19 @@ For the received signal model described
  
 \change_unchanged
  by 
+\change_deleted 5863457 1355799005
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:GMM density function"
 
 \end_inset
 
- or 
+ or
+\change_inserted 5863457 1355799005
+ 
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Model of Received signal"

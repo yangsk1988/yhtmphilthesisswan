@@ -214,7 +214,7 @@ consecutive
 \begin_layout Definition
 \begin_inset CommandInset label
 LatexCommand label
-name "def.Consensus_finding_filter"
+name "def:Consensus_finding_filter"
 
 \end_inset
 
@@ -350,7 +350,7 @@ reference "eq:1st iter. ni"
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
-name "thm.A-consensus-finding"
+name "thm:A-consensus-finding"
 
 \end_inset
 
@@ -1134,7 +1134,7 @@ reference "eq:Find Consensus m order"
 by the filter defined in Def.
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "thm.A-consensus-finding"
+reference "thm:A-consensus-finding"
 
 \end_inset
 
