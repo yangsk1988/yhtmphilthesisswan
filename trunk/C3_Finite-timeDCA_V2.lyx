@@ -96,13 +96,19 @@ n Generalized Conditions
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1355847157
 (todo check 2)
+\change_inserted 5862369 1355847157
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 It is shown i
 \change_inserted 5862369 1355435274
-n section 
+n  
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Find_Consensus_Value"
@@ -162,7 +168,7 @@ Before introducing the algorithm, there are too important linear filters
 \change_unchanged
 already 
 \change_inserted 5862369 1355335166
-introduced in section 
+introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Find_Consensus_Value"
@@ -174,7 +180,7 @@ reference "sub:Find_Consensus_Value"
 \change_unchanged
  one
 \change_inserted 5862369 1355335166
- is introduced in the next section 
+ is introduced in the next 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Linear-Predictor-For"
@@ -197,13 +203,25 @@ name "sec:Linear-Predictor-For"
 
 
 \change_unchanged
-Linear Predictor For Local Value (todo check times 2)
+Linear Predictor For Local Value 
+\change_deleted 5862369 1355847164
+(todo check times 2)
+\change_inserted 5862369 1355847164
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 In observing the convergence curve of each node's local value sequence,
  we come to the idea that the sequence must obeys some rules as it converges.
- In section 
+ In 
+\change_deleted 5862369 1355847351
+section
+\change_inserted 5862369 1355847351
+ 
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Find_Consensus_Value"
@@ -759,7 +777,15 @@ to the original finite-time consensus algorithm
 \end_layout
 
 \begin_layout Standard
-In the next section 
+In 
+\change_deleted 5862369 1355847374
+the next
+\change_unchanged
+ 
+\change_deleted 5862369 1355847364
+section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Convert-Linear-Predictor "
@@ -784,7 +810,13 @@ name "sub:Convert-Linear-Predictor "
 
 \end_inset
 
-Convert Linear Predictor to Consensus Finding Filter (todo check times 1)
+Convert Linear Predictor to Consensus Finding Filter 
+\change_deleted 5862369 1355847169
+(todo check times 1)
+\change_inserted 5862369 1355847169
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -832,7 +864,13 @@ reference "thm:convergence condition"
 equals to one.
  
 \change_inserted 5863457 1355532179
-As shown in section 
+As shown in 
+\change_deleted 5862369 1355847380
+section
+\change_inserted 5862369 1355847380
+ 
+\change_inserted 5863457 1355532179
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Find_Consensus_Value"

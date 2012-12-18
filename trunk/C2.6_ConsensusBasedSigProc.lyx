@@ -62,7 +62,7 @@ theorems-sec-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -142,7 +142,13 @@ The Second option is distributed signal processing.
 \end_layout
 
 \begin_layout Subsection
-Data Fusion and Decision Making(todo check times 2)
+Data Fusion and Decision Making
+\change_deleted 5862369 1355847140
+(todo check times 2)
+\change_inserted 5862369 1355847140
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -562,7 +568,11 @@ This finish the distributed detection and decision making under the condition
 \end_layout
 
 \begin_layout Standard
-In the section of cloud detection 
+In 
+\change_deleted 5862369 1355847297
+the section of cloud detection
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Distributed_Cloud_De"
@@ -602,7 +612,13 @@ more results about applying DAC algorithm will be presented.
 \end_layout
 
 \begin_layout Subsection
-Network Information Flooding(todo check times 0)
+Network Information Flooding
+\change_deleted 5862369 1355847148
+(todo check times 0)
+\change_inserted 5862369 1355847148
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -645,7 +661,13 @@ We intend to develop an algorithm to accomplish the information flooding,
 \end_layout
 
 \begin_layout Standard
-Based on the FT-DAC algorithm we introduced in the section 
+Based on the FT-DAC algorithm we introduced in
+\change_deleted 5862369 1355847317
+ the section
+\change_inserted 5862369 1355847318
+ 
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Finite-Time-DAC-Simple"
