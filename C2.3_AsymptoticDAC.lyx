@@ -1155,7 +1155,7 @@ is
  Therefore, the weight matrix can be defined by the Laplacian matrix 
 \begin_inset Formula 
 \begin{equation}
-W=I_{n}-\epsilon L\label{eq:def. const FO-DAC}
+W=I_{n}-\epsilon L\label{eq: FO-DAC-Matrix}
 \end{equation}
 
 \end_inset
@@ -1181,14 +1181,10 @@ Choosing the step length
 \end_layout
 
 \begin_layout Standard
-From
-\change_deleted 5863457 1355793461
- 
-\change_unchanged
- 
+From 
 \begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:def. const FO-DAC"
+LatexCommand formatted
+reference "eq: FO-DAC-Matrix"
 
 \end_inset
 
