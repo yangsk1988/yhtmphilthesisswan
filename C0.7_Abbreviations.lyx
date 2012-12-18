@@ -38,7 +38,7 @@
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\use_refstyle 1
+\use_refstyle 0
 \index Index
 \shortcut idx
 \color #008000
@@ -66,7 +66,7 @@ Abbreviations
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -112,6 +112,10 @@ begin{tabular}{p{4.0cm} p{11cm}}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 2D
 \begin_inset ERT
 status open
@@ -157,7 +161,7 @@ status open
 \begin_inset Newline newline
 \end_inset
 
-DAC Algorithm
+DAC 
 \begin_inset ERT
 status open
 
@@ -168,7 +172,7 @@ status open
 
 \end_inset
 
- Distributed Average Consensus Algorithm
+ Distributed Average Consensus 
 \begin_inset Newline newline
 \end_inset
 
@@ -187,7 +191,7 @@ status open
 \begin_inset Newline newline
 \end_inset
 
-FO-DAC Algorithm
+FO-DAC 
 \begin_inset ERT
 status open
 
@@ -198,11 +202,11 @@ status open
 
 \end_inset
 
- First-order Distributed Average Consensus Algorithm
+ First-order Distributed Average Consensus 
 \begin_inset Newline newline
 \end_inset
 
-HO-DAC Algorithm
+SO-DAC 
 \begin_inset ERT
 status open
 
@@ -213,11 +217,11 @@ status open
 
 \end_inset
 
- Higher-order Distributed Average Consensus Algorithm
+ Second-order Distributed Average Consensus 
 \begin_inset Newline newline
 \end_inset
 
-CFO-DAC Algorithm
+HO-DAC 
 \begin_inset ERT
 status open
 
@@ -228,11 +232,11 @@ status open
 
 \end_inset
 
- Constant First Order Distributed Average Consensus Algorithm
+ Higher-order Distributed Average Consensus 
 \begin_inset Newline newline
 \end_inset
 
-FT-DAC Algorithm
+CFO-DAC 
 \begin_inset ERT
 status open
 
@@ -243,7 +247,52 @@ status open
 
 \end_inset
 
- Finite Time Distributed Average Consensus Algorithm
+ Constant First Order Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+FT-DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Finite Time Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+LMS 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Least mean square
+\begin_inset Newline newline
+\end_inset
+
+ML 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Maximum likelihood
 \begin_inset Newline newline
 \end_inset
 
@@ -259,6 +308,96 @@ status open
 \end_inset
 
  Log Likelihood ratio
+\begin_inset Newline newline
+\end_inset
+
+G-LLR 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Global log Likelihood ratio
+\begin_inset Newline newline
+\end_inset
+
+L-LLR 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Local log Likelihood ratio
+\begin_inset Newline newline
+\end_inset
+
+PDF 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Probability density function
+\begin_inset Newline newline
+\end_inset
+
+MAP 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Maximum a posteriori 
+\begin_inset Newline newline
+\end_inset
+
+ML 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Maximum likelihood 
+\begin_inset Newline newline
+\end_inset
+
+ROC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Relative operating characteristic curves
 \begin_inset Newline newline
 \end_inset
 
@@ -400,6 +539,32 @@ status open
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ The 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ node 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula $\mathcal{E}$
 \end_inset
 
@@ -526,7 +691,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\lambda_{i}\left(W\right)$
+\begin_inset Formula $\lambda_{i}\left(A\right)$
 \end_inset
 
 
@@ -544,8 +709,8 @@ status open
 \begin_inset Formula $i^{th}$
 \end_inset
 
- Eigenvalue of weight matrix 
-\begin_inset Formula $W$
+eigenvalue of weight matrix 
+\begin_inset Formula $A$
 \end_inset
 
 
@@ -568,7 +733,7 @@ status open
 \uwave off
 \noun off
 \color none
-\begin_inset Formula $S\left(W\right)$
+\begin_inset Formula $S\left(A\right)$
 \end_inset
 
  
@@ -595,7 +760,7 @@ status open
 \end_inset
 
  Spectrum of of the matrix 
-\begin_inset Formula $W$
+\begin_inset Formula $A$
 \end_inset
 
 
@@ -730,7 +895,7 @@ status open
 \uwave off
 \noun off
 \color none
-\begin_inset Formula $S\left(L\right)$
+\begin_inset Formula $S_{i}\left(L\right)$
 \end_inset
 
  
@@ -756,7 +921,11 @@ status open
 
 \end_inset
 
- Spectrum of the Laplacian matrix
+ Local spectrum of the Laplacian matrix estimated by node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
@@ -820,9 +989,36 @@ status open
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula $\bar{\mathbf{x}}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ The consensus value vector.
+ All entries are the consensus value.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula $\epsilon$
 \end_inset
 
+
+ 
+\lang english
 
 \begin_inset ERT
 status open
@@ -846,6 +1042,9 @@ status open
 \end_inset
 
 
+ 
+\lang english
+
 \begin_inset ERT
 status open
 
@@ -867,6 +1066,9 @@ status open
 \begin_inset Formula $\epsilon_{opt,FO}$
 \end_inset
 
+
+ 
+\lang english
 
 \begin_inset ERT
 status open
@@ -973,6 +1175,60 @@ status open
 \end_inset
 
  
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $p_{i}(\lambda)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ local polynomial of 
+\begin_inset Formula $W$
+\end_inset
+
+ estimated by node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
