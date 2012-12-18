@@ -1069,11 +1069,15 @@ d
  of network topology but will estimate the necessary 
 \change_deleted 5863457 1355621143
 parameters
-\change_inserted 5863457 1355621145
-filter
+\change_inserted 5863457 1355708028
+consensus finding filter
 \change_unchanged
  during the iteration.
- Compared to the distributed algorithm introduced in 
+ Compared to the 
+\change_deleted 5863457 1355708038
+distributed
+\change_unchanged
+ algorithm introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sundaram2007"
@@ -1083,18 +1087,34 @@ key "Sundaram2007"
 , it doesn't require the re-initialization of the constant first-order DAC
  algorithm for several times.
  Therefore, total data transmission in all iterations can be reduced.
- However, re-initialization can be introduced if the consensus value requires
- to have high accuracy 
+ However, re-initialization can
+\change_inserted 5863457 1355708198
+ be introduced to increase the accuracy of the consensus value.
+ 
+\change_deleted 5863457 1355708170
+ be introduced if the consensus value requires to have high accuracy 
+\change_inserted 5863457 1355708170
+ 
 \change_inserted 5862369 1354403293
 
 \end_layout
 
 \begin_layout Standard
-Finally, a modified Gaussian plume models is presented, which is the integration
+Finally, a modified Gaussian plume model is presented, which is the integration
  of the original Gaussian plume model along the laser beam to simulate the
  laser penetration.
- This Gaussian plume model can only describe the mean of the cloud concentration.
- However, a real cloud cloud concentration is actually a random process.
+ This 
+\change_inserted 5863457 1355708231
+modified 
+\change_unchanged
+Gaussian plume model can only describe the mean of the cloud concentration.
+ However, a real cloud
+\change_inserted 5863457 1355708255
+'s
+\change_deleted 5863457 1355708250
+ 
+\change_unchanged
+ concentration is actually a random process.
  To reveal 
 \change_deleted 5863457 1354406881
 [
@@ -1110,7 +1130,11 @@ the
  
 \change_unchanged
  dynamics and turbulence properties of the cloud plume, a 3D cloud animation
- is implemented with the computer graphic technology 
+ is implemented with the 
+\change_inserted 5863457 1355708276
+help of 
+\change_unchanged
+computer graphic technology 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "He2011"
@@ -1118,14 +1142,31 @@ key "He2011"
 \end_inset
 
 .
+ A bunch of the simulated cloud plumes 
+\change_deleted 5863457 1355708848
+is
+\change_inserted 5863457 1355708848
+are
+\change_unchanged
+ generated
+\change_deleted 5863457 1355708892
+ for
+\change_inserted 5863457 1355708894
+to test the detection
+\change_unchanged
+ algorithm
+\change_inserted 5863457 1355708897
+.
 
-\change_deleted 5863457 1354407225
+\change_unchanged
  
-\change_inserted 5863457 1354407118
+\change_deleted 5863457 1355708901
+testing and detection.
+
+\change_inserted 5863457 1355708901
  
 \change_unchanged
-A bunch of the simulated cloud plumes is generated for algorithm testing
- and detection.
+
 \end_layout
 
 \begin_layout Standard
@@ -1157,7 +1198,7 @@ reference "chap:Consensus-problem-on"
 \end_inset
 
  is the review of some asymptotic and non-asymptotic DAC algorithms, as
- well as some distributed signal processing methods based on DAC algorithm.
+ well as some distributed signal processing methods based on DAC algorithms.
  In 
 \change_deleted 5862369 1355762048
 chapter
@@ -1170,7 +1211,9 @@ reference "chap:Finite-time-Consensus-on"
 \end_inset
 
 , a generalized finite-time DAC algorithm will be presented.
- Compared to the previous version of finite-time DAC, the number of iteration
+ 
+\change_deleted 5863457 1355708967
+Compared to the previous version of finite-time DAC, the number of iterations
  can be reduced.
  In 
 \change_deleted 5862369 1355762049
@@ -1184,7 +1227,11 @@ reference "chap:Online-Optimization-of"
 \end_inset
 
 , a distributed real-time optimization method to increase the convergence
- rate of asymptotic DAC algorithms.
+ rate of asymptotic DAC algorithms
+\change_inserted 5863457 1355708989
+ is proposed
+\change_unchanged
+.
  Finally, a distributed detection of cloud plume using wireless sensor networks
  and the DAC algorithm will be introduced in 
 \change_deleted 5862369 1355762051
