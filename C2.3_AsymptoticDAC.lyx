@@ -78,6 +78,7 @@ theorems-ams-bytype
 \html_be_strict false
 \author 5862369 "HT" 
 \author 5863457 "ht" 
+\author 936221351 "LiminYao" 
 \end_header
 
 \begin_body
@@ -97,28 +98,112 @@ Asymptotic Distributed Consensus Algorithm
 \end_layout
 
 \begin_layout Standard
-The averaging consensus problem can be solved not only by DAC algorithms,
- but also in many other ways, such as flooding, gossip and so on.
- In the flooding algorithm, each sensor maintains a table of all sensors
- values which initialize by its local value.
+The 
+\change_inserted 936221351 1356958679
+distributed 
+\change_unchanged
+averaging consensus problem can be solved not only by DAC algorithms, but
+ also in many other ways, such as flooding, gossip and so on.
+ In the flooding algorithm, each sensor maintains a table of 
+\change_deleted 936221351 1356958722
+all sensors
+\change_inserted 936221351 1356958725
+local
+\change_unchanged
+ values which initialize by 
+\change_deleted 936221351 1356958732
+its
+\change_unchanged
+ 
+\change_deleted 936221351 1356958729
+local
+\change_inserted 936221351 1356958735
+all sensor's
+\change_unchanged
+ 
+\change_inserted 936221351 1356958741
+intial 
+\change_unchanged
+value.
  At each iteration of the flooding algorithm, every node exchanges the table
  with their neighbors.
  After enough steps, which is larger than the diameter of the network.
- Every node will get all the initial value of all nodes.
- Gossip algorithms are asynchronous.
- Only one random node wakes up and randomly chooses another node.
- The two nodes exchange their estimates and update to the average of the
- two.
+ Every node will get all the initial value
+\change_inserted 936221351 1356958758
+s
+\change_unchanged
+ of all 
+\change_deleted 936221351 1356958763
+nodes
+\change_inserted 936221351 1356958765
+sensors
+\change_unchanged
+.
+ 
+\change_inserted 936221351 1356958794
+The g
+\change_unchanged
+ossip algorithms are asynchronous.
+ Only one 
+\change_deleted 936221351 1356958895
+random
+\change_unchanged
+ node
+\change_inserted 936221351 1356958938
+ that is selected by a random schedule
+\change_unchanged
+ wakes up and 
+\change_deleted 936221351 1356958951
+randomly
+\change_unchanged
+ chooses another node
+\change_inserted 936221351 1356958952
+ randomly
+\change_unchanged
+.
+ The
+\change_inserted 936221351 1356958967
+se
+\change_unchanged
+ two nodes exchange their 
+\change_deleted 936221351 1356958986
+estimates
+\change_inserted 936221351 1356958998
+ local values
+\change_unchanged
+ and 
+\change_deleted 936221351 1356959394
+update
+\change_inserted 936221351 1356959401
+change the local values
+\change_unchanged
+ to the average
+\change_deleted 936221351 1356959415
+ of the two
+\change_unchanged
+.
  
 \end_layout
 
 \begin_layout Standard
 Due to the simplicity and robustness of asymptotic distributed consensus
- algorithm, it plays an important role in the practical problems.
+ algorithm, it 
+\change_inserted 936221351 1356959423
+still 
+\change_unchanged
+plays an important role in the practical
+\change_deleted 936221351 1356959429
+ problems
+\change_unchanged
+.
  They are already applied to network with a large number of nodes and proofed
  to be robust against the topology variation.
- Once the network graph is strong connected, the convergence to global consensus
- value is guaranteed 
+ 
+\change_deleted 936221351 1356959455
+Once the network graph is strong connected, the convergence to global consensus
+ value is guaranteed
+\change_unchanged
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ren2007"
