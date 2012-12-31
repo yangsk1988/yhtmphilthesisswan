@@ -68,6 +68,7 @@ theorems-ams-bytype
 \html_be_strict false
 \author 5862369 "HT" 
 \author 5863457 "ht" 
+\author 936221351 "LiminYao" 
 \end_header
 
 \begin_body
@@ -1165,8 +1166,20 @@ testing and detection.
 
 \change_inserted 5863457 1355708901
  
-\change_unchanged
+\change_inserted 936221351 1356970560
 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 936221351 1356970622
+publications:
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 936221351 1356970624
+todo 
 \end_layout
 
 \begin_layout Standard
@@ -1175,7 +1188,7 @@ testing and detection.
 In this section, first some expressions are driven based on the diffusive
  equations to obtain the modified Gaussian plume model especially for laser
  detection.
-\change_unchanged
+\change_deleted 936221351 1356970628
 
 \end_layout
 
