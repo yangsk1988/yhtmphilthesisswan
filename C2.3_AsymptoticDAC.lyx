@@ -2118,7 +2118,7 @@ status open
 
 
 \begin_inset Graphics
-	filename D:/Dropbox/PaperWork/FirstYearReport/Lyx_v/images/3order_max_lambda.pdf
+	filename Graph/FirstYearReport/Lyx_v/images/3order_max_lambda.pdf
 	height 9cm
 
 \end_inset
@@ -2153,6 +2153,62 @@ name "fig:Find-minimum-rho(H)"
 
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 5863457 1355796604
+Solutions for Second-order DAC Optimization
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1355795752
+If 
+\begin_inset Formula $M=2$
+\end_inset
+
+, the HO-DAC reduce to the second-order DAC (SO-DAC) algorithm.
+ In this case, the problem 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:HO-DAC Opt. Problem"
+
+\end_inset
+
+ does exist an analytical solution
+\change_unchanged
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2009a"
+
+\end_inset
+
+
+\change_inserted 5863457 1355795752
+.
+
+\change_unchanged
+ The convergence region for second order DAC in undirected network which
+ satisfy 
+\begin_inset Formula $\rho\left(\mathbf{H}-\mathbf{J}\right)<1$
+\end_inset
+
+ is 
+\begin_inset Formula ${\cal R}={\cal R}_{1}\cup{\cal R}_{2}$
+\end_inset
+
+, where 
+\begin_inset Formula 
+\begin{eqnarray}
+{\cal R}_{1} & = & \left\{ \frac{-1}{\epsilon\lambda_{n}\left(L\right)}<\gamma<1,0<\epsilon<\frac{1}{\lambda_{n}\left(L\right)}\right\} \\
+{\cal R}_{2} & = & \left\{ \frac{-1}{\epsilon\lambda_{n}\left(L\right)}<\gamma<\frac{2}{\epsilon\lambda_{n}\left(L\right)}-1,\frac{1}{\lambda_{n}\left(L\right)}\leq\epsilon<\frac{3}{\lambda_{n}\left(L\right)}\right\} \label{eq:Def Convergence region R1 R2}
+\end{eqnarray}
 
 \end_inset
 
@@ -2208,66 +2264,7 @@ Convergence Region for second order DAC.
 
 \end_layout
 
-\begin_layout Subsubsection
-
-\change_inserted 5863457 1355796604
-Solutions for Second-order DAC Optimization
-\end_layout
-
 \begin_layout Standard
-
-\change_inserted 5863457 1355795752
-If 
-\begin_inset Formula $M=2$
-\end_inset
-
-, the HO-DAC reduce to the second-order DAC (SO-DAC) algorithm.
- In this case, the problem 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:HO-DAC Opt. Problem"
-
-\end_inset
-
- does exist an analytical solution.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5863457 1355796012
-However, the second order DAC (SO-DAC), does exist an analytical solution.
- 
-\change_inserted 5863457 1355796012
- 
-\change_unchanged
-As pointed out in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xiong2009a"
-
-\end_inset
-
-, the convergence region for second order DAC in undirected network which
- satisfy 
-\begin_inset Formula $\rho\left(\mathbf{H}-\mathbf{J}\right)<1$
-\end_inset
-
- is 
-\begin_inset Formula ${\cal R}={\cal R}_{1}\cup{\cal R}_{2}$
-\end_inset
-
-, where 
-\begin_inset Formula 
-\begin{eqnarray}
-{\cal R}_{1} & = & \left\{ \frac{-1}{\epsilon\lambda_{n}\left(L\right)}<\gamma<1,0<\epsilon<\frac{1}{\lambda_{n}\left(L\right)}\right\} \\
-{\cal R}_{2} & = & \left\{ \frac{-1}{\epsilon\lambda_{n}\left(L\right)}<\gamma<\frac{2}{\epsilon\lambda_{n}\left(L\right)}-1,\frac{1}{\lambda_{n}\left(L\right)}\leq\epsilon<\frac{3}{\lambda_{n}\left(L\right)}\right\} \label{eq:Def Convergence region R1 R2}
-\end{eqnarray}
-
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Convergence-Region"
@@ -2314,37 +2311,11 @@ reference "eq:Def Convergence region R1 R2"
 \end_inset
 
 .
- Note the dashed line separates the regions in which 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
-\end_inset
-
- are real and complex.
- In addition, optimal solution is always located on this line.
  
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-Moreover, the eigenvalues of 
+\change_inserted 936221351 1356968896
+T
+\change_unchanged
+he eigenvalues of 
 \begin_inset Formula $\mathbf{H}$
 \end_inset
 
@@ -2387,12 +2358,12 @@ reference "eq:HO-DAC Opt. Problem"
 
  can be equivalent to 
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{array}{cc}
 \mbox{Minimize } & \mbox{max}\{\left|\lambda_{2'}\left(\mathbf{H}\right)\right|,\left|\lambda_{2"}\left(\mathbf{H}\right)\right|,\left|\lambda_{n'}\left(\mathbf{H}\right)\right|,\left|\lambda_{n"}\left(\mathbf{H}\right)\right|\}\\
 \mbox{Subject to } & \epsilon,\gamma\in R
 \end{array},
-\]
+\end{equation}
 
 \end_inset
 
@@ -2418,7 +2389,11 @@ Finding the optimal solutions needs consideration of different combinations
 \end_inset
 
  when they are real value or complex value.
- However, for a connected network, the 
+ However, for a connected network
+\change_inserted 936221351 1356969918
+ and in the convergence region
+\change_unchanged
+, the 
 \begin_inset Formula $\lambda_{2'}\left(\mathbf{H}\right),\lambda_{2"}\left(\mathbf{H}\right)$
 \end_inset
 
@@ -2426,12 +2401,16 @@ Finding the optimal solutions needs consideration of different combinations
 \begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
 \end_inset
 
- are complex values in the convergence region.
- When the minimum is achieved, the following equation satisfied
+ are complex values.
+ The minimum is achieved
+\change_inserted 936221351 1356969944
+ when 
+\change_unchanged
+the following equation satisfied
 \begin_inset Formula 
-\[
+\begin{equation}
 \left|\lambda_{2'}\left(\mathbf{H}\right)\right|=\left|\lambda_{n'}\left(\mathbf{H}\right)\right|=\left|\lambda_{n"}\left(\mathbf{H}\right)\right|
-\]
+\end{equation}
 
 \end_inset
 
@@ -2459,12 +2438,6 @@ Thus, by solving this equation, we have the optimal solution for second
 \end_inset
 
 
-\change_inserted 5863457 1355795995
-
-\end_layout
-
-\begin_layout Standard
-
 \change_inserted 5863457 1355795997
 which only requires the second smallest and the largest eigenvalues of 
 \begin_inset Formula $L$
@@ -2478,7 +2451,17 @@ These parameters could be floored to all sensors before the algorithm start
 \end_layout
 
 \begin_layout Standard
-Besides these results, we need to point out that the optimal solution 
+Besides these results, 
+\change_deleted 936221351 1356970313
+we
+\change_inserted 936221351 1356970314
+it
+\change_unchanged
+ need
+\change_inserted 936221351 1356970316
+s
+\change_unchanged
+ to point out that the optimal solution 
 \family roman
 \series medium
 \shape up
@@ -2536,9 +2519,9 @@ and
 \color inherit
 ollowing relationship
 \begin_inset Formula 
-\[
+\begin{equation}
 \gamma_{opt,SO}=\frac{\left[1-\epsilon{}_{opt,SO}\lambda_{n}\left(L\right)\right]^{2}}{-4\epsilon{}_{opt,SO}\lambda_{n}\left(L\right)}
-\]
+\end{equation}
 
 \end_inset
 
@@ -2549,7 +2532,13 @@ reference "eq:2nd-DAC lambda_H solution"
 
 \end_inset
 
- is equal to zero, and 
+ is equal to zero
+\change_deleted 936221351 1356970478
+, 
+\change_inserted 936221351 1356970478
+ 
+\change_unchanged
+and 
 \family roman
 \series medium
 \shape up
@@ -2578,12 +2567,55 @@ reference "eq:2nd-DAC lambda_H solution"
 \noun default
 \color inherit
 are all real values.
- Additionally, the optimal solution is located just on the boundary of the
- regions where 
+
+\change_inserted 936221351 1356970498
+ Note the dashed line in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Convergence-Region"
+
+\end_inset
+
+ separates the regions where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right)\mbox{ and }\lambda_{n"}\left(\mathbf{H}\right)$
+\end_inset
+
+ are real and complex.
+ In addition, the optimal solution is just located on the 
+\change_deleted 936221351 1356970420
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ Additionally, the optimal solution is located just on the
+\change_unchanged
+ boundary of the regions where 
 \begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
 \end_inset
 
- is real and complex respectably, shown as dashed line in  
+ is real and complex
+\change_deleted 936221351 1356970440
+ respectably, shown as dashed line in  
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Convergence-Region"
@@ -2592,6 +2624,10 @@ reference "fig:Convergence-Region"
 
 .
  
+\change_inserted 936221351 1356970440
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -2601,7 +2637,9 @@ Simulation and Algorithms Performance
 \begin_layout Standard
 To test the performance of high-order DAC algorithm with different orders,
  a simulation is carry out on 1000 random generated networks.
- The methods and parameters of network generation are illustrated in 
+ 
+\change_deleted 936221351 1356970704
+The methods and parameters of network generation are illustrated in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Net-N16-R0,3"
@@ -2609,6 +2647,8 @@ reference "fig:Net-N16-R0,3"
 \end_inset
 
 .
+
+\change_unchanged
  The algorithm's performance is evaluated by the average spectral radius
  and average mean square error, shown in 
 \begin_inset CommandInset ref
@@ -2619,24 +2659,89 @@ reference "fig:DAC-comparation"
 
 .
  
-\change_inserted 5863457 1355794687
+\change_inserted 936221351 1356970713
 
 \end_layout
 
 \begin_layout Subsubsection
 Random Network Generation
+\change_inserted 936221351 1356970748
+
 \end_layout
 
 \begin_layout Standard
-The following is a simulation of network generation to show how the wireless
- sensor networks is distributed.
- First, we randomly and uniformly distribute a certain number of nodes in
- a unit square.
- Second, each sensor randomly choose a local initial value has equally probabili
-ty density function.
- Finally, connect any two nodes if their satisfy a certain communication
- constrains.
+The following is a 
+\change_deleted 936221351 1356970770
+simulation
+\change_inserted 936221351 1356970770
+method
+\change_unchanged
+ of network generation 
+\change_deleted 936221351 1356970787
+to show how the
+\change_inserted 936221351 1356970789
+when the
+\change_unchanged
+ wireless sensor 
+\change_deleted 936221351 1356970793
+networks
+\change_inserted 936221351 1356970795
+nodes are
+\change_unchanged
  
+\change_deleted 936221351 1356970797
+is
+\change_unchanged
+ distributed.
+
+\change_inserted 936221351 1356970833
+ The methods of network generation and communication ranges are illustrated
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Net-N16-R0,3"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 936221351 1356970833
+ 
+\change_unchanged
+First, 
+\change_deleted 936221351 1356970845
+we randomly and uniformly distribute 
+\change_unchanged
+a certain number of nodes 
+\change_inserted 936221351 1356970854
+are randomly and uniformly distributed 
+\change_unchanged
+in a unit square.
+
+\change_inserted 936221351 1356970975
+ 
+\change_unchanged
+Second, connect any two nodes if their satisfy a certain communication constrain
+s.
+ Finally, each sensor randomly choose a local initial value 
+\change_inserted 936221351 1356970869
+that 
+\change_deleted 936221351 1356970948
+has 
+\change_inserted 936221351 1356970872
+ 
+\change_deleted 936221351 1356970948
+equally
+\change_inserted 936221351 1356970913
+ obeys an uniform
+\change_unchanged
+ probability density function.
+ 
+\change_inserted 936221351 1356970934
+
 \end_layout
 
 \begin_layout Standard
@@ -2654,7 +2759,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -2695,7 +2800,7 @@ name "fig:Net-N50-E200"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -2760,7 +2865,13 @@ Randomly generated networks (a) 50 nodes and 200 edges (b) 16 nodes and
 \end_layout
 
 \begin_layout Standard
-There are some cases to generate the links between nodes.
+There are 
+\change_deleted 936221351 1356971027
+some
+\change_inserted 936221351 1356971029
+two
+\change_unchanged
+ cases to generate the links between nodes.
 \end_layout
 
 \begin_layout Case
@@ -2771,10 +2882,14 @@ reference "fig:Net-N50-E200"
 
 \end_inset
 
-, which has 50 nodes and 200 edges.The number of nodes and edges are fixed;
- 50 nodes are randomly and uniformly distribute in the unit square; a list
- that contains 200 shortest edges is created; Nodes are connected if the
- edges belongs to the list.
+, which has 50 nodes and 200 edges.
+
+\change_inserted 936221351 1356971035
+ 
+\change_unchanged
+The number of nodes and edges are fixed; 50 nodes are randomly and uniformly
+ distribute in the unit square; Any two nodes are connected if their edge
+ belongs to a list that contains 200 shortest edges.
  
 \end_layout
 
@@ -2786,8 +2901,9 @@ reference "fig:Net-N16-R0,3"
 
 \end_inset
 
- is generating by connecting any two nodes if their distance is less than
- the communication radius constrain 
+ is generating by: nodes are randomly and uniformly distribute in the unit
+ square ; connect any two nodes if their distance is less than the communication
+ radius constrain 
 \begin_inset Formula $R$
 \end_inset
 
@@ -2800,14 +2916,28 @@ Performance Comparison for Asymptotic DAC
 \end_layout
 
 \begin_layout Standard
-The 
-\change_deleted 5862369 1355762510
-figure.
+The performance for DAC algorithms with different orders are compared by
+ optimal spectral radius 
+\begin_inset Formula $\rho_{opt}=\mbox{\mbox{min}}\rho\left\{ \left(\mathbf{H}-\mathbf{J}\right)\right\} $
+\end_inset
 
-\change_inserted 5862369 1355762510
- 
+
+\change_inserted 936221351 1356971333
+.
+
 \change_unchanged
+ 
+\change_inserted 936221351 1356971330
+The spectral radius
+\change_unchanged
+ has the relationship with convergence rate given by 
+\begin_inset Formula $r_{opt}=-log\left(\rho_{opt}\right)$
+\end_inset
 
+.
+
+\change_inserted 936221351 1356971301
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:DAC-SR-comp"
@@ -2816,26 +2946,29 @@ reference "fig:DAC-SR-comp"
 
  shows the optimal spectral radius for DAC algorithms with different communicati
 on radius constraints.
- The performance for DAC algorithms with different orders are compared by
- optimal spectral radius 
-\begin_inset Formula $\rho_{opt}=\mbox{\mbox{min}}\rho\left\{ \left(\mathbf{H}-\mathbf{J}\right)\right\} $
-\end_inset
-
-, which has the relationship with convergence rate given by 
-\begin_inset Formula $r_{opt}=-log\left(\rho_{opt}\right)$
-\end_inset
-
-.
- Y-axis is corresponding to the minimum spectral radius and x-axis is correspond
-ing to the radius constrain.
- For each instance of DAC algorithm, the result is the minimum on the surface
  
+\change_unchanged
+Y-axis is corresponding to the minimum spectral radius and x-axis is correspondi
+ng to the radius constrain.
+ For each instance of DAC algorithm, the 
+\change_deleted 936221351 1356971412
+result is the
+\change_unchanged
+ minimum on the surface 
 \begin_inset Formula $\mbox{max}\{\left|\lambda_{i}\left(\mathbf{H-J}\right)\right|\}$
 \end_inset
 
  obtained by numerical searching.
- Each curve is the average of simulations realized for 1000 instance of
- DAC initialized with random local value vectors and random networks.
+ Each curve is the average 
+\change_deleted 936221351 1356971485
+of simulations
+\change_inserted 936221351 1356971474
+ obtained by
+\change_deleted 936221351 1356971477
+ realized for
+\change_unchanged
+ 1000 instance of DAC initialized with random local value vectors and random
+ networks.
 \end_layout
 
 \begin_layout Standard
@@ -2850,19 +2983,32 @@ reference "fig:DAC MSE Compare"
 
 \end_inset
 
- plots the convergence behavior of mean square error of high-order DAC algorithm
-s together with first order DAC on random network.
+ plots the convergence behavior of
+\change_inserted 936221351 1356971569
+ local value vector of high-order DAC algorithms together with first order
+ DAC in terms of
+\change_unchanged
+ mean square error (MSE) on random network.
  The MSE is defined by 
 \begin_inset Formula 
 \begin{equation}
-MSE(k)=\frac{1}{n}\sum_{i=1}^{n}\left|x_{i}(k)-\bar{x}\right|^{2}.
+MSE(k)=\frac{1}{n}\sum_{i=1}^{n}\left|x_{i}(k)-\bar{x}\right|^{2}
 \end{equation}
 
 \end_inset
 
-which Actually it is the Euclidean distance between current local vector
+which actually
+\change_deleted 936221351 1356971616
+ 
+\change_unchanged
+ is the Euclidean distance between current local vector 
+\begin_inset Formula $\mathbf{x}_{i}(k)$
+\end_inset
+
  and the global average.
- shows the result when radius constrain 
+ 
+\change_deleted 936221351 1356972875
+shows the result when radius constrain 
 \begin_inset Formula $R$
 \end_inset
 
@@ -2871,12 +3017,22 @@ which Actually it is the Euclidean distance between current local vector
 \end_inset
 
 .
+
+\change_unchanged
  In observing the gradient of curves, it is apparent that higher-order DAC
  algorithm have larger convergence rate.
  However, there are negligible improvement for the fourth order DAC compared
  to the third order one.
- Furthermore, high-order DAC has a MSE overshoot at the beginning.
- This phenomenon happens especially when communication radius is small.
+ Furthermore, high-order DAC 
+\change_inserted 936221351 1356972932
+algorithm 
+\change_unchanged
+has a MSE overshoot at the beginning.
+ This phenomenon happens especially when 
+\change_inserted 936221351 1356973066
+the 
+\change_unchanged
+communication radius is small.
  Second order DAC algorithm does have a faster convergence rate than first
  order algorithm as the slop of the curve is steeper.
  But it become worse as it converge to error tolerance 
@@ -2884,9 +3040,28 @@ which Actually it is the Euclidean distance between current local vector
 \end_inset
 
  more later than the first order algorithm.
- Therefore, A hybrid algorithm is proposed to overcome this disadvantage.
- Its step size and forgetting factor are equal to the of first order DAC
- step size and second order DAC forgetting factor respectively.
+ 
+\change_deleted 936221351 1356973089
+Therefore,
+\change_unchanged
+ A hybrid algorithm is proposed to overcome this disadvantage.
+ Its step size 
+\change_deleted 936221351 1356973117
+and forgetting factor are
+\change_inserted 936221351 1356973117
+is
+\change_unchanged
+ equal to the of first order DAC step size and
+\change_deleted 936221351 1356973115
+ 
+\change_inserted 936221351 1356973126
+ forgetting factor is equal to 
+\change_unchanged
+second order DAC forgetting factor
+\change_deleted 936221351 1356973143
+ respectively
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -2903,7 +3078,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -2942,7 +3117,7 @@ name "fig:DAC-SR-comp"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
