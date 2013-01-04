@@ -71,7 +71,7 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -2144,10 +2144,14 @@ name "fig:Find-minimum-rho(H)"
 
 \end_inset
 
- Illustration of Convergence rate optimization, 
+ Illustration of convergence rate optimization
+\change_deleted 5862369 1357317850
+
 \begin_inset Formula $\min\left\{ \mbox{max}\left[\lambda_{i}\left(\mathbf{H-J}\right)\right]\right\} ,\: i=1,2,\cdots,n$
 \end_inset
 
+
+\change_unchanged
 .
  
 \end_layout
@@ -2253,7 +2257,7 @@ name "fig:Convergence-Region"
 
 \end_inset
 
-Convergence Region for second order DAC.
+Convergence region for second order DAC.
  
 \end_layout
 
@@ -3171,8 +3175,15 @@ name "fig:DAC-comparation"
 
 \end_inset
 
-DAC algorithms comparison (a) compared by spectral radius (b) compared by
- MSE
+
+\change_inserted 5862369 1357319789
+Comparison of 
+\change_unchanged
+DAC algorithms 
+\change_deleted 5862369 1357319785
+comparison 
+\change_unchanged
+(a) compared by spectral radius (b) compared by MSE over time.
 \end_layout
 
 \end_inset

@@ -805,7 +805,7 @@ name "tab:The-parameter-of"
 
 \end_inset
 
-The parameter of a,b,c,d according to atmospheric stability
+The parameters of cloud model according to atmospheric stability
 \end_layout
 
 \end_inset
@@ -3840,8 +3840,8 @@ name "fig:Global-LLR-and"
 
 \end_inset
 
-(upper) Global LLR vs.
- Local LLR and (down) Sensor Observation (Only frame 40 to 80 is shown)
+(a) Global LLR vs.
+ Local LLR and (b) Sensor Observation (Only frame 40 to 80 is shown)
 \end_layout
 
 \end_inset
@@ -4084,7 +4084,7 @@ name "fig:ROC-of-CDWSN"
 
 \end_inset
 
-Detection relative operating characteristic for different sensors numbers
+Detection relative operating characteristic for different sensor numbers
 \end_layout
 
 \end_inset

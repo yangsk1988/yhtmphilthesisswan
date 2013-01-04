@@ -51,11 +51,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 5862369 "HT" 
 \end_header
 
 \begin_body
@@ -277,7 +278,7 @@ status open
 
 \end_inset
 
- Least mean square
+ Least Mean Square
 \begin_inset Newline newline
 \end_inset
 
@@ -292,7 +293,7 @@ status open
 
 \end_inset
 
- Maximum likelihood
+ Maximum Likelihood
 \begin_inset Newline newline
 \end_inset
 
@@ -307,7 +308,7 @@ status open
 
 \end_inset
 
- Log Likelihood ratio
+ Log Likelihood Ratio
 \begin_inset Newline newline
 \end_inset
 
@@ -322,7 +323,7 @@ status open
 
 \end_inset
 
- Global log Likelihood ratio
+ Global Log Likelihood Ratio
 \begin_inset Newline newline
 \end_inset
 
@@ -337,7 +338,7 @@ status open
 
 \end_inset
 
- Local log Likelihood ratio
+ Local Log Likelihood Ratio
 \begin_inset Newline newline
 \end_inset
 
@@ -352,7 +353,7 @@ status open
 
 \end_inset
 
- Probability density function
+ Probability Density Function
 \begin_inset Newline newline
 \end_inset
 
@@ -367,7 +368,7 @@ status open
 
 \end_inset
 
- Maximum a posteriori 
+ Maximum a Posteriori 
 \begin_inset Newline newline
 \end_inset
 
@@ -382,10 +383,12 @@ status open
 
 \end_inset
 
- Maximum likelihood 
+ Maximum Likelihood 
 \begin_inset Newline newline
 \end_inset
 
+
+\change_deleted 5862369 1357319974
 ROC 
 \begin_inset ERT
 status open
@@ -401,6 +404,8 @@ status open
 \begin_inset Newline newline
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -1016,10 +1021,7 @@ status open
 \begin_inset Formula $\epsilon$
 \end_inset
 
-
  
-\lang english
-
 \begin_inset ERT
 status open
 
@@ -1041,10 +1043,7 @@ status open
 \begin_inset Formula $\gamma$
 \end_inset
 
-
  
-\lang english
-
 \begin_inset ERT
 status open
 
@@ -1066,10 +1065,7 @@ status open
 \begin_inset Formula $\epsilon_{opt,FO}$
 \end_inset
 
-
  
-\lang english
-
 \begin_inset ERT
 status open
 
