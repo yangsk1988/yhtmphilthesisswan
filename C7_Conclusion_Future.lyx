@@ -370,12 +370,9 @@ can be
 \change_unchanged
  calculated by the DAC algorithm.
  
-\change_deleted 5862369 1355762127
- assuming sensors signals are independent
-\change_unchanged
-,
-\change_deleted 5862369 1355762127
- global log likelihood ratio is the average of local log likelihood ratio.
+\change_deleted 5862369 1357307753
+ assuming sensors signals are independent, global log likelihood ratio is
+ the average of local log likelihood ratio.
 
 \change_unchanged
  
@@ -490,9 +487,15 @@ s of the Laplacian matrix associated to the network
 .
  Therefore, optimized parameters for the old network are usually not optimal
  or not located in the convergence region for the new network.
- However, simulation result shows that constant first-order DAC algorithm
- and second-order DAC algorithm can maintain the convergence in most of
- the time, even old parameters are used.
+ However, 
+\change_deleted 5862369 1357307401
+simulation result shows
+\change_inserted 5862369 1357307401
+simulation results show
+\change_unchanged
+ that constant first-order DAC algorithm and second-order DAC algorithm
+ can maintain the convergence in most of the time, even old parameters are
+ used.
  Some research should be carried out to find out the conditions to maintain
  the convergence.
  

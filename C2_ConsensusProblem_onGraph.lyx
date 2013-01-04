@@ -338,7 +338,7 @@ consensus value
 \end_layout
 
 \begin_layout Subsection
-Consensus problem on Graphs
+Consensus Problem on Graphs
 \end_layout
 
 \begin_layout Standard
@@ -945,8 +945,8 @@ convergence
 problem.
  To provides the necessary and sufficient conditions of the graph Laplacian
  matrix so that a convergent consensus algorithm could be carried out on
- the network , some result is induced from Perron-Frobenius theorem and
- Gerschgorin's theorem
+ the network, some result is induced from Perron-Frobenius theorem and Gerschgor
+in's theorem
 \change_inserted 5862369 1355425736
  that
 \change_unchanged

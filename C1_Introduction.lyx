@@ -722,7 +722,10 @@ key "Kokiopoulou2007"
 
 \change_unchanged
  However, these optimization of DAC algorithms are centralized methods
-\change_deleted 5862369 1355068739
+\change_inserted 5862369 1357308620
+.
+ 
+\change_deleted 5862369 1357308622
 , which means a centralized node calculates the optimal parameters and forwards
  them to the whole network 
 \begin_inset CommandInset citation
@@ -731,12 +734,10 @@ key "Xiong2010"
 
 \end_inset
 
-
-\change_inserted 5862369 1355068739
- 
-\change_unchanged
 .
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard

@@ -71,7 +71,7 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -704,7 +704,7 @@ where vector
 \begin_inset Formula $\rho\left(\cdot\right)$
 \end_inset
 
- denotes the spectral radius of the matrix .
+ denotes the spectral radius of the matrix.
 \end_layout
 
 \begin_layout Standard
@@ -1712,9 +1712,12 @@ The matrix form states that when the forgetting factor
 \begin_layout Standard
 
 \change_deleted 5863457 1355794661
-Simulation result shows that, a higher order will have better convergence
- rate, but should be trade off with the algorithm complexity and computational
- cost.
+Simulation result shows
+\change_inserted 5862369 1357307190
+Simulation results show
+\change_deleted 5863457 1355794661
+ that, a higher order will have better convergence rate, but should be trade
+ off with the algorithm complexity and computational cost.
  Also only a few improvement could be achieved if we introduce larger than
  fourth order.
  

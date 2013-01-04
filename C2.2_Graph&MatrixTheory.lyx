@@ -444,7 +444,7 @@ reference "def:Irreducebility"
 \end_layout
 
 \begin_layout Subsection
-Spectral radius of a matrix
+Spectral Radius of A Matrix
 \end_layout
 
 \begin_layout Standard
@@ -692,7 +692,7 @@ reference "sec:Finite-Time-DAC-Simple"
 \end_layout
 
 \begin_layout Subsubsection
-Gerschgorin's theorem
+Gerschgorin's Theorem
 \end_layout
 
 \begin_layout Standard
@@ -1118,7 +1118,7 @@ Subtitle Generalized from Perron-Frobenius theorem
 \end_layout
 
 \begin_layout Subsection
-Diagonalizable matrix & Symmetric matrix
+Diagonalizable Matrix & Symmetric Matrix
 \end_layout
 
 \begin_layout Standard

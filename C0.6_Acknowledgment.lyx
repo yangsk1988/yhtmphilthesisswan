@@ -60,7 +60,7 @@ tabs-within-sections
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -80,14 +80,10 @@ Acknowledgment
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 5862369 1355263979
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 5862369 1355264268
 
 
 \backslash
@@ -96,26 +92,16 @@ newenvironment{acknowledgements} {
 pagestyle{empty}   
 \backslash
 begin{center} 
-\change_inserted 5863457 1355274378
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 5863457 1355274382
 
 %
-\change_inserted 5862369 1355264268
-
 \backslash
 vspace*{1.5cm} 
-\change_inserted 5863457 1355274379
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 5862369 1355264268
 
 {
 \backslash
@@ -124,26 +110,16 @@ Large
 bfseries Acknowledgements} 
 \backslash
 end{center} 
-\change_inserted 5863457 1355274384
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 5863457 1355274385
 
 %
-\change_inserted 5862369 1355264268
-
 \backslash
 vspace{0.5cm} 
-\change_inserted 5863457 1355274393
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 5862369 1355264268
 
 
 \backslash
@@ -154,13 +130,9 @@ end{quote} }
 
 \begin_layout Plain Layout
 
-\change_inserted 5862369 1355264261
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 5862369 1355263982
 
 
 \backslash
@@ -168,8 +140,6 @@ begin{acknowledgements}
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 5862369 1355263989
 
 \end_layout
 
@@ -180,13 +150,6 @@ begin{acknowledgements}
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing double
- 
 \end_layout
 
 \begin_layout Standard
@@ -218,26 +181,22 @@ Thanks to the sponsor too.
 
 \begin_layout Standard
 \paragraph_spacing double
-I would like to express my gratitude to my thesis 
-\lang british
-advisor
-\lang english
- Prof.
+I would like to express my gratitude to my thesis advisor Dr.
  Xinheng Wang for his careful guidance and his valuable comments; his patience
  and the constructive criticism helped me to organize many concepts in a
  frame.
  His encouragement has been invaluable.
- thank you so much Henry!
+ Thank you so much Henry!
 \end_layout
 
 \begin_layout Standard
 I would also like to thank Prof.
- Choi for his insightful comments.
+ Jinho Choi for his insightful comments.
  
 \end_layout
 
 \begin_layout Standard
-Their suggestions contributed to board my view of the distributed information
+Their suggestions contributed to boarden my view of the distributed information
  system and the distributed consensus problem.
  Thank you for your help and encouragement.
 \end_layout
@@ -279,39 +238,23 @@ I wish to express my personal appreciation to Avri Cui for her excellent
 
 \begin_layout Standard
 \paragraph_spacing double
-At last, I would like to sincerely thank my parents, for their encouragement
- and 
-\change_deleted 5862369 1355421688
-understanding
-\change_inserted 5862369 1355421690
-support
-\change_unchanged
- during all phases of this work.
-\change_inserted 5862369 1355264119
-
+At last, I would like to sincerely thank my parents for their encouragement
+ and support during all phases of this work.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 5862369 1355264120
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-\change_inserted 5862369 1355264120
-
 
 \backslash
 end{acknowledgements}
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
