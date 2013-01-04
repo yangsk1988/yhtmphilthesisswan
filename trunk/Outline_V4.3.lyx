@@ -6,8 +6,6 @@
 \use_default_options true
 \begin_modules
 eqs-within-sections
-figs-within-sections
-tabs-within-sections
 theorems-ams-bytype
 theorems-sec-bytype
 theorems-ams-extended-bytype
@@ -97,7 +95,8 @@ pagestyle{empty} %multiple pages
 
 \end_inset
 
-Optimized Distributed Average Consensus Algorithm and its Applications 
+Optimized Distributed Average Consensus Algorithm and its Applications in
+ Cloud Detection
 \end_layout
 
 \begin_layout Standard

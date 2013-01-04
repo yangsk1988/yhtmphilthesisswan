@@ -1230,6 +1230,8 @@ only the elements in the corresponding row of
 \noun off
 \color none
 Since 
+\change_deleted 5862369 1357307372
+
 \family default
 \series default
 \shape default
@@ -1238,7 +1240,11 @@ Since
 \bar default
 \noun default
 \color inherit
-simulation result shows that 
+simulation result shows
+\change_inserted 5862369 1357307373
+simulation results show
+\change_unchanged
+ that 
 \family roman
 \series medium
 \shape up

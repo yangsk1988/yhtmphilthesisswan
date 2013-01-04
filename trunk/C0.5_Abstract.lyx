@@ -71,14 +71,10 @@ Abstract
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 5862369 1355264619
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 5862369 1355264709
 
 
 \backslash
@@ -87,26 +83,16 @@ newenvironment{abstract} {
 pagestyle{empty}   
 \backslash
 begin{center}   
-\change_inserted 5863457 1355274752
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 5863457 1355274760
 
 %
-\change_inserted 5862369 1355264709
-
 \backslash
 vspace*{1.5cm}   
-\change_inserted 5863457 1355274755
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 5862369 1355264709
 
 {
 \backslash
@@ -115,38 +101,22 @@ Large
 bfseries  Abstract}   
 \backslash
 end{center}  
-\change_deleted 5863457 1355274764
- 
-\change_inserted 5863457 1355274764
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 5863457 1355274762
 
 %
-\change_inserted 5862369 1355264709
-
 \backslash
 vspace{0.5cm}   
-\change_inserted 5863457 1355274763
-
 \end_layout
 
 \begin_layout Plain Layout
 
-\change_deleted 5863457 1355274763
-
- 
-\change_inserted 5862369 1355264709
 
 \backslash
 begin{quote}} {
 \backslash
 end{quote} }
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -156,25 +126,21 @@ end{quote} }
 
 \begin_layout Standard
 
-\change_inserted 5862369 1355264568
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-\change_inserted 5862369 1355264569
-
 
 \backslash
 begin{abstract} 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -191,14 +157,13 @@ thispagestyle{empty}
 
 \end_inset
 
-Distributed information processing has attract more interest recently because
- its advantages in distributed network than centralized method.
+Distributed information processing has attracted more interests recently
+ because of its advantages in distributed network than centralized method.
  One of the tools of distributed signal processing is the distributed consensus
  algorithm.
  If the consensus algorithm is to find the average value over the network,
- the algorithm is called the distributed average consensus (DAC), which
- is an matrix iterative algorithm to find the dominant eigenvector of the
- matrix.
+ the algorithm is called distributed average consensus (DAC), which is a
+ matrix iterative algorithm to find the dominant eigenvector of the matrix.
  Generally, the algorithm is required to return the result more quickly
  so that the distributed system can have 
 \change_deleted 5863457 1355710508
@@ -209,7 +174,15 @@ a higher
  data processing performance.
  Therefore, many efforts have been devoted into the optimization of the
  distributed average algorithm.
- However, most of the optimization are centralized method so
+ However, most of the optimization
+\change_inserted 5862369 1357316774
+s
+\change_unchanged
+ are centralized method
+\change_inserted 5862369 1357316780
+s
+\change_unchanged
+ so
 \change_inserted 5863457 1355710592
  that
 \change_unchanged
@@ -228,23 +201,50 @@ Consequently, we proposed a distributed real-time optimization for the DAC
 \change_inserted 5863457 1355710630
 not only 
 \change_unchanged
-in low computation time 
+in 
+\change_deleted 5862369 1357316798
+low
+\change_inserted 5862369 1357316799
+short
+\change_unchanged
+ computation time 
 \change_inserted 5863457 1355710634
 but also 
+\change_deleted 5862369 1357316805
+and
 \change_unchanged
-and can work simultaneously with the consensus algorithm.
+ can work simultaneously with the consensus algorithm.
  
+\change_inserted 5862369 1357307178
+Simulation results show
 \change_inserted 5863457 1355710721
-Simulation result shows that the DAC algorithms using centralized optimization
- and proposed optimization have similar performances in convergence rate,
- when floating point number with double format is used and the network size
- is less than 32.
+ that the DAC algorithms using centralized optimization and proposed optimizatio
+n have similar performance
+\change_deleted 5862369 1357316824
+s
+\change_inserted 5863457 1355710721
+ in convergence rate, when floating point number 
+\change_deleted 5862369 1357316857
+with
+\change_inserted 5862369 1357316857
+in
+\change_inserted 5863457 1355710721
+ double format is used and the network size is less than 32.
  
 \change_unchanged
 Later, an application of cloud detection is given where optimized DAC algorithms
  are applied to perform the hypothesis testing.
- In addition, the performances of the detection system with different number
- of sensors are plotted using relative operating characteristic curves.
+ In addition, the performance
+\change_deleted 5862369 1357316867
+s
+\change_unchanged
+ of the detection system with different number of sensors 
+\change_deleted 5862369 1357316893
+are plotted 
+\change_inserted 5862369 1357316898
+ is evalueated 
+\change_unchanged
+using relative operating characteristic curves.
  It is shown that 
 \change_deleted 5863457 1355710844
 the
@@ -271,26 +271,18 @@ Distributed Consensus algorithm has application in data fusion in wireless
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 5862369 1355264581
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-\change_inserted 5862369 1355264582
-
 
 \backslash
 end{abstract}
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 

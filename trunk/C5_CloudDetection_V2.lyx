@@ -6,8 +6,6 @@
 \use_default_options true
 \begin_modules
 eqs-within-sections
-figs-within-sections
-tabs-within-sections
 theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
@@ -61,7 +59,7 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -320,7 +318,7 @@ To overcome unreliability of sensor nodes and interference for outdoor remote
 
 \begin_layout Standard
 Signal can be processed distributively by distributed average consensus
- (DAC) algorithm .
+ (DAC) algorithm.
  The word consensus means each node would have an agreement on the declaration
  of the target after the algorithm.
  In addition, each node only broadcast its local value until the algorithm
@@ -338,7 +336,7 @@ key "Xiao2004"
 \end_layout
 
 \begin_layout Section
-Background and System model 
+Background and System Model 
 \end_layout
 
 \begin_layout Standard
@@ -704,7 +702,7 @@ where
 \begin_inset Formula $H$
 \end_inset
 
- the source height .
+ the source height.
 
 \family default
 \series default
@@ -1562,7 +1560,7 @@ In addition, if the surrounding air is assumed to be moving towards the
 \begin_inset Formula $u$
 \end_inset
 
- .
+.
  The model changes into
 \end_layout
 
@@ -1798,7 +1796,7 @@ name "fig:2-D-Gaussian-Plume"
 \end_layout
 
 \begin_layout Subsection
-Simulated Cloud by fluid dynamics
+Simulated Cloud by Fluid Dynamics
 \end_layout
 
 \begin_layout Standard
@@ -4235,21 +4233,17 @@ interference
 \begin_layout Standard
 Second, the parameters of cloud plume should be should be treated as unknown
  random variable, such as the position of the plume
-\change_inserted 5862369 1353452587
+\change_inserted 5862369 1357307652
 , the diffusion coefficient, wind speed
 \change_unchanged
  
-\change_inserted 5862369 1353451777
+\change_inserted 5862369 1357307652
 and so on.
  
-\change_deleted 5862369 1353451758
-should be treated as random
-\change_unchanged
-.
- 
-\change_deleted 5862369 1353451783
-Therefore,
-\change_inserted 5862369 1353451789
+\change_deleted 5862369 1357307642
+should be treated as random.
+ Therefore,
+\change_inserted 5862369 1357307645
  At the same time
 \change_unchanged
  sensors need to be able to estimate these parameters from their observation.
