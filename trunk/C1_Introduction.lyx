@@ -75,6 +75,30 @@ theorems-ams-bytype
 
 \begin_layout Chapter
 Introduction 
+\change_inserted 5863457 1357331085
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1357331086
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 5863457 1357331086
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -114,12 +138,6 @@ Introduction
 
 \change_deleted 5862369 1355082321
 )
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-(DONE
 \end_layout
 
 \begin_layout Standard
@@ -214,7 +232,11 @@ one option is gathering
 \change_unchanged
  all information 
 \change_inserted 5862369 1355072943
-need 
+need
+\change_inserted 5863457 1357331586
+s
+\change_inserted 5862369 1355072943
+ 
 \change_unchanged
 to 
 \change_inserted 5862369 1355072943
@@ -288,9 +310,22 @@ Once it is destroyed or failed, the whole network breaks down.
 
 \change_inserted 5862369 1355073974
  In addition, as data gathering is an energy consuming process, centralized
- signal processing is limited due to energy constrain of mobile nodes.
- Moreover, there is unbalance energy consumption between nodes with different
- communication loads 
+ signal processing is limited due to energy constrain
+\change_inserted 5863457 1357331640
+s
+\change_inserted 5862369 1355073974
+ of 
+\change_deleted 5863457 1357331643
+mobile
+\change_inserted 5863457 1357331645
+sensor
+\change_inserted 5862369 1355073974
+ nodes.
+ Moreover, there is unbalance
+\change_inserted 5863457 1357331658
+d
+\change_inserted 5862369 1355073974
+ energy consumption between nodes with different communication loads 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Cristescu2004"
@@ -378,13 +413,17 @@ However, not all the signal processing can be distributed
 \change_unchanged
 Many
 \change_inserted 5862369 1355074003
- processing algorithm are still implemented by centralized method.
+ processing algorithm
+\change_inserted 5863457 1357331671
+s
+\change_inserted 5862369 1355074003
+ are still implemented by centralized method.
 \change_unchanged
 
 \end_layout
 
 \begin_layout Standard
-Distributed average consensus (DAC) algorithm
+Distributed Average Consensus (DAC) algorithm
 \change_inserted 5862369 1355073823
  is a tool for distributed information processing.
  It
@@ -486,8 +525,19 @@ consensus value
 \begin_layout Standard
 
 \change_inserted 5862369 1355074163
-In different applications, DAC algorithms may also need a little modification.
- For example, in distributed tracking of a moving target by wireless sensor
+In different applications, DAC algorithms may also need a little modification
+\change_deleted 5863457 1357331701
+.
+\change_inserted 5863457 1357331701
+,
+\change_inserted 5862369 1355074163
+ 
+\change_deleted 5863457 1357331703
+F
+\change_inserted 5863457 1357331703
+f
+\change_inserted 5862369 1355074163
+or example, in distributed tracking of a moving target by wireless sensor
  networks.
  Suppose each sensor is observing the target coordinates but the output
  is corrupted by independent and identically distributed zero-mean Gaussian
@@ -495,11 +545,35 @@ In different applications, DAC algorithms may also need a little modification.
  take the average of all initial values.
  In distributed hypothesis testing, the goal is to find the production of
  the global likelihood ratio which is the product of the local likelihood
- ratio.
- Therefore, each sensor first calculate the log of the local likelihood
- ratio and substitute it into the DAC algorithm.
- The average obtained by DAC algorithm multiplied with the number of nodes
- in the network is log of global likelihood ratio.
+ ratio
+\change_inserted 5863457 1357331725
+s
+\change_inserted 5862369 1355074163
+.
+ Therefore, each sensor first calculate
+\change_inserted 5863457 1357331734
+s
+\change_inserted 5862369 1355074163
+ the log of the local likelihood ratio and substitute
+\change_inserted 5863457 1357331744
+s
+\change_inserted 5862369 1355074163
+ it into the DAC algorithm.
+ The 
+\change_inserted 5863457 1357331801
+log of global likelihood ratio is the 
+\change_inserted 5862369 1355074163
+average obtained by DAC algorithm multiplied 
+\change_deleted 5863457 1357331758
+with
+\change_inserted 5863457 1357331758
+by
+\change_inserted 5862369 1355074163
+ the number of nodes in the network
+\change_deleted 5863457 1357331808
+ is log of global likelihood ratio
+\change_inserted 5862369 1355074163
+.
 \end_layout
 
 \begin_layout Standard
@@ -509,8 +583,11 @@ In practice, DAC algorithms also face the challenges of link failure, time
  delay, dynamic network, asynchronous communication and other practical
  aspects.
  Therefore, a simple but reliable solution sometimes performs better.
- First-order DAC algorithms have been proved to be robust against  topology
- changes and they play important roles in practice 
+ First-order DAC algorithms have been proved to be robust against
+\change_deleted 5863457 1357331842
+ 
+\change_inserted 5862369 1355435949
+ topology changes and they play important roles in practice 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ren2007"
@@ -525,16 +602,18 @@ Its
 The
 \change_inserted 5862369 1355435949
  optimization
-\change_deleted 5863457 1355580011
- 
-\change_inserted 5863457 1355580012
-of first-order DAC algorithms 
+\change_inserted 5863457 1357331838
+ of first-order DAC algorithms 
 \change_inserted 5862369 1355435949
 in a dynamic network still attract lots of
 \change_inserted 5863457 1355580025
  research
 \change_inserted 5862369 1355435949
- interest 
+ interest
+\change_inserted 5863457 1357331848
+s
+\change_inserted 5862369 1355435949
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jakovetic2010"
@@ -566,7 +645,7 @@ Motivation of Research
 
 \change_inserted 5863457 1354553232
 The research is motivated by the distributed detection of cloud using WSN.
- One of the properties of mobile sensor nodes is the limited 
+ One of the properties of sensor nodes is the limited 
 \change_deleted 5862369 1355069314
 energe
 \change_inserted 5862369 1355069314
@@ -589,10 +668,10 @@ laser sensing
  technology
 \change_deleted 5862369 1354637313
  similar to LIDAR
-\change_inserted 5863457 1354553232
+\change_inserted 5863457 1357333269
 .
- It emit a laser to illuminate the cloud and collect the backscatters to
- 
+ It emits a laser to illuminate the cloud and collects the backscatters
+ to 
 \change_deleted 5862369 1354637341
 sample
 \change_inserted 5862369 1354637343
@@ -777,7 +856,11 @@ key "Sundaram2007"
 
 \end_inset
 
- verify that there exists a 
+ verify that there exists a
+\change_inserted 5863457 1357333278
+n
+\change_unchanged
+ 
 \change_inserted 5863457 1354553338
 FIR 
 \change_unchanged
@@ -819,8 +902,12 @@ have a first-order DAC running in the background and the
 \begin_layout Standard
 
 \change_inserted 5862369 1355069214
-To enable the whole system work distributively, the DAC algorithms should
- be robust against topology changes and the optimization should be distributed.
+To enable the whole system 
+\change_inserted 5863457 1357333293
+to 
+\change_inserted 5862369 1355069214
+work distributively, the DAC algorithms should be robust against topology
+ changes and the optimization should be distributed.
  
 \end_layout
 
@@ -834,7 +921,13 @@ key "Boyd2006"
 
 \end_inset
 
- can be used to optimize the first order DAC but it converges very slowly.
+ can be used to optimize the 
+\change_deleted 5863457 1357333325
+first order DAC
+\change_inserted 5863457 1357333325
+first-order DAC
+\change_inserted 5862369 1355069004
+ but it converges very slowly.
  The method involves triple nested distributed matrix iterations.
  The inner iteration has to converge to a certain range so that the iteration
  outside can return the right result.
@@ -881,13 +974,7 @@ be executed
 \end_layout
 
 \begin_layout Subsection
-To Detect The Cloud Plume 
-\change_deleted 5863457 1355325688
-B
-\change_inserted 5863457 1355325688
-b
-\change_unchanged
-y Laser Sensor
+To Detect The Cloud Plume by Laser Sensor
 \end_layout
 
 \begin_layout Standard
@@ -953,7 +1040,17 @@ penetrate
 integration
 \change_inserted 5862369 1354570235
  along the laser beam in that range.
- Consequently, a new cloud plume model need to be obtained by take 
+ Consequently, a new cloud plume model need
+\change_inserted 5863457 1357333786
+s
+\change_inserted 5862369 1354570235
+ to be obtained by tak
+\change_inserted 5863457 1357333792
+ing
+\change_deleted 5863457 1357333791
+e
+\change_inserted 5862369 1354570235
+ 
 \change_unchanged
 integration
 \change_inserted 5862369 1354570235
@@ -988,8 +1085,14 @@ production of the
  global likelihood ratio, each sensor first 
 \change_unchanged
 calculate
+\change_inserted 5863457 1357333802
+s
 \change_inserted 5862369 1354570298
- the log of the local likelihood ratio and substitute it into the DAC 
+ the log of the local likelihood ratio and substitute
+\change_inserted 5863457 1357333805
+s
+\change_inserted 5862369 1354570298
+ it into the DAC 
 \change_unchanged
 algorithm
 \change_inserted 5862369 1354570298
@@ -1041,7 +1144,7 @@ d
 
 \begin_layout Standard
 In addition, the proposed distributed eigenvalue estimation algorithm could
- be an alternative of algebra connectivity estimation, such as 
+ be an alternative of algebra connectivity estimation 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Yang2010"
@@ -1049,13 +1152,37 @@ key "Yang2010"
 \end_inset
 
 .
- The proposed method could obtain the result with sufficient numerical accuracy.
- Matrix iterations only need to be executed for times in order of 
+ 
+\change_deleted 5863457 1357334125
+T
+\change_inserted 5863457 1357334127
+By t
+\change_unchanged
+he proposed method
+\change_inserted 5863457 1357334153
+,
+\change_unchanged
+ 
+\change_inserted 5863457 1357334144
+the times of 
+\change_unchanged
+matrix iterations 
+\change_inserted 5863457 1357333996
+can be reduced to 
+\change_deleted 5863457 1357334010
+only need to be executed for times in
+\change_inserted 5863457 1357334011
+ the
+\change_unchanged
+ order of 
 \begin_inset Formula $n$
 \end_inset
 
-.
- 
+
+\change_inserted 5863457 1357334214
+ and the result is obtained with sufficient numerical accuracy.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1151,10 +1278,8 @@ is
 are
 \change_unchanged
  generated
-\change_deleted 5863457 1355708892
- for
-\change_inserted 5863457 1355708894
-to test the detection
+\change_inserted 5863457 1357334252
+ to test the detection
 \change_unchanged
  algorithm
 \change_inserted 5863457 1355708897
@@ -1201,10 +1326,10 @@ Outline
 This thesis is structured as follows: 
 \change_deleted 5862369 1355762043
 Chapter
-\change_inserted 5862369 1355762043
- 
-\change_unchanged
+\change_deleted 5863457 1357334307
   
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "chap:Consensus-problem-on"
@@ -1216,8 +1341,10 @@ reference "chap:Consensus-problem-on"
  In 
 \change_deleted 5862369 1355762048
 chapter
+\change_deleted 5863457 1357334307
+ 
 \change_unchanged
-  
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "chap:Finite-time-DAC-Gen"
@@ -1229,11 +1356,9 @@ reference "chap:Finite-time-DAC-Gen"
 \change_deleted 5863457 1355708967
 Compared to the previous version of finite-time DAC, the number of iterations
  can be reduced.
- In 
-\change_deleted 5862369 1355762049
-chapter
-\change_unchanged
  
+\change_unchanged
+ In 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "chap:Online-Optimization-of"
@@ -1246,8 +1371,12 @@ reference "chap:Online-Optimization-of"
  is proposed
 \change_unchanged
 .
- Finally, a distributed detection of cloud plume using wireless sensor networks
- and the DAC algorithm will be introduced in 
+ 
+\change_inserted 5863457 1357334351
+A
+\change_unchanged
+ distributed detection of cloud plume using wireless sensor networks and
+ the DAC algorithm will be introduced in 
 \change_deleted 5862369 1355762051
 chapter
 \change_unchanged
@@ -1260,6 +1389,8 @@ reference "chap:DAC-Cloud-Detection"
 
 .
  
+\change_inserted 5863457 1357334361
+Finally, 
 \change_deleted 5862369 1355762053
 Chapter
 \change_unchanged

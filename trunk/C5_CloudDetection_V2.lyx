@@ -90,6 +90,22 @@ Detection
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 In this chapter, the DAC algorithm will be applied to the remote detection
  of cloud, which is to find out a group harmful liquids, solid particles
  or gases floated in the air.

@@ -51,7 +51,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -514,36 +514,6 @@ status open
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\mathcal{V}$
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Set of nodes 
-\begin_inset Formula $\mathcal{V}=\left\{ v_{1},v_{2},...,v_{n}\right\} $
-\end_inset
-
- in the graph 
-\begin_inset Formula ${\cal G}$
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula $v_{i}$
 \end_inset
 
@@ -570,6 +540,36 @@ status open
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Set of nodes in the graph 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{V}=\left\{ v_{1},v_{2},...,v_{n}\right\} $
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula $\mathcal{E}$
 \end_inset
 
@@ -584,12 +584,12 @@ status open
 
 \end_inset
 
- Set of edges 
-\begin_inset Formula $\mathcal{E}\subseteq\mathcal{V}\times\mathcal{V}$
+ Set of edges in the graph 
+\begin_inset Formula ${\cal G}$
 \end_inset
 
- in the graph 
-\begin_inset Formula ${\cal G}$
+, 
+\begin_inset Formula $\mathcal{E}\subseteq\mathcal{V}\times\mathcal{V}$
 \end_inset
 
 
@@ -688,7 +688,7 @@ status open
 
 \end_inset
 
- weight matrix of higher-order DAC algorithm 
+ Weight matrix of higher-order DAC algorithm 
 \begin_inset Newline newline
 \end_inset
 
@@ -714,7 +714,7 @@ status open
 \begin_inset Formula $i^{th}$
 \end_inset
 
-eigenvalue of weight matrix 
+eigenvalue of matrix 
 \begin_inset Formula $A$
 \end_inset
 
@@ -764,7 +764,7 @@ status open
 
 \end_inset
 
- Spectrum of of the matrix 
+ Spectrum of matrix 
 \begin_inset Formula $A$
 \end_inset
 
@@ -877,10 +877,6 @@ status open
 \end_inset
 
  Eigenvalue of Laplacian matrix 
-\begin_inset Formula $L=L\left({\cal G}\right)$
-\end_inset
-
-
 \begin_inset Newline newline
 \end_inset
 
@@ -979,7 +975,7 @@ status open
 \end_inset
 
  Local value of node 
-\begin_inset Formula $i$
+\begin_inset Formula $v_{i}$
 \end_inset
 
  at time index 
@@ -1216,7 +1212,7 @@ status open
 
 \end_inset
 
- local polynomial of 
+ Local minimal polynomial of 
 \begin_inset Formula $W$
 \end_inset
 

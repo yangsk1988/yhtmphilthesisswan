@@ -104,31 +104,25 @@ distributed
 \change_unchanged
 averaging consensus problem can be solved not only by DAC algorithms, but
  also in many other ways, such as flooding, gossip and so on.
- In the flooding algorithm, each sensor maintains a table of 
+ In the flooding algorithm
+\change_inserted 5863457 1357342317
+s
+\change_unchanged
+, each sensor maintains a table of 
 \change_deleted 936221351 1356958722
 all sensors
 \change_inserted 936221351 1356958725
 local
 \change_unchanged
- values which initialize by 
-\change_deleted 936221351 1356958732
-its
-\change_unchanged
- 
-\change_deleted 936221351 1356958729
-local
-\change_inserted 936221351 1356958735
-all sensor's
-\change_unchanged
- 
+ values which initialize by its local 
 \change_inserted 936221351 1356958741
 intial 
 \change_unchanged
 value.
  At each iteration of the flooding algorithm, every node exchanges the table
  with their neighbors.
- After enough steps, which is larger than the diameter of the network.
- Every node will get all the initial value
+ After enough steps, which is larger than the diameter of the network, every
+ node will get all the initial value
 \change_inserted 936221351 1356958758
 s
 \change_unchanged
@@ -175,7 +169,11 @@ estimates
 \change_deleted 936221351 1356959394
 update
 \change_inserted 936221351 1356959401
-change the local values
+change the
+\change_inserted 5863457 1357342509
+ir
+\change_inserted 936221351 1356959401
+ local values
 \change_unchanged
  to the average
 \change_deleted 936221351 1356959415
@@ -197,12 +195,23 @@ plays an important role in the practical
 \change_unchanged
 .
  They are already applied to network with a large number of nodes and proofed
- to be robust against the topology variation.
+ to be robust against the topology variation
+\change_inserted 5863457 1357342604
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ren2007"
+
+\end_inset
+
+
+\change_unchanged
+.
  
 \change_deleted 936221351 1356959455
 Once the network graph is strong connected, the convergence to global consensus
  value is guaranteed
-\change_unchanged
+\change_deleted 5863457 1357342590
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -211,9 +220,16 @@ key "Ren2007"
 \end_inset
 
 .
- In this section, we start from the first-order DAC algorithm and then expand
- the algorithm to higher-order in order to yields a higher the convergence
- rate.
+ 
+\change_inserted 5863457 1357342604
+ 
+\change_unchanged
+In this section, we start from the first-order DAC algorithm and then expand
+ the algorithm to higher-order in order to yields a higher 
+\change_deleted 5863457 1357342613
+the
+\change_unchanged
+ convergence rate.
 \end_layout
 
 \begin_layout Subsection
@@ -228,8 +244,8 @@ Discrete First Order Distributed Consensus Algorithm
 
 \begin_layout Standard
 
-\change_inserted 5863457 1355792559
-On the network 
+\change_inserted 5863457 1357342623
+For the network 
 \begin_inset Formula ${\cal G}$
 \end_inset
 
@@ -241,17 +257,7 @@ the first-order DAC (FO-DAC) algorithm
 \change_unchanged
  
 \change_inserted 5863457 1355792840
-obtains the average by the iterations which update the local value of node
- 
-\begin_inset Formula $i$
-\end_inset
-
- at each time-step 
-\begin_inset Formula $k$
-\end_inset
-
- by a weighted sum of node’s local values one time step before, given by
- 
+obtains the average by the iterations given by 
 \change_unchanged
 
 \end_layout
@@ -299,27 +305,6 @@ where
 \end_inset
 
 , 
-\change_deleted 5863457 1355792672
-
-\begin_inset Formula $w_{ij}=0$
-\end_inset
-
- if 
-\begin_inset Formula $(i,j)\notin\mathcal{E}$
-\end_inset
-
-.
- Note that we define a weight to node 
-\begin_inset Formula $i$
-\end_inset
-
- itself 
-\begin_inset Formula $w_{ii}=1-\sum_{j\in\mathcal{N}_{i}}w_{ij}$
-\end_inset
-
-,
-\change_inserted 5863457 1355792681
-
 \begin_inset Formula $w_{ij}=a_{ij}$
 \end_inset
 
@@ -336,7 +321,16 @@ where
 \end_inset
 
 .
-  The weight to 
+ The local value at time 
+\begin_inset Formula $k+1$
+\end_inset
+
+ is a weighted sum of node’s local values one time 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ The weight to 
 \begin_inset Formula $v_{i}$
 \end_inset
 
@@ -344,9 +338,7 @@ where
 \begin_inset Formula $w_{ii}=1-\sum_{j\in\mathcal{N}_{i}}w_{ij}$
 \end_inset
 
-,
-\change_unchanged
- so that the sum of all weights equals to one, 
+, so that the sum of all weights equals to one, 
 \begin_inset Formula $\sum_{j=1}^{n}w_{ij}=1$
 \end_inset
 
@@ -671,7 +663,7 @@ s
 
 \begin_inset Formula 
 \begin{equation}
-\lim_{k\rightarrow\infty}W^{k}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}.\label{eq:convege condition W}
+\lim_{k\rightarrow\infty}W^{k}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}\label{eq:convege condition W}
 \end{equation}
 
 \end_inset
@@ -715,7 +707,15 @@ reference "eq: Converge condition W_Left"
 
 \end_inset
 
- means that has a left eigenvector 
+ means that 
+\change_inserted 5863457 1357342889
+
+\begin_inset Formula $W$
+\end_inset
+
+ 
+\change_unchanged
+has a left eigenvector 
 \begin_inset Formula $\mathbf{1}$
 \end_inset
 
@@ -786,12 +786,15 @@ reference "eq:Converge cond. rhu<1"
 
 \end_inset
 
- means that 
+ mean that 
 \begin_inset Formula $W$
 \end_inset
 
- have a simple eigenvalue equals to one, and modular of all other eigenvalues
- are less than one.
+ has a simple eigenvalue 
+\change_inserted 5863457 1357342974
+that 
+\change_unchanged
+equals to one, and modular of all other eigenvalues are less than one.
 \end_layout
 
 \begin_layout Lemma
@@ -817,11 +820,15 @@ If
 \begin_inset Formula $\lim_{k\rightarrow\infty}W^{k}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}$
 \end_inset
 
-, the matrix 
+, matrix 
 \begin_inset Formula $W-\mathbf{11}^{\mathrm{T}}/n$
 \end_inset
 
- share the same eigenvalues as matrix 
+ share
+\change_inserted 5863457 1357343002
+s
+\change_unchanged
+ the same eigenvalues as matrix 
 \begin_inset Formula $W$
 \end_inset
 
@@ -845,7 +852,7 @@ reference "eq: Converge condition W_Left"
 \end_inset
 
  associated with eigenvalue one.
- And Eq.
+ Eq.
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq: Converge condition W_right"
@@ -877,7 +884,11 @@ reference "eq: Converge condition W_right"
 \begin_inset Formula $\lim_{k\rightarrow\infty}W^{k}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}$
 \end_inset
 
- exists if and only if there exists a  matrix 
+ exists if and only if there exists a
+\change_deleted 5863457 1357343033
+ 
+\change_unchanged
+ matrix 
 \begin_inset Formula $U$
 \end_inset
 
@@ -927,7 +938,11 @@ where
 \begin_inset Formula $\left(0\leq r_{i}\leq n\right)$
 \end_inset
 
- and all other Jordan block are convergent, i.e.
+ and all other Jordan block
+\change_inserted 5863457 1357343070
+s
+\change_unchanged
+ are convergent, i.e.
  
 \begin_inset Formula $\rho\left(J_{i}\right)<1,2\leq i\leq m$
 \end_inset
@@ -989,7 +1004,13 @@ As the property of unitary matrix
 \begin_inset Formula $v_{i}$
 \end_inset
 
- are set of orthogonal normal vectors, each 
+ are sets of 
+\change_deleted 5863457 1357343138
+orthogonal normal
+\change_inserted 5863457 1357343141
+ independent
+\change_unchanged
+ vectors, each 
 \begin_inset Formula $u_{i}v_{i}^{T}$
 \end_inset
 
@@ -1038,7 +1059,7 @@ reference "eq:u*v=11"
 \begin_inset Formula $W-\dfrac{\mathbf{11}^{\mathrm{T}}}{n}$
 \end_inset
 
- have the same Jordan decomposition as 
+ has the same Jordan decomposition as 
 \begin_inset Formula $W$
 \end_inset
 
@@ -1046,19 +1067,14 @@ reference "eq:u*v=11"
 \begin_inset Formula $J_{1}$
 \end_inset
 
- is replaced by zero, and all other Jordan block remain the same.
+ is replaced by zero, and all other Jordan blocks remain the same.
  This completes the proof.
  
 \end_layout
 
 \begin_layout Standard
-The convergence rate of the 
-\change_deleted 5863457 1355796583
-FO-DCA
-\change_inserted 5863457 1355796583
-FO-DAC
-\change_unchanged
- is related to the spectral radius of matrix 
+The convergence rate of the FO-DAC is related to the spectral radius of
+ matrix 
 \begin_inset Formula $W-\dfrac{\mathbf{11}^{\mathrm{T}}}{n}$
 \end_inset
 
@@ -1218,14 +1234,8 @@ set all edges
 is
 \change_unchanged
  symmetric
-\change_deleted 5863457 1355793219
+\change_deleted 5863457 1357343206
  and their weights equal to the constant 
-\begin_inset Formula $\epsilon$
-\end_inset
-
-
-\change_inserted 5863457 1355793219
-.
 \change_unchanged
 .
  A special weight to a node itself is chosen to be 
@@ -1494,9 +1504,10 @@ where
 
 \begin_layout Standard
 
-\change_inserted 5863457 1355794211
-This would be a very practical option because nodes in a distributed network
- usually doesn't have any knowledge of the whole network topology.
+\change_inserted 5863457 1357343333
+This weight matrix would be very easy to implemented in practical, because
+ nodes in the distributed network doesn't need to have any knowledge of
+ the whole network topology.
  
 \change_unchanged
 
@@ -1567,10 +1578,10 @@ Discrete High Order Distributed Consensus Algorithm
 
 \begin_layout Standard
 
-\change_inserted 5863457 1355796593
+\change_inserted 5863457 1357343349
 Higher-order DAC (HO-DAC) algorithm can be easily implemented by storing
  past data, which is potentially faster than FO-DCA and doesn't require
- additional communication.
+ additional communications.
  However, compared to the third-order DAC algorithm, fourth order algorithm
  can only achieve a negligible improvement   
 \begin_inset CommandInset citation
@@ -1608,8 +1619,8 @@ In a time-invariant network
  higher-order DAC algorithm has the form
 \begin_inset Formula 
 \begin{eqnarray}
-x_{i}(k) & = & x_{i}(k-1)-\epsilon\sum_{m=1}^{M}c_{m}(-\gamma)^{m-1}\Delta x_{i}(k,m),\label{eq:Iteration Second order x_i(k)}\\
-\Delta x_{i}(k,m) & = & \sum_{j\in\mathcal{N}_{i}}\left(x_{i}\left(k-m\right)-x_{j}\left(k-m\right)\right),
+x_{i}(k) & = & x_{i}(k-1)-\epsilon\sum_{m=1}^{M}c_{m}(-\gamma)^{m-1}\Delta x_{i}(k,m)\label{eq:Iteration Second order x_i(k)}\\
+\Delta x_{i}(k,m) & = & \sum_{j\in\mathcal{N}_{i}}\left(x_{i}\left(k-m\right)-x_{j}\left(k-m\right)\right)
 \end{eqnarray}
 
 \end_inset
@@ -1818,12 +1829,12 @@ where
 
 \begin_layout Standard
 
-\change_inserted 5863457 1355795069
+\change_inserted 5863457 1357343401
 Note that the deflated matrix 
 \begin_inset Formula $\mathbf{H}-\mathbf{J}$
 \end_inset
 
- has the same eigenvalues with 
+ has the same eigenvalue as 
 \begin_inset Formula $H$
 \end_inset
 
@@ -1834,6 +1845,38 @@ Note that the deflated matrix
  is replaced by zero.
  Therefore, the high-order DAC optimization problem can be formulated by
 \change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5863457 1357343496
+Then a spectral radius minimization problem to find the optimal 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ for the high-order DAC algorithm is formulated as
+\change_inserted 5863457 1357343496
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+\mbox{\mbox{Minimize }} & \rho\left(\mathbf{H}-\mathbf{J}\right)\\
+\mbox{Subject to } & \epsilon,\gamma\in R
+\end{array}\label{eq: High order spectral radius problem}
+\end{equation}
+
+\end_inset
+
 
 \end_layout
 
@@ -1854,33 +1897,10 @@ key "Xiong2010"
 \end_inset
 
 .
- Then a spectral radius minimization problem to find the optimal 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- and 
-\begin_inset Formula $\gamma$
-\end_inset
-
- for the high-order DAC algorithm is formulated as
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\begin{array}{cc}
-\mbox{\mbox{Minimize }} & \rho\left(\mathbf{H}-\mathbf{J}\right)\\
-\mbox{Subject to } & \epsilon,\gamma\in R
-\end{array},\label{eq: High order spectral radius problem}
-\end{equation}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection
-Solve The 
+Solve the 
 \change_inserted 5863457 1355795241
 Optimization Problem of HO-DAC
 \change_deleted 5863457 1355795244
@@ -1906,17 +1926,17 @@ reference "eq: High order spectral radius problem"
 
 \begin_layout Standard
 
-\change_inserted 5863457 1355795348
+\change_inserted 5863457 1357343644
 The spectral radius is related to eigenvalues of Laplacian matrix.
  In the optimization problem of HO-DAC, eigenvalues of the associated graph
- Laplacian matrix or weight matrix must known.
+ Laplacian matrix or weight matrix must be known.
  
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted 5863457 1355795348
-Finding the solution is not easy due to we have to solve the high-order
+\change_inserted 5863457 1357343661
+Finding the solution is not easy because we have to solve the high-order
  polynomial to calculate eigenvalues.
  
 \end_layout
@@ -1971,7 +1991,7 @@ key "Xiong2010"
 
 \begin_layout Standard
 
-\change_inserted 5863457 1355795377
+\change_inserted 5863457 1357343674
 Since each 
 \begin_inset Formula $\lambda_{i}(L),\; i=1,2,\cdots,n$
 \end_inset
@@ -1984,7 +2004,7 @@ Since each
 \begin_inset Formula $M\times n$
 \end_inset
 
- eigenvalue for 
+ eigenvalues for 
 \begin_inset Formula $\mathbf{H-J}$
 \end_inset
 
@@ -2041,7 +2061,11 @@ reference "eq:HO-DAC Opt. Problem"
 
 \end_inset
 
- of HO-DAC in undirected network can be graphically illustrated by the 
+ of HO-DAC in undirected network can be graphically illustrated by 
+\change_deleted 5863457 1357343689
+the
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Find-minimum-rho(H)"
@@ -2073,7 +2097,11 @@ Since the eigenvalues of Laplacian matrix are network topology dependent,
 \begin_inset Formula $M>2$
 \end_inset
 
-, the problem 
+, 
+\change_deleted 5863457 1357343715
+the
+\change_unchanged
+ problem 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:HO-DAC Opt. Problem"
@@ -2081,7 +2109,7 @@ reference "eq:HO-DAC Opt. Problem"
 \end_inset
 
  is more challenging as it requires the whole Laplacian spectrum to solve
- a high order polynomial to obtain 
+ a high-order polynomial to obtain 
 \begin_inset Formula $\rho\left(H-J\right)$
 \end_inset
 
@@ -2174,12 +2202,12 @@ Solutions for Second-order DAC Optimization
 
 \begin_layout Standard
 
-\change_inserted 5863457 1355795752
+\change_inserted 5863457 1357343757
 If 
 \begin_inset Formula $M=2$
 \end_inset
 
-, the HO-DAC reduce to the second-order DAC (SO-DAC) algorithm.
+, HO-DAC reduces to the second-order DAC (SO-DAC) algorithm.
  In this case, the problem 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -2201,8 +2229,13 @@ key "Xiong2009a"
 .
 
 \change_unchanged
- The convergence region for second order DAC in undirected network which
- satisfy 
+ The convergence region for 
+\change_deleted 5863457 1357333543
+second order DAC
+\change_inserted 5863457 1357333543
+second-order DAC
+\change_unchanged
+ in undirected network which satisfies 
 \begin_inset Formula $\rho\left(\mathbf{H}-\mathbf{J}\right)<1$
 \end_inset
 
@@ -2257,7 +2290,13 @@ name "fig:Convergence-Region"
 
 \end_inset
 
-Convergence region for second order DAC.
+Convergence region for 
+\change_deleted 5863457 1357333544
+second order DAC
+\change_inserted 5863457 1357333544
+second-order DAC
+\change_unchanged
+.
  
 \end_layout
 
@@ -2278,7 +2317,11 @@ reference "fig:Convergence-Region"
 
 \end_inset
 
- graphically illustrate these region, 
+ graphically illustrate
+\change_inserted 5863457 1357343835
+s
+\change_unchanged
+ these region
 \family roman
 \series medium
 \shape up
@@ -2290,7 +2333,7 @@ reference "fig:Convergence-Region"
 \uwave off
 \noun off
 \color none
-
+ 
 \begin_inset Formula ${\cal R}_{1}$
 \end_inset
 
@@ -2298,7 +2341,7 @@ reference "fig:Convergence-Region"
 \begin_inset Formula ${\cal R}_{2}$
 \end_inset
 
- are defined in 
+
 \family default
 \series default
 \shape default
@@ -2310,19 +2353,8 @@ reference "fig:Convergence-Region"
 \uwave default
 \noun default
 \color inherit
-
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:Def Convergence region R1 R2"
-
-\end_inset
-
 .
- 
-\change_inserted 936221351 1356968896
-T
-\change_unchanged
-he eigenvalues of 
+ The eigenvalues of 
 \begin_inset Formula $\mathbf{H}$
 \end_inset
 
@@ -2338,7 +2370,13 @@ he eigenvalues of
 \begin_inset Formula $\lambda_{i"}\left(\mathbf{H}\right)$
 \end_inset
 
-, which is 
+, which 
+\change_deleted 5863457 1357343918
+is
+\change_inserted 5863457 1357343918
+are
+\change_unchanged
+ 
 \begin_inset Formula 
 \begin{eqnarray}
 \lambda_{i'}\left(\mathbf{H}\right) & = & \frac{1}{2}\left[1-\epsilon\lambda_{i}\left(L\right)+\sqrt{\left(1-\epsilon\lambda_{i}\left(L\right)\right)^{2}+4\gamma\epsilon\lambda_{i}\left(L\right)}\right],\nonumber \\
@@ -2355,7 +2393,7 @@ Since
 \begin_inset Formula $\lambda_{2}\left(L\right)\leq\dots\leq\lambda_{n}\left(L\right)$
 \end_inset
 
-, in the convergence region of the second order DAC algorithm, the optimization
+, in the convergence region of the second-order DAC algorithm, the optimization
  problem 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -2378,7 +2416,7 @@ reference "eq:HO-DAC Opt. Problem"
 \end_layout
 
 \begin_layout Standard
-Finding the optimal solutions needs consideration of different combinations
+Finding the optimal solution needs consideration of different combinations
  of 
 \family roman
 \series medium
@@ -2400,7 +2438,11 @@ Finding the optimal solutions needs consideration of different combinations
 \change_inserted 936221351 1356969918
  and in the convergence region
 \change_unchanged
-, the 
+,
+\change_deleted 5863457 1357344269
+ 
+\change_unchanged
+ 
 \begin_inset Formula $\lambda_{2'}\left(\mathbf{H}\right),\lambda_{2"}\left(\mathbf{H}\right)$
 \end_inset
 
@@ -2413,7 +2455,7 @@ Finding the optimal solutions needs consideration of different combinations
 \change_inserted 936221351 1356969944
  when 
 \change_unchanged
-the following equation satisfied
+the following equation satisfies
 \begin_inset Formula 
 \begin{equation}
 \left|\lambda_{2'}\left(\mathbf{H}\right)\right|=\left|\lambda_{n'}\left(\mathbf{H}\right)\right|=\left|\lambda_{n"}\left(\mathbf{H}\right)\right|
@@ -2421,8 +2463,31 @@ the following equation satisfied
 
 \end_inset
 
-Thus, by solving this equation, we have the optimal solution for second
- order DAC algorithm.
+Thus, by solving this equation, we have the optimal solution for 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+second-order DAC
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ algorithm.
 \end_layout
 
 \begin_layout Standard
@@ -2453,8 +2518,13 @@ which only requires the second smallest and the largest eigenvalues of
 .
  
 \change_unchanged
-These parameters could be floored to all sensors before the algorithm start
- so that it converges faster.
+These parameters could be flooded to all nodes before the algorithm start
+\change_inserted 5863457 1357344342
+s
+\change_deleted 5863457 1357344347
+ so that it converges faster
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -2468,7 +2538,11 @@ it
 \change_inserted 936221351 1356970316
 s
 \change_unchanged
- to point out that the optimal solution 
+ to point out that the optimal solution
+\change_inserted 5863457 1357344358
+s
+\change_unchanged
+ 
 \family roman
 \series medium
 \shape up
@@ -2532,7 +2606,17 @@ ollowing relationship
 
 \end_inset
 
-which implies the value under the square root in 
+which implies the 
+\change_inserted 5863457 1357344541
+discriminant
+\change_unchanged
+ under the 
+\change_deleted 5863457 1357344572
+square root
+\change_inserted 5863457 1357344614
+ radical sign
+\change_unchanged
+ in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:2nd-DAC lambda_H solution"
@@ -2600,7 +2684,20 @@ reference "fig:Convergence-Region"
 \end_inset
 
  are real and complex.
- In addition, the optimal solution is just located on the 
+ 
+\change_inserted 5863457 1357344165
+T
+\change_inserted 936221351 1356970498
+he optimal solution is 
+\change_inserted 5863457 1357344173
+always
+\change_inserted 936221351 1356970498
+ located on the
+\change_inserted 5863457 1357344194
+ line.
+
+\change_deleted 5863457 1357344166
+ 
 \change_deleted 936221351 1356970420
 
 \family default
@@ -2615,7 +2712,7 @@ reference "fig:Convergence-Region"
 \noun default
 \color inherit
  Additionally, the optimal solution is located just on the
-\change_unchanged
+\change_deleted 5863457 1357344200
  boundary of the regions where 
 \begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
 \end_inset
@@ -2631,8 +2728,11 @@ reference "fig:Convergence-Region"
 
 .
  
-\change_inserted 936221351 1356970440
+\change_deleted 5863457 1357344206
 .
+
+\change_inserted 5863457 1357344206
+ 
 \change_unchanged
 
 \end_layout
@@ -2992,8 +3092,13 @@ reference "fig:DAC MSE Compare"
 
  plots the convergence behavior of
 \change_inserted 936221351 1356971569
- local value vector of high-order DAC algorithms together with first order
- DAC in terms of
+ local value vector of high-order DAC algorithms together with 
+\change_deleted 5863457 1357333370
+first order DAC
+\change_inserted 5863457 1357333370
+first-order DAC
+\change_inserted 936221351 1356971569
+ in terms of
 \change_unchanged
  mean square error (MSE) on random network.
  The MSE is defined by 
@@ -3058,13 +3163,23 @@ and forgetting factor are
 \change_inserted 936221351 1356973117
 is
 \change_unchanged
- equal to the of first order DAC step size and
+ equal to the of 
+\change_deleted 5863457 1357333371
+first order DAC
+\change_inserted 5863457 1357333371
+first-order DAC
+\change_unchanged
+ step size and
 \change_deleted 936221351 1356973115
  
 \change_inserted 936221351 1356973126
  forgetting factor is equal to 
+\change_deleted 5863457 1357333549
+second order DAC
+\change_inserted 5863457 1357333550
+second-order DAC
 \change_unchanged
-second order DAC forgetting factor
+ forgetting factor
 \change_deleted 936221351 1356973143
  respectively
 \change_unchanged
