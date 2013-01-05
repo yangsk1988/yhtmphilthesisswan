@@ -85,6 +85,28 @@ Real-time Optimization of DAC
 (OK1)
 \change_inserted 5862369 1355847752
  
+\change_inserted 5863457 1357331132
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1357331132
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 5863457 1357331132
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
 
 \end_layout
@@ -284,7 +306,13 @@ key "Boyd2006"
 
 \end_inset
 
- can be used to optimize the first order DAC but it converges very slowly.
+ can be used to optimize the 
+\change_deleted 5863457 1357333390
+first order DAC
+\change_inserted 5863457 1357333390
+first-order DAC
+\change_unchanged
+ but it converges very slowly.
    The method involves triple nested distributed matrix iterations.
  The inner iteration has to converge to a certain range so that the iteration
  outside can return the right result.
@@ -1826,8 +1854,13 @@ key "Boyd2006"
 
  proposed a distributed subgradient method to minimize the sub-dominate
  eigenvalue of a probability matrix.
- This method can be used to optimize the first order DAC after a little
- modification.
+ This method can be used to optimize the 
+\change_deleted 5863457 1357333397
+first order DAC
+\change_inserted 5863457 1357333398
+first-order DAC
+\change_unchanged
+ after a little modification.
  The modified method is given in Algorithm 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -2568,8 +2601,14 @@ reference "fig:Mean-of-spectral"
 \end_inset
 
  do not decline their performances dramatically.
- For third order DAC algorithm, estimated errors of eigenvalues don't have
- disastrous impact on the performance.
+ For 
+\change_deleted 5863457 1357333691
+third order DAC
+\change_inserted 5863457 1357333692
+third-order DAC
+\change_unchanged
+ algorithm, estimated errors of eigenvalues don't have disastrous impact
+ on the performance.
  The spectral radius goes slightly upper than the optimal one after the
  network size is larger than 25.
  It seems that estimating other eigenvalues with low accuracy is not a critical
@@ -2608,9 +2647,27 @@ In this chapter, we introduced a distributed method to estimate the optimal
  To mitigate this effect, we introduce a numerical technique to find the
  least mean square solution.
  After mitigation, the numerical errors of estimated parameters slightly
- declines the performance of first order DAC and second order DAC.
- For the third order DAC, estimated parameters by local Laplacian spectrum
- is still convergent and the algorithm is faster than second order.
+ declines the performance of 
+\change_deleted 5863457 1357333401
+first order DAC
+\change_inserted 5863457 1357333401
+first-order DAC
+\change_unchanged
+ and 
+\change_deleted 5863457 1357333594
+second order DAC
+\change_inserted 5863457 1357333594
+second-order DAC
+\change_unchanged
+.
+ For the 
+\change_deleted 5863457 1357333692
+third order DAC
+\change_inserted 5863457 1357333693
+third-order DAC
+\change_unchanged
+, estimated parameters by local Laplacian spectrum is still convergent and
+ the algorithm is faster than second order.
   However, if floating point number in double format is used and the network
  size is larger than 32 nodes, the numerical errors will be too large even
  after mitigation.
@@ -2619,8 +2676,13 @@ In this chapter, we introduced a distributed method to estimate the optimal
   Otherwise, we should decrease the order of DAC or increase the accuracy
  of the floating point number.
  The second-order consensus algorithm could be a compromise as it requires
- fewer parameters, converges faster than first order DAC and maintains convergen
-ce reliability.
+ fewer parameters, converges faster than 
+\change_deleted 5863457 1357333692
+first order DAC
+\change_inserted 5863457 1357333401
+first-order DAC
+\change_unchanged
+ and maintains convergence reliability.
  In the future, we are intending to investigate the effect of link failure
  and other practical aspects while applying the proposed method to a distributed
  system.

@@ -93,6 +93,30 @@ O
 o
 \change_unchanged
 n Generalized Conditions 
+\change_inserted 5863457 1357331101
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1357331102
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 5863457 1357331102
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1445,8 +1469,14 @@ reference "cap:perform. Consensus Filter"
 
 \end_inset
 
- compares the first order DAC (FO-DAC) algorithm with optimal matrix and
- the proposed algorithm with consensus finding filter.
+ compares the 
+\change_deleted 5863457 1357333388
+first order DAC
+\change_inserted 5863457 1357333388
+first-order DAC
+\change_unchanged
+ (FO-DAC) algorithm with optimal matrix and the proposed algorithm with
+ consensus finding filter.
  The performance is evaluated by the mean square error (MSE), defined by
  
 \begin_inset Formula $\mbox{MSE}_{\mbox{FO-DAC}}(k)=\sum_{i\in\mathcal{N}}E[\left|x_{i}(k)-\bar{x}\right|^{2}]$

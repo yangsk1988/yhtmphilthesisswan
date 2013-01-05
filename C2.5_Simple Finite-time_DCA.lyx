@@ -68,6 +68,7 @@ theorems-ams-bytype
 \html_css_as_file 0
 \html_be_strict false
 \author 5862369 "HT" 
+\author 5863457 "ht" 
 \end_header
 
 \begin_body
@@ -213,8 +214,13 @@ consecutive
 \color inherit
  filter, the output after a certain time is the global average of the initial
  values over the network.
- Compared to first order DAC algorithm, no more information exchanged between
- nodes is needed.
+ Compared to 
+\change_deleted 5863457 1357333372
+first order DAC
+\change_inserted 5863457 1357333372
+first-order DAC
+\change_unchanged
+ algorithm, no more information exchanged between nodes is needed.
  
 \end_layout
 
@@ -1522,8 +1528,13 @@ reference "sub:Numerical-Simulation"
 
 \end_inset
 
-, the performance of this algorithm is shown by comparing it with the first
- order DAC algorithm using optimal weight matrix in 
+, the performance of this algorithm is shown by comparing it with the 
+\change_deleted 5863457 1357333375
+first order DAC
+\change_inserted 5863457 1357333375
+first-order DAC
+\change_unchanged
+ algorithm using optimal weight matrix in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Xiao2004"

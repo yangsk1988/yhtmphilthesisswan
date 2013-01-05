@@ -89,6 +89,30 @@ name "chap:Conclusion-and-Future"
 \end_inset
 
 Conclusion and Future Work
+\change_inserted 5863457 1357331139
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1357331139
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 5863457 1357331139
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -105,8 +129,12 @@ Conclusion
 In this thesis, at first asymptotic and non-asymptotic DAC algorithms are
  reviewed.
  The asymptotic algorithms
+\change_deleted 5862369 1355526844
+, including first order DAC
+\change_inserted 5863457 1357333415
+first-order DAC
 \change_deleted 5862369 1354147985
-, including first order DAC and higher order DAC,
+ and higher order DAC,
 \change_unchanged
  are robust against topology changes
 \change_deleted 5862369 1354148155
@@ -129,18 +157,18 @@ difficult
 \change_unchanged
  to obtain for any individual node and can not change during the optimization.
  Non-asymptotic algorithms
-\change_deleted 5862369 1354148041
+\change_deleted 5862369 1355526844
 , such as the finite-time DAC or adaptive filter DAC algorithm, they
 \change_unchanged
  can find the average faster
-\change_deleted 5862369 1355074897
+\change_deleted 5862369 1355526844
  than the asymptotic algorithms 
 \change_inserted 5862369 1355074897
  
 \change_unchanged
 in a time-invariant network.
 
-\change_deleted 5862369 1354148366
+\change_deleted 5862369 1355526844
  
 \change_inserted 5862369 1354148371
 They use a finite impulse response filter to estimate the consensus value.
@@ -296,9 +324,21 @@ higher-order DAC
 .
  
 \change_deleted 5862369 1355762121
-first order DAC and second order DAC.
- Even for the third order DAC, estimated parameters by incomplete Laplacian
- spectrum is still convergent and the algorithm is faster than second order.
+first order DAC
+\change_inserted 5863457 1357333417
+first-order DAC
+\change_deleted 5862369 1355762121
+ and second order DAC
+\change_inserted 5863457 1357333617
+second-order DAC
+\change_deleted 5862369 1355762121
+.
+ Even for the third order DAC
+\change_inserted 5863457 1357333708
+third-order DAC
+\change_deleted 5862369 1355762121
+, estimated parameters by incomplete Laplacian spectrum is still convergent
+ and the algorithm is faster than second order.
   However,
 \change_unchanged
  Otherwise, the numerical errors will be too large even after mitigation.

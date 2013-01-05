@@ -81,6 +81,30 @@ name "chap:Consensus-problem-on"
 \end_inset
 
 Background of DAC
+\change_inserted 5863457 1357331094
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1357331094
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 5863457 1357331094
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
@@ -88,11 +112,17 @@ Preliminary
 \end_layout
 
 \begin_layout Standard
-Consider a connected graph 
+
+\change_deleted 5863457 1357334422
+Consider
+\change_inserted 5863457 1357334428
+ Suppose
+\change_unchanged
+ a connected graph 
 \begin_inset Formula $\mathcal{G}=\left(\mathcal{V},\mathcal{E},{\cal A}\right)$
 \end_inset
 
- be a weighted digraph (or undirected graph) consisted by a set of nodes
+ is a weighted digraph (or undirected graph) consisted by a set of nodes
  
 \begin_inset Formula $\mathcal{V}=\left\{ v_{1},v_{2},...,v_{n}\right\} $
 \end_inset
@@ -138,7 +168,15 @@ weighted adjacency matrix
 \begin_inset Formula $v_{i}$
 \end_inset
 
-, its  communication neighbors  set is denoted by 
+, its
+\change_deleted 5863457 1357334418
+ 
+\change_unchanged
+ communication neighbors
+\change_deleted 5863457 1357334418
+ 
+\change_unchanged
+ set is denoted by 
 \begin_inset Formula $\mathcal{N}_{i}=\text{ }\left\{ v_{j}\in{\cal V}|\left(v_{i},v_{j}\right)\in\mathcal{E}\right\} $
 \end_inset
 
@@ -176,7 +214,11 @@ weighted adjacency matrix
 \begin_inset Formula $v_{i}$
 \end_inset
 
- can only transmit information to  nodes that belong to 
+ can only transmit information to
+\change_deleted 5863457 1357334418
+ 
+\change_unchanged
+ nodes that belong to 
 \begin_inset Formula $\mathcal{N}_{i}$
 \end_inset
 
@@ -270,7 +312,7 @@ S\left(L\right)=\left\{ \lambda_{1}\left(L\right),\lambda_{2}\left(L\right),\ldo
 
 \end_inset
 
-, reflects many properties of the graph, where 
+reflects many properties of the graph, where 
 \begin_inset Formula $\lambda_{i}\left(L\right)$
 \end_inset
 
@@ -354,7 +396,7 @@ To describe the behavior of each node or agent, suppose each node has the
 
 \end_inset
 
-and the graph (or network) is a system has the dynamics
+and the graph (or network) is a system having the dynamics
 \end_layout
 
 \begin_layout Standard
@@ -385,7 +427,11 @@ where
 \begin_inset Formula $f\left(x_{i},u_{i}\right)$
 \end_inset
 
-, for all node 
+, for all node
+\change_inserted 5863457 1357334620
+s
+\change_unchanged
+ 
 \begin_inset Formula $i=1,\ldots,n$
 \end_inset
 
@@ -420,7 +466,7 @@ where
 \uwave off
 \noun off
 \color none
-is switching and the system will updating its 
+is switching and the system will update its 
 \begin_inset Formula $F\left(\mathbf{x},\mathbf{u}\right)$
 \end_inset
 
@@ -433,7 +479,7 @@ The input or feedback
 \begin_inset Formula $u_{i}$
 \end_inset
 
- in the node's dynamic is a function of the historical states of node 
+ to the node's dynamic is a function of the historical states of node 
 \begin_inset Formula $i$
 \end_inset
 
@@ -449,7 +495,11 @@ where
 \begin_inset Formula $j_{1},\ldots,j_{m_{i}}$
 \end_inset
 
- are the node indexes that belong to the set 
+ are the node indexes that belong to 
+\change_deleted 5863457 1357334679
+the
+\change_unchanged
+ set 
 \begin_inset Formula $\left\{ i\right\} \cup{\cal N}_{i}$
 \end_inset
 
@@ -488,7 +538,11 @@ Let
 \begin_inset Formula $\mathbf{x}\left(0\right)$
 \end_inset
 
- denotes the initial condition of the network.
+ denote
+\change_deleted 5863457 1357334687
+s
+\change_unchanged
+ the initial condition of the network.
  The 
 \begin_inset Formula ${\cal X}$
 \end_inset
@@ -524,8 +578,12 @@ Consensus problems can be different by their consensus values.
 \begin_inset Formula ${\cal X}\left(\mathbf{x}\right)=\mbox{var}\left(\mathbf{x}\right)$
 \end_inset
 
- by their expressions respectively.
- The average consensus is a special case of consensus problem, which computing
+ by their expressions
+\change_inserted 5863457 1357334728
+,
+\change_unchanged
+ respectively.
+ The average consensus is a special case of consensus problem, which computes
  the average of all initial values 
 \begin_inset Formula $\overline{x}=\mbox{mean}\left(\mathbf{x}\right)=\frac{1}{n}\sum_{i=1}^{n}x_{i}\left(0\right)$
 \end_inset
@@ -563,6 +621,9 @@ Consensus problems can be different by their consensus values.
 \end_inset
 
 .
+
+\change_inserted 5863457 1357334602
+ 
 \change_deleted 5862369 1355847710
 (OK1)
 \change_inserted 5862369 1355847710
@@ -622,13 +683,23 @@ Maximum or minimum consensus is very similar to information flooding.
 \begin_inset Formula $v_{i}$
 \end_inset
 
- in the network just compare the local values held by itself and others
- in 
+ in the network just compare
+\change_inserted 5863457 1357336550
+s
+\change_unchanged
+ the local values held by itself and others in 
 \begin_inset Formula ${\cal N}_{i}$
 \end_inset
 
-, then broadcast the maximal or minimal values.
+, then broadcast
+\change_inserted 5863457 1357336557
+s
+\change_unchanged
+ the maximum or minimum values.
  Therefore, maximum/minimum consensus can be finished in a number of step
+\change_inserted 5863457 1357336583
+s
+\change_unchanged
  that equal to the diameter of the graph.
  For upper boundary of the diameter, see 
 \begin_inset CommandInset citation
@@ -645,10 +716,15 @@ However,
 \change_inserted 5862369 1355520679
  distributed
 \change_unchanged
- average consensus is more challenging problem than the maximum (or minimum)
- consensus.
- Because, the average value is a linear combination of all the initial states
- of network nodes and the condition 
+ average consensus is
+\change_deleted 5863457 1357336595
+ 
+\change_inserted 5863457 1357336596
+ a 
+\change_unchanged
+more challenging problem than the maximum (or minimum) consensus, because
+ the average value is a linear combination of all the initial states of
+ network nodes and the condition 
 \begin_inset Formula $x_{i}^{*}={\cal X}\left(\mathbf{x}\right)$
 \end_inset
 
@@ -752,9 +828,35 @@ The continuous-time consensus requires the nodes in a network have dynamics
  in a form of differential equations.
  Continuous-time consensus involves analog signals that are easily interfered
  by channel noise.
- Consequently, the finally consensus value will be a random variable with
- mean equals to the consensus value without noise and variance proportional
- to the signal noise ratio.
+ Consequently, the 
+\change_deleted 5863457 1357338048
+finally
+\change_unchanged
+ consensus value will be a random variable with mean equals to the 
+\change_deleted 5863457 1357338066
+consensus
+\change_inserted 5863457 1357338067
+average
+\change_unchanged
+ 
+\change_inserted 5863457 1357338122
+of all initial 
+\change_unchanged
+value
+\change_inserted 5863457 1357338128
+s
+\change_unchanged
+ 
+\change_deleted 5863457 1357338117
+without noise 
+\change_inserted 5863457 1357338117
+ 
+\change_unchanged
+and variance proportional to the signal 
+\change_inserted 5863457 1357338073
+ti 
+\change_unchanged
+noise ratio.
  It is shown in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -766,7 +868,7 @@ key "Kar2009"
 \begin_inset Formula $t$
 \end_inset
 
- hence it is increasing as the algorithm executing.
+ hence it is increasing as the algorithm executes.
  
 \end_layout
 
@@ -789,9 +891,15 @@ Nodes in the discrete-time consensus has dynamics in difference equation.
 \change_inserted 5862369 1355425062
  
 \change_unchanged
-Nowadays, sensor nodes with digital processing unit becomes more cheaper,
- we can get more benefits from the advantages of discrete-time consensus
+Nowadays, sensor nodes with digital processing unit becomes more cheaper
+\change_inserted 5863457 1357338268
+.
+ 
+\change_deleted 5863457 1357338263
+, we can get more benefits from the advantages of discrete-time consensus
  algorithms.
+
+\change_unchanged
  Consequently, discrete-time consensus algorithms are mainly discussed in
  the following of this thesis.
  
@@ -824,7 +932,7 @@ reference "eq:system differential dynamics"
 
 \end_inset
 
- will yield a continuous-time solution in an exponential matrices form 
+ will yield a continuous-time solution in an exponential matrix form 
 \begin_inset Formula 
 \begin{equation}
 \mathbf{x}\left(t\right)=\exp\left(-{\cal L}t\right)\mathbf{x}\left(0\right)\label{eq:x(t) of CT-1st-DAC}
@@ -911,7 +1019,7 @@ reference "eq:Laplacian def."
 \begin_inset Formula $L$
 \end_inset
 
- respectively.
+, respectively.
  
 \end_layout
 
@@ -926,27 +1034,15 @@ Generalized from Perron-Frobenius theorem
 \end_layout
 
 \begin_layout Standard
-There is 
-\change_deleted 5862369 1355425433
-an
-\change_inserted 5862369 1355425433
-some
-\change_unchanged
- important theor
-\change_inserted 5862369 1355425436
-ies
-\change_deleted 5862369 1355425436
-y
-\change_unchanged
- for continuous-time consensus 
+There are some important theories for continuous-time consensus 
 \change_inserted 5862369 1355425664
 convergence 
 \change_unchanged
 problem.
- To provides the necessary and sufficient conditions of the graph Laplacian
+ To provide the necessary and sufficient conditions of the graph Laplacian
  matrix so that a convergent consensus algorithm could be carried out on
- the network, some result is induced from Perron-Frobenius theorem and Gerschgor
-in's theorem
+ the network, some results are induced from Perron-Frobenius theorem and
+ Gerschgorin's theorem
 \change_inserted 5862369 1355425736
  that
 \change_unchanged
@@ -954,11 +1050,7 @@ in's theorem
 \change_deleted 5862369 1355425750
  
 \change_unchanged
- and lower bound
-\change_inserted 5862369 1355425743
-ary
-\change_unchanged
- of the spectral radius.
+ and lower boundaries of the spectral radius.
  
 \change_inserted 5862369 1355425700
 
@@ -990,7 +1082,13 @@ name "thm:Bounds of eig(L)-1"
 
 \end_inset
 
-Let the graph has the Laplacian matrix 
+Let the graph 
+\change_deleted 5863457 1357338370
+has
+\change_inserted 5863457 1357338370
+be
+\change_inserted 5862369 1355425471
+ the Laplacian matrix 
 \begin_inset Formula ${\cal L},$
 \end_inset
 
@@ -1028,7 +1126,11 @@ which is centered at
 \begin_layout Proof
 
 \change_inserted 5862369 1355425471
-Based on the Gerschgorin's theorem, all the eigenvalue of 
+Based on the Gerschgorin's theorem, all the eigenvalue
+\change_inserted 5863457 1357338383
+s
+\change_inserted 5862369 1355425471
+ of 
 \begin_inset Formula ${\cal L}$
 \end_inset
 
@@ -1044,7 +1146,7 @@ Since
 \begin_inset Formula ${\cal A}=\left[a_{i,j}\right]$
 \end_inset
 
- is an non-negative matrix, by the definition of Laplacian matrix, 
+ is a non-negative matrix, by the definition of Laplacian matrix, 
 \begin_inset Formula $l_{i,j}\leq0$
 \end_inset
 
@@ -1064,7 +1166,7 @@ d_{i}=\sum_{j=1,j\neq i}^{n}\left|l_{i,j}\right|
 
 \end_inset
 
- and the union of disks becomes
+the union of disks becomes
 \begin_inset Formula 
 \begin{equation}
 \bigcup_{1\leq i\leq n}\left\{ z\in\mathbb{C}:\left|z-d_{i}\right|\leq d_{i}\right\} 
@@ -1096,8 +1198,11 @@ reference "thm:Bounds of eig(L)-1"
 \end_inset
 
  have positive real parts.
- This immediately lead to a convergence theorem of the continuous-time consensus
- protocol 
+ This immediately lead
+\change_unchanged
+s
+\change_inserted 5862369 1355426240
+ to a convergence theorem of the continuous-time consensus protocol 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:1st Order Protocol"
@@ -1105,7 +1210,11 @@ reference "eq:1st Order Protocol"
 \end_inset
 
 .
- Since all the nonzero eigenvalue of 
+ Since all the nonzero eigenvalue
+\change_unchanged
+s
+\change_inserted 5862369 1355426240
+ of 
 \begin_inset Formula $-{\cal L}$
 \end_inset
 
@@ -1211,7 +1320,11 @@ reference "eq:x(t) of CT-1st-DAC"
 
 \end_inset
 
- converge to a consensus value as 
+ converge
+\change_unchanged
+s
+\change_inserted 5862369 1355426346
+ to a consensus value as 
 \begin_inset Formula $t\to\infty$
 \end_inset
 
@@ -1314,12 +1427,19 @@ Considering the system dynamic
 \begin_inset Formula $\exp\left(-{\cal L}t\right)$
 \end_inset
 
- is a non-negative matrix, the Perron-Frobenius theorem tell us that 
+ is a non-negative matrix, the Perron-Frobenius theorem 
+\change_inserted 5863457 1357338650
+states
+\change_inserted 5862369 1355426092
+ that 
 \begin_inset Formula $\exp\left(-{\cal L}t\right)$
 \end_inset
 
- has a positive real eigenvalue equals to one which is also the spectral
- radius.
+ has a positive real eigenvalue 
+\change_unchanged
+equaling
+\change_inserted 5862369 1355426092
+ one which is also the spectral radius.
  Together with the 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -1331,7 +1451,11 @@ reference "thm:Bounds of eig(L)-1"
 \begin_inset Formula $-{\cal L}$
 \end_inset
 
- have negative real part, see  
+ have negative real part, see
+\change_deleted 5863457 1357338679
+ 
+\change_inserted 5862369 1355426092
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Boundary-of-eigenvalues-1"
@@ -1348,8 +1472,11 @@ Assume
 \begin_inset Formula ${\cal G}=\left({\cal V},{\cal E},{\cal A}\right)$
 \end_inset
 
- is strongly connected graph, and the associated graph Laplacian matrix
- 
+ is strongly 
+\change_inserted 5863457 1357338715
+a 
+\change_unchanged
+connected graph, and the associated graph Laplacian matrix 
 \begin_inset Formula ${\cal L}$
 \end_inset
 
@@ -1361,7 +1488,7 @@ reference "eq:Graph Laplacian def."
 \end_inset
 
 , which has only one zero eigenvalue.
- Let the 
+ Let 
 \begin_inset Formula $u_{r}$
 \end_inset
 
@@ -1369,7 +1496,7 @@ reference "eq:Graph Laplacian def."
 \begin_inset Formula $u_{l}$
 \end_inset
 
- is the uniformed left eigenvector associated with the zero eigenvalue,
+ be the uniformed left eigenvector associated with the zero eigenvalue,
  i.e.
  
 \begin_inset Formula $Lu_{r}=0$
@@ -1433,7 +1560,7 @@ Let
 \begin_inset Formula $A$
 \end_inset
 
- has all its eigenvalue except a simple zero eigenvalue have negative real
+ has all its eigenvalues except a simple zero eigenvalue has negative real
  part, thus, as 
 \begin_inset Formula $t\to\infty$
 \end_inset
@@ -1463,7 +1590,7 @@ Let
 \begin_inset Formula $U^{-1}$
 \end_inset
 
- has a corresponding row equals to 
+ has a corresponding row equaling to 
 \begin_inset Formula $u_{l}$
 \end_inset
 
@@ -1560,8 +1687,14 @@ x_{i}\left(k+1\right)=x_{i}\left(k\right)+u_{i}\left(k\right)\label{eq:discre-ti
 
 \end_inset
 
-For network agents have discrete-time consensus protocol, their system dynamics
- can be given in a matrix form
+For network agents 
+\change_deleted 5863457 1357338842
+have
+\change_inserted 5863457 1357338843
+having
+\change_unchanged
+ discrete-time consensus protocol, their system dynamics can be given in
+ a matrix form
 \begin_inset Formula 
 \begin{equation}
 \mathbf{x}(k+1)=W\mathbf{x}(k)
@@ -1601,6 +1734,11 @@ Moreover,
 
 \end_inset
 
+
+\change_inserted 5863457 1357340107
+Eq.
+ 
+\change_unchanged
 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -1680,7 +1818,11 @@ Although continuous-time consensus algorithms have some similarities with
  discrete-time ones, their performance are quite different when Gaussian
  white noise exists
 \change_inserted 5862369 1355521715
- For more details about continuous-time consensus algorithms, see  
+ For more details about continuous-time consensus algorithms, see
+\change_deleted 5863457 1357338865
+ 
+\change_inserted 5862369 1355521715
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Continuous-vs-Discrete-DAC"
@@ -1690,11 +1832,14 @@ reference "sub:Continuous-vs-Discrete-DAC"
 
 \change_unchanged
 ).
- We may started from one of the simplest one in their family: the first-order
- DAC algorithm introduced in 
+ We may start from one of the simplest 
+\change_deleted 5863457 1357338877
+one
+\change_unchanged
+ in their family: the first-order DAC algorithm introduced in 
 \change_deleted 5862369 1355847248
 section
-\change_inserted 5862369 1355847248
+\change_deleted 5863457 1357338865
  
 \change_unchanged
  
@@ -1706,41 +1851,49 @@ reference "sub:DT-First-Order-DAC"
 
 .
 
+\change_deleted 5862369 1355847721
+ The first order DAC
+\change_inserted 5863457 1357333355
+first-order DAC
 \change_deleted 5862369 1355521510
- The first order DAC algorithm is the simplest algorithm that can solve
- the consensus problem in a number of iteration.
+ algorithm is the simplest algorithm that can solve the consensus problem
+ in a number of iteration.
 
 \change_unchanged
- It's convergence rate is related to the spectral radius of a graph dependent
+ 
+\change_deleted 5863457 1357339672
+It's
+\change_inserted 5863457 1357339672
+Its
+\change_unchanged
+ convergence rate is related to the spectral radius of a graph dependent
  matrix.
  So the optimization problem is to find the optimal matrix with minimum
  sub-dominant
 \change_inserted 5862369 1355521715
  eigenvalue.
  
-\change_deleted 5862369 1355520839
+\change_deleted 5862369 1355521510
 spectral radius.
 
 \change_unchanged
  However, global information of the graph matrix must be available.
  In distributed methods, this is a quite 
-\change_deleted 5862369 1355520855
+\change_deleted 5862369 1355521510
 strong
 \change_inserted 5862369 1355521715
 demanding
 \change_unchanged
  condition.
  Without the global information,
-\change_deleted 5862369 1355520868
+\change_deleted 5862369 1355521510
  
 \change_unchanged
  constant
 \change_inserted 5862369 1355521715
  first-order DAC
 \change_unchanged
- and metropolitan
-\change_deleted 5862369 1355520878
- 
+ and metropolitan 
 \change_inserted 5862369 1355521715
 DAC
 \change_unchanged
@@ -1753,7 +1906,7 @@ key "Xiao2004"
 
 .
  The first-order DAC algorithm
-\change_deleted 5862369 1355520936
+\change_deleted 5862369 1355521510
  
 \change_inserted 5862369 1355521715
  together with higher-order DAC algorithms ( introduced in 
@@ -1764,20 +1917,20 @@ reference "sub:Discrete-High-Order"
 \end_inset
 
  )
-\change_deleted 5862369 1355520946
+\change_deleted 5862369 1355521510
 is
 \change_inserted 5862369 1355521715
 belong to the family of
 \change_unchanged
  the asymptotic algorithms.
  The 
-\change_deleted 5862369 1355520979
+\change_deleted 5862369 1355521510
 demand
 \change_inserted 5862369 1355521715
 motivation
 \change_unchanged
  
-\change_deleted 5862369 1355521115
+\change_deleted 5862369 1355521510
 of
 \change_inserted 5862369 1355521715
 to
@@ -1787,15 +1940,15 @@ to
 develop the 
 \change_unchanged
 higher-order algorithm is 
-\change_deleted 5862369 1355521125
+\change_deleted 5862369 1355521510
 mainly
 \change_unchanged
  
-\change_deleted 5862369 1355521122
+\change_deleted 5862369 1355521510
 because
 \change_unchanged
  the 
-\change_deleted 5862369 1355521001
+\change_deleted 5862369 1355521510
 requirement
 \change_inserted 5862369 1355521715
 demand of
@@ -1804,21 +1957,17 @@ demand of
 \change_inserted 5862369 1355521715
 t
 \change_unchanged
- rate
-\change_inserted 5862369 1355521715
- algorithm
-\change_unchanged
-.
+ rate.
 
-\change_deleted 5862369 1355521307
+\change_deleted 5862369 1355521510
  
 \change_unchanged
  The
-\change_deleted 5862369 1355521307
+\change_deleted 5862369 1355521510
  
 \change_unchanged
  higher-order DAC algorithms
-\change_deleted 5862369 1355521307
+\change_deleted 5862369 1355521510
  
 \change_unchanged
  could have faster convergence rate, and no additional requirement and communica
@@ -1830,18 +1979,18 @@ key "Xiong2010"
 \end_inset
 
 .
-
-\change_deleted 5862369 1355521262
- 
+ Therefore, it is 
+\change_deleted 5863457 1357341947
+shortly
 \change_unchanged
-Therefore, it is shortly applied 
+ applied 
 \change_deleted 5862369 1355521958
 into
 \change_inserted 5862369 1355521958
 to
 \change_unchanged
  practical consensus 
-\change_deleted 5862369 1355521948
+\change_deleted 5862369 1355521958
 problem
 \change_inserted 5862369 1355521958
 protocols
@@ -1861,10 +2010,8 @@ key "Yu2011"
 \change_unchanged
 .
  
-\change_deleted 5862369 1355847721
-(OK 1)
 \change_inserted 5862369 1355847721
- 
+
 \end_layout
 
 \begin_layout Standard
@@ -1878,7 +2025,14 @@ key "Sundaram2007"
 \end_inset
 
 .
- It actually a very sophisticated signal processing technique that find
+ It 
+\change_inserted 5863457 1357341999
+is 
+\change_unchanged
+actually a very sophisticated signal processing technique that find
+\change_inserted 5863457 1357342006
+s
+\change_unchanged
  the asymptotically stable equilibrium 
 \begin_inset Formula $\bar{x}$
 \end_inset
@@ -1952,13 +2106,7 @@ key "Cavalcante2010"
 \end_inset
 
 .
- As a contribution of this thesis, a method to
-\change_deleted 5862369 1355520541
- 
-\change_inserted 5862369 1355520528
- 
-\change_unchanged
-calculate 
+ As a contribution of this thesis, a method to calculate 
 \change_deleted 5862369 1355520223
 these necessary parameters
 \change_inserted 5862369 1355520435
