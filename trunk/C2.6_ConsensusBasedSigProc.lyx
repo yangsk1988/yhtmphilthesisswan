@@ -68,6 +68,7 @@ theorems-sec-bytype
 \html_css_as_file 0
 \html_be_strict false
 \author 5862369 "HT" 
+\author 5863457 "ht" 
 \end_header
 
 \begin_body
@@ -103,8 +104,12 @@ key "Chair1986"
 .
  
 \change_unchanged
-A fundamental problem in sensor network is to process spatially distributed
- information using a scalable algorithm 
+A fundamental problem in sensor network
+\change_inserted 5863457 1357422994
+s
+\change_unchanged
+ is to process spatially distributed information using a scalable algorithm
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Olfati-Saber2005a"
@@ -121,7 +126,7 @@ key "Olfati-Saber2005a"
 Generally, there are two options for multiple sensors signal processing:
  First option is centralized signal processing.
  This requires the network contains a fusion center, and all sensor's informatio
-n being transmuted to the central processor.
+n being transmitted to the central processor.
  
 \change_inserted 5862369 1355343482
 
@@ -153,7 +158,11 @@ Data Fusion and Decision Making
 
 \begin_layout Standard
 In this section, we will consider a distributed detection problem in wireless
- sensor network without the fusion center.
+ sensor network
+\change_inserted 5863457 1357423069
+s
+\change_unchanged
+ without the fusion center.
  
 \change_deleted 5862369 1355343706
 Then, a
@@ -166,8 +175,17 @@ A
 
 \begin_layout Standard
 In centralized data fusion and decision making, a hypothesis test based
- on the ML, MAP or Bayesian decision rule will be carried out at the a fusion
- center
+ on the ML
+\change_inserted 5863457 1357423106
+ (Maximum Likelihood) 
+\change_unchanged
+, MAP
+\change_inserted 5863457 1357423116
+ (Maximum a Posteriori ) 
+\change_deleted 5863457 1357423088
+ 
+\change_unchanged
+or Bayesian decision rule will be carried out at the a fusion center
 \change_deleted 5862369 1355343723
  to make the decision
 \change_unchanged
@@ -376,27 +394,55 @@ LLR(\mathbf{x}) & = & \log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left
 \end_layout
 
 \begin_layout Standard
-According to Eq.
+According to
+\change_deleted 5863457 1357423140
+ 
+\change_inserted 5863457 1357423138
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Sum_L_LLR"
 
 \end_inset
 
-, the G-LLR is the sum of local log likelihood ratio (L-LLR) and can be
- calculated by distributed average consensus (DAC) algorithm.
+, 
+\change_deleted 5863457 1357423272
+the G-LLR
+\change_inserted 5863457 1357423272
+G-LLR
+\change_unchanged
+ is the sum of local log likelihood ratio (L-LLR) and can be calculated
+ by distributed average consensus (DAC) algorithm.
  This is implemented by the following steps: First, each sensor node 
 \begin_inset Formula $i$
 \end_inset
 
- only calculate its L-LLR individually based on 
+ only calculate
+\change_inserted 5863457 1357423151
+s
+\change_unchanged
+ its L-LLR individually based on 
 \begin_inset Formula $x_{i}$
 \end_inset
 
-; Then, all the sensors update their L-LLR in the DAC iteration until they
- converge to a common value; Finally, once the algorithm converges, the
- G-LLR is obtained by multiply the average value with the number of sensors
- in the network.
+; Then, all the sensors update their L-LLR
+\change_inserted 5863457 1357423155
+s
+\change_unchanged
+ in the DAC iteration until they converge to a common value; Finally, once
+ the algorithm converges, 
+\change_deleted 5863457 1357423273
+the G-LLR
+\change_inserted 5863457 1357423273
+G-LLR
+\change_unchanged
+ is obtained by multiply
+\change_inserted 5863457 1357423164
+ing
+\change_unchanged
+ the average value with the number of sensors in the network.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -414,7 +460,11 @@ In this section, we will generalize the conditions step by step and drive
 
 \begin_layout Standard
 Let the sensors observation, the joint Gaussian white noises and the mean
- of sensor observation in a vector form given by 
+ of sensor observation in a vector form 
+\change_inserted 5863457 1357423175
+be 
+\change_unchanged
+given by 
 \begin_inset Formula 
 \[
 \mathbf{x}=\left[x_{1},\ldots,x_{L}\right]^{\mathrm{T}}
@@ -452,7 +502,13 @@ Since
 \begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)=\frac{1}{\left(2\pi\right)^{L/2}\left|\Sigma\right|^{\frac{1}{2}}}\exp\left(-\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{m}\right)^{T}\Sigma^{-1}\left(\mathbf{x}-\mathbf{u}_{m}\right)\right)$
 \end_inset
 
-, the G-LLR becomes 
+, 
+\change_deleted 5863457 1357423273
+the G-LLR
+\change_inserted 5863457 1357423273
+G-LLR
+\change_unchanged
+ becomes 
 \begin_inset Formula 
 \begin{eqnarray}
 LLR(\mathbf{x}) & = & \left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{T}}\right)\mathbf{\Sigma}^{-1}\mathbf{x}+\frac{1}{2}\left(\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{0}-\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{1}\right)\label{eq:wighted_sum_LLR}\\
@@ -510,7 +566,13 @@ reference "eq:wighted_sum_LLR"
 
 \end_inset
 
- means the G-LLR can be a weighted sum of sensor's observation.
+ means 
+\change_deleted 5863457 1357423273
+the G-LLR
+\change_inserted 5863457 1357423274
+G-LLR
+\change_unchanged
+ can be a weighted sum of sensor's observation.
  
 \change_deleted 5862369 1355342338
 signal acquired in each sensor.
@@ -528,7 +590,13 @@ Provided that each sensor knows the weight
 \begin_inset Formula $C$
 \end_inset
 
-, the G-LLR is equal to the weighted sum of sensor's observation plus 
+, 
+\change_deleted 5863457 1357423274
+the G-LLR
+\change_inserted 5863457 1357423274
+G-LLR
+\change_unchanged
+ is equal to the weighted sum of sensor's observation plus 
 \begin_inset Formula $C$
 \end_inset
 
@@ -548,7 +616,7 @@ Provided that each sensor knows the weight
 \end_inset
 
 where the average values 
-\begin_inset Formula $\mbox{Avg}\left(w_{l}x_{l}\right)$
+\begin_inset Formula $\frac{1}{L}\sum_{i=1}^{L}w_{l}x_{l}$
 \end_inset
 
  is obtained by distributed average consensus (DAC) algorithm.
@@ -579,7 +647,7 @@ reference "sec:Distributed_Cloud_De"
 
 \end_inset
 
-, more generalized conditions of calculating the G-LLR is discussed
+, more generalized conditions of calculating G-LLR is discussed
 \family roman
 \series medium
 \shape up
@@ -624,9 +692,9 @@ Network Information Flooding
 \begin_layout Standard
 The conventional information flooding is actually done by copying information
  to all other nodes.
- Each node maintains a table of the of all nodes values in the network,
- initialized with its own value, and exchanges the tables of their own with
- those from their neighbors in each step.
+ Each node maintains a table of all nodes values in the network, initialized
+ with its own value, and exchanges the tables of their own with those from
+ their neighbors in each step.
  After a certain number of time steps which is equal to the diameter of
  the network, each node will obtain values of all nodes.
  distributed averaging can also be implemented by this way.
@@ -640,13 +708,17 @@ However, copying information and forwarding to all other nodes takes too
 \begin_inset Formula $n$
 \end_inset
 
- nodes, the conventional flooding will needs at least 
+ nodes, the conventional flooding will need
+\change_deleted 5863457 1357423442
+s
+\change_unchanged
+ at least 
 \begin_inset Formula $\left(n-1\right)$
 \end_inset
 
  copies for each piece of information.
- And this estimation doesn't considering the cost in transmitting the informatio
-n to the destination.
+ And this estimation doesn't consider the cost in transmitting the information
+ to the destination.
 \end_layout
 
 \begin_layout Standard
@@ -654,20 +726,25 @@ We intend to develop an algorithm to accomplish the information flooding,
  but didn't copy all the information to other nodes, so that the communication
  cost can be dramatically reduced.
  However, The difficulties of this kinds of distributed signal processing
- is that any individual node only know partial information on the whole
- network.
- And information exchange only allowed between neighbors.
+ is that any individual node only know
+\change_inserted 5863457 1357423476
+s
+\change_unchanged
+ partial information on the whole network.
+ And information exchange 
+\change_inserted 5863457 1357423483
+is 
+\change_unchanged
+only allowed between neighbors.
  
 \end_layout
 
 \begin_layout Standard
-Based on the FT-DAC algorithm we introduced in
-\change_deleted 5862369 1355847317
- the section
-\change_inserted 5862369 1355847318
- 
+Based on 
+\change_deleted 5863457 1357423465
+the
 \change_unchanged
- 
+ FT-DAC algorithm we introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Finite-Time-DAC-Simple"
@@ -687,7 +764,14 @@ reference "sec:Finite-Time-DAC-Simple"
 \begin_layout Standard
 Therefore, in this section we propose a novel network information flooding
  technique based on consensus algorithm.
- It doesn't require copying information for so many time, instead, it transmit
+ It doesn't require copying information for so many time
+\change_inserted 5863457 1357423507
+s
+\change_unchanged
+, instead, it transmit
+\change_inserted 5863457 1357423513
+s
+\change_unchanged
  information by broadcasting.
  The advantage of this method is that it can save the costs in copying and
  transmitting information.
@@ -774,7 +858,11 @@ In addition, the eigenvectors
 \begin_inset Formula $\mathbf{e}_{i}$
 \end_inset
 
- are only depends on the weight matrix.
+ 
+\change_deleted 5863457 1357423525
+are
+\change_unchanged
+ only depends on the weight matrix.
  Therefore,
 \family roman
 \series medium
@@ -826,7 +914,13 @@ et the sample vector
 \begin_inset Formula $\mathbf{y}_{i}(k,d)\in R^{d}$
 \end_inset
 
- is defined by the history of 
+ 
+\change_deleted 5863457 1357423534
+is
+\change_inserted 5863457 1357423535
+be
+\change_unchanged
+ defined by the history of 
 \begin_inset Formula $x_{i}(k)$
 \end_inset
 
@@ -870,7 +964,11 @@ and the coefficients vector
 \uwave default
 \noun default
 \color inherit
- If we involve the eigenvectors and redefine the 
+ If we involve the eigenvectors and redefine 
+\change_deleted 5863457 1357423543
+the
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Vander_beta"
@@ -901,7 +999,11 @@ where
 \begin_inset Formula $\mathbf{u}_{i}$
 \end_inset
 
- is the unit vector with all zero except the 
+ is the unit vector with all zero
+\change_inserted 5863457 1357423551
+s
+\change_unchanged
+ except the 
 \begin_inset Formula $i^{th}$
 \end_inset
 
@@ -929,12 +1031,31 @@ where
 \begin_layout Standard
 The consensus based information flooding is ideally suitable for time-invariant
  network.
- Because this method requires a node know all the eigenvectors and eigenvalues
- of the network before it can estimate initial values of other nodes.
- It can be initialized by all flooding weight coefficients to all nodes
- in the network.
+ Because this method requires a node know
+\change_inserted 5863457 1357423560
+s
+\change_unchanged
+ all the eigenvectors and eigenvalues of the network before it can estimate
+ initial values of other nodes.
+ It can be initialized by 
+\change_deleted 5863457 1357423566
+all
+\change_unchanged
+ flooding 
+\change_inserted 5863457 1357423569
+all 
+\change_unchanged
+weight coefficients to all nodes in the network.
  However, instead of flooding a table of local values, flooding the weight
- matrix is only performed at the stage initialization for one time.
+ matrix is only performed at the
+\change_deleted 5863457 1357423591
+ 
+\change_unchanged
+ initialization
+\change_inserted 5863457 1357423589
+ stage
+\change_unchanged
+ for one time.
  The proposed method could have lower cost both in computation and communication
 , if the topology changes at a very low frequency.
 \end_layout
