@@ -2743,7 +2743,15 @@ Simulation and Algorithms Performance
 
 \begin_layout Standard
 To test the performance of high-order DAC algorithm with different orders,
- a simulation is carry out on 1000 random generated networks.
+ 
+\change_inserted 5863457 1357418881
+1000 random networks are generated and 
+\change_unchanged
+a simulation is carry out on 
+\change_inserted 5863457 1357418902
+each network
+\change_unchanged
+.
  
 \change_deleted 936221351 1356970704
 The methods and parameters of network generation are illustrated in 
@@ -2795,10 +2803,6 @@ networks
 \change_inserted 936221351 1356970795
 nodes are
 \change_unchanged
- 
-\change_deleted 936221351 1356970797
-is
-\change_unchanged
  distributed.
 
 \change_inserted 936221351 1356970833
@@ -2831,21 +2835,31 @@ in a unit square.
 \change_inserted 936221351 1356970975
  
 \change_unchanged
-Second, connect any two nodes if their satisfy a certain communication constrain
-s.
- Finally, each sensor randomly choose a local initial value 
+Second, connect any two nodes if they satisfy certain communication constrains.
+ Finally, each sensor randomly choose
+\change_inserted 5863457 1357418974
+s
+\change_unchanged
+ a 
+\change_inserted 5863457 1357419155
+random 
+\change_unchanged
+local initial value 
 \change_inserted 936221351 1356970869
 that 
-\change_deleted 936221351 1356970948
-has 
-\change_inserted 936221351 1356970872
- 
-\change_deleted 936221351 1356970948
-equally
-\change_inserted 936221351 1356970913
- obeys an uniform
+\change_inserted 5863457 1357419142
+is
 \change_unchanged
- probability density function.
+ uniformly
+\change_inserted 5863457 1357419086
+ distributed
+\change_unchanged
+ 
+\change_inserted 5863457 1357419165
+in a certain range.
+ 
+\change_deleted 5863457 1357419166
+probability density function.
  
 \change_inserted 936221351 1356970934
 
@@ -2982,7 +2996,11 @@ two
 \end_layout
 
 \begin_layout Case
-Consider the graph show in the 
+Consider the graph show in 
+\change_deleted 5863457 1357419204
+the
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Net-N50-E200"
@@ -2995,8 +3013,25 @@ reference "fig:Net-N50-E200"
  
 \change_unchanged
 The number of nodes and edges are fixed; 50 nodes are randomly and uniformly
- distribute in the unit square; Any two nodes are connected if their edge
- belongs to a list that contains 200 shortest edges.
+ distribute
+\change_inserted 5863457 1357419221
+d
+\change_unchanged
+ in the unit square; Any two nodes are connected if their edge 
+\change_inserted 5863457 1357419274
+is
+\change_deleted 5863457 1357419308
+ 
+\change_unchanged
+ 
+\change_inserted 5863457 1357419284
+in
+\change_unchanged
+ 
+\change_inserted 5863457 1357419314
+the list of 
+\change_unchanged
+200 shortest edges.
  
 \end_layout
 
@@ -3008,9 +3043,13 @@ reference "fig:Net-N16-R0,3"
 
 \end_inset
 
- is generating by: nodes are randomly and uniformly distribute in the unit
- square ; connect any two nodes if their distance is less than the communication
- radius constrain 
+ is generated 
+\change_inserted 5863457 1357419355
+as follows:
+\change_unchanged
+ nodes are randomly and uniformly distribute in the unit square ; connect
+ any two nodes if their distance is less than the communication radius constrain
+ 
 \begin_inset Formula $R$
 \end_inset
 
@@ -3023,8 +3062,12 @@ Performance Comparison for Asymptotic DAC
 \end_layout
 
 \begin_layout Standard
-The performance for DAC algorithms with different orders are compared by
- optimal spectral radius 
+The performance of DAC algorithms with different orders are compared by
+ 
+\change_inserted 5863457 1357419432
+the 
+\change_unchanged
+optimal spectral radius 
 \begin_inset Formula $\rho_{opt}=\mbox{\mbox{min}}\rho\left\{ \left(\mathbf{H}-\mathbf{J}\right)\right\} $
 \end_inset
 
@@ -3074,8 +3117,11 @@ of simulations
 \change_deleted 936221351 1356971477
  realized for
 \change_unchanged
- 1000 instance of DAC initialized with random local value vectors and random
- networks.
+ 1000 instance
+\change_inserted 5863457 1357419446
+s
+\change_unchanged
+ of DAC initialized with random local value vectors and random networks.
 \end_layout
 
 \begin_layout Standard
@@ -3093,9 +3139,7 @@ reference "fig:DAC MSE Compare"
  plots the convergence behavior of
 \change_inserted 936221351 1356971569
  local value vector of high-order DAC algorithms together with 
-\change_deleted 5863457 1357333370
-first order DAC
-\change_inserted 5863457 1357333370
+\change_unchanged
 first-order DAC
 \change_inserted 936221351 1356971569
  in terms of
@@ -3109,15 +3153,13 @@ MSE(k)=\frac{1}{n}\sum_{i=1}^{n}\left|x_{i}(k)-\bar{x}\right|^{2}
 
 \end_inset
 
-which actually
-\change_deleted 936221351 1356971616
- 
-\change_unchanged
- is the Euclidean distance between current local vector 
+which actually is the Euclidean distance between current local vector 
 \begin_inset Formula $\mathbf{x}_{i}(k)$
 \end_inset
 
  and the global average.
+
+\change_deleted 5863457 1357419515
  
 \change_deleted 936221351 1356972875
 shows the result when radius constrain 
@@ -3130,14 +3172,26 @@ shows the result when radius constrain
 
 .
 
+\change_deleted 5863457 1357419515
+ 
+\change_inserted 5863457 1357419522
+ 
+\change_deleted 5863457 1357419530
+In 
+\change_inserted 5863457 1357419532
+By 
 \change_unchanged
- In observing the gradient of curves, it is apparent that higher-order DAC
- algorithm have larger convergence rate.
+observing the gradient of curves, it is apparent that higher-order DAC algorithm
+s have larger convergence rate.
  However, there are negligible improvement for the fourth order DAC compared
  to the third order one.
  Furthermore, high-order DAC 
 \change_inserted 936221351 1356972932
-algorithm 
+algorithm
+\change_inserted 5863457 1357419562
+s
+\change_inserted 936221351 1356972932
+ 
 \change_unchanged
 has a MSE overshoot at the beginning.
  This phenomenon happens especially when 
@@ -3145,9 +3199,17 @@ has a MSE overshoot at the beginning.
 the 
 \change_unchanged
 communication radius is small.
- Second order DAC algorithm does have a faster convergence rate than first
+ Second-order DAC algorithm does have a faster convergence rate than first
  order algorithm as the slop of the curve is steeper.
- But it become worse as it converge to error tolerance 
+ But it become
+\change_inserted 5863457 1357419616
+s
+\change_unchanged
+ worse as it converge
+\change_inserted 5863457 1357419622
+s
+\change_unchanged
+ to error tolerance 
 \begin_inset Formula $10^{-6}$
 \end_inset
 
@@ -3163,23 +3225,13 @@ and forgetting factor are
 \change_inserted 936221351 1356973117
 is
 \change_unchanged
- equal to the of 
-\change_deleted 5863457 1357333371
-first order DAC
-\change_inserted 5863457 1357333371
-first-order DAC
-\change_unchanged
- step size and
+ equal to the first-order DAC step size and
 \change_deleted 936221351 1356973115
  
 \change_inserted 936221351 1356973126
  forgetting factor is equal to 
-\change_deleted 5863457 1357333549
-second order DAC
-\change_inserted 5863457 1357333550
-second-order DAC
 \change_unchanged
- forgetting factor
+second-order DAC forgetting factor
 \change_deleted 936221351 1356973143
  respectively
 \change_unchanged

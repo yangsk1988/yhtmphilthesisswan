@@ -2625,7 +2625,7 @@ reference "eq:Model of Received signal"
 \end_inset
 
 , if we assume sensor’s observation is independent from one to another,
- the G-LLR can be changed into the sum of L-LLR.
+ G-LLR can be changed into the sum of L-LLR.
  
 \end_layout
 
@@ -2644,7 +2644,7 @@ reference "eq:Sum L-LLR Cloud"
 
 \end_inset
 
-, the G-LLR is changes into the sum of local log likelihood ratio (L-LLR).
+, G-LLR is changes into the sum of local log likelihood ratio (L-LLR).
  
 \end_layout
 
@@ -2858,7 +2858,7 @@ reference "eq:G-LLR_independent"
 
 \end_inset
 
- states that the G-LLR is equal to the weighted sum of 
+ states that G-LLR is equal to the weighted sum of 
 \begin_inset Formula $x_{l}$
 \end_inset
 
@@ -2913,9 +2913,13 @@ reference "eq:GLLR in weighted sum"
 
 \end_inset
 
- means the G-LLR can be a weighted sum of the signal acquired in each sensor,
- which can be obtained by the weight average multiplied with the number
- of sensors in the network.
+ means 
+\change_unchanged
+G-LLR
+\change_deleted 5862369 1355517070
+ can be a weighted sum of the signal acquired in each sensor, which can
+ be obtained by the weight average multiplied with the number of sensors
+ in the network.
  
 \change_unchanged
 
@@ -2927,8 +2931,8 @@ The algorithm is as follows: First, each sensor calculates its local LLR
  until it converges to the consensus value; Finally, after the algorithm
  converges, the global LLR is obtained by multiply the average local LLRs
  with the number of sensors in the network.
- When the G-LLR is available, cloud declaration could be made based on the
- ML or MAP decision rule.
+ When G-LLR is available, cloud declaration could be made based on the ML
+ or MAP decision rule.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3196,8 +3200,12 @@ Some properties of DAC should emphasize here.
 
 \begin_layout Standard
 
+\change_inserted 5862369 1355526749
+To make it possible to calculate 
+\change_unchanged
+G-LLR
 \change_inserted 5862369 1355518486
-To make it possible to calculate the G-LLR
+
 \family roman
 \series medium
 \shape up
@@ -3235,7 +3243,7 @@ located very close to each other.
  
 \change_deleted 5862369 1355518686
 i
-\change_inserted 5862369 1355518686
+\change_inserted 5862369 1355526508
 I
 \change_unchanged
 f node 
@@ -3247,7 +3255,7 @@ f node
 \end_inset
 
  are not neighbors
-\change_inserted 5862369 1355518696
+\change_inserted 5862369 1355526508
 , 
 \change_deleted 5862369 1355518695
 .
@@ -3500,7 +3508,7 @@ Start another DAC algorithm to find
 \end_layout
 
 \begin_layout Enumerate
-The G-LLR
+G-LLR
 \family roman
 \series medium
 \shape up
@@ -3752,8 +3760,8 @@ DCA
 \change_unchanged
  algorithm is to obtain G-LLR without copy L-LLRs to all sensor nodes in
  the network.
- Once the G-LLR is available, cloud declaration could be made base on the
- ML or MAP decision rule.
+ Once G-LLR is available, cloud declaration could be made base on the ML
+ or MAP decision rule.
 \end_layout
 
 \begin_layout Standard
@@ -3809,15 +3817,15 @@ reference "fig:Global-LLR-and"
 \begin_inset Formula $S_{2}$
 \end_inset
 
- has its contact of cloud at frame 63, the G-LLR increased to an even high
- level, which is strong evidence of the cloud existence.
+ has its contact of cloud at frame 63, G-LLR increased to an even high level,
+ which is strong evidence of the cloud existence.
  Because 
 \begin_inset Formula $S_{3}$
 \end_inset
 
  had no chance to contact with the cloud, its L-LLR is actually less sensitive
  to the sensors signal.
- Thus, its L-LLR has very low contribution to the G-LLR.
+ Thus, its L-LLR has very low contribution to G-LLR.
  
 \end_layout
 

@@ -86,8 +86,15 @@ Finite-Time DAC Algorithm
 \begin_layout Standard
 Finite-Time Distributed Consensus Algorithm (FT-DAC) is an non-asymptotic
  algorithm.
- It tries to find the consensus value after each node run the FO-DAC algorithm
- iteratively for a certain number of time.
+ It tries to find the consensus value after 
+\change_deleted 5863457 1357421238
+each node run
+\change_unchanged
+ the FO-DAC algorithm is iterated for a certain number of time
+\change_inserted 5863457 1357421290
+s
+\change_unchanged
+.
  This is based on the assumption that after a certain number of iterations,
  local values would contain sufficient information to estimate the consensus
  value.
@@ -105,12 +112,16 @@ Given the network
 \begin_inset Formula $\mathcal{G}$
 \end_inset
 
-, and initial local value vector 
+ and initial local value vector 
 \begin_inset Formula $\mathbf{x}\left(0\right)$
 \end_inset
 
 , it is said the algorithm achieves a finite-time consensus if it solves
- a consensus problem, and there exist a time 
+ a consensus problem, and there exist
+\change_inserted 5863457 1357421306
+s
+\change_unchanged
+ a time 
 \begin_inset Formula $t^{*}$
 \end_inset
 
@@ -138,8 +149,11 @@ key "Kokiopoulou2007"
 
 \end_inset
 
-, we try to decompose the local value vector in a form which reveals an
- important property of its iteration.
+, we try to decompose the local value vector in
+\change_inserted 5863457 1357421312
+to
+\change_unchanged
+ a form which reveals an important property of its iteration.
  Therefore we propose a filtering technique to estimate the consensus value.
  
 \end_layout
@@ -164,7 +178,7 @@ Find the Consensus Value by Linear Filter
 \bar no
 \noun off
 \color none
-In the network that adopts first order linear consensus algorithm, each
+In the network that adopts first-order linear consensus algorithm, each
  node has a number of consecutive local values
 \family default
 \series default
@@ -203,7 +217,13 @@ consecutive
 \bar no
 \noun off
 \color none
- local values through this
+ local values 
+\change_deleted 5863457 1357421337
+through
+\change_inserted 5863457 1357421337
+to
+\change_unchanged
+ this
 \family default
 \series default
 \shape default
@@ -214,13 +234,12 @@ consecutive
 \color inherit
  filter, the output after a certain time is the global average of the initial
  values over the network.
- Compared to 
-\change_deleted 5863457 1357333372
-first order DAC
-\change_inserted 5863457 1357333372
-first-order DAC
+ Compared to
+\change_inserted 5863457 1357421348
+ 
 \change_unchanged
- algorithm, no more information exchanged between nodes is needed.
+the first-order DAC algorithm, no more information exchanged between nodes
+ is needed.
  
 \end_layout
 
@@ -235,7 +254,11 @@ The linear filter
 \begin_inset Formula $\mathbf{h}\in R^{d}$
 \end_inset
 
-, whos output 
+, whos
+\change_inserted 5863457 1357421389
+e
+\change_unchanged
+ output 
 \family roman
 \series medium
 \shape up
@@ -285,7 +308,11 @@ The linear filter
 \uwave default
 \noun default
 \color inherit
- of the network 
+ of the network
+\change_inserted 5863457 1357421407
+,
+\change_unchanged
+ 
 \family roman
 \series medium
 \shape up
@@ -328,6 +355,8 @@ where local values
 \noun default
 \color inherit
  
+\change_deleted 5863457 1357421425
+
 \family roman
 \series medium
 \shape up
@@ -336,7 +365,11 @@ where local values
 \bar no
 \noun off
 \color none
-is obtained by Eq.
+is
+\change_inserted 5863457 1357421426
+are
+\change_unchanged
+ obtained by Eq.
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:1st iter. ni"
@@ -527,7 +560,7 @@ reference "eq:convege condition W"
 \end_layout
 
 \begin_layout Proof
-To avoid complicate analysis, suppose an undirected network with 
+To avoid complicated analysis, suppose an undirected network with 
 \begin_inset Formula $n$
 \end_inset
 
@@ -537,7 +570,7 @@ To avoid complicate analysis, suppose an undirected network with
 \end_inset
 
  is symmetric and diagonalizable.
- W Thus, there are 
+ Thus, there are 
 \begin_inset Formula $n$
 \end_inset
 
@@ -638,8 +671,12 @@ be the eigenvectors of
 \begin_inset Formula $\mathbf{e}_{1}$
 \end_inset
 
- is associated dominant eigenvector.Since all the eigenvectors consist a
- basis of 
+ is associated dominant eigenvector.
+
+\change_inserted 5863457 1357421473
+ 
+\change_unchanged
+Since all the eigenvectors consist a basis of 
 \begin_inset Formula $\mathbf{R}^{n}$
 \end_inset
 
@@ -882,11 +919,33 @@ Let the sample vector
 \begin_inset Formula $\mathbf{y}_{i}(k,d)\in R^{d}$
 \end_inset
 
- is defined by the history of 
-\begin_inset Formula $x_{i}(k),$
+ 
+\change_deleted 5863457 1357422052
+is
+\change_inserted 5863457 1357422052
+be
+\change_unchanged
+ 
+\change_deleted 5863457 1357422074
+defined by the
+\change_inserted 5863457 1357422074
+a
+\change_deleted 5863457 1357422091
+ 
+\change_unchanged
+ 
+\change_inserted 5863457 1357422070
+vector 
+\change_unchanged
+of 
+\begin_inset Formula $x_{i}(k)$
 \end_inset
 
  
+\change_inserted 5863457 1357422114
+over time, denoted by 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Proof
@@ -994,7 +1053,14 @@ To obtain the consensus value
 \bar no
 \noun off
 \color none
-and solve Eq.
+and solve 
+\change_deleted 5863457 1357422155
+Eq.
+
+\change_inserted 5863457 1357422156
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Vander_beta"
@@ -1005,7 +1071,15 @@ reference "eq:Vander_beta"
 \begin_inset Formula $d$
 \end_inset
 
- should at least equal or larger than
+ should at least 
+\change_inserted 5863457 1357422137
+be 
+\change_unchanged
+equal 
+\change_inserted 5863457 1357422140
+to 
+\change_unchanged
+or larger than
 \family default
 \series bold
 \shape default
@@ -1144,7 +1218,16 @@ reference "eq:Find Consensus m order"
 \bar default
 \noun default
 \color inherit
-by the filter defined in Def.
+by the filter 
+\change_inserted 5863457 1357422252
+
+\begin_inset Formula $\mathbf{h}$
+\end_inset
+
+.
+ 
+\change_deleted 5863457 1357422257
+defined in Def.
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "thm:A-consensus-finding"
@@ -1152,7 +1235,11 @@ reference "thm:A-consensus-finding"
 \end_inset
 
 .
- This ends the proof.
+ 
+\change_inserted 5863457 1357422258
+ 
+\change_unchanged
+This ends the proof.
 \end_layout
 
 \begin_layout Standard
@@ -1185,7 +1272,13 @@ key "Prass2007"
 \noun default
 \color inherit
  Due to this reason, this method can be treated as an extrapolation method
- which find the consensus value at infinity.
+ 
+\change_deleted 5863457 1357422271
+which
+\change_inserted 5863457 1357422271
+to
+\change_unchanged
+ find the consensus value at infinity.
  At the same time, we only need to find out the first coefficient 
 \family roman
 \series medium
@@ -1236,8 +1329,6 @@ only the elements in the corresponding row of
 \noun off
 \color none
 Since 
-\change_deleted 5862369 1357307372
-
 \family default
 \series default
 \shape default
@@ -1246,11 +1337,7 @@ Since
 \bar default
 \noun default
 \color inherit
-simulation result shows
-\change_inserted 5862369 1357307373
-simulation results show
-\change_unchanged
- that 
+simulation results show that 
 \family roman
 \series medium
 \shape up
@@ -1272,7 +1359,11 @@ simulation results show
 \bar default
 \noun default
 \color inherit
- is only depends the associated Vandermonde matrix
+ 
+\change_deleted 5863457 1357422288
+is
+\change_unchanged
+ only depends the associated Vandermonde matrix
 \family roman
 \series medium
 \shape up
@@ -1312,7 +1403,13 @@ each node in the network could find the consensus value at any time
 \begin_inset Formula $k\geqslant m$
 \end_inset
 
- by passing a number of consecutive local values through this filter.
+ by passing a number of consecutive local values 
+\change_deleted 5863457 1357422294
+through
+\change_inserted 5863457 1357422295
+to
+\change_unchanged
+ this filter.
 
 \family default
 \series default
@@ -1326,6 +1423,9 @@ each node in the network could find the consensus value at any time
  means all the filters have the same impulse response.
  However, such a consensus finding filter it is not unique.
  As an example, a number of filters which have different impulse response
+\change_inserted 5863457 1357422310
+s
+\change_unchanged
  or filter lengths are found by different samples 
 \family roman
 \series medium
@@ -1349,8 +1449,15 @@ of
 \noun default
 \color inherit
 .
-  Each node could choose its own, but filter length determines the how many
- time-steps before a node could find 
+
+\change_deleted 5863457 1357422447
+ 
+\change_unchanged
+ Each node could choose its own, but filter length determines 
+\change_deleted 5863457 1357422316
+the
+\change_unchanged
+ how many time-steps before a node could find 
 \family roman
 \series medium
 \shape up
@@ -1438,7 +1545,11 @@ where
 \begin_inset Formula $^{+}$
 \end_inset
 
- denote the Moore-Penrose pseudo inverse 
+ denote
+\change_inserted 5863457 1357422332
+s
+\change_unchanged
+ the Moore-Penrose pseudo inverse 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Piziak2007"
@@ -1446,7 +1557,9 @@ key "Piziak2007"
 \end_inset
 
 .
- And
+ 
+\change_deleted 5863457 1357422347
+And
 \family roman
 \series medium
 \shape up
@@ -1455,7 +1568,11 @@ key "Piziak2007"
 \bar no
 \noun off
 \color none
- the first row of 
+ t
+\change_inserted 5863457 1357422347
+T
+\change_unchanged
+he first row of 
 \begin_inset Formula $A(k,d)$
 \end_inset
 
@@ -1508,7 +1625,7 @@ Due to the multiplication of the consensus finding filter, the set of filter
 
 \end_inset
 
-However, the shortest filter has its length equal to 
+However, the shortest filter has its length equaling to 
 \begin_inset Formula $m$
 \end_inset
 
@@ -1545,7 +1662,7 @@ key "Xiao2004"
 \end_layout
 
 \begin_layout Subsection
-Inverse the Vandermonde matrix
+Inverse the Vandermonde Matrix
 \end_layout
 
 \begin_layout Standard
@@ -1558,8 +1675,12 @@ Inverse the Vandermonde matrix
 \bar no
 \noun off
 \color none
-The Vandermonde matrix has its application in some problems like polynomial
- fitting, reconstruction of distributions from their moments, and so on.
+The Vandermonde matrix has its application
+\change_inserted 5863457 1357422423
+s
+\change_unchanged
+ in some problems like polynomial fitting, reconstruction of distributions
+ from their moments, and so on.
  Solving Vandermonde matrix is related to a polynomial interpolation problem
  and can be easily inverted in terms of Lagrange basis polynomials.
  It can be very difficult to invert in other way if the size of the matrix
@@ -1648,7 +1769,11 @@ Let the polynomial of degree
 \begin_inset Formula $m$
 \end_inset
 
- defined by 
+ 
+\change_inserted 5863457 1357422488
+be 
+\change_unchanged
+defined by 
 \begin_inset Formula 
 \begin{equation}
 P_{j}\left(\lambda\right)=\prod_{\begin{array}{c}
@@ -1663,11 +1788,19 @@ The polynomial
 \begin_inset Formula $P_{j}\left(\lambda\right)$
 \end_inset
 
- a function of 
+ 
+\change_inserted 5863457 1357422499
+is 
+\change_unchanged
+a function of 
 \begin_inset Formula $\lambda$
 \end_inset
 
- and is specially designed so that it is equal to zero at all 
+ 
+\change_deleted 5863457 1357422504
+and is
+\change_unchanged
+ specially designed so that it is equal to zero at all 
 \begin_inset Formula $\lambda_{i}$
 \end_inset
 
@@ -1702,12 +1835,13 @@ where
 \end_inset
 
  is exactly the inverse of the matrix 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:Vander Matrix"
+\change_inserted 5863457 1357422641
 
+\begin_inset Formula $V_{m}$
 \end_inset
 
+
+\change_unchanged
 , with the subscript 
 \begin_inset Formula $k$
 \end_inset
