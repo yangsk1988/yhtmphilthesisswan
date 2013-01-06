@@ -1242,6 +1242,82 @@ reference "thm:A-consensus-finding"
 This ends the proof.
 \end_layout
 
+\begin_layout Lemma
+
+\change_inserted 5863457 1357428428
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:Sum-coef-of-h=1"
+
+\end_inset
+
+The sum all coefficients 
+\shape up
+
+\begin_inset Formula $\left\{ h_{0},\ldots,h_{m-2},h_{m-1}\right\} $
+\end_inset
+
+
+\shape default
+ is equal to one, i.e.
+ 
+\begin_inset Formula $\sum_{j=0}^{m-1}h_{j}=1$
+\end_inset
+
+
+\shape up
+.
+ 
+\end_layout
+
+\begin_layout Proof
+
+\change_inserted 5863457 1357428639
+Since 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\bar{x}=\mathbf{h}*\mathbf{y}_{i}(k,m)$
+\end_inset
+
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+satisfied as 
+\begin_inset Formula $k\to\infty$
+\end_inset
+
+, when the iteration converges, we have 
+\begin_inset Formula $\bar{x}+h_{m-1}\bar{x}+\ldots+h_{1}\bar{x}+h_{0}\bar{x}=\bar{x}$
+\end_inset
+
+.
+ Then, canceling the value 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ from the equation will obtain the result.
+ 
+\end_layout
+
 \begin_layout Standard
 
 \family roman
