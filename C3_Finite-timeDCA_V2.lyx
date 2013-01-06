@@ -161,8 +161,14 @@ key "Sundaram2007"
 , it requires the consensus algorithm being executed for several instances
  initialized with a set of linear independent vectors.
  As mentioned before, the finite-time DAC is not reliable to topology changes.
- If the method have to run multiple re-initializations of original consensus
- algorithm, it may take more risks of being terminated by topology changes.
+ If the method 
+\change_deleted 5863457 1357427403
+have
+\change_inserted 5863457 1357427404
+has
+\change_unchanged
+ to run multiple re-initializations of original consensus algorithm, it
+ may take more risks of being terminated by topology changes.
  Alternatively, the original consensus algorithm can run these instances
  in parallel with a set of independent initial values.
  However, the data transmission at each iteration increases.
@@ -183,12 +189,19 @@ In the future research, the finite-time DAC algorithm probably will be generaliz
 ed to non-symmetrical network.
  
 \change_unchanged
-Before introducing the algorithm, there are too important linear filters
- need to be introduced, as the algorithm is based on the relathonship of
- these filters.
+Before introducing the algorithm, there are t
+\change_deleted 5863457 1357427425
+o
+\change_inserted 5863457 1357427425
+w
+\change_unchanged
+o important linear filters need to be introduced, as the algorithm is based
+ on the relathonship of these filters.
 
 \change_inserted 5862369 1355335166
  The first is the FIR filter to estimate the consensus value which 
+\change_inserted 5863457 1357427433
+has been 
 \change_unchanged
 already 
 \change_inserted 5862369 1355335166
@@ -227,7 +240,7 @@ name "sec:Linear-Predictor-For"
 
 
 \change_unchanged
-Linear Predictor For Local Value 
+Linear Predictor for Local Value 
 \change_deleted 5862369 1355847164
 (todo check times 2)
 \change_inserted 5862369 1355847164
@@ -238,7 +251,11 @@ Linear Predictor For Local Value
 
 \begin_layout Standard
 In observing the convergence curve of each node's local value sequence,
- we come to the idea that the sequence must obeys some rules as it converges.
+ we come to the idea that the sequence must obey
+\change_deleted 5863457 1357427454
+s
+\change_unchanged
+ some rules as it converges.
  In 
 \change_deleted 5862369 1355847351
 section
@@ -263,8 +280,19 @@ and an information flooding techniques
 \end_layout
 
 \begin_layout Standard
-Furthermore, another important property of the FO-DCA need to be highlighted
- in this section, which described by 
+Furthermore, another important property of 
+\change_deleted 5863457 1357427463
+the
+\change_unchanged
+ FO-DCA need
+\change_inserted 5863457 1357427466
+s
+\change_unchanged
+ to be highlighted in this section, which 
+\change_inserted 5863457 1357427468
+is 
+\change_unchanged
+described by 
 \change_deleted 5862369 1350052658
 see how this property can be explained
 \change_unchanged
@@ -327,7 +355,13 @@ reference "thm:convergence condition"
 \end_layout
 
 \begin_layout Proof
-the minimal polynomial of 
+
+\change_inserted 5863457 1357427475
+T
+\change_deleted 5863457 1357427475
+t
+\change_unchanged
+he minimal polynomial of 
 \begin_inset Formula $W$
 \end_inset
 
@@ -360,7 +394,13 @@ W^{m}+a_{m-1}W^{m-1}+\ldots+a_{1}W+a_{0}I=\mathbf{0}_{n\times n}
 
 \end_inset
 
-multiplying both sides with 
+
+\change_inserted 5863457 1357427478
+M
+\change_deleted 5863457 1357427478
+m
+\change_unchanged
+ultiplying both sides with 
 \begin_inset Formula $\mathbf{x}\left(0\right)$
 \end_inset
 
@@ -404,7 +444,11 @@ In other words,
 \begin_inset Formula $x_{i}\left(k\right)$
 \end_inset
 
- can be predicted by a FIR filter given by 
+ can be predicted by a
+\change_inserted 5863457 1357427486
+n
+\change_unchanged
+ FIR filter given by 
 \begin_inset Formula $\left[-a_{r},-a_{r-1},\ldots,-a_{0}\right]$
 \end_inset
 
@@ -422,13 +466,13 @@ In other words,
  is not changed.
 \end_layout
 
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:Sum-coef.=1"
+\begin_layout Standard
 
-\end_inset
-
+\change_deleted 5863457 1357428173
+Lemma 3.1.1
+\change_inserted 5863457 1357428364
+ 
+\change_deleted 5863457 1357428173
 The sum coefficients 
 \shape up
 
@@ -437,7 +481,7 @@ The sum coefficients
 
 
 \shape default
- is equals to negative one, i.e.
+ is equal to negative one, i.e.
  
 \begin_inset Formula $\sum_{j=0}^{m-1}a_{j}=-1$
 \end_inset
@@ -448,9 +492,10 @@ The sum coefficients
  
 \end_layout
 
-\begin_layout Proof
-It is obvious when the iteration converges.
- Since Eq.
+\begin_layout Standard
+
+\change_deleted 5863457 1357428195
+proof: Since Eq.
  
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -462,7 +507,7 @@ reference "eq:x(k+r) vector predictor"
 \begin_inset Formula $k\to\infty$
 \end_inset
 
-, we have 
+, when the iteration converges, we have 
 \begin_inset Formula $\bar{\mathbf{x}}+a_{m-1}\bar{\mathbf{x}}+\ldots+a_{1}\bar{\mathbf{x}}+a_{0}\bar{\mathbf{x}}=\mathbf{0}$
 \end_inset
 
@@ -471,16 +516,23 @@ reference "eq:x(k+r) vector predictor"
 \begin_inset Formula $\bar{\mathbf{x}}$
 \end_inset
 
- from the equation obtains that the sum of all coefficients equals to negative
- one.
+ from the equation will obtain the result.
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 Given the local value vector sequence obtained by FO-DCA, one may instantly
  comes to the idea of applying an adaptive filter algorithm to estimate
  the set of coefficients.
- For example, LMS, LSL and Kalman filter algorithms.
+ For example
+\change_deleted 5863457 1357427618
+, LMS, LSL and
+\change_inserted 5863457 1357427618
+the
+\change_unchanged
+ Kalman filter algorithms.
  One benifit of the adaptive filter algorithm is that when the network topology
  is changed, the filter could adaptively change its coefficient during the
  iteration.
@@ -496,13 +548,21 @@ Find the Coefficients of Linear Predictor
 \end_layout
 
 \begin_layout Standard
-After running FO-DAC algorithm for a number of step, node 
+After running FO-DAC algorithm for a number of step
+\change_inserted 5863457 1357427630
+s
+\change_unchanged
+, node 
 \begin_inset Formula $v_{i}$
 \end_inset
 
  could list a number of equations by its available local values.
  Once they are sufficient equations to construct a matrix, which is a Toeplitz
- matrix, we can have a important result in the following.
+ matrix, we can have a
+\change_inserted 5863457 1357427634
+n
+\change_unchanged
+ important result in the following.
 \end_layout
 
 \begin_layout Standard
@@ -548,8 +608,8 @@ x_{i}\left(k+D_{i}-1\right) & x_{i}\left(k+D_{i}-2\right) & \cdots & x_{i}\left(
 \end_inset
 
 Similarly, 
-\change_inserted 5863457 1355319633
-Define 
+\change_inserted 5863457 1357427638
+define 
 \change_unchanged
 the function 
 \begin_inset Formula $\mathbf{y}_{i}=\mathbf{y}_{i}\left(k,D_{i}\right)=\left[x_{i}\left(k+1\right),x_{i}\left(k+2\right),\ldots,x_{i}\left(k+D_{i}\right)\right]^{T}\in\mathbb{R}^{D_{i}}$
@@ -624,7 +684,11 @@ The size of the Toeplitz block
 \begin_inset Formula $m$
 \end_inset
 
- so that the Eq.
+ so that
+\change_deleted 5863457 1357427688
+ 
+\change_unchanged
+ Eq.
  
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -632,7 +696,7 @@ reference "eq:Toeplitz Eq.-2"
 
 \end_inset
 
- have unique solution.
+ has unique solution.
  To solve Eq.
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -644,7 +708,11 @@ reference "eq:Toeplitz Eq.-2"
 \begin_inset Formula $i$
 \end_inset
 
- need to have sufficient local values.
+ need
+\change_inserted 5863457 1357427692
+s
+\change_unchanged
+ to have sufficient local values.
 \end_layout
 
 \begin_layout Standard
@@ -750,7 +818,11 @@ reference "eq:Toeplitz Eq.-2"
 \change_deleted 5863457 1355531217
 but
 \change_unchanged
- all the local value can be obtained from one instance of FO-DCA
+ all the local value
+\change_inserted 5863457 1357427709
+s
+\change_unchanged
+ can be obtained from one instance of FO-DCA
 \change_inserted 5863457 1355531225
  after 
 \begin_inset Formula $2D_{i}+1$
@@ -759,7 +831,7 @@ but
  iterations
 \change_unchanged
 .
- In compare to the original finite-time consensus algorithm 
+ By comparing to the original finite-time consensus algorithm 
 \change_deleted 5863457 1355531391
 in
 \change_unchanged
@@ -885,7 +957,13 @@ reference "thm:convergence condition"
 \change_inserted 5863457 1355531906
  
 \change_unchanged
-equals to one.
+equal
+\change_deleted 5863457 1357427743
+s
+\change_inserted 5863457 1357427743
+ing
+\change_unchanged
+ to one.
  
 \change_inserted 5863457 1355532179
 As shown in 
@@ -927,7 +1005,7 @@ Thus, the consensus finding filter is given by the first row of the inverse
 \end_layout
 
 \begin_layout Standard
-Examining the the Lagrange's polynomial interpolation formula 
+Examining the Lagrange's polynomial interpolation formula 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Lagrange's polynomial"
@@ -1448,7 +1526,11 @@ reference "eq:first order matrix"
 \end_inset
 
 .
- At the same time each node passes its local values though filter 
+ At the same time each node passes its local values th
+\change_inserted 5863457 1357427779
+r
+\change_unchanged
+ough filter 
 \begin_inset Formula $\mathbf{h}$
 \end_inset
 
@@ -1491,9 +1573,15 @@ first-order DAC
 \end_inset
 
 .
- The result shows that the consensus finding filter calculate the consensus
- value after a finite number of iteration and MSE drops dramatically to
- the quantization error at the same time.
+ The result shows that the consensus finding filter calculate
+\change_inserted 5863457 1357427790
+s
+\change_unchanged
+ the consensus value after a finite number of iteration
+\change_inserted 5863457 1357427793
+s
+\change_unchanged
+ and MSE drops dramatically to the quantization error at the same time.
  
 \end_layout
 
@@ -1506,8 +1594,12 @@ In this section, we introduced the finite-time DAC on generalized condition.
  Compared to the previous version of finite-time DAC, the improvements are:
  it doesn't require the eigenvalues to be known prior to the algorithm.
  However, the number of iterations can not be less than a certain limit,
- because the minimum number of iterations is depends on the weight matrix,
- which is the same as the previous finite-time DAC.
+ because the minimum number of iterations 
+\change_deleted 5863457 1357427803
+is
+\change_unchanged
+ depends on the weight matrix, which is the same as the previous finite-time
+ DAC.
  With this improvement, some further algorithm could be driven.
  They will be introduced in 
 \change_deleted 5862369 1355762081

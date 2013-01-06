@@ -121,8 +121,12 @@ s.
  is very hard to obtain for an individual agent in distributed networks.
   Thus, optimal step length and forgetting factor need to be calculated
  offline and forwarded to every agent.
-  To solve this problem, we proposed a distributed real-time optimization
- technique so that each node can estimate these optimal parameters individually.
+  To solve this problem, we propose
+\change_deleted 5863457 1357427850
+d
+\change_unchanged
+ a distributed real-time optimization technique so that each node can estimate
+ these optimal parameters individually.
  In addition, the method is based on constant first-order DAC itself, so
  it will not stop the consensus process.
  The result shows that a numerical error due to quantization would exist
@@ -206,7 +210,11 @@ When the moving target is highly dynamic or the sensors need to sample at
 \end_layout
 
 \begin_layout Standard
-The DAC algorithms can be divided into asymptotic and non-asymptotic algorithms.
+
+\change_deleted 5863457 1357427861
+The
+\change_unchanged
+ DAC algorithms can be divided into asymptotic and non-asymptotic algorithms.
  Asymptotic algorithms have been proved to be robust against  topology changes
  and they play important roles in practice 
 \begin_inset CommandInset citation
@@ -293,8 +301,8 @@ key "Xiong2010"
 
 \begin_layout Standard
 
-\change_inserted 5863457 1355325311
-To enable the whole system work distributively, the optimization should
+\change_inserted 5863457 1357427870
+To enable the whole system to work distributively, the optimization should
  be distributed and the DAC algorithms should be robust against topology
  changes.
  
@@ -365,12 +373,23 @@ key "Cavalcante2010"
 
 \end_inset
 
- follow Sundaram and Hadjicostis's work to propose an adaptive algorithm
- to find the filter.
+ follow
+\change_inserted 5863457 1357427924
+ the work of
+\change_unchanged
+ Sundaram and Hadjicostis
+\change_deleted 5863457 1357427913
+'s
+\change_unchanged
  
-\change_inserted 5863457 1355325419
+\change_deleted 5863457 1357427920
+work
+\change_unchanged
+ to propose an adaptive algorithm to find the filter.
+ 
+\change_inserted 5863457 1357427948
 The optimization for both of them is to minimize the number of necessary
- iteration before a FIR filter is estimated.
+ iterations before a FIR filter is estimated.
  However, they are not robust against topology changes.
  
 \change_unchanged
@@ -579,13 +598,7 @@ key "Xiong2010"
 \end_layout
 
 \begin_layout Standard
-Because in 
-\change_deleted 5862369 1355847412
-section
-\change_inserted 5862369 1355847412
- 
-\change_unchanged
- 
+In 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Discrete-High-Order"
@@ -600,9 +613,10 @@ reference "sub:Discrete-High-Order"
 \begin_inset Formula $\lambda_{i}\left(L\right)$
 \end_inset
 
-, to enable the distributed optimization, the key is to estimate these eigenvalu
-es in a distributed manner.
-  
+.
+ To enable the distributed optimization, the key is to estimate these eigenvalue
+s in a distributed manner.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -611,6 +625,15 @@ In fact, there are some decentralized techniques
  
 \change_deleted 5863457 1355325724
  
+\change_inserted 5863457 1357428859
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yang2010"
+
+\end_inset
+
+
 \change_unchanged
 
 \begin_inset CommandInset citation
@@ -626,17 +649,6 @@ key "Franceschelli2009"
 
 \end_inset
 
-
-\change_inserted 5863457 1355325730
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Yang2010"
-
-\end_inset
-
-
-\change_unchanged
  to estimate the eigenvalues.
  However, they are not designed for DAC algorithm and will involve complex
  and costly initialization.
@@ -883,7 +895,11 @@ reference "eq:x(k+D) vector predictor"
 
 \end_inset
 
- satisfied as 
+ 
+\change_inserted 5863457 1357428022
+is 
+\change_unchanged
+satisfied as 
 \begin_inset Formula $k\to\infty$
 \end_inset
 
@@ -1131,8 +1147,13 @@ Eigenvalues Missing In Local Spectrum
 \end_layout
 
 \begin_layout Standard
-In simulation, some eigenvalues are missed in some of the local eigenvalues
- spectrums.
+In simulation, some eigenvalues are miss
+\change_deleted 5863457 1357429069
+ed
+\change_inserted 5863457 1357429070
+ing
+\change_unchanged
+ in some of the local eigenvalues spectrums.
  The reason is because sometimes the Toeplitz matrix 
 \begin_inset Formula $T_{i}$
 \end_inset
@@ -1141,7 +1162,13 @@ In simulation, some eigenvalues are missed in some of the local eigenvalues
 \begin_inset Formula $D$
 \end_inset
 
- will loss rank, and node 
+ will los
+\change_deleted 5863457 1357429076
+s
+\change_inserted 5863457 1357429076
+e
+\change_unchanged
+ rank, and node 
 \begin_inset Formula $v_{i}$
 \end_inset
 
@@ -1154,7 +1181,15 @@ In simulation, some eigenvalues are missed in some of the local eigenvalues
 \begin_inset Formula $p_{i}\left(\lambda\right)$
 \end_inset
 
- will reduce to 
+ will 
+\change_inserted 5863457 1357429083
+be 
+\change_unchanged
+reduce
+\change_inserted 5863457 1357429086
+d
+\change_unchanged
+ to 
 \begin_inset Formula $D_{i}$
 \end_inset
 
@@ -1167,7 +1202,11 @@ In simulation, some eigenvalues are missed in some of the local eigenvalues
 \begin_inset Formula $D_{i}$
 \end_inset
 
- may different from one to another.
+ may
+\change_inserted 5863457 1357429092
+ be
+\change_unchanged
+ different from one to another.
 \end_layout
 
 \begin_layout Standard
@@ -1175,7 +1214,11 @@ The example of a node
 \begin_inset Formula $v_{i}$
 \end_inset
 
- who can not estimate a eigenvalue 
+ who cannot estimate a
+\change_inserted 5863457 1357429109
+n
+\change_unchanged
+ eigenvalue 
 \begin_inset Formula $\lambda_{l}$
 \end_inset
 
@@ -1192,7 +1235,13 @@ The example of a node
 \begin_inset Formula $i'th$
 \end_inset
 
- component equals to zero, i.e 
+ component equal
+\change_inserted 5863457 1357429120
+ing
+\change_deleted 5863457 1357429120
+s
+\change_unchanged
+ to zero, i.e 
 \begin_inset Formula $\mathbf{u}_{d}^{T}\mathbf{e}_{l}=0$
 \end_inset
 
@@ -1200,7 +1249,11 @@ The example of a node
 \begin_inset Formula $\mathbf{u}_{i}$
 \end_inset
 
- is a all-zero vector except the 
+ is a
+\change_inserted 5863457 1357429131
+n
+\change_unchanged
+ all-zero vector except the 
 \begin_inset Formula $i'th$
 \end_inset
 
@@ -1270,14 +1323,17 @@ key "Sundaram2007"
 \end_layout
 
 \begin_layout Standard
-For this reason, every node need to exchange its estimated eigenvalue spectrum
- with its neighbors in order to recover the full eigenvalue spectrum of
- 
+For this reason, every node need
+\change_inserted 5863457 1357429231
+s
+\change_unchanged
+ to exchange its estimated eigenvalue spectrum with its neighbors in order
+ to recover the full eigenvalue spectrum of 
 \begin_inset Formula $W$
 \end_inset
 
 .
- To assure that no eigenvalue is missed in the final eigenvalue spectrum,
+ To assure that no eigenvalue is missing in the final eigenvalue spectrum,
  for any eigenvalue 
 \begin_inset Formula $\lambda_{l}$
 \end_inset
@@ -1339,11 +1395,19 @@ For the case that matrix
 \end_inset
 
 .
- If an node 
+ If a
+\change_deleted 5863457 1357429264
+n
+\change_unchanged
+ node 
 \begin_inset Formula $v_{d}$
 \end_inset
 
- could not estimation a eigenvalue 
+ could not estimation a
+\change_inserted 5863457 1357429310
+n
+\change_unchanged
+ eigenvalue 
 \begin_inset Formula $\lambda_{l}=\lambda_{l}\left(W\right)$
 \end_inset
 
@@ -1378,24 +1442,58 @@ For the case that matrix
 \end_inset
 
 , the associated eigenvector or the linear combination of associated eigenvector
-s is 
+s 
+\change_deleted 5863457 1357429461
+is
+\change_inserted 5863457 1357429462
+will be
+\change_unchanged
+ 
 \begin_inset Formula $\mathbf{0}_{n\times1}$
 \end_inset
 
 .
- However, it is not possible for a diagnosable matrix.
+ However, 
+\change_inserted 5863457 1357429485
+this situation 
+\change_deleted 5863457 1357429469
+it
+\change_unchanged
+ 
+\change_inserted 5863457 1357429518
+will never happen 
+\change_deleted 5863457 1357429515
+is not possible
+\change_unchanged
+ for a diagnosable matrix.
  Since diagnosable matrix has 
 \begin_inset Formula $n$
 \end_inset
 
- independent eigenvectors, the linear combination of eigenvectors can not
- be equal to 
+ independent eigenvectors, 
+\change_inserted 5863457 1357429559
+any
+\change_unchanged
+ linear combination of 
+\change_inserted 5863457 1357429568
+these 
+\change_unchanged
+eigenvectors 
+\change_deleted 5863457 1357429544
+can
+\change_inserted 5863457 1357429545
+will
+\change_unchanged
+ not be equal to 
 \begin_inset Formula $\mathbf{0}_{n\times1}$
 \end_inset
 
- as well.
- Therefore, there exist at least one node in the network could estimate
- 
+.
+ Therefore, there exist
+\change_inserted 5863457 1357429585
+s
+\change_unchanged
+ at least one node in the network could estimate 
 \begin_inset Formula $\lambda_{l}$
 \end_inset
 
@@ -1435,7 +1533,11 @@ where
 \end_layout
 
 \begin_layout Standard
-Assume that all node miss an eigenvalue 
+Assume that all node
+\change_inserted 5863457 1357429599
+s
+\change_unchanged
+ miss an eigenvalue 
 \begin_inset Formula $\lambda_{l}$
 \end_inset
 
@@ -1485,7 +1587,17 @@ Since
 \begin_inset Formula $U$
 \end_inset
 
- is consist by linear independent vectors, the above equation 
+ is consist
+\change_inserted 5863457 1357429608
+ed
+\change_unchanged
+ 
+\change_deleted 5863457 1357429612
+by
+\change_inserted 5863457 1357429612
+of
+\change_unchanged
+ linear independent vectors, the above equation 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Jordan decom.under assumption"
@@ -1497,7 +1609,11 @@ reference "eq:Jordan decom.under assumption"
 \begin_inset Formula $\lambda_{l}\left(W\right)$
 \end_inset
 
- could be estimated by at least one nodes in the network.
+ could be estimated by at least one node
+\change_deleted 5863457 1357429629
+s
+\change_unchanged
+ in the network.
 \end_layout
 
 \begin_layout Section
@@ -2214,11 +2330,15 @@ Finally, the performance of eigenvalue estimation is evaluated by the estimation
 \end_inset
 
  is the minimum for all eigenvalues in the estimated local Laplacian spectrum.
- Let 
+ Let the minimum distance
+\change_inserted 5863457 1357429985
+ be 
 \begin_inset Formula $e_{i,j}=\min_{l=1,\ldots,D_{i}}\left|\hat{\lambda}_{l}^{\left(i\right)}\left(L\right)-\lambda_{j}\left(L\right)\right|$
 \end_inset
 
- be the minimum distance.
+
+\change_unchanged
+.
  The mean estimation error of 
 \begin_inset Formula $\lambda_{j}\left(L\right)$
 \end_inset

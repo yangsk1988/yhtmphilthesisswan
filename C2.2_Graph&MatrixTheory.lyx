@@ -1255,8 +1255,7 @@ The Jordan normal form of weight matrix
  more easily.
  In addition, under the the assumption of symmetric weight matrices, the
  optimal weight matrix which has the fastest convergence rate can be found
- through a semi-definite problem.
- 
+ through a semi-definite problem 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Li2010"
@@ -1276,7 +1275,11 @@ A matrix
 \begin_inset Formula $T$
 \end_inset
 
-, which reduce 
+, which reduce
+\change_inserted 5863457 1357427211
+s
+\change_unchanged
+ 
 \begin_inset Formula $A$
 \end_inset
 
@@ -1379,14 +1382,14 @@ For real normal matrix
 
 , if all of its eigenvalues are real, there exists an orthogonal matrix
  
-\begin_inset Formula $P,$
+\begin_inset Formula $P$
 \end_inset
 
- which has 
-\begin_inset Formula $P^{T}=P^{-1}$
-\end_inset
 
-, reduces the real matrix 
+\change_inserted 5863457 1357427333
+,
+\change_unchanged
+ which reduces the real matrix 
 \begin_inset Formula $A$
 \end_inset
 
@@ -1394,6 +1397,14 @@ For real normal matrix
 \begin_inset Formula $P^{-1}AP=\mbox{diag}\left(\lambda_{1},\lambda_{2},\ldots,\lambda_{n}\right)$
 \end_inset
 
+
+\change_inserted 5863457 1357427340
+ and 
+\begin_inset Formula $P^{T}=P^{-1}$
+\end_inset
+
+
+\change_unchanged
 .
  
 \end_layout
@@ -1430,8 +1441,11 @@ Specifically, any real nonsingular symmetric matrix
 
 .
  Also the symmetric matrix has all its eigenvalues algebra multiplicity
- equal to the geometric multiplicity, so all the Jordan block have size
- one.
+ equal to the geometric multiplicity, so all the Jordan block
+\change_inserted 5863457 1357427352
+s
+\change_unchanged
+ have size one.
 \end_layout
 
 \begin_layout Section
@@ -1446,13 +1460,30 @@ reference "sec:Asymptotic-Distributed-Consensus"
 
 \end_inset
 
-, a optimized higher order DAC will have better convergence rate than lower
+, a
+\change_inserted 5863457 1357427357
+n
+\change_unchanged
+ optimized higher order DAC will have better convergence rate than lower
  order one.
  However, there are negligible improvement for the fourth order DAC compared
  to the third order one.
- The algorithm complexity and computational cost will also increase by introduce
- more order.
- The convergence rates of HO-DAC algorithms are depend on 
+ The algorithm complexity and computational cost will also increase by introduc
+\change_inserted 5863457 1357427377
+ing
+\change_deleted 5863457 1357427377
+e
+\change_unchanged
+ more order
+\change_inserted 5863457 1357427380
+s
+\change_unchanged
+.
+ The convergence rates of HO-DAC algorithms 
+\change_deleted 5863457 1357427384
+are
+\change_unchanged
+ depend on 
 \family roman
 \series medium
 \shape up
