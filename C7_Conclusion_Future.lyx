@@ -554,26 +554,36 @@ Third, to avoid complex analysis, the network graph is assumed to be symmetric
 
 \begin_layout Standard
 Finally, 
-\change_inserted 5862369 1354064680
-for the application of cloud detection, the cloud model is going to be extended
- to capture the correlation and random properties of the cloud plume.
- As a result,
-\change_unchanged
- 
-\change_inserted 5862369 1354063144
-some parameters of cloud plume will be treated as random variable, 
-\change_unchanged
-the DAC algorithm 
-\change_inserted 5862369 1354063096
-need to be modified to
-\change_unchanged
- 
-\change_inserted 5862369 1354063151
-capture these changes.
- 
-\change_deleted 5862369 1354064703
-the correlation of detections of nodes can be used to improve the performance
- of the cloud detection.
+\change_inserted 5862369 1357578582
+for the application of cloud detection, the correlation of sensor signals
+ can be used to improve the performance of the cloud detection.
+  If sensors are located in short distance in the plume, their detections
+ are correlated.
+ In addition, interference due to Gaussian noise or moving object has very
+ low correlation between sensors.
+ Therefore, correlation can be an important property of the cloud plume.
+ Besides, a modified Gaussian plume model need to be developed to capture
+ the the correlation and random properties of the cloud of the concentration
+ at different position.
+ mean value.
+ In addition, the parameters of cloud plume should be should be treated
+ as unknown random variable, such as the position the diffusion coefficient,
+ wind speed and so on.
+ The DAC algorithm need to be modified to capture these changes.
+ At the same time sensors need to be able to estimate these parameters from
+ their observation.
+  
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1357578274
+he cloud model is going to be extended to capture the correlation and random
+ properties of the cloud plume.
+ As a result, some parameters of cloud plume will be treated as random variable,
+ the DAC algorithm need to be modified to capture these changes.the correlation
+ of detections of nodes can be used to improve the performance of the cloud
+ detection.
  If sensors are are located in short distance in the plume, their detections
  are correlated.
  In addition, interference due to Gaussian noise or moving object has very
@@ -585,16 +595,11 @@ the correlation of detections of nodes can be used to improve the performance
  Second, the parameters of cloud plume should be should be treated as unknown
  random variable, such as the position of the plume, the diffusion coefficient,
  wind speed and so on.
-
-\change_unchanged
- At the same time
-\change_inserted 5862369 1354064711
-,
-\change_unchanged
- sensors need to be able to estimate these parameters from their observation.
+ At the same time sensors need to be able to estimate these parameters from
+ their observation.
  
-\change_inserted 5862369 1354064724
-
+\change_inserted 5862369 1357578274
+ 
 \end_layout
 
 \end_body

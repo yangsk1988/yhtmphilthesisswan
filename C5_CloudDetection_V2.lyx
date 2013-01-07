@@ -4638,31 +4638,24 @@ s
  
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+
+\change_deleted 5862369 1357574494
+
+\series bold
 Further Research
 \end_layout
 
 \begin_layout Standard
-In the future research, 
-\change_inserted 5862369 1353449798
-the correlation of detections of nodes can be used to improve the performance
- of the cloud detection.
- 
-\change_deleted 5862369 1353451486
-we first intend to investigate the correlation of detection signals of different
- nodes and use it to improve the hypothesis testing.
- 
-\change_unchanged
- If sensors are are located in short distance in the plume, their detections
+
+\change_deleted 5862369 1357574494
+In the future research, we first intend to investigate the correlation of
+ detection signals of different nodes and use it to improve the hypothesis
+ testing.
+  If sensors are are located in short distance in the plume, their detections
  are correlated.
- In addition, 
-\change_deleted 5862369 1353452584
-iterference
-\change_inserted 5862369 1353452584
-interference
-\change_unchanged
- due to Gaussian noise or moving object has very low correlation between
- sensors.
+ In addition, iterference due to Gaussian noise or moving object has very
+ low correlation between sensors.
  Therefore, correlation can be an important property of the cloud plume.
  Besides, a modified Gaussian plume model need to be developed to capture
  the mean value, variance and correlation of the concentration at different
@@ -4671,28 +4664,21 @@ interference
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 5862369 1357574494
 Second, the parameters of cloud plume should be should be treated as unknown
- random variable, such as the position of the plume
-\change_inserted 5862369 1357307652
-, the diffusion coefficient, wind speed
-\change_unchanged
- 
-\change_inserted 5862369 1357307652
-and so on.
- 
-\change_deleted 5862369 1357307642
-should be treated as random.
- Therefore,
-\change_inserted 5862369 1357307645
- At the same time
-\change_unchanged
- sensors need to be able to estimate these parameters from their observation.
+ random variable, such as the position of the plume should be treated as
+ random.
+ Therefore, sensors need to be able to estimate these parameters from their
+ observation.
  
 \change_deleted 5863457 1348421364
 Gaussian plume model can only describe the mean value of a cloud plume.
 
-\change_unchanged
+\change_deleted 5862369 1357574494
  
+\change_unchanged
+
 \end_layout
 
 \end_body
