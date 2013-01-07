@@ -59,7 +59,7 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -107,12 +107,16 @@ thispagestyle{empty}
 
 \begin_layout Standard
 In this chapter, the DAC algorithm will be applied to the remote detection
- of cloud, which is to find out a group harmful liquids, solid particles
- or gases floated in the air.
+ of cloud, which is to find out a group of harmful liquids, solid particles
+ or gases floating in the air.
  Enabled by laser technology, the sensor can illuminate these particles
  and detect the backscatters.
  However, background noise or moving object in the real environment may
- interfere the the sensor signal.
+ interfere the 
+\change_deleted 5863457 1357481979
+the
+\change_unchanged
+ sensor signal.
  Therefore, a method to use distributed detection is necessary.
  The Gaussian plume model is widely used in cloud plume concentration modeling.
  However, the cloud concentration is actually a random process with variance,
@@ -132,25 +136,54 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-A cloud is a group of liquid or solid particles floated in the air.
- Sometime it contains harmful or dangerous particles so that it needs to
- be observed and tracked.
+A cloud is a group of liquid or solid particles float
+\change_inserted 5863457 1357481988
+ing
+\change_unchanged
+ in the air.
+ Sometime
+\change_inserted 5863457 1357482004
+s
+\change_unchanged
+ it contains harmful or dangerous particles so that it needs to be observed
+ and tracked.
  There are various types of sensors can perform the detection.
  According to their types of targets, the detection can be categorized into
  smoke/gas/aerosol detection.
- On the other hand, based on their sensing methods, there are also divided
- into contact detection and remote sensing.
+ On the other hand, based on their sensing methods, the
+\change_inserted 5863457 1357482043
+y 
+\change_unchanged
+are also divided into contact detection and remote sensing.
  
 \end_layout
 
 \begin_layout Standard
-Smoke and gas detection is very common in daily life.
- For example, the fire alarm sensor inside buildings, which is contact sensing
- devices.
+Smoke and gas detection 
+\change_deleted 5863457 1357482202
+is
+\change_inserted 5863457 1357482203
+are
+\change_unchanged
+ very common in daily life, for example, the fire alarm sensor
+\change_inserted 5863457 1357482110
+s
+\change_unchanged
+ inside buildings, which 
+\change_deleted 5863457 1357482124
+is
+\change_inserted 5863457 1357482125
+are
+\change_unchanged
+ contact sensing devices.
  When smoke or gas agent contacts with the sensing element, the chemical
  or physical reactions change the electrical characteristics of the sensing
  element.
- Then the alarm is set if the agent's concentration is larger than a threshold.
+ Then the alarm is set
+\change_inserted 5863457 1357482255
+ off
+\change_unchanged
+ if the agent's concentration is larger than a threshold.
  
 \change_deleted 5862369 1355847768
 (OK2)
@@ -166,15 +199,36 @@ Smoke detection based on video and image processing is also possible.
  human based surveillance into automatic smoke/fire detection.
  These intelligent algorithms extract smoke's features based on video signal,
  and then classify the objects in the video as smoke or non-smoke.
- This also attracts much research interest.
+ This also attracts 
+\change_deleted 5863457 1357482359
+much
+\change_inserted 5863457 1357482361
+a lot of
+\change_unchanged
+ research interest
+\change_inserted 5863457 1357482365
+s
+\change_unchanged
+.
  
 \end_layout
 
 \begin_layout Standard
-Some time, the agent does not directly contact with the sensing element.
- The device pumps in some air and illuminate the air with multiple wavelengths
- to get the absorption spectrum, which normally obtained by an infrared
- spectroscopy.
+Sometime
+\change_inserted 5863457 1357482374
+s
+\change_unchanged
+, the agent does not directly contact with the sensing element.
+ The device pumps in some air and illuminate
+\change_inserted 5863457 1357482384
+s
+\change_unchanged
+ the air with multiple wavelengths to get the absorption spectrum, which
+ normally 
+\change_inserted 5863457 1357482397
+is 
+\change_unchanged
+obtained by an infrared spectroscopy.
  Then the concentration or species of the agent can be estimated when prior
  knowledge is available.
  
@@ -182,17 +236,18 @@ Some time, the agent does not directly contact with the sensing element.
 
 \begin_layout Standard
 When sensors are not able to contact with cloud in the sky, laser technology
- enables the remote detection.
- The concept of remote sensing is very close to that of a spectroscopy.
- It is an optical technology that can measure the distance to a target,
- or other properties of a target by illuminating the target with light,
- often using pulses from a laser.
- The devices typically used for studies of aerosols and clouds remotely
- is called LIDAR.
+ enables the remote
+\change_deleted 5863457 1357483277
  
-\end_layout
+\change_inserted 5863457 1357483308
+ studies the properties of of clouds
+\change_unchanged
+.
 
-\begin_layout Standard
+\change_inserted 5863457 1357483391
+ The concept of remote sensing is very close to spectroscopy.
+ 
+\change_unchanged
 When the cloud is illuminated by a laser beam, the particles absorb the
  energy and emit fluorescent light, as well as 
 \begin_inset Quotes eld
@@ -203,7 +258,11 @@ reflect
 \end_inset
 
  light back to the source (referred as backscatter).
- The back-scattered light wavelength is identical to the transmitted light
+
+\change_deleted 5863457 1357483549
+ 
+\change_unchanged
+The back-scattered light wavelength is identical to the transmitted light
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -221,7 +280,18 @@ key "P.M.Hamilton1969"
 \end_inset
 
 .
- The 
+
+\change_deleted 5863457 1357483706
+ 
+\change_inserted 5863457 1357483695
+ These lights are collected by the sensor.
+
+\change_unchanged
+ Then, microprocessor in sensor node could identify the received signal,
+ and make a declaration of cloud.
+ 
+\change_inserted 5863457 1357483700
+The 
 \begin_inset Quotes eld
 \end_inset
 
@@ -238,14 +308,16 @@ key "Simard2004"
 \end_inset
 
 .
- Then, microprocessor in sensor node could identify the received signal,
- and make a declaration of cloud.
- 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-In battle field applications, aerosol detection may also related to bio-aerosol
- detection 
+In battlefield applications, aerosol detection may also relate
+\change_deleted 5863457 1357483812
+d
+\change_unchanged
+ to bio-aerosol detection 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bufton2007"
@@ -253,12 +325,38 @@ key "Bufton2007"
 \end_inset
 
 .
- As the bio-aerosol release by a biological weapon is extremely dangerous
- to any biological unit in that area.
- It is necessary to detect and discrimination it as soon as possible.
- The detection and discrimination can be done by a remote sensing LIDAR,
- which illuminate the bio-aerosol  and collect back-scatters by a telescope
- just similar to the spectroscopy.
+ As the bio-aerosol release
+\change_inserted 5863457 1357483821
+d
+\change_unchanged
+ by a biological weapon is extremely dangerous to any biological unit in
+ that area.
+ It is necessary to detect and discrimina
+\change_inserted 5863457 1357483837
+te
+\change_unchanged
+ it as soon as possible.
+ The detection and discrimination can be done by a 
+\change_deleted 5863457 1357484008
+remote sensing
+\change_unchanged
+ LIDAR
+\change_inserted 5863457 1357484012
+ (Light Detection And Ranging) detector
+\change_unchanged
+, which illuminate
+\change_inserted 5863457 1357485776
+s
+\change_unchanged
+ the bio-aerosol
+\change_deleted 5863457 1357483795
+ 
+\change_unchanged
+ and collect
+\change_inserted 5863457 1357485783
+s
+\change_unchanged
+ back-scatters by a telescope just similar to the spectroscopy.
  Therefore, the agent could be discriminated according to its spectrum.
  In research simulation, the bio-aerosol is often created by spread bacillus
  subtilis spores in the air.
@@ -272,10 +370,10 @@ key "Bufton2007"
 
 \begin_layout Standard
 There are many challenges in outdoor environment for this method.
- First, 
+ First, in
 \change_inserted -1199928310 1347292003
-In real environment, the received signals may be interfered by noise or
- corrupt by moving object.
+ real environment, the received signals may be interfered by noise or corrupt
+ by moving object.
  
 \change_deleted -1199928310 1347292006
 t
@@ -284,14 +382,33 @@ T
 \change_unchanged
 he background radiation (for example, sunshine in the day time) will ruin
  the LIDAR signals.
- But it can be compensated by increase the laser power, add optical filter
- in front of the telescope or tracking the background radiation level.
+ But it can be compensated by increasing the laser power, add
+\change_inserted 5863457 1357485882
+ing
+\change_unchanged
+ optical filter in front of the telescope 
+\change_deleted 5863457 1357485896
+or
+\change_inserted 5863457 1357485896
+and
+\change_unchanged
+ tracking the background radiation level.
  Second, the interference of moving objects in the sky like birds and balloons
- will have a very high reflect coefficient compared with gases.
+ will have a very high reflect
+\change_inserted 5863457 1357485919
+ion
+\change_unchanged
+ coefficient compared with gases.
  Third, failure of sensor nodes.
  Because of the properties of sensor nodes, such as energy constrains, vulnerabl
 e to intruders, they often malfunction and become unreliable.
- Fourth, Cloud is a diffusive target.
+ Fourth, 
+\change_deleted 5863457 1357485928
+C
+\change_inserted 5863457 1357485928
+c
+\change_unchanged
+loud is a diffusive target.
  The diffusion target will have different concentration from one sensor
  to another, so the distribution of cloud has random variables that capture
  the special variation of concentration 
@@ -302,13 +419,17 @@ key "N.Kh.2004"
 \end_inset
 
 .
- Finally, a LIDAR with discrimination ability is very expensive so that
- it often performs passive detection and discrimination.
+ Finally, a LIDAR
+\change_inserted 5863457 1357485943
+ detector
+\change_unchanged
+ with discrimination ability is very expensive so that it often performs
+ passive detection and discrimination.
 
 \change_inserted -1199928310 1347292230
  For these reasons, a method to use distributed detection is necessary to
  overcome unreliability of sensor nodes and interference for outdoor remote
- cloud detection,.
+ cloud detection.
 
 \change_unchanged
  Active detection of the bio-aerosol is taken by some 
@@ -317,7 +438,11 @@ other
 \change_inserted -1199928310 1347292227
 cheaper
 \change_unchanged
- sensors distributing in the battle field.
+ sensors distributing in the battle
+\change_deleted 5863457 1357485980
+ 
+\change_unchanged
+field.
  So this comes to our problem: detecting the bio-aerosol with sensors distribute
 d in the environment with noise and interference.
  
@@ -401,11 +526,21 @@ reference "sub:Received-Signal'-Model"
  Gaussian mixture model for sensor observation from background noise and
  target.
  In the following, it is the detection stage, where each sensor calculate
- its local log likelihood ratio, and substitute it into distributed consensus
- algorithm.
+\change_inserted 5863457 1357513971
+s
+\change_unchanged
+ its local log likelihood ratio, and substitute
+\change_inserted 5863457 1357513977
+s
+\change_unchanged
+ it into distributed consensus algorithm.
  When the algorithm converges, each sensor in the network can have an agreement
  on declaring the cloud or not.
- Finally, simulation and result is give in 
+ Finally, simulation 
+\change_deleted 5863457 1357514033
+and
+\change_unchanged
+ result is give in 
 \change_deleted 5862369 1355847441
 section
 \change_inserted 5862369 1355847441
@@ -420,7 +555,13 @@ reference "sec:Simulation"
 
 .
  To get more real cloud data, 3D fluid animation techniques with turbulence
- flow were used.
+ flow 
+\change_deleted 5863457 1357514040
+were
+\change_inserted 5863457 1357514041
+are
+\change_unchanged
+ used.
  The performance of this detection system is also given.
  It shows the multiple sensor detection will be more reliable in the noisy
  environment.
@@ -652,8 +793,12 @@ key "Shieh1972"
 \end_inset
 
 .
- If we observing the real cloud plume for a long time and take the average,
- the result is Gaussian plume model.
+ If we observ
+\change_inserted 5863457 1357514080
+e
+\change_unchanged
+ the real cloud plume for a long time and take the average, the result is
+ Gaussian plume model.
  However, in a real cloud plume, the concentration is actually a random
  process.
  
@@ -735,8 +880,8 @@ where
 \end_layout
 
 \begin_layout Standard
-To describe the continuous cloud source emitted into the air.
- An integration form 
+To describe the continuous cloud source emitted into the air, an integration
+ form 
 \begin_inset Formula $t=0$
 \end_inset
 
@@ -756,7 +901,7 @@ reference "eq:Point source concentration"
 \begin_inset Formula $t$
 \end_inset
 
-,  The model after integration is called Gaussian plume model.
+, the model after integration is called Gaussian plume model.
  To make things easy, assume the wind velocity components 
 \begin_inset Formula $v=0,w=0$
 \end_inset
@@ -1236,13 +1381,13 @@ The Gaussian plume model can not describe its variance.
  Then, in 
 \change_deleted 5862369 1355847450
 section
-\change_inserted 5862369 1355847450
+\change_deleted 5863457 1357514206
  
 \change_unchanged
  
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Modified-Gaussian-Plume"
+reference "sec:Modified-Gaussian-Plume"
 
 \end_inset
 
@@ -1250,105 +1395,41 @@ reference "sub:Modified-Gaussian-Plume"
 \change_deleted 5863457 1354325213
 some expressions are driven based on the diffusive equations to obtain the
  modified Gaussian plume model
-\change_inserted 5863457 1354325227
+\change_inserted 5863457 1357514202
  some other models
-\change_deleted 5863457 1354325239
- 
 \change_unchanged
-especially 
+ especially 
 \change_inserted 5863457 1354325248
 designed 
 \change_unchanged
 for laser detection
-\change_inserted 5863457 1354325242
- are introduced
+\change_inserted 5863457 1357514549
+ are introduced in the next section
 \change_unchanged
 .
  
-\change_inserted 5863457 1354325262
-W
-\change_unchanged
-ith the 
-\change_deleted 5863457 1354325284
-computer graphic technology 
+\change_deleted 5863457 1357514543
+With the  3D  animation technology 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "He2011"
 
 \end_inset
 
-,
-\change_unchanged
- 3D 
-\change_deleted 5863457 1354325397
-cloud
-\change_unchanged
- animation
-\change_deleted 5863457 1354325280
+, simulated cloud plume is implemented to show its fluid dynamics and  turbulenc
+e properties.
+ In addition, a bunch of cloud plumes are  generated   for testing and detection.
  
-\change_inserted 5863457 1354325332
- technology 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "He2011"
-
-\end_inset
-
-, simulated cloud plume 
-\change_unchanged
-is implemented to
-\change_deleted 5863457 1354325343
- get more real cloud plume in which
-\change_inserted 5863457 1354325421
- show its
-\change_unchanged
- fluid dynamics and 
-\change_deleted 5863457 1354325366
-wind
-\change_unchanged
- turbulence 
-\change_inserted 5863457 1354325372
-properties
-\change_unchanged
-.
+\change_inserted 5863457 1357514543
  
-\change_inserted 5863457 1354325432
-In addition, 
 \change_unchanged
-a bunch of cloud plumes 
-\change_deleted 5863457 1354325457
-is
-\change_inserted 5863457 1354325459
-are
-\change_unchanged
- 
-\change_deleted 5863457 1354325449
-simulated to
-\change_unchanged
- generate
-\change_inserted 5863457 1354325452
-d
-\change_unchanged
- 
-\change_deleted 5863457 1354325444
-enough data 
-\change_inserted 5863457 1354325444
- 
-\change_deleted 5863457 1354325444
-of cloud concentration
-\change_unchanged
- for testing and detection.
- 
-\end_layout
-
-\begin_layout Standard
 
 \end_layout
 
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Modified-Gaussian-Plume"
+name "sec:Modified-Gaussian-Plume"
 
 \end_inset
 
@@ -1356,24 +1437,51 @@ Modified Gaussian Plume Model For Laser Detection
 \end_layout
 
 \begin_layout Standard
-The Gaussian plume model can only capture describe the mean value of the
- cloud concentration.
- However, in a real cloud plume The cloud concentration is actually a random
- process.
- In this section, first some expressions are driven based on the diffusive
- equations to obtain the modified Gaussian plume model especially for laser
- detection.
- Second, With the computer graphic technology 
+The Gaussian plume model can 
+\change_deleted 5863457 1357514605
+only
+\change_unchanged
+ 
+\change_deleted 5863457 1357514596
+capture
+\change_unchanged
+ describe the mean value of the cloud concentration.
+ However, the cloud concentration
+\change_inserted 5863457 1357514263
+ of a real cloud plume
+\change_unchanged
+ is actually a random process
+\change_inserted 5863457 1357514659
+, which
+\change_unchanged
+ 
+\change_inserted 5863457 1357514675
+can not captured by aussian plume model.
+ 
+\change_unchanged
+In this section, first some 
+\change_deleted 5863457 1357514466
+expressions
+\change_inserted 5863457 1357514654
+other models
+\change_unchanged
+ are driven based on the diffusive equations to obtain the modified Gaussian
+ plume model especially for laser detection.
+ Second, 
+\change_inserted 5863457 1357514654
+with the 3D animation technology 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "He2011"
 
 \end_inset
 
-, a 3D cloud animation capture the fluid dynamics and wind turbulence is
- implemented.
- A bunch of cloud plumes is simulated to generate enough data for algorithm
- testing and detection.
+, simulated cloud plume is implemented to show its fluid dynamics and turbulence
+ properties.
+ In addition, a bunch of cloud plumes are generated for testing and detection.
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -1450,32 +1558,7 @@ This equation indicates that the rate of density change is proportional
 
 \begin_layout Standard
 In consideration of the isotropic diffusion case, the diffusion equation
- can be simplified.
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-which means 
+ can be simplified, which means 
 \family roman
 \series medium
 \shape up
@@ -1562,7 +1645,7 @@ C(x,y,z,t)=\frac{Q}{\left(4\pi Dt\right)^{3/2}}exp\left(-\frac{x{}^{2}+y^{2}+z^{
 
 \end_inset
 
-Where 
+where 
 \begin_inset Formula $Q$
 \end_inset
 
@@ -1614,8 +1697,14 @@ reference "eq:3D point Model"
 \end_inset
 
 .
- However, some later research have found the analytical integration of the
- atmospheric diffusion equation 
+ However, some later research ha
+\change_deleted 5863457 1357516628
+ve
+\change_inserted 5863457 1357516628
+s
+\change_unchanged
+ found the analytical integration of the atmospheric diffusion equation
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lin1996"
@@ -1666,9 +1755,12 @@ C(x,y,z) & = & \int_{0}^{\infty}C(x,y,z,t)dt
 \uwave default
 \noun default
 \color inherit
-as the laser penetrate the could, the received signal at each sensor can
- be simplified to be proportional to the integration of concentration along
- the line of laser.
+as the laser penetrate
+\change_inserted 5863457 1357516649
+s
+\change_unchanged
+ the could, the received signal at each sensor can be simplified to be proportio
+nal to the integration of concentration along the line of laser.
  Therefore, the received signal 
 \end_layout
 
@@ -1680,7 +1772,7 @@ S(x,y)=\int_{-\infty}^{\infty}C(x,y,z)dz=\int_{-\infty}^{\infty}\int_{0}^{\infty
 
 \end_inset
 
-since 
+Since 
 \family roman
 \series medium
 \shape up
@@ -1846,13 +1938,23 @@ key "Navier-Stokes_Wiki"
 .
  
 \change_unchanged
- A number of cloud plumes is generated to be used in the distributed cloud
- detection or training of sensor networks.
+ A number of cloud plumes 
+\change_deleted 5863457 1357516691
+is
+\change_inserted 5863457 1357516692
+are
+\change_unchanged
+ generated to be used in the distributed cloud detection or training of
+ sensor networks.
  
 \end_layout
 
 \begin_layout Standard
-As shown in the 
+As shown in 
+\change_deleted 5863457 1357516821
+the
+\change_unchanged
+ 
 \change_deleted 5862369 1355847596
 Figure
 \change_inserted 5862369 1355847596
@@ -1997,7 +2099,7 @@ name "sec:Distributed_Cloud_De"
 
 \end_inset
 
-Distributed Cloud Detection Based on DAC algorithm
+Distributed Cloud Detection Based on DAC Algorithm
 \end_layout
 
 \begin_layout Standard
@@ -2005,7 +2107,11 @@ In the applications of environment surveillance and monitoring, sensor networks
  performs the data gathering of spatially distributed sources, and the collabora
 tive signal processing.
  Processing the local acquired signals using a scalable algorithm is a fundament
-al problem in sensor network 
+al problem in 
+\change_inserted 5863457 1357516844
+a 
+\change_unchanged
+sensor network 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Olfati-Saber2005a"
@@ -2035,11 +2141,35 @@ Generally, there are two options for multiple sensors signal processing.
 \end_layout
 
 \begin_layout Standard
-Firstly, is the centralized processing.
- This requires the network contains a fusion center, and all sensor's data
- need to be transmitted to the fusion center and processed.
- At the same time, a hypothesis test based on the ML, MAP or Bayesian decision
- rule will be carried out at the a fusion center.
+Firstly, 
+\change_inserted 5863457 1357517252
+it 
+\change_unchanged
+is the centralized processing.
+ This requires the network contain
+\change_inserted 5863457 1357517260
+ing
+\change_deleted 5863457 1357517259
+s
+\change_unchanged
+ a fusion center, and all sensor's data need
+\change_inserted 5863457 1357517265
+s
+\change_unchanged
+ to be transmitted to the fusion center and processed.
+ At the same time, a hypothesis test based on the ML
+\change_inserted 5863457 1357516864
+ (Maximum Likelihood)
+\change_unchanged
+, MAP
+\change_inserted 5863457 1357516888
+ (Maximum A Posteriori)
+\change_unchanged
+ or Bayesian decision rule will be carried out at the 
+\change_deleted 5863457 1357517280
+a
+\change_unchanged
+ fusion center.
  Normally the global log likelihood ratio (G-LLR) is calculated and compared
  with a threshold to make the decision.
  Besides, an optimal data fusion scheme is proposed in 
@@ -2120,8 +2250,14 @@ Received Signal Model
 As we know, the cloud concentration variation is caused by turbulence flow,
  which is a random process which brings the cloud particles more far away
  than the molecular motion.
- Because of this reason,and the associated sensor's detection at a given
- position is a random process with mean and variance.
+ 
+\change_deleted 5863457 1357518042
+Because of this reason
+\change_inserted 5863457 1357518045
+Therefore
+\change_unchanged
+, the associated sensor's detection at a given position is a random process
+ with mean and variance.
 \end_layout
 
 \begin_layout Standard
@@ -2280,8 +2416,15 @@ This received signal model doesn't consider interference of moving objects
 \uwave default
 \noun default
 \color inherit
- To deal with this problems, sensors may need to build the Gaussian mixture
- model, which introduced in 
+ To deal with this problem
+\change_deleted 5863457 1357518073
+s
+\change_unchanged
+, sensors may need to build the Gaussian mixture model, which 
+\change_inserted 5863457 1357518084
+was 
+\change_unchanged
+introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Stauffer1999"
@@ -2644,7 +2787,13 @@ reference "eq:Sum L-LLR Cloud"
 
 \end_inset
 
-, G-LLR is changes into the sum of local log likelihood ratio (L-LLR).
+, G-LLR is change
+\change_deleted 5863457 1357518108
+s
+\change_inserted 5863457 1357518109
+d
+\change_unchanged
+ into the sum of local log likelihood ratio (L-LLR).
  
 \end_layout
 
@@ -2688,7 +2837,11 @@ reference "sub:Received-Signal'-Model"
 
 \end_inset
 
- if 
+ 
+\change_inserted 5863457 1357518117
+I
+\change_unchanged
+f 
 \begin_inset Formula $\mathbf{n}_{m}\sim\mathcal{N}\left(0,\Sigma_{m}\right)$
 \end_inset
 
@@ -2698,7 +2851,7 @@ reference "sub:Received-Signal'-Model"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray}
-LLR(\mathbf{x}) & = & -\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{1}\right)^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\left(\mathbf{x}-\mathbf{u}_{1}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{0}\right)^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\left(\mathbf{x}-\mathbf{u}_{0}\right)+\frac{1}{2}log\left(\frac{\left|\Sigma_{0}\right|}{\left|\Sigma_{1}\right|}\right)\\
+LLR(\mathbf{x}) & = & \frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{1}\right)^{\mathrm{T}}\left(\mathbf{\Sigma}_{0}^{-1}-\mathbf{\Sigma}_{1}^{-1}\right)\left(\mathbf{x}-\mathbf{u}_{0}\right)+\frac{1}{2}log\left(\frac{\left|\Sigma_{0}\right|}{\left|\Sigma_{1}\right|}\right)\\
  & = & \left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)\mathbf{x}+\frac{1}{2}\left[log\left|\Sigma_{0}\right|-log\left|\Sigma_{1}\right|\right]-\nonumber \\
  &  & \frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right]\label{eq:G-LLR Expand}\\
  & = & \sum_{l=1}^{L}w_{l}x_{l}+C-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right],\label{eq:G-LLR simple}
@@ -2749,7 +2902,11 @@ A common
 \change_deleted 5862369 1355526606
 assum
 \change_inserted 5862369 1355526614
-approximation is assume 
+approximation is 
+\change_inserted 5863457 1357518186
+to 
+\change_inserted 5862369 1355526614
+assume 
 \change_deleted 5862369 1355526582
 e
 \change_unchanged
@@ -2807,8 +2964,15 @@ LLR(\mathbf{x})=\sum_{l=1}^{L}w_{l}x_{l}+C-\frac{1}{2}\sum_{l=1}^{L}\left(\sigma
 \end_inset
 
 which can be calculated by two instances of DAC algorithms.
- Thus, the observation of sensors is assume to be independent from on to
- another.
+ Thus, the observation of sensors is assume
+\change_inserted 5863457 1357519299
+d
+\change_unchanged
+ to be independent from on
+\change_inserted 5863457 1357519300
+e
+\change_unchanged
+ to another.
  Sensors will build the Gaussian signal model separately.
  
 \end_layout
@@ -2877,8 +3041,15 @@ reference "eq:G-LLR_independent"
 \begin_inset Formula $C$
 \end_inset
 
- changes the threshold of the hypothesis testing and can be subtract from
- both side of hypothesis testing equation.
+ changes the threshold of the hypothesis testing and can be subtract
+\change_inserted 5863457 1357519316
+ed
+\change_unchanged
+ from both side
+\change_inserted 5863457 1357519314
+s
+\change_unchanged
+ of hypothesis testing equation.
  Therefore, we modify the hypothesis testing into 
 \begin_inset Formula 
 \begin{equation}
@@ -2927,10 +3098,19 @@ G-LLR
 
 \begin_layout Standard
 The algorithm is as follows: First, each sensor calculates its local LLR
- individually; Then, each sensors update its local LLR in the DAC iterations
- until it converges to the consensus value; Finally, after the algorithm
- converges, the global LLR is obtained by multiply the average local LLRs
- with the number of sensors in the network.
+ individually; Then, each sensors update
+\change_inserted 5863457 1357519326
+s
+\change_unchanged
+ its local LLR in the DAC iterations until it converges to the consensus
+ value; Finally, after the algorithm converges, the global LLR is obtained
+ by multipl
+\change_inserted 5863457 1357519330
+ing
+\change_deleted 5863457 1357519329
+y
+\change_unchanged
+ the average local LLRs with the number of sensors in the network.
  When G-LLR is available, cloud declaration could be made based on the ML
  or MAP decision rule.
 \end_layout
