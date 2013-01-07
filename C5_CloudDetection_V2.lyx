@@ -2937,6 +2937,8 @@ e
 \end_inset
 
 , 
+\change_deleted 5863457 1357561697
+
 \family default
 \series default
 \shape default
@@ -2948,7 +2950,9 @@ e
 \uwave default
 \noun default
 \color inherit
-the Eq.
+the
+\change_unchanged
+ Eq.
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:G-LLR simple"
@@ -3132,7 +3136,11 @@ Distributed Calculation of G-LLR
 \begin_layout Standard
 
 \change_inserted 5862369 1355526424
-In a network without fusion center, it is desirable to find the 
+In a network without fusion center, it is desirable to find 
+\change_deleted 5863457 1357562683
+the
+\change_inserted 5862369 1355526424
+ 
 \begin_inset Formula $LLR(\mathbf{x})$
 \end_inset
 
@@ -3146,7 +3154,13 @@ reference "eq:G-LLR simple"
 
 \end_inset
 
- contains high order components of 
+ contains high
+\change_deleted 5863457 1357562695
+ 
+\change_inserted 5863457 1357562695
+-
+\change_unchanged
+order components of 
 \begin_inset Formula $\mathbf{x}$
 \end_inset
 
@@ -3198,7 +3212,11 @@ Both make it is impossible to calculate G-LLR by distributed algorithms.
 \uwave off
 \noun off
 \color none
-In centralized method, 
+In
+\change_inserted 5863457 1357562688
+ a
+\change_inserted 5862369 1355518167
+ centralized method, 
 \begin_inset Formula $\mathbf{\Sigma}_{1}$
 \end_inset
 
@@ -3314,7 +3332,11 @@ fluctuating amplitude of
 \change_inserted 5862369 1355517271
 fluctuating 
 \change_unchanged
-may different from one sensor to another.
+may 
+\change_inserted 5863457 1357562723
+be 
+\change_unchanged
+different from one sensor to another.
  
 \change_deleted 5862369 1355526326
 In addition,
@@ -3326,8 +3348,12 @@ Second, the
 or sensor's observation 
 \change_inserted 5862369 1355526344
  
+\change_deleted 5863457 1357562765
+are
+\change_inserted 5863457 1357562765
+is
 \change_unchanged
-are correlated, especially for the sensors close to each other.
+ correlated, especially for the sensors close to each other.
  As shown in 
 \change_deleted 5862369 1355847603
 Figure
@@ -3346,8 +3372,14 @@ reference "fig:GMM (x1,x2)"
 
 \change_deleted 5862369 1355518138
  
+\change_inserted 5863457 1357562803
+ 
 \change_inserted 5862369 1355526449
-The correlation is the major challenge to invert the 
+The correlation is the major challenge to invert 
+\change_deleted 5863457 1357562808
+the
+\change_inserted 5862369 1355526449
+ 
 \begin_inset Formula $\mathbf{\Sigma}_{1}$
 \end_inset
 
@@ -3418,6 +3450,8 @@ s
  only exist between sensors 
 \change_inserted 5862369 1355526508
 that 
+\change_inserted 5863457 1357562828
+are 
 \change_unchanged
 located very close to each other.
  
@@ -3442,7 +3476,11 @@ f node
 
 \change_inserted 5862369 1355526749
  their signals have low correlation and are approximately not correlated.
- Therefore, each node can only stores the entries of 
+ Therefore, each node can only store
+\change_deleted 5863457 1357562841
+s
+\change_inserted 5862369 1355526749
+ the entries of 
 \begin_inset Formula $\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)$
 \end_inset
 
@@ -3521,7 +3559,13 @@ reference "eq:G-LLR simple"
 \end_layout
 
 \begin_layout Enumerate
-Assume for all node 
+Assume for 
+\change_deleted 5863457 1357562847
+all
+\change_inserted 5863457 1357562850
+ a
+\change_unchanged
+ node 
 \begin_inset Formula $i$
 \end_inset
 
@@ -3555,11 +3599,19 @@ stores
 \begin_inset Formula $i$
 \end_inset
 
- send 
+ send
+\change_inserted 5863457 1357562857
+s
+\change_unchanged
+ 
 \begin_inset Formula $x_{i}$
 \end_inset
 
- and receive 
+ and receive
+\change_inserted 5863457 1357562858
+s
+\change_unchanged
+ 
 \begin_inset Formula $x_{j}$
 \end_inset
 
@@ -3634,7 +3686,11 @@ local values
 \uwave off
 \noun off
 \color none
- they converges
+ they converge
+\change_deleted 5863457 1357562875
+s
+\change_unchanged
+
 \family default
 \series default
 \shape default
@@ -3716,7 +3772,19 @@ equal to
 \begin_inset Formula $\bar{u}+\bar{v}+C$
 \end_inset
 
- multiply with the number of sensors in the network
+ multipl
+\change_deleted 5863457 1357562889
+y
+\change_inserted 5863457 1357562890
+ied
+\change_unchanged
+ 
+\change_deleted 5863457 1357562894
+with
+\change_inserted 5863457 1357562894
+by
+\change_unchanged
+ the number of sensors in the network
 \family roman
 \series medium
 \shape up
@@ -3747,14 +3815,25 @@ The distributed cloud detection simulation consists of two stages, training
  and detection.
  In the training stage, sensors are trained to build the Gaussian mixture
  models, which are important to calculate the L-LLR.
- After the training, when a new observation comes, all sensors calculated
- the L-LLRs and take them into 
+ After the training, when a new observation comes, all sensors calculate
+\change_deleted 5863457 1357562910
+d
+\change_unchanged
+ 
+\change_deleted 5863457 1357562904
+the
+\change_unchanged
+ L-LLRs and take them into 
 \change_inserted 5862369 1353452567
 DAC
 \change_deleted 5862369 1353452567
 DCA
 \change_unchanged
- iteration to obtain G-LLR.
+ iteration
+\change_inserted 5863457 1357562915
+s
+\change_unchanged
+ to obtain G-LLR.
  The decision of cloud existence could be made distributively once the algorithm
  converges.
  
@@ -3762,8 +3841,12 @@ DCA
 
 \begin_layout Standard
 The 3D cloud animation is simulated to generate a bunch of cloud plumes.
- If we observing the cloud for a long time and take the average, the result
- is Gaussian plume model.
+ If we observ
+\change_inserted 5863457 1357562922
+e
+\change_unchanged
+ the cloud for a long time and take the average, the result is Gaussian
+ plume model.
  
 \end_layout
 
@@ -3816,19 +3899,38 @@ Sensor's observation impaired by Gaussian white noise
 
 \begin_layout Standard
 The cloud animation is simulated several times to generate enough data,
- which is divided into two group for both training and testing of system
- performance.
+ which is divided into two group
+\change_inserted 5863457 1357562932
+s
+\change_unchanged
+ for both training and testing of system performance.
  Because the turbulence flow is a random process, the data generated each
- time is different with the others in the cloud concentration distribution,
- as well as the cloud particles moving track.
+ time is different 
+\change_deleted 5863457 1357562939
+with
+\change_inserted 5863457 1357562940
+from
+\change_unchanged
+ the others in the cloud concentration distribution, as well as the cloud
+ particles moving track.
  This provides a very practical testing environment for the system.
  
 \end_layout
 
 \begin_layout Standard
-Some other consideration for this simulation is that sensors are randomly
- distributed in the sensing area and sensor's detections are impaired by
- Gaussian white noise, which will be introduced in the following.
+Some other consideration
+\change_inserted 5863457 1357562951
+s
+\change_unchanged
+ for this simulation 
+\change_deleted 5863457 1357562954
+is
+\change_inserted 5863457 1357562955
+are
+\change_unchanged
+ that sensors are randomly distributed in the sensing area and sensor's
+ detections are impaired by Gaussian white noise, which will be introduced
+ in the following.
  
 \end_layout
 
@@ -3837,7 +3939,18 @@ Sensor's Observation
 \end_layout
 
 \begin_layout Standard
-Gaussian white noise impaired the received signal when sensor observing
+Gaussian white noise impaire
+\change_inserted 5863457 1357562960
+s
+\change_deleted 5863457 1357562958
+d
+\change_unchanged
+ the received signal when sensor 
+\change_deleted 5863457 1357562987
+observing
+\change_inserted 5863457 1357563002
+ observes
+\change_unchanged
  the cloud concentration.
  And the source of noise includes: (i) the external noise, arising from
  the incidence of radiation at the detector both from laser scattering and
@@ -3901,7 +4014,13 @@ these parameters are chosen as
 \begin_inset Formula $\sigma_{0}=0.1$
 \end_inset
 
-, shown in Fig
+, shown in 
+\change_deleted 5863457 1357563012
+Fig
+\change_inserted 5863457 1357563012
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Sensor's obs"
@@ -3930,25 +4049,56 @@ DAC
 \change_deleted 5862369 1353452567
 DCA
 \change_unchanged
- algorithm, all the nodes will automatically find its neighbors and obtain
- a network.
- Using 
+ algorithm, all the nodes will automatically 
+\change_deleted 5863457 1357563065
+find
+\change_inserted 5863457 1357563069
+connect
+\change_deleted 5863457 1357563065
+ its
+\change_inserted 5863457 1357563051
+ their
+\change_unchanged
+ neighbors 
+\change_deleted 5863457 1357563076
+and
+\change_inserted 5863457 1357563076
+to
+\change_unchanged
+ obtain a network.
+ 
+\change_deleted 5863457 1357563120
+Using
+\change_unchanged
+ 
 \change_inserted 5862369 1353452567
 DAC
 \change_deleted 5862369 1353452567
 DCA
 \change_unchanged
- algorithm is to obtain G-LLR without copy L-LLRs to all sensor nodes in
- the network.
- Once G-LLR is available, cloud declaration could be made base on the ML
- or MAP decision rule.
+ algorithm is
+\change_deleted 5863457 1357563123
+ 
+\change_inserted 5863457 1357563127
+ used 
+\change_unchanged
+to obtain G-LLR without copy
+\change_inserted 5863457 1357563161
+ing
+\change_unchanged
+ L-LLRs to all sensor nodes in the network.
+ Once G-LLR is available, cloud declaration could be made base
+\change_inserted 5863457 1357563147
+d
+\change_unchanged
+ on the ML or MAP decision rule.
 \end_layout
 
 \begin_layout Standard
 Here we give an example, three sensors are distributed as shown in 
 \change_deleted 5862369 1355847608
 Figure
-\change_inserted 5862369 1355847608
+\change_deleted 5863457 1357563169
  
 \change_unchanged
  
@@ -3959,7 +4109,15 @@ reference "fig:Sensor's obs"
 \end_inset
 
 .
- They build Gaussian mixture models by processing the training data.
+ They build 
+\change_inserted 5863457 1357563183
+a 
+\change_unchanged
+Gaussian mixture model
+\change_deleted 5863457 1357563210
+s
+\change_unchanged
+ by processing the training data.
  Here we choose 
 \begin_inset Formula $K=1$
 \end_inset
@@ -3969,13 +4127,30 @@ reference "fig:Sensor's obs"
 \begin_inset Formula $2$
 \end_inset
 
- or more, depends on how many components of the noise in the environment.
- Then, the testing data which generated by another cloud animation is passing
- through all the sensors frame by frame.
+ or more, depend
+\change_deleted 5863457 1357563221
+s
+\change_inserted 5863457 1357563223
+ing
+\change_unchanged
+ on how many components of the noise in the environment.
+ Then, the testing data 
+\change_deleted 5863457 1357563247
+which
+\change_unchanged
+ generated by another cloud animation is pass
+\change_inserted 5863457 1357563263
+ed
+\change_unchanged
+
+\emph on
+ 
+\emph default
+through all the sensors frame by frame.
  As shown in 
 \change_deleted 5862369 1355847615
 Figure
-\change_inserted 5862369 1355847617
+\change_deleted 5863457 1357563274
  
 \change_unchanged
  
@@ -3986,24 +4161,50 @@ reference "fig:Global-LLR-and"
 \end_inset
 
 , L-LLRs for the two sensors and G-LLR is given.
- Before frame 47, all the sensor has no contact with cloud, and only noise
- are presented in each sensor.
+ Before frame 47, all the sensor
+\change_inserted 5863457 1357563296
+s
+\change_unchanged
+ ha
+\change_deleted 5863457 1357563298
+s
+\change_inserted 5863457 1357563298
+ve
+\change_unchanged
+ no contact with cloud, and only noise 
+\change_deleted 5863457 1357563315
+are
+\change_inserted 5863457 1357563315
+is
+\change_unchanged
+ presented in each sensor.
  Only after sensor 
 \begin_inset Formula $S_{1}$
 \end_inset
 
- has its cloud contact, G-LLR raise to the first stage.
+ has its cloud contact, G-LLR raise
+\change_inserted 5863457 1357563326
+s
+\change_unchanged
+ to the first stage.
  After 
 \begin_inset Formula $S_{2}$
 \end_inset
 
- has its contact of cloud at frame 63, G-LLR increased to an even high level,
- which is strong evidence of the cloud existence.
+ has its contact of cloud at frame 63, G-LLR
+\change_inserted 5863457 1357563339
+ is
+\change_unchanged
+ increased to an even high level, which is 
+\change_inserted 5863457 1357563404
+larger than the threshold and a 
+\change_unchanged
+strong evidence of the cloud existence.
  Because 
 \begin_inset Formula $S_{3}$
 \end_inset
 
- had no chance to contact with the cloud, its L-LLR is actually less sensitive
+ has no chance to contact with the cloud, its L-LLR is actually less sensitive
  to the sensors signal.
  Thus, its L-LLR has very low contribution to G-LLR.
  
@@ -4313,10 +4514,14 @@ Simulation is running for hundreds of times to give the average performance
 \end_inset
 
  is the index of the pixel).
- The 
+ 
+\change_deleted 5863457 1357568808
+The
+\change_unchanged
+ 
 \change_deleted 5862369 1355847633
 Figure
-\change_inserted 5862369 1355847633
+\change_deleted 5863457 1357568891
  
 \change_unchanged
  
@@ -4331,9 +4536,14 @@ reference "fig:ROC-of-CDWSN"
  The curve is represented by plotting the fraction of true detection out
  of the cloud exist vs.
  the fraction of false alarm out of the cloud not exist.
- When there is only one sensor is operation, a special case is that the
- position is chosen by hand to make sure the sensor can contact with the
- cloud plume.
+ When there is only one sensor i
+\change_deleted 5863457 1357568879
+s
+\change_inserted 5863457 1357568879
+n
+\change_unchanged
+ operation, a special case is that the position is chosen by hand to make
+ sure the sensor can contact with the cloud plume.
  With this assurance, the one sensor detecting system could have performance
  close to the three sensor detecting system randomly distributed.
  The advantage of using distributed detection with multiple sensors is obvious.
@@ -4380,23 +4590,49 @@ based on the ML or MAP decision rule
 \change_unchanged
 is introduced.
  In the outdoor environment, signal of an individual sensor might be corrupted
- by Gaussian noise or moving object with high reflect coefficient, which
- might raise the false alarm in high possibility.
- Because multiple sensors detection have better performance, it was adopted
- in the cloud detection and the expectation-maximization algorithm is used
- to build the joint Gaussian model of background noise and cloud backscatter.
+ by Gaussian noise or moving object with high reflect
+\change_inserted 5863457 1357568917
+ion
+\change_unchanged
+ coefficient, which might raise the false alarm in high possibility.
+ Because multiple sensors detection ha
+\change_deleted 5863457 1357568932
+ve
+\change_inserted 5863457 1357568932
+s
+\change_unchanged
+ better performance, it was adopted in the cloud detection and the expectation-m
+aximization algorithm is used to build the joint Gaussian model of background
+ noise and cloud backscatter.
  Thus, interferences to a few sensors in the network are less likely to
  raise the false alarm.
- Second, By assuming sensors signals are independent, global log likelihood
- ratio is the average of local log likelihood ratio.
+ Second, 
+\change_deleted 5863457 1357568939
+B
+\change_inserted 5863457 1357568939
+b
+\change_unchanged
+y assuming sensors signals are independent, global log likelihood ratio
+ is the average of local log likelihood ratio.
  The global log likelihood ratio in the hypothesis testing is calculated
  by the DAC algorithm.
 
 \change_deleted 5862369 1353453024
  
 \change_unchanged
- Each sensor calculate the local log likelihood ratio and substitute it
- into the DAC iteration as the initial local value.
+ Each sensor calculate
+\change_inserted 5863457 1357568943
+s
+\change_unchanged
+ the local log likelihood ratio and substitute
+\change_inserted 5863457 1357568946
+s
+\change_unchanged
+ it into the DAC iteration
+\change_inserted 5863457 1357568948
+s
+\change_unchanged
+ as the initial local value.
  The global log likelihood ratio is available to each sensor once the algorithm
  converges.
  
