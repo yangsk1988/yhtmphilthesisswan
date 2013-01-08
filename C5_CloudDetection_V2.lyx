@@ -165,15 +165,19 @@ to use
 
 \begin_layout Standard
 
-\change_inserted 5863457 1357604774
-On the other hand, 
+\change_deleted 5863457 1357607223
+the 
 \change_unchanged
-the Gaussian plume model is widely used in cloud 
+Gaussian plume model is widely used in cloud 
 \change_deleted 5863457 1357604785
 plume
 \change_unchanged
  concentration modeling.
- However, the cloud concentration is actually a random process with 
+ However, the cloud concentration 
+\change_inserted 5863457 1357607250
+of a plume 
+\change_unchanged
+is actually a random process with 
 \change_deleted 5863457 1357604799
 variance
 \change_inserted 5863457 1357604803
@@ -182,12 +186,121 @@ fluctuating
 , which the Gaussian plume model can not capture.
  Therefore, a 3D cloud animation is implemented to get data of cloud concentrati
 on.
- Then, the expectation-maximization algorithm is adopted to get the Gaussian
- mixture model which gives the probability density function (PDF) of the
- sensor’s observation.
+ Then, the expectation-maximization algorithm is adopted to 
+\change_deleted 5863457 1357607294
+get the
+\change_inserted 5863457 1357607302
+build the
+\change_unchanged
+ Gaussian mixture model 
+\change_deleted 5863457 1357607321
+which gives
+\change_inserted 5863457 1357607322
+ and
+\change_unchanged
+ the probability density function (PDF) of the sensor’s observation.
  The decision of cloud existence could be made based on the log likelihood
- ratio when PDF for null and alternative hypotheses are available.
+ ratio
+\change_inserted 5863457 1357607353
+ test
+\change_unchanged
+ when PDF for null and alternative hypotheses are available.
  
+\end_layout
+
+\begin_layout Standard
+This 
+\change_deleted 5863457 1357607166
+section
+\change_inserted 5863457 1357607168
+chapter
+\change_unchanged
+ is structured 
+\change_deleted 5863457 1348411955
+in the
+\change_inserted 5863457 1348411955
+as
+\change_unchanged
+ follow
+\change_inserted 5863457 1348411960
+s
+\change_deleted 5863457 1348411963
+ing way
+\change_unchanged
+, 
+\change_deleted 5862369 1355847430
+section
+\change_inserted 5862369 1355847430
+ 
+\change_unchanged
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Cloud-Detection-Scenario"
+
+\end_inset
+
+ shows the system model.
+ 
+\change_deleted 5862369 1355847436
+Section
+\change_inserted 5862369 1355847436
+ 
+\change_unchanged
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Received-Signal'-Model"
+
+\end_inset
+
+ illustrates the sensor observation model and explain some techniques in
+ distributed detection of cloud.
+ In the training stage, expectation-maximization algorithm is used to get
+ Gaussian mixture model for sensor observation from background noise and
+ target.
+ In the following, it is the detection stage, where each sensor calculate
+\change_inserted 5863457 1357513971
+s
+\change_unchanged
+ its local log likelihood ratio, and substitute
+\change_inserted 5863457 1357513977
+s
+\change_unchanged
+ it into distributed consensus algorithm.
+ When the algorithm converges, each sensor in the network can have an agreement
+ on declaring the cloud or not.
+ Finally, simulation 
+\change_deleted 5863457 1357514033
+and
+\change_unchanged
+ result is give in 
+\change_deleted 5862369 1355847441
+section
+\change_inserted 5862369 1355847441
+ 
+\change_unchanged
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Simulation"
+
+\end_inset
+
+.
+ To get more real cloud data, 3D fluid animation techniques with turbulence
+ flow 
+\change_deleted 5863457 1357514040
+were
+\change_inserted 5863457 1357514041
+are
+\change_unchanged
+ used.
+ The performance of this detection system is also given.
+ It shows the multiple sensor detection will be more reliable in the noisy
+ environment.
+\change_inserted 5863457 1348411952
+
 \end_layout
 
 \begin_layout Section
@@ -644,10 +757,18 @@ To overcome unreliability of sensor nodes and interference for outdoor remote
 \end_layout
 
 \begin_layout Standard
-Signal can be processed distributively by distributed average consensus
- (DAC) algorithm.
- The word consensus means each node would have an agreement on the declaration
- of the target after the algorithm.
+Signal can be processed 
+\change_inserted 5863457 1357607657
+by distributed processing method such as
+\change_unchanged
+ distributed average consensus (DAC) algorithm.
+ The word consensus means each node would 
+\change_deleted 5863457 1357607728
+have
+\change_inserted 5863457 1357607729
+reach
+\change_unchanged
+ an agreement on the declaration of the target after the algorithm.
  In addition, each node only broadcast its local value until the algorithm
  converges 
 \begin_inset CommandInset citation
@@ -664,94 +785,17 @@ key "Xiao2004"
 
 \begin_layout Section
 Background and System Model 
+\change_inserted 5863457 1357607400
+
 \end_layout
 
 \begin_layout Standard
-This section is structured 
-\change_deleted 5863457 1348411955
-in the
-\change_inserted 5863457 1348411955
-as
-\change_unchanged
- follow
-\change_inserted 5863457 1348411960
-s
-\change_deleted 5863457 1348411963
-ing way
-\change_unchanged
-, 
-\change_deleted 5862369 1355847430
-section
-\change_inserted 5862369 1355847430
- 
-\change_unchanged
- 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sub:Cloud-Detection-Scenario"
 
-\end_inset
-
- shows the system model.
- 
-\change_deleted 5862369 1355847436
-Section
-\change_inserted 5862369 1355847436
+\change_inserted 5863457 1357607544
+This section shows the system model, the sensor observation model and Gaussian
+ plume model.
  
 \change_unchanged
- 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sub:Received-Signal'-Model"
-
-\end_inset
-
- illustrates the sensor observation model and explain some techniques in
- distributed detection of cloud.
- In the training stage, expectation-maximization algorithm is used to get
- Gaussian mixture model for sensor observation from background noise and
- target.
- In the following, it is the detection stage, where each sensor calculate
-\change_inserted 5863457 1357513971
-s
-\change_unchanged
- its local log likelihood ratio, and substitute
-\change_inserted 5863457 1357513977
-s
-\change_unchanged
- it into distributed consensus algorithm.
- When the algorithm converges, each sensor in the network can have an agreement
- on declaring the cloud or not.
- Finally, simulation 
-\change_deleted 5863457 1357514033
-and
-\change_unchanged
- result is give in 
-\change_deleted 5862369 1355847441
-section
-\change_inserted 5862369 1355847441
- 
-\change_unchanged
- 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sec:Simulation"
-
-\end_inset
-
-.
- To get more real cloud data, 3D fluid animation techniques with turbulence
- flow 
-\change_deleted 5863457 1357514040
-were
-\change_inserted 5863457 1357514041
-are
-\change_unchanged
- used.
- The performance of this detection system is also given.
- It shows the multiple sensor detection will be more reliable in the noisy
- environment.
-\change_inserted 5863457 1348411952
 
 \end_layout
 
