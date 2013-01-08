@@ -236,7 +236,7 @@ section
  
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Cloud-Detection-Scenario"
+reference "sec:Cloud-Detection-Scenario"
 
 \end_inset
 
@@ -250,7 +250,7 @@ Section
  
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Received-Signal'-Model"
+reference "sec:Received-Signal'-Model"
 
 \end_inset
 
@@ -803,7 +803,7 @@ This section shows the system model, the sensor observation model and Gaussian
 Cloud Detection Scenario
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Cloud-Detection-Scenario"
+name "sec:Cloud-Detection-Scenario"
 
 \end_inset
 
@@ -813,11 +813,7 @@ name "sub:Cloud-Detection-Scenario"
 \begin_layout Standard
 In the cloud detection scenario shown by 
 \change_deleted 5862369 1355762548
-Figure
-\change_inserted 5862369 1355762548
- 
-\change_deleted 5862369 1355762548
- 
+Figure 
 \change_unchanged
 
 \begin_inset CommandInset ref
@@ -826,21 +822,26 @@ reference "fig:Cloud-detection-scenario"
 
 \end_inset
 
-, a source produces cloud in a fixed position with fixed power
-\change_deleted 5862369 1355519652
-;
-\change_inserted 5862369 1355519652
-.
-
+, a source produces cloud in a fixed position with fixed power.
+ A 
+\change_deleted 5862369 1357643836
+time invariant
 \change_unchanged
- 
-\change_deleted 5862369 1355519655
-a
-\change_inserted 5862369 1355519655
-A
+ wind 
+\change_inserted 5862369 1357643840
+with time invariant 
 \change_unchanged
- time invariant wind velocity parallel to the ground, blows the cloud to
- the positive direction of the x-axis.
+velocity 
+\change_inserted 5862369 1357643854
+that 
+\change_unchanged
+parallel to the ground, 
+\change_deleted 5862369 1357643872
+blows
+\change_inserted 5862369 1357643876
+brings
+\change_unchanged
+ the cloud to the positive direction of the x-axis.
  With these parameters available, the Gaussian plume model 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -861,7 +862,7 @@ key "GPM.JA.2011"
 
 .
  On the ground, multiple sensors (
-\change_inserted 5862369 1357640363
+\change_inserted 5862369 1357643838
 numbered from 
 \change_unchanged
 1 to 
@@ -1031,8 +1032,12 @@ key "Shieh1972"
 \change_inserted 5863457 1357514080
 e
 \change_unchanged
- the real cloud plume for a long time and take the average, the result is
- Gaussian plume model.
+ the 
+\change_deleted 5862369 1357643954
+real
+\change_unchanged
+ cloud plume for a long time and take the average, the result is Gaussian
+ plume model.
  However, in a real cloud plume, the concentration is actually a random
  process.
  
@@ -1114,8 +1119,19 @@ where
 \end_layout
 
 \begin_layout Standard
-To describe the continuous cloud source emitted into the air, an integration
- form 
+To describe the 
+\change_deleted 5862369 1357644067
+continuous
+\change_unchanged
+ cloud 
+\change_inserted 5862369 1357644095
+emitted by a continuous point 
+\change_unchanged
+source
+\change_deleted 5862369 1357644099
+ emitted into the air
+\change_unchanged
+, an integration form 
 \begin_inset Formula $t=0$
 \end_inset
 
@@ -1131,11 +1147,22 @@ reference "eq:Point source concentration"
 \end_inset
 
 .
- So for continuous source the model is not related to the time 
+ So the model
+\change_inserted 5862369 1357644059
+ for continuous source
+\change_unchanged
+ is not related to the time 
 \begin_inset Formula $t$
 \end_inset
 
-, the model after integration is called Gaussian plume model.
+
+\change_deleted 5862369 1357644142
+,
+\change_inserted 5862369 1357644142
+.
+
+\change_unchanged
+ The model after integration is called Gaussian plume model.
  To make things easy, assume the wind velocity components 
 \begin_inset Formula $v=0,w=0$
 \end_inset
@@ -1611,7 +1638,17 @@ G
 \end_layout
 
 \begin_layout Standard
-The Gaussian plume model can not describe its variance.
+The Gaussian plume model can not describe 
+\change_deleted 5862369 1357644182
+its
+\change_inserted 5862369 1357644183
+the
+\change_unchanged
+ variance
+\change_inserted 5862369 1357644194
+ of cloud concentration
+\change_unchanged
+.
  Then, in 
 \change_deleted 5862369 1355847450
 section
@@ -1629,16 +1666,10 @@ reference "sec:Modified-Gaussian-Plume"
 \change_deleted 5863457 1354325213
 some expressions are driven based on the diffusive equations to obtain the
  modified Gaussian plume model
-\change_inserted 5863457 1357514202
- some other models
-\change_unchanged
- especially 
-\change_inserted 5863457 1354325248
-designed 
-\change_unchanged
-for laser detection
 \change_inserted 5863457 1357514549
- are introduced in the next section
+ some other modelsare introduced in the next section
+\change_inserted 5862369 1357644219
+, especially designed for laser detection 
 \change_unchanged
 .
  
@@ -1726,8 +1757,15 @@ Integration of Cloud Along Laser Beam
 Because laser emitted by optical sensor is penetrating the could, the received
  signal at each sensor can be simplified to be proportional to the integration
  of concentration along the line of laser.
- Therefore, based on the same diffusion equation, the Gaussian plume model
- needs some modifications.
+ Therefore
+\change_deleted 5862369 1357644521
+, based on the same diffusion equation
+\change_unchanged
+, the Gaussian plume model needs some modifications
+\change_inserted 5862369 1357644546
+, based on the same assumption
+\change_unchanged
+.
  
 \end_layout
 
@@ -1777,7 +1815,11 @@ where
 \begin_inset Formula $D_{x},D_{y},D_{z}$
 \end_inset
 
- are the diffusion coefficients along three axis respectively.
+ are the diffusion coefficients along three axis
+\change_inserted 5862369 1357644562
+,
+\change_unchanged
+ respectively.
  
 \end_layout
 
@@ -1909,7 +1951,7 @@ C(x,y,z,t)=\frac{Q}{\left(4\pi Dt\right)^{3/2}}\cdot exp\left(\frac{(x-ut){}^{2}
 \end_layout
 
 \begin_layout Standard
-For point and continuous source at origin, an integration form 
+For point and continuous source at origin, an integration from 
 \begin_inset Formula $t=0$
 \end_inset
 
@@ -1918,39 +1960,13 @@ For point and continuous source at origin, an integration form
 \end_inset
 
  is taken to find the concentration distribution.
- The integration of Eq.
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:3D point Model"
-
-\end_inset
-
- is very hard to find without the help of computer, as in the denominator
- contains 
-\begin_inset Formula $t^{\frac{3}{2}}$
-\end_inset
-
-.
- However, some later research ha
-\change_deleted 5863457 1357516628
-ve
-\change_inserted 5863457 1357516628
-s
+ 
+\change_deleted 5862369 1357644828
+As
+\change_inserted 5862369 1357644829
+If
 \change_unchanged
- found the analytical integration of the atmospheric diffusion equation
  
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Lin1996"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-As 
 \begin_inset Formula $T\rightarrow\infty$
 \end_inset
 
@@ -1978,18 +1994,40 @@ C(x,y,z) & = & \int_{0}^{\infty}C(x,y,z,t)dt
 \end_inset
 
 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-as the laser penetrate
+\change_inserted 5862369 1357644773
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1357644908
+This integration is very hard to find without the help of computer, as 
+ the denominator in Eq.
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:3D point Model"
+
+\end_inset
+
+ contains 
+\begin_inset Formula $t^{\frac{3}{2}}$
+\end_inset
+
+.
+ Some later research of atmospheric diffusion has found the analytical integrati
+on 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lin1996"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+As the laser penetrate
 \change_inserted 5863457 1357516649
 s
 \change_unchanged
@@ -2031,7 +2069,43 @@ Since
 
 \end_inset
 
-and 
+Therefore, the finial model of 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+received signal
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ at point 
+\begin_inset Formula $\left(x,y\right)$
+\end_inset
+
+ can be given by 
+\begin_inset Formula 
+\begin{equation}
+S(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot\int_{0}^{\infty}\frac{1}{\sqrt{\tau^{2}+1}}\mbox{cos}(\frac{u\tau\sqrt{x^{2}+y^{2}}}{2D})d\tau
+\end{equation}
+
+\end_inset
+
+or 
 \begin_inset Formula 
 \begin{equation}
 S(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot K_{0}\left(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\right)
@@ -2055,19 +2129,7 @@ where
  is simplified to 
 \begin_inset Formula 
 \begin{equation}
-K_{0}(z)=\int_{0}^{\infty}\mbox{cos}(z\cdot\mbox{sinh}t)dt=\int_{0}^{\infty}\frac{\mbox{cos}(z\cdot t)}{\sqrt{t^{2}+1}}dt
-\end{equation}
-
-\end_inset
-
-Therefore, the finial model of concentration at point 
-\begin_inset Formula $\left(x,y\right)$
-\end_inset
-
- can be given by 
-\begin_inset Formula 
-\begin{equation}
-C(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot\int_{0}^{\infty}\frac{1}{\sqrt{t^{2}+1}}\mbox{cos}(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\cdot t)dt
+K_{0}(z)=\int_{0}^{\infty}\mbox{cos}(z\cdot\mbox{sinh}\tau)d\tau=\int_{0}^{\infty}\frac{\mbox{cos}(z\cdot\tau)}{\sqrt{\tau^{2}+1}}d\tau
 \end{equation}
 
 \end_inset
@@ -2101,9 +2163,9 @@ status open
 
 
 \begin_inset Graphics
-	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/GaussianPlumeModel/Plume_2D.eps
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/GaussianPlumeModel/Plume_2D.pdf
 	lyxscale 50
-	height 6cm
+	height 8cm
 
 \end_inset
 
@@ -2156,8 +2218,8 @@ key "He2011"
 
 \end_inset
 
-, the cloud model is a 3D space which is divided the into tiny cells where
- fluid dynamics and wind turbulence is considered.
+, the cloud model is a 3D space which is divided into tiny cells where fluid
+ dynamics and wind turbulence is considered in each cell and its neighbors.
  The cloud plume could be more like real with the help of this technology.
  
 \change_deleted 5862369 1354380074
@@ -2179,7 +2241,7 @@ is
 are
 \change_unchanged
  generated to be used in the distributed cloud detection or training of
- sensor networks.
+ sensors.
  
 \end_layout
 
@@ -2191,8 +2253,6 @@ the
  
 \change_deleted 5862369 1355847596
 Figure
-\change_inserted 5862369 1355847596
- 
 \change_unchanged
  
 \begin_inset CommandInset ref
@@ -2201,16 +2261,36 @@ reference "fig:Frame-projection"
 
 \end_inset
 
-, the frame image is obtained by taking integration of the 3D raw data over
- z-dimension.
- This is similar to the effect of laser beam penetrating through cloud.
+, the frame images are obtained by taking integration of the 3D raw data
+ along z-axis.
+ This is to simulate the effect of laser beam penetrati
+\change_deleted 5862369 1357645595
+ng
+\change_inserted 5862369 1357645595
+on
+\change_unchanged
+ through cloud.
  The received light magnitude is the integration of backscatter along the
  laser beam.
  Therefore, pixels value in the frame image is proportional to the magnitude
- of sensor observation.
- In this simulation, they are treated as equal.
- After the integration, the pixel values in these frames is normalized by
- dividing them with the maximum pixel value in these frames.
+ of 
+\change_inserted 5862369 1357645653
+received light.
+ 
+\change_deleted 5862369 1357645665
+sensor observation.
+
+\change_unchanged
+ In this simulation, the pixel values in these frames is normalized by dividing
+ them with the maximum pixel value in these frames.
+ 
+\change_deleted 5862369 1357645750
+after the integration.
+
+\change_inserted 5862369 1357645750
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2308,7 +2388,13 @@ name "fig:Frame-projection"
 
 \end_inset
 
-Relationship between 3D cloud concentration and Sensor's observation.
+
+\change_deleted 5862369 1357645808
+Relationship between 
+\change_inserted 5862369 1357645808
+ 
+\change_unchanged
+3D cloud concentration and Sensor's observation.
  Frame images are obtained by 3D raw data projection 
 \end_layout
 
@@ -2467,7 +2553,7 @@ The detection method should be separated into two stages, training and detection
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Received-Signal'-Model"
+name "sec:Received-Signal'-Model"
 
 \end_inset
 
@@ -2476,7 +2562,7 @@ name "sub:Received-Signal'-Model"
 
 \begin_inset CommandInset label
 LatexCommand label
-name "par:Gaussian-mixture-model-1"
+name "sec:Gaussian-mixture-model-1"
 
 \end_inset
 
@@ -2885,7 +2971,7 @@ Once the probability density function (PDF) for background and cloud reflection
  In section 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Distributed-Calculation-of"
+reference "sec:Distributed-Calculation-of"
 
 \end_inset
 
@@ -3041,7 +3127,7 @@ To drive and simplify the expression of global log likelihood ratio, sensor’s
  observation is described by the model in 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Received-Signal'-Model"
+reference "sec:Received-Signal'-Model"
 
 \end_inset
 
@@ -3125,7 +3211,7 @@ where
 \change_inserted 5862369 1355525782
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Distributed-Calculation-of"
+name "sec:Distributed-Calculation-of"
 
 \end_inset
 

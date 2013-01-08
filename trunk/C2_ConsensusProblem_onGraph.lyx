@@ -752,7 +752,7 @@ more challenging problem than the maximum (or minimum) consensus, because
 \change_inserted 5862369 1355521665
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Continuous-vs-Discrete-DAC"
+name "sec:Continuous-vs-Discrete-DAC"
 
 \end_inset
 
@@ -1766,7 +1766,7 @@ the
 discrete-time first-order DAC algorithm, see 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:DT-First-Order-DAC"
+reference "sec:DT-First-Order-DAC"
 
 \end_inset
 
@@ -1825,7 +1825,7 @@ Although continuous-time consensus algorithms have some similarities with
  
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Continuous-vs-Discrete-DAC"
+reference "sec:Continuous-vs-Discrete-DAC"
 
 \end_inset
 
@@ -1845,7 +1845,7 @@ section
  
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:DT-First-Order-DAC"
+reference "sec:DT-First-Order-DAC"
 
 \end_inset
 
@@ -1912,7 +1912,7 @@ key "Xiao2004"
  together with higher-order DAC algorithms ( introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Discrete-High-Order"
+reference "sec:Discrete-High-Order"
 
 \end_inset
 

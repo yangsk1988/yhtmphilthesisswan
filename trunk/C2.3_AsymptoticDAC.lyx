@@ -235,7 +235,7 @@ the
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:DT-First-Order-DAC"
+name "sec:DT-First-Order-DAC"
 
 \end_inset
 
@@ -1569,7 +1569,7 @@ reference "chap:Finite-time-DAC-Gen"
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Discrete-High-Order"
+name "sec:Discrete-High-Order"
 
 \end_inset
 

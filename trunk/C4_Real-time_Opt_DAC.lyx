@@ -562,7 +562,7 @@ section
  
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Conclusion"
+reference "sec:Conclusion"
 
 \end_inset
 
@@ -601,7 +601,7 @@ key "Xiong2010"
 In 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Discrete-High-Order"
+reference "sec:Discrete-High-Order"
 
 \end_inset
 
@@ -2750,7 +2750,7 @@ third-order DAC
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Conclusion"
+name "sec:Conclusion"
 
 \end_inset
 

@@ -140,7 +140,7 @@ The
 as shown in 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Find_Consensus_Value"
+reference "sec:Find_Consensus_Value"
 
 \end_inset
 
@@ -214,7 +214,7 @@ already
 introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Find_Consensus_Value"
+reference "sec:Find_Consensus_Value"
 
 \end_inset
 
@@ -271,7 +271,7 @@ section
  
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Find_Consensus_Value"
+reference "sec:Find_Consensus_Value"
 
 \end_inset
 
@@ -890,7 +890,7 @@ section
  
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Convert-Linear-Predictor "
+reference "sec:Convert-Linear-Predictor "
 
 \end_inset
 
@@ -908,7 +908,7 @@ linear predictor
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Convert-Linear-Predictor "
+name "sec:Convert-Linear-Predictor "
 
 \end_inset
 
@@ -981,7 +981,7 @@ section
  
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:Find_Consensus_Value"
+reference "sec:Find_Consensus_Value"
 
 \end_inset
 
@@ -1210,7 +1210,7 @@ equal to the sum of all orders in minimal polynomial of weight matrix
 Simulation
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Numerical-Simulation"
+name "sec:Numerical-Simulation"
 
 \end_inset
 
