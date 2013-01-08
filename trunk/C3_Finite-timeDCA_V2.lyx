@@ -125,31 +125,37 @@ thispagestyle{empty}
 (todo check 2)
 \change_inserted 5862369 1355847157
  
-\change_unchanged
+\change_inserted 5863457 1357604283
 
 \end_layout
 
 \begin_layout Standard
-It is shown i
-\change_inserted 5862369 1355435274
-n  
+
+\change_inserted 5863457 1357604353
+The
+\change_unchanged
+ finite-time DAC algorithm can calculate the consensus value by a linear
+ combination of local values in the past, 
+\change_inserted 5863457 1357604349
+as shown in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sub:Find_Consensus_Value"
 
 \end_inset
 
- 
-\change_unchanged
-that finite-time DAC algorithm can calculate the consensus value by a linear
- combination of local values in the past, provided that each node knows
- the network topology (or eigenvalues of the weight matrix 
+
+\change_deleted 5863457 1357604403
+provided that each node knows the network topology (or eigenvalues of the
+ weight matrix 
 \begin_inset Formula $W$
 \end_inset
 
 ).
  However, having knowledge of the network topology in every node is a demanding
  assumption.
+
+\change_unchanged
  Although a distributed algorithm to calculate the coefficients of the linear
  combination has been introduced in 
 \begin_inset CommandInset citation

@@ -170,6 +170,8 @@ in a time-invariant network.
 
 \change_deleted 5862369 1355526844
  
+\change_inserted 5863457 1357600917
+ 
 \change_inserted 5862369 1354148371
 They use a finite impulse response filter to estimate the consensus value.
  
@@ -302,8 +304,13 @@ reference "chap:Online-Optimization-of"
 
 \end_inset
 
-, the optimal parameters is only related to eigenvalues of the Laplacian
- matrix associated to the network.
+, the optimal parameters 
+\change_inserted 5863457 1357600988
+are 
+\change_deleted 5863457 1357600984
+is
+\change_inserted 5862369 1355762124
+ only related to eigenvalues of the Laplacian matrix associated to the network.
  Therefore, the key of the optimization algorithm is to distributively estimate
  the eigenvalues.
  
@@ -313,11 +320,20 @@ so it is not robust against topology changes.
 \change_unchanged
  However, numerical errors of these parameters due to quantization can decline
  the algorithm performance.
- To mitigate this effect, we introduce a numerical technique to find the
+ To mitigate this effect, we introduce a numerical technique to find 
+\change_deleted 5863457 1357601019
+the
+\change_inserted 5863457 1357601020
+a
+\change_unchanged
  least mean square solution.
  If floating point number in double format is used and the network size
  is smaller than 32 nodes, the numerical errors of estimated parameters
- after mitigation will only slightly declines the performance of 
+ after mitigation will only slightly decline
+\change_deleted 5863457 1357601035
+s
+\change_unchanged
+ the performance of 
 \change_inserted 5862369 1354152399
 higher-order DAC
 \change_unchanged
@@ -385,18 +401,51 @@ reference "chap:DAC-Cloud-Detection"
  First, the hypothesis testing based on the ML or MAP decision rule is introduce
 d.
  In the outdoor environment, signal of an individual sensor might be corrupted
- by Gaussian noise or moving object with high reflect coefficient, which
- might raise the false alarm.
- Because multiple sensors detection have better performance, it was adopted
- in the cloud detection.
-
-\change_deleted 5862369 1355762127
- 
+ by Gaussian noise or 
+\change_inserted 5863457 1357601095
+interferred by 
 \change_unchanged
+moving object
+\change_inserted 5863457 1357601133
+.
+
+\change_unchanged
+ 
+\change_deleted 5863457 1357601147
+which has high reflection coefficient.
+
+\change_unchanged
+ 
+\change_inserted 5863457 1357601236
+Therefore, single sensor detection is unreliable 
+\change_deleted 5863457 1357601241
+which
+\change_inserted 5863457 1357601243
+ and
+\change_unchanged
+ might raise the false alarm
+\change_inserted 5863457 1357601255
+ very often
+\change_unchanged
+.
+ 
+\change_deleted 5863457 1357601280
+Because
+\change_unchanged
+ Multiple sensors detection 
+\change_inserted 5863457 1357601405
+is adopted to improve the performance of cloud detection.
+ 
+\change_deleted 5863457 1357601345
+.
  Expectation-maximization algorithm is used here to build the joint Gaussian
  model of background noise and cloud backscatter.
- Thus, interferences to a few sensors in the network are less likely to
- raise the false alarm.
+ 
+\change_inserted 5863457 1357601345
+ 
+\change_unchanged
+Thus, interferences to a few sensors in the network are less likely to raise
+ the false alarm.
  Second, 
 \change_inserted 5862369 1353529824
 if 
@@ -409,6 +458,8 @@ is
 can be
 \change_unchanged
  calculated by the DAC algorithm.
+
+\change_deleted 5863457 1357601112
  
 \change_deleted 5862369 1357307753
  assuming sensors signals are independent, global log likelihood ratio is
@@ -468,7 +519,11 @@ First, the distributed real-time
 \change_unchanged
  Before that, a consensus protocol should be 
 \change_inserted 5862369 1353536737
-develop 
+develop
+\change_inserted 5863457 1357601435
+ed
+\change_inserted 5862369 1353536737
+ 
 \change_unchanged
 and implemented
 \change_inserted 5862369 1353536737
@@ -544,11 +599,14 @@ simulation results show
 \begin_layout Standard
 Third, to avoid complex analysis, the network graph is assumed to be symmetric
  in the analysis.
- However, some algorithm, such as the finite-time DAC algorithm and the
+ However, some algorithms such as the finite-time DAC algorithm and the
  eigenvalue estimation algorithm, can be generalized to the case when the
  network in unsymmetrical.
- Therefore, the distributed real-time optimization might able to be generalized
- the unsymmetrical network.
+ Therefore, the distributed real-time optimization might 
+\change_inserted 5863457 1357602476
+be 
+\change_unchanged
+able to be generalized the unsymmetrical network.
  
 \end_layout
 
