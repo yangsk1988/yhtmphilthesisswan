@@ -816,8 +816,9 @@ In the cloud detection scenario shown by
 Figure 
 \change_unchanged
 
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Cloud-detection-scenario"
 
 \end_inset
@@ -2142,8 +2143,9 @@ Figure.
  
 \change_unchanged
 
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:2-D-Gaussian-Plume"
 
 \end_inset
@@ -2255,8 +2257,9 @@ the
 Figure
 \change_unchanged
  
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Frame-projection"
 
 \end_inset
@@ -3686,8 +3689,9 @@ Figure
  
 \change_unchanged
  
+ Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:GMM (x1,x2)"
 
 \end_inset
@@ -4346,8 +4350,9 @@ Fig
  
 \change_unchanged
 
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Sensor's obs"
 
 \end_inset
@@ -4426,9 +4431,10 @@ Figure
 \change_deleted 5863457 1357563169
  
 \change_unchanged
- 
+
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Sensor's obs"
 
 \end_inset
@@ -4478,9 +4484,10 @@ Figure
 \change_deleted 5863457 1357563274
  
 \change_unchanged
- 
+
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Global-LLR-and"
 
 \end_inset
@@ -4625,9 +4632,10 @@ Figure
 \change_inserted 5862369 1355847626
  
 \change_unchanged
- 
+
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Sensor's obs"
 
 \end_inset
@@ -4639,8 +4647,9 @@ Figure
  
 \change_unchanged
  
+ Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:GMM (x1,x2)"
 
 \end_inset
@@ -4850,8 +4859,9 @@ Figure
  
 \change_unchanged
  
+ Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:ROC-of-CDWSN"
 
 \end_inset

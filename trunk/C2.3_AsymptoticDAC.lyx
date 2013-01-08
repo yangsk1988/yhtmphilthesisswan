@@ -2065,9 +2065,10 @@ reference "eq:HO-DAC Opt. Problem"
 \change_deleted 5863457 1357343689
 the
 \change_unchanged
- 
+
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Find-minimum-rho(H)"
 
 \end_inset
@@ -2311,8 +2312,9 @@ second-order DAC
 \end_layout
 
 \begin_layout Standard
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Convergence-Region"
 
 \end_inset
@@ -2660,9 +2662,9 @@ and
 are all real values.
 
 \change_inserted 936221351 1356970498
- Note the dashed line in 
+ Note the dashed line in Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Convergence-Region"
 
 \end_inset
@@ -2719,9 +2721,9 @@ always
 
  is real and complex
 \change_deleted 936221351 1356970440
- respectably, shown as dashed line in  
+ respectably, shown as dashed line in Figure  
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Convergence-Region"
 
 \end_inset
@@ -2754,9 +2756,9 @@ each network
 .
  
 \change_deleted 936221351 1356970704
-The methods and parameters of network generation are illustrated in 
+The methods and parameters of network generation are illustrated in Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Net-N16-R0,3"
 
 \end_inset
@@ -2765,9 +2767,9 @@ reference "fig:Net-N16-R0,3"
 
 \change_unchanged
  The algorithm's performance is evaluated by the average spectral radius
- and average mean square error, shown in 
+ and average mean square error, shown in Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:DAC-comparation"
 
 \end_inset
@@ -2807,9 +2809,9 @@ nodes are
 
 \change_inserted 936221351 1356970833
  The methods of network generation and communication ranges are illustrated
- in 
+ in Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Net-N16-R0,3"
 
 \end_inset
@@ -3000,9 +3002,10 @@ Consider the graph show in
 \change_deleted 5863457 1357419204
 the
 \change_unchanged
- 
+
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Net-N50-E200"
 
 \end_inset
@@ -3036,9 +3039,9 @@ the list of
 \end_layout
 
 \begin_layout Case
-The network in 
+The network in Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Net-N16-R0,3"
 
 \end_inset
@@ -3088,8 +3091,9 @@ The spectral radius
 
 \change_inserted 936221351 1356971301
  
+ Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:DAC-SR-comp"
 
 \end_inset
@@ -3129,9 +3133,9 @@ In another point of view,
 \change_deleted 5862369 1355762515
 figure.
 \change_unchanged
-
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:DAC MSE Compare"
 
 \end_inset
