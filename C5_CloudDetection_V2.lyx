@@ -107,20 +107,79 @@ thispagestyle{empty}
 
 \begin_layout Standard
 In this chapter, the DAC algorithm will be applied to the remote detection
- of cloud, which is to find out a group of harmful liquids, solid particles
- or gases floating in the air.
+ of cloud
+\change_deleted 5863457 1357604485
+,
+\change_inserted 5863457 1357604515
+.
+ A cloud
+\change_deleted 5863457 1357604999
+ which
+\change_unchanged
+ is
+\change_deleted 5863457 1357604507
+ 
+\change_unchanged
+ a group of harmful 
+\change_deleted 5863457 1357604991
+liquids, solid
+\change_unchanged
+ particles or gases floating in the air
+\change_inserted 5863457 1357605011
+, which has to be detected once is released
+\change_unchanged
+.
  Enabled by laser technology, the sensor can illuminate these particles
- and detect the backscatters.
+\change_inserted 5863457 1357604580
+ in the cloud
+\change_unchanged
+ and detect the backscatters
+\change_inserted 5863457 1357604613
+ (reflected lights)
+\change_unchanged
+.
  However, background noise or moving object in the real environment may
  interfere the 
 \change_deleted 5863457 1357481979
 the
 \change_unchanged
  sensor signal.
- Therefore, a method to use distributed detection is necessary.
- The Gaussian plume model is widely used in cloud plume concentration modeling.
- However, the cloud concentration is actually a random process with variance,
- which the Gaussian plume model can not capture.
+ Therefore, a 
+\change_inserted 5863457 1357604753
+reliable detectiong 
+\change_unchanged
+method
+\change_deleted 5863457 1357604746
+ 
+\change_inserted 5863457 1357604731
+ should be used in this case.
+ Normally the 
+\change_deleted 5863457 1357604723
+to use
+\change_unchanged
+ distributed detection is necessary.
+ 
+\change_inserted 5863457 1357604762
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1357604774
+On the other hand, 
+\change_unchanged
+the Gaussian plume model is widely used in cloud 
+\change_deleted 5863457 1357604785
+plume
+\change_unchanged
+ concentration modeling.
+ However, the cloud concentration is actually a random process with 
+\change_deleted 5863457 1357604799
+variance
+\change_inserted 5863457 1357604803
+fluctuating
+\change_unchanged
+, which the Gaussian plume model can not capture.
  Therefore, a 3D cloud animation is implemented to get data of cloud concentrati
 on.
  Then, the expectation-maximization algorithm is adopted to get the Gaussian
@@ -147,19 +206,37 @@ s
 \change_unchanged
  it contains harmful or dangerous particles so that it needs to be observed
  and tracked.
- There are various types of sensors can perform the detection.
- According to their types of targets, the detection can be categorized into
- smoke/gas/aerosol detection.
- On the other hand, based on their sensing methods, the
-\change_inserted 5863457 1357482043
-y 
+ 
+\change_deleted 5863457 1357605141
+There are various types of sensors can perform the detection.
+ 
+\change_inserted 5863457 1357605141
+ 
 \change_unchanged
-are also divided into contact detection and remote sensing.
+According to their types of targets, the detection can be categorized into
+ smoke/gas/aerosol detection.
+
+\change_inserted 5863457 1357605155
+ The concepts are similar,
+\change_unchanged
+ 
+\change_inserted 5863457 1357605183
+but the types of sensors to perform the detection are various.
+ 
+\change_deleted 5863457 1357605195
+On the other hand, 
+\change_inserted 5863457 1357605197
+ 
+\change_unchanged
+Based on their sensing methods, they sensors are also divided into contact
+ detection and remote sensor.
  
 \end_layout
 
 \begin_layout Standard
 Smoke and gas detection 
+\change_inserted 5863457 1357605236
+sensors 
 \change_deleted 5863457 1357482202
 is
 \change_inserted 5863457 1357482203
@@ -169,7 +246,11 @@ are
 \change_inserted 5863457 1357482110
 s
 \change_unchanged
- inside buildings, which 
+ inside 
+\change_inserted 5863457 1357605243
+our 
+\change_unchanged
+buildings, which 
 \change_deleted 5863457 1357482124
 is
 \change_inserted 5863457 1357482125
@@ -194,23 +275,37 @@ are
 \end_layout
 
 \begin_layout Standard
-Smoke detection based on video and image processing is also possible.
+Smoke detection based on video and image processing is 
+\change_deleted 5863457 1357605374
+also
+\change_unchanged
+ possibl
+\change_deleted 5863457 1357605378
+e.
+\change_inserted 5863457 1357605379
+, which also attracts a lot of research interests.
+
+\change_unchanged
  For example, in the wildfire video surveillance, people try to change the
  human based surveillance into automatic smoke/fire detection.
  These intelligent algorithms extract smoke's features based on video signal,
- and then classify the objects in the video as smoke or non-smoke.
- This also attracts 
-\change_deleted 5863457 1357482359
-much
-\change_inserted 5863457 1357482361
-a lot of
+ and then classify the 
+\change_deleted 5863457 1357605340
+objects
+\change_inserted 5863457 1357605369
+areas
 \change_unchanged
- research interest
-\change_inserted 5863457 1357482365
-s
+ in the video 
+\change_inserted 5863457 1357605369
+frames 
 \change_unchanged
-.
+as smoke or non-smoke.
  
+\change_deleted 5863457 1357605368
+This also attracts much research interest.
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -219,32 +314,73 @@ Sometime
 s
 \change_unchanged
 , the agent does not directly contact with the sensing element.
- The device pumps in some air and illuminate
+ The device pumps in some air 
+\change_inserted 5863457 1357605411
+sample 
+\change_unchanged
+and illuminate
 \change_inserted 5863457 1357482384
 s
 \change_unchanged
- the air with multiple wavelengths to get the absorption spectrum, which
- normally 
-\change_inserted 5863457 1357482397
-is 
+ the 
+\change_inserted 5863457 1357605416
+it 
+\change_deleted 5863457 1357605415
+air
 \change_unchanged
-obtained by an infrared spectroscopy.
- Then the concentration or species of the agent can be estimated when prior
- knowledge is available.
+ with multiple wavelengths to get the absorption spectrum, which
+\change_inserted 5863457 1357605442
+ is
+\change_unchanged
+ normally 
+\change_deleted 5863457 1357605434
+obtained
+\change_inserted 5863457 1357605442
+done
+\change_unchanged
+ by an infrared spectroscopy.
+ 
+\change_deleted 5863457 1357605461
+Then
+\change_inserted 5863457 1357605465
+After that,
+\change_unchanged
+ the concentration 
+\change_deleted 5863457 1357605470
+or
+\change_inserted 5863457 1357605470
+and
+\change_unchanged
+ 
+\change_deleted 5863457 1357605479
+species
+\change_inserted 5863457 1357605480
+type
+\change_unchanged
+ of the agent can be estimated when prior knowledge is 
+\change_deleted 5863457 1357605457
+available
+\change_inserted 5863457 1357605457
+given
+\change_unchanged
+.
  
 \end_layout
 
 \begin_layout Standard
-When sensors are not able to contact with cloud in the sky, laser technology
- enables the remote
+When sensors are not able to contact with 
+\change_inserted 5863457 1357605493
+the 
+\change_unchanged
+cloud in the sky, laser technology enables the remote
 \change_deleted 5863457 1357483277
  
-\change_inserted 5863457 1357483308
- studies the properties of of clouds
+\change_inserted 5863457 1357605540
+ studies the of cloud's properties
 \change_unchanged
 .
 
-\change_inserted 5863457 1357483391
+\change_inserted 5863457 1357605540
  The concept of remote sensing is very close to spectroscopy.
  
 \change_unchanged
@@ -259,10 +395,15 @@ reflect
 
  light back to the source (referred as backscatter).
 
-\change_deleted 5863457 1357483549
- 
+\change_inserted 5863457 1357605540
+ These lights are collected by the sensor.
+
 \change_unchanged
-The back-scattered light wavelength is identical to the transmitted light
+ Then, microprocessor in sensor node could identify the received signal,
+ and make a declaration of cloud.
+
+\change_inserted 5863457 1357605588
+ The back-scattered light wavelength is identical to the transmitted light
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -281,16 +422,9 @@ key "P.M.Hamilton1969"
 
 .
 
-\change_deleted 5863457 1357483706
- 
-\change_inserted 5863457 1357483695
- These lights are collected by the sensor.
-
 \change_unchanged
- Then, microprocessor in sensor node could identify the received signal,
- and make a declaration of cloud.
  
-\change_inserted 5863457 1357483700
+\change_inserted 5863457 1357605587
 The 
 \begin_inset Quotes eld
 \end_inset
@@ -343,9 +477,18 @@ remote sensing
  LIDAR
 \change_inserted 5863457 1357484012
  (Light Detection And Ranging) detector
+\change_deleted 5863457 1357605637
+,
+\change_inserted 5863457 1357605657
+.
+ Similar to the spectroscopy,
 \change_unchanged
-, which illuminate
-\change_inserted 5863457 1357485776
+ 
+\change_inserted 5863457 1357605654
+it
+\change_unchanged
+ illuminate
+\change_inserted 5863457 1357605643
 s
 \change_unchanged
  the bio-aerosol
@@ -353,17 +496,36 @@ s
  
 \change_unchanged
  and collect
-\change_inserted 5863457 1357485783
+\change_inserted 5863457 1357605643
 s
 \change_unchanged
- back-scatters by a telescope just similar to the spectroscopy.
+ back-scatters by a telescope.
  Therefore, the agent could be discriminated according to its spectrum.
  In research simulation, the bio-aerosol is often created by spread bacillus
  subtilis spores in the air.
- However, the reflection and extinction coefficients are closely related
- to the particles species and absorption spectrum are different from one
- agent to another.
- To estimate the concentration of an aerosol based on backscatter spectrum
+ However, the reflection/extinction coefficients
+\change_inserted 5863457 1357605717
+ and absorption spectrum
+\change_unchanged
+ are closely related to the
+\change_inserted 5863457 1357605717
+ species of
+\change_unchanged
+ particles 
+\change_deleted 5863457 1357605692
+species
+\change_unchanged
+ and 
+\change_deleted 5863457 1357605742
+absorption spectrum are
+\change_unchanged
+ different from one agent to another.
+ To estimate the concentration of an aerosol based on 
+\change_deleted 5863457 1357605764
+backscatter spectrum
+\change_inserted 5863457 1357605769
+received signals
+\change_unchanged
  requires prior knowledge of the wavelength-dependent backscatter coefficients.
  
 \end_layout
@@ -371,17 +533,26 @@ s
 \begin_layout Standard
 There are many challenges in outdoor environment for this method.
  First, in
+\change_inserted -1199928310 1347292230
+ real environment, the received signals may be interfered by 
+\change_inserted 5863457 1357605896
+background radiation, 
 \change_inserted -1199928310 1347292003
- real environment, the received signals may be interfered by noise or corrupt
- by moving object.
+noise 
+\change_deleted 5863457 1357605898
+or
+\change_inserted 5863457 1357605898
+and
+\change_inserted -1199928310 1347292003
+ corrupt by moving object.
  
-\change_deleted -1199928310 1347292006
+\change_deleted -1199928310 1347292150
 t
-\change_inserted -1199928310 1347292007
-T
+\change_inserted 5863457 1357605833
+For example, 
 \change_unchanged
-he background radiation (for example, sunshine in the day time) will ruin
- the LIDAR signals.
+the background radiation ( sunshine or cloud reflection) will ruin the LIDAR
+ signals.
  But it can be compensated by increasing the laser power, add
 \change_inserted 5863457 1357485882
 ing
@@ -394,24 +565,24 @@ and
 \change_unchanged
  tracking the background radiation level.
  Second, the interference of moving objects in the sky like birds and balloons
- will have a very high reflect
-\change_inserted 5863457 1357485919
-ion
-\change_unchanged
- coefficient compared with gases.
+ will have a very high reflection coefficient compared with gases/aerosol.
  Third, failure of sensor nodes.
- Because of the properties of sensor nodes, such as energy constrains, vulnerabl
-e to intruders, they often malfunction and become unreliable.
- Fourth, 
-\change_deleted 5863457 1357485928
-C
-\change_inserted 5863457 1357485928
-c
+ Sensors are energy limited
+\change_deleted 5863457 1357606198
+ 
 \change_unchanged
-loud is a diffusive target.
- The diffusion target will have different concentration from one sensor
- to another, so the distribution of cloud has random variables that capture
- the special variation of concentration 
+ and vulnerable to intruders, they often malfunction and become unreliable.
+ Fourth, cloud is a diffusive target.
+ The concentration
+\change_inserted 5863457 1357606273
+s of cloud plume are
+\change_deleted 5863457 1357606250
+ 
+\change_inserted 5863457 1357606257
+ different 
+\change_unchanged
+from one sensor to another, so the distribution of cloud has random variables
+ that capture the special variation of concentration 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "N.Kh.2004"
@@ -420,22 +591,19 @@ key "N.Kh.2004"
 
 .
  Finally, a LIDAR
-\change_inserted 5863457 1357485943
+\change_inserted 5863457 1357605930
  detector
 \change_unchanged
  with discrimination ability is very expensive so that it often performs
  passive detection and discrimination.
 
 \change_inserted -1199928310 1347292230
- For these reasons, a method to use distributed detection is necessary to
- overcome unreliability of sensor nodes and interference for outdoor remote
- cloud detection.
-
+ 
 \change_unchanged
- Active detection of the bio-aerosol is taken by some 
+Active detection of the bio-aerosol is taken by some 
 \change_deleted -1199928310 1347292150
 other
-\change_inserted -1199928310 1347292227
+\change_inserted -1199928310 1347292230
 cheaper
 \change_unchanged
  sensors distributing in the battle
@@ -443,9 +611,27 @@ cheaper
  
 \change_unchanged
 field.
- So this comes to our problem: detecting the bio-aerosol with sensors distribute
-d in the environment with noise and interference.
+ So this comes to our problem: detecting the bio-aerosol 
+\change_deleted 5863457 1357606416
+with
+\change_inserted 5863457 1357606416
+by
+\change_unchanged
  
+\change_inserted 5863457 1357606399
+unreliable 
+\change_unchanged
+sensors distributed in the environment with noise and interference.
+ 
+\change_deleted 5863457 1357606362
+For these reasons, a method to use distributed detection is necessary to
+ overcome unreliability of sensor nodes and interference for outdoor remote
+ cloud detection.
+ 
+\change_inserted 5863457 1357606362
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1455,8 +1641,8 @@ capture
 , which
 \change_unchanged
  
-\change_inserted 5863457 1357514675
-can not captured by aussian plume model.
+\change_inserted 5863457 1357604810
+can not captured by Gaussian plume model.
  
 \change_unchanged
 In this section, first some 
@@ -2185,8 +2371,13 @@ key "Chair1986"
 \end_layout
 
 \begin_layout Standard
-Secondly, the global LLR can be calculated without a fusion center by distributi
-ve signal processing.
+Secondly, the global LLR can be calculated without a fusion center by 
+\change_deleted 5863457 1357606930
+distributive
+\change_inserted 5863457 1357606930
+distributed
+\change_unchanged
+ signal processing.
  In the consideration of reliability, survivability, and range of coverage,
  there is an increasing interest in employing multiple sensors for these
  applications 
