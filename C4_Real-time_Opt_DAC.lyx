@@ -2356,9 +2356,9 @@ In
 \change_deleted 5862369 1355761500
 Fig.
 \change_unchanged
-
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Box-plot N10 1DAC"
 
 \end_inset
@@ -2604,9 +2604,9 @@ In addition, the estimation errors will decrease if more instances of CFO-DAC
 \change_deleted 5862369 1355761503
 Fig.
 \change_unchanged
-
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Box-plot N10 1DAC"
 
 \end_inset
@@ -2637,9 +2637,9 @@ To see how these estimation errors take effect on the performance of DAC,
 \change_deleted 5862369 1355761505
 Fig.
 \change_unchanged
-
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Mean-of-spectral"
 
 \end_inset
@@ -2704,8 +2704,9 @@ As shown in
 Fig.
 \change_unchanged
 
+Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Mean-of-spectral"
 
 \end_inset

@@ -440,10 +440,10 @@ Categories of Consensus Algorithm
 
 \begin_layout Standard
 To introduce the distributed consensus algorithm, we may started from one
- of the simplest algorithm in their family.
+ of the simplest algorithm in their family. Figure 
  
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Categories-of-Discrete-time"
 
 \end_inset

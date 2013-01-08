@@ -1262,9 +1262,9 @@ s
 \uwave default
 \noun default
 \color inherit
-, see  
+, see Figure  
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Boundary-of-eigenvalues-1"
 
 \end_inset
@@ -1455,9 +1455,10 @@ reference "thm:Bounds of eig(L)-1"
 \change_deleted 5863457 1357338679
  
 \change_inserted 5862369 1355426092
- 
+
+ Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Boundary-of-eigenvalues-1"
 
 \end_inset
@@ -1794,9 +1795,9 @@ s
 \change_unchanged
 , 
 \change_inserted 5862369 1355521964
-let's first take a look at the 
+let's first take a look at the Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Categories-of-Discrete-time"
 
 \end_inset
@@ -1804,9 +1805,9 @@ reference "fig:Categories-of-Discrete-time"
 .
 
 \change_unchanged
- (
+ ( Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:Categories-of-Discrete-time"
 
 \end_inset
