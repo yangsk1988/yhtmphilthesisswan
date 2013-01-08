@@ -700,7 +700,7 @@ reference "thm:Convergent <=> p(A)<1"
  theorem for distributed consensus algorithm, see 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "sub:DT-First-Order-DAC"
+reference "sec:DT-First-Order-DAC"
 
 \end_inset
 
