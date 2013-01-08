@@ -3,13 +3,13 @@
 \begin_document
 \begin_header
 \textclass book
+\options A4paper
 \use_default_options true
 \begin_modules
 eqs-within-sections
 theorems-ams-bytype
 theorems-sec-bytype
 theorems-ams-extended-bytype
-customHeadersFooters
 \end_modules
 \maintain_unincluded_children false
 \language english
