@@ -1296,26 +1296,25 @@ testing and detection.
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
+Publications
+\change_inserted 5862369 1357682535
 
-\change_deleted 936221351 1356970622
-publications:
 \end_layout
 
 \begin_layout Standard
 
-\change_deleted 936221351 1356970624
-todo 
-\end_layout
+\change_inserted 5862369 1357682704
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Standard
+Distributed Real-time Optimization of Average Consensus
+\begin_inset Quotes erd
+\end_inset
 
-\change_deleted 5863457 1354407224
-In this section, first some expressions are driven based on the diffusive
- equations to obtain the modified Gaussian plume model especially for laser
- detection.
-\change_deleted 936221351 1356970628
-
+, Submitted to the 9th International Wireless Communications and Mobile
+ Computing Conference (IWCMC 2013) - Wireless Sensor Networks Sympoisum.
+ 
 \end_layout
 
 \begin_layout Section
