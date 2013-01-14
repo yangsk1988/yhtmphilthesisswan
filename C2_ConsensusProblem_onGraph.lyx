@@ -7,8 +7,6 @@
 \use_default_options true
 \begin_modules
 eqs-within-sections
-figs-within-sections
-tabs-within-sections
 theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
@@ -1455,7 +1453,6 @@ reference "thm:Bounds of eig(L)-1"
 \change_deleted 5863457 1357338679
  
 \change_inserted 5862369 1355426092
-
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref

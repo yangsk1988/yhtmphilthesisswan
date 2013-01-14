@@ -4,11 +4,6 @@
 \begin_header
 \textclass book
 \use_default_options true
-\begin_modules
-eqs-within-sections
-figs-within-sections
-tabs-within-sections
-\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -89,7 +84,7 @@ status open
 \backslash
 newenvironment{acknowledgements} {
 \backslash
-pagestyle{empty}   
+thispagestyle{empty}   
 \backslash
 begin{center} 
 \end_layout

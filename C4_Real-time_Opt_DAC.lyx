@@ -7,8 +7,6 @@
 \use_default_options true
 \begin_modules
 eqs-within-sections
-figs-within-sections
-tabs-within-sections
 theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
@@ -2703,7 +2701,6 @@ As shown in
 \change_deleted 5862369 1355761507
 Fig.
 \change_unchanged
-
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref

@@ -7,8 +7,6 @@
 \use_default_options true
 \begin_modules
 eqs-within-sections
-figs-within-sections
-tabs-within-sections
 theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
@@ -2065,7 +2063,6 @@ reference "eq:HO-DAC Opt. Problem"
 \change_deleted 5863457 1357343689
 the
 \change_unchanged
-
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2756,7 +2753,8 @@ each network
 .
  
 \change_deleted 936221351 1356970704
-The methods and parameters of network generation are illustrated in Figure 
+The methods and parameters of network generation are illustrated in Figure
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Net-N16-R0,3"
@@ -3002,7 +3000,6 @@ Consider the graph show in
 \change_deleted 5863457 1357419204
 the
 \change_unchanged
-
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3090,8 +3087,7 @@ The spectral radius
 .
 
 \change_inserted 936221351 1356971301
- 
- Figure 
+  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:DAC-SR-comp"
