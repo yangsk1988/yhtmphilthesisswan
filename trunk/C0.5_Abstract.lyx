@@ -80,6 +80,10 @@ status open
 \backslash
 newenvironment{abstract} {  
 \backslash
+
+\change_inserted 5863457 1358166890
+this
+\change_unchanged
 pagestyle{empty}   
 \backslash
 begin{center}   

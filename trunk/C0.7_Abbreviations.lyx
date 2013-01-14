@@ -67,7 +67,7 @@ Abbreviations
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -614,7 +614,7 @@ status open
 
 \end_inset
 
- Weighted adjacency associated with graph 
+ Weighted adjacency matrix associated with graph 
 \begin_inset Formula ${\cal G}$
 \end_inset
 
@@ -1028,7 +1028,7 @@ status open
 
 \end_inset
 
- Step length of DAC algorithms
+ Step length of higher-order DAC algorithms
 \begin_inset Newline newline
 \end_inset
 
@@ -1050,7 +1050,7 @@ status open
 
 \end_inset
 
- Forgetting factor of DAC algorithms
+ Forgetting factor of higher-order DAC algorithms
 \begin_inset Newline newline
 \end_inset
 

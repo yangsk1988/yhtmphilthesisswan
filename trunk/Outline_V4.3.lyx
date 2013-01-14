@@ -82,7 +82,7 @@ theorems-ams-extended-bytype
 
 \begin_layout Title
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -97,6 +97,23 @@ pagestyle{empty} %multiple pages
 
 Optimized Distributed Average Consensus Algorithm and its Applications in
  Cloud Detection
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "C0.2_Dedication.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand include
+filename "C0.3_Declaration.lyx"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
