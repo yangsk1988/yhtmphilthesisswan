@@ -463,7 +463,13 @@ reference "def:Irreducebility"
 \end_layout
 
 \begin_layout Subsection
-Spectral Radius of A Matrix
+Spectral Radius of 
+\change_deleted 5862369 1358177548
+A
+\change_inserted 5862369 1358177548
+a
+\change_unchanged
+ Matrix
 \end_layout
 
 \begin_layout Standard
