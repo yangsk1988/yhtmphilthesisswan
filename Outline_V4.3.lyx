@@ -107,9 +107,28 @@ filename "C0.2_Dedication.lyx"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "C0.5_Abstract.lyx"
+
+\end_inset
+
+
 \begin_inset CommandInset include
 LatexCommand include
 filename "C0.3_Declaration.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
 
 \end_inset
 
@@ -127,16 +146,6 @@ filename "C0.6_Acknowledgment.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "C0.5_Abstract.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -146,15 +155,6 @@ status open
 \backslash
 pagenumbering{roman}
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
 
 \end_inset
 
@@ -302,16 +302,6 @@ filename "C2.6_ConsensusBasedSigProc.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "C2.2_Graph&MatrixTheory.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
 filename "C3_Finite-timeDCA_V2.lyx"
 
 \end_inset
@@ -343,6 +333,16 @@ filename "C5_CloudDetection_V2.lyx"
 \begin_inset CommandInset include
 LatexCommand include
 filename "C7_Conclusion_Future.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Appendix.lyx"
 
 \end_inset
 

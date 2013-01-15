@@ -56,377 +56,12 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 5862369 "HT" 
 \end_header
 
 \begin_body
 
 \begin_layout Chapter*
-Abbreviations
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%
-\backslash
-chapter*{Abbreviations} %[List of Abbreviations]
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-addcontentsline{toc}{chapter}{List of Abbreviations}
-\end_layout
-
-\begin_layout Plain Layout
-
-% 
-\backslash
-begin{thenomenclature} 
-\end_layout
-
-\begin_layout Plain Layout
-
-% 
-\backslash
-begin{abbreviations}{WidestAbbreviation} 
-\end_layout
-
-\begin_layout Plain Layout
-
-% 
-\backslash
-begin{itemize} 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tabular}{p{4.0cm} p{11cm}}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-2D
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Two Dimensional 
-\begin_inset Newline newline
-\end_inset
-
-3D
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Three Dimensional
-\begin_inset Newline newline
-\end_inset
-
-WSNs
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Wireless Sensor Netoworks
-\begin_inset Newline newline
-\end_inset
-
-DAC 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Distributed Average Consensus 
-\begin_inset Newline newline
-\end_inset
-
-FIR filter
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Finite Impulse Response Filter
-\begin_inset Newline newline
-\end_inset
-
-FO-DAC 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- First-order Distributed Average Consensus 
-\begin_inset Newline newline
-\end_inset
-
-SO-DAC 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Second-order Distributed Average Consensus 
-\begin_inset Newline newline
-\end_inset
-
-HO-DAC 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Higher-order Distributed Average Consensus 
-\begin_inset Newline newline
-\end_inset
-
-CFO-DAC 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Constant First Order Distributed Average Consensus 
-\begin_inset Newline newline
-\end_inset
-
-FT-DAC 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Finite Time Distributed Average Consensus 
-\begin_inset Newline newline
-\end_inset
-
-LMS 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Least Mean Square
-\begin_inset Newline newline
-\end_inset
-
-ML 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Maximum Likelihood
-\begin_inset Newline newline
-\end_inset
-
-LLR 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Log Likelihood Ratio
-\begin_inset Newline newline
-\end_inset
-
-G-LLR 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Global Log Likelihood Ratio
-\begin_inset Newline newline
-\end_inset
-
-L-LLR 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Local Log Likelihood Ratio
-\begin_inset Newline newline
-\end_inset
-
-PDF 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Probability Density Function
-\begin_inset Newline newline
-\end_inset
-
-MAP 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Maximum A Posteriori 
-\begin_inset Newline newline
-\end_inset
-
-ML 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Maximum Likelihood 
-\begin_inset Newline newline
-\end_inset
-
-
-\change_deleted 5862369 1357319974
-ROC 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- & 
-\end_layout
-
-\end_inset
-
- Relative operating characteristic curves
-\begin_inset Newline newline
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tabular}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter*
-Notations
+List of Notations
 \end_layout
 
 \begin_layout Standard
@@ -1353,6 +988,351 @@ end{tabular}
 %
 \backslash
 end{listofsymbols}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+List of Abbreviations
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+chapter*{Abbreviations} %[List of Abbreviations]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{List of Abbreviations}
+\end_layout
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+begin{thenomenclature} 
+\end_layout
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+begin{abbreviations}{WidestAbbreviation} 
+\end_layout
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+begin{itemize} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{p{4.0cm} p{11cm}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2D
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Two Dimensional 
+\begin_inset Newline newline
+\end_inset
+
+3D
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Three Dimensional
+\begin_inset Newline newline
+\end_inset
+
+WSNs
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Wireless Sensor Netoworks
+\begin_inset Newline newline
+\end_inset
+
+DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+FIR filter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Finite Impulse Response Filter
+\begin_inset Newline newline
+\end_inset
+
+FO-DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ First-order Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+SO-DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Second-order Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+HO-DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Higher-order Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+CFO-DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Constant First Order Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+FT-DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Finite Time Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+LMS 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Least Mean Square
+\begin_inset Newline newline
+\end_inset
+
+ML 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Maximum Likelihood
+\begin_inset Newline newline
+\end_inset
+
+LLR 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Log Likelihood Ratio
+\begin_inset Newline newline
+\end_inset
+
+G-LLR 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Global Log Likelihood Ratio
+\begin_inset Newline newline
+\end_inset
+
+L-LLR 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Local Log Likelihood Ratio
+\begin_inset Newline newline
+\end_inset
+
+PDF 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Probability Density Function
+\begin_inset Newline newline
+\end_inset
+
+MAP 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Maximum A Posteriori 
+\begin_inset Newline newline
+\end_inset
+
+ML 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Maximum Likelihood 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
 \end_layout
 
 \end_inset
