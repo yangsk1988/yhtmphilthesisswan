@@ -815,7 +815,6 @@ In the cloud detection scenario shown by
 \change_deleted 5862369 1355762548
 Figure 
 \change_unchanged
-
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -891,7 +890,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset space \hfill{}
@@ -941,7 +940,7 @@ Cloud detection scenario
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset space \hfill{}
@@ -995,7 +994,7 @@ Gaussian plume model.
 \begin_inset Caption
 
 \begin_layout Plain Layout
-System model
+Cloud detection system model
 \end_layout
 
 \end_inset
@@ -2142,7 +2141,6 @@ Figure.
 \change_inserted 5862369 1355762557
  
 \change_unchanged
-
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2188,7 +2186,7 @@ name "fig:2-D-Gaussian-Plume"
 
 \end_inset
 
-2-D Gaussian Plume Model (modified for laser detection)
+2-D Gaussian plume model modified for laser detection 
 \end_layout
 
 \end_inset
@@ -2256,8 +2254,7 @@ the
 \change_deleted 5862369 1355847596
 Figure
 \change_unchanged
- 
-Figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Frame-projection"
@@ -2335,11 +2332,12 @@ name "fig:Cloud-simulation-frame"
 
 \end_inset
 
-Cloud simulation frame sequence, 
+Cloud simulation frame sequence.
+ 
 \begin_inset Formula $192\times256$
 \end_inset
 
- pixels for each frame
+ pixels in each frame
 \end_layout
 
 \end_inset
@@ -2392,13 +2390,17 @@ name "fig:Frame-projection"
 \end_inset
 
 
-\change_deleted 5862369 1357645808
-Relationship between 
-\change_inserted 5862369 1357645808
+\change_deleted 5862369 1358191085
+Relationship between 3D c
+\change_inserted 5862369 1358191086
  
 \change_unchanged
-3D cloud concentration and Sensor's observation.
- Frame images are obtained by 3D raw data projection 
+Cloud concentration and Sensor's observation.
+
+\change_deleted 5862369 1358191112
+ 
+\change_unchanged
+ Images frame are obtained by 3D raw data projection 
 \end_layout
 
 \end_inset
@@ -2408,10 +2410,6 @@ Relationship between
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 
 \end_layout
 
@@ -3688,8 +3686,7 @@ Figure
 \change_inserted 5862369 1355847603
  
 \change_unchanged
- 
- Figure 
+  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:GMM (x1,x2)"
@@ -4349,7 +4346,6 @@ Fig
 \change_inserted 5863457 1357563012
  
 \change_unchanged
-
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4431,7 +4427,6 @@ Figure
 \change_deleted 5863457 1357563169
  
 \change_unchanged
-
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4484,7 +4479,6 @@ Figure
 \change_deleted 5863457 1357563274
  
 \change_unchanged
-
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4578,7 +4572,21 @@ name "fig:Global-LLR-and"
 \end_inset
 
 (a) Global LLR vs.
- Local LLR and (b) Sensor Observation (Only frame 40 to 80 is shown)
+ Local LLR
+\change_inserted 5862369 1358191150
+s
+\change_unchanged
+ and (b) Sensor
+\change_inserted 5862369 1358191167
+'s
+\change_unchanged
+ Observation (Only frame 40 to 80 
+\change_deleted 5862369 1358191141
+is
+\change_inserted 5862369 1358191142
+are
+\change_unchanged
+ shown)
 \end_layout
 
 \end_inset
@@ -4632,7 +4640,6 @@ Figure
 \change_inserted 5862369 1355847626
  
 \change_unchanged
-
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4646,8 +4653,7 @@ Figure
 \change_inserted 5862369 1355847629
  
 \change_unchanged
- 
- Figure 
+  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:GMM (x1,x2)"
@@ -4770,7 +4776,11 @@ Two sensors observation
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Sensor's observation of background noise and cloud backscatters 
+Correlation of sensor's observation 
+\change_deleted 5862369 1358192388
+background noise and cloud backscatters 
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -4858,8 +4868,7 @@ Figure
 \change_deleted 5863457 1357568891
  
 \change_unchanged
- 
- Figure 
+  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ROC-of-CDWSN"

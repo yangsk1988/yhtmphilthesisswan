@@ -206,7 +206,13 @@ locally
  This centralized signal processing method is intuitive.
 
 \change_unchanged
- As any node
+ As 
+\change_deleted 5862369 1358198291
+any
+\change_inserted 5862369 1358198293
+each
+\change_unchanged
+ node
 \change_inserted 5862369 1354921320
  
 \change_unchanged
@@ -381,8 +387,13 @@ key "Chair1986"
 
 \end_inset
 
+
+\change_inserted 5862369 1358197775
+.
+
+\change_unchanged
  
-\change_deleted 5862369 1355073689
+\change_deleted 5862369 1358197770
 and there is balanced energy consumption between nodes 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -397,9 +408,9 @@ key "Yuen2008"
 
 \end_inset
 
+.
 
 \change_unchanged
-.
  
 \change_inserted 5862369 1355074003
 However, not all the signal processing can be distributed
@@ -602,8 +613,8 @@ The
  optimization
 \change_inserted 5863457 1357331838
  of first-order DAC algorithms 
-\change_inserted 5862369 1355435949
-in a dynamic network still attract lots of
+\change_inserted 5862369 1358198299
+in a dynamic network still attracts lots of
 \change_inserted 5863457 1355580025
  research
 \change_inserted 5862369 1355435949
@@ -972,7 +983,7 @@ be executed
 \end_layout
 
 \begin_layout Subsection
-To Detect The Cloud Plume by Laser Sensor
+To Detect the Cloud Plume by Laser Sensor
 \end_layout
 
 \begin_layout Standard
