@@ -69,7 +69,7 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -3252,14 +3252,14 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Graph/FirstYearReport/Lyx_v/images/Spectrum radius Compare_old_Ord1234.pdf
 	lyxscale 60
-	width 7cm
-	height 6.5cm
+	width 12cm
+	height 10cm
 
 \end_inset
 
@@ -3288,17 +3288,31 @@ name "fig:DAC-SR-comp"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Graph/FirstYearReport/Lyx_v/images/ord1234_old&max&hybrid.pdf
 	lyxscale 60
-	width 7cm
-	height 6.5cm
+	width 12cm
+	height 10cm
 
 \end_inset
 
@@ -3342,15 +3356,8 @@ name "fig:DAC-comparation"
 
 \end_inset
 
-
-\change_inserted 5862369 1357319789
-Comparison of 
-\change_unchanged
-DAC algorithms 
-\change_deleted 5862369 1357319785
-comparison 
-\change_unchanged
-(a) compared by spectral radius (b) compared by MSE over time.
+Comparison of DAC algorithms (a) compared by spectral radius (b) compared
+ by MSE over time.
 \end_layout
 
 \end_inset

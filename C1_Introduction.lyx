@@ -755,9 +755,9 @@ the distributed tracking of a moving target
 \change_unchanged
 , 
 \change_inserted 5862369 1354986421
-when the moving target is highly dynamic or the sensors need to sample at
- a very high frequency, it requires that the DAC algorithm returns the result
- in a short time.
+when the target is highly dynamic or the sensors need to sample at a very
+ high frequency, it requires that the DAC algorithm returns the result in
+ a short time.
  Thus, many efforts have been devoted to optimize the algorithm.
 
 \change_deleted 5863457 1354550678
@@ -914,9 +914,9 @@ have a first-order DAC running in the background and the
 To enable the whole system 
 \change_inserted 5863457 1357333293
 to 
-\change_inserted 5862369 1355069214
+\change_inserted 5862369 1358259019
 work distributively, the DAC algorithms should be robust against topology
- changes and the optimization should be distributed.
+ changes and the optimization should also be distributed.
  
 \end_layout
 
@@ -1184,7 +1184,7 @@ only need to be executed for times in
  the
 \change_unchanged
  order of 
-\begin_inset Formula $n$
+\begin_inset Formula $O\left(n\right)$
 \end_inset
 
 
@@ -1373,8 +1373,11 @@ reference "chap:Online-Optimization-of"
 
 \end_inset
 
-, a distributed real-time optimization method to increase the convergence
- rate of asymptotic DAC algorithms
+, a distributed real-time optimization 
+\change_deleted 5862369 1358259921
+method
+\change_unchanged
+ to increase the convergence rate of asymptotic DAC algorithms
 \change_inserted 5863457 1355708989
  is proposed
 \change_unchanged
