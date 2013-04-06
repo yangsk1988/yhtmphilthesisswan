@@ -67,6 +67,7 @@ theorems-ams-bytype
 \html_be_strict false
 \author 5862369 "HT" 
 \author 5863457 "ht" 
+\author 936221351 "LiminYao" 
 \end_header
 
 \begin_body
@@ -200,7 +201,13 @@ o
 w
 \change_unchanged
 o important linear filters need to be introduced, as the algorithm is based
- on the relathonship of these filters.
+ on the 
+\change_deleted 936221351 1365255859
+relathonship
+\change_inserted 936221351 1365255859
+relationship
+\change_unchanged
+ of these filters.
 
 \change_inserted 5862369 1355335166
  The first is the FIR filter to estimate the consensus value which 
@@ -537,9 +544,14 @@ Given the local value vector sequence obtained by FO-DCA, one may instantly
 the
 \change_unchanged
  Kalman filter algorithms.
- One benifit of the adaptive filter algorithm is that when the network topology
- is changed, the filter could adaptively change its coefficient during the
- iteration.
+ One 
+\change_deleted 936221351 1365255869
+benifit
+\change_inserted 936221351 1365255869
+benefit
+\change_unchanged
+ of the adaptive filter algorithm is that when the network topology is changed,
+ the filter could adaptively change its coefficient during the iteration.
  
 \end_layout
 
@@ -692,7 +704,11 @@ The size of the Toeplitz block
 \change_deleted 5863457 1357427688
  
 \change_unchanged
- Eq.
+ 
+\change_deleted 936221351 1365255877
+Eq.
+
+\change_unchanged
  
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -701,7 +717,14 @@ reference "eq:Toeplitz Eq.-2"
 \end_inset
 
  has unique solution.
- To solve Eq.
+ To solve
+\change_deleted 936221351 1365255886
+ Eq.
+
+\change_inserted 936221351 1365255886
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Toeplitz Eq.-2"
@@ -811,7 +834,14 @@ It totally needs
 \change_deleted 5863457 1355531206
  
 \change_unchanged
- to construct the Toeplitz matrix and Eq.
+ to construct the Toeplitz matrix and 
+\change_deleted 936221351 1365255900
+Eq.
+
+\change_inserted 936221351 1365255900
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Toeplitz Eq.-2"
@@ -1073,7 +1103,14 @@ To make the expression simple,
 \uwave off
 \noun off
 \color none
-Also see Eq.
+Also see 
+\change_deleted 936221351 1365255913
+Eq.
+
+\change_inserted 936221351 1365255913
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:intermindia polynomial"
@@ -1434,7 +1471,14 @@ the time index
 \bar default
 \noun default
 \color inherit
-Based on Eq.
+Based on 
+\change_deleted 936221351 1365255919
+Eq.
+
+\change_inserted 936221351 1365255919
+ 
+\change_inserted 5863457 1348434155
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Consensus Filter by polynomial"
@@ -1522,7 +1566,14 @@ For any random generated
 \begin_inset Formula $\mathbf{x}(k)$
 \end_inset
 
- is updated by the iteration Eq.
+ is updated by the iteration 
+\change_deleted 936221351 1365255929
+Eq.
+
+\change_inserted 936221351 1365255929
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:first order matrix"

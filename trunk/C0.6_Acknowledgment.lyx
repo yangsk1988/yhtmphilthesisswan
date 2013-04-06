@@ -176,7 +176,11 @@ Thanks to the sponsor too.
 
 \begin_layout Standard
 \paragraph_spacing double
-I would like to express my gratitude to my thesis advisor Dr.
+I would like to express my gratitude to my thesis 
+\lang british
+advisor
+\lang english
+ Dr.
  Xinheng Wang for his careful guidance and his valuable comments.
  His patience and the constructive criticism helped me to organize many
  concepts in a frame.
@@ -191,7 +195,7 @@ I would also like to thank Prof.
 \end_layout
 
 \begin_layout Standard
-Their suggestions contributed to boarden my view of the distributed information
+Their suggestions contributed to broaden my view of the distributed information
  system and the distributed consensus problem.
  Thank you for your help and encouragement.
 \end_layout

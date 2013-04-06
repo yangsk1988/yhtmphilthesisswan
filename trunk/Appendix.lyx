@@ -205,7 +205,7 @@ where
 \begin_inset Formula ${\cal G}$
 \end_inset
 
- is the same as defined before, see Eq.
+ is the same as defined before, see 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Graph Laplacian def."
@@ -1124,7 +1124,11 @@ tion of
 \end_inset
 
 .
- Diagonalizable Matrix & Symmetric Matrix
+ 
+\end_layout
+
+\begin_layout Section
+Diagonalizable Matrix & Symmetric Matrix
 \end_layout
 
 \begin_layout Standard
