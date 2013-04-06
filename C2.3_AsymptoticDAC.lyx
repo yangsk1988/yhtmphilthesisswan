@@ -112,9 +112,9 @@ all sensors
 \change_inserted 936221351 1356958725
 local
 \change_unchanged
- values which initialize by its local 
+ values which initialize by its local initial
 \change_inserted 936221351 1356958741
-intial 
+ 
 \change_unchanged
 value.
  At each iteration of the flooding algorithm, every node exchanges the table
@@ -698,7 +698,6 @@ where vector
 \end_layout
 
 \begin_layout Standard
-Eq.
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq: Converge condition W_Left"
@@ -728,7 +727,7 @@ has a left eigenvector
 \end_inset
 
  is equal to one.
- Eq.
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq: Converge condition W_right"
@@ -834,7 +833,6 @@ s
 \end_layout
 
 \begin_layout Proof
-Eq.
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq: Converge condition W_Left"
@@ -850,7 +848,7 @@ reference "eq: Converge condition W_Left"
 \end_inset
 
  associated with eigenvalue one.
- Eq.
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq: Converge condition W_right"
@@ -1029,7 +1027,7 @@ orthogonal normal
 \begin_inset Formula $r_{1}.$
 \end_inset
 
- Eq.
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:u*v=11"
@@ -1102,7 +1100,7 @@ key "Xiao2004"
 
 But it requires knowledge of network topology to solve the problem.
  However, some non-optimal convergent weight matrices that satisfy the condition
- in Eq.
+ in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:convege condition W"
@@ -1910,7 +1908,7 @@ Problem: Convergence rate maximization
 \begin_layout Standard
 
 \change_inserted 5863457 1355795346
-As shown in Eq.
+As shown in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq: High order spectral radius problem"
@@ -2007,7 +2005,7 @@ Since each
 \end_inset
 
 .
- Thus, Eq.
+ Thus, 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq: High order spectral radius problem"

@@ -75,6 +75,7 @@ theorems-ams-bytype
 \html_be_strict false
 \author 5862369 "HT" 
 \author 5863457 "ht" 
+\author 936221351 "LiminYao" 
 \end_header
 
 \begin_body
@@ -400,8 +401,12 @@ reference "chap:DAC-Cloud-Detection"
 d.
  In the outdoor environment, signal of an individual sensor might be corrupted
  by Gaussian noise or 
+\change_deleted 936221351 1365256391
+interferred
+\change_inserted 936221351 1365256391
+interfered
 \change_inserted 5863457 1357601095
-interferred by 
+ by 
 \change_unchanged
 moving object
 \change_inserted 5863457 1357601133

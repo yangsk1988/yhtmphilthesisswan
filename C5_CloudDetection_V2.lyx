@@ -67,6 +67,7 @@ theorems-ams-bytype
 \author -1199928310 "yanghaitao" 
 \author 5862369 "HT" 
 \author 5863457 "ht" 
+\author 936221351 "LiminYao" 
 \end_header
 
 \begin_body
@@ -146,7 +147,13 @@ the
  sensor signal.
  Therefore, a 
 \change_inserted 5863457 1357604753
-reliable detectiong 
+reliable 
+\change_deleted 936221351 1365256180
+detectiong
+\change_inserted 936221351 1365256180
+detection
+\change_inserted 5863457 1357604753
+ 
 \change_unchanged
 method
 \change_deleted 5863457 1357604746
@@ -392,9 +399,7 @@ Smoke detection based on video and image processing is
 \change_deleted 5863457 1357605374
 also
 \change_unchanged
- possibl
-\change_deleted 5863457 1357605378
-e.
+ possible.
 \change_inserted 5863457 1357605379
 , which also attracts a lot of research interests.
 
@@ -1139,7 +1144,14 @@ source
 \begin_inset Formula $\infty$
 \end_inset
 
- is taken for Eq.
+ is taken for 
+\change_deleted 936221351 1365256246
+Eq.
+
+\change_inserted 936221351 1365256247
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Point source concentration"
@@ -1667,7 +1679,11 @@ reference "sec:Modified-Gaussian-Plume"
 some expressions are driven based on the diffusive equations to obtain the
  modified Gaussian plume model
 \change_inserted 5863457 1357514549
- some other modelsare introduced in the next section
+ some other models
+\change_inserted 936221351 1365256256
+ 
+\change_inserted 5863457 1357514549
+are introduced in the next section
 \change_inserted 5862369 1357644219
 , especially designed for laser detection 
 \change_unchanged
@@ -2002,7 +2018,14 @@ C(x,y,z) & = & \int_{0}^{\infty}C(x,y,z,t)dt
 
 \change_inserted 5862369 1357644908
 This integration is very hard to find without the help of computer, as 
- the denominator in Eq.
+ the denominator in 
+\change_deleted 936221351 1365256265
+Eq.
+
+\change_inserted 936221351 1365256265
+ 
+\change_inserted 5862369 1357644908
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:3D point Model"
@@ -3106,7 +3129,14 @@ LLR(x_{1},...,x_{L}) & = & log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\
 
 \end_inset
 
-According to Eq.
+According to 
+\change_deleted 936221351 1365256272
+Eq.
+
+\change_inserted 936221351 1365256272
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Sum L-LLR Cloud"
@@ -3278,7 +3308,14 @@ e
 \color inherit
 the
 \change_unchanged
- Eq.
+ 
+\change_deleted 936221351 1365256279
+Eq.
+
+\change_inserted 936221351 1365256279
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:G-LLR simple"
@@ -3344,8 +3381,14 @@ Provided that each sensor knows the weight
 \uwave default
 \noun default
 \color inherit
-, Eq.
+, 
+\change_deleted 936221351 1365256285
+Eq.
  
+\change_inserted 936221351 1365256285
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:G-LLR_independent"
@@ -3473,7 +3516,14 @@ the
  in a distributed manner.
  
 \change_unchanged
-However, the quadratic form in Eq.
+However, the quadratic form in 
+\change_deleted 936221351 1365256297
+Eq.
+
+\change_inserted 936221351 1365256297
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:G-LLR simple"
@@ -3874,7 +3924,14 @@ where
 \end_layout
 
 \begin_layout Standard
-We can find the value of Eq.
+We can find the value of 
+\change_deleted 936221351 1365256302
+Eq.
+
+\change_inserted 936221351 1365256302
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:G-LLR simple"
@@ -4265,11 +4322,11 @@ Sensor's Observation
 \end_layout
 
 \begin_layout Standard
-Gaussian white noise impaire
-\change_inserted 5863457 1357562960
-s
-\change_deleted 5863457 1357562958
-d
+Gaussian white noise 
+\change_deleted 936221351 1365256364
+impaires
+\change_inserted 936221351 1365256364
+impairs
 \change_unchanged
  the received signal when sensor 
 \change_deleted 5863457 1357562987

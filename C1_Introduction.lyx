@@ -653,7 +653,11 @@ Motivation of Research
 \begin_layout Standard
 
 \change_inserted 5863457 1354553232
-The research is motivated by the distributed detection of cloud using WSN.
+The research is motivated by the distributed detection of cloud using WSN
+\change_inserted 936221351 1365255522
+s
+\change_inserted 5863457 1354553232
+.
  One of the properties of sensor nodes is the limited 
 \change_deleted 5862369 1355069314
 energe
@@ -1322,7 +1326,13 @@ Distributed Real-time Optimization of Average Consensus
 \end_inset
 
 , Submitted to the 9th International Wireless Communications and Mobile
- Computing Conference (IWCMC 2013) - Wireless Sensor Networks Sympoisum.
+ Computing Conference (IWCMC 2013) - Wireless Sensor Networks 
+\change_deleted 936221351 1365255552
+Sympoisum
+\change_inserted 936221351 1365255552
+Symposium
+\change_inserted 5862369 1357682704
+.
  
 \end_layout
 

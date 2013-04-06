@@ -67,6 +67,7 @@ theorems-ams-bytype
 \html_be_strict false
 \author 5862369 "HT" 
 \author 5863457 "ht" 
+\author 936221351 "LiminYao" 
 \end_header
 
 \begin_body
@@ -524,7 +525,11 @@ reference "sec:Mitigation-of-Numerical"
 \end_inset
 
 .
- Third, the algorithm complexity will be analysed in
+ Third, the algorithm complexity will be 
+\lang british
+analysed
+\lang english
+ in
 \change_deleted 5862369 1355847401
  section
 \change_inserted 5862369 1355847401
@@ -550,7 +555,11 @@ reference "sec:Simulation-of-Eigenvalue"
 \end_inset
 
 , the performance of DAC using the distributed real-time optimization  will
- be  analysed and compared with the centralized one.
+ be  
+\lang british
+analysed
+\lang english
+ and compared with the centralized one.
  Finally, the conclusion will be given in 
 \change_deleted 5862369 1355847408
 section
@@ -703,7 +712,11 @@ To avoid complicated analysis, we assume duplex communication is possible
 \begin_inset Formula $W$
 \end_inset
 
- is symmetric, diagonalizable and has 
+ is symmetric, 
+\lang british
+diagonalizable
+\lang english
+ and has 
 \begin_inset Formula $n$
 \end_inset
 
@@ -1151,7 +1164,11 @@ ed
 \change_inserted 5863457 1357429070
 ing
 \change_unchanged
- in some of the local eigenvalues spectrums.
+ in some of the local eigenvalue
+\change_deleted 936221351 1365256141
+s
+\change_unchanged
+ spectrums.
  The reason is because sometimes the Toeplitz matrix 
 \begin_inset Formula $T_{i}$
 \end_inset

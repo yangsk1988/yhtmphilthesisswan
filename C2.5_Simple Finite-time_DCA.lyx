@@ -67,6 +67,7 @@ theorems-ams-bytype
 \html_be_strict false
 \author 5862369 "HT" 
 \author 5863457 "ht" 
+\author 936221351 "LiminYao" 
 \end_header
 
 \begin_body
@@ -367,7 +368,14 @@ is
 \change_inserted 5863457 1357421426
 are
 \change_unchanged
- obtained by Eq.
+ obtained by 
+\change_deleted 936221351 1365256652
+Eq.
+
+\change_inserted 936221351 1365256653
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:1st iter. ni"
@@ -433,7 +441,14 @@ There exists a linear filter defined by
 \bar no
 \noun off
 \color none
-obtained by Eq.
+obtained by 
+\change_deleted 936221351 1365256662
+Eq.
+
+\change_inserted 936221351 1365256662
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:1st iter. ni"
@@ -1051,10 +1066,9 @@ To obtain the consensus value
 \bar no
 \noun off
 \color none
-and solve 
-\change_deleted 5863457 1357422155
-Eq.
-
+and solve
+\change_deleted 936221351 1365256670
+ 
 \change_inserted 5863457 1357422156
  
 \change_unchanged
@@ -1200,7 +1214,13 @@ and
 
 \end_inset
 
- Eq.
+
+\change_deleted 936221351 1365256675
+ 
+\change_inserted 936221351 1365256674
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Find Consensus m order"
@@ -1987,12 +2007,18 @@ reference "eq:intermindia polynomial"
 , we have 
 \begin_inset Formula 
 \begin{eqnarray*}
-b_{jk} & = & \frac{c_{j,m}}{q_{j}\left(\lambda_{j}\right)}
+b_{jk} & = & \frac{c_{j,k}}{q_{j}\left(\lambda_{j}\right)}
 \end{eqnarray*}
 
 \end_inset
 
-Therefore, the solution of Eq.
+Therefore, the solution of
+\change_deleted 936221351 1365256689
+ 
+\change_inserted 936221351 1365256688
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Vander Eq."
