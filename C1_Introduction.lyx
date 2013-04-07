@@ -315,6 +315,8 @@ Once it is destroyed or failed, the whole network breaks down.
 \change_inserted 5862369 1355073974
  In addition, as data gathering is an energy consuming process, centralized
  signal processing is limited due to energy constrain
+\change_inserted 936221351 1365260487
+t
 \change_inserted 5863457 1357331640
 s
 \change_inserted 5862369 1355073974
@@ -944,8 +946,12 @@ first-order DAC
  The method involves triple nested distributed matrix iterations.
  The inner iteration has to converge to a certain range so that the iteration
  outside can return the right result.
- Thus, It is not surprising that it could not finish in a reasonable time
- when the network size is large.
+ Thus, 
+\change_unchanged
+it
+\change_inserted 5862369 1355069004
+ is not surprising that it could not finish in a reasonable time when the
+ network size is large.
  
 \end_layout
 

@@ -176,19 +176,25 @@ A
 In centralized data fusion and decision making, a hypothesis test based
  on the ML
 \change_inserted 5863457 1357423106
- (Maximum Likelihood) 
+ (Maximum Likelihood)
+\change_deleted 936221351 1365262861
+ 
 \change_unchanged
 , MAP
 \change_inserted 5863457 1357423116
- (Maximum a Posteriori ) 
+ (Maximum a Posteriori )
+\change_deleted 936221351 1365262877
+ 
 \change_deleted 5863457 1357423088
  
 \change_unchanged
-or Bayesian decision rule will be carried out at the a fusion center
-\change_deleted 5862369 1355343723
- to make the decision
+or Bayesian decision rule will be carried out at the 
+\change_deleted 936221351 1365262871
+a 
+\change_inserted 936221351 1365262871
+ 
 \change_unchanged
-.
+fusion center.
  
 \change_deleted 5862369 1355343985
 The optimal data fusion scheme is proposed in 
@@ -216,11 +222,19 @@ s
 \end_layout
 
 \begin_layout Enumerate
-H0: target is absent
+
+\change_deleted 936221351 1365263526
+H0:
+\change_unchanged
+ target is absent
 \end_layout
 
 \begin_layout Enumerate
-H1: target is present.
+
+\change_deleted 936221351 1365263529
+H1:
+\change_unchanged
+ target is present.
 \end_layout
 
 \begin_layout Standard
@@ -232,8 +246,8 @@ Suppose each sensor acquires a scale value from its sensing area, its signal
 \begin_inset Formula 
 \begin{equation}
 x_{l}=\begin{cases}
-\mu_{l,0}+n_{l} & \mbox{if no target presents}\\
-\mu_{l,1}+n_{l} & \mbox{if target presents}
+\mu_{l,0}+n_{l} & \mbox{if no target present}\\
+\mu_{l,1}+n_{l} & \mbox{if target present}
 \end{cases}
 \end{equation}
 
@@ -285,7 +299,7 @@ the mean value of
 
 .
  The prior probability of these two hypotheses is denoted by 
-\begin_inset Formula $P\left(H_{m}\right)=P_{m},m=1,2$
+\begin_inset Formula $P\left(H_{m}\right)=P_{m},m=0,1$
 \end_inset
 
 .
@@ -314,9 +328,12 @@ The signal modle is mixed with joint Gaussian white noise
 \end_layout
 
 \begin_layout Standard
-To make a declaration whether the target presents or not, based on classical
- hypothesis test theory, the global log likelihood ratio (G-LLR ) test is
- given by 
+To make a declaration whether the target present
+\change_deleted 936221351 1365263031
+s
+\change_unchanged
+ or not, based on classical hypothesis test theory, the global log likelihood
+ ratio (G-LLR ) test is given by 
 \end_layout
 
 \begin_layout Standard
@@ -375,7 +392,7 @@ detections
 \change_unchanged
  are independent from one to another.
  Therefore, we have 
-\begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)=f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)$
+\begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)=f\left(x_{1}|H_{m}\right)\cdot\ldots\cdot f\left(x_{L}|H_{m}\right)$
 \end_inset
 
  and 
@@ -426,21 +443,10 @@ s
 \begin_inset Formula $x_{i}$
 \end_inset
 
-; Then, all the sensors update their L-LLR
-\change_inserted 5863457 1357423155
-s
-\change_unchanged
- in the DAC iteration until they converge to a common value; Finally, once
- the algorithm converges, 
-\change_deleted 5863457 1357423273
-the G-LLR
-\change_inserted 5863457 1357423273
-G-LLR
-\change_unchanged
- is obtained by multiply
-\change_inserted 5863457 1357423164
-ing
-\change_unchanged
+.
+ Then, all the sensors update their L-LLRs in the DAC iteration until they
+ converge to a common value.
+ Finally, once the algorithm converges, G-LLR is obtained by multiplying
  the average value with the number of sensors in the network.
 \end_layout
 
@@ -449,8 +455,11 @@ Generalization of LLR Calculation
 \end_layout
 
 \begin_layout Standard
-In this section, we will generalize the conditions step by step and drive
- some expressions to show how to calculate G-LLR with DAC algorithms.
+In this section, we will generalize the conditions step by step and d
+\change_inserted 936221351 1365265038
+e
+\change_unchanged
+rive some expressions to show how to calculate G-LLR with DAC algorithms.
  We assume the noises in sensor's signals are not independent from one to
  another.
  The noises can be denoted by the joint Gaussian white noise.
@@ -544,7 +553,11 @@ where
 \begin_inset Formula $C$
 \end_inset
 
- is the last term the equation.
+ is the last term 
+\change_inserted 936221351 1365265166
+of 
+\change_unchanged
+the equation.
 
 \family default
 \series default
@@ -557,7 +570,11 @@ where
 \uwave default
 \noun default
 \color inherit
- Eq.
+ 
+\change_deleted 936221351 1365265172
+Eq.
+
+\change_unchanged
  
 \begin_inset CommandInset ref
 LatexCommand formatted
