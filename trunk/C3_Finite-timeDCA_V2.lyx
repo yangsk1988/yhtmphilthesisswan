@@ -540,6 +540,8 @@ Given the local value vector sequence obtained by FO-DCA, one may instantly
  For example
 \change_deleted 5863457 1357427618
 , LMS, LSL and
+\change_inserted 936221351 1365264453
+ 
 \change_inserted 5863457 1357427618
 the
 \change_unchanged

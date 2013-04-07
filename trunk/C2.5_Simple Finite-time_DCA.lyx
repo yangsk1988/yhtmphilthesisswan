@@ -177,8 +177,13 @@ Find the Consensus Value by Linear Filter
 \bar no
 \noun off
 \color none
-In the network that adopts first-order linear consensus algorithm, each
- node has a number of consecutive local values
+In the network that adopts first-order 
+\change_deleted 936221351 1365262387
+linear consensus
+\change_inserted 936221351 1365262387
+DAC
+\change_unchanged
+ algorithm, each node has a number of consecutive local values
 \family default
 \series default
 \shape default
@@ -187,7 +192,9 @@ In the network that adopts first-order linear consensus algorithm, each
 \bar default
 \noun default
 \color inherit
- obtained by 
+ obtained 
+\change_deleted 936221351 1365262400
+by 
 \family roman
 \series medium
 \shape up
@@ -196,9 +203,30 @@ In the network that adopts first-order linear consensus algorithm, each
 \bar no
 \noun off
 \color none
-first-order DAC algorithm.
- There exists a linear filter.
- If each node passes its 
+first-order DAC algorithm
+\change_inserted 936221351 1365262415
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+after serveral iterations
+\change_unchanged
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+.
+ There exists a linear filter, if each node passes its 
 \family default
 \series default
 \shape default
@@ -217,8 +245,6 @@ consecutive
 \noun off
 \color none
  local values 
-\change_deleted 5863457 1357421337
-through
 \change_inserted 5863457 1357421337
 to
 \change_unchanged
@@ -231,15 +257,20 @@ to
 \bar default
 \noun default
 \color inherit
- filter, the output after a certain time is the global average of the initial
- values over the network.
- Compared to
-\change_inserted 5863457 1357421348
+ filter, the output after
+\change_deleted 936221351 1365262442
  
 \change_unchanged
-the first-order DAC algorithm, no more information exchanged between nodes
- is needed.
+ is the global average of the initial values over the network.
  
+\change_deleted 936221351 1365262496
+Compared to the first-order DAC algorithm, no more information exchanged
+ between nodes is needed.
+ 
+\change_inserted 936221351 1365262497
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Definition
@@ -1515,7 +1546,13 @@ to
 \color inherit
  In addition, all nodes in this network may share the same filter, which
  means all the filters have the same impulse response.
- However, such a consensus finding filter it is not unique.
+ However, such a consensus finding filter 
+\change_deleted 936221351 1365262581
+it 
+\change_inserted 936221351 1365262581
+ 
+\change_unchanged
+is not unique.
  As an example, a number of filters which have different impulse response
 \change_inserted 5863457 1357422310
 s
@@ -1756,7 +1793,11 @@ key "Xiao2004"
 \end_layout
 
 \begin_layout Subsection
-Inverse the Vandermonde Matrix
+Inverse 
+\change_inserted 936221351 1365262613
+of 
+\change_unchanged
+the Vandermonde Matrix
 \end_layout
 
 \begin_layout Standard
@@ -2061,7 +2102,11 @@ elements in the corresponding row of
 \strikeout off
 \uuline off
 \uwave off
-inverse Vandermonde's matrix
+inverse 
+\change_inserted 936221351 1365262636
+of 
+\change_unchanged
+Vandermonde's matrix
 \strikeout default
 \uuline default
 \uwave default

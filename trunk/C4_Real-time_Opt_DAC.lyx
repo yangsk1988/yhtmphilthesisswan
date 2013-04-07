@@ -696,8 +696,21 @@ Because
 \begin_inset Formula $p(\lambda)=\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\right)^{r_{i}}=\lambda^{D}+a_{D-1}\lambda^{D-1}+\ldots+a_{0}=0,$
 \end_inset
 
- the distributed eigenvalues estimation can be cast into calculating the
- coefficients 
+ the distributed eigenvalues estimation 
+\change_deleted 936221351 1365265579
+can be cast into
+\change_inserted 936221351 1365265609
+ is 
+\change_deleted 936221351 1365265659
+followed by the
+\change_inserted 936221351 1365265843
+subject to the
+\change_unchanged
+ calculation of
+\change_deleted 936221351 1365265597
+ 
+\change_unchanged
+ the coefficients 
 \begin_inset Formula $\left\{ a_{j}\right\} $
 \end_inset
 
@@ -2627,7 +2640,7 @@ reference "fig:Box-plot N10 1DAC"
 \end_inset
 
  have estimated error lower than 
-\begin_inset Formula $1e-8$
+\begin_inset Formula $10^{-8}$
 \end_inset
 
 .

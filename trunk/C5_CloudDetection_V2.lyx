@@ -140,7 +140,11 @@ liquids, solid
 \change_unchanged
 .
  However, background noise or moving object in the real environment may
- interfere the 
+ interfere 
+\change_inserted 936221351 1365266900
+with 
+\change_unchanged
+the 
 \change_deleted 5863457 1357481979
 the
 \change_unchanged
@@ -184,13 +188,7 @@ plume
 \change_inserted 5863457 1357607250
 of a plume 
 \change_unchanged
-is actually a random process with 
-\change_deleted 5863457 1357604799
-variance
-\change_inserted 5863457 1357604803
-fluctuating
-\change_unchanged
-, which the Gaussian plume model can not capture.
+is actually a random process, which the Gaussian plume model can not capture.
  Therefore, a 3D cloud animation is implemented to get data of cloud concentrati
 on.
  Then, the expectation-maximization algorithm is adopted to 
@@ -281,7 +279,11 @@ s
 \change_deleted 5863457 1357514033
 and
 \change_unchanged
- result is give in 
+ result is give
+\change_inserted 936221351 1365266963
+n
+\change_unchanged
+ in 
 \change_deleted 5862369 1355847441
 section
 \change_inserted 5862369 1355847441
@@ -345,11 +347,20 @@ but the types of sensors to perform the detection are various.
  
 \change_deleted 5863457 1357605195
 On the other hand, 
+\change_inserted 936221351 1365267147
+For example,
 \change_inserted 5863457 1357605197
  
 \change_unchanged
-Based on their sensing methods, they sensors are also divided into contact
- detection and remote sensor.
+sensors are
+\change_deleted 936221351 1365267164
+ 
+\change_unchanged
+ divided into contact detection and remote sensor
+\change_inserted 936221351 1365267171
+, based on their sensing methods
+\change_unchanged
+.
  
 \end_layout
 
@@ -440,7 +451,13 @@ and illuminate
 \change_inserted 5863457 1357482384
 s
 \change_unchanged
- the 
+ 
+\change_deleted 936221351 1365267248
+the
+\change_inserted 936221351 1365267248
+ 
+\change_unchanged
+ 
 \change_inserted 5863457 1357605416
 it 
 \change_deleted 5863457 1357605415
@@ -491,10 +508,12 @@ When sensors are not able to contact with
 the 
 \change_unchanged
 cloud in the sky, laser technology enables the remote
-\change_deleted 5863457 1357483277
- 
 \change_inserted 5863457 1357605540
- studies the of cloud's properties
+ 
+\change_inserted 936221351 1365267294
+sensing
+\change_inserted 5863457 1357605540
+ of cloud's properties
 \change_unchanged
 .
 
@@ -661,8 +680,10 @@ noise
 or
 \change_inserted 5863457 1357605898
 and
+\change_inserted 936221351 1365267411
+ 
 \change_inserted -1199928310 1347292003
- corrupt by moving object.
+moving object.
  
 \change_deleted -1199928310 1347292150
 t
@@ -684,23 +705,38 @@ and
  tracking the background radiation level.
  Second, the interference of moving objects in the sky like birds and balloons
  will have a very high reflection coefficient compared with gases/aerosol.
- Third, failure of sensor nodes.
- Sensors are energy limited
-\change_deleted 5863457 1357606198
+ Third, 
+\change_deleted 936221351 1365267667
+failure of sensor nodes is one of the chalenge for WSNs.
+ 
+\change_inserted 936221351 1365267667
  
 \change_unchanged
- and vulnerable to intruders, they often malfunction and become unreliable.
- Fourth, cloud is a diffusive target.
- The concentration
-\change_inserted 5863457 1357606273
-s of cloud plume are
-\change_deleted 5863457 1357606250
- 
-\change_inserted 5863457 1357606257
- different 
+sensors are energy limited and vulnerable to intruders
+\change_inserted 936221351 1365267693
+ and
+\change_deleted 936221351 1365267692
+,
 \change_unchanged
-from one sensor to another, so the distribution of cloud has random variables
- that capture the special variation of concentration 
+ they often malfunction 
+\change_deleted 936221351 1365267705
+and
+\change_inserted 936221351 1365267706
+or
+\change_unchanged
+ become unreliable.
+ Fourth, the cloud plume is a diffusive target 
+\change_inserted 936221351 1365268143
+whose
+\change_unchanged
+ special concentration is random and the distributions are different from
+ one place to another.
+ 
+\change_inserted 936221351 1365267764
+T
+\change_unchanged
+he model have to capture the special variation of concentration of cloud
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "N.Kh.2004"
@@ -709,7 +745,7 @@ key "N.Kh.2004"
 
 .
  Finally, a LIDAR
-\change_inserted 5863457 1357605930
+\change_inserted 5863457 1357606273
  detector
 \change_unchanged
  with discrimination ability is very expensive so that it often performs
@@ -724,7 +760,13 @@ other
 \change_inserted -1199928310 1347292230
 cheaper
 \change_unchanged
- sensors distributing in the battle
+ sensors distribut
+\change_deleted 936221351 1365268174
+ing
+\change_inserted 936221351 1365268180
+ed
+\change_unchanged
+ in the battle
 \change_deleted 5863457 1357485980
  
 \change_unchanged
@@ -736,7 +778,7 @@ with
 by
 \change_unchanged
  
-\change_inserted 5863457 1357606399
+\change_inserted 5863457 1357606416
 unreliable 
 \change_unchanged
 sensors distributed in the environment with noise and interference.
@@ -746,7 +788,7 @@ For these reasons, a method to use distributed detection is necessary to
  overcome unreliability of sensor nodes and interference for outdoor remote
  cloud detection.
  
-\change_inserted 5863457 1357606362
+\change_inserted 5863457 1357606416
  
 \change_unchanged
 
@@ -783,8 +825,13 @@ key "Xiao2004"
 \end_inset
 
 .
- This method can save much energy for nodes that heavy loaded in the data
- gathering.
+ This method can save much energy for nodes that heav
+\change_inserted 936221351 1365268307
+ily
+\change_deleted 936221351 1365268306
+y
+\change_unchanged
+ loaded in the data gathering.
  
 \end_layout
 
@@ -828,25 +875,31 @@ reference "fig:Cloud-detection-scenario"
 \end_inset
 
 , a source produces cloud in a fixed position with fixed power.
- A 
-\change_deleted 5862369 1357643836
-time invariant
+ A
+\change_deleted 936221351 1365268683
+ 
 \change_unchanged
- wind 
-\change_inserted 5862369 1357643840
-with time invariant 
-\change_unchanged
-velocity 
+ wind with time invariant velocity 
+\change_deleted 936221351 1365268497
+that
 \change_inserted 5862369 1357643854
-that 
+ 
+\change_inserted 936221351 1365268695
+blows in 
 \change_unchanged
-parallel to the ground, 
-\change_deleted 5862369 1357643872
-blows
-\change_inserted 5862369 1357643876
-brings
+parallel 
+\change_inserted 936221351 1365268699
+with
 \change_unchanged
- the cloud to the positive direction of the x-axis.
+ the ground
+\change_inserted 936221351 1365268809
+, which brings 
+\change_unchanged
+the cloud 
+\change_inserted 936221351 1365268850
+particles 
+\change_unchanged
+to the positive direction of the x-axis.
  With these parameters available, the Gaussian plume model 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1193,6 +1246,10 @@ C(x,y,z,H) & = & \int_{0}^{\infty}C(x,y,z,t)dt\label{eq:Continous source C}\\
 \end_inset
 
 where
+\change_inserted 936221351 1365268869
+ 
+\change_unchanged
+
 \begin_inset Formula $\sigma_{y}=ax^{b}$
 \end_inset
 
@@ -1685,7 +1742,7 @@ some expressions are driven based on the diffusive equations to obtain the
 \change_inserted 5863457 1357514549
 are introduced in the next section
 \change_inserted 5862369 1357644219
-, especially designed for laser detection 
+, especially designed for laser detection
 \change_unchanged
 .
  
@@ -1746,8 +1803,14 @@ expressions
 \change_inserted 5863457 1357514654
 other models
 \change_unchanged
- are driven based on the diffusive equations to obtain the modified Gaussian
- plume model especially for laser detection.
+ are 
+\change_deleted 936221351 1365268993
+driven
+\change_inserted 936221351 1365269002
+ derived
+\change_unchanged
+ based on the diffusive equations to obtain the modified Gaussian plume
+ model especially for laser detection.
  Second, 
 \change_inserted 5863457 1357514654
 with the 3D animation technology 

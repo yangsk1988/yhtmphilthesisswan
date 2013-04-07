@@ -187,12 +187,12 @@ Due to the simplicity and robustness of asymptotic distributed consensus
 \change_inserted 936221351 1356959423
 still 
 \change_unchanged
-plays an important role in the practical
+plays an important role in the practice 
 \change_deleted 936221351 1356959429
  problems
 \change_unchanged
 .
- They are already applied to network with a large number of nodes and proofed
+ They are already applied to network with a large number of nodes and proved
  to be robust against the topology variation
 \change_inserted 5863457 1357342604
  
@@ -2211,7 +2211,11 @@ reference "eq:HO-DAC Opt. Problem"
 
 \end_inset
 
- does exist an analytical solution
+ does 
+\change_unchanged
+have
+\change_inserted 5863457 1357343757
+ an analytical solution
 \change_unchanged
  
 \begin_inset CommandInset citation
@@ -2816,10 +2820,6 @@ reference "fig:Net-N16-R0,3"
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 936221351 1356970833
- 
-\change_unchanged
 First, 
 \change_deleted 936221351 1356970845
 we randomly and uniformly distribute 
@@ -2833,8 +2833,8 @@ in a unit square.
 \change_inserted 936221351 1356970975
  
 \change_unchanged
-Second, connect any two nodes if they satisfy certain communication constrains.
- Finally, each sensor randomly choose
+Second, connect any two nodes if they satisfy certain communication constraints.
+ Finally, each sensor choose
 \change_inserted 5863457 1357418974
 s
 \change_unchanged
@@ -2966,7 +2966,7 @@ name "fig:Random-Network"
 \end_inset
 
 Randomly generated networks (a) 50 nodes and 200 edges (b) 16 nodes and
- radius constrain 
+ radius constraint 
 \begin_inset Formula $R=0.3$
 \end_inset
 
@@ -3047,7 +3047,7 @@ as follows:
 \change_unchanged
  nodes are randomly and uniformly distribute in the unit square ; connect
  any two nodes if their distance is less than the communication radius constrain
- 
+t 
 \begin_inset Formula $R$
 \end_inset
 
@@ -3097,7 +3097,7 @@ on radius constraints.
  
 \change_unchanged
 Y-axis is corresponding to the minimum spectral radius and x-axis is correspondi
-ng to the radius constrain.
+ng to the radius constraint.
  For each instance of DAC algorithm, the 
 \change_deleted 936221351 1356971412
 result is the
@@ -3158,20 +3158,7 @@ which actually is the Euclidean distance between current local vector
  and the global average.
 
 \change_deleted 5863457 1357419515
- 
-\change_deleted 936221351 1356972875
-shows the result when radius constrain 
-\begin_inset Formula $R$
-\end_inset
-
- is 
-\begin_inset Formula $0.3$
-\end_inset
-
-.
-
-\change_deleted 5863457 1357419515
- 
+  
 \change_inserted 5863457 1357419522
  
 \change_deleted 5863457 1357419530

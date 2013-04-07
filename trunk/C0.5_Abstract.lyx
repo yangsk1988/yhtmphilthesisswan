@@ -246,7 +246,11 @@ s
 \change_deleted 5862369 1357316893
 are plotted 
 \change_inserted 5862369 1357316898
- is evalueated 
+ is 
+\change_unchanged
+evaluated
+\change_inserted 5862369 1357316898
+ 
 \change_unchanged
 using relative operating characteristic curves.
  It is shown that 

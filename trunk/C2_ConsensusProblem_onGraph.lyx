@@ -331,7 +331,19 @@ reflects many properties of the graph, where
 \begin_inset Formula $L$
 \end_inset
 
- and we assume they are ordered non-decreasingly so that 
+ 
+\change_inserted 936221351 1365260889
+(we use 
+\begin_inset Formula $\lambda_{i}\left(A\right)$
+\end_inset
+
+ to denote the eigenvalue of matrix 
+\begin_inset Formula $A$
+\end_inset
+
+) 
+\change_unchanged
+and we assume they are ordered non-decreasingly so that 
 \begin_inset Formula $0=\lambda_{1}\left(L\right)\leq\lambda_{2}\left(L\right)\leq\ldots\leq\lambda_{n}\left(L\right)$
 \end_inset
 
@@ -341,7 +353,9 @@ reflects many properties of the graph, where
 \end_inset
 
  is called algebraic connectivity of the graph.
- When multiple matrices are referred to, we use 
+ 
+\change_deleted 936221351 1365260894
+When multiple matrices are referred to, we use 
 \begin_inset Formula $\lambda_{i}\left(A\right)$
 \end_inset
 
@@ -351,6 +365,10 @@ reflects many properties of the graph, where
 
 .
  
+\change_inserted 936221351 1365260894
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -864,8 +882,10 @@ without noise
  
 \change_unchanged
 and variance proportional to the signal 
-\change_inserted 5863457 1357338073
+\change_deleted 936221351 1365260958
 ti 
+\change_inserted 936221351 1365260958
+ 
 \change_unchanged
 noise ratio.
  It is shown in 
