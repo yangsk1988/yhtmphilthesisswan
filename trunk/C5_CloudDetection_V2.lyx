@@ -1833,9 +1833,14 @@ Integration of Cloud Along Laser Beam
 \end_layout
 
 \begin_layout Standard
-Because laser emitted by optical sensor is penetrating the could, the received
- signal at each sensor can be simplified to be proportional to the integration
- of concentration along the line of laser.
+Because laser emitted by optical sensor is penetrating the 
+\change_deleted 936221351 1365418528
+could
+\change_inserted 936221351 1365418529
+cloud
+\change_unchanged
+, the received signal at each sensor can be simplified to be proportional
+ to the integration of concentration along the line of laser.
  Therefore
 \change_deleted 5862369 1357644521
 , based on the same diffusion equation
@@ -1850,7 +1855,13 @@ Because laser emitted by optical sensor is penetrating the could, the received
 
 \begin_layout Standard
 Similar to the heat diffusion model, the cloud's diffusive behavior can
- be described by the 3-dimensional partial derivative equation.
+ be described by the 3-dimensional partial 
+\change_deleted 936221351 1365419146
+derivative
+\change_inserted 936221351 1365419155
+differential
+\change_unchanged
+ equation.
  
 \end_layout
 
@@ -2117,8 +2128,14 @@ As the laser penetrate
 \change_inserted 5863457 1357516649
 s
 \change_unchanged
- the could, the received signal at each sensor can be simplified to be proportio
-nal to the integration of concentration along the line of laser.
+ the 
+\change_deleted 936221351 1365418538
+could
+\change_inserted 936221351 1365418539
+cloud
+\change_unchanged
+, the received signal at each sensor can be simplified to be proportional
+ to the integration of concentration along the line of laser.
  Therefore, the received signal 
 \end_layout
 
@@ -2306,7 +2323,13 @@ key "He2011"
 
 , the cloud model is a 3D space which is divided into tiny cells where fluid
  dynamics and wind turbulence is considered in each cell and its neighbors.
- The cloud plume could be more like real with the help of this technology.
+ The cloud plume 
+\change_deleted 936221351 1365418554
+could
+\change_inserted 936221351 1365418555
+will
+\change_unchanged
+ be more like real with the help of this technology.
  
 \change_deleted 5862369 1354380074
 The simulation method divided the 3D space into small cells and each cells
@@ -2532,7 +2555,7 @@ key "Olfati-Saber2005a"
 \begin_layout Standard
 Cloud declaration is normally made through a hypothesis test.
  When new observation is acquired, the decision of cloud existence is made
- base on the ML or MAP decision rule 
+ based on the ML or MAP decision rule 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chair1986"
@@ -2744,11 +2767,17 @@ the mean value of
 \begin_inset Formula $\mu_{l,0}$
 \end_inset
 
-and 
+ and 
 \begin_inset Formula $\sigma_{l,0}$
 \end_inset
 
- denote the mean and variation of background noise.
+ denote the mean and 
+\change_deleted 936221351 1365419343
+variation
+\change_inserted 936221351 1365419347
+ variance
+\change_unchanged
+ of background noise.
  So let 
 \begin_inset Formula $\mu_{t}$
 \end_inset
@@ -4280,8 +4309,13 @@ DCA
 s
 \change_unchanged
  to obtain G-LLR.
- The decision of cloud existence could be made distributively once the algorithm
- converges.
+ The decision of cloud existence 
+\change_deleted 936221351 1365418575
+could
+\change_inserted 936221351 1365418575
+can
+\change_unchanged
+ be made distributively once the algorithm converges.
  
 \end_layout
 

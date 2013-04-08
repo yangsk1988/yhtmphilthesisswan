@@ -7,6 +7,10 @@
 \usepackage[titletoc]{appendix}
 \end_preamble
 \use_default_options false
+\begin_modules
+theorems-ams-bytype
+theorems-sec-bytype
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -282,7 +286,7 @@ Note that we assume the diagonal elements
 \end_layout
 
 \begin_layout Section
-Irreducibility and Strong Connected Graph.
+Irreducibility and Strong Connected Graph
 \end_layout
 
 \begin_layout Standard
@@ -329,7 +333,7 @@ name "def:Irreducebility"
 
 \end_inset
 
-for 
+For 
 \begin_inset Formula $n>1$
 \end_inset
 
@@ -505,7 +509,7 @@ name "thm:Convergent <=> p(A)<1"
 
 \end_inset
 
- if 
+ If 
 \begin_inset Formula $A\in C^{n\times n}$
 \end_inset
 
