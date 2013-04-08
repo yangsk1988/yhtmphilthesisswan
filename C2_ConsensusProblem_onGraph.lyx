@@ -107,6 +107,16 @@ thispagestyle{empty}
 \end_layout
 
 \begin_layout Section
+
+\change_inserted 936221351 1365458576
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Preliminary"
+
+\end_inset
+
+
+\change_unchanged
 Preliminary
 \end_layout
 
@@ -121,8 +131,15 @@ Consider
 \begin_inset Formula $\mathcal{G}=\left(\mathcal{V},\mathcal{E},{\cal A}\right)$
 \end_inset
 
- is a weighted digraph (or undirected graph) consisted by a set of nodes
+ is a weighted digraph (or undirected graph) consist
+\change_inserted 936221351 1365446430
+ing
+\change_unchanged
  
+\change_inserted 936221351 1365446432
+of
+\change_unchanged
+ a set of nodes 
 \begin_inset Formula $\mathcal{V}=\left\{ v_{1},v_{2},...,v_{n}\right\} $
 \end_inset
 
@@ -376,8 +393,12 @@ Suppose each node holds an initial scalar local value
 \begin_inset Formula $x_{i}\left(0\right)\in\mathbb{R}$
 \end_inset
 
-, which can be a value that locally acquired by node representing physical
- quantities such as temperature, humidity, illumination, attitude, etc.
+, which can be a value that 
+\change_inserted 936221351 1365446470
+is 
+\change_unchanged
+locally acquired by node representing physical quantities such as temperature,
+ humidity, illumination, attitude, etc.
  
 \change_deleted 5863457 1355792460
 We define the 
@@ -683,7 +704,11 @@ reference "eq:system dynamic"
 
 \end_inset
 
-, which satisfying for all 
+, which satisfyi
+\change_inserted 936221351 1365446762
+es
+\change_unchanged
+ for all 
 \begin_inset Formula $\delta>0$
 \end_inset
 
@@ -899,7 +924,7 @@ key "Kar2009"
 \begin_inset Formula $t$
 \end_inset
 
- hence it is increasing as the algorithm executes.
+ hence it is increasing in the iteration.
  
 \end_layout
 
@@ -913,8 +938,7 @@ key "Kar2009"
 
 \begin_layout Standard
 On the other hand, discrete-time consensus only involves the quantization
- error during the algorithm execution as long as the data packages are correctly
- received.
+ error during the iteration as long as the data packages are correctly received.
  
 \change_deleted 5862369 1355425060
 Nodes in the discrete-time consensus has dynamics in difference equation.
@@ -1031,7 +1055,7 @@ reference "eq:Laplacian def."
 
 \end_inset
 
-) of the Laplacian matrix to analyze the convergence rate of DAC algorithm.
+) of the Laplacian matrix to analyze the convergence rate of DAC algorithms.
  It is a special case when weights 
 \begin_inset Formula $a_{ij}$
 \end_inset
@@ -1071,9 +1095,29 @@ convergence
 \change_unchanged
 problem.
  To provide the necessary and sufficient conditions of the graph Laplacian
- matrix so that a convergent consensus algorithm could be carried out on
- the network, some results are induced from Perron-Frobenius theorem and
- Gerschgorin's theorem
+ matrix so that a convergent first-order average consensus algorithm could
+ be carried out on the network, some results are induced from Perron-Frobenius
+ theorem 
+\change_inserted 936221351 1365447324
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+ 
+\change_unchanged
+and Gerschgorin's theorem
+\change_inserted 936221351 1365447328
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+
 \change_inserted 5862369 1355425736
  that
 \change_unchanged
@@ -1099,13 +1143,24 @@ Generalize from Gerschgorin's theorem
 
 \begin_layout Theorem
 
-\change_inserted 5862369 1355425471
+\change_deleted 936221351 1365447277
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Olfati-Saber2004"
 
 \end_inset
 
+
+\change_inserted 936221351 1365447292
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+
+\change_inserted 5862369 1355425471
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1113,6 +1168,10 @@ name "thm:Bounds of eig(L)-1"
 
 \end_inset
 
+
+\change_inserted 936221351 1365447294
+ 
+\change_inserted 5862369 1355425471
 Let the graph 
 \change_deleted 5863457 1357338370
 has
@@ -1156,6 +1215,14 @@ which is centered at
 
 \begin_layout Proof
 
+\change_inserted 936221351 1365447283
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+ 
 \change_inserted 5862369 1355425471
 Based on the Gerschgorin's theorem, all the eigenvalue
 \change_inserted 5863457 1357338383
@@ -1499,6 +1566,16 @@ reference "fig:Boundary-of-eigenvalues-1"
 \end_layout
 
 \begin_layout Theorem
+
+\change_inserted 936221351 1365447121
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2004"
+
+\end_inset
+
+ 
+\change_unchanged
 Assume 
 \begin_inset Formula ${\cal G}=\left({\cal V},{\cal E},{\cal A}\right)$
 \end_inset
@@ -1537,11 +1614,16 @@ reference "eq:Graph Laplacian def."
 \begin_inset Formula $u_{l}^{T}L=0$
 \end_inset
 
-, then we have 
+.
+ 
+\change_inserted 936221351 1365438122
+We have 
 \begin_inset Formula $u_{l}^{T}u_{r}=1$
 \end_inset
 
- and the system dynamic 
+ and 
+\change_unchanged
+the system dynamic 
 \begin_inset Formula 
 \begin{equation}
 x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)
@@ -1549,7 +1631,11 @@ x\left(t\right)=\exp\left(-{\cal L}t\right)x\left(0\right)
 
 \end_inset
 
-will have the stable state of the system dynamic given by
+will have the stable state 
+\change_deleted 936221351 1365438130
+of the system dynamic
+\change_unchanged
+ given by
 \end_layout
 
 \begin_layout Theorem
@@ -1573,6 +1659,16 @@ x\left(t\right)=Kx\left(0\right)
 \end_layout
 
 \begin_layout Proof
+
+\change_inserted 936221351 1365447126
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2004"
+
+\end_inset
+
+ 
+\change_unchanged
 Let 
 \begin_inset Formula $A=-{\cal L}$
 \end_inset
@@ -1719,13 +1815,15 @@ x_{i}\left(k+1\right)=x_{i}\left(k\right)+u_{i}\left(k\right)\label{eq:discre-ti
 \end_inset
 
 For network agents 
-\change_deleted 5863457 1357338842
-have
 \change_inserted 5863457 1357338843
 having
 \change_unchanged
  discrete-time consensus protocol, their system dynamics can be given in
  a matrix form
+\change_inserted 936221351 1365446980
+ 
+\change_unchanged
+
 \begin_inset Formula 
 \begin{equation}
 \mathbf{x}(k+1)=W\mathbf{x}(k)
@@ -1743,7 +1841,7 @@ where
 \begin_inset Formula $\mathbf{x}^{*}$
 \end_inset
 
-, which satisfies.
+, which satisfies 
 \end_layout
 
 \begin_layout Standard
@@ -1801,20 +1899,30 @@ reference "sec:DT-First-Order-DAC"
 \end_layout
 
 \begin_layout Section
-Categories of Distributed Consensus Average Algorithm
+
+\change_inserted 936221351 1365458691
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Categories-of-Distributed"
+
+\end_inset
+
+
+\change_unchanged
+Categories of Distributed Consensus Average Algorithms
 \end_layout
 
 \begin_layout Standard
 
 \change_deleted 5862369 1355520620
-Distributed average consensus (DAC) algorithms is one of the most widely
- used consensus algorithm.
+Distributed average consensus (DAC) algorithms are one of the most widely
+ used consensus algorithms.
 \change_inserted 5862369 1355521375
 
 \end_layout
 
 \begin_layout Standard
-To introduce the DAC algorithm
+To introduce the DAC algorithms
 \change_inserted 5862369 1355520696
 s
 \change_unchanged
@@ -1965,7 +2073,7 @@ to
 \change_inserted 5862369 1355521715
 develop the 
 \change_unchanged
-higher-order algorithm is 
+higher-order algorithms are 
 \change_deleted 5862369 1355521510
 mainly
 \change_unchanged
@@ -2005,39 +2113,25 @@ key "Xiong2010"
 \end_inset
 
 .
- Therefore, it is 
-\change_deleted 5863457 1357341947
-shortly
+ Therefore, 
+\change_deleted 936221351 1365447474
+it
+\change_inserted 936221351 1365447474
+higher-order DAC algorithms
 \change_unchanged
- applied 
-\change_deleted 5862369 1355521958
-into
-\change_inserted 5862369 1355521958
-to
-\change_unchanged
- practical consensus 
-\change_deleted 5862369 1355521958
-problem
-\change_inserted 5862369 1355521958
-protocols
-\change_unchanged
+ have
+\change_deleted 936221351 1365447494
  
-\change_deleted 5862369 1355521964
-after invented
-\change_inserted 5862369 1355521964
- 
+\change_unchanged
+ applied to practical consensus protocols 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Yu2011"
 
 \end_inset
 
-
-\change_unchanged
 .
  
-\change_inserted 5862369 1355847721
-
 \end_layout
 
 \begin_layout Standard
@@ -2193,7 +2287,7 @@ name "fig:Categories-of-Discrete-time"
 
 \end_inset
 
-Categories of discrete-time consensus algorithm
+Categories of discrete-time consensus algorithms
 \end_layout
 
 \end_inset

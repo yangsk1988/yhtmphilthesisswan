@@ -111,10 +111,10 @@ thispagestyle{empty}
 \end_layout
 
 \begin_layout Standard
-Distributed average consensus (DAC) algorithm is widely used in many application
+Distributed average consensus (DAC) algorithms are widely used in many application
 s.
  It utilizes matrix iteration to find the dominant eigenvector.
- To minimize the required number of iterations, the algorithm needs to be
+ To minimize the required number of iterations, the algorithms need to be
  optimized.
  However, this optimization needs the knowledge of network topology, which
  is very hard to obtain for an individual agent in distributed networks.
@@ -203,9 +203,9 @@ average consensus problem
 
 \begin_layout Standard
 When the moving target is highly dynamic or the sensors need to sample at
- a very high frequency, it requires that  the DAC algorithm returns the
+ a very high frequency, it requires that  the DAC algorithms return the
  result in a short time.
- Thus, many efforts have been devoted to optimize the algorithm.
+ Thus, many efforts have been devoted to optimize the algorithms.
 \end_layout
 
 \begin_layout Standard
@@ -405,7 +405,7 @@ of them have a first-order DAC running in the background and the local values
 \change_unchanged
  inputs of the 
 \change_inserted 5863457 1355325445
-filter estimation algorithm
+filter estimation algorithms
 \change_unchanged
 .
  As a result,
@@ -426,7 +426,7 @@ terminated
 Therefore, a distributed optimization method with less computation time
  is required.
  In addition, it is better that no additional communication cost is required.
- Moreover, if the optimization algorithm and the DAC algorithm can be executed
+ Moreover, if the optimization algorithm and the DAC algorithms can be executed
  simultaneously, then consensus process will not be interrupted and the
  optimization can be running in background to keep the optimal parameters
  updated in a dynamic network.
@@ -657,13 +657,13 @@ key "Franceschelli2009"
 \end_inset
 
  to estimate the eigenvalues.
- However, they are not designed for DAC algorithm and will involve complex
+ However, they are not designed for DAC algorithms and will involve complex
  and costly initialization.
  In addition, 
 \change_inserted 5863457 1355325845
 as they are also matrix iteration algorithms, 
 \change_unchanged
-DAC algorithm has to be stopped during the 
+DAC algorithms have to be stopped during the 
 \change_inserted 5863457 1355325791
 eigenvalue 
 \change_unchanged
@@ -1726,7 +1726,7 @@ There are two ways to expand the matrix.
 \end_layout
 
 \begin_layout Standard
-Second, more than one instances of CFO-DAC algorithms could be carried out
+Second, more than one instances of CFO-DAC could be carried out
  to obtain more useful local samples.
  Let 
 \begin_inset Formula $\mathbf{x}_{1}\left(0\right),\mathbf{x}_{2}\left(0\right),\ldots,\mathbf{x}_{N}\left(0\right)$
@@ -2281,7 +2281,7 @@ reference "eq: Opt. FO-DAC Problem"
 \begin_inset Formula $\left(\hat{\epsilon},\hat{\gamma}\right)$
 \end_inset
 
- for HO-DAC algorithm, which is faster than the optimal FO-DAC.
+ for HO-DAC algorithms, which are faster than the optimal FO-DAC.
  
 \end_layout
 
@@ -2782,7 +2782,13 @@ name "sec:Conclusion"
 
 \end_inset
 
+
+\change_deleted 936221351 1365437807
 Conclusion
+\change_inserted 936221351 1365437807
+Summary
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard

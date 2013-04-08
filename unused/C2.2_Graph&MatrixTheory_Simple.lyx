@@ -81,8 +81,8 @@ Graph Theory and Matrix Theory
 In this section, some basic concepts of the graph theory and matrix theory
  will be introduced.
  They are used in the analysis of convergence or performance of consensus
- algorithm.
- Because consensus algorithm actually relates to a matrix iteration algorithm,
+ algorithms.
+ Because consensus algorithm actually relates to a matrix iteration,
  it is necessary to introduce some of these theorems.
  For full information about matrix theory, see 
 \begin_inset CommandInset citation
@@ -251,7 +251,7 @@ Note that we assume the diagonal elements
 \end_inset
 
  is non-negative, we can benefit from the properties of non-negative matrix,
- and use them in optimization of convergence rate of consensus algorithm.
+ and use them in optimization of convergence rate of consensus algorithms.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1169,7 +1169,7 @@ Let
 \begin_layout Standard
 This is an important theory for continuous-time consensus problem.
  It provides the necessary and sufficient conditions of the graph Laplacian
- matrix so that a convergent consensus algorithm could be carried out on
+ matrix so that a convergent consensus algorithms could be carried out on
  the network.
  For the average consensus problem, it is obvious that all the elements
  in 
