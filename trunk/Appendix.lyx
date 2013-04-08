@@ -108,8 +108,8 @@ Graph and Matrix Theory Review
 In this section, some basic concepts of the graph theory and matrix theory
  will be introduced.
  They are used in the analysis of convergence or performance of consensus
- algorithm.
- Because consensus algorithm actually relates to a matrix iteration algorithm,
+ algorithms.
+ Because consensus algorithms actually relates to a matrix iteration,
  it is necessary to introduce some of these theorems.
  For full information about matrix theory, see 
 \begin_inset CommandInset citation
@@ -694,7 +694,7 @@ reference "thm:Convergent <=> p(A)<1"
 \end_inset
 
  here as it will be very useful in the proof of an convergence conditions
- theorem for distributed consensus algorithm, see 
+ theorem for distributed consensus algorithms, see 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:DT-First-Order-DAC"
@@ -711,7 +711,7 @@ reference "sec:DT-First-Order-DAC"
 \end_inset
 
  another expression in terms of eigenvalues and eigenvectors, which reflects
- the basic ideas of the finite-time consensus algorithm.
+ the basic ideas of the finite-time consensus algorithms.
  This will be introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -1178,7 +1178,7 @@ The Jordan normal form of weight matrix
 \noun default
 \color inherit
  can be simplified.
- Then, algorithms such as the finite-time consensus, can be implemented
+ Then, some algorithms such as the finite-time consensus, can be implemented
  more easily.
  In addition, under the the assumption of symmetric weight matrices, the
  optimal weight matrix which has the fastest convergence rate can be found

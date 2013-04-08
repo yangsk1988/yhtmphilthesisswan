@@ -323,7 +323,7 @@ status open
 
 \end_inset
 
- Weight matrix of higher-order DAC algorithm 
+ Weight matrix of higher-order DAC algorithms 
 \begin_inset Newline newline
 \end_inset
 
@@ -707,7 +707,7 @@ status open
 
 \end_inset
 
- Optimal step length of first-order DAC algorithms
+ Optimal step length of first-order DAC algorithm
 \begin_inset Newline newline
 \end_inset
 
@@ -729,7 +729,7 @@ status open
 
 \end_inset
 
- Optimal step length of second-order DAC algorithms
+ Optimal step length of second-order DAC algorithm
 \begin_inset Newline newline
 \end_inset
 
@@ -751,7 +751,7 @@ status open
 
 \end_inset
 
- Optimal forgetting factor of second-order DAC algorithms
+ Optimal forgetting factor of second-order DAC algorithm
 \begin_inset Newline newline
 \end_inset
 

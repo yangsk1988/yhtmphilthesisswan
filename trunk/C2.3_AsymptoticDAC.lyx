@@ -92,7 +92,7 @@ name "sec:Asymptotic-Distributed-Consensus"
 
 
 \change_unchanged
-Asymptotic Distributed Consensus Algorithm
+Asymptotic Distributed Consensus Algorithms
 \end_layout
 
 \begin_layout Standard
@@ -135,7 +135,7 @@ sensors
 \change_inserted 936221351 1356958794
 The g
 \change_unchanged
-ossip algorithms are asynchronous.
+ossip algorithm is asynchronous.
  Only one 
 \change_deleted 936221351 1356958895
 random
@@ -183,7 +183,7 @@ ir
 
 \begin_layout Standard
 Due to the simplicity and robustness of asymptotic distributed consensus
- algorithm, it 
+ algorithms, it 
 \change_inserted 936221351 1356959423
 still 
 \change_unchanged
@@ -223,7 +223,7 @@ key "Ren2007"
  
 \change_unchanged
 In this section, we start from the first-order DAC algorithm and then expand
- the algorithm to higher-order in order to yields a higher 
+  to higher-order algorithms in order to yields a higher 
 \change_deleted 5863457 1357342613
 the
 \change_unchanged
@@ -1512,7 +1512,7 @@ This weight matrix would be very easy to implemented in practical, because
 \begin_layout Standard
 
 \change_deleted 5863457 1355793622
-As shown above, the conventional DAC algorithm is depends on 
+As shown above, the conventional DAC algorithms are depends on 
 \family roman
 \series medium
 \shape up
@@ -1569,17 +1569,17 @@ name "sec:Discrete-High-Order"
 
 \end_inset
 
-Discrete High Order Distributed Consensus Algorithm 
+Discrete High Order Distributed Consensus Algorithms 
 \end_layout
 
 \begin_layout Standard
 
 \change_inserted 5863457 1357343349
-Higher-order DAC (HO-DAC) algorithm can be easily implemented by storing
+Higher-order DAC (HO-DAC) algorithms can be easily implemented by storing
  past data, which is potentially faster than FO-DCA and doesn't require
  additional communications.
  However, compared to the third-order DAC algorithm, fourth order algorithm
- can only achieve a negligible improvement   
+ can only achieve a negligible improvement 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Xiong2010"
@@ -1587,13 +1587,19 @@ key "Xiong2010"
 \end_inset
 
 .
+
+\change_unchanged
+ Thus, it is not necessary to extend the order larger than fourth.
+ 
+\change_inserted 5863457 1357343349
+
 \end_layout
 
 \begin_layout Standard
 
 \change_inserted 5863457 1355794413
 In addition, HO-DAC can be regarded as a generalized form of DAC algorithm.
- When the forgetting factor is set to zero, the HO-DAC algorithm can be
+ When the forgetting factor is set to zero, the HO-DAC algorithms can be
  reduced to the CFO-DAC.
  Moreover, when the order is set to 
 \begin_inset Formula $2$
@@ -1612,7 +1618,7 @@ In a time-invariant network
 \begin_inset Formula $M^{th}$
 \end_inset
 
- higher-order DAC algorithm has the form
+ higher-order DAC algorithms have the form
 \begin_inset Formula 
 \begin{eqnarray}
 x_{i}(k) & = & x_{i}(k-1)-\epsilon\sum_{m=1}^{M}c_{m}(-\gamma)^{m-1}\Delta x_{i}(k,m)\label{eq:Iteration Second order x_i(k)}\\
@@ -1633,7 +1639,7 @@ step length
 \begin_inset Formula $M$
 \end_inset
 
- is the order of the algorithm, 
+ is the order of the HO-DAC, 
 \begin_inset Formula $c_{m}$
 \end_inset
 
@@ -1719,12 +1725,9 @@ The matrix form states that when the forgetting factor
 \begin_layout Standard
 
 \change_deleted 5863457 1355794661
-Simulation result shows
-\change_inserted 5862369 1357307190
-Simulation results show
-\change_deleted 5863457 1355794661
- that, a higher order will have better convergence rate, but should be trade
- off with the algorithm complexity and computational cost.
+Simulation result shows that, a higher order will have better convergence
+ rate, but should be trade off with the algorithm complexity and computational
+ cost.
  Also only a few improvement could be achieved if we introduce larger than
  fourth order.
  
@@ -1736,6 +1739,8 @@ Simulation results show
 
 \change_deleted 5863457 1355794773
 Convergence Rate Maximization Problem For HO-DAC
+\change_unchanged
+ 
 \change_inserted 5863457 1355794778
 Optimization Problem of HO-DAC
 \change_unchanged
@@ -1755,10 +1760,10 @@ reference "eq:High Order Iter.Vec"
 
  into matrix form.
  Therefore, we define the higher-order  weight matrix 
-\begin_inset Formula $\mathbf{H}\in\mathbb{R}^{Mn\times Mn}$
+\begin_inset Formula $H\in\mathbb{R}^{Mn\times Mn}$
 \end_inset
 
- 
+
 \change_unchanged
 
 \end_layout
@@ -1766,7 +1771,7 @@ reference "eq:High Order Iter.Vec"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\mathbf{H}=\left[\begin{array}{cccc}
+H=\left[\begin{array}{cccc}
 I_{n}-\epsilon L & c_{2}\gamma\epsilon L & \cdots & -c_{M}(-\gamma)^{M-1}\epsilon L\\
 I_{n} & \mathbf{0}_{n\times n} & \cdots & \mathbf{0}_{n\times n}\\
 \vdots & \ddots &  & \vdots\\
@@ -1791,7 +1796,7 @@ and the matrix
 
 \begin_inset Formula 
 \begin{equation}
-\mathbf{J}=\left[\begin{array}{cccc}
+J=\left[\begin{array}{cccc}
 \mathbf{K} & \mathbf{0}_{n\times n} & \cdots & \mathbf{0}_{n\times n}\\
 \mathbf{K} & \mathbf{0}_{n\times n} & \cdots & \mathbf{0}_{n\times n}\\
 \vdots & \vdots & \ddots & \vdots\\
@@ -1827,7 +1832,7 @@ where
 
 \change_inserted 5863457 1357343401
 Note that the deflated matrix 
-\begin_inset Formula $\mathbf{H}-\mathbf{J}$
+\begin_inset Formula $H-J$
 \end_inset
 
  has the same eigenvalue as 
@@ -1855,7 +1860,7 @@ Then a spectral radius minimization problem to find the optimal
 \begin_inset Formula $\gamma$
 \end_inset
 
- for the high-order DAC algorithm is formulated as
+ for the high-order DAC algorithms is formulated as
 \change_inserted 5863457 1357343496
  
 \change_unchanged
@@ -1866,7 +1871,7 @@ Then a spectral radius minimization problem to find the optimal
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{cc}
-\mbox{\mbox{Minimize }} & \rho\left(\mathbf{H}-\mathbf{J}\right)\\
+\mbox{\mbox{Minimize }} & \rho\left(H-J\right)\\
 \mbox{Subject to } & \epsilon,\gamma\in R
 \end{array}\label{eq: High order spectral radius problem}
 \end{equation}
@@ -1877,12 +1882,12 @@ Then a spectral radius minimization problem to find the optimal
 \end_layout
 
 \begin_layout Standard
-The high-order DAC algorithm with initial condition 
+The high-order DAC algorithms with initial condition 
 \begin_inset Formula $\mathbf{x}(-M+1)=,\ldots,=\mathbf{x}(-1)=\mathbf{x}(0)$
 \end_inset
 
  is convergent if and only if 
-\begin_inset Formula $\rho\left(\mathbf{H}-\mathbf{J}\right)<1$
+\begin_inset Formula $\rho\left(H-J\right)<1$
 \end_inset
 
  
@@ -1915,7 +1920,7 @@ reference "eq: High order spectral radius problem"
 
 \end_inset
 
-, the convergence rate maximization for high order DAC algorithm can be
+, the convergence rate maximization for high order DAC algorithms can be
  cast into a spectral radius minimization problem.
  
 \end_layout
@@ -1941,7 +1946,7 @@ Finding the solution is not easy because we have to solve the high-order
 
 \change_inserted 5863457 1355795310
 For example, the high-order polynomial of the eigenvalues of 
-\begin_inset Formula $\mathbf{H-J}$
+\begin_inset Formula $H-J$
 \end_inset
 
  when 
@@ -2001,7 +2006,7 @@ Since each
 \end_inset
 
  eigenvalues for 
-\begin_inset Formula $\mathbf{H-J}$
+\begin_inset Formula $H-J$
 \end_inset
 
 .
@@ -2022,7 +2027,7 @@ reference "eq: High order spectral radius problem"
 \noun off
 \color none
 minimize the maximum absolute value of all the eigenvalues of 
-\begin_inset Formula $\mathbf{H-J}$
+\begin_inset Formula $H-J$
 \end_inset
 
 .
@@ -2039,7 +2044,7 @@ minimize the maximum absolute value of all the eigenvalues of
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{cc}
-\mbox{Minimize } & \mbox{max}\{\left|\lambda_{i}\left(\mathbf{H-J}\right)\right|\},\: i=1,2,\cdots,n\\
+\mbox{Minimize } & \mbox{max}\{\left|\lambda_{i}\left(H-J\right)\right|\},\: i=1,2,\cdots,n\\
 \mbox{Subject to } & \epsilon,\gamma\in R
 \end{array},\label{eq:HO-DAC Opt. Problem}
 \end{equation}
@@ -2069,7 +2074,7 @@ reference "fig:Find-minimum-rho(H)"
 \end_inset
 
 , where the surface of 
-\begin_inset Formula $\mbox{max}\{\left|\lambda_{i}\left(\mathbf{H-J}\right)\right|\},\: i=1,2,\cdots,n$
+\begin_inset Formula $\mbox{max}\{\left|\lambda_{i}\left(H-J\right)\right|\},\: i=1,2,\cdots,n$
 \end_inset
 
  is plotted and the optimal solution 
@@ -2078,7 +2083,7 @@ reference "fig:Find-minimum-rho(H)"
 
  is marked with a star.
  We denote the optimized spectral radius by 
-\begin_inset Formula $\rho_{opt}=\mbox{\mbox{min}}\rho\left\{ \left(\mathbf{H}-\mathbf{J}\right)\right\} $
+\begin_inset Formula $\rho_{opt}=\mbox{\mbox{min}}\rho\left\{ \left(H-J\right)\right\} $
 \end_inset
 
 .
@@ -2168,14 +2173,13 @@ name "fig:Find-minimum-rho(H)"
 
 \end_inset
 
- Illustration of convergence rate optimization
-\change_deleted 5862369 1357317850
+ Illustration of convergence rate optimization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
 
-\begin_inset Formula $\min\left\{ \mbox{max}\left[\lambda_{i}\left(\mathbf{H-J}\right)\right]\right\} ,\: i=1,2,\cdots,n$
 \end_inset
 
-
-\change_unchanged
 .
  
 \end_layout
@@ -2236,7 +2240,7 @@ second order DAC
 second-order DAC
 \change_unchanged
  in undirected network which satisfies 
-\begin_inset Formula $\rho\left(\mathbf{H}-\mathbf{J}\right)<1$
+\begin_inset Formula $\rho\left(H-J\right)<1$
 \end_inset
 
  is 
@@ -2290,12 +2294,19 @@ name "fig:Convergence-Region"
 
 \end_inset
 
-Convergence region for 
+ Convergence region for 
 \change_deleted 5863457 1357333544
 second order DAC
 \change_inserted 5863457 1357333544
 second-order DAC
 \change_unchanged
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2009a"
+
+\end_inset
+
 .
  
 \end_layout
@@ -2364,11 +2375,11 @@ s
 \end_inset
 
  is denoted by 
-\begin_inset Formula $\lambda_{i'}\left(\mathbf{H}\right)$
+\begin_inset Formula $\lambda_{i'}\left(H\right)$
 \end_inset
 
  and 
-\begin_inset Formula $\lambda_{i"}\left(\mathbf{H}\right)$
+\begin_inset Formula $\lambda_{i"}\left(H\right)$
 \end_inset
 
 , which 
@@ -2380,8 +2391,8 @@ are
  
 \begin_inset Formula 
 \begin{eqnarray}
-\lambda_{i'}\left(\mathbf{H}\right) & = & \frac{1}{2}\left[1-\epsilon\lambda_{i}\left(L\right)+\sqrt{\left(1-\epsilon\lambda_{i}\left(L\right)\right)^{2}+4\gamma\epsilon\lambda_{i}\left(L\right)}\right],\nonumber \\
-\lambda_{i"}\left(\mathbf{H}\right) & = & \frac{1}{2}\left[1-\epsilon\lambda_{i}\left(L\right)-\sqrt{\left(1-\epsilon\lambda_{i}\left(L\right)\right)^{2}+4\gamma\epsilon\lambda_{i}\left(L\right)}\right].\label{eq:2nd-DAC lambda_H solution}
+\lambda_{i'}\left(H\right) & = & \frac{1}{2}\left[1-\epsilon\lambda_{i}\left(L\right)+\sqrt{\left(1-\epsilon\lambda_{i}\left(L\right)\right)^{2}+4\gamma\epsilon\lambda_{i}\left(L\right)}\right],\nonumber \\
+\lambda_{i"}\left(H\right) & = & \frac{1}{2}\left[1-\epsilon\lambda_{i}\left(L\right)-\sqrt{\left(1-\epsilon\lambda_{i}\left(L\right)\right)^{2}+4\gamma\epsilon\lambda_{i}\left(L\right)}\right].\label{eq:2nd-DAC lambda_H solution}
 \end{eqnarray}
 
 \end_inset
@@ -2406,7 +2417,7 @@ reference "eq:HO-DAC Opt. Problem"
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{cc}
-\mbox{Minimize } & \mbox{max}\{\left|\lambda_{2'}\left(\mathbf{H}\right)\right|,\left|\lambda_{2"}\left(\mathbf{H}\right)\right|,\left|\lambda_{n'}\left(\mathbf{H}\right)\right|,\left|\lambda_{n"}\left(\mathbf{H}\right)\right|\}\\
+\mbox{Minimize } & \mbox{max}\{\left|\lambda_{2'}\left(H\right)\right|,\left|\lambda_{2"}\left(H\right)\right|,\left|\lambda_{n'}\left(H\right)\right|,\left|\lambda_{n"}\left(H\right)\right|\}\\
 \mbox{Subject to } & \epsilon,\gamma\in R
 \end{array},
 \end{equation}
@@ -2431,7 +2442,7 @@ Finding the optimal solution needs consideration of different combinations
 \noun off
 \color none
 
-\begin_inset Formula $\lambda_{2'}\left(\mathbf{H}\right),\lambda_{2"}\left(\mathbf{H}\right),\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
+\begin_inset Formula $\lambda_{2'}\left(H\right),\lambda_{2"}\left(H\right),\lambda_{n'}\left(H\right),\lambda_{n"}\left(H\right)$
 \end_inset
 
  when they are real value or complex value.
@@ -2444,11 +2455,11 @@ Finding the optimal solution needs consideration of different combinations
  
 \change_unchanged
  
-\begin_inset Formula $\lambda_{2'}\left(\mathbf{H}\right),\lambda_{2"}\left(\mathbf{H}\right)$
+\begin_inset Formula $\lambda_{2'}\left(H\right),\lambda_{2"}\left(H\right)$
 \end_inset
 
  are real and 
-\begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
+\begin_inset Formula $\lambda_{n'}\left(H\right),\lambda_{n"}\left(H\right)$
 \end_inset
 
  are complex values.
@@ -2459,7 +2470,7 @@ Finding the optimal solution needs consideration of different combinations
 the following equation satisfies
 \begin_inset Formula 
 \begin{equation}
-\left|\lambda_{2'}\left(\mathbf{H}\right)\right|=\left|\lambda_{n'}\left(\mathbf{H}\right)\right|=\left|\lambda_{n"}\left(\mathbf{H}\right)\right|
+\left|\lambda_{2'}\left(H\right)\right|=\left|\lambda_{n'}\left(H\right)\right|=\left|\lambda_{n"}\left(H\right)\right|
 \end{equation}
 
 \end_inset
@@ -2643,7 +2654,7 @@ and
 \noun off
 \color none
 
-\begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
+\begin_inset Formula $\lambda_{n'}\left(H\right),\lambda_{n"}\left(H\right)$
 \end_inset
 
  
@@ -2681,7 +2692,7 @@ reference "fig:Convergence-Region"
 \noun off
 \color none
 
-\begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right)\mbox{ and }\lambda_{n"}\left(\mathbf{H}\right)$
+\begin_inset Formula $\lambda_{n'}\left(H\right)\mbox{ and }\lambda_{n"}\left(H\right)$
 \end_inset
 
  are real and complex.
@@ -2714,11 +2725,7 @@ always
 \color inherit
  Additionally, the optimal solution is located just on the
 \change_deleted 5863457 1357344200
- boundary of the regions where 
-\begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
-\end_inset
-
- is real and complex
+ boundary of the regions where  real and complex
 \change_deleted 936221351 1356970440
  respectably, shown as dashed line in Figure  
 \begin_inset CommandInset ref
@@ -2743,7 +2750,7 @@ Simulation and Algorithms Performance
 \end_layout
 
 \begin_layout Standard
-To test the performance of high-order DAC algorithm with different orders,
+To test the performance of high-order DAC algorithms with different orders,
  
 \change_inserted 5863457 1357418881
 1000 random networks are generated and 
@@ -3167,7 +3174,7 @@ In
 By 
 \change_unchanged
 observing the gradient of curves, it is apparent that higher-order DAC algorithm
-s have larger convergence rate.
+ss have larger convergence rate.
  However, there are negligible improvement for the fourth order DAC compared
  to the third order one.
  Furthermore, high-order DAC 
@@ -3178,7 +3185,7 @@ s
 \change_inserted 936221351 1356972932
  
 \change_unchanged
-has a MSE overshoot at the beginning.
+have a MSE overshoot at the beginning.
  This phenomenon happens especially when 
 \change_inserted 936221351 1356973066
 the 
@@ -3237,7 +3244,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -3290,11 +3297,11 @@ name "fig:DAC-SR-comp"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Graph/FirstYearReport/Lyx_v/images/ord1234_old&max&hybrid.pdf
+	filename Graph/FirstYearReport/Lyx_v/images/ord1234_old&max&hybrid_todo.pdf
 	lyxscale 60
 	width 12cm
 	height 10cm

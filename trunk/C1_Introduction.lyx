@@ -73,19 +73,13 @@ theorems-ams-bytype
 
 \begin_layout Chapter
 Introduction 
-\change_inserted 5863457 1357331085
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 5863457 1357331086
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 5863457 1357331086
 
 
 \backslash
@@ -94,93 +88,6 @@ thispagestyle{empty}
 
 \end_inset
 
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-(how to Introduction: we want to answer the question: what is DAC and what's
- its application, how to optimize the algorithm.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-1.introduces the topic)
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-2.states why the topic is important
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-3.states that there is a difference of opinion about this topic
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-4.
- describes how the assignment will be structured and clearly states the
- writer's main premise_qian2ti2
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-)
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-my plan is to structure the introduction like that
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-1.
- what's DAC and what's its application
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-2.
- DAC is applied in many area
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-3.
- various DAC algorithm
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-4.
- various DAC optimization(either more sophisticated algorithm or optimization
- to the existing algorithm, all the purposes are going to have the consensus
- in less time.)
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 5862369 1355082321
-5.
- and the DAC have a little modification depends on the application itself.
- )
-\change_unchanged
 
 \end_layout
 
@@ -314,19 +221,11 @@ Once it is destroyed or failed, the whole network breaks down.
 
 \change_inserted 5862369 1355073974
  In addition, as data gathering is an energy consuming process, centralized
- signal processing is limited due to energy constrain
-\change_inserted 936221351 1365260487
-t
-\change_inserted 5863457 1357331640
-s
+ signal processing is limited due to energy 
+\change_unchanged
+constraints of sensor nodes.
+
 \change_inserted 5862369 1355073974
- of 
-\change_deleted 5863457 1357331643
-mobile
-\change_inserted 5863457 1357331645
-sensor
-\change_inserted 5862369 1355073974
- nodes.
  Moreover, there is unbalance
 \change_inserted 5863457 1357331658
 d
@@ -434,13 +333,13 @@ s
 \end_layout
 
 \begin_layout Standard
-Distributed Average Consensus (DAC) algorithm
+Distributed Average Consensus (DAC) algorithms 
 \change_inserted 5862369 1355073823
- is a tool for distributed information processing.
- It
+ are tools for distributed information processing.
+ They 
 \change_unchanged
- has received significant attention recently because of its robustness and
- simplicity.
+ have received significant attention recently because of their robustness
+ and simplicity.
  
 \change_deleted 5862369 1354924632
 It have
@@ -513,28 +412,6 @@ In
 
 \begin_layout Standard
 
-\change_deleted 5862369 1354925755
-The problem of how to achieve such an agreement in a distributed network
- is called the 
-\shape italic
-consensus problem
-\shape default
-.
- The quantitiy that all node agreed on is called the 
-\shape italic
-consensus value
-\shape default
-.
- Specifically, if the consensus value is the average of all node's initial
- value, the average is obtained by the distributed average consensus (DAC)
- algorithms.
- 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
 \change_inserted 5862369 1355074163
 In different applications, DAC algorithms may also need a little modification
 \change_deleted 5863457 1357331701
@@ -554,11 +431,29 @@ or example, in distributed tracking of a moving target by wireless sensor
  is corrupted by independent and identically distributed zero-mean Gaussian
  noise, to minimize the interference from the noise, the sensors need to
  take the average of all initial values.
- In distributed hypothesis testing, the goal is to find the production of
- the global likelihood ratio which is the product of the local likelihood
- ratio
+ In distributed hypothesis testing, 
+\change_deleted 936221351 1365445605
+the goal is
+\change_inserted 936221351 1365445607
+we need
+\change_inserted 5862369 1355074163
+ to find
+\change_deleted 936221351 1365445114
+ the production of
+\change_inserted 5862369 1355074163
+ the global likelihood ratio which is 
+\change_inserted 936221351 1365445136
+equal to the
+\change_inserted 5862369 1355074163
+ product of 
+\change_deleted 936221351 1365445144
+the
+\change_inserted 5862369 1355074163
+ local likelihood ratio
 \change_inserted 5863457 1357331725
 s
+\change_inserted 936221351 1365445152
+ at each sensor
 \change_inserted 5862369 1355074163
 .
  Therefore, each sensor first calculate
@@ -569,14 +464,20 @@ s
 \change_inserted 5863457 1357331744
 s
 \change_inserted 5862369 1355074163
- it into the DAC algorithm.
+ it into the DAC algorithms.
  The 
 \change_inserted 5863457 1357331801
-log of global likelihood ratio is the 
+log of global likelihood ratio is
+\change_inserted 936221351 1365445728
+ then
+\change_inserted 5863457 1357331801
+ the 
 \change_inserted 5862369 1355074163
-average obtained by DAC algorithm multiplied 
-\change_deleted 5863457 1357331758
-with
+average 
+\change_deleted 936221351 1365445740
+obtained by DAC algorithms
+\change_inserted 5862369 1355074163
+ multiplied 
 \change_inserted 5863457 1357331758
 by
 \change_inserted 5862369 1355074163
@@ -593,7 +494,21 @@ by
 In practice, DAC algorithms also face the challenges of link failure, time
  delay, dynamic network, asynchronous communication and other practical
  aspects.
- Therefore, a simple but reliable solution sometimes performs better.
+ Therefore, a
+\change_unchanged
+ reliable
+\change_inserted 5862369 1355435949
+ solution
+\change_inserted 936221351 1365445952
+ which can face these challenges
+\change_inserted 5862369 1355435949
+ 
+\change_deleted 936221351 1365445842
+sometimes performs better
+\change_inserted 936221351 1365445931
+ is much needed in practice
+\change_inserted 5862369 1355435949
+.
  First-order DAC algorithms have been proved to be robust against
 \change_deleted 5863457 1357331842
  
@@ -668,8 +583,6 @@ energy
 \change_inserted 5863457 1354553232
  capacity.
  Therefore, to minimize the power 
-\change_deleted 5862369 1355069325
-consuption
 \change_inserted 5862369 1355069325
 consumption
 \change_inserted 5863457 1355580078
@@ -712,7 +625,7 @@ To Find a Faster DAC Algorithm
 \begin_layout Standard
 
 \change_deleted 5862369 1354986319
-DAC algorithm is a tool of distributed signal processing.
+DAC algorithms are tools of distributed signal processing.
  It can performs the task of data fusion, dicision making, and so on.
 
 \change_unchanged
@@ -762,9 +675,9 @@ the distributed tracking of a moving target
 , 
 \change_inserted 5862369 1354986421
 when the target is highly dynamic or the sensors need to sample at a very
- high frequency, it requires that the DAC algorithm returns the result in
+ high frequency, it requires that the DAC algorithms return the result in
  a short time.
- Thus, many efforts have been devoted to optimize the algorithm.
+ Thus, many efforts have been devoted to optimize the DAC algorithms.
 
 \change_deleted 5863457 1354550678
  
@@ -904,14 +817,17 @@ Both of them
 \change_deleted 5863457 1354550746
 have a first-order DAC running in the background and the
 \change_unchanged
- Local values over time obtained by the first-order DAC
-\change_deleted 5863457 1354550787
  
+\change_inserted 936221351 1365446145
+They take 
 \change_unchanged
- are taken as inputs of the filter estimation algorithm for both of them.
- As a result, if the network topology changes, these algorithms have to
- be reinitialized, as outdated information during the filter estimation
- will lead to a wrong answer.
+local values over time obtained by the first-order DAC as inputs.
+ As a result, if the network topology changes, these 
+\change_inserted 936221351 1365446158
+filter estimation 
+\change_unchanged
+algorithms have to be reinitialized, as outdated information during the
+ filter estimation will lead to a wrong answer.
 \end_layout
 
 \begin_layout Standard
@@ -962,30 +878,19 @@ Therefore
 \change_unchanged
 , a distributed optimization method with less computation time is required.
  In addition, it is better that no 
-\change_deleted 5862369 1355069231
-further
+\change_inserted 936221351 1365446219
+cost of 
 \change_inserted 5862369 1355069233
 additional
 \change_unchanged
  
-\change_deleted 5862369 1355069335
-comuunication
 \change_inserted 5862369 1355069335
 communication
 \change_unchanged
- cost is required.
- Moreover, if the optimization 
-\change_inserted 5863457 1354553427
-algorithm 
-\change_unchanged
-and the DAC algorithm can 
-\change_deleted 5863457 1354553466
-be running
-\change_inserted 5863457 1354553470
-be executed
-\change_unchanged
- simultaneously, then consensus process will not be interrupted and the
- optimization can be running in background to keep the optimal parameters
+ is required.
+ Moreover, if the optimization algorithms and the DAC algorithms can be
+ executed simultaneously, consensus process will not be interrupted and
+ the optimization can be running in background to keep the optimal parameters
  updated in a dynamic network.
  
 \change_inserted 5862369 1355068995
@@ -1084,12 +989,12 @@ laser beam.
 \begin_layout Standard
 
 \change_inserted 5862369 1354570298
-Specifically, in the cloud detection application, the DAC algorithm
+Specifically, in the cloud detection application, the DAC algorithms
 \change_inserted 5863457 1355584167
  may also have a little modification.
- Because DAC algorithm
+ Because DAC algorithms
 \change_inserted 5862369 1354570298
- performs the task of 
+ perform the task of 
 \change_unchanged
 distributed
 \change_inserted 5862369 1354570298
@@ -1113,7 +1018,7 @@ s
 \change_inserted 5862369 1354570298
  it into the DAC 
 \change_unchanged
-algorithm
+algorithms
 \change_inserted 5862369 1354570298
  as the initial local value.
  DAC algorithm will then find the average.
@@ -1136,7 +1041,7 @@ will not interrupt the
 could run simultaneously with
 \change_unchanged
  constant first-order DAC algorithm.
- Thus, the consensus algorithm 
+ Thus, the consensus algorithms 
 \change_deleted 5863457 1355620951
 and
 \change_inserted 5863457 1355620958
@@ -1403,7 +1308,7 @@ method
 A
 \change_unchanged
  distributed detection of cloud plume using wireless sensor networks and
- the DAC algorithm will be introduced in 
+ the DAC algorithms will be introduced in 
 \change_deleted 5862369 1355762051
 chapter
 \change_unchanged
@@ -1428,7 +1333,11 @@ reference "chap:Conclusion-and-Future"
 
 \end_inset
 
- concludes this thesis and gives out the direction of further work.
+ concludes this thesis and gives out the direction of 
+\change_inserted 936221351 1365446404
+future
+\change_unchanged
+ work.
 \end_layout
 
 \end_body

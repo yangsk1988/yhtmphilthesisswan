@@ -107,7 +107,7 @@ thispagestyle{empty}
 \end_layout
 
 \begin_layout Standard
-In this chapter, the DAC algorithm will be applied to the remote detection
+In this chapter, the DAC algorithms will be applied to the remote detection
  of cloud
 \change_deleted 5863457 1357604485
 ,
@@ -272,7 +272,7 @@ s
 \change_inserted 5863457 1357513977
 s
 \change_unchanged
- it into distributed consensus algorithm.
+ it into distributed consensus algorithms.
  When the algorithm converges, each sensor in the network can have an agreement
  on declaring the cloud or not.
  Finally, simulation 
@@ -808,7 +808,7 @@ Signal can be processed
 \change_inserted 5863457 1357607657
 by distributed processing method such as
 \change_unchanged
- distributed average consensus (DAC) algorithm.
+ distributed average consensus (DAC) algorithms.
  The word consensus means each node would 
 \change_deleted 5863457 1357607728
 have
@@ -2529,7 +2529,7 @@ name "sec:Distributed_Cloud_De"
 
 \end_inset
 
-Distributed Cloud Detection Based on DAC Algorithm
+Distributed Cloud Detection Based on DAC Algorithms
 \end_layout
 
 \begin_layout Standard
@@ -3500,7 +3500,7 @@ reference "eq:G-LLR_independent"
 \end_inset
 
 .
- Therefore, the distributed average consensus (DAC) algorithm can be used
+ Therefore, the distributed average consensus (DAC) algorithms can be used
  to calculate it.
  Actually, the constant 
 \begin_inset Formula $C$
@@ -3550,7 +3550,7 @@ reference "eq:GLLR in weighted sum"
 \end_inset
 
  means 
-\change_unchanged
+\change_deleted 936221351 1365459600
 G-LLR
 \change_deleted 5862369 1355517070
  can be a weighted sum of the signal acquired in each sensor, which can
@@ -4121,7 +4121,7 @@ v_{i}=\sum_{j\in{\cal N}_{i}}c_{ij}x_{i}x_{j}+c_{ii}x_{i}^{2}
 \end_layout
 
 \begin_layout Enumerate
-Initialize a DAC algorithm with 
+Initialize a DAC algorithms with 
 \family roman
 \series medium
 \shape up
@@ -5051,7 +5051,13 @@ n
 \end_layout
 
 \begin_layout Section
+
+\change_deleted 936221351 1365437814
 Conclusion
+\change_inserted 936221351 1365437814
+Summary
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -5068,7 +5074,7 @@ The simulation of multiple observation shows that the detections of sensors
  By assume that sensors observation is independent, the global log likelihood
  ratio is the average of local log likelihood ratio.
  Therefore, global log likelihood ratio can be calculated by distributed
- consensus algorithm, where each sensor take local log likelihood ratio
+ consensus algorithms, where each sensor take local log likelihood ratio
  into the DCA iteration.
  Once the algorithm converges, the global log likelihood ratio is available
  to each sensor.
@@ -5081,7 +5087,7 @@ The simulation of multiple observation shows that the detections of sensors
 
 \begin_layout Standard
 In this chapter, we introduced a distributed detection method using wireless
- sensor networks and the DAC algorithm.
+ sensor networks and the DAC algorithms.
  First, the hypothesis testing 
 \change_inserted 5862369 1353451924
 based on the ML or MAP decision rule 
@@ -5113,7 +5119,7 @@ b
 y assuming sensors signals are independent, global log likelihood ratio
  is the average of local log likelihood ratio.
  The global log likelihood ratio in the hypothesis testing is calculated
- by the DAC algorithm.
+ by the DAC algorithms.
 
 \change_deleted 5862369 1353453024
  
@@ -5131,8 +5137,8 @@ s
 s
 \change_unchanged
  as the initial local value.
- The global log likelihood ratio is available to each sensor once the algorithm
- converges.
+ The global log likelihood ratio is available to each sensor once the DAC
+ algorithms converges.
  
 \end_layout
 

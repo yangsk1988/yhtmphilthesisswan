@@ -163,7 +163,7 @@ key "Sundaram2007"
 
 \end_inset
 
-, it requires the consensus algorithm being executed for several instances
+, it requires the FO-DAC algorithm being executed for several instances
  initialized with a set of linear independent vectors.
  As mentioned before, the finite-time DAC is not reliable to topology changes.
  If the method 
@@ -172,8 +172,8 @@ have
 \change_inserted 5863457 1357427404
 has
 \change_unchanged
- to run multiple re-initializations of original consensus algorithm, it
- may take more risks of being terminated by topology changes.
+ to run multiple re-initializations of original FO-DAC algorithm, it may
+ take more risks of being terminated by topology changes.
  Alternatively, the original consensus algorithm can run these instances
  in parallel with a set of independent initial values.
  However, the data transmission at each iteration increases.
@@ -202,8 +202,6 @@ w
 \change_unchanged
 o important linear filters need to be introduced, as the algorithm is based
  on the 
-\change_deleted 936221351 1365255859
-relathonship
 \change_inserted 936221351 1365255859
 relationship
 \change_unchanged
@@ -545,8 +543,8 @@ Given the local value vector sequence obtained by FO-DCA, one may instantly
 \change_inserted 5863457 1357427618
 the
 \change_unchanged
- Kalman filter algorithms.
- One 
+ Kalman filter algorithm.
+  One 
 \change_deleted 936221351 1365255869
 benifit
 \change_inserted 936221351 1365255869
@@ -1309,6 +1307,17 @@ key "Xiao2004"
 
 \end_inset
 
+
+\change_inserted 936221351 1365459005
+ (see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Graph in Xiao'paper"
+
+\end_inset
+
+)
+\change_unchanged
 , the weight matrix 
 \series bold
 
@@ -1539,12 +1548,16 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+
+\change_inserted 936221351 1365459076
 \begin_inset CommandInset label
 LatexCommand label
-name "cap:perform. Consensus Filter"
+name "fig:Performance-of-the"
 
 \end_inset
 
+
+\change_unchanged
 Performance of the first order iteration with optimal matrix vs.
  consensus finding filter algorithm
 \end_layout
@@ -1598,24 +1611,37 @@ ough filter
 
 .
  
-\change_deleted 5862369 1355761491
-Fig.
+\change_inserted 936221351 1365459111
+Figure 
 \change_unchanged
 
 \begin_inset CommandInset ref
-LatexCommand formatted
-reference "cap:perform. Consensus Filter"
+LatexCommand ref
+reference "fig:Performance-of-the"
 
 \end_inset
 
- compares the 
-\change_deleted 5863457 1357333388
-first order DAC
+
+\change_inserted 936221351 1365459129
+ is presented to 
+\change_unchanged
+compare the 
+\change_inserted 936221351 1365459273
+convergence performance of 
 \change_inserted 5863457 1357333388
 first-order DAC
 \change_unchanged
- (FO-DAC) algorithm with optimal matrix and the proposed algorithm with
- consensus finding filter.
+ (FO-DAC) algorithm with optimal matrix and the 
+\change_deleted 936221351 1365459177
+proposed
+\change_inserted 936221351 1365459209
+ finite-time consensus
+\change_unchanged
+ algorithm
+\change_deleted 936221351 1365459194
+ with consensus finding filter
+\change_unchanged
+.
  The performance is evaluated by the mean square error (MSE), defined by
  
 \begin_inset Formula $\mbox{MSE}_{\mbox{FO-DAC}}(k)=\sum_{i\in\mathcal{N}}E[\left|x_{i}(k)-\bar{x}\right|^{2}]$
@@ -1643,7 +1669,13 @@ s
 \end_layout
 
 \begin_layout Section
+
+\change_deleted 936221351 1365437776
 Conclusion
+\change_inserted 936221351 1365437778
+Summary
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard

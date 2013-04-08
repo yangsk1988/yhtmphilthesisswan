@@ -137,12 +137,12 @@ The Second option is distributed signal processing.
 \change_deleted 5862369 1355343503
  
 \change_unchanged
- Distributed average consensus (DAC) algorithm is a tool for distributed
+ Distributed average consensus (DAC) algorithms are tools for distributed
  information processing.
  It has received significant attention recently because of its robustness
  and simplicity.
  In this section, we will introduce two distributed signal processing methods
- based on consensus algorithm.
+ based on consensus algorithms.
 \end_layout
 
 \begin_layout Subsection
@@ -430,7 +430,7 @@ the G-LLR
 G-LLR
 \change_unchanged
  is the sum of local log likelihood ratio (L-LLR) and can be calculated
- by distributed average consensus (DAC) algorithm.
+ by distributed average consensus (DAC) algorithms.
  This is implemented by the following steps: First, each sensor node 
 \begin_inset Formula $i$
 \end_inset
@@ -446,7 +446,7 @@ s
 .
  Then, all the sensors update their L-LLRs in the DAC iteration until they
  converge to a common value.
- Finally, once the algorithm converges, G-LLR is obtained by multiplying
+ Finally, once the DAC algorithms converges, G-LLR is obtained by multiplying
  the average value with the number of sensors in the network.
 \end_layout
 
@@ -635,7 +635,7 @@ where the average values
 \begin_inset Formula $\frac{1}{L}\sum_{i=1}^{L}w_{l}x_{l}$
 \end_inset
 
- is obtained by distributed average consensus (DAC) algorithm.
+ is obtained by distributed average consensus (DAC) algorithms.
  Then the average is multiplied with the number of sensors in the network
  to get 
 \begin_inset Formula $\sum_{l=1}^{L}w_{l}x_{l}$
@@ -687,7 +687,7 @@ reference "sec:Distributed_Cloud_De"
 \uwave default
 \noun default
 \color inherit
-more results about applying DAC algorithm will be presented.
+more results about applying DAC algorithms will be presented.
  The sensor signals will be correlated and mixed with joint Gaussian white
  noises.
  In addition, the noises are not only correlated but also depends on the
@@ -779,7 +779,7 @@ reference "sec:Finite-Time-DAC-Simple"
 
 \begin_layout Standard
 Therefore, in this section we propose a novel network information flooding
- technique based on consensus algorithm.
+ technique based on consensus algorithms.
  It doesn't require copying information for so many time
 \change_inserted 5863457 1357423507
 s
@@ -1079,7 +1079,35 @@ weight coefficients to all nodes in the network.
 \end_layout
 
 \begin_layout Section
+
+\change_deleted 936221351 1365437784
 Conclusion
+\change_inserted 936221351 1365458327
+Summary
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 936221351 1365458805
+In this chapter, we first introduced the preliminary in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Preliminary"
+
+\end_inset
+
+, where consensus problem on network is presented as well as the difference
+ and connection between continuous-time and discrete-time DAC algorithms.
+ The whole family of DAC algorithms and their categories are shown in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Categories-of-Distributed"
+
+\end_inset
+
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1090,7 +1118,11 @@ reference "sec:Asymptotic-Distributed-Consensus"
 
 \end_inset
 
-, it is shown that
+, it 
+\change_inserted 936221351 1365458714
+states
+\change_unchanged
+ that
 \change_inserted 5862369 1358250587
  optimized higher order DAC will have better convergence rate than 
 \change_inserted 936221351 1365256465
@@ -1107,10 +1139,14 @@ also
 \change_inserted 5862369 1358250587
  increase by introducing more orders.
  
-\change_inserted 936221351 1365256529
+\change_inserted 936221351 1365458745
 There are negligible improvement for the fourth order DAC compared to the
  third order one.
  
+\end_layout
+
+\begin_layout Standard
+
 \change_inserted 5862369 1358250587
 The convergence rates of HO-DAC algorithms
 \change_deleted 936221351 1365256440
@@ -1206,7 +1242,7 @@ doesn't need to be convergent
 \begin_layout Standard
 
 \change_inserted 5862369 1358250587
-Some distributed signal processing based on consensus algorithm, such as
+Some distributed signal processing based on consensus algorithms, such as
  data fusion and decision making, information flooding were introduced in
  
 \begin_inset CommandInset ref

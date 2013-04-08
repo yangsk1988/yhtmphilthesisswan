@@ -269,7 +269,7 @@ It seems impossible to find an algorithm that not only robust against topology
  changes but also as fast as the generalized finite-time DAC in a distributed
  and dynamic network.
  Therefore, a tradeoff between speed and robustness is inevitable.
- Some further algorithm could be obtained based on the generalized finite-time
+ Some further algorithms could be obtained based on the generalized finite-time
  DAC algorithm.
  
 \change_unchanged
@@ -385,7 +385,7 @@ Generally, optimized parameters for the old network are
 
 \begin_layout Standard
 Finally, we introduced a distributed detection of cloud plume using wireless
- sensor networks and the DAC algorithm in 
+ sensor networks and the DAC algorithms in 
 \change_deleted 5862369 1355762127
 chapter
 \change_unchanged
@@ -460,7 +460,7 @@ is
 \change_inserted 5862369 1353529824
 can be
 \change_unchanged
- calculated by the DAC algorithm.
+ calculated by the DAC algorithms.
 
 \change_deleted 5863457 1357601112
  
@@ -548,9 +548,9 @@ communication.
 \begin_layout Standard
 
 \change_deleted 5862369 1354057424
-Second, some other DAC algorithm can be developed, but it seems to be very
+Second, some other DAC algorithms can be developed, but it seems to be very
  difficult in when node don't know the network topoloby.
- The better way is to optimize the existing algorithm instead of finding
+ The better way is to optimize the existing algorithms instead of finding
  new algorithms.
 \change_unchanged
 
@@ -630,7 +630,7 @@ for the application of cloud detection, the correlation of sensor signals
  In addition, the parameters of cloud plume should be should be treated
  as unknown random variable, such as the position the diffusion coefficient,
  wind speed and so on.
- The DAC algorithm need to be modified to capture these changes.
+ The DAC algorithms need to be modified to capture these changes.
  At the same time sensors need to be able to estimate these parameters from
  their observation.
   
@@ -642,7 +642,7 @@ for the application of cloud detection, the correlation of sensor signals
 he cloud model is going to be extended to capture the correlation and random
  properties of the cloud plume.
  As a result, some parameters of cloud plume will be treated as random variable,
- the DAC algorithm need to be modified to capture these changes.the correlation
+ the DAC algorithms need to be modified to capture these changes.the correlation
  of detections of nodes can be used to improve the performance of the cloud
  detection.
  If sensors are are located in short distance in the plume, their detections
