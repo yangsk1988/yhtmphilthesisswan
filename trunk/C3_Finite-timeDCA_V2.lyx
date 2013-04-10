@@ -323,7 +323,13 @@ name "thm:LV predictor a_i"
 \begin_inset Formula $W$
 \end_inset
 
- satisfying the convergence condition in theorem 
+ satisfying the convergence condition in 
+\change_deleted 936221351 1365522417
+theorem
+\change_inserted 936221351 1365522417
+ 
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "thm:convergence condition"

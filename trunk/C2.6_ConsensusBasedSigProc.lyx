@@ -303,7 +303,9 @@ the mean value of
 \end_inset
 
 .
- The case when each sensor acquires a vector of unknown parameters is discussed
+ 
+\change_deleted 936221351 1365612175
+The case when each sensor acquires a vector of unknown parameters is discussed
  in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -380,15 +382,21 @@ where
 \end_layout
 
 \begin_layout Standard
-Usually 
+
+\change_inserted 936221351 1365610604
+If
+\change_unchanged
+ 
 \change_deleted 5862369 1355340846
 simplification
 \change_unchanged
- we can assume the sensor 
-\change_deleted 5862369 1355340864
-observations
-\change_inserted 5862369 1355340866
-detections
+ 
+\change_deleted 936221351 1365610608
+we can assume
+\change_unchanged
+ the sensor 
+\change_inserted 936221351 1365612896
+signals
 \change_unchanged
  are independent from one to another.
  Therefore, we have 
@@ -431,7 +439,11 @@ G-LLR
 \change_unchanged
  is the sum of local log likelihood ratio (L-LLR) and can be calculated
  by distributed average consensus (DAC) algorithms.
- This is implemented by the following steps: First, each sensor node 
+ 
+\change_deleted 936221351 1365610944
+This is implemented by the following steps:
+\change_unchanged
+ First, each sensor node 
 \begin_inset Formula $i$
 \end_inset
 
@@ -446,24 +458,79 @@ s
 .
  Then, all the sensors update their L-LLRs in the DAC iteration until they
  converge to a common value.
- Finally, once the DAC algorithms converges, G-LLR is obtained by multiplying
- the average value with the number of sensors in the network.
+ 
+\change_inserted 936221351 1365610959
+O
+\change_unchanged
+nce the DAC algorithms converges, G-LLR is obtained by multiplying the average
+ value with the number of sensors in the network.
+ 
+\change_inserted 936221351 1365612880
+
 \end_layout
 
 \begin_layout Subsubsection*
-Generalization of LLR Calculation 
+LLR Calculation When Noises Are 
+\change_inserted 936221351 1365613352
+Correlated
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-In this section, we will generalize the conditions step by step and d
-\change_inserted 936221351 1365265038
-e
+
+\change_inserted 936221351 1365613373
+The detection noise in sensor signal are Gaussian white noise and can be
+ treated as independent.
+ However, in real environment the sensor signal may also interfered by other
+ aspect, which may cause correlated sensor signal fluctuation.
+ One of the examples can be found in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:DAC-Cloud-Detection"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+I
+\change_inserted 936221351 1365613339
+f the noises in sensor's signals are not independent from one to another
+\change_deleted 936221351 1365612323
+.
+ After this generalization
 \change_unchanged
-rive some expressions to show how to calculate G-LLR with DAC algorithms.
- We assume the noises in sensor's signals are not independent from one to
- another.
- The noises can be denoted by the joint Gaussian white noise.
+, some expressions 
+\change_inserted 936221351 1365613339
+need to be derived 
+\change_unchanged
+to 
+\change_deleted 936221351 1365611804
+show how to 
+\change_inserted 936221351 1365613339
  
+\change_unchanged
+calculate G-LLR 
+\change_inserted 936221351 1365613339
+by
+\change_unchanged
+ DAC algorithms.
+ 
+\change_deleted 936221351 1365611655
+We assume the noises in sensor's signals are not independent from one to
+ another.
+
+\change_unchanged
+ 
+\change_deleted 936221351 1365611661
+The noises can be denoted by the joint Gaussian white noise.
+ 
+\change_inserted 936221351 1365613339
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -502,21 +569,38 @@ given by
 
 \end_inset
 
-Since 
+
+\change_deleted 936221351 1365613427
+Since
+\change_inserted 936221351 1365613430
+where the noises
+\change_deleted 936221351 1365611696
+ 
+\change_inserted 936221351 1365613463
+ is the joint Gaussian white noise denoted by 
 \begin_inset Formula $\mathbf{n}\sim\mathcal{N}\left(0,\Sigma\right)$
 \end_inset
 
-, the likelihood function is a joint Gaussian function 
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 936221351 1365613448
+Thus,
+\change_unchanged
+ the likelihood function is a joint Gaussian function 
 \begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)=\frac{1}{\left(2\pi\right)^{L/2}\left|\Sigma\right|^{\frac{1}{2}}}\exp\left(-\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{m}\right)^{T}\Sigma^{-1}\left(\mathbf{x}-\mathbf{u}_{m}\right)\right)$
 \end_inset
 
+
+\change_deleted 936221351 1365613473
 , 
-\change_deleted 5863457 1357423273
-the G-LLR
-\change_inserted 5863457 1357423273
-G-LLR
+\change_inserted 936221351 1365613474
+ and 
 \change_unchanged
- becomes 
+G-LLR becomes 
 \begin_inset Formula 
 \begin{eqnarray}
 LLR(\mathbf{x}) & = & \left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{T}}\right)\mathbf{\Sigma}^{-1}\mathbf{x}+\frac{1}{2}\left(\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{0}-\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{1}\right)\label{eq:wighted_sum_LLR}\\
@@ -554,7 +638,7 @@ where
 \end_inset
 
  is the last term 
-\change_inserted 936221351 1365265166
+\change_inserted 936221351 1365613448
 of 
 \change_unchanged
 the equation.
@@ -583,22 +667,30 @@ reference "eq:wighted_sum_LLR"
 \end_inset
 
  means 
-\change_deleted 5863457 1357423273
-the G-LLR
 \change_inserted 5863457 1357423274
 G-LLR
 \change_unchanged
- can be a weighted sum of sensor's observation.
- 
-\change_deleted 5862369 1355342338
-signal acquired in each sensor.
- 
-\change_unchanged
+ can be a weighted sum of sensor's observation
+\change_inserted 936221351 1365613448
+ plus 
+\begin_inset Formula $C$
+\end_inset
 
+
+\change_unchanged
+.
+ 
 \end_layout
 
 \begin_layout Standard
-Provided that each sensor knows the weight 
+
+\change_inserted 936221351 1365613490
+As a result,
+\change_unchanged
+ G-LLR
+\change_inserted 936221351 1365613501
+ can be caculated by DAC algorithms, provided that each sensor knows the
+ weight 
 \begin_inset Formula $w_{l}$
 \end_inset
 
@@ -606,24 +698,26 @@ Provided that each sensor knows the weight
 \begin_inset Formula $C$
 \end_inset
 
-, 
-\change_deleted 5863457 1357423274
-the G-LLR
-\change_inserted 5863457 1357423274
-G-LLR
-\change_unchanged
- is equal to the weighted sum of sensor's observation plus 
-\begin_inset Formula $C$
-\end_inset
 
+\change_unchanged
 .
  Actually, the constant 
 \begin_inset Formula $C$
 \end_inset
 
  changes the threshold of the hypothesis testing and can be subtract from
- both side of the equation.
- Therefore, we modify the hypothesis testing into 
+ both side of the
+\change_inserted 936221351 1365613540
+ hypothesis testing
+\change_unchanged
+ equation.
+ Therefore, we 
+\change_inserted 936221351 1365613545
+have 
+\change_deleted 936221351 1365613547
+modify the hypothesis testing into
+\change_unchanged
+ 
 \begin_inset Formula 
 \[
 \sum_{l=1}^{L}w_{l}x_{l}\underset{H_{0}}{\overset{H_{1}}{\gtrless}}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}-C
@@ -636,8 +730,17 @@ where the average values
 \end_inset
 
  is obtained by distributed average consensus (DAC) algorithms.
- Then the average is multiplied with the number of sensors in the network
- to get 
+ Then 
+\change_inserted 936221351 1365613539
+each sensor multiply 
+\change_unchanged
+the average i
+\change_deleted 936221351 1365612537
+s multiplied 
+\change_inserted 936221351 1365613539
+ 
+\change_unchanged
+with the number of sensors in the network to get 
 \begin_inset Formula $\sum_{l=1}^{L}w_{l}x_{l}$
 \end_inset
 
@@ -663,40 +766,33 @@ reference "sec:Distributed_Cloud_De"
 
 \end_inset
 
-, more generalized conditions of calculating G-LLR is discussed
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
- and 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-more results about applying DAC algorithms will be presented.
+, 
+\change_inserted 936221351 1365612603
+how to 
+\change_unchanged
+calculate G-LLR 
+\change_inserted 936221351 1365612636
+by
+\change_unchanged
+ DAC algorithms
+\change_inserted 936221351 1365612618
+ on more generalized conditions
+\change_unchanged
+ will be presented.
  The sensor signals will be correlated and mixed with joint Gaussian white
  noises.
- In addition, the noises are not only correlated but also depends on the
- existence of target.
+ In addition, the 
+\change_inserted 936221351 1365612775
+signal fluctuation 
+\change_unchanged
+noises are not only correlated but also depends on the existence of target.
  
 \end_layout
 
 \begin_layout Subsection
 Network Information Flooding
+\change_inserted 936221351 1365612709
+ 
 \change_deleted 5862369 1355847148
 (todo check times 0)
 \change_inserted 5862369 1355847148
@@ -1124,13 +1220,21 @@ states
 \change_unchanged
  that
 \change_inserted 5862369 1358250587
- optimized higher order DAC will have better convergence rate than 
-\change_inserted 936221351 1365256465
+ 
+\change_unchanged
+optimized
+\change_inserted 5862369 1358250587
+ higher order DAC 
+\change_inserted 936221351 1365508602
+(its spectral radius of weight matrix are minimized) 
+\change_inserted 5862369 1358250587
+will have better convergence rate than 
+\change_inserted 936221351 1365508557
 the 
 \change_inserted 5862369 1358250587
 lower order one.
  However, 
-\change_inserted 936221351 1365256511
+\change_inserted 936221351 1365508557
 t
 \change_inserted 5862369 1358250587
 he algorithm complexity and computational cost will 
@@ -1139,7 +1243,7 @@ also
 \change_inserted 5862369 1358250587
  increase by introducing more orders.
  
-\change_inserted 936221351 1365458745
+\change_inserted 936221351 1365508557
 There are negligible improvement for the fourth order DAC compared to the
  third order one.
  

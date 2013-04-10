@@ -164,41 +164,43 @@ thispagestyle{empty}
 
 Distributed information processing has attracted more interests recently
  because of its advantages in distributed network than centralized method.
- Some of the tools of distributed signal processing are the distributed consensus
- algorithms.
+ Some of the tools of distributed signal processing are the distributed
+ consensus algorithms.
  If the consensus algorithms are to find the average value over the network,
- the algorithms are called distributed average consensus (DAC) algorithms, which are 
- matrix iterative algorithms to find the dominant eigenvector of the matrix.
- Generally, the 
-\change_inserted 936221351 1365437585
-optimized DAC 
+ the algorithms are called distributed average consensus (DAC) algorithms,
+ which are
+\change_deleted 936221351 1365507754
+ 
 \change_unchanged
-algorithms 
-\change_inserted 936221351 1365437535
+ matrix iterative algorithms to find the dominant eigenvector of the matrix.
+ Generally, the
+\change_deleted 936221351 1365507686
+ 
+\change_inserted 936221351 1365437585
+ DAC 
+\change_unchanged
+algorithms
+\change_inserted 936221351 1365507881
+ with optimized convergence rate
+\change_unchanged
+ 
+\change_inserted 936221351 1365507689
 can
 \change_unchanged
  return the result more quickly so that the distributed system can have
  better 
-\change_inserted 936221351 1365437566
+\change_inserted 936221351 1365507689
 signal
 \change_unchanged
  processing performance.
  Therefore, many efforts have been devoted into 
-\change_inserted 936221351 1365437594
+\change_inserted 936221351 1365507689
 its
 \change_unchanged
  optimization.
- However, most of the optimization
-\change_inserted 5862369 1357316774
-s
-\change_unchanged
- are centralized method
-\change_inserted 5862369 1357316780
-s
-\change_unchanged
- so
+ However, most of the optimizations are centralized methods so 
 \change_inserted 5863457 1355710592
- that
+that
 \change_unchanged
  the system can not be optimized in a distributed network.
  In addition, the existing distributed optimization algorithm converges
@@ -238,8 +240,6 @@ n have similar performance
 s
 \change_inserted 5863457 1355710721
  in convergence rate, when floating point number 
-\change_deleted 5862369 1357316857
-with
 \change_inserted 5862369 1357316857
 in
 \change_inserted 5863457 1355710721
@@ -281,8 +281,8 @@ the
 \change_deleted 5862369 1355262497
 Distributed Consensus algorithms have application in data fusion in wireless
  sensor networks and coordination of multi-agent system.
- Some distributed signal processing based on consensus algorithms, such as,
- local value linear prediction, information flooding and network eigenvalues
+ Some distributed signal processing based on consensus algorithms, such
+ as, local value linear prediction, information flooding and network eigenvalues
  estimation, were introduced in this thesis.
  Finally, a simulation of distributed cloud detection was given, in which
  data acquired by sensor nodes is processed by distributed consensus algorithms.

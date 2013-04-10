@@ -296,7 +296,11 @@ we proposed a distributed real-time optimization method to increase the
 \change_unchanged
  
 \change_inserted 5862369 1355762124
-As stated in  
+As stated in
+\change_deleted 936221351 1365509091
+ 
+\change_inserted 5862369 1355762124
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "chap:Online-Optimization-of"
@@ -368,14 +372,42 @@ These findings indicate that the proposed method is applicable to optimize
 \change_inserted 5862369 1354152399
  
 \change_unchanged
-Generally, optimized parameters for the old network are
-\change_deleted 5862369 1355762121
- 
+Generally, 
+\change_deleted 936221351 1365509081
+optimized
 \change_unchanged
- not optimal or even not located in the convergence region for the new network.
+ parameters 
+\change_inserted 936221351 1365509084
+optimized 
+\change_unchanged
+for the old network are not optimal
+\change_inserted 936221351 1365509122
+ for the new network 
+\change_unchanged
+or even not located in the convergence region.
  So the DAC algorithm must be reinitialized with convergent parameters to
- continue the consensus process, until the network topology is stable for
- a certain time and the optimal parameters are estimated
+ continue the consensus process
+\change_deleted 936221351 1365509290
+,
+\change_inserted 936221351 1365509290
+.
+
+\change_unchanged
+ 
+\change_deleted 936221351 1365509296
+until
+\change_inserted 936221351 1365509296
+Once
+\change_unchanged
+ the network topology is stable for a certain time
+\change_deleted 936221351 1365509301
+ and
+\change_inserted 936221351 1365509302
+,
+\change_unchanged
+ the optimal parameters are estimated
+\change_inserted 936221351 1365509325
+ again
 \change_deleted 5862369 1355762121
  by the proposed optimization method
 \change_unchanged

@@ -431,6 +431,17 @@ reference "eq:1st iter. ni"
 \end_layout
 
 \begin_layout Theorem
+
+\change_inserted 936221351 1365523615
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kokiopoulou2007"
+
+\end_inset
+
+ 
+\change_unchanged
+
 \begin_inset CommandInset label
 LatexCommand label
 name "thm:A-consensus-finding"

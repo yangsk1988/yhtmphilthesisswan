@@ -333,7 +333,7 @@ where
 \end_inset
 
  itself is 
-\begin_inset Formula $w_{ii}=1-\sum_{j\in\mathcal{N}_{i}}w_{ij}$
+\begin_inset Formula $w_{ii}=1-\sum_{j\in\mathcal{N}_{i}}a_{ij}$
 \end_inset
 
 , so that the sum of all weights equals to one, 
@@ -2672,7 +2672,11 @@ and
 are all real values.
 
 \change_inserted 936221351 1356970498
- Note the dashed line in Figure 
+ Note the dashed 
+\change_unchanged
+curve
+\change_inserted 936221351 1356970498
+ in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Convergence-Region"
@@ -2704,9 +2708,15 @@ he optimal solution is
 \change_inserted 5863457 1357344173
 always
 \change_inserted 936221351 1356970498
- located on the
+ located on th
+\change_unchanged
+is
 \change_inserted 5863457 1357344194
- line.
+ 
+\change_unchanged
+curve
+\change_inserted 5863457 1357344194
+.
 
 \change_deleted 5863457 1357344166
  
@@ -3301,7 +3311,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Graph/FirstYearReport/Lyx_v/images/ord1234_old&max&hybrid_todo.pdf
+	filename Graph/FirstYearReport/Lyx_v/images/ord1234_old&max&hybrid_marker.pdf
 	lyxscale 60
 	width 12cm
 	height 10cm

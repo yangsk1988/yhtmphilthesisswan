@@ -109,8 +109,8 @@ In this section, some basic concepts of the graph theory and matrix theory
  will be introduced.
  They are used in the analysis of convergence or performance of consensus
  algorithms.
- Because consensus algorithms actually relates to a matrix iteration,
- it is necessary to introduce some of these theorems.
+ Because consensus algorithms actually relates to a matrix iteration, it
+ is necessary to introduce some of these theorems.
  For full information about matrix theory, see 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -503,6 +503,13 @@ Spectral radius of a matrix is one of the basic concepts in the matrix iteration
 \end_layout
 
 \begin_layout Theorem
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "thm:Convergent <=> p(A)<1"
@@ -740,17 +747,17 @@ The calculation of eigenvalues of a matrix
  In some situations, for example, when the matrix dimension is very large,
  it is very difficult to determine the spectral radius precisely.
  However, the following theorem of Gerschgorin provides an upper bound of
- the spectral radius 
+ the spectral radius.
+\end_layout
+
+\begin_layout Theorem
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Horn1990"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Theorem
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "thm:Gerschgorin's Theorem"
@@ -799,6 +806,13 @@ The above theorem immediately gives the result of
 \end_layout
 
 \begin_layout Corollary
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "cor:Upper Bound of p(A)"
@@ -857,6 +871,19 @@ Therefore, the maximum of the row sums of the modular of the entries of
 \end_layout
 
 \begin_layout Corollary
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:Upper Bound of p(A)2"
+
+\end_inset
+
 Let 
 \begin_inset Formula $A=\left(a_{i,j}\right)$
 \end_inset
@@ -951,6 +978,13 @@ key "Piziak2007"
 \end_layout
 
 \begin_layout Theorem
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Piziak2007"
+
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "thm:Perron-Frobenius thm."
@@ -1039,7 +1073,13 @@ reference "thm:Gerschgorin's Theorem"
 \end_layout
 
 \begin_layout Lemma
-If 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+ If 
 \begin_inset Formula $A=\left[a_{i,j}\right]$
 \end_inset
 
@@ -1067,7 +1107,13 @@ or
 \end_layout
 
 \begin_layout Theorem
-Let 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Varga2010"
+
+\end_inset
+
+ Let 
 \begin_inset Formula $A=\left[a_{i,j}\right]$
 \end_inset
 

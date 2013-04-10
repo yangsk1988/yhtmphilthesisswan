@@ -244,6 +244,22 @@ neighbours
 
 .
  
+\change_inserted 936221351 1365520721
+During the DAC iteration, the local value at new time step is a weighted
+ sum calculated by coefficient 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+, see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:1st Order Protocol"
+
+\end_inset
+
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -788,7 +804,11 @@ more challenging problem than the maximum (or minimum) consensus, because
 
  has to be satisfied.
  In this chapter, we will discuss the average consensus and especially its
- optimization problem, which is solved distributively by discrete-time matrix
+ 
+\change_inserted 936221351 1365508357
+convergence rate 
+\change_unchanged
+optimization problem, which is solved distributively by discrete-time matrix
  iteration.
  Furthermore, the variance consensus problem can be solved by two instances
  of average consensus, because we have the relation 
@@ -861,6 +881,42 @@ that solves the average consensus problem
 \begin_inset Formula ${\cal X}\left(\mathbf{x}\right)=\mbox{mean}\left(\mathbf{x}\right)$
 \end_inset
 
+
+\change_inserted 936221351 1365520301
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+, where 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ is the entry of weighted adjacency matrix 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+
+\change_deleted 936221351 1365520255
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
 .
 
 \family default
@@ -875,6 +931,8 @@ that solves the average consensus problem
 \noun default
 \color inherit
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1567,7 +1625,14 @@ reference "fig:Boundary-of-eigenvalues-1"
 
 \begin_layout Theorem
 
-\change_inserted 936221351 1365447121
+\change_inserted 936221351 1365521902
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:Convergence-Continuous-DAC"
+
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Olfati-Saber2004"
@@ -1584,7 +1649,17 @@ Assume
 \change_inserted 5863457 1357338715
 a 
 \change_unchanged
-connected graph, and the associated graph Laplacian matrix 
+connected graph, and the 
+\change_deleted 936221351 1365520152
+associated
+\change_inserted 936221351 1365520154
+ graph
+\change_unchanged
+ 
+\change_inserted 936221351 1365520142
+weighted
+\change_unchanged
+ Laplacian matrix 
 \begin_inset Formula ${\cal L}$
 \end_inset
 
@@ -1604,14 +1679,21 @@ reference "eq:Graph Laplacian def."
 \begin_inset Formula $u_{l}$
 \end_inset
 
- be the uniformed left eigenvector associated with the zero eigenvalue,
- i.e.
+ be the uniformed left eigenvector associated with the zero eigenvalue
+\change_inserted 936221351 1365520163
+ of 
+\begin_inset Formula ${\cal L}$
+\end_inset
+
+
+\change_unchanged
+, i.e.
  
-\begin_inset Formula $Lu_{r}=0$
+\begin_inset Formula ${\cal L}u_{r}=0$
 \end_inset
 
 , 
-\begin_inset Formula $u_{l}^{T}L=0$
+\begin_inset Formula $u_{l}^{T}{\cal L}=0$
 \end_inset
 
 .

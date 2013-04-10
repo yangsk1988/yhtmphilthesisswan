@@ -522,8 +522,6 @@ key "Ren2007"
 
 .
  
-\change_deleted 5863457 1355580001
-Its
 \change_inserted 5863457 1355580003
 The
 \change_inserted 5862369 1355435949
@@ -587,29 +585,30 @@ energy
 consumption
 \change_inserted 5863457 1355580078
  of the sensor nodes, DAC algorithms to perform the distributed signal processin
-g need to be optimized.
- In addition, the cloud model requires a modification because the sensor
- is using 
+g need to be optimized
+\change_inserted 936221351 1365508241
+ for faster convergence rate
+\change_inserted 5863457 1355580078
+.
+ In addition, the 
+\change_inserted 936221351 1365507298
+Gaussian plume
+\change_inserted 5863457 1355580078
+ model 
+\change_inserted 936221351 1365507323
+of cloud 
+\change_inserted 5863457 1355580078
+requires a modification because the sensor is using 
 \change_inserted 5862369 1354637268
 laser sensing
-\change_inserted 5863457 1354553232
- technology
-\change_deleted 5862369 1354637313
- similar to LIDAR
 \change_inserted 5863457 1357333269
-.
+ technology.
  It emits a laser to illuminate the cloud and collects the backscatters
  to 
-\change_deleted 5862369 1354637341
-sample
 \change_inserted 5862369 1354637343
 sense
 \change_inserted 5863457 1354553232
- the
-\change_deleted 5862369 1354637381
- concentration of the
-\change_inserted 5863457 1354553232
- cloud
+ the cloud
 \change_inserted 5862369 1354637376
  concentration
 \change_inserted 5863457 1354553232
@@ -666,25 +665,11 @@ key "Hlinka2012"
 \end_layout
 
 \begin_layout Standard
-In 
-\change_deleted 5862369 1354986230
-these systems
-\change_inserted 5862369 1354986424
-the distributed tracking of a moving target
-\change_unchanged
-, 
-\change_inserted 5862369 1354986421
-when the target is highly dynamic or the sensors need to sample at a very
- high frequency, it requires that the DAC algorithms return the result in
- a short time.
+In the distributed tracking of a moving target, when the target is highly
+ dynamic or the sensors need to sample at a very high frequency, it requires
+ that the DAC algorithms return the result in a short time.
  Thus, many efforts have been devoted to optimize the DAC algorithms.
-
-\change_deleted 5863457 1354550678
  
-\change_inserted 5862369 1354986421
- 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -728,9 +713,7 @@ key "Kokiopoulou2007"
 .
 
 \change_unchanged
- However, these optimization of DAC algorithms are centralized methods
-\change_inserted 5862369 1357308620
-.
+ However, these optimization of DAC algorithms are centralized methods.
  
 \change_deleted 5862369 1357308622
 , which means a centralized node calculates the optimal parameters and forwards
@@ -1052,8 +1035,13 @@ will not be interrupted by
  method can be executed simultaneously
 \change_unchanged
 .
- As a result, communication cost and optimization initialization time can
- be dramatically reduced compare
+ As a result, communication cost and 
+\change_deleted 936221351 1365508305
+optimization
+\change_inserted 936221351 1365508306
+ 
+\change_unchanged
+ initialization time can be dramatically reduced compare
 \change_inserted 5863457 1355620996
 d
 \change_unchanged
