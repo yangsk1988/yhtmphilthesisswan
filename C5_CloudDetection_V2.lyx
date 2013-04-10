@@ -108,67 +108,20 @@ thispagestyle{empty}
 
 \begin_layout Standard
 In this chapter, the DAC algorithms will be applied to the remote detection
- of cloud
-\change_deleted 5863457 1357604485
-,
-\change_inserted 5863457 1357604515
-.
- A cloud
-\change_deleted 5863457 1357604999
- which
-\change_unchanged
- is
-\change_deleted 5863457 1357604507
- 
-\change_unchanged
- a group of harmful 
-\change_deleted 5863457 1357604991
-liquids, solid
-\change_unchanged
- particles or gases floating in the air
-\change_inserted 5863457 1357605011
-, which has to be detected once is released
-\change_unchanged
-.
+ of cloud.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 936221351 1365529913
+A cloud is a group of harmful particles or gases floating in the air, which
+ has to be detected once is released.
  Enabled by laser technology, the sensor can illuminate these particles
-\change_inserted 5863457 1357604580
- in the cloud
-\change_unchanged
- and detect the backscatters
-\change_inserted 5863457 1357604613
- (reflected lights)
-\change_unchanged
-.
+ in the cloud and detect the backscatters (reflected lights).
  However, background noise or moving object in the real environment may
- interfere 
-\change_inserted 936221351 1365266900
-with 
-\change_unchanged
-the 
-\change_deleted 5863457 1357481979
-the
-\change_unchanged
- sensor signal.
- Therefore, a 
-\change_inserted 5863457 1357604753
-reliable 
-\change_deleted 936221351 1365256180
-detectiong
-\change_inserted 936221351 1365256180
-detection
-\change_inserted 5863457 1357604753
- 
-\change_unchanged
-method
-\change_deleted 5863457 1357604746
- 
-\change_inserted 5863457 1357604731
- should be used in this case.
- Normally the 
-\change_deleted 5863457 1357604723
-to use
-\change_unchanged
- distributed detection is necessary.
+ interfere with the sensor signal.
+ Therefore, a reliable detection method should be used in this case.
+ Normally the distributed detection is necessary.
  
 \change_inserted 5863457 1357604762
 
@@ -176,118 +129,115 @@ to use
 
 \begin_layout Standard
 
-\change_deleted 5863457 1357607223
-the 
-\change_unchanged
-Gaussian plume model is widely used in cloud 
-\change_deleted 5863457 1357604785
-plume
-\change_unchanged
- concentration modeling.
- However, the cloud concentration 
-\change_inserted 5863457 1357607250
-of a plume 
-\change_unchanged
-is actually a random process, which the Gaussian plume model can not capture.
- Therefore, a 3D cloud animation is implemented to get data of cloud concentrati
-on.
- Then, the expectation-maximization algorithm is adopted to 
-\change_deleted 5863457 1357607294
-get the
-\change_inserted 5863457 1357607302
-build the
-\change_unchanged
- Gaussian mixture model 
-\change_deleted 5863457 1357607321
-which gives
-\change_inserted 5863457 1357607322
- and
-\change_unchanged
- the probability density function (PDF) of the sensor’s observation.
- The decision of cloud existence could be made based on the log likelihood
- ratio
-\change_inserted 5863457 1357607353
- test
-\change_unchanged
- when PDF for null and alternative hypotheses are available.
+\change_deleted 936221351 1365529976
+The decision of cloud existence could be made based on the log likelihood
+ ratio test when PDF for null and alternative hypotheses are available.
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-This 
-\change_deleted 5863457 1357607166
-section
-\change_inserted 5863457 1357607168
-chapter
+After a 
+\change_deleted 936221351 1365530853
+brife
+\change_inserted 936221351 1365530853
+brief
 \change_unchanged
- is structured 
-\change_deleted 5863457 1348411955
-in the
-\change_inserted 5863457 1348411955
-as
+ introduction of the cloud detection in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Introduction_cloud"
+
+\end_inset
+
+, 
+\change_inserted 936221351 1365528842
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Background-and-System"
+
+\end_inset
+
+ 
 \change_unchanged
- follow
-\change_inserted 5863457 1348411960
-s
-\change_deleted 5863457 1348411963
-ing way
+shows the system model.
+
+\change_inserted 936221351 1365530863
+ Gaussian plume model is widely used in cloud concentration modeling.
+ However, the sensors is using laser remote sensing technology.
+ In addition, the cloud concentration of a plume is actually a random process,
+ which the Gaussian plume model can not capture.
+ Therefore, the Gaussian plume model needs a little modification.
+ Furthermore, a 3D cloud animation is implemented to get data of cloud concentra
+tion.
+ The modified models are presented in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Modified-Gaussian-Plume"
+
+\end_inset
+
+.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Distributed_Cloud_De"
+
+\end_inset
+
+ illustrates the 
+\change_deleted 936221351 1365529706
+some
+\change_unchanged
+ techniques of distributed detection of cloud
+\change_inserted 936221351 1365529692
+ and sensor observation model
+\change_unchanged
+.
+ Expectation-maximization algorithm is adopted to build Gaussian mixture
+ model for sensor observation from background 
+\change_deleted 936221351 1365529942
+and target
+\change_inserted 936221351 1365529768
+ in the training stage
+\change_unchanged
+, followed by the detection stage.
+ 
+\change_inserted 936221351 1365530149
+The decision of cloud existence is made based on a log likelihood ratio
+ test
 \change_unchanged
 , 
-\change_deleted 5862369 1355847430
-section
-\change_inserted 5862369 1355847430
- 
+\change_inserted 936221351 1365530568
+which is performed by e
 \change_unchanged
+ach sensor
+\change_inserted 936221351 1365530594
+ with the help of DAC algorithms.
  
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sec:Cloud-Detection-Scenario"
-
-\end_inset
-
- shows the system model.
- 
-\change_deleted 5862369 1355847436
-Section
-\change_inserted 5862369 1355847436
- 
-\change_unchanged
- 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sec:Received-Signal'-Model"
-
-\end_inset
-
- illustrates the sensor observation model and explain some techniques in
- distributed detection of cloud.
- In the training stage, expectation-maximization algorithm is used to get
- Gaussian mixture model for sensor observation from background noise and
- target.
- In the following, it is the detection stage, where each sensor calculate
-\change_inserted 5863457 1357513971
-s
-\change_unchanged
- its local log likelihood ratio, and substitute
-\change_inserted 5863457 1357513977
-s
-\change_unchanged
- it into distributed consensus algorithms.
- When the algorithm converges, each sensor in the network can have an agreement
+\change_deleted 936221351 1365530204
+When the algorithm converges, each sensor in the network can have an agreement
  on declaring the cloud or not.
- Finally, simulation 
-\change_deleted 5863457 1357514033
-and
-\change_unchanged
- result is give
-\change_inserted 936221351 1365266963
-n
-\change_unchanged
- in 
-\change_deleted 5862369 1355847441
-section
-\change_inserted 5862369 1355847441
  
+\change_unchanged
+ Finally, the detection 
+\change_inserted 936221351 1365530612
+performance is 
+\change_unchanged
+simulat
+\change_inserted 936221351 1365530624
+ed and presneted 
+\change_unchanged
+in
+\change_deleted 936221351 1365530629
+  
 \change_unchanged
  
 \begin_inset CommandInset ref
@@ -305,7 +255,11 @@ were
 are
 \change_unchanged
  used.
- The performance of this detection system is also given.
+ 
+\change_deleted 936221351 1365530477
+The performance of this detection system is also given.
+
+\change_unchanged
  It shows the multiple sensor detection will be more reliable in the noisy
  environment.
 \change_inserted 5863457 1348411952
@@ -313,6 +267,12 @@ are
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introduction_cloud"
+
+\end_inset
+
 Introduction 
 \end_layout
 
@@ -492,7 +452,17 @@ species
 \change_inserted 5863457 1357605480
 type
 \change_unchanged
- of the agent can be estimated when prior knowledge is 
+ of the agent can be 
+\change_deleted 936221351 1365530796
+estimated
+\change_inserted 936221351 1365530804
+ identified
+\change_unchanged
+ when prior knowledge 
+\change_inserted 936221351 1365530819
+of this agent 
+\change_unchanged
+is 
 \change_deleted 5863457 1357605457
 available
 \change_inserted 5863457 1357605457
@@ -836,6 +806,16 @@ y
 \end_layout
 
 \begin_layout Section
+
+\change_inserted 936221351 1365528831
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Background-and-System"
+
+\end_inset
+
+
+\change_unchanged
 Background and System Model 
 \change_inserted 5863457 1357607400
 
@@ -863,11 +843,7 @@ name "sec:Cloud-Detection-Scenario"
 \end_layout
 
 \begin_layout Standard
-In the cloud detection scenario shown by 
-\change_deleted 5862369 1355762548
-Figure 
-\change_unchanged
-Figure 
+In the cloud detection scenario shown by Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Cloud-detection-scenario"
@@ -1261,14 +1237,16 @@ where
 \begin_inset Formula $a,b,c,d$
 \end_inset
 
- are the coefficients which relate to the atmospheric stability are shown
- in 
-\change_deleted 5862369 1355761859
-Table
+ are the coefficients which relate to the atmospheric stability
+\change_inserted 936221351 1365526251
+.
+
 \change_unchanged
  
+\change_deleted 936221351 1365526256
+are shown in Table 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "tab:The-parameter-of"
 
 \end_inset
@@ -1278,13 +1256,17 @@ reference "tab:The-parameter-of"
 
 \begin_layout Standard
 
+\change_deleted 936221351 1365526256
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 936221351 1365526256
 \begin_inset Float table
-wide false
+wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption
@@ -1297,6 +1279,17 @@ name "tab:The-parameter-of"
 \end_inset
 
 The parameters of cloud model according to atmospheric stability
+\change_inserted 936221351 1365524676
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "N.Kh.2004"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -1704,64 +1697,47 @@ G
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-The Gaussian plume model can not describe 
-\change_deleted 5862369 1357644182
-its
-\change_inserted 5862369 1357644183
-the
-\change_unchanged
- variance
+The Gaussian plume model describes the
+\change_inserted 936221351 1365526283
+ mean concentration
 \change_inserted 5862369 1357644194
- of cloud concentration
+ 
+\change_unchanged
+of cloud 
+\change_inserted 936221351 1365526289
+plume
 \change_unchanged
 .
- Then, in 
-\change_deleted 5862369 1355847450
-section
-\change_deleted 5863457 1357514206
  
+\change_inserted 936221351 1365526478
+However
 \change_unchanged
+,
+\change_inserted 936221351 1365526571
+ especially designed for remote laser sensing,
+\change_inserted 5863457 1357514549
+ some other models
+\change_inserted 936221351 1365526498
  
+\change_inserted 5863457 1357514549
+are introduced 
+\change_inserted 936221351 1365526550
+in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Modified-Gaussian-Plume"
 
 \end_inset
 
-, 
-\change_deleted 5863457 1354325213
-some expressions are driven based on the diffusive equations to obtain the
- modified Gaussian plume model
-\change_inserted 5863457 1357514549
- some other models
-\change_inserted 936221351 1365256256
- 
-\change_inserted 5863457 1357514549
-are introduced in the next section
-\change_inserted 5862369 1357644219
-, especially designed for laser detection
-\change_unchanged
 .
- 
-\change_deleted 5863457 1357514543
-With the  3D  animation technology 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "He2011"
 
-\end_inset
-
-, simulated cloud plume is implemented to show its fluid dynamics and  turbulenc
-e properties.
- In addition, a bunch of cloud plumes are  generated   for testing and detection.
- 
-\change_inserted 5863457 1357514543
- 
 \change_unchanged
-
+ 
 \end_layout
 
 \begin_layout Section
@@ -2322,7 +2298,11 @@ key "He2011"
 \end_inset
 
 , the cloud model is a 3D space which is divided into tiny cells where fluid
- dynamics and wind turbulence is considered in each cell and its neighbors.
+ dynamics and wind turbulence is considered
+\change_deleted 936221351 1365525827
+ in each cell and its neighbors
+\change_unchanged
+.
  The cloud plume 
 \change_deleted 936221351 1365418554
 could
@@ -2343,46 +2323,59 @@ key "Navier-Stokes_Wiki"
 .
  
 \change_unchanged
- A number of cloud plumes 
-\change_deleted 5863457 1357516691
-is
-\change_inserted 5863457 1357516692
-are
-\change_unchanged
- generated to be used in the distributed cloud detection or training of
- sensors.
  
+\change_deleted 936221351 1365525847
+A number of cloud plumes are generated to be used in the distributed cloud
+ detection or training of sensors.
+
+\change_unchanged
+ 
+\change_inserted 936221351 1365525875
+
 \end_layout
 
 \begin_layout Standard
-As shown in 
-\change_deleted 5863457 1357516821
-the
+
+\change_inserted 936221351 1365525893
+The Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cloud-simulation-frame"
+
+\end_inset
+
+ shows the frame sequence obtained by the fluid simulation.
+ 
+\change_unchanged
+Each frame image
+\change_deleted 936221351 1365525739
+s
 \change_unchanged
  
-\change_deleted 5862369 1355847596
-Figure
+\change_inserted 936221351 1365525742
+is 
+\change_deleted 936221351 1365525741
+are
 \change_unchanged
- Figure 
+ obtained by taking integration of the 3D raw data along z-axis
+\change_inserted 936221351 1365525766
+, as shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Frame-projection"
 
 \end_inset
 
-, the frame images are obtained by taking integration of the 3D raw data
- along z-axis.
- This is to simulate the effect of laser beam penetrati
-\change_deleted 5862369 1357645595
-ng
-\change_inserted 5862369 1357645595
-on
+
 \change_unchanged
- through cloud.
- The received light magnitude is the integration of backscatter along the
- laser beam.
- Therefore, pixels value in the frame image is proportional to the magnitude
- of 
+.
+ This is to simulate the effect of laser beam penetration through cloud.
+ As the received light magnitude is the integration of backscatter along
+ the laser beam
+\change_inserted 936221351 1365525973
+, 
+\change_unchanged
+pixels value in the frame image is proportional to the magnitude of 
 \change_inserted 5862369 1357645653
 received light.
  
@@ -2390,8 +2383,11 @@ received light.
 sensor observation.
 
 \change_unchanged
- In this simulation, the pixel values in these frames is normalized by dividing
- them with the maximum pixel value in these frames.
+ In this simulation, the pixel values in these frames 
+\change_inserted 936221351 1365526031
+are
+\change_unchanged
+ normalized by dividing them with the maximum pixel value in these frames.
  
 \change_deleted 5862369 1357645750
 after the integration.
@@ -2771,28 +2767,7 @@ the mean value of
 \begin_inset Formula $\sigma_{l,0}$
 \end_inset
 
- denote the mean and 
-\change_deleted 936221351 1365419343
-variation
-\change_inserted 936221351 1365419347
- variance
-\change_unchanged
- of background noise.
- So let 
-\begin_inset Formula $\mu_{t}$
-\end_inset
-
- and 
-\begin_inset Formula $n_{t}$
-\end_inset
-
- denote the mean of cloud concentration and signal 
-\change_deleted 5862369 1355526745
-flucturation
-\change_inserted 5862369 1355526745
-fluctuation
-\change_unchanged
- due to cloud turbulence.
+ denote the mean and variance of background noise.
  Besides,
 \family roman
 \series medium
@@ -2813,7 +2788,6 @@ fluctuation
 \begin_inset Formula $n_{l,1}=n_{l,0}+n_{t}$
 \end_inset
 
-.
 
 \family default
 \series default
@@ -2826,6 +2800,23 @@ fluctuation
 \uwave default
 \noun default
 \color inherit
+, where 
+\begin_inset Formula $\mu_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+ denote the 
+\change_inserted 936221351 1365609246
+signal of 
+\change_unchanged
+mean and fluctuation 
+\change_inserted 936221351 1365609263
+of cloud concentration
+\change_unchanged
+ due to wind turbulence.
  These parameters is estimated or calculated expectation-maximization algorithm
  in the training stage.
 \end_layout
@@ -3102,21 +3093,32 @@ Hypothesis Testing
 \end_layout
 
 \begin_layout Standard
-Considering a binary hypothesis testing problem with the following two hypothese
-s
+Considering 
+\change_inserted 936221351 1365613639
+the
+\change_unchanged
+ binary hypothesis testing problem with the following two hypotheses
 \end_layout
 
 \begin_layout Enumerate
-H0: target is absent.
+
+\change_deleted 936221351 1365613633
+H0:
+\change_unchanged
+ target is absent.
 \end_layout
 
 \begin_layout Enumerate
-H1: target is present.
+
+\change_deleted 936221351 1365613635
+H1:
+\change_unchanged
+ target is present.
 \end_layout
 
 \begin_layout Standard
 The prior probability of these two hypotheses is denoted by 
-\begin_inset Formula $P\left(H_{m}\right)=P_{m}=\frac{1}{2},m=1,2$
+\begin_inset Formula $P\left(H_{m}\right)=P_{m}=\frac{1}{2},m=0,1$
 \end_inset
 
 .
@@ -3135,8 +3137,15 @@ Suppose the observation of all sensors
 \begin_inset Formula $x_{1},...,x_{L}$
 \end_inset
 
- is available (for example, gathered by a fusion center) at this moment,
- we can have the global log likelihood ratio (G-LLR ) given by
+ is available (for example, gathered by a fusion center)
+\change_deleted 936221351 1365613679
+ at this moment
+\change_unchanged
+, we can have the global log likelihood ratio (G-LLR ) 
+\change_inserted 936221351 1365613687
+test 
+\change_unchanged
+given by
 \end_layout
 
 \begin_layout Standard
@@ -3184,24 +3193,9 @@ where
 \end_layout
 
 \begin_layout Standard
-For the received signal model described
-\change_deleted 5862369 1355335724
- 
-\change_unchanged
- by 
-\change_deleted 5863457 1355799005
 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:GMM density function"
-
-\end_inset
-
- or
-\change_inserted 5863457 1355799005
- 
-\change_unchanged
- 
+\change_deleted 936221351 1365610349
+For the received signal model described by 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Model of Received signal"
@@ -3214,6 +3208,8 @@ reference "eq:Model of Received signal"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 936221351 1365610349
 \begin_inset Formula 
 \begin{eqnarray}
 LLR(x_{1},...,x_{L}) & = & log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)}{f\left(x_{1}|H_{0}\right)\cdot\ldots\cdot f\left(x_{L}|H_{0}\right)}=\sum_{i=1}^{L}LLR\left(x_{i}\right)\label{eq:Sum L-LLR Cloud}
@@ -3221,14 +3217,7 @@ LLR(x_{1},...,x_{L}) & = & log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\
 
 \end_inset
 
-According to 
-\change_deleted 936221351 1365256272
-Eq.
-
-\change_inserted 936221351 1365256272
- 
-\change_unchanged
-
+According to Eq.
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:Sum L-LLR Cloud"
@@ -3238,11 +3227,11 @@ reference "eq:Sum L-LLR Cloud"
 , G-LLR is change
 \change_deleted 5863457 1357518108
 s
-\change_inserted 5863457 1357518109
-d
-\change_unchanged
- into the sum of local log likelihood ratio (L-LLR).
+\change_deleted 936221351 1365610349
+d into the sum of local log likelihood ratio (L-LLR).
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -3569,13 +3558,8 @@ s
 \change_unchanged
  its local LLR in the DAC iterations until it converges to the consensus
  value; Finally, after the algorithm converges, the global LLR is obtained
- by multipl
-\change_inserted 5863457 1357519330
-ing
-\change_deleted 5863457 1357519329
-y
-\change_unchanged
- the average local LLRs with the number of sensors in the network.
+ by multiplying the average local LLRs with the number of sensors in the
+ network.
  When G-LLR is available, cloud declaration could be made based on the ML
  or MAP decision rule.
 \end_layout
@@ -3622,13 +3606,7 @@ reference "eq:G-LLR simple"
 
 \end_inset
 
- contains high
-\change_deleted 5863457 1357562695
- 
-\change_inserted 5863457 1357562695
--
-\change_unchanged
-order components of 
+ contains high-order components of 
 \begin_inset Formula $\mathbf{x}$
 \end_inset
 
@@ -4247,19 +4225,7 @@ equal to
 \begin_inset Formula $\bar{u}+\bar{v}+C$
 \end_inset
 
- multipl
-\change_deleted 5863457 1357562889
-y
-\change_inserted 5863457 1357562890
-ied
-\change_unchanged
- 
-\change_deleted 5863457 1357562894
-with
-\change_inserted 5863457 1357562894
-by
-\change_unchanged
- the number of sensors in the network
+ multiplied by the number of sensors in the network
 \family roman
 \series medium
 \shape up
@@ -5094,36 +5060,17 @@ based on the ML or MAP decision rule
 \change_unchanged
 is introduced.
  In the outdoor environment, signal of an individual sensor might be corrupted
- by Gaussian noise or moving object with high reflect
-\change_inserted 5863457 1357568917
-ion
-\change_unchanged
- coefficient, which might raise the false alarm in high possibility.
- Because multiple sensors detection ha
-\change_deleted 5863457 1357568932
-ve
-\change_inserted 5863457 1357568932
-s
-\change_unchanged
- better performance, it was adopted in the cloud detection and the expectation-m
-aximization algorithm is used to build the joint Gaussian model of background
- noise and cloud backscatter.
+ by Gaussian noise or moving object with high reflection coefficient, which
+ might raise the false alarm in high possibility.
+ Because multiple sensors detection has better performance, it was adopted
+ in the cloud detection and the expectation-maximization algorithm is used
+ to build the joint Gaussian model of background noise and cloud backscatter.
  Thus, interferences to a few sensors in the network are less likely to
  raise the false alarm.
- Second, 
-\change_deleted 5863457 1357568939
-B
-\change_inserted 5863457 1357568939
-b
-\change_unchanged
-y assuming sensors signals are independent, global log likelihood ratio
- is the average of local log likelihood ratio.
+ Second, by assuming sensors signals are independent, global log likelihood
+ ratio is the average of local log likelihood ratio.
  The global log likelihood ratio in the hypothesis testing is calculated
  by the DAC algorithms.
-
-\change_deleted 5862369 1353453024
- 
-\change_unchanged
  Each sensor calculate
 \change_inserted 5863457 1357568943
 s

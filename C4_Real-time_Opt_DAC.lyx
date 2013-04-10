@@ -79,24 +79,14 @@ name "chap:Online-Optimization-of"
 
 \end_inset
 
-Real-time Optimization of DAC
-\change_deleted 5862369 1355847752
-(OK1)
-\change_inserted 5862369 1355847752
- 
-\change_inserted 5863457 1357331132
-
+Real-time Optimization of DAC 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 5863457 1357331132
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 5863457 1357331132
 
 
 \backslash
@@ -106,13 +96,11 @@ thispagestyle{empty}
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-Distributed average consensus (DAC) algorithms are widely used in many application
-s.
+Distributed average consensus (DAC) algorithms are widely used in many applicati
+ons.
  It utilizes matrix iteration to find the dominant eigenvector.
  To minimize the required number of iterations, the algorithms need to be
  optimized.
@@ -756,7 +744,11 @@ name "thm:LV predictor a_i-1"
 \begin_inset Formula $W\in\mathbb{R}^{n\times n}$
 \end_inset
 
- which satisfies the conditions in theorem 
+ which satisfies the conditions in 
+\change_deleted 936221351 1365522448
+theorem
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "thm:convergence condition"
@@ -1319,6 +1311,23 @@ key "Sundaram2007"
 \end_layout
 
 \begin_layout Theorem
+
+\change_inserted 936221351 1365523676
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:local-polynomial"
+
+\end_inset
+
+ 
+\change_unchanged
 The local polynomial 
 \begin_inset Formula $p_{i}\left(\lambda\right)$
 \end_inset
@@ -1340,13 +1349,17 @@ The local polynomial
 \end_inset
 
 .
- (for proof, see 
+ (see 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sundaram2007"
 
 \end_inset
 
+
+\change_inserted 936221351 1365523685
+ for proof, 
+\change_unchanged
 )
 \end_layout
 
@@ -1375,6 +1388,16 @@ s
 \end_layout
 
 \begin_layout Theorem
+
+\change_inserted 936221351 1365522504
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:At-least-one-node"
+
+\end_inset
+
+ 
+\change_unchanged
 Suppose a graph 
 \begin_inset Formula ${\cal G}$
 \end_inset
@@ -1726,8 +1749,8 @@ There are two ways to expand the matrix.
 \end_layout
 
 \begin_layout Standard
-Second, more than one instances of CFO-DAC could be carried out
- to obtain more useful local samples.
+Second, more than one instances of CFO-DAC could be carried out to obtain
+ more useful local samples.
  Let 
 \begin_inset Formula $\mathbf{x}_{1}\left(0\right),\mathbf{x}_{2}\left(0\right),\ldots,\mathbf{x}_{N}\left(0\right)$
 \end_inset
@@ -2296,18 +2319,33 @@ Simulation of Eigenvalue Estimation
 \end_layout
 
 \begin_layout Standard
-The simulation is taken by the following steps.
+The simulation 
+\change_inserted 936221351 1365525005
+is coded by Matlab and
+\change_unchanged
+ taken by the following steps.
  First, 
 \begin_inset Formula $n$
 \end_inset
 
  nodes are uniformly distributed in an unit square and a link is established
-  between any two nodes if their distance is less than a   threshold 
+\change_deleted 936221351 1365525008
+ 
+\change_unchanged
+ between any two nodes if their distance is less than a
+\change_deleted 936221351 1365525008
+  
+\change_unchanged
+ threshold 
 \begin_inset Formula $r$
 \end_inset
 
 .
- To ensure the generated graph is connected with high possibility,  
+ To ensure the generated graph is connected with high possibility,
+\change_deleted 936221351 1365525008
+ 
+\change_unchanged
+ 
 \begin_inset Formula $r$
 \end_inset
 
@@ -2323,7 +2361,11 @@ key "Li2010"
 \end_inset
 
 .
- Besides, assume  each link is symmetric so that the network graph is undirected.
+ Besides, assume
+\change_deleted 936221351 1365525008
+ 
+\change_unchanged
+ each link is symmetric so that the network graph is undirected.
  
 \end_layout
 
