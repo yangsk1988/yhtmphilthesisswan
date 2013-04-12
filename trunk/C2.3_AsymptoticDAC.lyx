@@ -109,14 +109,12 @@ s
 , each sensor maintains a table of 
 \change_deleted 936221351 1356958722
 all sensors
+\change_unchanged
+ 
 \change_inserted 936221351 1356958725
 local
 \change_unchanged
- values which initialize by its local initial
-\change_inserted 936221351 1356958741
- 
-\change_unchanged
-value.
+ values which initialize by its local initial value.
  At each iteration of the flooding algorithm, every node exchanges the table
  with their neighbors.
  After enough steps, which is larger than the diameter of the network, every
@@ -127,6 +125,8 @@ s
  of all 
 \change_deleted 936221351 1356958763
 nodes
+\change_unchanged
+ 
 \change_inserted 936221351 1356958765
 sensors
 \change_unchanged
@@ -187,11 +187,7 @@ Due to the simplicity and robustness of asymptotic distributed consensus
 \change_inserted 936221351 1356959423
 still 
 \change_unchanged
-plays an important role in the practice 
-\change_deleted 936221351 1356959429
- problems
-\change_unchanged
-.
+plays an important role in the practice.
  They are already applied to network with a large number of nodes and proved
  to be robust against the topology variation
 \change_inserted 5863457 1357342604
@@ -223,7 +219,7 @@ key "Ren2007"
  
 \change_unchanged
 In this section, we start from the first-order DAC algorithm and then expand
-  to higher-order algorithms in order to yields a higher 
+ to higher-order algorithms in order to yields a higher 
 \change_deleted 5863457 1357342613
 the
 \change_unchanged
@@ -1589,7 +1585,8 @@ key "Xiong2010"
 .
 
 \change_unchanged
- Thus, it is not necessary to extend the order larger than fourth.
+ Thus, it is not necessary to extend the order of DAC algorithms to larger
+ than fourth.
  
 \change_inserted 5863457 1357343349
 

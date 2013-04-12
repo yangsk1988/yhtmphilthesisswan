@@ -782,9 +782,13 @@ key "Russell1994"
 \end_layout
 
 \begin_layout Standard
-However,
+
+\change_deleted 936221351 1365774960
+However, d
+\change_inserted 936221351 1365774964
+ D
 \change_inserted 5862369 1355520679
- distributed
+istributed
 \change_unchanged
  average consensus is
 \change_deleted 5863457 1357336595
@@ -821,6 +825,11 @@ optimization problem, which is solved distributively by discrete-time matrix
  
 \end_layout
 
+\begin_layout Standard
+In this section, we will show the difference between continuous-time and
+ discrete-time consensus 
+\end_layout
+
 \begin_layout Subsection
 
 \change_inserted 5862369 1355521665
@@ -833,16 +842,49 @@ name "sec:Continuous-vs-Discrete-DAC"
 
 \change_unchanged
 Continuous-time vs.
- Discrete-time Consensus
+ Discrete-time 
+\change_deleted 936221351 1365775012
+Consensus
+\change_inserted 936221351 1365775016
+ DAC 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-In this section, we will show the difference between continuous-time and
- discrete-time consensus 
-\end_layout
+The dynamics of the consensus protocol 
+\change_inserted 936221351 1365775046
+that solves the average consensus problem 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
 
-\begin_layout Standard
-The dynamics of the consensus protocol is given by 
+\begin_inset Formula ${\cal X}\left(\mathbf{x}\right)=\mbox{mean}\left(\mathbf{x}\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\change_unchanged
+is given by 
 \end_layout
 
 \begin_layout Standard
@@ -865,37 +907,9 @@ u_{i}\left(t\right)=\sum_{j\in{\cal N}_{i}}a_{ij}\left(x_{j}-x_{i}\right)\label{
 
 \end_inset
 
-that solves the average consensus problem 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula ${\cal X}\left(\mathbf{x}\right)=\mbox{mean}\left(\mathbf{x}\right)$
-\end_inset
-
 
 \change_inserted 936221351 1365520301
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-, where 
+where 
 \begin_inset Formula $a_{ij}$
 \end_inset
 
@@ -904,7 +918,7 @@ that solves the average consensus problem
 \end_inset
 
 
-\change_deleted 936221351 1365520255
+\change_unchanged
 
 \family roman
 \series medium
@@ -931,8 +945,6 @@ that solves the average consensus problem
 \noun default
 \color inherit
  
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -964,11 +976,9 @@ without noise
 \change_inserted 5863457 1357338117
  
 \change_unchanged
-and variance proportional to the signal 
-\change_deleted 936221351 1365260958
-ti 
-\change_inserted 936221351 1365260958
- 
+and variance proportional to the signal
+\change_inserted 936221351 1365769318
+ to 
 \change_unchanged
 noise ratio.
  It is shown in 
@@ -2068,17 +2078,11 @@ reference "sec:DT-First-Order-DAC"
 .
 
 \change_deleted 5862369 1355847721
- The first order DAC
-\change_inserted 5863457 1357333355
-first-order DAC
-\change_deleted 5862369 1355521510
- algorithm is the simplest algorithm that can solve the consensus problem
- in a number of iteration.
+ The first order DAC algorithm is the simplest algorithm that can solve
+ the consensus problem in a number of iteration.
 
 \change_unchanged
  
-\change_deleted 5863457 1357339672
-It's
 \change_inserted 5863457 1357339672
 Its
 \change_unchanged
@@ -2186,8 +2190,11 @@ t
 \change_deleted 5862369 1355521510
  
 \change_unchanged
- could have faster convergence rate, and no additional requirement and communica
-tion cost is required compared with first-order DAC 
+ could have faster convergence rate, and no additional requirement and 
+\change_inserted 936221351 1365770040
+cost of 
+\change_unchanged
+communication is required compared with first-order DAC 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Xiong2010"

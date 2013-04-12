@@ -289,23 +289,26 @@ and an information flooding techniques
 \end_layout
 
 \begin_layout Standard
-Furthermore, another important property of 
+Furthermore, 
+\change_inserted 936221351 1365778763
+we have the following theorem to reveal 
+\change_unchanged
+another important property of 
 \change_deleted 5863457 1357427463
 the
 \change_unchanged
- FO-DCA need
-\change_inserted 5863457 1357427466
-s
+ FO-DCA
+\change_inserted 936221351 1365778774
+.
+
+\change_deleted 936221351 1365778775
+ needs to be highlighted in this section, which is described by  the following
+ theorem.
+
+\change_inserted 936221351 1365778775
+ 
 \change_unchanged
- to be highlighted in this section, which 
-\change_inserted 5863457 1357427468
-is 
-\change_unchanged
-described by 
-\change_deleted 5862369 1350052658
-see how this property can be explained
-\change_unchanged
- the following theorem.
+
 \end_layout
 
 \begin_layout Theorem
@@ -379,13 +382,7 @@ reference "thm:convergence condition"
 \end_layout
 
 \begin_layout Proof
-
-\change_inserted 5863457 1357427475
-T
-\change_deleted 5863457 1357427475
-t
-\change_unchanged
-he minimal polynomial of 
+The minimal polynomial of 
 \begin_inset Formula $W$
 \end_inset
 
@@ -418,13 +415,7 @@ W^{m}+a_{m-1}W^{m-1}+\ldots+a_{1}W+a_{0}I=\mathbf{0}_{n\times n}
 
 \end_inset
 
-
-\change_inserted 5863457 1357427478
-M
-\change_deleted 5863457 1357427478
-m
-\change_unchanged
-ultiplying both sides with 
+Multiplying both sides with 
 \begin_inset Formula $\mathbf{x}\left(0\right)$
 \end_inset
 
