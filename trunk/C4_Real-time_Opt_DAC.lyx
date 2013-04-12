@@ -135,11 +135,11 @@ d
 
 \begin_layout Section
 Introduction
-\change_deleted 5862369 1350054120
-
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 936221351 1365762697
 In many applications, such as time synchronization 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -180,6 +180,8 @@ key "Hlinka2012"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 936221351 1365762697
 The problem of how to achieve this average in a distributed system is called
  the 
 \shape italic
@@ -190,18 +192,33 @@ average consensus problem
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 936221351 1365762697
 When the moving target is highly dynamic or the sensors need to sample at
  a very high frequency, it requires that  the DAC algorithms return the
  result in a short time.
  Thus, many efforts have been devoted to optimize the algorithms.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 
-\change_deleted 5863457 1357427861
-The
+\change_inserted 936221351 1365764048
+As introduced in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:To-Find-a"
+
+\end_inset
+
+,
+\change_deleted 936221351 1365762628
+ 
 \change_unchanged
- DAC algorithms can be divided into asymptotic and non-asymptotic algorithms.
+DAC algorithms can be divided into asymptotic and non-asymptotic algorithms.
+
+\change_deleted 936221351 1365763755
  Asymptotic algorithms have been proved to be robust against  topology changes
  and they play important roles in practice 
 \begin_inset CommandInset citation
@@ -211,9 +228,7 @@ key "Ren2007"
 \end_inset
 
 .
-  
-\change_inserted 5863457 1355325231
-The optimization of asymptotic algorithms is to minimize the sub-dominate
+  The optimization of asymptotic algorithms is to minimize the sub-dominate
  eigenvalue of a weight matrix 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -236,34 +251,7 @@ key "Xiong2010"
 \end_inset
 
 .
- 
-\change_deleted 5863457 1355325257
-Therefore, 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Asensio-Marco2012"
-
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xiao2004"
-
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xiong2010"
-
-\end_inset
-
-  intend to minimize the sub-dominate eigenvalue of the  weight matrix to
- optimize the convergence rate.
-
-\change_unchanged
- In addition, 
+  In addition, 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kokiopoulou2007"
@@ -271,8 +259,34 @@ key "Kokiopoulou2007"
 \end_inset
 
  deals with the iteration acceleration.
- However, these optimization of DAC algorithms are centralized methods,
- which means a centralized node calculates the optimal parameters and forwards
+ 
+\change_inserted 936221351 1365764011
+ 
+\change_unchanged
+However,
+\change_deleted 936221351 1365763762
+ 
+\change_inserted 936221351 1365763761
+ the current
+\change_unchanged
+ optimization of 
+\change_inserted 936221351 1365763612
+asymptotic 
+\change_unchanged
+DAC algorithms are centralized methods
+\change_inserted 936221351 1365764005
+.
+ The distributed method inspired by the gossip algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boyd2006"
+
+\end_inset
+
+ converges very slowly.
+ 
+\change_deleted 936221351 1365764015
+, which means a centralized node calculates the optimal parameters and forwards
  them to the whole network 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -281,44 +295,11 @@ key "Xiong2010"
 \end_inset
 
 .
- 
-\change_deleted 5863457 1355325265
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 5863457 1357427870
-To enable the whole system to work distributively, the optimization should
- be distributed and the DAC algorithms should be robust against topology
- changes.
- 
+  
+\change_inserted 936221351 1365764016
+ N
 \change_unchanged
-A distributed method inspired by the gossip algorithm 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Boyd2006"
-
-\end_inset
-
- can be used to optimize the 
-\change_deleted 5863457 1357333390
-first order DAC
-\change_inserted 5863457 1357333390
-first-order DAC
-\change_unchanged
- but it converges very slowly.
-   The method involves triple nested distributed matrix iterations.
- The inner iteration has to converge to a certain range so that the iteration
- outside can return the right result.
- Thus, It is not surprising that it could not finish in a reasonable time
- when the network size is large.
-\change_inserted 5863457 1355325305
-
-\end_layout
-
-\begin_layout Standard
-For non-asymptotic DAC algorithms, such as finite-time 
+on-asymptotic DAC algorithms, such as finite-time 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sundaram2007"
@@ -332,16 +313,20 @@ key "Cavalcante2010"
 
 \end_inset
 
-, they find the average
-\change_deleted 5863457 1355325447
- 
-\change_unchanged
- in some sophisticated ways
-\change_deleted 5863457 1355325364
- but not robust against topology changes
+, they find the average in 
+\change_inserted 936221351 1365763777
+finite number of iterations but not robust against topology changes
 \change_unchanged
 .
- Sumdaram and Hadjicostis 
+
+\change_inserted 936221351 1365764020
+ 
+\change_deleted 936221351 1365763399
+ 
+\change_inserted 936221351 1365763777
+ 
+\change_deleted 936221351 1365763399
+Sumdaram and Hadjicostis 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sundaram2007"
@@ -349,10 +334,6 @@ key "Sundaram2007"
 \end_inset
 
  verify that there exists a filter that can estimate the consensus value.
-
-\change_deleted 5863457 1355325447
- 
-\change_unchanged
  Cavalcante and Mulgrew 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -360,52 +341,63 @@ key "Cavalcante2010"
 
 \end_inset
 
- follow
-\change_inserted 5863457 1357427924
- the work of
-\change_unchanged
- Sundaram and Hadjicostis
-\change_deleted 5863457 1357427913
-'s
-\change_unchanged
- 
-\change_deleted 5863457 1357427920
-work
-\change_unchanged
- to propose an adaptive algorithm to find the filter.
- 
-\change_inserted 5863457 1357427948
-The optimization for both of them is to minimize the number of necessary
+ follow the work of Sundaram and Hadjicostis  to propose an adaptive algorithm
+ to find the filter.
+ The optimization for both of them is to minimize the number of necessary
  iterations before a FIR filter is estimated.
- However, they are not robust against topology changes.
- 
+ However,
 \change_unchanged
-Both
-\change_deleted 5863457 1355325424
-  
-\change_inserted 5863457 1355325424
  
-\change_unchanged
-of them have a first-order DAC running in the background and the local values
- over time are taken as
+\change_deleted 936221351 1365763399
+they are not robust against topology changes.
+ Both of them have a first-order DAC running in the background and the local
+ values over time are taken as
 \change_deleted 5863457 1355325447
  
-\change_unchanged
- inputs of the 
-\change_inserted 5863457 1355325445
-filter estimation algorithms
-\change_unchanged
-.
+\change_deleted 936221351 1365763399
+ inputs of the filter estimation algorithms.
  As a result,
 \change_deleted 5863457 1355325447
  
-\change_unchanged
- if the network topology changes, these algorithms have to be 
-\change_inserted 5863457 1355325464
-terminated
-\change_unchanged
-, as outdated information during the filter estimation will lead to a wrong
+\change_deleted 936221351 1365763399
+ if the network topology changes, these algorithms have to be terminated,
+ as outdated information during the filter estimation will lead to a wrong
  answer.
+
+\change_inserted 936221351 1365763777
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 936221351 1365763903
+To enable the whole system to work distributively, the optimization should
+ be distributed and the DAC algorithms should be robust against topology
+ changes.
+
+\change_unchanged
+ 
+\change_deleted 936221351 1365763891
+A distributed method inspired by the gossip algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Boyd2006"
+
+\end_inset
+
+ can be used to optimize the first-order DAC but it converges very slowly.
+   The method involves triple nested distributed matrix iterations.
+ The inner iteration has to converge to a certain range so that the iteration
+ outside can return the right result.
+ Thus, It is not surprising that it could not finish in a reasonable time
+ when the network size is large.
+
+\change_inserted 936221351 1365763892
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -425,8 +417,13 @@ Therefore, a distributed optimization method with less computation time
 
 \begin_layout Standard
 After investigating these problems, we intend to find a distributed optimization
- method for the constant first-order DAC and higher-order DAC algorithms.
- Because in centralized optimization methods, optimal parameters of these
+ method for the constant first-order DAC and higher-order DAC algorithms
+ 
+\change_inserted 936221351 1365763942
+to enable the whole system to work distributively.
+ 
+\change_unchanged
+Because in centralized optimization methods, optimal parameters of these
  algorithms are only related to the eigenvalues of Laplacian matrix of the
  network 
 \begin_inset CommandInset citation
@@ -458,21 +455,17 @@ key "Franceschelli2009"
 \end_inset
 
 
-\change_inserted 5863457 1355325744
-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Yang2010"
 
 \end_inset
 
-
-\change_unchanged
 , initialization of the proposed algorithm is actually the first-order DAC
  itself.
  Therefore, first-order DAC will not be interrupted during the optimization
  and algorithm complexity and communication cost can be dramatically reduced.
-  
+ 
 \end_layout
 
 \begin_layout Standard
@@ -488,12 +481,7 @@ However, the distributed solution has a numerical error due to quantization,
 
 \begin_layout Standard
 The rest of this chapter is structured as follows.
- First,  the distributed real-time optimization of DAC will be given in
- 
-\change_deleted 5862369 1355847389
-section
-\change_unchanged
- 
+ First, the distributed real-time optimization of DAC will be given in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:distributed-Eigenvalue-Estimati"
@@ -501,11 +489,7 @@ reference "sec:distributed-Eigenvalue-Estimati"
 \end_inset
 
 .
- Second, the mitigation of numerical error  will be proposed in 
-\change_deleted 5862369 1355847391
-section
-\change_unchanged
- 
+ Second, the mitigation of numerical error will be proposed in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Mitigation-of-Numerical"
@@ -517,13 +501,7 @@ reference "sec:Mitigation-of-Numerical"
 \lang british
 analysed
 \lang english
- in
-\change_deleted 5862369 1355847401
- section
-\change_inserted 5862369 1355847401
- 
-\change_unchanged
- 
+ in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Algorithm-Complexity"
@@ -532,29 +510,19 @@ reference "sec:Algorithm-Complexity"
 
 .
  Fourth, in 
-\change_deleted 5862369 1355847393
-section
-\change_unchanged
- 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Simulation-of-Eigenvalue"
 
 \end_inset
 
-, the performance of DAC using the distributed real-time optimization  will
- be  
+, the performance of DAC using the distributed real-time optimization will
+ be 
 \lang british
 analysed
 \lang english
  and compared with the centralized one.
  Finally, the conclusion will be given in 
-\change_deleted 5862369 1355847408
-section
-\change_inserted 5862369 1355847408
- 
-\change_unchanged
- 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Conclusion"
@@ -661,21 +629,37 @@ estimation.
 
 \begin_layout Standard
 In contrast, the distributed real-time optimization and CFO-DAC can be running
- simultaneously  and algorithm complexity and communication cost can be
- dramatically reduced.
+ simultaneously
+\change_deleted 936221351 1365705680
+ 
+\change_unchanged
+ and algorithm complexity and communication cost can be dramatically reduced.
  Because the initialization of the proposed algorithm is to store a number
- of local values  obtained by  CFO-DAC, the distributed system can still
- work using non-optimal parameters at the very beginning just after the
- deployment.
+ of local values
+\change_deleted 936221351 1365705680
+ 
+\change_unchanged
+ obtained by
+\change_deleted 936221351 1365705680
+ 
+\change_unchanged
+ CFO-DAC, the distributed system can still work using non-optimal parameters
+ at the very beginning just after the deployment.
  After a number of iterations of CFO-DAC, these eigenvalues could be estimated
  and better parameters could be used in the next iterations.
 \end_layout
 
-\begin_layout Standard
-  
+\begin_layout Subsection
+Find the 
+\change_deleted 936221351 1365705655
+Coefficients of
+\change_unchanged
+ Characteristic Polynomial
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 936221351 1365705538
 Because 
 \begin_inset Formula $\lambda_{i}\left(W\right)$
 \end_inset
@@ -684,283 +668,59 @@ Because
 \begin_inset Formula $p(\lambda)=\prod_{i=1}^{m}\left(\lambda-\lambda_{i}\right)^{r_{i}}=\lambda^{D}+a_{D-1}\lambda^{D-1}+\ldots+a_{0}=0,$
 \end_inset
 
- the distributed eigenvalues estimation 
-\change_deleted 936221351 1365265579
-can be cast into
-\change_inserted 936221351 1365265609
- is 
-\change_deleted 936221351 1365265659
-followed by the
-\change_inserted 936221351 1365265843
-subject to the
-\change_unchanged
- calculation of
-\change_deleted 936221351 1365265597
- 
-\change_unchanged
+ the distributed eigenvalues estimation  is subject to the calculation of
  the coefficients 
 \begin_inset Formula $\left\{ a_{j}\right\} $
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
-To avoid complicated analysis, we assume duplex communication is possible
- in each link.
- Therefore, the  weight matrix 
-\begin_inset Formula $W$
-\end_inset
 
- is symmetric, 
-\lang british
-diagonalizable
-\lang english
- and has 
-\begin_inset Formula $n$
-\end_inset
-
- linear independent eigenvectors.
-  To calculate 
+\change_inserted 936221351 1365705490
+To calculate 
 \begin_inset Formula $\left\{ a_{j}\right\} $
 \end_inset
 
-, we need to use the following theorem:
-\end_layout
-
-\begin_layout Theorem
-\begin_inset CommandInset label
-LatexCommand label
-name "thm:LV predictor a_i-1"
-
-\end_inset
-
- Suppose an undirected graph 
-\begin_inset Formula ${\cal G}$
-\end_inset
-
- with associated weight matrix 
-\begin_inset Formula $W\in\mathbb{R}^{n\times n}$
-\end_inset
-
- which satisfies the conditions in 
-\change_deleted 936221351 1365522448
-theorem
-\change_unchanged
- 
+, we need to use the 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "thm:convergence condition"
+reference "thm:LV predictor a_i"
 
 \end_inset
 
-.
- For the DAC iteration 
-\begin_inset Formula $\mathbf{x}(k+1)=W\mathbf{x}(k)$
-\end_inset
-
-, local value 
-\shape up
-
-\begin_inset Formula $x_{i}\left(k\right)$
-\end_inset
-
-
-\shape default
-  is equal to a linear combination of  itself in 
-\begin_inset Formula $D$
-\end_inset
-
- previous time steps, i.e.
- 
-\begin_inset Formula $x_{i}\left(k\right)=-a_{D-1}x_{i}\left(k-1\right)-\ldots-a_{1}x_{i}\left(k-D+1\right)-a_{0}x_{i}\left(k-D\right)$
-\end_inset
-
-, where 
-\begin_inset Formula $k\geq D$
-\end_inset
-
- and 
-\begin_inset Formula $D$
-\end_inset
-
- is a certain number.
-\end_layout
-
-\begin_layout Proof
-Since all the eigenvectors of 
-\begin_inset Formula $W$
-\end_inset
-
- consist a basis of 
-\begin_inset Formula $\mathbb{R}^{n}$
-\end_inset
-
-, any initial value vector can be decomposed into a linear combination of
- these eigenvectors, 
-\begin_inset Formula $\mathbf{x}\left(0\right)=\alpha_{1}\mathbf{e}_{1}+\alpha_{2}\mathbf{e}_{2}+\ldots+\alpha_{n}\mathbf{e}_{n}$
-\end_inset
-
-.
- For 
-\begin_inset Formula $k=1,2,3,...$
-\end_inset
-
- we have
-\begin_inset Formula 
-\begin{eqnarray}
-\mathbf{x}\left(k\right) & = & W^{k}\mathbf{x}\left(0\right)=\sum_{i=1}^{n}\alpha_{i}\lambda_{i}^{k}\mathbf{e}_{i}\label{eq:x(k) decomposition-1}
-\end{eqnarray}
-
-\end_inset
-
-where 
-\begin_inset Formula $\lambda_{i}$
-\end_inset
-
- is the eigenvalue of 
-\begin_inset Formula $W$
-\end_inset
-
-.
-  Substitute   
+ introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "eq:x(k) decomposition-1"
+reference "sec:Linear-Predictor-For"
 
 \end_inset
 
- into 
-\begin_inset Formula $p\left(\lambda\right)$
-\end_inset
 
-, we have
-\begin_inset Formula 
-\begin{equation}
-\mathbf{x}\left(k\right)+a_{D-1}\mathbf{x}\left(k-1\right)+\ldots+a_{0}\mathbf{x}\left(k-D\right)=\mathbf{0}_{n\times1}\label{eq:x(k+D) vector predictor}
-\end{equation}
-
-\end_inset
-
- 
-\begin_inset Formula $\forall v_{i}\in{\cal V}$
-\end_inset
-
-, its local value 
-\begin_inset Formula $x_{i}\left(k\right)$
-\end_inset
-
- is the 
-\begin_inset Formula $i^{th}$
-\end_inset
-
- component of 
-\begin_inset Formula $\mathbf{x}\left(k\right)$
-\end_inset
-
-.
- After a little evolution, we have
-\begin_inset Formula 
-\begin{equation}
-x_{i}\left(k\right)=-a_{D-1}x_{i}\left(k-1\right)-\ldots-a_{0}x_{i}\left(k-D\right).\label{eq:x(k+D) predictor}
-\end{equation}
-
-\end_inset
-
-In other words, 
-\begin_inset Formula $x_{i}\left(k\right)$
-\end_inset
-
- can be predicted by a finite impulse response filter, if 
-\begin_inset Formula $k\geq D$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Lemma
-The sum of coefficients 
-\shape up
-
-\begin_inset Formula $a_{D-1},\ldots,a_{1},a_{0}$
-\end_inset
-
-
-\shape default
- is equal to 
-\begin_inset Formula $-1$
-\end_inset
-
-
-\shape up
-.
- 
-\end_layout
-
-\begin_layout Proof
-
-\change_deleted 5862369 1355526896
- 
 \change_unchanged
-Since  
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:x(k+D) vector predictor"
-
-\end_inset
-
- 
-\change_inserted 5863457 1357428022
-is 
-\change_unchanged
-satisfied as 
-\begin_inset Formula $k\to\infty$
-\end_inset
-
-, we have 
-\begin_inset Formula $\bar{\mathbf{x}}+a_{D-1}\bar{\mathbf{x}}+\ldots+a_{1}\bar{\mathbf{x}}+a_{0}\bar{\mathbf{x}}=\mathbf{0}$
-\end_inset
-
 .
- Then, 
-\change_deleted 5862369 1355526896
-cancelling
-\change_inserted 5862369 1355526896
-canceling
-\change_unchanged
- the vector 
-\begin_inset Formula $\bar{\mathbf{x}}$
-\end_inset
-
- will obtain 
-\begin_inset Formula $\sum_{j=0}^{D-1}a_{j}=-1$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Subsection
-Find the Polynomial Coefficients
-\end_layout
-
-\begin_layout Standard
-If more local values are available, node 
+ If more local values are available, node 
 \begin_inset Formula $v_{i}$
 \end_inset
 
  could list a number of equations similar to 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "eq:x(k+D) predictor"
+reference "eq:x(k+r) predictor"
 
 \end_inset
 
 .
- Once they are sufficient to construct a matrix, we can have an important
- result.
+ Once they are sufficient to construct a matrix,
+\change_inserted 936221351 1365705475
+ the coefficients 
+\begin_inset Formula $\left\{ a_{j}\right\} $
+\end_inset
+
+ could be estimated
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -1188,7 +948,18 @@ s
 \change_inserted 5863457 1357429076
 e
 \change_unchanged
- rank, and node 
+ rank,
+\change_deleted 936221351 1365759138
+ 
+\change_unchanged
+ so that the solution is
+\change_inserted 936221351 1365759143
+ not
+\change_unchanged
+ unique
+\change_inserted 936221351 1365759172
+.
+ Node 
 \begin_inset Formula $v_{i}$
 \end_inset
 
@@ -1196,7 +967,13 @@ e
 \begin_inset Formula $D_{i}$
 \end_inset
 
- so that the solution is unique.
+ (
+\begin_inset Formula $D_{i}\leq D\leq n$
+\end_inset
+
+)
+\change_unchanged
+.
  As a result, the local polynomial 
 \begin_inset Formula $p_{i}\left(\lambda\right)$
 \end_inset
@@ -1213,32 +990,29 @@ d
 \begin_inset Formula $D_{i}$
 \end_inset
 
- (
-\begin_inset Formula $D_{i}\leq D\leq n$
-\end_inset
-
-) coefficients.
- In addition, 
+ coefficients.
+ 
+\change_deleted 936221351 1365759193
+In addition, 
 \begin_inset Formula $D_{i}$
 \end_inset
 
- may
-\change_inserted 5863457 1357429092
- be
+ may be different from one to another.
+
+\change_inserted 936221351 1365759193
+ 
 \change_unchanged
- different from one to another.
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 936221351 1365759100
 The example of a node 
 \begin_inset Formula $v_{i}$
 \end_inset
 
- who cannot estimate a
-\change_inserted 5863457 1357429109
-n
-\change_unchanged
- eigenvalue 
+ who cannot estimate an eigenvalue 
 \begin_inset Formula $\lambda_{l}$
 \end_inset
 
@@ -1255,13 +1029,7 @@ n
 \begin_inset Formula $i'th$
 \end_inset
 
- component equal
-\change_inserted 5863457 1357429120
-ing
-\change_deleted 5863457 1357429120
-s
-\change_unchanged
- to zero, i.e 
+ component equaling to zero, i.e 
 \begin_inset Formula $\mathbf{u}_{d}^{T}\mathbf{e}_{l}=0$
 \end_inset
 
@@ -1269,11 +1037,7 @@ s
 \begin_inset Formula $\mathbf{u}_{i}$
 \end_inset
 
- is a
-\change_inserted 5863457 1357429131
-n
-\change_unchanged
- all-zero vector except the 
+ is an all-zero vector except the 
 \begin_inset Formula $i'th$
 \end_inset
 
@@ -1291,6 +1055,8 @@ n
 
 .
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1358,24 +1124,45 @@ key "Sundaram2007"
 
 
 \change_inserted 936221351 1365523685
- for proof, 
+ for proof
 \change_unchanged
 )
 \end_layout
 
 \begin_layout Standard
-For this reason, every node need
-\change_inserted 5863457 1357429231
-s
-\change_unchanged
- to exchange its estimated eigenvalue spectrum with its neighbors in order
- to recover the full eigenvalue spectrum of 
+Every node 
+\change_inserted 936221351 1365758868
+may recover the complete eigenvalue spectrum of 
 \begin_inset Formula $W$
 \end_inset
 
+ 
+\change_deleted 936221351 1365758904
+needs 
+\change_inserted 936221351 1365758935
+ by
+\change_unchanged
+ exchanging its 
+\change_deleted 936221351 1365758896
+estimated
+\change_inserted 936221351 1365758931
+ local
+\change_unchanged
+ eigenvalue spectrum with its neighbors
+\change_deleted 936221351 1365758921
+ in order to recover the full eigenvalue spectrum of 
+\begin_inset Formula $W$
+\end_inset
+
+
+\change_unchanged
 .
  To assure that no eigenvalue is missing in the final eigenvalue spectrum,
- for any eigenvalue 
+ 
+\change_deleted 936221351 1365758958
+for 
+\change_unchanged
+any eigenvalue 
 \begin_inset Formula $\lambda_{l}$
 \end_inset
 
@@ -1383,7 +1170,11 @@ s
 \begin_inset Formula $\left(W\right)$
 \end_inset
 
-, it must be estimated by at least one node in the network.
+
+\change_deleted 936221351 1365758960
+, it
+\change_unchanged
+ must be estimated by at least one node in the network.
  
 \end_layout
 
@@ -1424,6 +1215,8 @@ Suppose a graph
 \end_layout
 
 \begin_layout Proof
+
+\change_deleted 936221351 1365759061
 For the case that matrix 
 \begin_inset Formula $W$
 \end_inset
@@ -1446,19 +1239,11 @@ For the case that matrix
 \end_inset
 
 .
- If a
-\change_deleted 5863457 1357429264
-n
-\change_unchanged
- node 
+ If a node 
 \begin_inset Formula $v_{d}$
 \end_inset
 
- could not estimation a
-\change_inserted 5863457 1357429310
-n
-\change_unchanged
- eigenvalue 
+ could not estimation an eigenvalue 
 \begin_inset Formula $\lambda_{l}=\lambda_{l}\left(W\right)$
 \end_inset
 
@@ -1493,58 +1278,24 @@ n
 \end_inset
 
 , the associated eigenvector or the linear combination of associated eigenvector
-s 
-\change_deleted 5863457 1357429461
-is
-\change_inserted 5863457 1357429462
-will be
-\change_unchanged
- 
+s will be 
 \begin_inset Formula $\mathbf{0}_{n\times1}$
 \end_inset
 
 .
- However, 
-\change_inserted 5863457 1357429485
-this situation 
-\change_deleted 5863457 1357429469
-it
-\change_unchanged
- 
-\change_inserted 5863457 1357429518
-will never happen 
-\change_deleted 5863457 1357429515
-is not possible
-\change_unchanged
- for a diagnosable matrix.
+ However, this situation  will never happen  for a diagnosable matrix.
  Since diagnosable matrix has 
 \begin_inset Formula $n$
 \end_inset
 
- independent eigenvectors, 
-\change_inserted 5863457 1357429559
-any
-\change_unchanged
- linear combination of 
-\change_inserted 5863457 1357429568
-these 
-\change_unchanged
-eigenvectors 
-\change_deleted 5863457 1357429544
-can
-\change_inserted 5863457 1357429545
-will
-\change_unchanged
- not be equal to 
+ independent eigenvectors, any linear combination of these eigenvectors
+ will not be equal to 
 \begin_inset Formula $\mathbf{0}_{n\times1}$
 \end_inset
 
 .
- Therefore, there exist
-\change_inserted 5863457 1357429585
-s
-\change_unchanged
- at least one node in the network could estimate 
+ Therefore, there exists at least one node in the network could estimate
+ 
 \begin_inset Formula $\lambda_{l}$
 \end_inset
 
@@ -1695,7 +1446,7 @@ As floating point number in double  format is  available on most computers,
 The idea is to have more equations similar to  
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "eq:x(k+D) predictor"
+reference "eq:x(k+r) predictor"
 
 \end_inset
 
