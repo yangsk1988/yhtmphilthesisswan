@@ -168,15 +168,10 @@ Distributed information processing has attracted more interests recently
  consensus algorithms.
  If the consensus algorithms are to find the average value over the network,
  the algorithms are called distributed average consensus (DAC) algorithms,
- which are
-\change_deleted 936221351 1365507754
- 
-\change_unchanged
- matrix iterative algorithms to find the dominant eigenvector of the matrix.
+ which are matrix iterative algorithms to find the dominant eigenvector
+ of the matrix.
  Generally, the
-\change_deleted 936221351 1365507686
- 
-\change_inserted 936221351 1365437585
+\change_inserted 936221351 1365769413
  DAC 
 \change_unchanged
 algorithms
@@ -188,11 +183,23 @@ algorithms
 can
 \change_unchanged
  return the result more quickly so that the distributed system can have
- better 
+ 
+\change_deleted 936221351 1365774702
+better
+\change_inserted 936221351 1365774705
+higher
+\change_unchanged
+ 
 \change_inserted 936221351 1365507689
 signal
 \change_unchanged
- processing performance.
+ processing 
+\change_inserted 936221351 1365774711
+speed
+\change_deleted 936221351 1365774717
+performance
+\change_unchanged
+.
  Therefore, many efforts have been devoted into 
 \change_inserted 936221351 1365507689
 its
@@ -249,8 +256,8 @@ in
 Later, an application of cloud detection is 
 \change_deleted 936221351 1365437748
 given
-\change_inserted 936221351 1365437750
-presented
+\change_inserted 936221351 1365769421
+ presented
 \change_unchanged
  where optimized DAC algorithms are applied to perform the hypothesis testing.
  In addition, the performance

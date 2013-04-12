@@ -138,33 +138,43 @@ The decision of cloud existence could be made based on the log likelihood
 \end_layout
 
 \begin_layout Standard
-After a 
-\change_deleted 936221351 1365530853
-brife
-\change_inserted 936221351 1365530853
-brief
+
+\change_deleted 936221351 1365778977
+After a brife
+\change_inserted 936221351 1365778980
+The
 \change_unchanged
- introduction of the cloud detection in 
+ introduction of the cloud detection 
+\change_inserted 936221351 1365779011
+is shown 
+\change_unchanged
+in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Introduction_cloud"
 
 \end_inset
 
-, 
-\change_inserted 936221351 1365528842
-
+,
+\change_inserted 936221351 1365779020
+ followed by the
+\change_deleted 936221351 1365779032
+ 
+\change_unchanged
+ the system model
+\change_inserted 936221351 1365779039
+ in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Background-and-System"
 
 \end_inset
 
- 
-\change_unchanged
-shows the system model.
 
-\change_inserted 936221351 1365530863
+\change_unchanged
+.
+
+\change_inserted 936221351 1365779034
  Gaussian plume model is widely used in cloud concentration modeling.
  However, the sensors is using laser remote sensing technology.
  In addition, the cloud concentration of a plume is actually a random process,
@@ -655,8 +665,6 @@ and
 \change_inserted -1199928310 1347292003
 moving object.
  
-\change_deleted -1199928310 1347292150
-t
 \change_inserted 5863457 1357605833
 For example, 
 \change_unchanged

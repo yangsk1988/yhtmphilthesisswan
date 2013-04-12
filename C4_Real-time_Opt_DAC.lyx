@@ -1164,8 +1164,8 @@ estimated
 .
  To assure that no eigenvalue is missing in the final eigenvalue spectrum,
  
-\change_deleted 936221351 1365758958
-for 
+\change_inserted 936221351 1365778711
+we have the following theorem that 
 \change_unchanged
 any eigenvalue 
 \begin_inset Formula $\lambda_{l}$
@@ -1614,7 +1614,15 @@ The width of
 
 \begin_layout Standard
 On the other hand, let 
-\begin_inset Formula $\mathbf{y}_{i,s}=\mathbf{y}_{i,s}\left(D_{i}-1,D_{i}\right)=\left[x_{i,s}\left(D_{i}\right),x_{i,s}\left(D_{i}+1\right),\dots,x_{i,s}\left(2D_{i}\right)\right]^{T}$
+\begin_inset Formula $\mathbf{y}_{i,s}$
+\end_inset
+
+
+\begin_inset Formula $=\mathbf{y}_{i,s}\left(D_{i}-1,D_{i}\right)$
+\end_inset
+
+
+\begin_inset Formula $=\left[x_{i,s}\left(D_{i}\right),x_{i,s}\left(D_{i}+1\right),\dots,x_{i,s}\left(2D_{i}\right)\right]^{T}$
 \end_inset
 
  be the local value history vector of 
@@ -1658,8 +1666,15 @@ The vector
 \begin_inset Formula $\tilde{\mathbf{q}}_{i}$
 \end_inset
 
- is constructed by this way so that each  local value is one time step later
- than the first  local value in each row of matrix 
+ is constructed by this way so that each
+\change_deleted 936221351 1365774410
+ 
+\change_unchanged
+ local value is one time step later than the first
+\change_deleted 936221351 1365774410
+ 
+\change_unchanged
+ local value in each row of matrix 
 \begin_inset Formula $\tilde{M}_{i}$
 \end_inset
 
