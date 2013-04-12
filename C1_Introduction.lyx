@@ -618,6 +618,16 @@ sense
 \end_layout
 
 \begin_layout Subsection
+
+\change_inserted 936221351 1365762726
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:To-Find-a"
+
+\end_inset
+
+
+\change_unchanged
 To Find a Faster DAC Algorithm 
 \end_layout
 

@@ -315,36 +315,38 @@ name "thm:LV predictor a_i"
 
 \end_inset
 
- For the DAC iteration 
-\begin_inset Formula $\mathbf{x}(k+1)=W\mathbf{x}(k)$
-\end_inset
 
- with 
-\begin_inset Formula $W$
-\end_inset
-
- satisfying the convergence condition in 
-\change_deleted 936221351 1365522417
-theorem
-\change_inserted 936221351 1365522417
+\change_inserted 936221351 1365704090
  
 \change_unchanged
- 
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:LV predictor a_i-1"
+
+\end_inset
+
+ Suppose an undirected graph 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ with associated weight matrix 
+\begin_inset Formula $W\in\mathbb{R}^{n\times n}$
+\end_inset
+
+ which satisfies the conditions in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "thm:convergence condition"
 
 \end_inset
 
- , for any 
-\begin_inset Formula $k\geq m$
+.
+ For the DAC iteration 
+\begin_inset Formula $\mathbf{x}(k+1)=W\mathbf{x}(k)$
 \end_inset
 
-, where 
-\begin_inset Formula $m$
-\end_inset
-
- is a certain number, local value 
+, local value 
 \shape up
 
 \begin_inset Formula $x_{i}\left(k\right)$
@@ -365,8 +367,15 @@ reference "thm:convergence condition"
 \begin_inset Formula $x_{i}\left(k\right)=-a_{m-1}x_{i}\left(k-1\right)-\ldots-a_{1}x_{i}\left(k-m+1\right)-a_{0}x_{i}\left(k-m\right)$
 \end_inset
 
-.
- 
+, where for any 
+\begin_inset Formula $k\geq m$
+\end_inset
+
+ and 
+\begin_inset Formula $m$
+\end_inset
+
+ is a certain number.
 \end_layout
 
 \begin_layout Proof
@@ -479,6 +488,56 @@ n
 \end_inset
 
  is not changed.
+\change_inserted 936221351 1365704382
+
+\end_layout
+
+\begin_layout Lemma
+The sum of coefficients 
+\shape up
+
+\begin_inset Formula $a_{m-1},\ldots,a_{1},a_{0}$
+\end_inset
+
+
+\shape default
+ is equal to 
+\begin_inset Formula $-1$
+\end_inset
+
+
+\shape up
+.
+ 
+\end_layout
+
+\begin_layout Proof
+Since 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:x(k+r) vector predictor"
+
+\end_inset
+
+ is satisfied as 
+\begin_inset Formula $k\to\infty$
+\end_inset
+
+, we have 
+\begin_inset Formula $\bar{\mathbf{x}}+a_{m-1}\bar{\mathbf{x}}+\ldots+a_{1}\bar{\mathbf{x}}+a_{0}\bar{\mathbf{x}}=\mathbf{0}$
+\end_inset
+
+.
+ Then, canceling the vector 
+\begin_inset Formula $\bar{\mathbf{x}}$
+\end_inset
+
+ will obtain 
+\begin_inset Formula $\sum_{j=0}^{m-1}a_{j}=-1$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
