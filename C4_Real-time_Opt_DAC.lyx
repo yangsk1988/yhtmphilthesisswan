@@ -99,9 +99,16 @@ thispagestyle{empty}
 \end_layout
 
 \begin_layout Standard
-Distributed average consensus (DAC) algorithms are widely used in many applicati
-ons.
- It utilizes matrix iteration to find the dominant eigenvector.
+Distributed average consensus (DAC) algorithms 
+\change_deleted 5862369 1365764940
+are widely used in many applications.
+ It
+\change_unchanged
+ utilize
+\change_deleted 5862369 1365764943
+s
+\change_unchanged
+ matrix iteration to find the dominant eigenvector.
  To minimize the required number of iterations, the algorithms need to be
  optimized.
  However, this optimization needs the knowledge of network topology, which
@@ -213,10 +220,8 @@ reference "sub:To-Find-a"
 \end_inset
 
 ,
-\change_deleted 936221351 1365762628
- 
 \change_unchanged
-DAC algorithms can be divided into asymptotic and non-asymptotic algorithms.
+ DAC algorithms can be divided into asymptotic and non-asymptotic algorithms.
 
 \change_deleted 936221351 1365763755
  Asymptotic algorithms have been proved to be robust against  topology changes
@@ -319,7 +324,7 @@ finite number of iterations but not robust against topology changes
 \change_unchanged
 .
 
-\change_inserted 936221351 1365764020
+\change_deleted 5862369 1365764769
  
 \change_deleted 936221351 1365763399
  
