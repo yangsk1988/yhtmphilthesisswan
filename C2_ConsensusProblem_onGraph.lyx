@@ -825,11 +825,6 @@ optimization problem, which is solved distributively by discrete-time matrix
  
 \end_layout
 
-\begin_layout Standard
-In this section, we will show the difference between continuous-time and
- discrete-time consensus 
-\end_layout
-
 \begin_layout Subsection
 
 \change_inserted 5862369 1355521665
@@ -849,6 +844,11 @@ Consensus
  DAC 
 \change_unchanged
 
+\end_layout
+
+\begin_layout Standard
+In this section, we will show the difference between continuous-time and
+ discrete-time consensus 
 \end_layout
 
 \begin_layout Standard
