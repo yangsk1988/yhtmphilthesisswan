@@ -1,0 +1,1364 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 5862369 "HT" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter*
+Abbreviations
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+chapter*{Abbreviations} %[List of Abbreviations]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{List of Abbreviations}
+\end_layout
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+begin{thenomenclature} 
+\end_layout
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+begin{abbreviations}{WidestAbbreviation} 
+\end_layout
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+begin{itemize} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{p{4.0cm} p{11cm}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2D
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Two Dimensional 
+\begin_inset Newline newline
+\end_inset
+
+3D
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Three Dimensional
+\begin_inset Newline newline
+\end_inset
+
+WSNs
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Wireless Sensor Netoworks
+\begin_inset Newline newline
+\end_inset
+
+DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+FIR filter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Finite Impulse Response Filter
+\begin_inset Newline newline
+\end_inset
+
+FO-DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ First-order Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+SO-DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Second-order Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+HO-DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Higher-order Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+CFO-DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Constant First Order Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+FT-DAC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Finite Time Distributed Average Consensus 
+\begin_inset Newline newline
+\end_inset
+
+LMS 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Least Mean Square
+\begin_inset Newline newline
+\end_inset
+
+ML 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Maximum Likelihood
+\begin_inset Newline newline
+\end_inset
+
+LLR 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Log Likelihood Ratio
+\begin_inset Newline newline
+\end_inset
+
+G-LLR 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Global Log Likelihood Ratio
+\begin_inset Newline newline
+\end_inset
+
+L-LLR 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Local Log Likelihood Ratio
+\begin_inset Newline newline
+\end_inset
+
+PDF 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Probability Density Function
+\begin_inset Newline newline
+\end_inset
+
+MAP 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Maximum a Posteriori 
+\begin_inset Newline newline
+\end_inset
+
+ML 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Maximum Likelihood 
+\begin_inset Newline newline
+\end_inset
+
+
+\change_deleted 5862369 1357319974
+ROC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Relative operating characteristic curves
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Notations
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+chapter*{Notations} %[List of Notations]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{List of Notations}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+begin{listofsymbols} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{p{2.5cm} p{11cm}} %
+\backslash
+begin{abmbreviations}{WidestAbbreviation}
+\end_layout
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+nomgroup{A}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Graph associated to the network 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ The 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ node 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Set of nodes in the graph 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{V}=\left\{ v_{1},v_{2},...,v_{n}\right\} $
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Set of edges in the graph 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{E}\subseteq\mathcal{V}\times\mathcal{V}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Weighted adjacency associated with graph 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $W$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Weight matrix of first-order DAC algorithm 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $w_{ij}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Entry of weight matrix 
+\begin_inset Formula $W$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{H}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Weight matrix of higher-order DAC algorithm 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\lambda_{i}\left(A\right)$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ The 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+eigenvalue of matrix 
+\begin_inset Formula $A$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $S\left(A\right)$
+\end_inset
+
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Spectrum of matrix 
+\begin_inset Formula $A$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\begin_inset Formula $Q$
+\end_inset
+
+ 
+\shape default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Incidence matrix associated with graph 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Laplacian matrix induced by 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $l_{ij}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Entry of Laplacian matrix 
+\begin_inset Formula $L$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\lambda_{i}\left(L\right)$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ The 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ Eigenvalue of Laplacian matrix 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $S_{i}\left(L\right)$
+\end_inset
+
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Local spectrum of the Laplacian matrix estimated by node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{x}\left(k\right)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Local value vector at time index 
+\begin_inset Formula $k$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Local value of node 
+\begin_inset Formula $i$
+\end_inset
+
+ at time index 
+\begin_inset Formula $k$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bar{\mathbf{x}}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ The consensus value vector.
+ All entries are the consensus value.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Step length of DAC algorithms
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Forgetting factor of DAC algorithms
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\epsilon_{opt,FO}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Optimal step length of first-order DAC algorithms
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\epsilon_{opt,SO}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Optimal step length of second-order DAC algorithms
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\gamma_{opt,SO}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Optimal forgetting factor of second-order DAC algorithms
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $p(\lambda)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ The minimal polynomial of 
+\begin_inset Formula $W$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $p_{i}(\lambda)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ local polynomial of 
+\begin_inset Formula $W$
+\end_inset
+
+ estimated by node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T_{i}\left(k,D_{i}\right)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ Toeplitz matrix in 
+\begin_inset Formula $\mathbb{R}^{D_{i}\times D_{i}}$
+\end_inset
+
+ at 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+ as diagonal entries.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{y}_{i}\left(k,D_{i}\right)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ The local value history vector at 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ constructed by 
+\begin_inset Formula $\left[x_{i}\left(k+1\right),x_{i}\left(k+2\right),\ldots,x_{i}\left(k+D_{i}\right)\right]^{T}$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\mathbf{h}$
+\end_inset
+
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ & 
+\end_layout
+
+\end_inset
+
+ An FIR filter that can estimate the consensus value 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular} 
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+end{listofsymbols}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

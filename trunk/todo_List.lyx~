@@ -1,0 +1,368 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass IEEEtran
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+todo
+\end_layout
+
+\begin_layout Enumerate
+consensus is also used in WSN power control.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mitliagkas2011"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+a)motivation of research.
+ b) key contribution.
+ c)literature review d)research work e) conclusions.
+\end_layout
+
+\begin_layout Enumerate
+use the term ill-condition to describe the polynomial 
+\begin_inset Quotes eld
+\end_inset
+
+However, the resulting polynomials of degree 
+\begin_inset Formula $m$
+\end_inset
+
+ corresponding to equation (8) can be very ill-conditioned (in the sense
+ that small changes in the coefficients can give arbitrarily large changes
+ in the roots), and better results can be obtained using the methods described
+ in Section 5.3 of the next chapter 
+\begin_inset Quotes erd
+\end_inset
+
+ Computational methods for matrix eigenproblems, QA193 Gou.
+\end_layout
+
+\begin_layout Enumerate
+the properties of Laplacian matrix.
+ lambda_2 of unweighted L is called algebraic connectivity of the graph.
+ weighted L has similar properties with unweighted L.
+\end_layout
+
+\begin_layout Enumerate
+rewrite 
+\begin_inset Quotes eld
+\end_inset
+
+introduction
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(done in C2 consensus problem description) what is consensus algorithm?
+ A:the algorithm to find the average value.
+\end_layout
+
+\begin_layout Enumerate
+(check clear explained or not in C3 Consensus based signal processing &
+ C5 cloud detection) what's the benefit of using it? A:we use the algorithm
+ to find the global log likelihood ratio, which is the average of local
+ log likelihood ratio.
+\end_layout
+
+\begin_layout Enumerate
+why we use the consensus algorithm to solve the problem in cloud detection?A:
+ The challenge of cloud detection.
+ It is a diffusive target.
+ Interference from the outdoor environment.
+ (check, explained in C5 )
+\end_layout
+
+\begin_layout Enumerate
+Asymptotic distributed consensus algorithm plays an important role in the
+ practical problems.
+ (todo)
+\begin_inset Newline newline
+\end_inset
+
+Finite-Time Consensus without Knowledge of Network Topology(todo)
+\begin_inset Newline newline
+\end_inset
+
+Linear Predictor For Local Value (todo check 0)
+\begin_inset Newline newline
+\end_inset
+
+The Consensus Finding Filter and The Relationship with Linear Predictor
+ (todo check)
+\begin_inset Newline newline
+\end_inset
+
+Consensus Based Network Information Flooding(todo check)
+\begin_inset Newline newline
+\end_inset
+
+Consensus Based Distributed Eigenvalues Estimation(todo)
+\end_layout
+
+\begin_layout Enumerate
+add some new changes to chapter 
+\begin_inset Quotes eld
+\end_inset
+
+real-time...
+\begin_inset Quotes erd
+\end_inset
+
+ new changes can be found in 
+\begin_inset Quotes eld
+\end_inset
+
+introduction
+\begin_inset Quotes erd
+\end_inset
+
+ : 
+\begin_inset Quotes eld
+\end_inset
+
+motivation
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+contribution
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Eigenvalue estimation
+\end_layout
+
+\begin_layout Enumerate
+What's 
+\begin_inset Quotes eld
+\end_inset
+
+consensus principal component analysis
+\begin_inset Quotes erd
+\end_inset
+
+ ?
+\end_layout
+
+\begin_layout Enumerate
+improve 
+\begin_inset Quotes eld
+\end_inset
+
+Eigenvalue predict
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+do a experiment compare the difference, average of best coefficients, best
+ coefficients.
+\begin_inset Newline newline
+\end_inset
+
+add ref 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yang2010"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+(todo compare existing algorithm AESOPS AND PEALS ALGORITHMS in power system)
+\begin_inset Newline newline
+\end_inset
+
+(todo if we need to show the numerical error.
+ The simulation result shows that when using float number with double accuracy,
+ there can be 
+\begin_inset Quotes eld
+\end_inset
+
+iterative improvement of a solution
+\begin_inset Quotes erd
+\end_inset
+
+ to mitigate the numerical error.
+ )
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Quotes eld
+\end_inset
+
+Now assume instead of n, we are interested in its second-largest eigenvalue
+ n􀀀1.
+ If we already know n and vn, we can estimate n􀀀1 by running the power iteration
+ on the deflated matrix
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yang2010"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+cloud detection
+\end_layout
+
+\begin_layout Enumerate
+(partially done)improve 
+\begin_inset Quotes eld
+\end_inset
+
+Consensus based Data Fusion and Decision Making
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+improve 
+\begin_inset Quotes eld
+\end_inset
+
+cloud detection problem
+\begin_inset Quotes erd
+\end_inset
+
+ explain the problem using maximum expectation....
+\end_layout
+
+\begin_layout Section
+done
+\end_layout
+
+\begin_layout Enumerate
+(done)todo: explain how to get analytical solution of HO-DAC.
+\end_layout
+
+\begin_layout Enumerate
+(done)todo: weighted and unweighted Laplacian matrix.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yang2010"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(done)todo, continuous consensus
+\end_layout
+
+\begin_layout Enumerate
+(done)todo, max min consensus.
+\end_layout
+
+\begin_layout Enumerate
+(done)todo add 
+\begin_inset Quotes eld
+\end_inset
+
+The well-known Perron-Frobenius Theorem states that if a nonnegative matrix
+ A is irreducible, that is, the digraph of matrix A is strongly connected,
+ then ρ(A) is a simple eigenvalue of A associated with a positive eigenvector,
+ where ρ(·) denotes the spectral radius of a matrix.
+\begin_inset Quotes erd
+\end_inset
+
+ from 
+\begin_inset Quotes eld
+\end_inset
+
+A Survey of Consensus Problems in Multi-agent Coordination
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
