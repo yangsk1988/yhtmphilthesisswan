@@ -1,0 +1,257 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding ascii
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 5862369 "HT" 
+\author 5863457 "ht" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter*
+
+\change_deleted 5862369 1355263978
+Acknowledgment
+\change_inserted 5862369 1355263979
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newenvironment{acknowledgements} {
+\backslash
+pagestyle{empty}   
+\backslash
+begin{center} 
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+vspace*{1.5cm} 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+Large 
+\backslash
+bfseries Acknowledgements} 
+\backslash
+end{center} 
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+vspace{0.5cm} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{quote}} {
+\backslash
+end{quote} }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{acknowledgements} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+
+\change_deleted 5863457 1355275185
+I thanks to my two supervisors Dr.Wang and Prof.Choi who give me lots of useful
+ ideas and suggestions.
+ Without your help, the thesis could not be finished within this time.
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+
+\change_deleted 5863457 1355275185
+Also thanks to my father and mother, your encouragment during the pursuing
+ of this degree is the power of my heart to conquer all the difficulties.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+
+\change_deleted 5863457 1355275185
+Thanks to the sponsor too.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+I would like to express my gratitude to my thesis advisor Dr.
+ Xinheng Wang for his careful guidance and his valuable comments; his patience
+ and the constructive criticism helped me to organize many concepts in a
+ frame.
+ His encouragement has been invaluable.
+ Thank you so much Henry!
+\end_layout
+
+\begin_layout Standard
+I would also like to thank Prof.
+ Jinho Choi for his insightful comments.
+ 
+\end_layout
+
+\begin_layout Standard
+Their suggestions contributed to boarden my view of the distributed information
+ system and the distributed consensus problem.
+ Thank you for your help and encouragement.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+
+\change_deleted 5862369 1355263647
+I'd like to thank the following for the financial aid received in support
+ of my study : EPSRC, Huawei Corporation.
+
+\change_inserted 5862369 1355263647
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Thanks to my colleagues Frank Liu, Tommy To, Laurie Hughes
+\change_inserted 5862369 1355421674
+, John Li
+\change_unchanged
+.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+
+\change_deleted 5862369 1355263944
+I wish to express my personal appreciation to Avri Cui for her excellent
+ typing.
+
+\change_inserted 5862369 1355263944
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+At last, I would like to sincerely thank my parents for their encouragement
+ and support during all phases of this work.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{acknowledgements}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

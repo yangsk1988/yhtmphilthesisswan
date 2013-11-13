@@ -1,0 +1,3823 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author -1199928310 "yanghaitao" 
+\author 5862369 "HT" 
+\author 5863457 "ht" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:DAC-Implementation:-Distributed"
+
+\end_inset
+
+An Application of DAC: Distributed 
+\change_inserted 5863457 1355275708
+Cloud 
+\change_unchanged
+Detection
+\change_deleted 5863457 1355275712
+ of Cloud
+\change_inserted 5863457 1355275712
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+In this chapter, the DAC algorithm will be applied to the remote detection
+ of cloud, which is to find out a group harmful liquids, solid particles
+ or gases floated in the air.
+ Enabled by laser technology, the sensor can illuminate these particles
+ and detect the backscatters.
+ However, background noise or moving object in the real environment may
+ interfere the the sensor signal.
+ Therefore, a method to use distributed detection is necessary.
+ The Gaussian plume model is widely used in cloud plume concentration modeling.
+ However, the cloud concentration is actually a random process with variance,
+ which the Gaussian plume model can not capture.
+ Therefore, a 3D cloud animation is implemented to get data of cloud concentrati
+on.
+ Then, the expectation-maximization algorithm is adopted to get the Gaussian
+ mixture model which gives the probability density function (PDF) of the
+ sensor’s observation.
+ The decision of cloud existence could be made based on the log likelihood
+ ratio when PDF for null and alternative hypotheses are available.
+ 
+\end_layout
+
+\begin_layout Section
+Introduction 
+\end_layout
+
+\begin_layout Standard
+A cloud is a group of liquid or solid particles floated in the air.
+ Sometime it contains harmful or dangerous particles so that it needs to
+ be observed and tracked.
+ There are various types of sensors can perform the detection.
+ According to their types of targets, the detection can be categorized into
+ smoke/gas/aerosol detection.
+ On the other hand, based on their sensing methods, there are also divided
+ into contact detection and remote sensing.
+ 
+\end_layout
+
+\begin_layout Standard
+Smoke and gas detection is very common in daily life.
+ For example, the fire alarm sensor inside buildings, which is contact sensing
+ devices.
+ When smoke or gas agent contacts with the sensing element, the chemical
+ or physical reactions change the electrical characteristics of the sensing
+ element.
+ Then the alarm is set if the agent's concentration is larger than a threshold.
+ (OK2)
+\end_layout
+
+\begin_layout Standard
+Smoke detection based on video and image processing is also possible.
+ For example, in the wildfire video surveillance, people try to change the
+ human based surveillance into automatic smoke/fire detection.
+ These intelligent algorithms extract smoke's features based on video signal,
+ and then classify the objects in the video as smoke or non-smoke.
+ This also attracts much research interest.
+ 
+\end_layout
+
+\begin_layout Standard
+Some time, the agent does not directly contact with the sensing element.
+ The device pumps in some air and illuminate the air with multiple wavelengths
+ to get the absorption spectrum, which normally obtained by an infrared
+ spectroscopy.
+ Then the concentration or species of the agent can be estimated when prior
+ knowledge is available.
+ 
+\end_layout
+
+\begin_layout Standard
+When sensors are not able to contact with cloud in the sky, laser technology
+ enables the remote detection.
+ The concept of remote sensing is very close to that of a spectroscopy.
+ It is an optical technology that can measure the distance to a target,
+ or other properties of a target by illuminating the target with light,
+ often using pulses from a laser.
+ The devices typically used for studies of aerosols and clouds remotely
+ is called LIDAR.
+ 
+\end_layout
+
+\begin_layout Standard
+When the cloud is illuminated by a laser beam, the particles absorb the
+ energy and emit fluorescent light, as well as 
+\begin_inset Quotes eld
+\end_inset
+
+reflect
+\begin_inset Quotes erd
+\end_inset
+
+ light back to the source (referred as backscatter).
+ The back-scattered light wavelength is identical to the transmitted light
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lidar.Wiki.2011"
+
+\end_inset
+
+, and the magnitude of the back-scattered light at the given range depends
+ on the back-scatter coefficient of scatterers and the extinction coefficients
+ of the scatterers along the path at that range 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "P.M.Hamilton1969"
+
+\end_inset
+
+.
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+fingerprint
+\begin_inset Quotes erd
+\end_inset
+
+ of the fluorescent light can be an evidence of the species of particles
+ in that cloud 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Simard2004"
+
+\end_inset
+
+.
+ Then, microprocessor in sensor node could identify the received signal,
+ and make a declaration of cloud.
+ 
+\end_layout
+
+\begin_layout Standard
+In battle field applications, aerosol detection may also related to bio-aerosol
+ detection 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bufton2007"
+
+\end_inset
+
+.
+ As the bio-aerosol release by a biological weapon is extremely dangerous
+ to any biological unit in that area.
+ It is necessary to detect and discrimination it as soon as possible.
+ The detection and discrimination can be done by a remote sensing LIDAR,
+ which illuminate the bio-aerosol  and collect back-scatters by a telescope
+ just similar to the spectroscopy.
+ Therefore, the agent could be discriminated according to its spectrum.
+ In research simulation, the bio-aerosol is often created by spread bacillus
+ subtilis spores in the air.
+ However, the reflection and extinction coefficients are closely related
+ to the particles species and absorption spectrum are different from one
+ agent to another.
+ To estimate the concentration of an aerosol based on backscatter spectrum
+ requires prior knowledge of the wavelength-dependent backscatter coefficients.
+ 
+\end_layout
+
+\begin_layout Standard
+There are many challenges in outdoor environment for this method.
+ First, 
+\change_inserted -1199928310 1347292003
+In real environment, the received signals may be interfered by noise or
+ corrupt by moving object.
+ 
+\change_deleted -1199928310 1347292006
+t
+\change_inserted -1199928310 1347292007
+T
+\change_unchanged
+he background radiation (for example, sunshine in the day time) will ruin
+ the LIDAR signals.
+ But it can be compensated by increase the laser power, add optical filter
+ in front of the telescope or tracking the background radiation level.
+ Second, the interference of moving objects in the sky like birds and balloons
+ will have a very high reflect coefficient compared with gases.
+ Third, failure of sensor nodes.
+ Because of the properties of sensor nodes, such as energy constrains, vulnerabl
+e to intruders, they often malfunction and become unreliable.
+ Fourth, Cloud is a diffusive target.
+ The diffusion target will have different concentration from one sensor
+ to another, so the distribution of cloud has random variables that capture
+ the special variation of concentration 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "N.Kh.2004"
+
+\end_inset
+
+.
+ Finally, a LIDAR with discrimination ability is very expensive so that
+ it often performs passive detection and discrimination.
+
+\change_inserted -1199928310 1347292230
+ For these reasons, a method to use distributed detection is necessary to
+ overcome unreliability of sensor nodes and interference for outdoor remote
+ cloud detection,.
+
+\change_unchanged
+ Active detection of the bio-aerosol is taken by some 
+\change_deleted -1199928310 1347292150
+other
+\change_inserted -1199928310 1347292227
+cheaper
+\change_unchanged
+ sensors distributing in the battle field.
+ So this comes to our problem: detecting the bio-aerosol with sensors distribute
+d in the environment with noise and interference.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -1199928310 1347292241
+To overcome unreliability of sensor nodes and interference for outdoor remote
+ cloud detection, the distributed detection method could be adopted.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Signal can be processed distributively by distributed average consensus
+ (DAC) algorithm .
+ The word consensus means each node would have an agreement on the declaration
+ of the target after the algorithm.
+ In addition, each node only broadcast its local value until the algorithm
+ converges 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+.
+ This method can save much energy for nodes that heavy loaded in the data
+ gathering.
+ 
+\end_layout
+
+\begin_layout Section
+Background and System model 
+\end_layout
+
+\begin_layout Standard
+This section is structured 
+\change_deleted 5863457 1348411955
+in the
+\change_inserted 5863457 1348411955
+as
+\change_unchanged
+ follow
+\change_inserted 5863457 1348411960
+s
+\change_deleted 5863457 1348411963
+ing way
+\change_unchanged
+, section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Cloud-Detection-Scenario"
+
+\end_inset
+
+ shows the system model.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Received-Signal'-Model"
+
+\end_inset
+
+ illustrates the sensor observation model and explain some techniques in
+ distributed detection of cloud.
+ In the training stage, expectation-maximization algorithm is used to get
+ Gaussian mixture model for sensor observation from background noise and
+ target.
+ In the following, it is the detection stage, where each sensor calculate
+ its local log likelihood ratio, and substitute it into distributed consensus
+ algorithm.
+ When the algorithm converges, each sensor in the network can have an agreement
+ on declaring the cloud or not.
+ Finally, simulation and result is give in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Simulation"
+
+\end_inset
+
+.
+ To get more real cloud data, 3D fluid animation techniques with turbulence
+ flow were used.
+ The performance of this detection system is also given.
+ It shows the multiple sensor detection will be more reliable in the noisy
+ environment.
+\change_inserted 5863457 1348411952
+
+\end_layout
+
+\begin_layout Subsection
+Cloud Detection Scenario
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Cloud-Detection-Scenario"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the cloud detection scenario shown by Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cloud-detection-scenario"
+
+\end_inset
+
+, a source produces cloud in a fixed position with fixed power; a time invariant
+ wind velocity parallel to the ground, blows the cloud to the positive direction
+ of the x-axis.
+ With these parameters available, the Gaussian plume model 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lin1996"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GPM.JA.2011"
+
+\end_inset
+
+ is used to describe the cloud concentrate at any position 
+\begin_inset Formula $\left(x,y,z\right)$
+\end_inset
+
+.
+ On the ground, multiple sensors (1 to 
+\begin_inset Formula $L$
+\end_inset
+
+) aim to the plume perpendicularly to the ground plane and don't change
+ their positions.
+ The positions were chosen so that the laser beams can penetrate into the
+ plume and backscatters are observed by the laser receivers.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/SystemModel/SysModel1.pdf
+	width 7cm
+	BoundingBox 0bp 0bp 342bp 225bp
+	clip
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cloud-detection-scenario"
+
+\end_inset
+
+Cloud detection scenario
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/GaussianPlumeImage/A9RF2DF.tmp.pdf
+	lyxscale 20
+	width 7cm
+	BoundingBox 20bp 10bp 1840bp 1210bp
+	clip
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:GaussianPlume"
+
+\end_inset
+
+Gaussian plume model.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+System model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subsection
+Gaussian Plume Model of Diffusive Cloud 
+\end_layout
+
+\begin_layout Standard
+This section introduces the Gaussian plume model mentioned in some state-of-art
+ applications.
+ The Gaussian plume model is widely used in cloud plume concentration modeling
+ since 1970's, which can describe the mean value of the cloud concentration
+ at any position 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shieh1972"
+
+\end_inset
+
+.
+ If we observing the real cloud plume for a long time and take the average,
+ the result is Gaussian plume model.
+ However, in a real cloud plume, the concentration is actually a random
+ process.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "N.Kh.2004"
+
+\end_inset
+
+ gives a model of the concentration values 
+\begin_inset Formula $C$
+\end_inset
+
+ of pollutants to be emitted by point instantaneous source at height 
+\begin_inset Formula $H$
+\end_inset
+
+, described by the normal (Gaussian) distribution 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+C(x,y,z,t) & = & \frac{Q}{(2\pi)^{3/2}\sigma_{x}\sigma_{y}\sigma_{z}}\exp\left(\tfrac{-\left(x-ut\right)^{2}}{2\sigma_{x}^{2}}\right)\exp\left(\tfrac{-\left(y-vt\right)^{2}}{2\sigma_{y}^{2}}\right)...\label{eq:Point source concentration}\\
+ &  & \left(\exp\left(\tfrac{-\left(z-H-wt\right)^{2}}{2\sigma_{z}^{2}}\right)+\exp\left(\tfrac{-\left(z+H-wt\right)^{2}}{2\sigma_{z}^{2}}\right)\right)
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $t$
+\end_inset
+
+ is the time, 
+\begin_inset Formula $Q$
+\end_inset
+
+ the source emission power, 
+\begin_inset Formula $u,v,w$
+\end_inset
+
+ are the orthogonal components of wind velocity, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\sigma_{x},\sigma_{y},\sigma_{z}$
+\end_inset
+
+ are the horizontal and vertical dispersions, 
+\begin_inset Formula $H$
+\end_inset
+
+ the source height .
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\end_layout
+
+\begin_layout Standard
+To describe the continuous cloud source emitted into the air.
+ An integration form 
+\begin_inset Formula $t=0$
+\end_inset
+
+ to 
+\begin_inset Formula $\infty$
+\end_inset
+
+ is taken for Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Point source concentration"
+
+\end_inset
+
+.
+ So for continuous source the model is not related to the time 
+\begin_inset Formula $t$
+\end_inset
+
+,  The model after integration is called Gaussian plume model.
+ To make things easy, assume the wind velocity components 
+\begin_inset Formula $v=0,w=0$
+\end_inset
+
+.
+ The Gaussian plume model changes into
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+C(x,y,z,H) & = & \int_{0}^{\infty}C(x,y,z,t)dt\label{eq:Continous source C}\\
+ & = & \frac{Q}{2\pi u\sigma_{y}\sigma_{z}}\exp\left(\tfrac{-y^{2}}{2\sigma_{y}^{2}}\right)\left(\exp\left(\tfrac{-\left(z-H\right)^{2}}{2\sigma_{z}^{2}}\right)+\exp\left(\tfrac{-\left(z+H\right)^{2}}{2\sigma_{z}^{2}}\right)\right)\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+where
+\begin_inset Formula $\sigma_{y}=ax^{b}$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma_{z}=cx^{d}$
+\end_inset
+
+, 
+\begin_inset Formula $a,b,c,d$
+\end_inset
+
+ are the coefficients which relate to the atmospheric stability are shown
+ in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:The-parameter-of"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:The-parameter-of"
+
+\end_inset
+
+The parameter of a,b,c,d according to atmospheric stability
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atmospheric stability 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+c
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+d
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.527
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.865
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.90
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.371
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.866
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.85
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.209
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.897
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.22
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.80
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+D
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.128
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.905
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.76
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.098
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.902
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.73
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.065
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.902
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.73
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.046
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.902
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.62
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Gaussian plume model can not describe its variance.
+ Then, in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Modified-Gaussian-Plume"
+
+\end_inset
+
+, 
+\change_deleted 5863457 1354325213
+some expressions are driven based on the diffusive equations to obtain the
+ modified Gaussian plume model
+\change_inserted 5863457 1354325227
+ some other models
+\change_deleted 5863457 1354325239
+ 
+\change_unchanged
+especially 
+\change_inserted 5863457 1354325248
+designed 
+\change_unchanged
+for laser detection
+\change_inserted 5863457 1354325242
+ are introduced
+\change_unchanged
+.
+ 
+\change_inserted 5863457 1354325262
+W
+\change_unchanged
+ith the 
+\change_deleted 5863457 1354325284
+computer graphic technology 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "He2011"
+
+\end_inset
+
+,
+\change_unchanged
+ 3D 
+\change_deleted 5863457 1354325397
+cloud
+\change_unchanged
+ animation
+\change_deleted 5863457 1354325280
+ 
+\change_inserted 5863457 1354325332
+ technology 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "He2011"
+
+\end_inset
+
+, simulated cloud plume 
+\change_unchanged
+is implemented to
+\change_deleted 5863457 1354325343
+ get more real cloud plume in which
+\change_inserted 5863457 1354325421
+ show its
+\change_unchanged
+ fluid dynamics and 
+\change_deleted 5863457 1354325366
+wind
+\change_unchanged
+ turbulence 
+\change_inserted 5863457 1354325372
+properties
+\change_unchanged
+.
+ 
+\change_inserted 5863457 1354325432
+In addition, 
+\change_unchanged
+a bunch of cloud plumes 
+\change_deleted 5863457 1354325457
+is
+\change_inserted 5863457 1354325459
+are
+\change_unchanged
+ 
+\change_deleted 5863457 1354325449
+simulated to
+\change_unchanged
+ generate
+\change_inserted 5863457 1354325452
+d
+\change_unchanged
+ 
+\change_deleted 5863457 1354325444
+enough data 
+\change_inserted 5863457 1354325444
+ 
+\change_deleted 5863457 1354325444
+of cloud concentration
+\change_unchanged
+ for testing and detection.
+ 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Received-Signal'-Model"
+
+\end_inset
+
+Received Signal Model 
+\end_layout
+
+\begin_layout Standard
+As we know, the cloud concentration variation is caused by turbulence flow,
+ which is a random process which brings the cloud particles more far away
+ than the molecular motion.
+ Because of this reason,and the associated sensor's detection at a given
+ position is a random process with mean and variance.
+\end_layout
+
+\begin_layout Standard
+Suppose the sensor's observation has the following form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x_{l}=\begin{cases}
+\mu_{l,0}+n_{l,0} & \mbox{if no cloud exists}\\
+\mu_{l,1}+n_{l,1} & \mbox{if cloud exists}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+where
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $\mu_{l,m}$
+\end_inset
+
+ is 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+the mean value of 
+\begin_inset Formula $x_{l}$
+\end_inset
+
+ depending on hypothesis 
+\begin_inset Formula $m$
+\end_inset
+
+; 
+\begin_inset Formula $n_{l,m}$
+\end_inset
+
+ is the noise of 
+\begin_inset Formula $x_{l}$
+\end_inset
+
+ depending on hypothesis 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{l,m}\sim\mathcal{N}\left(0,\sigma_{m}\right)$
+\end_inset
+
+.
+ Actually, 
+\begin_inset Formula $\mu_{l,0}$
+\end_inset
+
+and 
+\begin_inset Formula $\sigma_{l,0}$
+\end_inset
+
+ denote the mean and variation of background noise.
+ So let 
+\begin_inset Formula $\mu_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+ denote the mean of cloud concentration and signal flucturation due to cloud
+ turbulence.
+ Besides,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ we have 
+\begin_inset Formula $\mu_{l,1}=\mu_{l,0}+\mu_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $n_{l,1}=n_{l,0}+n_{t}$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ These parameters is estimated or calculated expectation-maximization algorithm
+ in the training stage.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+This received signal model doesn't consider interference of moving objects
+ or be covered by obstacles.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ To deal with this problems, sensors may need to build the Gaussian mixture
+ model, which introduced in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Gaussian-mixture-model"
+
+\end_inset
+
+.
+ 
+\change_inserted 5863457 1348412207
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Gaussian-mixture-model"
+
+\end_inset
+
+Gaussian mixture model
+\end_layout
+
+\begin_layout Standard
+Background radiation and moving objects in the sky have different strength
+ and variance.
+ When interference exists, the probability of received signal strength may
+ be a mixture Gaussian distribution.
+ Gaussian mixture model is a very successful tool in modeling the background
+ noise in such situation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stauffer1999"
+
+\end_inset
+
+.
+ To build the Gaussian mixture model, the recent history of a sensor's detection
+ values is stored.
+ Then, Expectation-Maximization(EM) algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moon1996"
+
+\end_inset
+
+ can be adopted.
+ The model can also be adaptive to track the background changes.
+ 
+\end_layout
+
+\begin_layout Standard
+Suppose the recent history of a sensor's detections, are given by 
+\begin_inset Formula $\left\{ x_{1},\ldots,x_{t}\right\} $
+\end_inset
+
+, which is modeled by a mixture of 
+\begin_inset Formula $K$
+\end_inset
+
+ Gaussian distributions.
+ The probability density function of observing a detection value is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f(\mathbf{x}_{t})=\sum_{i=1}^{K}\omega_{i,t}*\eta(\mathbf{x}_{t},\mu_{i,t},\Sigma_{i,t})\label{eq:GMM density function}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $K$
+\end_inset
+
+ is the number of distributions, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\omega_{i,t}$
+\end_inset
+
+ is the weight of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ Gaussian in the mixture at time 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_{i,t}$
+\end_inset
+
+ is the mean value of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ Gaussian in the mixture at time 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $\Sigma_{i,t}$
+\end_inset
+
+ is the covariance matrix of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ Gaussian in the mixture at time 
+\begin_inset Formula $t$
+\end_inset
+
+ , and 
+\begin_inset Formula $\eta$
+\end_inset
+
+ is a Gaussian probability density function given by
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\eta(\mathbf{x}_{t},\mu_{i,t},\Sigma_{i,t})=\frac{1}{\left(2\pi\right)^{\frac{t}{2}}\left|\Sigma\right|^{\frac{1}{2}}}\cdot e^{-\frac{1}{2}\left(\mathbf{x}_{t}-\mu_{t}\right)^{\mathrm{T}}\Sigma^{-1}\left(\mathbf{x}_{t}-\mu_{t}\right)},
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+Thus, the distribution of recent detection values are modeled by a mixture
+ of Gaussian distribution.
+ The recent detections are classified in 
+\begin_inset Formula $K$
+\end_inset
+
+ categories.
+ For the background model, all categories correspond to background noise.
+ When a new detection comes, generally it will be matched to one of the
+ major components of the model and was used to update the background model.
+ If a group of adjacent sensors having detections do not match any categories
+ of background model, it is more likely the cloud exists.
+ 
+\end_layout
+
+\begin_layout Standard
+Similarly, EM algorithm could also build the Gaussian mixture model for
+ the observing when cloud exists.
+ In this case, one or more categories will correspond to the detection mainly
+ raised by clouds reflection.
+ If a group of adjacent sensors having detections match the categories of
+ cloud, it is more likely the cloud exists.
+ 
+\end_layout
+
+\begin_layout Standard
+Once the probability density function (PDF) for background and cloud reflection
+ signals are available, the hypothesis test of cloud existence is made based
+ on the observation.
+ Normally, this is done by gathering all the data and taking the log likelihood
+ ratio(LLR) in the fusion center.
+ In section III-C, distributed consensus algorithm is adopted to find the
+ LLR, without data gathering or fusion center.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Modified-Gaussian-Plume"
+
+\end_inset
+
+Modified Gaussian Plume Model For Laser Detection
+\end_layout
+
+\begin_layout Standard
+The Gaussian plume model can only capture describe the mean value of the
+ cloud concentration.
+ However, in a real cloud plume The cloud concentration is actually a random
+ process.
+ In this section, first some expressions are driven based on the diffusive
+ equations to obtain the modified Gaussian plume model especially for laser
+ detection.
+ Second, With the computer graphic technology 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "He2011"
+
+\end_inset
+
+, a 3D cloud animation capture the fluid dynamics and wind turbulence is
+ implemented.
+ A bunch of cloud plumes is simulated to generate enough data for algorithm
+ testing and detection.
+\end_layout
+
+\begin_layout Subsection
+Integration of Cloud Along Laser Beam
+\end_layout
+
+\begin_layout Standard
+Because laser emitted by optical sensor is penetrating the could, the received
+ signal at each sensor can be simplified to be proportional to the integration
+ of concentration along the line of laser.
+ Therefore, based on the same diffusion equation, the Gaussian plume model
+ needs some modifications.
+ 
+\end_layout
+
+\begin_layout Standard
+Similar to the heat diffusion model, the cloud's diffusive behavior can
+ be described by the 3-dimensional partial derivative equation.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial C}{\partial t}=D_{x}\frac{\partial^{2}C}{\partial^{2}x}+D_{y}\frac{\partial^{2}C}{\partial^{2}y}+D_{z}\frac{\partial^{2}C}{\partial^{2}z}\label{eq:3D diffusion Eq.}
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+where 
+\begin_inset Formula $C$
+\end_inset
+
+ is cloud concentration, and 
+\begin_inset Formula $D_{x},D_{y},D_{z}$
+\end_inset
+
+ are the diffusion coefficients along three axis respectively.
+ 
+\end_layout
+
+\begin_layout Standard
+This equation indicates that the rate of density change is proportional
+ to the curvature of cloud concentration.
+ The density increases where curvature is positive and decreases where it
+ is negative.
+ If the cloud is released instantaneously at a single point, the spatial
+ distribution will be a 3-dimensional normal distribution.
+\end_layout
+
+\begin_layout Standard
+In consideration of the isotropic diffusion case, the diffusion equation
+ can be simplified.
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+which means 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $D_{x}=D_{y}=D_{z}=D$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ Assume 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+a point instantaneous source,
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ located at the origin starts to release cloud at time 
+\begin_inset Formula $t=0$
+\end_inset
+
+,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ the solution to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3D diffusion Eq."
+
+\end_inset
+
+ is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C(x,y,z,t)=\frac{Q}{\left(4\pi Dt\right)^{3/2}}exp\left(-\frac{x{}^{2}+y^{2}+z^{2}}{4Dt}\right)
+\end{equation}
+
+\end_inset
+
+Where 
+\begin_inset Formula $Q$
+\end_inset
+
+ is the power of the point source.
+ This solution can be verified by taking partial derivative for both sides.
+\end_layout
+
+\begin_layout Standard
+In addition, if the surrounding air is assumed to be moving towards the
+ positive direction of x-coordinate in a constant velocity 
+\begin_inset Formula $u$
+\end_inset
+
+ .
+ The model changes into
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C(x,y,z,t)=\frac{Q}{\left(4\pi Dt\right)^{3/2}}\cdot exp\left(\frac{(x-ut){}^{2}+y^{2}+z^{2}}{4Dt}\right)\label{eq:3D point Model}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For point and continuous source at origin, an integration form 
+\begin_inset Formula $t=0$
+\end_inset
+
+ to 
+\begin_inset Formula $T$
+\end_inset
+
+ is taken to find the concentration distribution.
+ The integration of Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3D point Model"
+
+\end_inset
+
+ is very hard to find without the help of computer, as in the denominator
+ contains 
+\begin_inset Formula $t^{\frac{3}{2}}$
+\end_inset
+
+.
+ However, some later research have found the analytical integration of the
+ atmospheric diffusion equation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lin1996"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $T\rightarrow\infty$
+\end_inset
+
+ , the concentration model for continuous source evolves into
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{eqnarray}
+C(x,y,z) & = & \int_{0}^{\infty}C(x,y,z,t)dt
+\end{eqnarray}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+as the laser penetrate the could, the received signal at each sensor can
+ be simplified to be proportional to the integration of concentration along
+ the line of laser.
+ Therefore, the received signal 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S(x,y)=\int_{-\infty}^{\infty}C(x,y,z)dz=\int_{-\infty}^{\infty}\int_{0}^{\infty}C(x,y,z,t)dtdz
+\]
+
+\end_inset
+
+since 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\int_{-\infty}^{\infty}\int_{0}^{\infty}\left|C(x,y,z,t)\right|dtdz<\infty$
+\end_inset
+
+, the two integrations can be swapped.
+ thus, we have 
+\begin_inset Formula 
+\[
+\int_{-\infty}^{\infty}\int_{0}^{\infty}C(x,y,z,t)dtdz=\int_{0}^{\infty}\int_{-\infty}^{\infty}C(x,y,z,t)dzdt
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+S(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot K_{0}\left(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $K_{0}(z)$
+\end_inset
+
+ is the special case of modified Bessel function of the second kind 
+\begin_inset Formula $K_{n}(z)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $K_{0}(z)$
+\end_inset
+
+ is simplified to 
+\begin_inset Formula 
+\[
+K_{0}(z)=\int_{0}^{\infty}\mbox{cos}(z\cdot\mbox{sinh}t)dt=\int_{0}^{\infty}\frac{\mbox{cos}(z\cdot t)}{\sqrt{t^{2}+1}}dt
+\]
+
+\end_inset
+
+Therefore, the finial model of concentration at point 
+\begin_inset Formula $\left(x,y\right)$
+\end_inset
+
+ can be given by 
+\begin_inset Formula 
+\[
+C(x,y)=\frac{Q}{2\pi D}\cdot exp\left(\frac{xu}{2D}\right)\cdot\int_{0}^{\infty}\frac{1}{\sqrt{t^{2}+1}}\mbox{cos}(\frac{u\sqrt{x^{2}+y^{2}}}{2D}\cdot t)dt
+\]
+
+\end_inset
+
+The concentration distribution is shown in Figure.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:2-D-Gaussian-Plume"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/GaussianPlumeModel/Plume_2D.eps
+	lyxscale 50
+	height 6cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:2-D-Gaussian-Plume"
+
+\end_inset
+
+2-D Gaussian Plume Model (modified for laser detection)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Simulated Cloud by fluid dynamics
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1354380066
+The Gaussian plume model can describe the mean value of the cloud concentration
+ at any position in the plume, but it can not describe the cloud concentration
+ variance.
+ 
+\change_unchanged
+ In 3D fluid simulation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "He2011"
+
+\end_inset
+
+, the cloud model is a 3D space which is divided the into tiny cells where
+ fluid dynamics and wind turbulence is considered.
+ The cloud plume could be more like real with the help of this technology.
+ 
+\change_deleted 5862369 1354380074
+The simulation method divided the 3D space into small cells and each cells
+ satisfies the Navier-Stokes Equation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Navier-Stokes_Wiki"
+
+\end_inset
+
+.
+ 
+\change_unchanged
+ A number of cloud plumes is generated to be used in the distributed cloud
+ detection or training of sensor networks.
+ 
+\end_layout
+
+\begin_layout Standard
+As shown in the Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Frame-projection"
+
+\end_inset
+
+, the frame image is obtained by taking integration of the 3D raw data over
+ z-dimension.
+ This is similar to the effect of laser beam penetrating through cloud.
+ The received light magnitude is the integration of backscatter along the
+ laser beam.
+ Therefore, pixels value in the frame image is proportional to the magnitude
+ of sensor observation.
+ In this simulation, they are treated as equal.
+ After the integration, the pixel values in these frames is normalized by
+ dividing them with the maximum pixel value in these frames.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Smoke Sequance.png
+	lyxscale 50
+	width 14cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cloud-simulation-frame"
+
+\end_inset
+
+Cloud simulation frame sequence, 
+\begin_inset Formula $192\times256$
+\end_inset
+
+ pixels for each frame
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/SmokeProject/SmokeProjection_PhS.pdf
+	lyxscale 80
+	width 8cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Frame-projection"
+
+\end_inset
+
+Relationship between 3D cloud concentration and Sensor's observation.
+ Frame images are obtained by 3D raw data projection 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Distributed-Cloud-Declaration"
+
+\end_inset
+
+Distributed Cloud Detection Based on DAC algorithm
+\end_layout
+
+\begin_layout Standard
+In the applications of environment surveillance and monitoring, sensor networks
+ performs the data gathering of spatially distributed sources, and the collabora
+tive signal processing.
+ Processing the local acquired signals using a scalable algorithm is a fundament
+al problem in sensor network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2005a"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Cloud declaration is normally made through a hypothesis test.
+ When new observation is acquired, the decision of cloud existence is made
+ base on the ML or MAP decision rule 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chair1986"
+
+\end_inset
+
+, which need the probability density function of all the sensor’s observation
+ and calculate the log likelihood ratio.
+\end_layout
+
+\begin_layout Standard
+Generally, there are two options for multiple sensors signal processing.
+\end_layout
+
+\begin_layout Standard
+Firstly, is the centralized processing.
+ This requires the network contains a fusion center, and all sensor's data
+ need to be transmitted to the fusion center and processed.
+ At the same time, a hypothesis test based on the ML, MAP or Bayesian decision
+ rule will be carried out at the a fusion center.
+ Normally the global log likelihood ratio (G-LLR) is calculated and compared
+ with a threshold to make the decision.
+ Besides, an optimal data fusion scheme is proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chair1986"
+
+\end_inset
+
+, the decision is made by an optimal linear combination of local decisions
+ of all sensors.
+ 
+\end_layout
+
+\begin_layout Standard
+Secondly, the global LLR can be calculated without a fusion center by distributi
+ve signal processing.
+ In the consideration of reliability, survivability, and range of coverage,
+ there is an increasing interest in employing multiple sensors for these
+ applications 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chair1986"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In this section, we will consider a distributed detection problem in wireless
+ sensor network without the fusion center.
+ Then, there will be an introduction about consensus based approach in the
+ distributed data fusion and decision making, in the case of each sensor
+ acquires a scale value of an unknown parameter.
+ However, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2005"
+
+\end_inset
+
+ discussed the case when each sensor acquires a vector of unknown parameters
+ and the signal is mixed with joint Gaussian white noise, and proposed a
+ more sophisticated data fusion scheme.
+ We will show it later.
+\end_layout
+
+\begin_layout Standard
+The detection method should be separated into two stages, training and detection.
+ The training stage is to build the probability density function (PDF) for
+ background radiation and cloud reflection signals (modeled by a Gaussian
+ mixture model) based on their own observation distributively.
+\end_layout
+
+\begin_layout Subsection
+Hypothesis Test
+\end_layout
+
+\begin_layout Standard
+Considering a binary hypothesis testing problem with the following two hypothese
+s
+\end_layout
+
+\begin_layout Enumerate
+H0: target is absent.
+\end_layout
+
+\begin_layout Enumerate
+H1: target is present.
+\end_layout
+
+\begin_layout Standard
+The prior probability of these two hypotheses is denoted by 
+\begin_inset Formula $P\left(H_{m}\right)=P_{m}=\frac{1}{2},m=1,2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\end_layout
+
+\begin_layout Subsubsection
+Global and Local Log Likelihood Ratio 
+\end_layout
+
+\begin_layout Standard
+Suppose the observation of all sensors 
+\begin_inset Formula $x_{1},...,x_{L}$
+\end_inset
+
+ is available (for example, gathered by a fusion center) at this moment,
+ we can have the global log likelihood ratio (G-LLR ) given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+LLR(x_{1},...,x_{L})=log\frac{f\left(x_{1},...,x_{L}|H_{1}\right)}{f\left(x_{1},...,x_{L}|H_{0}\right)}\underset{H_{0}}{\overset{H_{1}}{\gtrless}\log}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}\label{eq:G-LLR define Cloud}
+\end{equation}
+
+\end_inset
+
+where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is the likelihood function of 
+\begin_inset Formula $H_{m}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For the received signal model described either by 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:GMM density function"
+
+\end_inset
+
+ or 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Cloud signal model"
+
+\end_inset
+
+, if we assume sensor’s observation is independent from one to another,
+ the G-LLR can be changed into the sum of L-LLR.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+LLR(x_{1},...,x_{L}) & = & log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)}{f\left(x_{1}|H_{0}\right)\cdot\ldots\cdot f\left(x_{L}|H_{0}\right)}=\sum_{i=1}^{L}LLR\left(x_{i}\right)\label{eq:Sum L-LLR Cloud}
+\end{eqnarray}
+
+\end_inset
+
+According to Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Sum L-LLR Cloud"
+
+\end_inset
+
+, the G-LLR is changes into the sum of local log likelihood ratio (L-LLR).
+ 
+\end_layout
+
+\begin_layout Standard
+To drive and simplify the expression of global log likelihood ratio, sensor’s
+ observation is described by the model in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Received-Signal'-Model"
+
+\end_inset
+
+.
+ Let 
+\begin_inset Formula 
+\[
+\mathbf{x}=\left[x_{1},\ldots,x_{L}\right]^{\mathrm{T}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{n}_{m}=\left[n_{1,m},\ldots,n_{L,m}\right]^{\mathrm{T}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{u}_{m}=\left[\mu_{1,m},\ldots,\mu_{L,m}\right]^{\mathrm{T}},\; m=0,1.
+\end{equation}
+
+\end_inset
+
+ if 
+\begin_inset Formula $\mathbf{n}_{m}\sim\mathcal{N}\left(0,\Sigma_{m}\right)$
+\end_inset
+
+, G-LLR is given by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+LLR(\mathbf{x}) & = & -\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{1}\right)^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\left(\mathbf{x}-\mathbf{u}_{1}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{0}\right)^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\left(\mathbf{x}-\mathbf{u}_{0}\right)+\frac{1}{2}log\left(\frac{\left|\Sigma_{0}\right|}{\left|\Sigma_{1}\right|}\right)\nonumber \\
+ & = & \left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)\mathbf{x}+\frac{1}{2}\left[log\left|\Sigma_{0}\right|-log\left|\Sigma_{1}\right|\right]-\frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right]\label{eq:G-LLR Expand}\\
+ & = & \sum_{l=1}^{L}w_{l}x_{l}+C-\frac{1}{2}\left[\mathbf{x}^{\mathrm{T}}\left(\mathbf{\Sigma}_{1}^{-1}-\Sigma_{0}^{-1}\right)\mathbf{x}\right],\label{eq:G-LLR simple}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $w_{l}$
+\end_inset
+
+ denotes the 
+\begin_inset Formula $l\mbox{th}$
+\end_inset
+
+ component of 
+\begin_inset Formula $\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}$
+\end_inset
+
+, and 
+\begin_inset Formula $C=\frac{1}{2}\left[log\left(\left|\Sigma_{0}\right|\right)-log(\left|\Sigma_{1}\right|)\right]-\frac{1}{2}\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}\mathbf{u}_{1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\mathbf{u}_{0}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Provided that each sensor knows the weight 
+\begin_inset Formula $w_{l}$
+\end_inset
+
+, the Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:G-LLR simple"
+
+\end_inset
+
+ states that the G-LLR is equal to the weighted sum of local observation
+ of sensors in the network together with the constant 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ Actually, the constant 
+\begin_inset Formula $C$
+\end_inset
+
+ changes the threshold of the hypothesis testing and can be subtract from
+ both side of hypothesis testing equation.
+ Therefore, we modify the hypothesis testing into 
+\begin_inset Formula 
+\begin{equation}
+LLR(\mathbf{x})=\sum_{l=1}^{L}w_{l}x_{l}\underset{H_{0}}{\overset{H_{1}}{\gtrless}}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}-C\label{eq:GLLR in weighted sum}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $w_{l}$
+\end_inset
+
+ is the 
+\begin_inset Formula $l^{th}$
+\end_inset
+
+ component of 
+\begin_inset Formula $\left(\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}_{1}^{-1}-\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}_{0}^{-1}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GLLR in weighted sum"
+
+\end_inset
+
+ means the G-LLR can be a weighted sum of the signal acquired in each sensor,
+ which can be obtained by the weight average multiplied with the number
+ of sensors in the network.
+ Therefore, the distributed average consensus (DAC) algorithm can be used
+ in its calculation.
+ 
+\end_layout
+
+\begin_layout Standard
+The algorithm is as follows: First, each sensor calculates its local LLR
+ individually; Then, each sensors update its local LLR in the DAC iterations
+ until it converges to the consensus value; Finally, after the algorithm
+ converges, the global LLR is obtained by multiply the average local LLRs
+ with the number of sensors in the network.
+ When the G-LLR is available, cloud declaration could be made based on the
+ ML or MAP decision rule.
+\end_layout
+
+\begin_layout Subsection
+Challenge of Distributed Detection of Cloud
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+When no cloud exists, the sensor's observation signal is only caused by
+ atmospheric backscatter and noise.
+ It is described by joint Gaussian distribution 
+\begin_inset Formula $\mathcal{N}\left(\mathbf{u}_{0},\Sigma_{0}\right)$
+\end_inset
+
+.
+ If these distributions are independent and identical, we have 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{\Sigma}_{0}=\sigma_{0}^{2}I.
+\end{equation}
+
+\end_inset
+
+On the contrary, 
+\begin_inset Formula $\mathbf{\Sigma}_{1}$
+\end_inset
+
+ can't be written in the same form.
+ Because the fluctuating amplitude of cloud concentration may different
+ from one sensor to another.
+ In addition, fluctuating of cloud concentration or sensor's observation
+ are correlated, especially for the sensors close to each other.
+ As shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GMM (x1,x2)"
+
+\end_inset
+
+, the correlation is obvious when sensor's observation is shifted with the
+ right time delay.
+ However, if the training data are available, 
+\begin_inset Formula $\mathbf{\Sigma}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{u}_{1}$
+\end_inset
+
+ can be obtained by expectation-maximization (EM) algorithm.
+ This is more related to sensor learning.
+ In real sensing area, sensors should need to learn their environments and
+ get these parameters updated and tracked.
+ 
+\end_layout
+
+\begin_layout Standard
+In a network without fusion center, it is desirable to find the 
+\begin_inset Formula $LLR(\mathbf{x})$
+\end_inset
+
+ in a distributed manner by distributed average consensus
+\change_deleted 5862369 1353452547
+ 
+\change_unchanged
+ (DAC) algorithm.
+ Some properties of 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ should emphasize here.
+ First values can only be exchanged between neighbors.
+ Second, 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ is a tool to find the average of the local values that initially hold by
+ all the nodes in the networks.
+ 
+\end_layout
+
+\begin_layout Standard
+The quadratic form in Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:G-LLR simple"
+
+\end_inset
+
+ contains high order components of 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+.
+ On the other hand, without global information, it seems not possible to
+ calculate 
+\begin_inset Formula $\mathbf{\Sigma}_{1}^{-1}$
+\end_inset
+
+ in in a distributed manner.
+ Both make it is impossible for 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ to calculate G-LLR.
+ So sensors can only build the Gaussian mixture model separately.
+ Thus, the observation of sensors is assume to be independent from on to
+ another.
+ If we assume 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Sigma_{1}=diag\left(\sigma_{1,1}^{2},\sigma_{2,1}^{2},\ldots,\sigma_{L,1}^{2}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\Sigma_{0}=\sigma_{0}^{2}I$
+\end_inset
+
+, 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+the Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:G-LLR Expand"
+
+\end_inset
+
+ evolves into Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Sum L-LLR Cloud"
+
+\end_inset
+
+, in which the G-LLR is equal to the average multiply with the number of
+ sensors in the network.
+ 
+\end_layout
+
+\begin_layout Standard
+However, the assumption that correlation only exist between sensors located
+ very close to each other makes it possible to calculate the G-LLR
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+in Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Sum L-LLR Cloud"
+
+\end_inset
+
+ using 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+.
+ As each node only stores the coefficient 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+corresponding to itself.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+When signal are correlated, we make approximation that 
+\begin_inset Formula $c_{ij}=0,$
+\end_inset
+
+ if node 
+\begin_inset Formula $i$
+\end_inset
+
+ and node 
+\begin_inset Formula $j$
+\end_inset
+
+ are not neighbors.
+ So in the term, 
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{2}\sum_{i=1}^{L}\sum_{j=1}^{L}c_{ij}x_{i}x_{j}\label{eq:Term x_i*x_j}
+\end{equation}
+
+\end_inset
+
+we can find the value of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Term x_i*x_j"
+
+\end_inset
+
+ by the following algorithm:
+\end_layout
+
+\begin_layout Enumerate
+Assume for all node 
+\begin_inset Formula $i$
+\end_inset
+
+, it has the value 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{ij}$
+\end_inset
+
+.
+ As the matrix is symmetric and the entries 
+\begin_inset Formula $c_{ij}=c_{ji}$
+\end_inset
+
+.
+ node 
+\begin_inset Formula $i$
+\end_inset
+
+ send 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ and receive 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ from all node 
+\begin_inset Formula $j$
+\end_inset
+
+ in the neighbors set 
+\begin_inset Formula ${\cal N}_{i}$
+\end_inset
+
+.
+ Compute the value 
+\begin_inset Formula 
+\begin{equation}
+v_{i}=\sum_{j\in{\cal N}_{i}}c_{ij}x_{i}x_{j}+c_{ii}x_{i}^{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Initialize a DAC algorithm with 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+local values 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ until
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ they converges
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ to the average 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\bar{v}=\frac{1}{L}\sum_{i=1}^{L}v_{i}$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\end_layout
+
+\begin_layout Enumerate
+Start another DAC algorithm to find 
+\begin_inset Formula $\bar{u}=\sum_{l=1}^{L}w_{l}x_{l}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The G-LLR
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ is 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+equal to 
+\begin_inset Formula $\bar{u}+\bar{v+C}$
+\end_inset
+
+ multiply with the number of sensors in the network
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
+\end_layout
+
+\begin_layout Section
+Simulation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Simulation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The distributed cloud detection simulation consists of two stages, training
+ and detection.
+ In the training stage, sensors are trained to build the Gaussian mixture
+ models, which are important to calculate the L-LLR.
+ After the training, when a new observation comes, all sensors calculated
+ the L-LLRs and take them into 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ iteration to obtain G-LLR.
+ The decision of cloud existence could be made distributively once the algorithm
+ converges.
+ 
+\end_layout
+
+\begin_layout Standard
+The 3D cloud animation is simulated to generate a bunch of cloud plumes.
+ If we observing the cloud for a long time and take the average, the result
+ is Gaussian plume model.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Mlti_Obs/SensorObs3.pdf
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sensor's obs"
+
+\end_inset
+
+Sensor's observation impaired by Gaussian white noise
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The cloud animation is simulated several times to generate enough data,
+ which is divided into two group for both training and testing of system
+ performance.
+ Because the turbulence flow is a random process, the data generated each
+ time is different with the others in the cloud concentration distribution,
+ as well as the cloud particles moving track.
+ This provides a very practical testing environment for the system.
+ 
+\end_layout
+
+\begin_layout Standard
+Some other consideration for this simulation is that sensors are randomly
+ distributed in the sensing area and sensor's detections are impaired by
+ Gaussian white noise, which will be introduced in the following.
+ 
+\end_layout
+
+\begin_layout Subsection
+Sensor's Observation 
+\end_layout
+
+\begin_layout Standard
+Gaussian white noise impaired the received signal when sensor observing
+ the cloud concentration.
+ And the source of noise includes: (i) the external noise, arising from
+ the incidence of radiation at the detector both from laser scattering and
+ from the background; and (ii) the internal noise, arising from fluctuations
+ in the detector dark current and thermal noise in the detector load resistor
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "P.M.Hamilton1969"
+
+\end_inset
+
+.
+ These noise is additive, and the overall noise is treated as a Gaussian
+ white noise denoted by 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mathcal{N}\left(u_{0},\sigma_{0}\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+.
+ In this simulation, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+these parameters are chosen as 
+\begin_inset Formula $u_{0}=0.3$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{0}=0.1$
+\end_inset
+
+, shown in Fig
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sensor's obs"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Again, sensors are randomly distributed in the sensing area with the uniform
+ distribution.
+ The sensing area in this simulation is defined by pixels in the frame which
+ has 
+\begin_inset Formula $x>D$
+\end_inset
+
+, where 
+\begin_inset Formula $D$
+\end_inset
+
+ is the distance from the cloud source on the downwind direction.
+ After they are distributed, to get ready for the 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ algorithm, all the nodes will automatically find its neighbors and obtain
+ a network.
+ Using 
+\change_inserted 5862369 1353452567
+DAC
+\change_deleted 5862369 1353452567
+DCA
+\change_unchanged
+ algorithm is to obtain G-LLR without copy L-LLRs to all sensor nodes in
+ the network.
+ Once the G-LLR is available, cloud declaration could be made base on the
+ ML or MAP decision rule.
+\end_layout
+
+\begin_layout Standard
+Here we give an example, three sensors are distributed as shown in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sensor's obs"
+
+\end_inset
+
+.
+ They build Gaussian mixture models by processing the training data.
+ Here we choose 
+\begin_inset Formula $K=1$
+\end_inset
+
+.
+ It can be 
+\begin_inset Formula $2$
+\end_inset
+
+ or more, depends on how many components of the noise in the environment.
+ Then, the testing data which generated by another cloud animation is passing
+ through all the sensors frame by frame.
+ As shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Global-LLR-and"
+
+\end_inset
+
+, L-LLRs for the two sensors and G-LLR is given.
+ Before frame 47, all the sensor has no contact with cloud, and only noise
+ are presented in each sensor.
+ Only after sensor 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ has its cloud contact, G-LLR raise to the first stage.
+ After 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ has its contact of cloud at frame 63, the G-LLR increased to an even high
+ level, which is strong evidence of the cloud existence.
+ Because 
+\begin_inset Formula $S_{3}$
+\end_inset
+
+ had no chance to contact with the cloud, its L-LLR is actually less sensitive
+ to the sensors signal.
+ Thus, its L-LLR has very low contribution to the G-LLR.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Mlti_Obs/Sensor_LLR_Obs.pdf
+	width 14cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Global-LLR-and"
+
+\end_inset
+
+(upper) Global LLR vs.
+ Local LLR and (down) Sensor Observation (Only frame 40 to 80 is shown)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Another interesting thing is that, if two sensors 
+\begin_inset Formula $S1$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $S2$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ are put close to each other, especially when they are very nearly located
+ on the cloud particle's moving path, their observation have high correlation.
+ For example in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sensor's obs"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GMM (x1,x2)"
+
+\end_inset
+
+.
+ The time delay 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is simply calculated by local wind velocity and sensor’s distance.
+ The cross-correlation can be another feature of the moving cloud.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Mlti_Obs/Two Sensors' Correlation.eps
+	lyxscale 60
+	width 7cm
+	height 6cm
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:GMM (x1,x2)"
+
+\end_inset
+
+The distribution of tuples 
+\begin_inset Formula $[x_{1}(t),x_{2}(t-\tau)]$
+\end_inset
+
+, 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is the time delay 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/Mlti_Obs/Two Sensors' Obs.eps
+	lyxscale 60
+	width 7cm
+	height 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Two-Obs."
+
+\end_inset
+
+Two sensors observation 
+\begin_inset Formula $x_{1}(t),x_{2}(t)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sensor's observation of background noise and cloud backscatters 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Performance of Cloud Detection Sensor Network
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/CloudDetection/Cloud Detection Task Description/ROC/ROC_mix_RandPos_256x192.pdf
+	width 9cm
+	height 7.5cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ROC-of-CDWSN"
+
+\end_inset
+
+Detection relative operating characteristic for different sensors numbers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Simulation is running for hundreds of times to give the average performance
+ for different number of sensors in the network.
+ The sensor's positions are chosen randomly in the area where 
+\begin_inset Formula $x>128$
+\end_inset
+
+ (
+\begin_inset Formula $x$
+\end_inset
+
+ is the index of the pixel).
+ The Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ROC-of-CDWSN"
+
+\end_inset
+
+ gives the relative operating characteristic (Also known as a ROC curve)
+ of the detection system with different sensors numbers.
+ The curve is represented by plotting the fraction of true detection out
+ of the cloud exist vs.
+ the fraction of false alarm out of the cloud not exist.
+ When there is only one sensor is operation, a special case is that the
+ position is chosen by hand to make sure the sensor can contact with the
+ cloud plume.
+ With this assurance, the one sensor detecting system could have performance
+ close to the three sensor detecting system randomly distributed.
+ The advantage of using distributed detection with multiple sensors is obvious.
+ As the detecting system with more sensors is more reliable to noise which
+ leads to a higher performance.
+ 
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1353452453
+The simulation of multiple observation shows that the detections of sensors
+ are correlated when they are located in short distance.
+ The correlation can be an indicate of the cloud plume.
+ Because Gaussian noise or Moving object cause very low correlation between
+ sensors.
+ If this can be recognized, it will not likely to raise the false alarm.
+ In the noisy environment, sensors will adopt the expectation-maximization
+ algorithm to build the model of background noise and cloud backscatter.
+ By assume that sensors observation is independent, the global log likelihood
+ ratio is the average of local log likelihood ratio.
+ Therefore, global log likelihood ratio can be calculated by distributed
+ consensus algorithm, where each sensor take local log likelihood ratio
+ into the DCA iteration.
+ Once the algorithm converges, the global log likelihood ratio is available
+ to each sensor.
+ The cloud deceleration could be made distributively based on the ML or
+ MAP decision rule.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+In this chapter, we introduced a distributed detection method using wireless
+ sensor networks and the DAC algorithm.
+ First, the hypothesis testing 
+\change_inserted 5862369 1353451924
+based on the ML or MAP decision rule 
+\change_unchanged
+is introduced.
+ In the outdoor environment, signal of an individual sensor might be corrupted
+ by Gaussian noise or moving object with high reflect coefficient, which
+ might raise the false alarm in high possibility.
+ Because multiple sensors detection have better performance, it was adopted
+ in the cloud detection and the expectation-maximization algorithm is used
+ to build the joint Gaussian model of background noise and cloud backscatter.
+ Thus, interferences to a few sensors in the network are less likely to
+ raise the false alarm.
+ Second, By assuming sensors signals are independent, global log likelihood
+ ratio is the average of local log likelihood ratio.
+ The global log likelihood ratio in the hypothesis testing is calculated
+ by the DAC algorithm.
+
+\change_deleted 5862369 1353453024
+ 
+\change_unchanged
+ Each sensor calculate the local log likelihood ratio and substitute it
+ into the DAC iteration as the initial local value.
+ The global log likelihood ratio is available to each sensor once the algorithm
+ converges.
+ 
+\end_layout
+
+\begin_layout Section
+Further Research
+\end_layout
+
+\begin_layout Standard
+In the future research, 
+\change_inserted 5862369 1353449798
+the correlation of detections of nodes can be used to improve the performance
+ of the cloud detection.
+ 
+\change_deleted 5862369 1353451486
+we first intend to investigate the correlation of detection signals of different
+ nodes and use it to improve the hypothesis testing.
+ 
+\change_unchanged
+ If sensors are are located in short distance in the plume, their detections
+ are correlated.
+ In addition, 
+\change_deleted 5862369 1353452584
+iterference
+\change_inserted 5862369 1353452584
+interference
+\change_unchanged
+ due to Gaussian noise or moving object has very low correlation between
+ sensors.
+ Therefore, correlation can be an important property of the cloud plume.
+ Besides, a modified Gaussian plume model need to be developed to capture
+ the mean value, variance and correlation of the concentration at different
+ position.
+ 
+\end_layout
+
+\begin_layout Standard
+Second, the parameters of cloud plume should be should be treated as unknown
+ random variable, such as the position of the plume
+\change_inserted 5862369 1353452587
+, the diffusion coefficient, wind speed
+\change_unchanged
+ 
+\change_inserted 5862369 1353451777
+and so on.
+ 
+\change_deleted 5862369 1353451758
+should be treated as random
+\change_unchanged
+.
+ 
+\change_deleted 5862369 1353451783
+Therefore,
+\change_inserted 5862369 1353451789
+ At the same time
+\change_unchanged
+ sensors need to be able to estimate these parameters from their observation.
+ 
+\change_deleted 5863457 1348421364
+Gaussian plume model can only describe the mean value of a cloud plume.
+
+\change_unchanged
+ 
+\end_layout
+
+\end_body
+\end_document

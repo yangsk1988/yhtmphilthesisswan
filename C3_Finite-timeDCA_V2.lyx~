@@ -1,0 +1,1625 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\options onecolumn,12pt,A4paper
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman cmr
+\font_sans default
+\font_typewriter default
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 5862369 "HT" 
+\author 5863457 "ht" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Finite-time-DAC-Gen"
+
+\end_inset
+
+Finite-time 
+\change_deleted 5863457 1355276196
+Consensus
+\change_inserted 5863457 1355276196
+DAC
+\change_unchanged
+ 
+\change_deleted 5863457 1355276199
+O
+\change_inserted 5863457 1355276199
+o
+\change_unchanged
+n Generalized Conditions 
+\change_inserted 5863457 1357331101
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1357331102
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 5863457 1357331102
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5862369 1355847157
+(todo check 2)
+\change_inserted 5862369 1355847157
+ 
+\change_inserted 5863457 1357604283
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5863457 1357604353
+The
+\change_unchanged
+ finite-time DAC algorithm can calculate the consensus value by a linear
+ combination of local values in the past, 
+\change_inserted 5863457 1357604349
+as shown in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Find_Consensus_Value"
+
+\end_inset
+
+
+\change_deleted 5863457 1357604403
+provided that each node knows the network topology (or eigenvalues of the
+ weight matrix 
+\begin_inset Formula $W$
+\end_inset
+
+).
+ However, having knowledge of the network topology in every node is a demanding
+ assumption.
+
+\change_unchanged
+ Although a distributed algorithm to calculate the coefficients of the linear
+ combination has been introduced in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+, it requires the consensus algorithm being executed for several instances
+ initialized with a set of linear independent vectors.
+ As mentioned before, the finite-time DAC is not reliable to topology changes.
+ If the method 
+\change_deleted 5863457 1357427403
+have
+\change_inserted 5863457 1357427404
+has
+\change_unchanged
+ to run multiple re-initializations of original consensus algorithm, it
+ may take more risks of being terminated by topology changes.
+ Alternatively, the original consensus algorithm can run these instances
+ in parallel with a set of independent initial values.
+ However, the data transmission at each iteration increases.
+\end_layout
+
+\begin_layout Standard
+Here we propose a generalized finite-time 
+\change_deleted 5862369 1355334721
+consensus
+\change_inserted 5862369 1355334721
+DAC
+\change_unchanged
+ algorithm, which does not require knowledge of network topology and multiple
+ re-initializations of the original consensus algorithm.
+ 
+\change_inserted 5862369 1355335000
+In the future research, the finite-time DAC algorithm probably will be generaliz
+ed to non-symmetrical network.
+ 
+\change_unchanged
+Before introducing the algorithm, there are t
+\change_deleted 5863457 1357427425
+o
+\change_inserted 5863457 1357427425
+w
+\change_unchanged
+o important linear filters need to be introduced, as the algorithm is based
+ on the relathonship of these filters.
+
+\change_inserted 5862369 1355335166
+ The first is the FIR filter to estimate the consensus value which 
+\change_inserted 5863457 1357427433
+has been 
+\change_unchanged
+already 
+\change_inserted 5862369 1355335166
+introduced in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Find_Consensus_Value"
+
+\end_inset
+
+.
+ The second
+\change_unchanged
+ one
+\change_inserted 5862369 1355335166
+ is introduced in the next 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Linear-Predictor-For"
+
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Section
+
+\change_inserted 5862369 1355335123
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Linear-Predictor-For"
+
+\end_inset
+
+
+\change_unchanged
+Linear Predictor for Local Value 
+\change_deleted 5862369 1355847164
+(todo check times 2)
+\change_inserted 5862369 1355847164
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+In observing the convergence curve of each node's local value sequence,
+ we come to the idea that the sequence must obey
+\change_deleted 5863457 1357427454
+s
+\change_unchanged
+ some rules as it converges.
+ In 
+\change_deleted 5862369 1355847351
+section
+\change_inserted 5862369 1355847351
+ 
+\change_unchanged
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Find_Consensus_Value"
+
+\end_inset
+
+, it is shown that local value vector can be decomposed in terms of eigenvalues
+ and eigenvectors.
+ Based on this fact, a consensus value estimation method by inverting the
+ Vandermonde matrix 
+\change_deleted 5862369 1350052595
+and an information flooding techniques
+\change_unchanged
+ is proposed.
+\end_layout
+
+\begin_layout Standard
+Furthermore, another important property of 
+\change_deleted 5863457 1357427463
+the
+\change_unchanged
+ FO-DCA need
+\change_inserted 5863457 1357427466
+s
+\change_unchanged
+ to be highlighted in this section, which 
+\change_inserted 5863457 1357427468
+is 
+\change_unchanged
+described by 
+\change_deleted 5862369 1350052658
+see how this property can be explained
+\change_unchanged
+ the following theorem.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:LV predictor a_i"
+
+\end_inset
+
+ For the DAC iteration 
+\begin_inset Formula $\mathbf{x}(k+1)=W\mathbf{x}(k)$
+\end_inset
+
+ with 
+\begin_inset Formula $W$
+\end_inset
+
+ satisfying the convergence condition in theorem 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:convergence condition"
+
+\end_inset
+
+ , for any 
+\begin_inset Formula $k\geq m$
+\end_inset
+
+, where 
+\begin_inset Formula $m$
+\end_inset
+
+ is a certain number, local value 
+\shape up
+
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+
+\shape default
+ at node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ is equal to a linear combination of local values of itself in 
+\begin_inset Formula $m$
+\end_inset
+
+ previous time steps, i.e.
+ 
+\begin_inset Formula $x_{i}\left(k\right)=-a_{m-1}x_{i}\left(k-1\right)-\ldots-a_{1}x_{i}\left(k-m+1\right)-a_{0}x_{i}\left(k-m\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+
+\change_inserted 5863457 1357427475
+T
+\change_deleted 5863457 1357427475
+t
+\change_unchanged
+he minimal polynomial of 
+\begin_inset Formula $W$
+\end_inset
+
+ is given by
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{eqnarray}
+p(\lambda) & = & \prod_{i=1}^{r}\left(\lambda-\lambda_{i}\right)^{r_{i}}=0\nonumber \\
+ & = & \lambda^{m}+a_{m-1}\lambda^{m-1}+\ldots+a_{1}\lambda+a_{0}\label{eq:polynomial of matrix W}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $m=\sum_{i=1}^{r}r_{i}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $p\left(W\right)=\mathbf{0}_{n\times n}$
+\end_inset
+
+, we have, 
+\begin_inset Formula 
+\[
+W^{m}+a_{m-1}W^{m-1}+\ldots+a_{1}W+a_{0}I=\mathbf{0}_{n\times n}
+\]
+
+\end_inset
+
+
+\change_inserted 5863457 1357427478
+M
+\change_deleted 5863457 1357427478
+m
+\change_unchanged
+ultiplying both sides with 
+\begin_inset Formula $\mathbf{x}\left(0\right)$
+\end_inset
+
+ we obtain 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}\left(k\right)+a_{m-1}\mathbf{x}\left(k-1\right)+\ldots+a_{0}\mathbf{x}\left(k-m\right)=\mathbf{0}_{n\times n}\label{eq:x(k+r) vector predictor}
+\end{equation}
+
+\end_inset
+
+For any node 
+\begin_inset Formula $v_{i}\in{\cal V}$
+\end_inset
+
+, its local value at time 
+\begin_inset Formula $k$
+\end_inset
+
+ is just the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ component of 
+\begin_inset Formula $\mathbf{x}\left(k\right)$
+\end_inset
+
+.
+ After a little evolution, we have
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{equation}
+x_{i}\left(k\right)=-a_{m-1}x_{i}\left(k-1\right)-\ldots-a_{0}x_{i}\left(k-m\right)\label{eq:x(k+r) predictor}
+\end{equation}
+
+\end_inset
+
+In other words, 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+ can be predicted by a
+\change_inserted 5863457 1357427486
+n
+\change_unchanged
+ FIR filter given by 
+\begin_inset Formula $\left[-a_{r},-a_{r-1},\ldots,-a_{0}\right]$
+\end_inset
+
+, if we pass a number of consecutive local values in the past through that
+ filter, after the time index 
+\begin_inset Formula $k>m$
+\end_inset
+
+.
+ In addition, all the nodes in the network can share the same coefficients,
+ when the minimal polynomial of 
+\begin_inset Formula $W$
+\end_inset
+
+ is not changed.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5863457 1357428173
+Lemma 3.1.1
+\change_inserted 5863457 1357428364
+ 
+\change_deleted 5863457 1357428173
+The sum coefficients 
+\shape up
+
+\begin_inset Formula $\left\{ a_{j}\right\} =\left\{ a_{m-1},\ldots,a_{1},a_{0}\right\} $
+\end_inset
+
+
+\shape default
+ is equal to negative one, i.e.
+ 
+\begin_inset Formula $\sum_{j=0}^{m-1}a_{j}=-1$
+\end_inset
+
+
+\shape up
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5863457 1357428195
+proof: Since Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:x(k+r) vector predictor"
+
+\end_inset
+
+ satisfied as 
+\begin_inset Formula $k\to\infty$
+\end_inset
+
+, when the iteration converges, we have 
+\begin_inset Formula $\bar{\mathbf{x}}+a_{m-1}\bar{\mathbf{x}}+\ldots+a_{1}\bar{\mathbf{x}}+a_{0}\bar{\mathbf{x}}=\mathbf{0}$
+\end_inset
+
+.
+ Then, canceling the vector 
+\begin_inset Formula $\bar{\mathbf{x}}$
+\end_inset
+
+ from the equation will obtain the result.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Given the local value vector sequence obtained by FO-DCA, one may instantly
+ comes to the idea of applying an adaptive filter algorithm to estimate
+ the set of coefficients.
+ For example
+\change_deleted 5863457 1357427618
+, LMS, LSL and
+\change_inserted 5863457 1357427618
+the
+\change_unchanged
+ Kalman filter algorithms.
+ One benifit of the adaptive filter algorithm is that when the network topology
+ is changed, the filter could adaptively change its coefficient during the
+ iteration.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Find the Coefficients of Linear Predictor
+\change_deleted 5863457 1355532379
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+After running FO-DAC algorithm for a number of step
+\change_inserted 5863457 1357427630
+s
+\change_unchanged
+, node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ could list a number of equations by its available local values.
+ Once they are sufficient equations to construct a matrix, which is a Toeplitz
+ matrix, we can have a
+\change_inserted 5863457 1357427634
+n
+\change_unchanged
+ important result in the following.
+\end_layout
+
+\begin_layout Standard
+Let 
+\change_deleted 5863457 1355319626
+the
+\change_unchanged
+ 
+\begin_inset Formula $T_{i}=T_{i}\left(k,D_{i}\right)\in\mathbb{R}^{D_{i}\times D_{i}}$
+\end_inset
+
+ be a function at 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ which outputs a Toeplitz matrix with size 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $x_{i}\left(k\right)$
+\end_inset
+
+ as diagonal entries.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T_{i}\left(k,D_{i}\right)=$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{align}
+\left[\begin{array}{cccc}
+x_{i}\left(k\right) & x_{i}\left(k-1\right) & \ldots & x_{i}\left(k-D_{i}+1\right)\\
+x_{i}\left(k+1\right) & x_{i}\left(k\right) & \cdots & x_{i}\left(k-D_{i}+2\right)\\
+\vdots & \vdots & \ddots & \vdots\\
+x_{i}\left(k+D_{i}-2\right) & x_{i}\left(k+D_{i}-3\right) & \cdots & x_{i}\left(k-2\right)\\
+x_{i}\left(k+D_{i}-1\right) & x_{i}\left(k+D_{i}-2\right) & \cdots & x_{i}\left(k\right)
+\end{array}\right]\label{eq:Toeplitz_i simple-1}
+\end{align}
+
+\end_inset
+
+Similarly, 
+\change_inserted 5863457 1357427638
+define 
+\change_unchanged
+the function 
+\begin_inset Formula $\mathbf{y}_{i}=\mathbf{y}_{i}\left(k,D_{i}\right)=\left[x_{i}\left(k+1\right),x_{i}\left(k+2\right),\ldots,x_{i}\left(k+D_{i}\right)\right]^{T}\in\mathbb{R}^{D_{i}}$
+\end_inset
+
+
+\change_inserted 5863457 1355319646
+ which
+\change_unchanged
+ outputs the local value history at 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ from time 
+\begin_inset Formula $k+1$
+\end_inset
+
+ to 
+\begin_inset Formula $k+D_{i}$
+\end_inset
+
+.
+ 
+\change_deleted 5863457 1355319693
+When input parameter are not given, 
+\begin_inset Formula $T_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{y}_{i}$
+\end_inset
+
+ also represents the Toeplitz matrix and local value history vector built
+ at 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+.
+
+\change_inserted 5863457 1355319701
+ Then,
+\change_unchanged
+ let 
+\begin_inset Formula $\mathbf{a}_{i}\left(D_{i}\right)=\left[a_{i,D_{i}-1},\ldots,a_{i,1},a_{i,0}\right]^{T}\in\mathbb{R}^{D_{i}}$
+\end_inset
+
+ be a vector of length 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ representing the coefficients in the minimal polynomial calculated at 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+.
+ Then, we have the solution of these equations given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{a}_{i}\left(D_{i}\right)=-T_{i}^{-1}\left(k,D_{i}\right)\mathbf{y}_{i}\left(k,D_{i}\right)\label{eq:Toeplitz Eq.-2}
+\end{equation}
+
+\end_inset
+
+The size of the Toeplitz block 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+, should be less or equal to 
+\begin_inset Formula $m$
+\end_inset
+
+ so that
+\change_deleted 5863457 1357427688
+ 
+\change_unchanged
+ Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Toeplitz Eq.-2"
+
+\end_inset
+
+ has unique solution.
+ To solve Eq.
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Toeplitz Eq.-2"
+
+\end_inset
+
+, node 
+\begin_inset Formula $i$
+\end_inset
+
+ need
+\change_inserted 5863457 1357427692
+s
+\change_unchanged
+ to have sufficient local values.
+\end_layout
+
+\begin_layout Standard
+Toeplitz matrix is a special type of matrix and can be inverted by some
+ algorithms in the polynomial time of order 
+\begin_inset Formula $D_{i}^{2}$
+\end_inset
+
+, rather than the order of 
+\begin_inset Formula $D_{i}^{3}$
+\end_inset
+
+ in general case (for example by LU decomposition), which is an enormous
+ computational saving 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Prass2007"
+
+\end_inset
+
+.
+ Levinson developed a recursive algorithm to solve the system quickly if
+ the Toeplitz matrix is symmetric.
+
+\change_deleted 5862369 1355333256
+ 
+\change_inserted 5862369 1355333252
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+One interesting advantage of Levinson's method is it can also apply to the
+ case when weight matrix is non-symmetric.
+
+\change_inserted 5862369 1355333230
+ The fact that the method can be generalized to the non-symmetric case is
+ stated in the texts 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Robinson2000"
+
+\end_inset
+
+.
+
+\change_unchanged
+ 
+\change_deleted 5862369 1355333181
+It can be demonstrated by just finding the inverse of a confluent Vandermonde
+ matrix.
+ In examining the inverse of confluent Vandermonde matrix and find the the
+ expression of the row who corresponds to the unity eigenvalue, we note
+ that the difference is that the length of consensus filter.
+ It is not equal to the number of distinct and nonzero eigenvalues 
+\begin_inset Formula $m$
+\end_inset
+
+, but equal to the sum of all orders in minimal polynomial of weight matrix
+ 
+\begin_inset Formula $\sum_{i=1}^{m}r_{i}$
+\end_inset
+
+.
+ However, the relationship of local value predictor and consensus finding
+ filter still holds.
+ 
+\change_inserted 5862369 1355333213
+ 
+\change_unchanged
+Therefore, We will invert this Toeplitz matrix using Levinson's method.
+
+\change_inserted 5863457 1355531109
+ 
+\change_deleted 5863457 1355531167
+The proposed method doesn't need to be changed and can generalize to the
+ non-symmetric weight matrix case.
+ 
+\change_inserted 5863457 1355531167
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+It totally needs 
+\begin_inset Formula $2D_{i}+2$
+\end_inset
+
+ local values
+\change_deleted 5863457 1355531206
+ 
+\change_unchanged
+ to construct the Toeplitz matrix and Eq.
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Toeplitz Eq.-2"
+
+\end_inset
+
+, 
+\change_deleted 5863457 1355531217
+but
+\change_unchanged
+ all the local value
+\change_inserted 5863457 1357427709
+s
+\change_unchanged
+ can be obtained from one instance of FO-DCA
+\change_inserted 5863457 1355531225
+ after 
+\begin_inset Formula $2D_{i}+1$
+\end_inset
+
+ iterations
+\change_unchanged
+.
+ By comparing to the original finite-time consensus algorithm 
+\change_deleted 5863457 1355531391
+in
+\change_unchanged
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sundaram2007"
+
+\end_inset
+
+ 
+\change_inserted 5863457 1355531394
+who 
+\change_unchanged
+requires 
+\begin_inset Formula $D_{i}^{2}$
+\end_inset
+
+ iterations of FO-DCA
+\change_deleted 5863457 1355531384
+, and
+\change_unchanged
+ 
+\change_inserted 5863457 1355531398
+in 
+\change_unchanged
+total, the proposed method has 
+\change_deleted 5863457 1355531297
+some
+\change_unchanged
+ improvement 
+\change_inserted 5863457 1355531291
+in reduced number of matrix iterations
+\change_deleted 5863457 1355531282
+to the original finite-time consensus algorithm
+\change_unchanged
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In 
+\change_deleted 5862369 1355847374
+the next
+\change_unchanged
+ 
+\change_deleted 5862369 1355847364
+section
+\change_unchanged
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Convert-Linear-Predictor "
+
+\end_inset
+
+, we will show how to obtain the consensus finding filter by 
+\change_inserted 5863457 1355531489
+the 
+\change_unchanged
+linear predictor
+\change_deleted 5863457 1355531456
+ coefficients
+\change_unchanged
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Convert-Linear-Predictor "
+
+\end_inset
+
+Convert Linear Predictor to Consensus Finding Filter 
+\change_deleted 5862369 1355847169
+(todo check times 1)
+\change_inserted 5862369 1355847169
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Once there are sufficient local values, node 
+\begin_inset Formula $i$
+\end_inset
+
+ can solve the equation and obtain the set of coefficients 
+\series bold
+
+\begin_inset Formula $\mathbf{a}$
+\end_inset
+
+
+\series default
+ and construct the polynomial 
+\begin_inset Formula 
+\[
+p_{i}(\lambda)=\lambda^{m}+a_{m-1}\lambda^{m-1}+\ldots+a_{1}\lambda+a_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ satisfies the condition in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:convergence condition"
+
+\end_inset
+
+ there is a simple eigenvalue
+\change_deleted 5863457 1355531905
+ 
+\change_inserted 5863457 1355531906
+ 
+\change_unchanged
+equal
+\change_deleted 5863457 1357427743
+s
+\change_inserted 5863457 1357427743
+ing
+\change_unchanged
+ to one.
+ 
+\change_inserted 5863457 1355532179
+As shown in 
+\change_deleted 5862369 1355847380
+section
+\change_inserted 5862369 1355847380
+ 
+\change_inserted 5863457 1355532179
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Find_Consensus_Value"
+
+\end_inset
+
+ we can let the first eigenvalue 
+\begin_inset Formula $\lambda_{1}=1$
+\end_inset
+
+, and it will be located in the first row of Vandermonde's matrix.
+ Therefore,
+\change_deleted 5863457 1355532176
+,
+\change_unchanged
+ the consensus finding filter is given by the 
+\change_inserted 5863457 1355532148
+first 
+\change_unchanged
+row of inverse of Vandermonde's matrix.
+ 
+\change_deleted 5863457 1355532194
+Thus, the consensus finding filter is given by the first row of the inverse
+ of Vandermonde's Matrix.
+
+\change_inserted 5863457 1355532194
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Examining the Lagrange's polynomial interpolation formula 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Lagrange's polynomial"
+
+\end_inset
+
+ we can rewrite the consensus finding filter
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ in terms of 
+\begin_inset Formula $a_{k}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+To make the expression simple,
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ we may define another polynomial (
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Also see Eq.
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:intermindia polynomial"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q_{i}\left(\lambda\right)=\frac{p_{i}\left(\lambda\right)}{\lambda-1}=c_{m}\lambda^{m-1}+c_{m-1}\lambda^{m-2}+\ldots+c_{2}\lambda+c_{1}
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+where 
+\begin_inset Formula $c_{k}=1+\sum_{j=k+1}^{m}a_{j}$
+\end_inset
+
+.
+ The consensus finding filter can be given by the coefficient 
+\change_deleted 5863457 1355532254
+in
+\change_inserted 5863457 1355532255
+of
+\change_unchanged
+ 
+\begin_inset Formula $q_{i}\left(\lambda\right)$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{h}=\frac{\left[c_{m},c_{m-1},\ldots,c_{2}\right]}{\sum_{k=1}^{m}c_{k}}\label{eq:Consensus Filter by polynomial}
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+This indicates the possibility of using the adaptive filter to estimate
+ the consensus value after a certain number of iterations.
+ 
+\change_inserted 5862369 1355333420
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 5862369 1355333902
+One interesting property of the consensus finding filter is that it can
+ be found by this method when the weight matrix is non-symmetric.
+ It can be demonstrated by finding the inverse of a confluent Vandermonde
+ matrix.
+ In examining the expression of the inverse of confluent Vandermonde matrix,
+ we note that 
+\change_unchanged
+the 
+\change_inserted 5863457 1355531786
+corresponding 
+\change_unchanged
+row
+\change_inserted 5862369 1355333902
+ 
+\change_deleted 5863457 1355531795
+corresponding to
+\change_inserted 5862369 1355333902
+ 
+\change_deleted 5863457 1355531798
+the unity eigenvalue
+\change_inserted 5863457 1355531837
+ where the dominant eigenvalue
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+ is located
+\change_deleted 5863457 1355532317
+, can
+\change_inserted 5863457 1355532324
+ are
+\change_inserted 5862369 1355333902
+ actually the coefficients of a consensus finding filter.
+ The
+\change_deleted 5863457 1355532338
+ 
+\change_inserted 5862369 1355333902
+ length of the filter is not required to be the same.
+ It may be not equal to the number of distinct and nonzero eigenvalues 
+\begin_inset Formula $m$
+\end_inset
+
+, but 
+\change_inserted 5863457 1355532281
+less or 
+\change_inserted 5862369 1355333902
+equal to the sum of all orders in minimal polynomial of weight matrix 
+\begin_inset Formula $\sum_{i=1}^{m}r_{i}$
+\end_inset
+
+.
+ However, the relationship of local value predictor and consensus finding
+ filter still holds.
+ 
+\end_layout
+
+\begin_layout Section
+Simulation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Numerical-Simulation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename Graph/Report_DAC/Net_Weight/graph with 8 nodes and 17 edges.pdf
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Graph in Xiao'paper"
+
+\end_inset
+
+Graph with optimal weights which maximize convergence rate 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider the graph from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+, the weight matrix 
+\series bold
+
+\begin_inset Formula $W$
+\end_inset
+
+
+\series default
+ corresponding to this graph is symmetric and has eigenvalues 
+\begin_inset Formula $\lambda(W)=\{1,0.6,0.4,0,0,0,-0.4,-0.6\}$
+\end_inset
+
+.
+ The time index 
+\begin_inset Formula $k$
+\end_inset
+
+ can be chosen large enough so that there are
+\change_inserted 5863457 1348434085
+ 
+\change_unchanged
+sufficient
+\change_inserted 5863457 1348434085
+ number of local values to estimate the filter coefficients.
+
+\change_unchanged
+ 
+\change_deleted 5863457 1348434026
+only positive powers in the matrix 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{V}(k,d)$
+\end_inset
+
+.
+
+\change_unchanged
+ For example, there are
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 5 distinct and nonzero eigenvalues of 
+\series bold
+
+\begin_inset Formula $W$
+\end_inset
+
+
+\series default
+, so we choose 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+the time index 
+\begin_inset Formula $k=5$
+\end_inset
+
+ and 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula $d=5$
+\end_inset
+
+ which is the minimum filter length
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
+\change_deleted 5863457 1348434076
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 5863457 1348434076
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\mathbf{V}(5,5)=\left[\begin{array}{ccccc}
+1 & 0.0778 & 0.0102 & -0.0102 & -0.0778\\
+1 & 0.1296 & 0.0256 & 0.0256 & 0.1296\\
+1 & 0.216 & 0.064 & -0.064 & -0.216\\
+1 & 0.36 & 0.16 & 0.16 & 0.36\\
+1 & 0.6 & 0.4 & -0.4 & -0.6
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ the first row of the inverse matrix 
+\begin_inset Formula $\mathbf{V}^{-1}(5,5)$
+\end_inset
+
+
+\change_unchanged
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\change_inserted 5863457 1348434155
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+Based on Eq.
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Consensus Filter by polynomial"
+
+\end_inset
+
+ 
+\change_deleted 5863457 1348434158
+gives 
+\change_inserted 5863457 1348434160
+ 
+\change_unchanged
+the consensus finding filter 
+\change_inserted 5863457 1348434163
+is given by
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{h}=\left[1.8601,\;0,\;-0.9673,\;0,\;0.1071\right]^{\mathrm{T}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename Graph/Report_DAC/MSE/MSE_Filter vs FODAC.pdf
+	width 8cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:perform. Consensus Filter"
+
+\end_inset
+
+Performance of the first order iteration with optimal matrix vs.
+ consensus finding filter algorithm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For any random generated 
+\begin_inset Formula $\mathbf{x}(0)\in R^{n}$
+\end_inset
+
+, node values vector 
+\begin_inset Formula $\mathbf{x}(k)$
+\end_inset
+
+ is updated by the iteration Eq.
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:first order matrix"
+
+\end_inset
+
+.
+ At the same time each node passes its local values th
+\change_inserted 5863457 1357427779
+r
+\change_unchanged
+ough filter 
+\begin_inset Formula $\mathbf{h}$
+\end_inset
+
+.
+ Filter output is given by 
+\begin_inset Formula $\hat{x}_{i}(k)=\mathbf{h}(k)*x_{i}(k)$
+\end_inset
+
+.
+ 
+\change_deleted 5862369 1355761491
+Fig.
+\change_unchanged
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "cap:perform. Consensus Filter"
+
+\end_inset
+
+ compares the 
+\change_deleted 5863457 1357333388
+first order DAC
+\change_inserted 5863457 1357333388
+first-order DAC
+\change_unchanged
+ (FO-DAC) algorithm with optimal matrix and the proposed algorithm with
+ consensus finding filter.
+ The performance is evaluated by the mean square error (MSE), defined by
+ 
+\begin_inset Formula $\mbox{MSE}_{\mbox{FO-DAC}}(k)=\sum_{i\in\mathcal{N}}E[\left|x_{i}(k)-\bar{x}\right|^{2}]$
+\end_inset
+
+, 
+\begin_inset Formula $\mbox{MSE}_{\mbox{filter}}(k)=\sum_{i\in\mathcal{N}}E[\left|\alpha_{i}(k)-\bar{x}\right|^{2}]$
+\end_inset
+
+ respectively, where 
+\begin_inset Formula $\bar{x}=(1/n)\sum_{i\in\mathcal{N}}x_{i}(0)$
+\end_inset
+
+.
+ The result shows that the consensus finding filter calculate
+\change_inserted 5863457 1357427790
+s
+\change_unchanged
+ the consensus value after a finite number of iteration
+\change_inserted 5863457 1357427793
+s
+\change_unchanged
+ and MSE drops dramatically to the quantization error at the same time.
+ 
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+In this section, we introduced the finite-time DAC on generalized condition.
+ Compared to the previous version of finite-time DAC, the improvements are:
+ it doesn't require the eigenvalues to be known prior to the algorithm.
+ However, the number of iterations can not be less than a certain limit,
+ because the minimum number of iterations 
+\change_deleted 5863457 1357427803
+is
+\change_unchanged
+ depends on the weight matrix, which is the same as the previous finite-time
+ DAC.
+ With this improvement, some further algorithm could be driven.
+ They will be introduced in 
+\change_deleted 5862369 1355762081
+chapter
+\change_unchanged
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Online-Optimization-of"
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

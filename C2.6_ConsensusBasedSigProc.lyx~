@@ -1,0 +1,1064 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+theorems-ams-bytype
+theorems-sec-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 5862369 "HT" 
+\author 5863457 "ht" 
+\end_header
+
+\begin_body
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Consensus-Based-Signal"
+
+\end_inset
+
+Consensus Based Signal Processing
+\end_layout
+
+\begin_layout Standard
+Sensor networks have a variety of applications such as surveillance, environment
+ monitoring and collaborative signal processing.
+ 
+\change_inserted 5862369 1355343581
+As the 
+\change_unchanged
+advantages
+\change_inserted 5862369 1355343581
+ of reliability, survivability, and increased range of coverage, there is
+ an increasing interest in employing multiple distributed sensors for these
+ applications 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chair1986"
+
+\end_inset
+
+.
+ 
+\change_unchanged
+A fundamental problem in sensor network
+\change_inserted 5863457 1357422994
+s
+\change_unchanged
+ is to process spatially distributed information using a scalable algorithm
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2005a"
+
+\end_inset
+
+.
+ 
+\change_inserted 5862369 1355343542
+
+\end_layout
+
+\begin_layout Standard
+Generally, there are two options for multiple sensors signal processing:
+ First option is centralized signal processing.
+ This requires the network contains a fusion center, and all sensor's informatio
+n being transmitted to the central processor.
+ 
+\change_inserted 5862369 1355343482
+
+\end_layout
+
+\begin_layout Standard
+The Second option is distributed signal processing.
+
+\change_deleted 5862369 1355343503
+ 
+\change_unchanged
+ Distributed average consensus (DAC) algorithm is a tool for distributed
+ information processing.
+ It has received significant attention recently because of its robustness
+ and simplicity.
+ In this section, we will introduce two distributed signal processing methods
+ based on consensus algorithm.
+\end_layout
+
+\begin_layout Subsection
+Data Fusion and Decision Making
+\change_deleted 5862369 1355847140
+(todo check times 2)
+\change_inserted 5862369 1355847140
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+In this section, we will consider a distributed detection problem in wireless
+ sensor network
+\change_inserted 5863457 1357423069
+s
+\change_unchanged
+ without the fusion center.
+ 
+\change_deleted 5862369 1355343706
+Then, a
+\change_inserted 5862369 1355343706
+A
+\change_unchanged
+ consensus based approach of distributed data fusion and decision making
+ is introduced.
+\end_layout
+
+\begin_layout Standard
+In centralized data fusion and decision making, a hypothesis test based
+ on the ML
+\change_inserted 5863457 1357423106
+ (Maximum Likelihood) 
+\change_unchanged
+, MAP
+\change_inserted 5863457 1357423116
+ (Maximum a Posteriori ) 
+\change_deleted 5863457 1357423088
+ 
+\change_unchanged
+or Bayesian decision rule will be carried out at the a fusion center
+\change_deleted 5862369 1355343723
+ to make the decision
+\change_unchanged
+.
+ 
+\change_deleted 5862369 1355343985
+The optimal data fusion scheme is proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chair1986"
+
+\end_inset
+
+, where the final decision is  an optimal linear combination of local decisions
+ of all sensors.
+ 
+\change_inserted 5862369 1355343985
+ 
+\change_unchanged
+Therefore, we intend to carry out the hypothesis test in a distributed manner.
+ 
+\change_inserted 5862369 1355344018
+
+\end_layout
+
+\begin_layout Standard
+Considering a binary hypothesis testing problem with the following two hypothese
+s
+\end_layout
+
+\begin_layout Enumerate
+H0: target is absent
+\end_layout
+
+\begin_layout Enumerate
+H1: target is present.
+\end_layout
+
+\begin_layout Standard
+Suppose each sensor acquires a scale value from its sensing area, its signal
+ has the following form
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x_{l}=\begin{cases}
+\mu_{l,0}+n_{l} & \mbox{if no target presents}\\
+\mu_{l,1}+n_{l} & \mbox{if target presents}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mu_{l,m}$
+\end_inset
+
+ is 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+the mean value of 
+\begin_inset Formula $x_{l}$
+\end_inset
+
+ depending on hypothesis 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{l}$
+\end_inset
+
+ is the noise of 
+\begin_inset Formula $x_{l}$
+\end_inset
+
+.
+ The prior probability of these two hypotheses is denoted by 
+\begin_inset Formula $P\left(H_{m}\right)=P_{m},m=1,2$
+\end_inset
+
+.
+ The case when each sensor acquires a vector of unknown parameters is discussed
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2005"
+
+\end_inset
+
+, where a more sophisticated data fusion scheme is proposed.
+
+\change_inserted 5862369 1355343588
+ 
+\change_deleted 5862369 1355340780
+ 
+\change_unchanged
+ 
+\change_deleted 5862369 1355340767
+The signal modle is mixed with joint Gaussian white noise 
+\change_inserted 5862369 1355340767
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+To make a declaration whether the target presents or not, based on classical
+ hypothesis test theory, the global log likelihood ratio (G-LLR ) test is
+ given by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+LLR(x_{1},...,x_{L})=\log\frac{f\left(x_{1},...,x_{L}|H_{1}\right)}{f\left(x_{1},...,x_{L}|H_{0}\right)}\underset{H_{0}}{\overset{H_{1}}{\gtrless}\log}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}\label{eq:G-LLR define}
+\end{equation}
+
+\end_inset
+
+where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is the likelihood function of hypothesis 
+\begin_inset Formula $H_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Usually 
+\change_deleted 5862369 1355340846
+simplification
+\change_unchanged
+ we can assume the sensor 
+\change_deleted 5862369 1355340864
+observations
+\change_inserted 5862369 1355340866
+detections
+\change_unchanged
+ are independent from one to another.
+ Therefore, we have 
+\begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)=f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)$
+\end_inset
+
+ and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+LLR(\mathbf{x}) & = & \log\frac{f\left(x_{1}|H_{1}\right)\cdot\ldots\cdot f\left(x_{L}|H_{1}\right)}{f\left(x_{1}|H_{0}\right)\cdot\ldots\cdot f\left(x_{L}|H_{0}\right)}=\sum_{i=1}^{L}LLR\left(x_{i}\right)\label{eq:Sum_L_LLR}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to
+\change_deleted 5863457 1357423140
+ 
+\change_inserted 5863457 1357423138
+ 
+\change_unchanged
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Sum_L_LLR"
+
+\end_inset
+
+, 
+\change_deleted 5863457 1357423272
+the G-LLR
+\change_inserted 5863457 1357423272
+G-LLR
+\change_unchanged
+ is the sum of local log likelihood ratio (L-LLR) and can be calculated
+ by distributed average consensus (DAC) algorithm.
+ This is implemented by the following steps: First, each sensor node 
+\begin_inset Formula $i$
+\end_inset
+
+ only calculate
+\change_inserted 5863457 1357423151
+s
+\change_unchanged
+ its L-LLR individually based on 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+; Then, all the sensors update their L-LLR
+\change_inserted 5863457 1357423155
+s
+\change_unchanged
+ in the DAC iteration until they converge to a common value; Finally, once
+ the algorithm converges, 
+\change_deleted 5863457 1357423273
+the G-LLR
+\change_inserted 5863457 1357423273
+G-LLR
+\change_unchanged
+ is obtained by multiply
+\change_inserted 5863457 1357423164
+ing
+\change_unchanged
+ the average value with the number of sensors in the network.
+\end_layout
+
+\begin_layout Subsubsection*
+Generalization of LLR Calculation 
+\end_layout
+
+\begin_layout Standard
+In this section, we will generalize the conditions step by step and drive
+ some expressions to show how to calculate G-LLR with DAC algorithms.
+ We assume the noises in sensor's signals are not independent from one to
+ another.
+ The noises can be denoted by the joint Gaussian white noise.
+ 
+\end_layout
+
+\begin_layout Standard
+Let the sensors observation, the joint Gaussian white noises and the mean
+ of sensor observation in a vector form 
+\change_inserted 5863457 1357423175
+be 
+\change_unchanged
+given by 
+\begin_inset Formula 
+\[
+\mathbf{x}=\left[x_{1},\ldots,x_{L}\right]^{\mathrm{T}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{n}=\left[n_{1},\ldots,n_{L}\right]^{\mathrm{T}}\sim\mathcal{N}\left(0,\Sigma\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{u}_{m}=\left[\mu_{1,m},\ldots,\mu_{L,m}\right]^{\mathrm{T}},\; m=0,1.
+\end{equation}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\mathbf{n}\sim\mathcal{N}\left(0,\Sigma\right)$
+\end_inset
+
+, the likelihood function is a joint Gaussian function 
+\begin_inset Formula $f\left(x_{1},...,x_{L}|H_{m}\right)=\frac{1}{\left(2\pi\right)^{L/2}\left|\Sigma\right|^{\frac{1}{2}}}\exp\left(-\frac{1}{2}\left(\mathbf{x}-\mathbf{u}_{m}\right)^{T}\Sigma^{-1}\left(\mathbf{x}-\mathbf{u}_{m}\right)\right)$
+\end_inset
+
+, 
+\change_deleted 5863457 1357423273
+the G-LLR
+\change_inserted 5863457 1357423273
+G-LLR
+\change_unchanged
+ becomes 
+\begin_inset Formula 
+\begin{eqnarray}
+LLR(\mathbf{x}) & = & \left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{T}}\right)\mathbf{\Sigma}^{-1}\mathbf{x}+\frac{1}{2}\left(\mathbf{u}_{0}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{0}-\mathbf{u}_{1}^{\mathrm{T}}\mathbf{\Sigma}^{-1}\mathbf{u}_{1}\right)\label{eq:wighted_sum_LLR}\\
+ & = & \sum_{l=1}^{L}w_{l}x_{l}+C\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $w_{l}$
+\end_inset
+
+ is the 
+\begin_inset Formula $l^{th}$
+\end_inset
+
+ component of 
+\begin_inset Formula $\left(\mathbf{u}_{1}^{\mathrm{T}}-\mathbf{u}_{0}^{\mathrm{T}}\right)\mathbf{\Sigma}^{-1}$
+\end_inset
+
+, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $C$
+\end_inset
+
+ is the last term the equation.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:wighted_sum_LLR"
+
+\end_inset
+
+ means 
+\change_deleted 5863457 1357423273
+the G-LLR
+\change_inserted 5863457 1357423274
+G-LLR
+\change_unchanged
+ can be a weighted sum of sensor's observation.
+ 
+\change_deleted 5862369 1355342338
+signal acquired in each sensor.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Provided that each sensor knows the weight 
+\begin_inset Formula $w_{l}$
+\end_inset
+
+ and 
+\begin_inset Formula $C$
+\end_inset
+
+, 
+\change_deleted 5863457 1357423274
+the G-LLR
+\change_inserted 5863457 1357423274
+G-LLR
+\change_unchanged
+ is equal to the weighted sum of sensor's observation plus 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ Actually, the constant 
+\begin_inset Formula $C$
+\end_inset
+
+ changes the threshold of the hypothesis testing and can be subtract from
+ both side of the equation.
+ Therefore, we modify the hypothesis testing into 
+\begin_inset Formula 
+\[
+\sum_{l=1}^{L}w_{l}x_{l}\underset{H_{0}}{\overset{H_{1}}{\gtrless}}\frac{P\left(H_{o}\right)}{P\left(H_{1}\right)}-C
+\]
+
+\end_inset
+
+where the average values 
+\begin_inset Formula $\frac{1}{L}\sum_{i=1}^{L}w_{l}x_{l}$
+\end_inset
+
+ is obtained by distributed average consensus (DAC) algorithm.
+ Then the average is multiplied with the number of sensors in the network
+ to get 
+\begin_inset Formula $\sum_{l=1}^{L}w_{l}x_{l}$
+\end_inset
+
+.
+ 
+\change_deleted 5862369 1355344692
+This finish the distributed detection and decision making under the condition
+ of jointly white Gaussian noise.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+In 
+\change_deleted 5862369 1355847297
+the section of cloud detection
+\change_unchanged
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Distributed_Cloud_De"
+
+\end_inset
+
+, more generalized conditions of calculating G-LLR is discussed
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ and 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+more results about applying DAC algorithm will be presented.
+ The sensor signals will be correlated and mixed with joint Gaussian white
+ noises.
+ In addition, the noises are not only correlated but also depends on the
+ existence of target.
+ 
+\end_layout
+
+\begin_layout Subsection
+Network Information Flooding
+\change_deleted 5862369 1355847148
+(todo check times 0)
+\change_inserted 5862369 1355847148
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+The conventional information flooding is actually done by copying information
+ to all other nodes.
+ Each node maintains a table of all nodes values in the network, initialized
+ with its own value, and exchanges the tables of their own with those from
+ their neighbors in each step.
+ After a certain number of time steps which is equal to the diameter of
+ the network, each node will obtain values of all nodes.
+ distributed averaging can also be implemented by this way.
+ 
+\end_layout
+
+\begin_layout Standard
+However, copying information and forwarding to all other nodes takes too
+ much resources for the networks.
+ If a networks has 
+\begin_inset Formula $n$
+\end_inset
+
+ nodes, the conventional flooding will need
+\change_deleted 5863457 1357423442
+s
+\change_unchanged
+ at least 
+\begin_inset Formula $\left(n-1\right)$
+\end_inset
+
+ copies for each piece of information.
+ And this estimation doesn't consider the cost in transmitting the information
+ to the destination.
+\end_layout
+
+\begin_layout Standard
+We intend to develop an algorithm to accomplish the information flooding,
+ but didn't copy all the information to other nodes, so that the communication
+ cost can be dramatically reduced.
+ However, The difficulties of this kinds of distributed signal processing
+ is that any individual node only know
+\change_inserted 5863457 1357423476
+s
+\change_unchanged
+ partial information on the whole network.
+ And information exchange 
+\change_inserted 5863457 1357423483
+is 
+\change_unchanged
+only allowed between neighbors.
+ 
+\end_layout
+
+\begin_layout Standard
+Based on 
+\change_deleted 5863457 1357423465
+the
+\change_unchanged
+ FT-DAC algorithm we introduced in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Finite-Time-DAC-Simple"
+
+\end_inset
+
+, each node could decompose the local value vector by a linear combination
+ of eigenvalues and eigenvectors and can calculate the coefficients before
+ each term.
+ Actually, with some signal processing techniques, there are more information
+ in the local values sequence that each node can extract.
+ These may also be applied to wireless sensor networks as they could be
+ carried out distributively.
+ 
+\end_layout
+
+\begin_layout Standard
+Therefore, in this section we propose a novel network information flooding
+ technique based on consensus algorithm.
+ It doesn't require copying information for so many time
+\change_inserted 5863457 1357423507
+s
+\change_unchanged
+, instead, it transmit
+\change_inserted 5863457 1357423513
+s
+\change_unchanged
+ information by broadcasting.
+ The advantage of this method is that it can save the costs in copying and
+ transmitting information.
+ 
+\end_layout
+
+\begin_layout Standard
+Suppose the network weight matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ satisfies the same condition 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:convege condition W"
+
+\end_inset
+
+.
+ Recall the initial local value decomposition given by
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}\left(0\right)=\sum_{j=1}^{n}\alpha_{j}\mathbf{e}_{j}\label{eq:initial vector decompose-1}
+\end{equation}
+
+\end_inset
+
+which shows that the 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+initial
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ local value vector can be defined by a set of coefficients and a new basis
+ defined by the eigenvectors.
+
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\series default
+In addition, the eigenvectors 
+\begin_inset Formula $\mathbf{e}_{i}$
+\end_inset
+
+ 
+\change_deleted 5863457 1357423525
+are
+\change_unchanged
+ only depends on the weight matrix.
+ Therefore,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ once the coefficients 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and weight matrix are available, the initial values vector 
+\begin_inset Formula $\mathbf{x}\left(0\right)$
+\end_inset
+
+ can be calculated.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+It is possible to exchange information between nodes in the network without
+ copying information to all other nodes.
+\end_layout
+
+\begin_layout Standard
+To show how this method can be carried out distributively, l
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+et the sample vector 
+\begin_inset Formula $\mathbf{y}_{i}(k,d)\in R^{d}$
+\end_inset
+
+ 
+\change_deleted 5863457 1357423534
+is
+\change_inserted 5863457 1357423535
+be
+\change_unchanged
+ defined by the history of 
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\left[x_{i}(k),x_{i}(k-1),\ldots x_{i}(k-d+1)\right]^{\mathrm{T}}
+\end{equation}
+
+\end_inset
+
+and the coefficients vector 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{a}=\left[\alpha_{1},\alpha_{2},\ldots,\alpha_{n}\right]^{T}$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ If we involve the eigenvectors and redefine 
+\change_deleted 5863457 1357423543
+the
+\change_unchanged
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Vander_beta"
+
+\end_inset
+
+ by 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}_{i}(k,d)=\mathbf{V}_{i}(k,d)diag\left(\left[\mathbf{e}_{1}^{T}\mathbf{u}_{i},\mathbf{e}_{2}^{T}\mathbf{u}_{i},\ldots,\mathbf{e}_{n}^{T}\mathbf{u}_{i}\right]\right)\mathbf{a}\label{eq:Vander_Eigen_ith_Alpha}
+\end{equation}
+
+\end_inset
+
+where
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $\mathbf{u}_{i}$
+\end_inset
+
+ is the unit vector with all zero
+\change_inserted 5863457 1357423551
+s
+\change_unchanged
+ except the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ component is one, 
+\begin_inset Formula $\mathbf{e}_{j}^{T}\mathbf{u}_{i}$
+\end_inset
+
+ means the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ component of 
+\begin_inset Formula $\mathbf{e}_{j}$
+\end_inset
+
+.
+ Solving the above equation will obtain the coefficients 
+\begin_inset Formula $\alpha_{j}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The consensus based information flooding is ideally suitable for time-invariant
+ network.
+ Because this method requires a node know
+\change_inserted 5863457 1357423560
+s
+\change_unchanged
+ all the eigenvectors and eigenvalues of the network before it can estimate
+ initial values of other nodes.
+ It can be initialized by 
+\change_deleted 5863457 1357423566
+all
+\change_unchanged
+ flooding 
+\change_inserted 5863457 1357423569
+all 
+\change_unchanged
+weight coefficients to all nodes in the network.
+ However, instead of flooding a table of local values, flooding the weight
+ matrix is only performed at the
+\change_deleted 5863457 1357423591
+ 
+\change_unchanged
+ initialization
+\change_inserted 5863457 1357423589
+ stage
+\change_unchanged
+ for one time.
+ The proposed method could have lower cost both in computation and communication
+, if the topology changes at a very low frequency.
+\end_layout
+
+\end_body
+\end_document

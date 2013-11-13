@@ -1,0 +1,2412 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\options 12pt,A4paper,onecolumn
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman cmr
+\font_sans default
+\font_typewriter default
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Asymptotic Distributed Consensus Algorithm
+\end_layout
+
+\begin_layout Standard
+The averaging consensus problem can be solved not only by DAC algorithms,
+ but also in many other ways, such as flooding, gossip and so on.
+ In the flooding algorithm, each sensor maintains a table of all sensors
+ values which initialize by its local value.
+ At each iteration of the flooding algorithm, every node exchanges the table
+ with their neighbors.
+ After enough steps, which is larger than the diameter of the network.
+ Every node will get all the initial value of all nodes.
+ Gossip algorithms are asynchronous.
+ Only one random node wakes up and randomly chooses another node.
+ The two nodes exchange their estimates and update to the average of the
+ two.
+ 
+\end_layout
+
+\begin_layout Standard
+Due to the simplicity and robustness of asymptotic distributed consensus
+ algorithm, it plays an important role in the practical problems.
+ They are already applied to network with a large number of nodes and proofed
+ to be robust against the topology variation.
+ Once the network graph is strong connected, the convergence to global consensus
+ value is guaranteed 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ren2007"
+
+\end_inset
+
+.
+ In this section, we start from the first-order DAC algorithm and then expand
+ the algorithm to higher-order in order to yields a higher the convergence
+ rate.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:DT-First-Order-DAC"
+
+\end_inset
+
+Discrete First Order Distributed Consensus Algorithm
+\end_layout
+
+\begin_layout Standard
+First Order Distributed Consensus Algorithm (FO-DCA) is an algorithm that
+ update the local value of node 
+\begin_inset Formula $i$
+\end_inset
+
+ iteratively at each time-step 
+\begin_inset Formula $k$
+\end_inset
+
+, based on node’s previous values one time step before, given by Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1st iter. ni"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+x_{i}(k+1) & = & x_{i}(k)+\sum_{j\in\mathcal{N}_{i}}w_{ij}\left[x_{j}(k)-x_{i}(k)\right]\label{eq:1st iter. ni}\\
+ & = & w_{ii}x_{i}(k)+\sum_{j\in\mathcal{N}_{i}}w_{ij}x_{j}(k)
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $k=0,1,2,...$
+\end_inset
+
+ is the time index, 
+\begin_inset Formula $w_{ij}$
+\end_inset
+
+ is the weight to 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ at node 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $w_{ij}=0$
+\end_inset
+
+ if 
+\begin_inset Formula $(i,j)\notin\mathcal{E}$
+\end_inset
+
+.
+ Note that we define a weight to node 
+\begin_inset Formula $i$
+\end_inset
+
+ itself 
+\begin_inset Formula $w_{ii}=1-\sum_{j\in\mathcal{N}_{i}}w_{ij}$
+\end_inset
+
+, so that the sum of all weights equals to one, 
+\begin_inset Formula $\sum_{j=1}^{n}w_{ij}=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The iteration 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:1st iter. ni"
+
+\end_inset
+
+ can be written in a vector form 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}(k+1)=W\mathbf{x}(k)\label{eq:first order matrix}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $W$
+\end_inset
+
+ is a weight matrix which refer to as the Perron matrix induced by 
+\begin_inset Formula ${\cal G}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Olfati-Saber2004"
+
+\end_inset
+
+.
+ This linear iteration implies that 
+\begin_inset Formula $\mathbf{x}(k)=W^{k}\mathbf{x}(0)$
+\end_inset
+
+ for 
+\begin_inset Formula $k=1,2,\cdots$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Since the initial value vector is randomly chosen, the matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ must satisfy some convergence conditions to make sure the iteration convergent,
+ and the convergence rate depends on the spectral radius of matrix 
+\begin_inset Formula $W$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Convergence Conditions
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+For the matrix iteration defined in Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:first order matrix"
+
+\end_inset
+
+, the average consensus problem is to choose the weight matrix 
+\begin_inset Formula $W$
+\end_inset
+
+, so that for any initial value 
+\begin_inset Formula $\mathbf{x}(0)\in R^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{x}(k)$
+\end_inset
+
+ converges to the vector 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{\bar{x}}=\left(\mathbf{1}^{\mathrm{T}}\mathbf{x}(0)/n\right)\mathbf{1}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}\mathbf{x}(0)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:convergence condition"
+
+\end_inset
+
+
+\begin_inset Formula $\lim_{k\rightarrow\infty}\mathbf{x}(k)=\mathbf{\bar{x}}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ if and only if the matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ satisfie
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+s
+\begin_inset Formula 
+\begin{equation}
+\lim_{k\rightarrow\infty}W^{k}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}.\label{eq:convege condition W}
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:convege condition W"
+
+\end_inset
+
+ holds if and only if
+\begin_inset Formula 
+\begin{eqnarray}
+\mathbf{1}^{\mathrm{T}}W & = & \mathbf{1}^{\mathrm{T}}\label{eq: Converge condition W_Left}\\
+W\mathbf{1} & = & \mathbf{1}\label{eq: Converge condition W_right}\\
+\rho\left(W-\mathbf{11}^{\mathrm{T}}/n\right) & < & 1\label{eq:Converge cond. rhu<1}
+\end{eqnarray}
+
+\end_inset
+
+where vector 
+\begin_inset Formula $\mathbf{1}=[1,1,\cdots1,]^{\mathrm{T}}\in R^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho\left(\cdot\right)$
+\end_inset
+
+ denotes the spectral radius of the matrix .
+\end_layout
+
+\begin_layout Standard
+Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: Converge condition W_Left"
+
+\end_inset
+
+ means that has a left eigenvector 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ associated with the eigenvalue 1.
+ This implies that the sum of local value vector is not changed in the iteration
+ 
+\begin_inset Formula $\sum_{i\in\mathcal{V}}x_{i}\left(k+1\right)=\sum_{i\in\mathcal{V}}x_{i}\left(k\right)$
+\end_inset
+
+ and the sum of each column of matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ is equal to one.
+ Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: Converge condition W_right"
+
+\end_inset
+
+ shows that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $W$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is a row stochastic matrix and has an eigenvalue 1 with associated eigenvector
+ 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+.
+ Both 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: Converge condition W_Left"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: Converge condition W_right"
+
+\end_inset
+
+ together with the convergence condition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Converge cond. rhu<1"
+
+\end_inset
+
+ means that 
+\begin_inset Formula $W$
+\end_inset
+
+ have a simple eigenvalue equals to one, and modular of all other eigenvalues
+ are less than one.
+\end_layout
+
+\begin_layout Lemma
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:Share the eigenvalues"
+
+\end_inset
+
+If 
+\begin_inset Formula $\lim_{k\rightarrow\infty}W^{k}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}$
+\end_inset
+
+, the matrix 
+\begin_inset Formula $W-\mathbf{11}^{\mathrm{T}}/n$
+\end_inset
+
+ share the same eigenvalues as matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ except the simple eigenvalue one is replaced by zero.
+\end_layout
+
+\begin_layout Proof
+Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: Converge condition W_Left"
+
+\end_inset
+
+ implies that the matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ has a left eigenvector 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ associated with eigenvalue one.
+ And Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq: Converge condition W_right"
+
+\end_inset
+
+ implies that 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ is a right eigenvector of 
+\begin_inset Formula $W$
+\end_inset
+
+ associated with eigenvalue one.
+ The fact that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\lim_{k\rightarrow\infty}W^{k}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}$
+\end_inset
+
+ exists if and only if there exists a  matrix 
+\begin_inset Formula $U$
+\end_inset
+
+ and 
+\begin_inset Formula $W$
+\end_inset
+
+ can be Jordan decomposition as 
+\begin_inset Formula 
+\begin{equation}
+W=U\left[\begin{array}{cccc}
+J_{1}\\
+ & J_{2}\\
+ &  & \ddots\\
+ &  &  & J_{m}
+\end{array}\right]U^{-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $m$
+\end_inset
+
+ is the number of distinct Jordan block.
+ 
+\begin_inset Formula $J_{i}$
+\end_inset
+
+ is the 
+\begin_inset Formula $r_{i}$
+\end_inset
+
+ dimensional Jordan block corresponding to eigenvalue 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $J_{1}=I_{r_{1}}$
+\end_inset
+
+ is the 
+\begin_inset Formula $r_{i}$
+\end_inset
+
+ dimensional identity matrix 
+\begin_inset Formula $\left(0\leq r_{i}\leq n\right)$
+\end_inset
+
+ and all other Jordan block are convergent, i.e.
+ 
+\begin_inset Formula $\rho\left(J_{i}\right)<1,2\leq i\leq m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Let 
+\begin_inset Formula $u_{1},u_{2},\ldots,u_{n}$
+\end_inset
+
+ be the column of 
+\begin_inset Formula $U$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{1}^{T},v_{2}^{T},\ldots,v_{n}^{T}$
+\end_inset
+
+ be row of 
+\begin_inset Formula $U^{-1}$
+\end_inset
+
+.
+ Then we have 
+\begin_inset Formula 
+\begin{eqnarray}
+\lim_{k\to\infty}W^{k} & = & U\left[\begin{array}{cc}
+I_{r_{1}} & 0\\
+0 & 0
+\end{array}\right]U^{-1}\label{eq: W^k to infinity has Rank one}\\
+ & = & \sum_{i=1}^{r_{1}}u_{i}v_{i}^{T}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}\label{eq:u*v=11}
+\end{eqnarray}
+
+\end_inset
+
+As the property of unitary matrix 
+\begin_inset Formula $U$
+\end_inset
+
+, both 
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ are set of orthogonal normal vectors, each 
+\begin_inset Formula $u_{i}v_{i}^{T}$
+\end_inset
+
+ is a matrix with rank one and matrix 
+\begin_inset Formula $\sum_{i=1}^{n}u_{i}v_{i}^{T}$
+\end_inset
+
+ has rank 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ The sum 
+\begin_inset Formula $\sum_{i=1}^{r_{1}}u_{i}v_{i}^{T}$
+\end_inset
+
+ must have rank 
+\begin_inset Formula $r_{1}.$
+\end_inset
+
+ Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:u*v=11"
+
+\end_inset
+
+ shows that 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+ must equal to one and 
+\begin_inset Formula $u_{i}v_{i}^{T}=\dfrac{\mathbf{11}^{\mathrm{T}}}{n}$
+\end_inset
+
+, both 
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ are vectors with the same constant on all components.
+ Therefore, 
+\begin_inset Formula $W-\dfrac{\mathbf{11}^{\mathrm{T}}}{n}$
+\end_inset
+
+ have the same Jordan decomposition as 
+\begin_inset Formula $W$
+\end_inset
+
+ except the Jordan block 
+\begin_inset Formula $J_{1}$
+\end_inset
+
+ is replaced by zero, and all other Jordan block remain the same.
+ This completes the proof.
+ 
+\end_layout
+
+\begin_layout Standard
+The convergence rate of the FO-DCA is related to the spectral radius of
+ matrix 
+\begin_inset Formula $W-\dfrac{\mathbf{11}^{\mathrm{T}}}{n}$
+\end_inset
+
+.
+ To get the maximum convergence rate, an optimization problem to minimize
+ the spectral radius of the matrix could be solved 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\mbox{\mbox{Minimize }} & \rho\left(W-\frac{\mathbf{1}\mathbf{1}^{T}}{n}\right)\\
+\mbox{Subject to } & \mathbf{1}^{\mathrm{T}}W=\mathbf{1}^{\mathrm{T}},\; W\mathbf{1}=\mathbf{1} & ,
+\end{array}\label{eq: Opt. FO-DAC Problem}
+\end{equation}
+
+\end_inset
+
+But it requires knowledge of network topology to solve the problem.
+ However, some non-optimal convergent weight matrices that satisfy the condition
+ in Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:convege condition W"
+
+\end_inset
+
+ are given below.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+First-order DAC Based On a Constant
+\end_layout
+
+\begin_layout Standard
+The simplest way to choose a weight matrix set all edges symmetric and their
+ weights equal to the constant 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+.
+ A special weight to a node itself is chosen to be 
+\begin_inset Formula $1-\epsilon\left|\mathcal{N}_{i}\right|$
+\end_inset
+
+, so that the sum of weights at a node is one.
+ Therefore, the weight matrix can be defined by the Laplacian matrix 
+\begin_inset Formula 
+\begin{equation}
+W=I_{n}-\epsilon L\label{eq:def. const FO-DAC}
+\end{equation}
+
+\end_inset
+
+where the constant 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is the 
+\shape italic
+step length
+\shape default
+.
+ This kind of DAC algorithm is called the 
+\shape italic
+constant FO-DAC
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$
+\end_inset
+
+ be the eigenvectors of 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{1}\left(W\right),\lambda_{2}\left(W\right),\ldots,\lambda_{n}\left(W\right)$
+\end_inset
+
+ be the associated eigenvalues and they are ordered so that 
+\begin_inset Formula $1=\left|\lambda_{1}\left(W\right)\right|\geq\left|\lambda_{2}\left(W\right)\right|\geq\ldots\geq\left|\lambda_{n}\left(W\right)\right|$
+\end_inset
+
+.
+ The largest eigenvalue 
+\begin_inset Formula $\lambda_{1}\left(W\right)$
+\end_inset
+
+ is called the 
+\shape italic
+dominant eigenvalue
+\shape default
+ and associated eigenvector 
+\begin_inset Formula $\mathbf{e}_{1}$
+\end_inset
+
+ is called the 
+\shape italic
+dominant eigenvector
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+From Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:def. const FO-DAC"
+
+\end_inset
+
+, the eigenvalues of these two matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $L$
+\end_inset
+
+ have relationship given by 
+\begin_inset Formula $\lambda_{i}\left(W\right)=1-\epsilon\lambda_{i}\left(L\right)$
+\end_inset
+
+.
+ Thus, we can determine the convergence range of 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $\lambda\left(L\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+Choosing the step length
+\end_layout
+
+\begin_layout Standard
+For the constant FO-DAC algorithm, it is convergent, if and only if the
+ step length 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is in the range 
+\begin_inset Formula $\left(0,2/\lambda_{n}\left(L\right)\right)$
+\end_inset
+
+.
+ And the optimal step length which maximize the convergence rate is 
+\begin_inset Formula $\frac{2}{\lambda_{2}\left(L\right)+\lambda_{n}\left(L\right)}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiao2004"
+
+\end_inset
+
+.
+ The boundary of the dominant eigenvalue 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\lambda_{n}\left(L\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Russell1994"
+
+\end_inset
+
+, given by 
+\begin_inset Formula $d_{max}+1\leq\lambda_{n}\left(L\right)\leq\max\left\{ d_{u}+d_{v}\right\} $
+\end_inset
+
+, where 
+\begin_inset Formula $\left(u,v\right)\in{\cal E}$
+\end_inset
+
+ , 
+\begin_inset Formula $d_{u}$
+\end_inset
+
+ is the degree of node 
+\begin_inset Formula $v_{u}$
+\end_inset
+
+ and 
+\begin_inset Formula $d_{max}=\max_{v_{i}\in{\cal V}}\left|{\cal N}_{i}\right|$
+\end_inset
+
+ is the maximum degree of nodes in the network.
+ By Gerschgorin's theorem, we have another upper boundary of 
+\begin_inset Formula $\lambda_{n}\left(L\right)\leq2d_{max}$
+\end_inset
+
+, then convergence is guaranteed if 
+\begin_inset Formula $\epsilon\in\left(0,1/d_{max}\right]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+First Order DAC based on local degree
+\end_layout
+
+\begin_layout Standard
+Another option is Metropolis weight matrix (or local degree weight matrix),
+ where each weight is determined by degree of the two nodes on the edge,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+w_{ij}=\begin{cases}
+\frac{1}{1+\max\left\{ d(i),d(j)\right\} }, & \mbox{if }(i,j)\in\mathit{\mathcal{E}}\\
+1-\sum_{(i,k)\in\mathit{\mathcal{E}}}w_{ik}, & i=j\\
+0, & \mbox{otherwise}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $d(i)$
+\end_inset
+
+ and 
+\begin_inset Formula $d(j)$
+\end_inset
+
+ are the degrees of nodes 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+As shown above, the conventional DAC algorithm is depends on 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+eigenvalues of graph Laplacian matrix 
+\begin_inset Formula $\lambda_{i}\left(L\right)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ or degree of nodes.
+ However, in the section 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "sub:Find-the-Consensus"
+
+\end_inset
+
+, we will show that the finite-time DAC algorithm in an invariant network
+ doesn't require these prior knowledge, if 
+\begin_inset Formula $\mathbf{x}\left(k\right)$
+\end_inset
+
+ can be represented by a linear combination of a new normal basis defined
+ by eigenvectors of 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ Thus, the weight matrix doesn't have too much requirements and can be more
+ easily chosen.
+ This would be very applicable because nodes in a distributive network usually
+ doesn't have any knowledge of network topology.
+ 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Discrete-High-Order"
+
+\end_inset
+
+Discrete High Order Distributed Consensus Algorithm 
+\end_layout
+
+\begin_layout Standard
+Higher order Distributed Consensus Algorithm (HO-DCA) can have faster convergenc
+e rate and potentially faster than FO-DCA.
+ It can be easily implemented by storing and using past data, and doesn't
+ require additional communication and network configuration.
+ Moreover, HO-DAC can be regard as a generalized form of distributed consensus
+ algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+, the author assume all node can store and using past data and define a
+ topology-dependent matrix to update the initial data.
+ It involves more parameters than FO-DAC so that the optimization problem
+ has more degrees of freedom.
+ When some parameters are set to zero, the HO-DCA algorithm can reduce to
+ the best constant FO-DAC algorithm.
+\end_layout
+
+\begin_layout Standard
+Since the convergence rate of the initial values is related to eigenvalues
+ of Laplacian matrix.
+ In the optimization problem of HO-DCA, eigenvalues of the associated graph
+ Laplacian matrix or weight matrix must known.
+ 
+\end_layout
+
+\begin_layout Standard
+In a time-invariant, connected network, the 
+\begin_inset Formula $M-th$
+\end_inset
+
+ high-order DAC algorithm has the form:
+\begin_inset Formula 
+\begin{eqnarray}
+x_{i}(k) & = & x_{i}(k-1)-\epsilon\sum_{m=1}^{M}c_{m}(-\gamma)^{m-1}\Delta x_{i}(k,m),\label{eq:Iteration Second order x_i(k)}\\
+\Delta x_{i}(k,m) & = & \sum_{j\in\mathcal{N}_{i}}\left(x_{i}\left(k-m\right)-x_{j}\left(k-m\right)\right),
+\end{eqnarray}
+
+\end_inset
+
+Where 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $x_{i}(k)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is the local value at node 
+\begin_inset Formula $i$
+\end_inset
+
+ during iteration 
+\begin_inset Formula $k$
+\end_inset
+
+; 
+\begin_inset Formula $\mathcal{N}_{i}$
+\end_inset
+
+ is the neighboring nodes set in which the nodes can communicate reliably
+ with node 
+\begin_inset Formula $i$
+\end_inset
+
+; 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is a constant step size; 
+\begin_inset Formula $M$
+\end_inset
+
+ is the highest order number; 
+\begin_inset Formula $c_{m}$
+\end_inset
+
+ are predefined constants, where 
+\begin_inset Formula $c_{1}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{m}\neq0\:(m>1)$
+\end_inset
+
+; 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is a forgetting factor, such that 
+\begin_inset Formula $\left|\gamma\right|<1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Define
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}(k)=\left[x_{1}(k),x_{1}(k),\ldots,x_{n}(k)\right]^{T}
+\end{equation}
+
+\end_inset
+
+The Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Iteration Second order x_i(k)"
+
+\end_inset
+
+ can be written in matrix form
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}(k)=(I_{n}-\epsilon L)\mathbf{x}(k-1)-\epsilon\sum_{m=2}^{M}c_{m}(-\gamma)^{m-1}L\mathbf{x}(k-m)\label{eq:High Order Iter.Vec}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $L$
+\end_inset
+
+ is the Laplacian matrix associated with the network graph.
+ assume 
+\begin_inset Formula $\forall k<0,\;\mathbf{x}(k)=\mathbf{x}(0)$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{x}(0)$
+\end_inset
+
+ is the initial local state information for node 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ The matrix form states that when the forgetting factor 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is set to zero, the HO-DAC is reduced into the best constant FO-DAC algorithm
+ given in 
+\end_layout
+
+\begin_layout Standard
+Simulation result shows that, a higher order will have better convergence
+ rate, but should be trade off with the algorithm complexity and computational
+ cost.
+ Also only a few improvement could be achieved if we introduce larger than
+ fourth order.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Convergence Rate Maximization Problem For HO-DAC
+\end_layout
+
+\begin_layout Standard
+Based on the iteration equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:High Order Iter.Vec"
+
+\end_inset
+
+, the 
+\begin_inset Formula $M-th$
+\end_inset
+
+ high-order DAC algorithm in a time-invariant, connected and undirected
+ network, with initial local value vectors 
+\begin_inset Formula $\mathbf{x}(-M+1)=,\ldots,=\mathbf{x}(-1)=\mathbf{x}(0)$
+\end_inset
+
+, can be further defined by an 
+\begin_inset Formula $Mn\times Mn$
+\end_inset
+
+ matrices
+\begin_inset Formula 
+\begin{equation}
+\mathbf{H}=\left[\begin{array}{cccc}
+I_{n}-\epsilon L & c_{2}\gamma\epsilon L & \cdots & -c_{M}(-\gamma)^{M-1}\epsilon L\\
+I_{n} & \mathbf{0}_{n\times n} & \cdots & \mathbf{0}_{n\times n}\\
+\vdots & \ddots &  & \vdots\\
+\mathbf{0}_{n\times n} & \cdots & I_{n} & \mathbf{0}_{n\times n}
+\end{array}\right]
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\mathbf{J}=\left[\begin{array}{cccc}
+\mathbf{K} & \mathbf{0}_{n\times n} & \cdots & \mathbf{0}_{n\times n}\\
+\mathbf{K} & \mathbf{0}_{n\times n} & \cdots & \mathbf{0}_{n\times n}\\
+\vdots & \vdots & \ddots & \vdots\\
+\mathbf{K} & \mathbf{0}_{n\times n} & \cdots & \mathbf{0}_{n\times n}
+\end{array}\right]
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\mathbf{K}=\left(\frac{1}{n}\right)\mathbf{1}\mathbf{1}^{T}$
+\end_inset
+
+, and 
+\begin_inset Formula $\mathbf{0}_{n\times n}$
+\end_inset
+
+ denotes the 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ all-zero matrix.
+ 
+\end_layout
+
+\begin_layout Standard
+The high-order DAC algorithm with initial condition 
+\begin_inset Formula $\mathbf{x}(-M+1)=,\ldots,=\mathbf{x}(-1)=\mathbf{x}(0)$
+\end_inset
+
+ is convergent if and only if 
+\begin_inset Formula $\rho\left(\mathbf{H}-\mathbf{J}\right)<1$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2010"
+
+\end_inset
+
+.
+ Then a spectral radius minimization problem to find the optimal 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ for the high-order DAC algorithm is formulated as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+\mbox{\mbox{Minimize }} & \rho\left(\mathbf{H}-\mathbf{J}\right)\\
+\mbox{Subject to } & \epsilon,\gamma\in R
+\end{array},\label{eq: High order spectral radius problem}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As shown in Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: High order spectral radius problem"
+
+\end_inset
+
+, the convergence rate maximization for high order DAC algorithm can be
+ cast into a spectral radius minimization problem.
+ Finding the solution is not easy due to we have to solve the high-order
+ polynomial to calculate eigenvalues.
+ For example, the high-order polynomial of the eigenvalues of 
+\begin_inset Formula $\mathbf{H-J}$
+\end_inset
+
+ when 
+\begin_inset Formula $M=3$
+\end_inset
+
+, 
+\begin_inset Formula $c_{1}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{2}=1$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\begin{equation}
+f(\lambda)=\lambda^{3}-\left(1-\epsilon\lambda_{i}\left(L\right)\right)\lambda^{2}-\gamma\epsilon\lambda_{i}\left(L\right)\lambda+\gamma^{2}\epsilon\lambda_{i}\left(L\right)=0\label{eq: eigenvalue equation of H-J}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{i}(L)$
+\end_inset
+
+ is the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ smallest eigenvalue of the Laplacian Matrix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong10"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Since each 
+\begin_inset Formula $\lambda_{i}(L),\; i=1,2,\cdots,n$
+\end_inset
+
+ with generate one equation which has 
+\begin_inset Formula $M$
+\end_inset
+
+ roots, there are totally 
+\begin_inset Formula $M\times n$
+\end_inset
+
+ eigenvalue for 
+\begin_inset Formula $\mathbf{H-J}$
+\end_inset
+
+.
+ Then, problem Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: High order spectral radius problem"
+
+\end_inset
+
+ can be written into 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+minimize the maximum absolute value of all the eigenvalues of 
+\begin_inset Formula $\mathbf{H-J}$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ 
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+\mbox{Minimize } & \mbox{max}\{\left|\lambda_{i}\left(\mathbf{H-J}\right)\right|\},\: i=1,2,\cdots,n\\
+\mbox{Subject to } & \epsilon,\gamma\in R
+\end{array},\label{eq:HO-DAC Opt. Problem}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Solve The Problem: Convergence rate maximization
+\end_layout
+
+\begin_layout Standard
+The convergence rate optimization problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:HO-DAC Opt. Problem"
+
+\end_inset
+
+ of HO-DAC in undirected network can be graphically illustrated by the 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Find-minimum-rho(H)"
+
+\end_inset
+
+, where the surface of 
+\begin_inset Formula $\mbox{max}\{\left|\lambda_{i}\left(\mathbf{H-J}\right)\right|\},\: i=1,2,\cdots,n$
+\end_inset
+
+ is plotted and the optimal solution 
+\begin_inset Formula $\left(\epsilon{}_{opt},\gamma_{opt}\right)$
+\end_inset
+
+ is marked with a star.
+ We denote the optimized spectral radius by 
+\begin_inset Formula $\rho_{opt}=\mbox{\mbox{min}}\rho\left\{ \left(\mathbf{H}-\mathbf{J}\right)\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Since the eigenvalues in the high-order polynomial 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq: eigenvalue equation of H-J"
+
+\end_inset
+
+ are network topology dependent, the solution of the problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:HO-DAC Opt. Problem"
+
+\end_inset
+
+ may not have a unique analytical solution when the order is larger than
+ second.
+ In this case, the problem will be solved numerically, for example using
+ steepest descent method.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename D:/Dropbox/PaperWork/FirstYearReport/Lyx_v/images/3order_max_lambda.pdf
+	height 9cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Find-minimum-rho(H)"
+
+\end_inset
+
+ Illustration of Convergence rate optimization, 
+\begin_inset Formula $\min\left\{ \mbox{max}\left[\lambda_{i}\left(\mathbf{H-J}\right)\right]\right\} ,\: i=1,2,\cdots,n$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename Graph/Convergence region.eps
+	height 9cm
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Convergence-Region"
+
+\end_inset
+
+Convergence Region for second order DAC.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However, the second order DAC (SO-DAC), does exist an analytical solution.
+ As pointed out in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xiong2009a"
+
+\end_inset
+
+, the convergence region for second order DAC in undirected network which
+ satisfy 
+\begin_inset Formula $\rho\left(\mathbf{H}-\mathbf{J}\right)<1$
+\end_inset
+
+ is 
+\begin_inset Formula ${\cal R}={\cal R}_{1}\cup{\cal R}_{2}$
+\end_inset
+
+, where 
+\begin_inset Formula 
+\begin{eqnarray}
+{\cal R}_{1} & = & \left\{ \frac{-1}{\epsilon\lambda_{n}\left(L\right)}<\gamma<1,0<\epsilon<\frac{1}{\lambda_{n}\left(L\right)}\right\} \\
+{\cal R}_{2} & = & \left\{ \frac{-1}{\epsilon\lambda_{n}\left(L\right)}<\gamma<\frac{2}{\epsilon\lambda_{n}\left(L\right)}-1,\frac{1}{\lambda_{n}\left(L\right)}\leq\epsilon<\frac{3}{\lambda_{n}\left(L\right)}\right\} \label{eq:Def Convergence region R1 R2}
+\end{eqnarray}
+
+\end_inset
+
+Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Convergence-Region"
+
+\end_inset
+
+ graphically illustrate these region, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula ${\cal R}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula ${\cal R}_{2}$
+\end_inset
+
+ are defined in 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:Def Convergence region R1 R2"
+
+\end_inset
+
+.
+ Note the dashed line separates the regions in which 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
+\end_inset
+
+ are real and complex.
+ In addition, optimal solution is always located on this line.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+Moreover, the eigenvalues of 
+\begin_inset Formula $\mathbf{H}$
+\end_inset
+
+ corresponding to eigenvalue of 
+\begin_inset Formula $\lambda_{i}\left(L\right)$
+\end_inset
+
+ is denoted by 
+\begin_inset Formula $\lambda_{i'}\left(\mathbf{H}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{i"}\left(\mathbf{H}\right)$
+\end_inset
+
+, which is 
+\begin_inset Formula 
+\begin{eqnarray}
+\lambda_{i'}\left(\mathbf{H}\right) & = & \frac{1}{2}\left[1-\epsilon\lambda_{i}\left(L\right)+\sqrt{\left(1-\epsilon\lambda_{i}\left(L\right)\right)^{2}+4\gamma\epsilon\lambda_{i}\left(L\right)}\right],\nonumber \\
+\lambda_{i"}\left(\mathbf{H}\right) & = & \frac{1}{2}\left[1-\epsilon\lambda_{i}\left(L\right)-\sqrt{\left(1-\epsilon\lambda_{i}\left(L\right)\right)^{2}+4\gamma\epsilon\lambda_{i}\left(L\right)}\right].\label{eq:2nd-DAC lambda_H solution}
+\end{eqnarray}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $\lambda_{2}\left(L\right)\leq\dots\leq\lambda_{n}\left(L\right)$
+\end_inset
+
+, in the convergence region of the second order DAC algorithm, the optimization
+ problem 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:HO-DAC Opt. Problem"
+
+\end_inset
+
+ can be equivalent to 
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+\mbox{Minimize } & \mbox{max}\{\left|\lambda_{2'}\left(\mathbf{H}\right)\right|,\left|\lambda_{2"}\left(\mathbf{H}\right)\right|,\left|\lambda_{n'}\left(\mathbf{H}\right)\right|,\left|\lambda_{n"}\left(\mathbf{H}\right)\right|\}\\
+\mbox{Subject to } & \epsilon,\gamma\in R
+\end{array},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finding the optimal solutions needs consideration of different combinations
+ of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\lambda_{2'}\left(\mathbf{H}\right),\lambda_{2"}\left(\mathbf{H}\right),\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
+\end_inset
+
+ when they are real value or complex value.
+ However, for a connected network, the 
+\begin_inset Formula $\lambda_{2'}\left(\mathbf{H}\right),\lambda_{2"}\left(\mathbf{H}\right)$
+\end_inset
+
+ are real and 
+\begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
+\end_inset
+
+ are complex values in the convergence region.
+ When the minimum is achieved, the following equation satisfied
+\begin_inset Formula 
+\[
+\left|\lambda_{2'}\left(\mathbf{H}\right)\right|=\left|\lambda_{n'}\left(\mathbf{H}\right)\right|=\left|\lambda_{n"}\left(\mathbf{H}\right)\right|
+\]
+
+\end_inset
+
+Thus, by solving this equation, we have the optimal solution for second
+ order DAC algorithm.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\epsilon{}_{opt,SO} & = & \frac{3\lambda_{n}(L)+\lambda_{2}(L)}{\lambda_{n}(L)\left[\lambda_{n}(L)+3\lambda_{2}(L)\right]}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\gamma_{opt,SO}=-\frac{\left[\lambda_{n}(L)-\lambda_{2}(L)\right]^{2}}{\left[\lambda_{n}(L)+3\lambda_{2}(L)\right]\left[3\lambda_{n}(L)+\lambda_{2}(L)\right]}
+\end{equation}
+
+\end_inset
+
+These parameters could be floored to all sensors before the algorithm start
+ so that it converges faster.
+\end_layout
+
+\begin_layout Standard
+Besides these results, we need to point out that the optimal solution 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\epsilon{}_{opt,SO}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+and 
+\begin_inset Formula $\gamma_{opt,SO}$
+\end_inset
+
+ have the f
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ollowing relationship
+\begin_inset Formula 
+\[
+\gamma_{opt,SO}=\frac{\left[1-\epsilon{}_{opt,SO}\lambda_{n}\left(L\right)\right]^{2}}{-4\epsilon{}_{opt,SO}\lambda_{n}\left(L\right)}
+\]
+
+\end_inset
+
+which implies the value under the square root in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:2nd-DAC lambda_H solution"
+
+\end_inset
+
+ is equal to zero, and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
+\end_inset
+
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+are all real values.
+ Additionally, the optimal solution is located just on the boundary of the
+ regions where 
+\begin_inset Formula $\lambda_{n'}\left(\mathbf{H}\right),\lambda_{n"}\left(\mathbf{H}\right)$
+\end_inset
+
+ is real and complex respectably, shown as dashed line in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Convergence-Region"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Simulation and Algorithms Performance
+\end_layout
+
+\begin_layout Standard
+To test the performance of high-order DAC algorithm with different orders,
+ a simulation is carry out on 1000 random generated networks.
+ The methods and parameters of network generation are illustrated in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Net-N16-R0,3"
+
+\end_inset
+
+.
+ The algorithm's performance is evaluated by the average spectral radius
+ and average mean square error, shown in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:DAC-comparation"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Random Network Generation
+\end_layout
+
+\begin_layout Standard
+The following is a simulation of network generation to show how the wireless
+ sensor networks is distributed.
+ First, we randomly and uniformly distribute a certain number of nodes in
+ a unit square.
+ Second, each sensor randomly choose a local initial value has equally probabili
+ty density function.
+ Finally, connect any two nodes if their satisfy a certain communication
+ constrains.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Graph/FirstYearReport/Lyx_v/images/Net50Edges200.pdf
+	lyxscale 50
+	width 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Net-N50-E200"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Graph/FirstYearReport/Lyx_v/images/Network_N16_R0,3.pdf
+	width 7cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Net-N16-R0,3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Random-Network"
+
+\end_inset
+
+Randomly generated networks (a) 50 nodes and 200 edges (b) 16 nodes and
+ radius constrain 
+\begin_inset Formula $R=0.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are some cases to generate the links between nodes.
+\end_layout
+
+\begin_layout Case
+Consider the graph show in the Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Net-N50-E200"
+
+\end_inset
+
+, which has 50 nodes and 200 edges.The number of nodes and edges are fixed;
+ 50 nodes are randomly and uniformly distribute in the unit square; a list
+ that contains 200 shortest edges is created; Nodes are connected if the
+ edges belongs to the list.
+ 
+\end_layout
+
+\begin_layout Case
+The network in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Net-N16-R0,3"
+
+\end_inset
+
+ is generating by connecting any two nodes if their distance is less than
+ the communication radius constrain 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Performance Comparison for Asymptotic DAC
+\end_layout
+
+\begin_layout Standard
+The figure.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DAC-SR-comp"
+
+\end_inset
+
+ shows the optimal spectral radius for DAC algorithms with different communicati
+on radius constraints.
+ The performance for DAC algorithms with different orders are compared by
+ optimal spectral radius 
+\begin_inset Formula $\rho_{opt}=\mbox{\mbox{min}}\rho\left\{ \left(\mathbf{H}-\mathbf{J}\right)\right\} $
+\end_inset
+
+, which has the relationship with convergence rate given by 
+\begin_inset Formula $r_{opt}=-log\left(\rho_{opt}\right)$
+\end_inset
+
+.
+ Y-axis is corresponding to the minimum spectral radius and x-axis is correspond
+ing to the radius constrain.
+ For each instance of DAC algorithm, the result is the minimum on the surface
+ 
+\begin_inset Formula $\mbox{max}\{\left|\lambda_{i}\left(\mathbf{H-J}\right)\right|\}$
+\end_inset
+
+ obtained by numerical searching.
+ Each curve is the average of simulations realized for 1000 instance of
+ DAC initialized with random local value vectors and random networks.
+\end_layout
+
+\begin_layout Standard
+In another point of view, figure.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DAC MSE Compare"
+
+\end_inset
+
+ plots the convergence behavior of mean square error of high-order DAC algorithm
+s together with first order DAC on random network.
+ The MSE is defined by 
+\begin_inset Formula 
+\begin{equation}
+MSE(k)=\frac{1}{n}\sum_{i=1}^{n}\left|x_{i}(k)-\bar{x}\right|^{2}.
+\end{equation}
+
+\end_inset
+
+which Actually it is the Euclidean distance between current local vector
+ and the global average.
+ shows the result when radius constrain 
+\begin_inset Formula $R$
+\end_inset
+
+ is 
+\begin_inset Formula $0.3$
+\end_inset
+
+.
+ In observing the gradient of curves, it is apparent that higher-order DAC
+ algorithm have larger convergence rate.
+ However, there are negligible improvement for the fourth order DAC compared
+ to the third order one.
+ Furthermore, high-order DAC has a MSE overshoot at the beginning.
+ This phenomenon happens especially when communication radius is small.
+ Second order DAC algorithm does have a faster convergence rate than first
+ order algorithm as the slop of the curve is steeper.
+ But it become worse as it converge to error tolerance 
+\begin_inset Formula $10^{-6}$
+\end_inset
+
+ more later than the first order algorithm.
+ Therefore, A hybrid algorithm is proposed to overcome this disadvantage.
+ Its step size and forgetting factor are equal to the of first order DAC
+ step size and second order DAC forgetting factor respectively.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Graph/FirstYearReport/Lyx_v/images/Spectrum radius Compare_old_Ord1234.pdf
+	lyxscale 60
+	width 7cm
+	height 6.5cm
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DAC-SR-comp"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Graph/FirstYearReport/Lyx_v/images/DAC_Compr_ord1234&hybrid.pdf
+	lyxscale 60
+	width 7cm
+	height 6.5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DAC MSE Compare"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DAC-comparation"
+
+\end_inset
+
+DAC algorithms comparison (a) compared by spectral radius (b) compared by
+ MSE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
